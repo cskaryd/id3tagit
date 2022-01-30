@@ -1,16 +1,16 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.IO;
-  using System.Net;
-  using System.Net.Sockets;
-  using System.Runtime.InteropServices;
-  using System.Text;
-  using System.Windows.Forms;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.IO;
+using System.Net;
+using System.Net.Sockets;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class FreeDB
   {
     private TcpClient Client;
@@ -75,10 +75,10 @@
       string vstrCommand = "";
       string str2 = "";
       int length = 0;
+
       if (this.vbooConnected)
-      {
-        return connectionFailed;
-      }
+        return FreeDBConnectResult.ConnectionFailed;
+
       this.Client = new TcpClient();
       try
       {
@@ -133,12 +133,12 @@
         this.Client.Close();
         return FreeDBConnectResult.ConnectionFailed;
       }
-      return connectionFailed;
+      return FreeDBConnectResult.ConnectionFailed;
     }
 
     public string[] GetCategoryList()
     {
-      string[] strArray2;
+      string[] strArray2 = null;
       string vstrCommand = "";
       string str2 = "";
       if (this.vbooConnected)
@@ -156,7 +156,7 @@
 
     public string[] GetSitesList()
     {
-      string[] strArray2;
+      string[] strArray2 = null;
       string vstrCommand = "";
       string str2 = "";
       if (this.vbooConnected)
@@ -196,7 +196,7 @@
 
     public string[] HTMLGetCategoryList()
     {
-      string[] strArray2;
+      string[] strArray2 = null;
       string vstrCommand = "";
       string str2 = "";
       vstrCommand = "cddb+lscat";
@@ -211,7 +211,7 @@
 
     public string[] HTMLGetSitesList()
     {
-      string[] strArray2;
+      string[] strArray2 = null;
       string vstrCommand = "";
       string str2 = "";
       vstrCommand = "cddb+sites";
@@ -253,11 +253,10 @@
         ReturnedMatches.Add(item);
         return FreeDBQueryResult.FoundExactMatch;
       }
+
       if (StringType.StrCmp(sLeft, "211", false) != 0)
-      {
-        FreeDBQueryResult result;
-        return result;
-      }
+        return FreeDBQueryResult.FoundInexactMatches;
+
       str3 = str3.Substring(0, str3.LastIndexOf(".") - 2);
       foreach (string str2 in str3.Substring(str3.IndexOf("|") + 1).Split(new char[] { '|' }))
       {
@@ -277,7 +276,7 @@
     {
       string vstrCommand = "";
       string str4 = "";
-      str3 = "";
+      string str3 = "";
       ArrayList list = new ArrayList();
       vstrCommand = "cddb+read+" + Category + "+" + DiscID;
       str4 = this.SendHTMLCommand(vstrCommand);
@@ -321,39 +320,25 @@
       foreach (string str3 in str3.Split(new char[] { '|' }))
       {
         if (str3.StartsWith("T"))
-        {
-          str3 = str3.Replace("TTITLE", "0");
-          list.Add(str3.Substring(str3.IndexOf("=") - 2));
-        }
+          list.Add(str3.Substring(str3.IndexOf("=") - 2).Replace("TTITLE", "0"));
         else
         {
           if (!str3.StartsWith("EXTD"))
-          {
             break;
-          }
           if (str3.IndexOf("YEAR:") > 0)
           {
             ReturnedYear = str3.Substring(str3.IndexOf("YEAR:") + 5).Trim(new char[] { ' ' });
             if (ReturnedYear.Length > 4)
-            {
               ReturnedYear = Conversion.Val(ReturnedYear.Substring(0, 4)).ToString();
-            }
           }
           else
-          {
             ReturnedYear = "";
-          }
         }
       }
       string sLeft = "";
-      using (IEnumerator enumerator = list.GetEnumerator())
-      {
-        while (enumerator.MoveNext())
-        {
-          str3 = StringType.FromObject(enumerator.Current);
+      foreach (string str3 in list)
           sLeft = sLeft + "|" + str3;
-        }
-      }
+
       sLeft = sLeft + "|";
       if (list.Count > 0)
       {
@@ -361,9 +346,8 @@
         for (byte i = 0; i <= num3; i = (byte)(i + 1))
         {
           if (StringType.StrCmp(sLeft, "|", false) == 0)
-          {
             return str4;
-          }
+
           sLeft = sLeft.Replace("|" + i.ToString().PadLeft(2, '0') + "=", "");
           ReturnedTracks.Add(sLeft.Substring(0, sLeft.IndexOf("|")));
           sLeft = sLeft.Substring(sLeft.IndexOf("|"));
@@ -379,10 +363,10 @@
       string str3 = "";
       int num3 = 150;
       int num2 = 0;
+
       if (!this.vbooConnected)
-      {
-        return result;
-      }
+        return FreeDBQueryResult.NoHandshake;
+
       vstrCommand = "cddb query " + DiscID + " " + TracksLength.Length.ToString() + " ";
       foreach (int num in TracksLength)
       {
@@ -407,9 +391,7 @@
         return FreeDBQueryResult.FoundExactMatch;
       }
       if (StringType.StrCmp(sLeft, "211", false) != 0)
-      {
-        return result;
-      }
+        return FreeDBQueryResult.FoundInexactMatches;
       str3 = str3.Substring(0, str3.LastIndexOf(".") - 2);
       foreach (string str2 in str3.Substring(str3.IndexOf("|") + 1).Split(new char[] { '|' }))
       {
@@ -429,13 +411,12 @@
     {
       string vstrCommand = "";
       string str4 = "";
-      str3 = "";
+      string str3 = "";
       ArrayList list = new ArrayList();
+
       if (!this.vbooConnected)
-      {
-        string str;
-        return str;
-      }
+        return string.Empty;
+
       vstrCommand = "cddb read " + Category + " " + DiscID + "\r\n";
       str4 = this.SendCommand(vstrCommand);
       try
@@ -478,39 +459,24 @@
       foreach (string str3 in str3.Split(new char[] { '|' }))
       {
         if (str3.StartsWith("T"))
-        {
-          str3 = str3.Replace("TTITLE", "0");
-          list.Add(str3.Substring(str3.IndexOf("=") - 2));
-        }
+          list.Add(str3.Substring(str3.IndexOf("=") - 2).Replace("TTITLE", "0"));
         else
         {
           if (!str3.StartsWith("EXTD"))
-          {
             break;
-          }
           if (str3.IndexOf("YEAR:") > 0)
           {
             ReturnedYear = str3.Substring(str3.IndexOf("YEAR:") + 5).Trim(new char[] { ' ' });
             if (ReturnedYear.Length > 4)
-            {
               ReturnedYear = Conversion.Val(ReturnedYear.Substring(0, 4)).ToString();
-            }
           }
           else
-          {
             ReturnedYear = "";
-          }
         }
       }
       string sLeft = "";
-      using (IEnumerator enumerator = list.GetEnumerator())
-      {
-        while (enumerator.MoveNext())
-        {
-          str3 = StringType.FromObject(enumerator.Current);
+      foreach (string str3 in list)
           sLeft = sLeft + "|" + str3;
-        }
-      }
       sLeft = sLeft + "|";
       if (list.Count > 0)
       {
@@ -518,9 +484,8 @@
         for (byte i = 0; i <= num3; i = (byte)(i + 1))
         {
           if (StringType.StrCmp(sLeft, "|", false) == 0)
-          {
             return str4;
-          }
+
           sLeft = sLeft.Replace("|" + i.ToString().PadLeft(2, '0') + "=", "");
           ReturnedTracks.Add(sLeft.Substring(0, sLeft.IndexOf("|")));
           sLeft = sLeft.Substring(sLeft.IndexOf("|"));

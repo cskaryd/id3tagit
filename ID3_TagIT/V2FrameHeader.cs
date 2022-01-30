@@ -1,10 +1,10 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.IO;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.IO;
 
+namespace ID3_TagIT
+{
   [Serializable]
   public class V2FrameHeader
   {
@@ -27,7 +27,7 @@
 
     public byte[] CreateFrameHeader(MP3 MP3, byte[] abytContent, int vintPurSize)
     {
-      byte[] buffer;
+      byte[] buffer = null;
       int num;
       long length = abytContent.Length;
       byte num2 = 0;
@@ -53,9 +53,8 @@
 
         case 4:
           if (this.vbooCompressed)
-          {
             this.vbooCompressed = false;
-          }
+
           if (this.vbooEncrypted)
           {
             this.vbooEncrypted = false;
@@ -91,9 +90,8 @@
           buffer[8] = num2;
           buffer[9] = num3;
           if (this.vbooGroupIDPresent)
-          {
             buffer[10] = this.vbytGroupID;
-          }
+
           if (this.vbooDataLenIndPresent)
           {
             num = 3;
@@ -141,9 +139,8 @@
       buffer[8] = num2;
       buffer[9] = num3;
       if (this.vbooGroupIDPresent)
-      {
         buffer[10] = this.vbytGroupID;
-      }
+
       return buffer;
     }
 
@@ -165,61 +162,41 @@
           }
           while (this.I >= 0);
           if (this.vlngFrameSize > (mstrTAG.Length - mstrTAG.Position))
-          {
             return false;
-          }
           this.vbytNumberOfInfoBytes = 0;
           if ((buffer[8] & 0x80) > 0)
-          {
             this.vbooTAGAlter = true;
-          }
           else
-          {
             this.vbooTAGAlter = false;
-          }
           if ((buffer[8] & 0x40) > 0)
-          {
             this.vbooFileAlter = true;
-          }
           else
-          {
             this.vbooFileAlter = false;
-          }
           if ((buffer[8] & 0x20) > 0)
-          {
             this.vbooReadOnly = true;
-          }
           else
-          {
             this.vbooReadOnly = false;
-          }
           if ((buffer[9] & 0x80) > 0)
           {
             this.vbooCompressed = true;
             this.vbytNumberOfInfoBytes = (byte)(this.vbytNumberOfInfoBytes + 4);
           }
           else
-          {
             this.vbooCompressed = false;
-          }
           if ((buffer[9] & 0x40) > 0)
           {
             this.vbooEncrypted = true;
             this.vbytNumberOfInfoBytes = (byte)(this.vbytNumberOfInfoBytes + 1);
           }
           else
-          {
             this.vbooEncrypted = false;
-          }
           if ((buffer[9] & 0x20) > 0)
           {
             this.vbooGroupIDPresent = true;
             this.vbytNumberOfInfoBytes = (byte)(this.vbytNumberOfInfoBytes + 1);
           }
           else
-          {
             this.vbooGroupIDPresent = false;
-          }
           if (this.vbytNumberOfInfoBytes > 0)
           {
             this.vintDataLength = 0;
@@ -232,25 +209,17 @@
               {
                 this.vbytEncryption = buffer[0];
                 if (this.vbooGroupIDPresent)
-                {
                   this.vbytGroupID = buffer[1];
-                }
                 else
-                {
                   this.vbytGroupID = 0;
-                }
               }
               else
               {
                 this.vbytEncryption = 0;
                 if (this.vbooGroupIDPresent)
-                {
                   this.vbytGroupID = buffer[0];
-                }
                 else
-                {
                   this.vbytGroupID = 0;
-                }
               }
               break;
             }
@@ -265,25 +234,17 @@
             {
               this.vbytEncryption = buffer[4];
               if (this.vbooGroupIDPresent)
-              {
                 this.vbytGroupID = buffer[5];
-              }
               else
-              {
                 this.vbytGroupID = 0;
-              }
             }
             else
             {
               this.vbytEncryption = 0;
               if (this.vbooGroupIDPresent)
-              {
                 this.vbytGroupID = buffer[4];
-              }
               else
-              {
                 this.vbytGroupID = 0;
-              }
             }
           }
           break;
@@ -298,77 +259,49 @@
           }
           while (this.I >= 0);
           if (this.vlngFrameSize > (mstrTAG.Length - mstrTAG.Position))
-          {
             return false;
-          }
           this.vbytNumberOfInfoBytes = 0;
           if ((buffer[8] & 0x40) > 0)
-          {
             this.vbooTAGAlter = true;
-          }
           else
-          {
             this.vbooTAGAlter = false;
-          }
           if ((buffer[8] & 0x20) > 0)
-          {
             this.vbooFileAlter = true;
-          }
           else
-          {
             this.vbooFileAlter = false;
-          }
           if ((buffer[8] & 0x10) > 0)
-          {
             this.vbooReadOnly = true;
-          }
           else
-          {
             this.vbooReadOnly = false;
-          }
           if ((buffer[9] & 0x40) > 0)
           {
             this.vbooGroupIDPresent = true;
             this.vbytNumberOfInfoBytes = (byte)(this.vbytNumberOfInfoBytes + 1);
           }
           else
-          {
             this.vbooGroupIDPresent = false;
-          }
           if ((buffer[9] & 8) > 0)
-          {
             this.vbooCompressed = true;
-          }
           else
-          {
             this.vbooCompressed = false;
-          }
           if ((buffer[9] & 4) > 0)
           {
             this.vbooEncrypted = true;
             this.vbytNumberOfInfoBytes = (byte)(this.vbytNumberOfInfoBytes + 1);
           }
           else
-          {
             this.vbooEncrypted = false;
-          }
           if ((buffer[9] & 2) > 0)
-          {
             this.vbooUnsyncUsed = true;
-          }
           else
-          {
             this.vbooUnsyncUsed = false;
-          }
           if ((buffer[9] & 1) > 0)
           {
             this.vbooDataLenIndPresent = true;
             this.vbytNumberOfInfoBytes = (byte)(this.vbytNumberOfInfoBytes + 4);
           }
           else
-          {
             this.vbooDataLenIndPresent = false;
-          }
           if (this.vbytNumberOfInfoBytes > 0)
           {
             this.vintDataLength = 0;

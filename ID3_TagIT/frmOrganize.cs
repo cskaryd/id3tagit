@@ -1,6 +1,4 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
+﻿  using Microsoft.VisualBasic;
   using Microsoft.VisualBasic.CompilerServices;
   using System;
   using System.ComponentModel;
@@ -11,6 +9,8 @@
   using System.Runtime.CompilerServices;
   using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class frmOrganize : Form
   {
     [AccessedThroughProperty("btnAdd")]
@@ -140,9 +140,7 @@
     private void btnAdd_Click(object sender, EventArgs e)
     {
       if (StringType.StrCmp(this.cmbFormat.Text, "", false) != 0)
-      {
         this.cmbFormat.Items.Add(this.cmbFormat.Text);
-      }
     }
 
     private void btnBrowse_Click(object sender, EventArgs e)
@@ -161,18 +159,16 @@
     {
       string vstrFormat = this.cmbFormat.Text.TrimStart(new char[] { ' ' });
       string vstrName = this.txtPath.Text.Trim(new char[] { ' ' });
+
       if (!vstrName.EndsWith(@"\"))
-      {
         vstrName = vstrName + @"\";
-      }
+
       if (vstrFormat.IndexOf(":") >= 0)
-      {
         vstrFormat = vstrFormat.Substring(vstrFormat.IndexOf(":") + 1).TrimStart(new char[] { ' ' });
-      }
+
       if (vstrFormat.StartsWith(@"\"))
-      {
         vstrFormat = vstrFormat.Substring(1);
-      }
+
       if (!Main.CheckFilename(vstrName, true))
       {
         this.DialogResult = System.Windows.Forms.DialogResult.None;
@@ -254,9 +250,8 @@
     protected override void Dispose(bool disposing)
     {
       if (disposing && (this.components != null))
-      {
         this.components.Dispose();
-      }
+
       base.Dispose(disposing);
     }
 
@@ -270,21 +265,15 @@
       Main.WindowsXPCheck(ref objForm);
       int num2 = Declarations.objSettings.OrganizeFormats.Rows.Count - 1;
       for (int i = 0; i <= num2; i++)
-      {
         this.cmbFormat.Items.Add(RuntimeHelpers.GetObjectValue(Declarations.objSettings.OrganizeFormats.Rows[i]["Format"]));
-      }
       this.cmbFormat.Text = Declarations.objSettings.OrganizeFormat;
       this.txtPath.Text = Declarations.objSettings.OrganizePath;
       this.chkOverwrite.Checked = Declarations.objSettings.OrganizeOverwrite;
       this.chkCopy.Checked = Declarations.objSettings.OrganizeCopy;
       if (Declarations.objSettings.OrganizeVersion == 1)
-      {
         this.optID3V1.Checked = true;
-      }
       else
-      {
         this.optID3V2.Checked = true;
-      }
       this.txtDigits.Value = new decimal(Declarations.objSettings.TracknumberDigitsFilename);
       this.AddToolTips();
     }
@@ -746,22 +735,20 @@
       {
         Application.DoEvents();
         if (frmProg.Canceled)
-        {
           break;
-        }
+
         MP3 tag = (MP3)item.Tag;
         frmProg.Infos.Text = tag.CurrentFullName;
         string path = ID3Functions.FormatReplacedByTag(tag, vstrFormat, Declarations.objSettings.OrganizeVersion);
         if (!path.EndsWith(@"\"))
-        {
           path = path + @"\";
-        }
+
         path = path.Trim(new char[] { ' ' }).Replace("<", "_").Replace(">", "_").Replace("|", "_").Replace("\"", "_").Replace("/", "_").Replace("*", "_").Replace("?", "_").Replace(":", "_");
         path = str5 + path;
+
         while ((path.IndexOf(@"\\") > 0) | (path.IndexOf(@"\ \") > 0))
-        {
           path = path.Replace(@"\\", @"\").Replace(@"\ \", @"\");
-        }
+
         if ((path + tag.FI.Name).Length <= 0xff)
         {
           string fullName = tag.FI.FullName;
@@ -771,9 +758,8 @@
             try
             {
               if (!Directory.Exists(path))
-              {
                 Directory.CreateDirectory(path);
-              }
+
               if (Directory.Exists(path))
               {
                 if (File.Exists(str))
@@ -783,23 +769,15 @@
                     File.Delete(str);
                     Application.DoEvents();
                     if (this.chkCopy.Checked)
-                    {
                       File.Copy(fullName, str);
-                    }
                     else
-                    {
                       File.Move(fullName, str);
-                    }
                   }
                 }
                 else if (this.chkCopy.Checked)
-                {
                   File.Copy(fullName, str);
-                }
                 else
-                {
                   File.Move(fullName, str);
-                }
               }
             }
             catch (Exception exception1)
@@ -831,9 +809,7 @@
           bool[] copyBack = new bool[] { true };
           LateBinding.LateCall(item3.SubItems, null, "Add", args, null, copyBack);
           if (copyBack[0])
-          {
             resStrings[str6] = RuntimeHelpers.GetObjectValue(args[0]);
-          }
           this.MainForm.ErrorMsg.Items.Insert(0, item3);
           this.MainForm.SplitterBottom.Expanded = true;
         }
@@ -844,13 +820,10 @@
     private void txtDigits_Validated(object sender, EventArgs e)
     {
       if (decimal.Compare(this.txtDigits.Value, this.txtDigits.Minimum) < 0)
-      {
         this.txtDigits.Value = this.txtDigits.Minimum;
-      }
+
       if (decimal.Compare(this.txtDigits.Value, this.txtDigits.Maximum) > 0)
-      {
         this.txtDigits.Value = this.txtDigits.Maximum;
-      }
     }
 
     private void txtPath_KeyPress(object sender, KeyPressEventArgs e)
@@ -879,14 +852,12 @@
       set
       {
         if (this._btnAdd != null)
-        {
           this._btnAdd.Click -= new EventHandler(this.btnAdd_Click);
-        }
+
         this._btnAdd = value;
+
         if (this._btnAdd != null)
-        {
           this._btnAdd.Click += new EventHandler(this.btnAdd_Click);
-        }
       }
     }
 
@@ -900,14 +871,12 @@
       set
       {
         if (this._btnBrowse != null)
-        {
           this._btnBrowse.Click -= new EventHandler(this.btnBrowse_Click);
-        }
+
         this._btnBrowse = value;
+
         if (this._btnBrowse != null)
-        {
           this._btnBrowse.Click += new EventHandler(this.btnBrowse_Click);
-        }
       }
     }
 
@@ -920,13 +889,7 @@
       [MethodImpl(MethodImplOptions.Synchronized)]
       set
       {
-        if (this._btnCancel != null)
-        {
-        }
         this._btnCancel = value;
-        if (this._btnCancel != null)
-        {
-        }
       }
     }
 
@@ -940,14 +903,12 @@
       set
       {
         if (this._btnOK != null)
-        {
           this._btnOK.Click -= new EventHandler(this.btnOK_Click);
-        }
+
         this._btnOK = value;
+
         if (this._btnOK != null)
-        {
           this._btnOK.Click += new EventHandler(this.btnOK_Click);
-        }
       }
     }
 
@@ -961,14 +922,12 @@
       set
       {
         if (this._btnRemove != null)
-        {
           this._btnRemove.Click -= new EventHandler(this.btnRemove_Click);
-        }
+
         this._btnRemove = value;
+
         if (this._btnRemove != null)
-        {
           this._btnRemove.Click += new EventHandler(this.btnRemove_Click);
-        }
       }
     }
 
@@ -981,13 +940,7 @@
       [MethodImpl(MethodImplOptions.Synchronized)]
       set
       {
-        if (this._chkCopy != null)
-        {
-        }
         this._chkCopy = value;
-        if (this._chkCopy != null)
-        {
-        }
       }
     }
 
@@ -1000,13 +953,7 @@
       [MethodImpl(MethodImplOptions.Synchronized)]
       set
       {
-        if (this._chkOverwrite != null)
-        {
-        }
         this._chkOverwrite = value;
-        if (this._chkOverwrite != null)
-        {
-        }
       }
     }
 
@@ -1020,14 +967,12 @@
       set
       {
         if (this._cmbFormat != null)
-        {
           this._cmbFormat.KeyPress -= new KeyPressEventHandler(this.cmbFormat_KeyPress);
-        }
+
         this._cmbFormat = value;
+
         if (this._cmbFormat != null)
-        {
           this._cmbFormat.KeyPress += new KeyPressEventHandler(this.cmbFormat_KeyPress);
-        }
       }
     }
 
@@ -1040,13 +985,7 @@
       [MethodImpl(MethodImplOptions.Synchronized)]
       set
       {
-        if (this._FolderBrowserDialog != null)
-        {
-        }
         this._FolderBrowserDialog = value;
-        if (this._FolderBrowserDialog != null)
-        {
-        }
       }
     }
 
@@ -1059,13 +998,7 @@
       [MethodImpl(MethodImplOptions.Synchronized)]
       set
       {
-        if (this._framePara != null)
-        {
-        }
         this._framePara = value;
-        if (this._framePara != null)
-        {
-        }
       }
     }
 
@@ -1079,14 +1012,12 @@
       set
       {
         if (this._L1 != null)
-        {
           this._L1.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L1 = value;
+
         if (this._L1 != null)
-        {
           this._L1.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1100,14 +1031,12 @@
       set
       {
         if (this._L10 != null)
-        {
           this._L10.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L10 = value;
+
         if (this._L10 != null)
-        {
           this._L10.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1121,14 +1050,12 @@
       set
       {
         if (this._L11 != null)
-        {
           this._L11.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L11 = value;
+
         if (this._L11 != null)
-        {
           this._L11.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1142,14 +1069,12 @@
       set
       {
         if (this._L12 != null)
-        {
           this._L12.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L12 = value;
+
         if (this._L12 != null)
-        {
           this._L12.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1163,14 +1088,12 @@
       set
       {
         if (this._L13 != null)
-        {
           this._L13.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L13 = value;
+
         if (this._L13 != null)
-        {
           this._L13.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1184,14 +1107,12 @@
       set
       {
         if (this._L14 != null)
-        {
           this._L14.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L14 = value;
+
         if (this._L14 != null)
-        {
           this._L14.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1205,14 +1126,12 @@
       set
       {
         if (this._L15 != null)
-        {
           this._L15.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L15 = value;
+
         if (this._L15 != null)
-        {
           this._L15.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1226,14 +1145,12 @@
       set
       {
         if (this._L16 != null)
-        {
           this._L16.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L16 = value;
+
         if (this._L16 != null)
-        {
           this._L16.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1247,14 +1164,12 @@
       set
       {
         if (this._L17 != null)
-        {
           this._L17.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L17 = value;
+
         if (this._L17 != null)
-        {
           this._L17.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1268,14 +1183,12 @@
       set
       {
         if (this._L18 != null)
-        {
           this._L18.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L18 = value;
+
         if (this._L18 != null)
-        {
           this._L18.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1289,14 +1202,12 @@
       set
       {
         if (this._L19 != null)
-        {
           this._L19.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L19 = value;
+
         if (this._L19 != null)
-        {
           this._L19.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1310,14 +1221,12 @@
       set
       {
         if (this._L2 != null)
-        {
           this._L2.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L2 = value;
+
         if (this._L2 != null)
-        {
           this._L2.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1330,13 +1239,7 @@
       [MethodImpl(MethodImplOptions.Synchronized)]
       set
       {
-        if (this._L20 != null)
-        {
-        }
         this._L20 = value;
-        if (this._L20 != null)
-        {
-        }
       }
     }
 
@@ -1350,14 +1253,12 @@
       set
       {
         if (this._L3 != null)
-        {
           this._L3.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L3 = value;
+
         if (this._L3 != null)
-        {
           this._L3.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1371,14 +1272,12 @@
       set
       {
         if (this._L4 != null)
-        {
           this._L4.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L4 = value;
+
         if (this._L4 != null)
-        {
           this._L4.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1392,14 +1291,12 @@
       set
       {
         if (this._L5 != null)
-        {
           this._L5.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L5 = value;
+
         if (this._L5 != null)
-        {
           this._L5.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1413,14 +1310,12 @@
       set
       {
         if (this._L6 != null)
-        {
           this._L6.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L6 = value;
+
         if (this._L6 != null)
-        {
           this._L6.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1434,14 +1329,12 @@
       set
       {
         if (this._L7 != null)
-        {
           this._L7.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L7 = value;
+
         if (this._L7 != null)
-        {
           this._L7.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1455,14 +1348,12 @@
       set
       {
         if (this._L8 != null)
-        {
           this._L8.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L8 = value;
+
         if (this._L8 != null)
-        {
           this._L8.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1476,14 +1367,12 @@
       set
       {
         if (this._L9 != null)
-        {
           this._L9.Click -= new EventHandler(this.Label_Click);
-        }
+
         this._L9 = value;
+
         if (this._L9 != null)
-        {
           this._L9.Click += new EventHandler(this.Label_Click);
-        }
       }
     }
 
@@ -1496,13 +1385,7 @@
       [MethodImpl(MethodImplOptions.Synchronized)]
       set
       {
-        if (this._lblDigits != null)
-        {
-        }
         this._lblDigits = value;
-        if (this._lblDigits != null)
-        {
-        }
       }
     }
 
@@ -1515,13 +1398,7 @@
       [MethodImpl(MethodImplOptions.Synchronized)]
       set
       {
-        if (this._lblFormat != null)
-        {
-        }
         this._lblFormat = value;
-        if (this._lblFormat != null)
-        {
-        }
       }
     }
 
@@ -1534,13 +1411,7 @@
       [MethodImpl(MethodImplOptions.Synchronized)]
       set
       {
-        if (this._lblInfo != null)
-        {
-        }
         this._lblInfo = value;
-        if (this._lblInfo != null)
-        {
-        }
       }
     }
 
@@ -1553,13 +1424,7 @@
       [MethodImpl(MethodImplOptions.Synchronized)]
       set
       {
-        if (this._lblPath != null)
-        {
-        }
         this._lblPath = value;
-        if (this._lblPath != null)
-        {
-        }
       }
     }
 
@@ -1573,14 +1438,12 @@
       set
       {
         if (this._optID3V1 != null)
-        {
           this._optID3V1.CheckedChanged -= new EventHandler(this.optID3V1_CheckedChanged);
-        }
+
         this._optID3V1 = value;
+
         if (this._optID3V1 != null)
-        {
           this._optID3V1.CheckedChanged += new EventHandler(this.optID3V1_CheckedChanged);
-        }
       }
     }
 
@@ -1593,13 +1456,7 @@
       [MethodImpl(MethodImplOptions.Synchronized)]
       set
       {
-        if (this._optID3V2 != null)
-        {
-        }
         this._optID3V2 = value;
-        if (this._optID3V2 != null)
-        {
-        }
       }
     }
 
@@ -1612,13 +1469,7 @@
       [MethodImpl(MethodImplOptions.Synchronized)]
       set
       {
-        if (this._ToolTip != null)
-        {
-        }
         this._ToolTip = value;
-        if (this._ToolTip != null)
-        {
-        }
       }
     }
 
@@ -1632,14 +1483,12 @@
       set
       {
         if (this._txtDigits != null)
-        {
           this._txtDigits.Validated -= new EventHandler(this.txtDigits_Validated);
-        }
+
         this._txtDigits = value;
+
         if (this._txtDigits != null)
-        {
           this._txtDigits.Validated += new EventHandler(this.txtDigits_Validated);
-        }
       }
     }
 
@@ -1653,14 +1502,12 @@
       set
       {
         if (this._txtPath != null)
-        {
           this._txtPath.KeyPress -= new KeyPressEventHandler(this.txtPath_KeyPress);
-        }
+
         this._txtPath = value;
+
         if (this._txtPath != null)
-        {
           this._txtPath.KeyPress += new KeyPressEventHandler(this.txtPath_KeyPress);
-        }
       }
     }
   }

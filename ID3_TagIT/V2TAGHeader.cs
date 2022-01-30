@@ -1,10 +1,10 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.IO;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.IO;
 
+namespace ID3_TagIT
+{
   [Serializable]
   public class V2TAGHeader
   {
@@ -31,7 +31,7 @@
 
     public byte[] CreateTAGHeader(MP3 MP3, byte[] abytTAG, int vintPadAdded)
     {
-      byte[] buffer;
+      byte[] buffer = null;
       int num;
       byte[] sourceArray = new byte[] { 0x49, 0x44, 0x33, 0, 0, 0, 0, 0, 0, 0 };
       int length = abytTAG.Length;
@@ -39,23 +39,22 @@
       this.vbooUnsync = Declarations.objSettings.WriteUnsync;
       sourceArray[3] = this.vbytTAGVersion;
       sourceArray[4] = this.vbytTAGSubVersion;
+
       if (this.vbooUnsync)
-      {
         sourceArray[5] = (byte)(sourceArray[5] | 0x80);
-      }
+
       if (this.vbooExperimental)
-      {
         sourceArray[5] = (byte)(sourceArray[5] | 0x20);
-      }
+
       if (this.vbooFooterPresent)
-      {
         sourceArray[5] = (byte)(sourceArray[5] | 0x10);
-      }
+
       if (this.vbooExtHeaderPresent)
       {
-        byte[] buffer4;
         int num2;
+        byte[] buffer4 = null;
         sourceArray[5] = (byte)(sourceArray[5] | 0x40);
+
         switch (MP3.V2TAG.TAGVersion)
         {
           case 3:
@@ -108,10 +107,10 @@
             buffer = new byte[IntegerType.FromObject(ObjectType.AddObj(5, Interaction.IIf(this.vbooExtHeaderCRCPresent, 5, 0))) + 1];
             buffer[3] = ByteType.FromObject(ObjectType.AddObj(6, Interaction.IIf(this.vbooExtHeaderCRCPresent, 5, 0)));
             buffer[4] = 1;
+
             if (this.vbooExtHeaderTAGIsUpdate)
-            {
               buffer[5] = (byte)(buffer[5] | 0x40);
-            }
+
             if (this.vbooExtHeaderCRCPresent)
             {
               buffer[5] = (byte)(buffer[5] | 0x20);
@@ -130,6 +129,7 @@
             break;
         }
       }
+
       if (!this.vbooExtHeaderPresent)
       {
         num = 3;
@@ -143,6 +143,7 @@
         sourceArray[9] = (byte)length;
         return sourceArray;
       }
+
       byte[] destinationArray = new byte[(buffer.Length + 9) + 1];
       num = 3;
       do
@@ -152,6 +153,7 @@
         num += -1;
       }
       while (num >= 1);
+
       sourceArray[9] = (byte)length;
       Array.Copy(sourceArray, 0, destinationArray, 0, 10);
       Array.Copy(buffer, 0, destinationArray, 10, buffer.Length);
@@ -161,9 +163,8 @@
     public bool GetTAGHeader(ref MP3 MP3)
     {
       if (MP3.FI.Length < 10L)
-      {
         return false;
-      }
+
       byte[] abytBuffer = MP3.ReadData(0, SeekOrigin.Begin, 10);
       if (StringType.StrCmp(StringType.FromChar(Convert.ToChar(abytBuffer[0])) + StringType.FromChar(Convert.ToChar(abytBuffer[1])) + StringType.FromChar(Convert.ToChar(abytBuffer[2])), "ID3", false) != 0)
       {
@@ -205,45 +206,33 @@
         }
         this.vbytTAGVersion = abytBuffer[3];
         this.vbytTAGSubVersion = abytBuffer[4];
+
         if ((abytBuffer[5] & 0x80) > 0)
-        {
           this.vbooUnsync = true;
-        }
         else
-        {
           this.vbooUnsync = false;
-        }
+
         if ((abytBuffer[5] & 0x40) > 0)
-        {
           this.vbooExtHeaderPresent = true;
-        }
         else
-        {
           this.vbooExtHeaderPresent = false;
-        }
+
         if ((abytBuffer[5] & 0x20) > 0)
-        {
           this.vbooExperimental = true;
-        }
         else
-        {
           this.vbooExperimental = false;
-        }
+
         if (((abytBuffer[5] & 0x10) > 0) & (this.vbytTAGVersion > 3))
-        {
           this.vbooFooterPresent = true;
-        }
         else
-        {
           this.vbooFooterPresent = false;
-        }
+
         if (this.vbooExtHeaderPresent)
         {
           abytBuffer = MP3.ReadData(10, SeekOrigin.Begin, this.TAGSize);
           if ((this.TAGVersion == 3) & this.Unsynchronisation)
-          {
             abytBuffer = ID3Functions.RemoveUnsync(abytBuffer);
-          }
+
           this.vintExtHeaderSize = 0;
           switch (this.vbytTAGVersion)
           {
@@ -272,14 +261,12 @@
                 MP3.BinReader.BaseStream.Seek(10L, SeekOrigin.Begin);
                 return true;
               }
+
               if ((abytBuffer[4] & 0x80) > 0)
-              {
                 this.vbooExtHeaderCRCPresent = true;
-              }
               else
-              {
                 this.vbooExtHeaderCRCPresent = false;
-              }
+
               this.I = 3;
               do
               {

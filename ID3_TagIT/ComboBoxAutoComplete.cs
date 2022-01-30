@@ -1,11 +1,10 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic.CompilerServices;
+﻿  using Microsoft.VisualBasic.CompilerServices;
   using System;
   using System.ComponentModel;
-  using System.Runtime.CompilerServices;
   using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class ComboBoxAutoComplete : ComboBox
   {
     private bool m_Autocomplete;
@@ -28,22 +27,17 @@
       if (this.m_ListItemsOnly)
       {
         if (this.FindString(this.Text) < 0)
-        {
           this.Text = "";
-        }
         else
-        {
           this.SelectedIndex = this.FindString(this.Text);
-        }
       }
     }
 
     protected override void OnGotFocus(EventArgs e)
     {
       if (this.m_Autocomplete)
-      {
         this.m_strOriginal = this.Text;
-      }
+
       base.OnGotFocus(e);
     }
 
@@ -55,9 +49,8 @@
         {
           case Keys.Back:
             if (this.SelectionStart > 0)
-            {
               this.m_isAutoCompleteSuspended = true;
-            }
+
             goto Label_0053;
 
           case Keys.Escape:
@@ -69,6 +62,7 @@
         }
         this.m_isAutoCompleteSuspended = false;
       }
+
       Label_0053:
       base.OnKeyDown(e);
     }
@@ -76,9 +70,8 @@
     protected override void OnLostFocus(EventArgs e)
     {
       if (this.m_Autocomplete)
-      {
         this.m_strOriginal = null;
-      }
+
       base.OnLostFocus(e);
     }
 
@@ -106,9 +99,7 @@
               this.SelectionLength = this.Text.Length;
             }
             else if (this.m_ListItemsOnly && (this.Text.Length > 0))
-            {
               this.Text = this.Text.Substring(0, this.Text.Length - 1);
-            }
           }
           catch (Exception exception1)
           {
@@ -124,20 +115,15 @@
       if (this.m_Autocomplete)
       {
         if (StringType.StrCmp(this.Text, "", false) == 0)
-        {
           this.SelectedIndex = -1;
-        }
         else
         {
           int num = this.FindStringExact(this.Text);
+
           if (num == -1)
-          {
             this.OnNoMatchFound(e);
-          }
           else
-          {
             this.SelectedIndex = num;
-          }
         }
       }
       base.OnValidating(e);
@@ -153,10 +139,9 @@
       set
       {
         this.m_Autocomplete = value;
+
         if (this.m_Autocomplete)
-        {
           this.DropDownStyle = ComboBoxStyle.DropDown;
-        }
       }
     }
 

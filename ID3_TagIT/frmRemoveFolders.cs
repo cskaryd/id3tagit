@@ -1,15 +1,15 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.ComponentModel;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.IO;
-  using System.Runtime.CompilerServices;
-  using System.Windows.Forms;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class frmRemoveFolders : Form
   {
     [AccessedThroughProperty("btnBrowse")]
@@ -231,74 +231,68 @@
 
     public void ScanFolders(ArrayList alstFolders, string vstrSearchPattern, string vstrStartFolder)
     {
-      using (IEnumerator enumerator = alstFolders.GetEnumerator())
+      foreach (string str in alstFolders)
       {
-        while (enumerator.MoveNext())
+        try
         {
-          string str = StringType.FromObject(enumerator.Current);
-          try
+          string path = str;
+
+          if (path.EndsWith(":"))
+            path = path + @"\";
+
+          DirectoryInfo info = new DirectoryInfo(path);
+          foreach (DirectoryInfo info2 in info.GetDirectories())
           {
-            string path = str;
-            if (path.EndsWith(":"))
+            ArrayList list = new ArrayList { info2.FullName };
+            this.ScanFolders(list, vstrSearchPattern, vstrStartFolder);
+          }
+
+          if (StringType.StrCmp(path.ToLower(), vstrStartFolder.ToLower(), false) == 0)
+            return;
+
+          info.Refresh();
+          Application.DoEvents();
+          DirectoryInfo[] directories = info.GetDirectories();
+          FileInfo[] files = info.GetFiles(vstrSearchPattern);
+          if ((directories.GetLength(0) <= 0) && (files.GetLength(0) <= 0))
+          {
+            if (this.chkIgnoreOther.Checked)
             {
-              path = path + @"\";
-            }
-            DirectoryInfo info = new DirectoryInfo(path);
-            foreach (DirectoryInfo info2 in info.GetDirectories())
-            {
-              ArrayList list = new ArrayList {
-                                info2.FullName
-                            };
-              this.ScanFolders(list, vstrSearchPattern, vstrStartFolder);
-            }
-            if (StringType.StrCmp(path.ToLower(), vstrStartFolder.ToLower(), false) == 0)
-            {
-              return;
-            }
-            info.Refresh();
-            Application.DoEvents();
-            DirectoryInfo[] directories = info.GetDirectories();
-            FileInfo[] files = info.GetFiles(vstrSearchPattern);
-            if ((directories.GetLength(0) <= 0) && (files.GetLength(0) <= 0))
-            {
-              if (this.chkIgnoreOther.Checked)
+              try
               {
-                try
-                {
-                  Directory.Delete(path, true);
-                }
-                catch (Exception exception1)
-                {
-                  ProjectData.SetProjectError(exception1);
-                  ProjectData.ClearProjectError();
-                }
+                Directory.Delete(path, true);
               }
-              else if (info.GetFiles("*.*").GetLength(0) <= 0)
+              catch (Exception exception1)
               {
-                try
-                {
-                  Directory.Delete(path, false);
-                }
-                catch (Exception exception2)
-                {
-                  ProjectData.SetProjectError(exception2);
-                  ProjectData.ClearProjectError();
-                }
+                ProjectData.SetProjectError(exception1);
+                ProjectData.ClearProjectError();
               }
             }
-            continue;
+            else if (info.GetFiles("*.*").GetLength(0) <= 0)
+            {
+              try
+              {
+                Directory.Delete(path, false);
+              }
+              catch (Exception exception2)
+              {
+                ProjectData.SetProjectError(exception2);
+                ProjectData.ClearProjectError();
+              }
+            }
           }
-          catch (Exception exception3)
-          {
-            ProjectData.SetProjectError(exception3);
-            ProjectData.ClearProjectError();
-            continue;
-          }
+          continue;
+        }
+        catch (Exception exception3)
+        {
+          ProjectData.SetProjectError(exception3);
+          ProjectData.ClearProjectError();
+          continue;
         }
       }
     }
 
-    internal virtual Button btnBrowse
+    public Button btnBrowse
     {
       get
       {
@@ -319,7 +313,7 @@
       }
     }
 
-    internal virtual Button btnCancel
+    public Button btnCancel
     {
       get
       {
@@ -338,7 +332,7 @@
       }
     }
 
-    internal virtual Button btnOK
+    public Button btnOK
     {
       get
       {
@@ -359,7 +353,7 @@
       }
     }
 
-    internal virtual CheckBox chkIgnoreOther
+    public CheckBox chkIgnoreOther
     {
       get
       {
@@ -378,7 +372,7 @@
       }
     }
 
-    internal virtual System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog
+    public System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog
     {
       get
       {
@@ -397,7 +391,7 @@
       }
     }
 
-    internal virtual System.Windows.Forms.GroupBox GroupBox
+    public System.Windows.Forms.GroupBox GroupBox
     {
       get
       {
@@ -416,7 +410,7 @@
       }
     }
 
-    internal virtual Label lblInfo
+    public Label lblInfo
     {
       get
       {
@@ -435,7 +429,7 @@
       }
     }
 
-    internal virtual Label lblPath
+    public Label lblPath
     {
       get
       {
@@ -454,7 +448,7 @@
       }
     }
 
-    internal virtual Label lblStatus
+    public Label lblStatus
     {
       get
       {
@@ -473,7 +467,7 @@
       }
     }
 
-    internal virtual System.Windows.Forms.ProgressBar ProgressBar
+    public System.Windows.Forms.ProgressBar ProgressBar
     {
       get
       {
@@ -492,7 +486,7 @@
       }
     }
 
-    internal virtual System.Windows.Forms.ToolTip ToolTip
+    public System.Windows.Forms.ToolTip ToolTip
     {
       get
       {
@@ -511,7 +505,7 @@
       }
     }
 
-    internal virtual TextBox txtPath
+    public TextBox txtPath
     {
       get
       {

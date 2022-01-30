@@ -1,12 +1,12 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
+﻿  using Microsoft.VisualBasic;
   using Microsoft.VisualBasic.CompilerServices;
   using System;
   using System.IO;
   using System.Runtime.Serialization.Formatters.Binary;
   using System.Text;
 
+namespace ID3_TagIT
+{
   [Serializable]
   public class V2TextFrame : V2FrameHeader
   {
@@ -24,19 +24,20 @@
 
     public byte[] CreateFrame(MP3 MP3)
     {
-      byte[] buffer;
-      byte[] buffer2;
+      byte[] buffer = null;
+      byte[] buffer2 = null;
       byte[] buffer3;
       byte[] bytes;
-      int length;
+      int length = 0;
+
       switch (MP3.V2TAG.TAGVersion)
       {
         case 3:
           if (this.vbytEncoding == 0xff)
-          {
             this.vbytEncoding = Declarations.objSettings.V23Encoding;
-          }
+
           this.vstrContent = this.vstrContent + "\0";
+
           switch (this.vbytEncoding)
           {
             case 0:
@@ -59,11 +60,11 @@
 
         case 4:
           if (this.vbytEncoding == 0xff)
-          {
             this.vbytEncoding = Declarations.objSettings.V24Encoding;
-          }
+
           this.FUnsyncUsed = Declarations.objSettings.WriteUnsync;
           this.vstrContent = this.vstrContent + "\0";
+
           switch (this.vbytEncoding)
           {
             case 0:
@@ -96,12 +97,15 @@
               Array.Copy(bytes, 0, buffer, 1, bytes.Length);
               break;
           }
+
           this.vstrContent = this.vstrContent.TrimEnd(new char[] { '\0' });
-          length = buffer.Length;
+
+          if (buffer != null)
+            length = buffer.Length;
+
           if (this.FUnsyncUsed)
-          {
             buffer = ID3Functions.DoUnsync(buffer);
-          }
+
           buffer3 = this.CreateFrameHeader(MP3, buffer, length);
           buffer2 = new byte[((buffer3.Length + buffer.Length) - 1) + 1];
           Array.Copy(buffer3, 0, buffer2, 0, buffer3.Length);
@@ -111,6 +115,7 @@
         default:
           return buffer2;
       }
+
       Label_00F2:;
       this.vstrContent = this.vstrContent.TrimEnd(new char[] { '\0' });
       length = buffer.Length;
@@ -124,31 +129,31 @@
     public bool GetFrame(ref MP3 MP3, ref MemoryStream mstrTAG)
     {
       if (!this.GetFrameHeader(ref MP3, ref mstrTAG))
-      {
         return false;
-      }
+
       if (this.FSize < 2L)
       {
         MemoryStream stream = mstrTAG;
         stream.Position += this.FSize;
         return false;
       }
+
       byte[] buffer = new byte[((int)((this.FSize - 1L) - this.FNumberOfInfoBytes)) + 1];
       mstrTAG.Read(buffer, 0, (int)(this.FSize - this.FNumberOfInfoBytes));
+
       if (!this.FEncrypted)
       {
         try
         {
           byte[] buffer2;
           Encoding encoding;
+
           if (this.FUnsyncUsed)
-          {
             buffer = ID3Functions.RemoveUnsync(buffer);
-          }
+
           if (this.FCompressed && !ID3Functions.ZLibDecompress(this.FDataLength, ref buffer))
-          {
             return false;
-          }
+
           this.vbytEncoding = buffer[0];
           switch (this.vbytEncoding)
           {
@@ -196,11 +201,11 @@
           return false;
         }
       }
+
       Label_022E:
       if (StringType.StrCmp(this.vstrContent, "", false) == 0)
-      {
         return false;
-      }
+
       this.vstrContent = this.vstrContent.Trim(new char[] { CharType.FromString(Strings.Space(1)) });
       return true;
     }

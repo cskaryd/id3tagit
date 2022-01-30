@@ -126,8 +126,8 @@
         }
         if (this.OpenFileStreamR())
         {
-          BinaryWriter writer;
-          FileStream stream;
+          BinaryWriter writer = null;
+          FileStream stream = null;
           this.OpenBinaryReader();
           try
           {
