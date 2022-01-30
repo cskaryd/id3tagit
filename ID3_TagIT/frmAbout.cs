@@ -152,7 +152,6 @@ namespace ID3_TagIT
     private void frmAbout_Load(object sender, EventArgs e)
     {
       Form formToCheck = this;
-      //Main.WindowsXPCheck(ref formToCheck);
       this.lblVersion.Text = "Version: " + Application.ProductVersion.ToString().Substring(0, Application.ProductVersion.ToString().LastIndexOf("."));
     }
 

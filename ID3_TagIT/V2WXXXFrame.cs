@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
+﻿using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -262,8 +261,8 @@ namespace ID3_TagIT
       if (StringType.StrCmp(this.vstrContent, "", false) == 0)
         return false;
 
-      this.vstrDescriptor = this.vstrDescriptor.Trim(new char[] { CharType.FromString(Strings.Space(1)) });
-      this.vstrContent = this.vstrContent.Trim(new char[] { CharType.FromString(Strings.Space(1)) });
+      this.vstrDescriptor = this.vstrDescriptor.Trim(new char[] { CharType.FromString(" ") });
+      this.vstrContent = this.vstrContent.Trim(new char[] { CharType.FromString(" ") });
 
       return true;
     }

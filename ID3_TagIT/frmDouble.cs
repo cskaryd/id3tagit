@@ -146,7 +146,7 @@ namespace ID3_TagIT
       this.optAD.Name = "optAD";
       this.optAD.Size = new System.Drawing.Size(424, 18);
       this.optAD.TabIndex = 8;
-      this.optAD.Text = "Find files with same audio data (LENGTHLY operation)";
+      this.optAD.Text = "Find files with same audio data (LENGTHY operation)";
       // 
       // optATA
       // 

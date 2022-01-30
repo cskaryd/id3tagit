@@ -22,62 +22,204 @@ namespace ID3_TagIT
   {
     #region Designer
 
-    private PictureBox APICView;
+    private ArrayList alstCopyPaste;
+    private Button btnQuickEdit;
+    private Button btnQuickEditMore;
+    private ButtonItem FavouritesPan;
+    private ButtonItem FoldersPan;
+    private ButtonItem btnV1V2View;
+    private ButtonItem mnubtnEnumCounter;
+    private ButtonItem mnubtnEnumMinus;
+    private ButtonItem mnubtnEnumPlus;
+    private ButtonItem mnubtnRedo;
+    private ButtonItem mnubtnUndo;
+    private ButtonItem mnubtnViewVer1;
+    private ButtonItem mnubtnViewVer2;
+    private ControlContainerItem CContainerAPICView;
+    private ControlContainerItem CContainerAlbum;
+    private ControlContainerItem CContainerArtist;
+    private ControlContainerItem CContainerTitle;
+    private ControlContainerItem CContainerbtnQuickEditMore;
+    private ControlContainerItem CContainerbtnQuickEditOK;
+    private ControlContainerItem CContainertxtInfo;
     private DockSite barBottomDockSite;
+    private DockSite barLeftDockSite;
+    private DockSite barRightDockSite;
+    private DockSite barTopDockSite;
+    private ErrorProvider errorProvider1;
+    private ExpandableSplitter SplitterLeft;
+    private ExpandableSplitter SplitterRight;
+    private ExplorerBar SideBar;
     private ExplorerBarGroupItem BarGroupEdit;
     private ExplorerBarGroupItem BarGroupInfo;
     private ExplorerBarGroupItem BarGroupPicture;
     private ExplorerBarGroupItem BarGroupTools;
-    private DockSite barLeftDockSite;
-    private DockSite barRightDockSite;
-    private DockSite barTopDockSite;
-    private Button btnQuickEdit;
-    private Button btnQuickEditMore;
-    private ControlContainerItem CContainerAlbum;
-    private ControlContainerItem CContainerAPICView;
-    private ControlContainerItem CContainerArtist;
-    private ControlContainerItem CContainerbtnQuickEditMore;
-    private ControlContainerItem CContainerbtnQuickEditOK;
-    private ControlContainerItem CContainerTitle;
-    private ControlContainerItem CContainertxtInfo;
-    public ComboBoxAutoComplete cmbArtist;
-    private ImageList ColumnHeaderIcons;
-    public DevComponents.DotNetBar.DotNetBarManager DotNetBarManager;
-    private Label EnumInfo;
-    public ListView ErrorMsg;
-    private ButtonItem FavouritesPan;
-    private NavigationPanePanel FavouritesPanel;
-    public TreeView FavTree;
-    private System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog;
-    private System.Windows.Forms.Timer FolderRenameTimer;
-    private ButtonItem FoldersPan;
-    private NavigationPanePanel FoldersPanel;
     private FolderView FolderTree;
+    private IContainer components;
+    private ImageList ColumnHeaderIcons;
     private ImageList GroupIcons;
+    private ImageList ToolsIcons;
+    private Label EnumInfo;
     private LabelItem lblAlbum;
     private LabelItem lblArtist;
     private LabelItem lblQuickSpacer1;
     private LabelItem lblTitle;
-    public ListView MP3View;
+    private MemoryStream PicMStream;
+    private MenuStrip mnuBtns;
+    private MenuStrip mnuDDs;
     private NavigationPane NavigationPan;
-    private ExplorerBar SideBar;
-    public ExpandableSplitter SplitterBottom;
-    private ExpandableSplitter SplitterLeft;
-    private ExpandableSplitter SplitterRight;
-    private System.Windows.Forms.Timer Timer;
-    private ImageList ToolsIcons;
-    private TextBox txtAlbum;
+    private NavigationPanePanel FavouritesPanel;
+    private NavigationPanePanel FoldersPanel;
+    private PictureBox APICView;
     private RichTextBox txtInfo;
+    private System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog;
+    private System.Windows.Forms.Timer FolderRenameTimer;
+    private System.Windows.Forms.Timer Timer;
+    private TextBox txtAlbum;
     private TextBox txtTitle;
-    private int[] aintLastSelected;
-    private ArrayList alstCopyPaste;
-    private ButtonItem btnV1V2View;
     private Thread CalcAudioCheckSumThread;
+    private Thread GetFilesTimeThread;
+    private ToolStripComboBox cboLanguage;
+    private ToolStripMenuItem aboutToolStripMenuItem;
+    private ToolStripMenuItem addDirectoryToolStripMenuItem;
+    private ToolStripMenuItem analyseToolStripMenuItem;
+    private ToolStripMenuItem artistAlbumToolStripMenuItem1;
+    private ToolStripMenuItem artistAlbumToolStripMenuItem;
+    private ToolStripMenuItem artistTitleToolStripMenuItem1;
+    private ToolStripMenuItem artistTitleToolStripMenuItem;
+    private ToolStripMenuItem btnAddFolder;
+    private ToolStripMenuItem btnEditV1;
+    private ToolStripMenuItem btnEditV2;
+    private ToolStripMenuItem btnFileToTagV1;
+    private ToolStripMenuItem btnFileToTagV2;
+    private ToolStripMenuItem btnMultiEditV1;
+    private ToolStripMenuItem btnMultiEditV2;
+    private ToolStripMenuItem btnPlay;
+    private ToolStripMenuItem btnRedo;
+    private ToolStripMenuItem btnRefresh;
+    private ToolStripMenuItem btnRemoveV1;
+    private ToolStripMenuItem btnRemoveV2;
+    private ToolStripMenuItem btnSave;
+    private ToolStripMenuItem btnSwitchV1V2;
+    private ToolStripMenuItem btnTagToFileV1;
+    private ToolStripMenuItem btnTagToFileV2;
+    private ToolStripMenuItem btnUndo;
+    private ToolStripMenuItem caseConversionToolStripMenuItem;
+    private ToolStripMenuItem changeTAGVer2TextencodingToolStripMenuItem;
+    private ToolStripMenuItem compareFilenameWthTAGInformationToolStripMenuItem;
+    private ToolStripMenuItem copyFilesToolStripMenuItem;
+    private ToolStripMenuItem copyTAGInformationToolStripMenuItem;
+    private ToolStripMenuItem copyTAGVer1And2ToolStripMenuItem;
+    private ToolStripMenuItem copyTAGVer1OnlyToolStripMenuItem;
+    private ToolStripMenuItem copyTAGVer2OnlyToolStripMenuItem;
+    private ToolStripMenuItem createFilelistPlaylistToolStripMenuItem;
+    private ToolStripMenuItem deleteFilesToolStripMenuItem;
+    private ToolStripMenuItem editLibrariesToolStripMenuItem;
+    private ToolStripMenuItem editTAGVer1ToolStripMenuItem;
+    private ToolStripMenuItem editTAGVer2ToolStripMenuItem;
+    private ToolStripMenuItem editToolStripMenuItem;
+    private ToolStripMenuItem enumerateInTAGVer1ToolStripMenuItem;
+    private ToolStripMenuItem enumerateInTAGVer2ToolStripMenuItem;
+    private ToolStripMenuItem enumerateInfilenameToolStripMenuItem;
+    private ToolStripMenuItem extendedFunctionsToolStripMenuItem;
+    private ToolStripMenuItem filePropertiesToolStripMenuItem;
+    private ToolStripMenuItem fileToolStripMenuItem;
+    private ToolStripMenuItem filenameTAGVer1ToolStripMenuItem;
+    private ToolStripMenuItem findduplicateFilesToolStripMenuItem;
+    private ToolStripMenuItem groupSelectionToolStripMenuItem;
+    private ToolStripMenuItem helpToolStripMenuItem1;
+    private ToolStripMenuItem helpToolStripMenuItem;
+    private ToolStripMenuItem iD3FunctionsToolStripMenuItem;
+    private ToolStripMenuItem invertSelectionToolStripMenuItem;
+    private ToolStripMenuItem moveFilesToolStripMenuItem;
+    private ToolStripMenuItem multipleEditTAGVer1ToolStripMenuItem;
+    private ToolStripMenuItem multipleEditTAGVer2ToolStripMenuItem;
+    private ToolStripMenuItem openFileLocationToolStripMenuItem;
+    private ToolStripMenuItem optionsToolStripMenuItem;
+    private ToolStripMenuItem organizeFilesToolStripMenuItem;
+    private ToolStripMenuItem pasteTAGInformationToolStripMenuItem;
+    private ToolStripMenuItem playToolStripMenuItem;
+    private ToolStripMenuItem preferencesToolStripMenuItem;
+    private ToolStripMenuItem queryFreeDBToolStripMenuItem;
+    private ToolStripMenuItem quickFilenameEditingToolStripMenuItem;
+    private ToolStripMenuItem quitToolStripMenuItem;
+    private ToolStripMenuItem redoToolStripMenuItem;
+    private ToolStripMenuItem refreshToolStripMenuItem;
+    private ToolStripMenuItem removeEmptyFoldersToolStripMenuItem;
+    private ToolStripMenuItem removeSelectedFilesFromListToolStripMenuItem;
+    private ToolStripMenuItem removeTAGVer1ToolStripMenuItem1;
+    private ToolStripMenuItem removeTAGVer1ToolStripMenuItem2;
+    private ToolStripMenuItem removeTAGVer1ToolStripMenuItem;
+    private ToolStripMenuItem renameFilefolderToolStripMenuItem;
+    private ToolStripMenuItem saveToolStripMenuItem;
+    private ToolStripMenuItem scanSubdirectoriesToolStripMenuItem;
+    private ToolStripMenuItem searchandReplaceToolStripMenuItem;
+    private ToolStripMenuItem selectChangedFilesToolStripMenuItem;
+    private ToolStripMenuItem selectDuplicateFilesToolStripMenuItem;
+    private ToolStripMenuItem selectFilesByformatToolStripMenuItem;
+    private ToolStripMenuItem selectallToolStripMenuItem;
+    private ToolStripMenuItem selectmismatchingFilenameTAGFilesToolStripMenuItem;
+    private ToolStripMenuItem shortcutsToolStripMenuItem;
+    private ToolStripMenuItem splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem;
+    private ToolStripMenuItem splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem;
+    private ToolStripMenuItem swapTAGVer1EntriesToolStripMenuItem;
+    private ToolStripMenuItem swapTAGVer2EntriesToolStripMenuItem;
+    private ToolStripMenuItem synchronizeVer1AndVer2EditingToolStripMenuItem;
+    private ToolStripMenuItem tAGVer1FilenameToolStripMenuItem;
+    private ToolStripMenuItem tAGVer2FilenameToolStripMenuItem;
+    private ToolStripMenuItem titleAlbumToolStripMenuItem1;
+    private ToolStripMenuItem titleAlbumToolStripMenuItem;
+    private ToolStripMenuItem transferConvertTAGsToolStripMenuItem;
+    private ToolStripMenuItem undoToolStripMenuItem;
+    private ToolStripMenuItem viewTAGVer1ToolStripMenuItem;
+    private ToolStripMenuItem viewTAGVer2ToolStripMenuItem;
+    private ToolStripMenuItem viewToolStripMenuItem;
+    private ToolStripSeparator sepButtons1;
+    private ToolStripSeparator sepButtons2;
+    private ToolStripSeparator sepButtons3;
+    private ToolStripSeparator sepButtons4;
+    private ToolStripSeparator sepButtons5;
+    private ToolStripSeparator toolStripSeparator10;
+    private ToolStripSeparator toolStripSeparator11;
+    private ToolStripSeparator toolStripSeparator12;
+    private ToolStripSeparator toolStripSeparator13;
+    private ToolStripSeparator toolStripSeparator14;
+    private ToolStripSeparator toolStripSeparator15;
+    private ToolStripSeparator toolStripSeparator16;
+    private ToolStripSeparator toolStripSeparator17;
+    private ToolStripSeparator toolStripSeparator18;
+    private ToolStripSeparator toolStripSeparator19;
+    private ToolStripSeparator toolStripSeparator1;
+    private ToolStripSeparator toolStripSeparator20;
+    private ToolStripSeparator toolStripSeparator21;
+    private ToolStripSeparator toolStripSeparator2;
+    private ToolStripSeparator toolStripSeparator3;
+    private ToolStripSeparator toolStripSeparator4;
+    private ToolStripSeparator toolStripSeparator5;
+    private ToolStripSeparator toolStripSeparator6;
+    private ToolStripSeparator toolStripSeparator7;
+    private ToolStripSeparator toolStripSeparator8;
+    private ToolStripSeparator toolStripSeparator9;
+    private bool vbooClosing;
+    private bool vbooFolderRename;
+    private bool vbooRefreshFlag;
+    private bool vbooStartUp;
+    private byte vbytFilterIndex;
+    private byte vbytFolderRenameCount;
+    private byte vbytSelTimerCount;
+    private byte vbytToolBarTAGVersion;
+    private int vintEnumCount;
+    private int vintHelpCount;
+    private int vintSelTimerCount;
+    private int[] aintLastSelected;
+    private string vstrFilter;
+    private string vstrFolderRenameNewPath;
+    private string vstrFolderRenameOldPath;
     public ColumnHeader colHAlbum;
     public ColumnHeader colHArtist;
     public ColumnHeader colHAudioCheckSum;
-    public ColumnHeader colHBitrate;
     public ColumnHeader colHBPM;
+    public ColumnHeader colHBitrate;
     public ColumnHeader colHChannel;
     public ColumnHeader colHComment;
     public ColumnHeader colHComposer;
@@ -86,8 +228,8 @@ namespace ID3_TagIT
     public ColumnHeader colHDuration;
     public ColumnHeader colHErrFile;
     public ColumnHeader colHErrMsg;
-    public ColumnHeader colHFilename;
     public ColumnHeader colHFileSize;
+    public ColumnHeader colHFilename;
     public ColumnHeader colHGenre;
     public ColumnHeader colHPicCount;
     public ColumnHeader colHPosMedia;
@@ -101,157 +243,15 @@ namespace ID3_TagIT
     public ColumnHeader colHVBR;
     public ColumnHeader colHVersion;
     public ColumnHeader colHYear;
-    private IContainer components;
-    private Thread GetFilesTimeThread;
-    public int LastSortedColumn;
-    private ButtonItem mnubtnEnumCounter;
-    private ButtonItem mnubtnEnumMinus;
-    private ButtonItem mnubtnEnumPlus;
-    private ButtonItem mnubtnRedo;
-    private ButtonItem mnubtnUndo;
-    private ButtonItem mnubtnViewVer1;
-    private ButtonItem mnubtnViewVer2;
-    private MemoryStream PicMStream;
-    public int SortedColumn;
-    private bool vbooClosing;
-    private bool vbooFolderRename;
-    private bool vbooRefreshFlag;
-    private bool vbooStartUp;
-    private byte vbytFilterIndex;
-    private byte vbytFolderRenameCount;
-    private byte vbytSelTimerCount;
-    private byte vbytToolBarTAGVersion;
+    public ComboBoxAutoComplete cmbArtist;
+    public DevComponents.DotNetBar.DotNetBarManager DotNetBarManager;
+    public ExpandableSplitter SplitterBottom;
+    public ListView ErrorMsg;
+    public ListView MP3View;
+    public TreeView FavTree;
     public byte vbytVersionToShow;
-    private int vintEnumCount;
-    private int vintHelpCount;
-    private int vintSelTimerCount;
-    private string vstrFilter;
-    private string vstrFolderRenameNewPath;
-    private MenuStrip mnuDDs;
-    private ToolStripMenuItem fileToolStripMenuItem;
-    private ToolStripMenuItem editToolStripMenuItem;
-    private ToolStripMenuItem viewToolStripMenuItem;
-    private ToolStripMenuItem iD3FunctionsToolStripMenuItem;
-    private ToolStripMenuItem extendedFunctionsToolStripMenuItem;
-    private ToolStripMenuItem analyseToolStripMenuItem;
-    private ToolStripMenuItem optionsToolStripMenuItem;
-    private ToolStripMenuItem helpToolStripMenuItem;
-    private ErrorProvider errorProvider1;
-    private ToolStripMenuItem helpToolStripMenuItem1;
-    private ToolStripMenuItem shortcutsToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator1;
-    private ToolStripSeparator sepButtons1;
-    private ToolStripSeparator sepButtons2;
-    private ToolStripSeparator sepButtons3;
-    private ToolStripSeparator sepButtons4;
-    private ToolStripSeparator sepButtons5;
-    private ToolStripMenuItem aboutToolStripMenuItem;
-    private ToolStripMenuItem addDirectoryToolStripMenuItem;
-    private ToolStripMenuItem refreshToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator2;
-    private ToolStripMenuItem saveToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator3;
-    private ToolStripMenuItem playToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator4;
-    private ToolStripMenuItem moveFilesToolStripMenuItem;
-    private ToolStripMenuItem copyFilesToolStripMenuItem;
-    private ToolStripMenuItem deleteFilesToolStripMenuItem;
-    private ToolStripMenuItem organizeFilesToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator5;
-    private ToolStripMenuItem openFileLocationToolStripMenuItem;
-    private ToolStripMenuItem removeEmptyFoldersToolStripMenuItem;
-    private ToolStripMenuItem renameFilefolderToolStripMenuItem;
-    private ToolStripMenuItem filePropertiesToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator6;
-    private ToolStripMenuItem quitToolStripMenuItem;
-    private ToolStripMenuItem viewTAGVer1ToolStripMenuItem;
-    private ToolStripMenuItem viewTAGVer2ToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator7;
-    private ToolStripMenuItem selectallToolStripMenuItem;
-    private ToolStripMenuItem groupSelectionToolStripMenuItem;
-    private ToolStripMenuItem invertSelectionToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator8;
-    private ToolStripMenuItem selectFilesByformatToolStripMenuItem;
-    private ToolStripMenuItem selectChangedFilesToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator9;
-    private ToolStripMenuItem removeSelectedFilesFromListToolStripMenuItem;
-    private ToolStripMenuItem findduplicateFilesToolStripMenuItem;
-    private ToolStripMenuItem compareFilenameWthTAGInformationToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator10;
-    private ToolStripMenuItem selectDuplicateFilesToolStripMenuItem;
-    private ToolStripMenuItem selectmismatchingFilenameTAGFilesToolStripMenuItem;
-    private ToolStripMenuItem caseConversionToolStripMenuItem;
-    private ToolStripMenuItem transferConvertTAGsToolStripMenuItem;
-    private ToolStripMenuItem changeTAGVer2TextencodingToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator14;
-    private ToolStripMenuItem queryFreeDBToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator15;
-    private ToolStripMenuItem enumerateInfilenameToolStripMenuItem;
-    private ToolStripMenuItem enumerateInTAGVer1ToolStripMenuItem;
-    private ToolStripMenuItem enumerateInTAGVer2ToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator16;
-    private ToolStripMenuItem createFilelistPlaylistToolStripMenuItem;
-    private ToolStripMenuItem scanSubdirectoriesToolStripMenuItem;
-    private ToolStripMenuItem quickFilenameEditingToolStripMenuItem;
-    private ToolStripMenuItem synchronizeVer1AndVer2EditingToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator11;
-    private ToolStripMenuItem editLibrariesToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator12;
-    private ToolStripMenuItem preferencesToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator13;
-    private ToolStripComboBox cboLanguage;
-    private ToolStripMenuItem editTAGVer1ToolStripMenuItem;
-    private ToolStripMenuItem multipleEditTAGVer1ToolStripMenuItem;
-    private ToolStripMenuItem removeTAGVer1ToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator17;
-    private ToolStripMenuItem editTAGVer2ToolStripMenuItem;
-    private ToolStripMenuItem multipleEditTAGVer2ToolStripMenuItem;
-    private ToolStripMenuItem removeTAGVer1ToolStripMenuItem1;
-    private ToolStripMenuItem filenameTAGVer1ToolStripMenuItem;
-    private ToolStripMenuItem removeTAGVer1ToolStripMenuItem2;
-    private ToolStripMenuItem undoToolStripMenuItem;
-    private ToolStripMenuItem redoToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator18;
-    private ToolStripMenuItem searchandReplaceToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator19;
-    private ToolStripMenuItem swapTAGVer1EntriesToolStripMenuItem;
-    private ToolStripMenuItem artistTitleToolStripMenuItem;
-    private ToolStripMenuItem artistAlbumToolStripMenuItem;
-    private ToolStripMenuItem titleAlbumToolStripMenuItem;
-    private ToolStripMenuItem swapTAGVer2EntriesToolStripMenuItem;
-    private ToolStripMenuItem artistTitleToolStripMenuItem1;
-    private ToolStripMenuItem artistAlbumToolStripMenuItem1;
-    private ToolStripMenuItem titleAlbumToolStripMenuItem1;
-    private ToolStripSeparator toolStripSeparator20;
-    private ToolStripMenuItem splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem;
-    private ToolStripMenuItem splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem;
-    private ToolStripSeparator toolStripSeparator21;
-    private ToolStripMenuItem copyTAGInformationToolStripMenuItem;
-    private ToolStripMenuItem copyTAGVer1OnlyToolStripMenuItem;
-    private ToolStripMenuItem copyTAGVer2OnlyToolStripMenuItem;
-    private ToolStripMenuItem copyTAGVer1And2ToolStripMenuItem;
-    private ToolStripMenuItem pasteTAGInformationToolStripMenuItem;
-    private ToolStripMenuItem tAGVer1FilenameToolStripMenuItem;
-    private ToolStripMenuItem tAGVer2FilenameToolStripMenuItem;
-    private MenuStrip mnuBtns;
-    private ToolStripMenuItem btnAddFolder;
-    private ToolStripMenuItem btnRefresh;
-    private ToolStripMenuItem btnSave;
-    private ToolStripMenuItem btnPlay;
-    private ToolStripMenuItem btnUndo;
-    private ToolStripMenuItem btnRedo;
-    private ToolStripMenuItem btnEditV1;
-    private ToolStripMenuItem btnMultiEditV1;
-    private ToolStripMenuItem btnRemoveV1;
-    private ToolStripMenuItem btnFileToTagV1;
-    private ToolStripMenuItem btnTagToFileV1;
-    private ToolStripMenuItem btnSwitchV1V2;
-    private ToolStripMenuItem btnEditV2;
-    private ToolStripMenuItem btnMultiEditV2;
-    private ToolStripMenuItem btnRemoveV2;
-    private ToolStripMenuItem btnFileToTagV2;
-    private ToolStripMenuItem btnTagToFileV2;
-    private string vstrFolderRenameOldPath;
+    public int LastSortedColumn;
+    public int SortedColumn;
 
     protected override void Dispose(bool disposing)
     {
@@ -1906,13 +1906,15 @@ namespace ID3_TagIT
       // 
       // cboLanguage
       // 
+      this.cboLanguage.AutoSize = true;
       this.cboLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cboLanguage.DropDownWidth = 250;
       this.cboLanguage.Items.AddRange(new object[] {
             "English",
             "Deutsch"});
       this.cboLanguage.Name = "cboLanguage";
-      this.cboLanguage.Size = new System.Drawing.Size(121, 23);
+      this.cboLanguage.SelectedIndex = 0;
+      this.cboLanguage.Click += new System.EventHandler(this.cboLanguage_Click);
       // 
       // helpToolStripMenuItem
       // 
@@ -2556,7 +2558,7 @@ namespace ID3_TagIT
               {
                 form = this;
                 callback = new frmProgress.Callback(this.Paste1CB);
-                frmProgress progress3 = new frmProgress(0, IntegerType.FromObject(Interaction.IIf(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count, this.MP3View.SelectedItems.Count, this.alstCopyPaste.Count)), 1, ref form, ref callback);
+                frmProgress progress3 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
                 progress3.SetStatePaste();
                 progress3.List = list6;
                 progress3.ShowDialog(this);
@@ -2565,7 +2567,7 @@ namespace ID3_TagIT
               {
                 form = this;
                 callback = new frmProgress.Callback(this.Paste2CB);
-                frmProgress progress4 = new frmProgress(0, IntegerType.FromObject(Interaction.IIf(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count, this.MP3View.SelectedItems.Count, this.alstCopyPaste.Count)), 1, ref form, ref callback);
+                frmProgress progress4 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
                 progress4.SetStatePaste();
                 progress4.List = list6;
                 progress4.ShowDialog(this);
@@ -2574,7 +2576,7 @@ namespace ID3_TagIT
               {
                 form = this;
                 callback = new frmProgress.Callback(this.Paste3CB);
-                frmProgress progress5 = new frmProgress(0, IntegerType.FromObject(Interaction.IIf(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count, this.MP3View.SelectedItems.Count, this.alstCopyPaste.Count)), 1, ref form, ref callback);
+                frmProgress progress5 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
                 progress5.SetStatePaste();
                 progress5.List = list6;
                 progress5.ShowDialog(this);
@@ -3371,10 +3373,11 @@ namespace ID3_TagIT
           {
             new Process
             {
-              StartInfo = {
-                            FileName = StringType.FromObject(Interaction.IIf(Application.StartupPath.EndsWith(@"\"), Application.StartupPath + @"Help\index.htm", Application.StartupPath + @"\Help\index.htm")),
-                            UseShellExecute = true
-                        }
+              StartInfo =
+              {
+                FileName = StringType.FromObject(Application.StartupPath.EndsWith(@"\") ? Application.StartupPath + @"Help\index.htm" : Application.StartupPath + @"\Help\index.htm"),
+                UseShellExecute = true
+              }
             }.Start();
             return;
           }
@@ -3383,21 +3386,44 @@ namespace ID3_TagIT
           {
             new Process
             {
-              StartInfo = {
-                            FileName = StringType.FromObject(Interaction.IIf(Application.StartupPath.EndsWith(@"\"), Application.StartupPath + @"Help\shortcuts.htm", Application.StartupPath + @"\Help\shortcuts.htm")),
-                            UseShellExecute = true
-                        }
+              StartInfo =
+              {
+                FileName = StringType.FromObject(Application.StartupPath.EndsWith(@"\") ? Application.StartupPath + @"Help\shortcuts.htm" : Application.StartupPath + @"\Help\shortcuts.htm"),
+                UseShellExecute = true
+              }
             }.Start();
             return;
           }
 
-          if (StringType.StrCmp(name, "mnubtnAbout", false) == 0)
-          {
-            new frmAbout().ShowDialog();
-            return;
-          }
-
-          if ((((((StringType.StrCmp(name, "mnubtnFilterA", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterB", false) != 0)) && ((StringType.StrCmp(name, "mnubtnFilterC", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterD", false) != 0))) && (((StringType.StrCmp(name, "mnubtnFilterE", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterF", false) != 0)) && ((StringType.StrCmp(name, "mnubtnFilterG", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterH", false) != 0)))) && ((((StringType.StrCmp(name, "mnubtnFilterI", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterJ", false) != 0)) && ((StringType.StrCmp(name, "mnubtnFilterK", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterL", false) != 0))) && (((StringType.StrCmp(name, "mnubtnFilterM", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterN", false) != 0)) && ((StringType.StrCmp(name, "mnubtnFilterO", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterP", false) != 0))))) && (((((StringType.StrCmp(name, "mnubtnFilterQ", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterR", false) != 0)) && ((StringType.StrCmp(name, "mnubtnFilterS", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterT", false) != 0))) && (((StringType.StrCmp(name, "mnubtnFilterU", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterV", false) != 0)) && ((StringType.StrCmp(name, "mnubtnFilterW", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterX", false) != 0)))) && (((StringType.StrCmp(name, "mnubtnFilterY", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterZ", false) != 0)) && (((StringType.StrCmp(name, "mnubtnFilterOther", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterEmpty", false) != 0)) && (StringType.StrCmp(name, "mnubtnFilterNumber", false) != 0)))))
+          if ((((((StringType.StrCmp(name, "mnubtnFilterA", false) != 0) &&
+                  (StringType.StrCmp(name, "mnubtnFilterB", false) != 0)) &&
+                 ((StringType.StrCmp(name, "mnubtnFilterC", false) != 0) &&
+                  (StringType.StrCmp(name, "mnubtnFilterD", false) != 0))) &&
+                (((StringType.StrCmp(name, "mnubtnFilterE", false) != 0) &&
+                  (StringType.StrCmp(name, "mnubtnFilterF", false) != 0)) &&
+                 ((StringType.StrCmp(name, "mnubtnFilterG", false) != 0) &&
+                  (StringType.StrCmp(name, "mnubtnFilterH", false) != 0)))) &&
+               ((((StringType.StrCmp(name, "mnubtnFilterI", false) != 0) &&
+                  (StringType.StrCmp(name, "mnubtnFilterJ", false) != 0)) &&
+                 ((StringType.StrCmp(name, "mnubtnFilterK", false) != 0) &&
+                  (StringType.StrCmp(name, "mnubtnFilterL", false) != 0))) &&
+                (((StringType.StrCmp(name, "mnubtnFilterM", false) != 0) &&
+                  (StringType.StrCmp(name, "mnubtnFilterN", false) != 0)) &&
+                 ((StringType.StrCmp(name, "mnubtnFilterO", false) != 0) &&
+                  (StringType.StrCmp(name, "mnubtnFilterP", false) != 0))))) &&
+              (((((StringType.StrCmp(name, "mnubtnFilterQ", false) != 0) &&
+                  (StringType.StrCmp(name, "mnubtnFilterR", false) != 0)) &&
+                 ((StringType.StrCmp(name, "mnubtnFilterS", false) != 0) &&
+                  (StringType.StrCmp(name, "mnubtnFilterT", false) != 0))) &&
+                (((StringType.StrCmp(name, "mnubtnFilterU", false) != 0) &&
+                  (StringType.StrCmp(name, "mnubtnFilterV", false) != 0)) &&
+                 ((StringType.StrCmp(name, "mnubtnFilterW", false) != 0) &&
+                  (StringType.StrCmp(name, "mnubtnFilterX", false) != 0)))) &&
+                (((StringType.StrCmp(name, "mnubtnFilterY", false) != 0) &&
+                  (StringType.StrCmp(name, "mnubtnFilterZ", false) != 0)) &&
+                (((StringType.StrCmp(name, "mnubtnFilterOther", false) != 0) &&
+                  (StringType.StrCmp(name, "mnubtnFilterEmpty", false) != 0)) &&
+                  (StringType.StrCmp(name, "mnubtnFilterNumber", false) != 0)))))
           {
             ButtonItem item25 = null;
 
@@ -4236,8 +4262,8 @@ namespace ID3_TagIT
       ((ButtonItem)this.DotNetBarManager.GetItem("mnubtnQuickFilename")).Checked = Declarations.objSettings.QuickFilenameEditing;
       ((ButtonItem)this.DotNetBarManager.GetItem("mnubtnSynchronize")).Checked = Declarations.objSettings.SynchronizeTAGs;
 
-      this.mnubtnViewVer1.Checked = BooleanType.FromObject(Interaction.IIf(Declarations.objSettings.VersionToShow == 1, true, false));
-      this.mnubtnViewVer2.Checked = BooleanType.FromObject(Interaction.IIf(Declarations.objSettings.VersionToShow == 2, true, false));
+      this.mnubtnViewVer1.Checked = BooleanType.FromObject(Declarations.objSettings.VersionToShow == 1);
+      this.mnubtnViewVer2.Checked = BooleanType.FromObject(Declarations.objSettings.VersionToShow == 2);
 
       btnSwitchV1V2.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
       this.DotNetBarManager.GetItem("btnV1V2View").Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
@@ -4613,7 +4639,7 @@ namespace ID3_TagIT
       this.MP3View.ListViewItemSorter = null;
       Form ownerForm = this;
       frmProgress.Callback cB = new frmProgress.Callback(this.MP3View_FillColumnsCB);
-      frmProgress progress = new frmProgress(0, Declarations.MP3s.Count, IntegerType.FromObject(Interaction.IIf(Declarations.MP3s.Count < 0x3e8, Declarations.MP3s.Count / 10, 100)), ref ownerForm, ref cB)
+      frmProgress progress = new frmProgress(0, Declarations.MP3s.Count, IntegerType.FromObject(Declarations.MP3s.Count < 0x3e8 ? Declarations.MP3s.Count / 10 : 100), ref ownerForm, ref cB)
       {
         List = MP3sList
       };
@@ -4642,7 +4668,7 @@ namespace ID3_TagIT
     public void MP3View_FillColumnsCB(ref frmProgress frmProg)
     {
       ArrayList list = frmProg.List;
-      int num3 = IntegerType.FromObject(Interaction.IIf(Declarations.MP3s.Count < 0x3e8, Declarations.MP3s.Count / 10, 100));
+      int num3 = IntegerType.FromObject(Declarations.MP3s.Count < 0x3e8 ? Declarations.MP3s.Count / 10 : 100);
       foreach (MP3 mp in list)
       {
         object objectValue;
@@ -4951,15 +4977,15 @@ namespace ID3_TagIT
           item.ForeColor = System.Drawing.Color.FromArgb(Declarations.objSettings.ColorDoubleText);
         }
         if (this.MP3View.Columns.Contains(this.colHSubDir))
-          item.SubItems[this.colHSubDir.Index].Text = StringType.FromObject(Interaction.IIf(Declarations.objSettings.CurrentPath.EndsWith(":"), mp.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath + @"\", ""), mp.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath, "")));
+          item.SubItems[this.colHSubDir.Index].Text = StringType.FromObject(Declarations.objSettings.CurrentPath.EndsWith(":") ? mp.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath + @"\", "") : mp.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath, ""));
         if (!((mp.Bitrate > 0x61a80) | (mp.Bitrate == 0)))
         {
           if (this.MP3View.Columns.Contains(this.colHChannel))
             item.SubItems[this.colHChannel.Index].Text = mp.ChannelText;
           if (this.MP3View.Columns.Contains(this.colHBitrate))
-            item.SubItems[this.colHBitrate.Index].Text = StringType.FromInteger(mp.Bitrate / 0x3e8);
+            item.SubItems[this.colHBitrate.Index].Text = StringType.FromInteger(mp.Bitrate / 1000);
           if (this.MP3View.Columns.Contains(this.colHVBR))
-            item.SubItems[this.colHVBR.Index].Text = StringType.FromObject(Interaction.IIf(mp.VBR, "VBR", "CBR"));
+            item.SubItems[this.colHVBR.Index].Text = StringType.FromObject(mp.VBR ? "VBR" : "CBR");
           if (this.MP3View.Columns.Contains(this.colHSamplerate))
             item.SubItems[this.colHSamplerate.Index].Text = StringType.FromInteger(mp.Samplerate);
           if (this.MP3View.Columns.Contains(this.colHVersion))
@@ -4991,9 +5017,9 @@ namespace ID3_TagIT
         if (this.MP3View.Columns.Contains(this.colHCreateDate))
           item.SubItems[this.colHCreateDate.Index].Text = mp.FI.CreationTime.ToString();
         if (this.MP3View.Columns.Contains(this.colHFileSize))
-          item.SubItems[this.colHFileSize.Index].Text = (mp.FI.Length / 0x400L).ToString();
+          item.SubItems[this.colHFileSize.Index].Text = (mp.FI.Length / 1024L).ToString();
         if (this.MP3View.Columns.Contains(this.colHAudioCheckSum))
-          item.SubItems[this.colHAudioCheckSum.Index].Text = StringType.FromObject(Interaction.IIf(mp.AudioCheckSum != 0, mp.AudioCheckSum.ToString(), ""));
+          item.SubItems[this.colHAudioCheckSum.Index].Text = StringType.FromObject(mp.AudioCheckSum != 0 ? mp.AudioCheckSum.ToString() : "");
         if (!mp.V2TAG.TAGHeaderPresent || (this.vbytVersionToShow != 2))
           goto Label_216E;
         if (this.MP3View.Columns.Contains(this.colHArtist))
@@ -5135,9 +5161,9 @@ namespace ID3_TagIT
           if (this.MP3View.Columns.Contains(this.colHAlbum))
             item.SubItems[this.colHAlbum.Index].Text = mp.V1TAG.Album;
           if (this.MP3View.Columns.Contains(this.colHTrack))
-            item.SubItems[this.colHTrack.Index].Text = StringType.FromObject(Interaction.IIf(mp.V1TAG.Tracknumber > 0, mp.V1TAG.Tracknumber.ToString(), ""));
+            item.SubItems[this.colHTrack.Index].Text = StringType.FromObject(mp.V1TAG.Tracknumber > 0 ? mp.V1TAG.Tracknumber.ToString() : "");
           if (this.MP3View.Columns.Contains(this.colHYear))
-            item.SubItems[this.colHYear.Index].Text = StringType.FromObject(Interaction.IIf(mp.V1TAG.Year > 0, mp.V1TAG.Year.ToString(), ""));
+            item.SubItems[this.colHYear.Index].Text = StringType.FromObject(mp.V1TAG.Year > 0 ? mp.V1TAG.Year.ToString() : "");
           if (this.MP3View.Columns.Contains(this.colHGenre))
             item.SubItems[this.colHGenre.Index].Text = mp.V1TAG.GenreText;
           if (this.MP3View.Columns.Contains(this.colHComment))
@@ -5633,15 +5659,15 @@ namespace ID3_TagIT
       {
         MP3 mp5 = (MP3)this.MP3View.SelectedItems[0].Tag;
         this.txtInfo.Text = "";
-        this.txtInfo.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHDuration.Text + ":", Interaction.IIf(this.colHDuration.Text.Length < 9, "\t\t", "\t")), mp5.DurationFormated), "\r\n"));
-        long num4 = mp5.FI.Length / 0x400L;
-        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHFileSize.Text + ":", Interaction.IIf(this.colHFileSize.Text.Length < 9, "\t\t", "\t")), num4.ToString()), "\r\n")));
-        int num5 = mp5.Bitrate / 0x3e8;
-        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHBitrate.Text + ":", Interaction.IIf(this.colHBitrate.Text.Length < 9, "\t\t", "\t")), num5.ToString()), "\r\n")));
-        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHVBR.Text + ":", Interaction.IIf(this.colHVBR.Text.Length < 9, "\t\t", "\t")), Interaction.IIf(mp5.VBR, "VBR", "CBR")), "\r\n")));
-        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHSamplerate.Text + ":", Interaction.IIf(this.colHSamplerate.Text.Length < 9, "\t\t", "\t")), mp5.Samplerate), "\r\n")));
-        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHChannel.Text + ":", Interaction.IIf(this.colHChannel.Text.Length < 9, "\t\t", "\t")), mp5.ChannelText), "\r\n")));
-        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHVersion.Text + ":", Interaction.IIf(this.colHVersion.Text.Length < 9, "\t\t", "\t")), mp5.VersionText), " "), mp5.LayerText)));
+        this.txtInfo.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHDuration.Text + ":", this.colHDuration.Text.Length < 9 ? "\t\t" : "\t"), mp5.DurationFormated), "\r\n"));
+        long num4 = mp5.FI.Length / 1024L;
+        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHFileSize.Text + ":", this.colHFileSize.Text.Length < 9 ? "\t\t" : "\t"), num4.ToString()), "\r\n")));
+        int num5 = mp5.Bitrate / 1000;
+        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHBitrate.Text + ":", this.colHBitrate.Text.Length < 9 ? "\t\t" : "\t"), num5.ToString()), "\r\n")));
+        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHVBR.Text + ":", this.colHVBR.Text.Length < 9 ? "\t\t" : "\t"), mp5.VBR ? "VBR" : "CBR"), "\r\n")));
+        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHSamplerate.Text + ":", this.colHSamplerate.Text.Length < 9 ? "\t\t" : "\t"), mp5.Samplerate), "\r\n")));
+        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHChannel.Text + ":", this.colHChannel.Text.Length < 9 ? "\t\t" : "\t"), mp5.ChannelText), "\r\n")));
+        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHVersion.Text + ":", this.colHVersion.Text.Length < 9 ? "\t\t" : "\t"), mp5.VersionText), " "), mp5.LayerText)));
       }
       else
       {
@@ -5807,7 +5833,7 @@ namespace ID3_TagIT
             tag.CalcAudioCheckSum();
 
             if (this.MP3View.Columns.Contains(this.colHAudioCheckSum))
-              this.MP3View.Items[i].SubItems[this.colHAudioCheckSum.Index].Text = StringType.FromObject(Interaction.IIf(tag.AudioCheckSum != 0, tag.AudioCheckSum.ToString(), ""));
+              this.MP3View.Items[i].SubItems[this.colHAudioCheckSum.Index].Text = StringType.FromObject(tag.AudioCheckSum != 0 ? tag.AudioCheckSum.ToString() : "");
           }
 
           ((ProgressBarItem)this.DotNetBarManager.GetItem("StatusProgressBar")).PerformStep();
@@ -6789,12 +6815,12 @@ namespace ID3_TagIT
         {
           LateBinding.LateCall(item.Tag, null, "RemoveV1TAG", new object[0], null, null);
           LateBinding.LateSetComplex(item.Tag, null, "Changed", new object[] { true }, null, false, true);
-          this.UpdateListItem(item, BooleanType.FromObject(Interaction.IIf(Declarations.objSettings.VersionToShow == 1, true, false)));
+          this.UpdateListItem(item, BooleanType.FromObject(Declarations.objSettings.VersionToShow == 1));
           if (Declarations.objSettings.SynchronizeTAGs)
           {
             LateBinding.LateCall(item.Tag, null, "RemoveV2TAG", new object[0], null, null);
             LateBinding.LateSetComplex(item.Tag, null, "Changed", new object[] { true }, null, false, true);
-            this.UpdateListItem(item, BooleanType.FromObject(Interaction.IIf(Declarations.objSettings.VersionToShow == 2, true, false)));
+            this.UpdateListItem(item, BooleanType.FromObject(Declarations.objSettings.VersionToShow == 2));
           }
         }
         frmProg.ProgressBar.PerformStep();
@@ -6815,12 +6841,12 @@ namespace ID3_TagIT
         {
           LateBinding.LateCall(item.Tag, null, "RemoveV2TAG", new object[0], null, null);
           LateBinding.LateSetComplex(item.Tag, null, "Changed", new object[] { true }, null, false, true);
-          this.UpdateListItem(item, BooleanType.FromObject(Interaction.IIf(Declarations.objSettings.VersionToShow == 2, true, false)));
+          this.UpdateListItem(item, BooleanType.FromObject(Declarations.objSettings.VersionToShow == 2));
           if (Declarations.objSettings.SynchronizeTAGs)
           {
             LateBinding.LateCall(item.Tag, null, "RemoveV1TAG", new object[0], null, null);
             LateBinding.LateSetComplex(item.Tag, null, "Changed", new object[] { true }, null, false, true);
-            this.UpdateListItem(item, BooleanType.FromObject(Interaction.IIf(Declarations.objSettings.VersionToShow == 1, true, false)));
+            this.UpdateListItem(item, BooleanType.FromObject(Declarations.objSettings.VersionToShow == 1));
           }
         }
         frmProg.ProgressBar.PerformStep();
@@ -7134,66 +7160,51 @@ namespace ID3_TagIT
       {
         MP3 tag = (MP3)item.Tag;
         Application.DoEvents();
+        
         if (frmProg.Canceled)
-        {
           break;
-        }
+        
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo(tag, tag.V1TAG.Clone(), tag.V2TAG.Clone(), tag.CurrentFullName, tag.Changed);
+        
         frmProg.List.Add(@do);
+        
         if (tag.V1TAG.TAGPresent)
         {
           string album = tag.V1TAG.Album;
           tag.V1TAG.Album = tag.V1TAG.Artist;
           tag.V1TAG.Artist = album;
         }
+        
         tag.Changed = true;
+        
         if (Declarations.objSettings.SynchronizeTAGs)
         {
           if (tag.V2TAG.TAGHeaderPresent)
           {
             string str2;
             string str3;
+
             if (tag.V2TAG.FrameExists("TPE1"))
-            {
               str2 = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
-            }
             else
-            {
               str2 = "";
-            }
+            
             if (tag.V2TAG.FrameExists("TALB"))
-            {
               str3 = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
-            }
             else
-            {
               str3 = "";
-            }
+            
             V2TextFrame frame = ID3Functions.CreateTextFrame("TALB", str2);
-            if (StringType.StrCmp(str2, "", false) == 0)
-            {
-              frame.Remove = true;
-            }
-            else
-            {
-              frame.Remove = false;
-            }
+
+            frame.Remove = (StringType.StrCmp(str2, "", false) == 0);
             tag.V2TAG.AddFrame(frame);
             frame = ID3Functions.CreateTextFrame("TPE1", str3);
-            if (StringType.StrCmp(str3, "", false) == 0)
-            {
-              frame.Remove = true;
-            }
-            else
-            {
-              frame.Remove = false;
-            }
+            frame.Remove = (StringType.StrCmp(str3, "", false) == 0);
             tag.V2TAG.AddFrame(frame);
           }
+
           if (tag.V2TAG.Changed)
-          {
             tag.Changed = true;
-          }
         }
         this.UpdateListItem(item, false);
         frmProg.ProgressBar.PerformStep();
@@ -7206,57 +7217,41 @@ namespace ID3_TagIT
       {
         MP3 tag = (MP3)item.Tag;
         Application.DoEvents();
+
         if (frmProg.Canceled)
-        {
           break;
-        }
+
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo(tag, tag.V1TAG.Clone(), tag.V2TAG.Clone(), tag.CurrentFullName, tag.Changed);
         frmProg.List.Add(@do);
+
         if (tag.V2TAG.TAGHeaderPresent)
         {
           string str2;
           string str3;
+
           if (tag.V2TAG.FrameExists("TPE1"))
-          {
             str2 = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
-          }
           else
-          {
             str2 = "";
-          }
+
           if (tag.V2TAG.FrameExists("TALB"))
-          {
             str3 = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
-          }
           else
-          {
             str3 = "";
-          }
+
           V2TextFrame frame = ID3Functions.CreateTextFrame("TALB", str2);
-          if (StringType.StrCmp(str2, "", false) == 0)
-          {
-            frame.Remove = true;
-          }
-          else
-          {
-            frame.Remove = false;
-          }
+
+          frame.Remove = (StringType.StrCmp(str2, "", false) == 0);
           tag.V2TAG.AddFrame(frame);
           frame = ID3Functions.CreateTextFrame("TPE1", str3);
-          if (StringType.StrCmp(str3, "", false) == 0)
-          {
-            frame.Remove = true;
-          }
-          else
-          {
-            frame.Remove = false;
-          }
+          frame.Remove = (StringType.StrCmp(str3, "", false) == 0);
+
           tag.V2TAG.AddFrame(frame);
         }
+
         if (tag.V2TAG.Changed)
-        {
           tag.Changed = true;
-        }
+
         if (Declarations.objSettings.SynchronizeTAGs)
         {
           if (tag.V1TAG.TAGPresent)
@@ -7265,8 +7260,10 @@ namespace ID3_TagIT
             tag.V1TAG.Album = tag.V1TAG.Artist;
             tag.V1TAG.Artist = album;
           }
+
           tag.Changed = true;
         }
+
         this.UpdateListItem(item, false);
         frmProg.ProgressBar.PerformStep();
       }
@@ -7708,7 +7705,7 @@ namespace ID3_TagIT
         lstItem.SubItems[this.colHFileSize.Index].Text = (tag.FI.Length / 0x400L).ToString();
 
       if (this.MP3View.Columns.Contains(this.colHAudioCheckSum))
-        lstItem.SubItems[this.colHAudioCheckSum.Index].Text = StringType.FromObject(Interaction.IIf(tag.AudioCheckSum != 0, tag.AudioCheckSum.ToString(), ""));
+        lstItem.SubItems[this.colHAudioCheckSum.Index].Text = StringType.FromObject(tag.AudioCheckSum != 0 ? tag.AudioCheckSum.ToString() : "");
 
       if (vbooClear)
       {
@@ -7903,10 +7900,10 @@ namespace ID3_TagIT
           lstItem.SubItems[this.colHAlbum.Index].Text = tag.V1TAG.Album;
 
         if (this.MP3View.Columns.Contains(this.colHTrack))
-          lstItem.SubItems[this.colHTrack.Index].Text = StringType.FromObject(Interaction.IIf(tag.V1TAG.Tracknumber > 0, tag.V1TAG.Tracknumber.ToString(), ""));
+          lstItem.SubItems[this.colHTrack.Index].Text = StringType.FromObject(tag.V1TAG.Tracknumber > 0 ? tag.V1TAG.Tracknumber.ToString() : "");
 
         if (this.MP3View.Columns.Contains(this.colHYear))
-          lstItem.SubItems[this.colHYear.Index].Text = StringType.FromObject(Interaction.IIf(tag.V1TAG.Year > 0, tag.V1TAG.Year.ToString(), ""));
+          lstItem.SubItems[this.colHYear.Index].Text = StringType.FromObject(tag.V1TAG.Year > 0 ? tag.V1TAG.Year.ToString() : "");
 
         if (this.MP3View.Columns.Contains(this.colHGenre))
           lstItem.SubItems[this.colHGenre.Index].Text = tag.V1TAG.GenreText;
@@ -7926,7 +7923,7 @@ namespace ID3_TagIT
       {
         StartInfo =
         {
-          FileName = StringType.FromObject(Interaction.IIf(Application.StartupPath.EndsWith(@"\"), Application.StartupPath + @"Help\index.htm", Application.StartupPath + @"\Help\index.htm")),
+          FileName = StringType.FromObject(Application.StartupPath.EndsWith(@"\") ? Application.StartupPath + @"Help\index.htm" : Application.StartupPath + @"\Help\index.htm"),
           UseShellExecute = true
         }
       }.Start();
@@ -7938,10 +7935,17 @@ namespace ID3_TagIT
       {
         StartInfo =
         {
-          FileName = StringType.FromObject(Interaction.IIf(Application.StartupPath.EndsWith(@"\"), Application.StartupPath + @"Help\shortcuts.htm", Application.StartupPath + @"\Help\shortcuts.htm")),
+          FileName = StringType.FromObject(Application.StartupPath.EndsWith(@"\") ? Application.StartupPath + @"Help\shortcuts.htm" : Application.StartupPath + @"\Help\shortcuts.htm"),
           UseShellExecute = true
         }
       }.Start();
+    }
+
+    private void cboLanguage_Click(object sender, EventArgs e)
+    {
+      Declarations.objSettings.Language = (byte)cboLanguage.SelectedIndex;
+      Declarations.objResources.ReadResources();
+      this.SetLanguage();
     }
 
     private void aboutToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1,0 +1,322 @@
+<html>
+<head>
+<title>ID3-TagIT - THE ID3-Tag-Editor for MP3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="description" content="ID3-TagIT - THE ID3-Tag-Editor.  ID3-TagIT dient zum Editieren von MP3 Tag-Informationen, egal ob eine MP3 Datei oder hunderte von MP3 Dateien bearbeitet werden sollen.">
+<meta name="keywords" content="ID3, ID3V1, ID3V2, Tager, Tag, Tagger, MP3, MP3-Datei, Editor, ID3-TagIT, Freeware">
+<link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="700" border="0" align="center" cellpadding="0" cellspacing="5">
+  <tr> 
+    <td align="center"><img src="pictures/logo.gif" alt="ID3-TagIT" name="ID3-TagIT" width="266" height="74" hspace="0" vspace="0" border="0"></td>
+  </tr>
+</table>
+<table width="100%" height="23" border="0" align="center" cellpadding="0" cellspacing="0" background="pictures/tableback1.gif" bgcolor="#F6F6F6">
+  <tr> 
+    <td background="pictures/tableback1.gif" bgcolor="f6f6f6"> <p class="center">&nbsp;</p></td>
+  </tr>
+</table>
+<br>
+<table width="700" height="48" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="F6F6F6">
+  <tr> 
+    <td align="center" valign="middle" nowrap background="pictures/tableback3.gif" bgcolor="f6f6f6"> 
+      <h1>Shortcuts</h1></td>
+  </tr>
+</table>
+<table width="700" border="0" align="center" cellpadding="15" cellspacing="0" bgcolor="f6f6f6" vspace="0" hspace="5">
+  <tr valign="top"> 
+    <td bgcolor="f6f6f6"> <h2>Normal keys:</h2>
+      <h2><br>
+      </h2>
+      <table width="640" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor="AABED2">
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+A<br>
+            </p></td>
+          <td width="524">
+<p>Select all files</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+B</p></td>
+          <td width="524">
+<p>Copy files</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+D</p></td>
+          <td width="524">
+<p>Filename to TAG Ver. 2 (left of Filename to TAG Ver. 1)</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+E</p></td>
+          <td width="524">
+<p><strong>E</strong>dit TAG Ver. 2</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+F</p></td>
+          <td width="524">
+<p><strong>F</strong>ilename to TAG Ver. 1</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+G</p></td>
+          <td width="524">
+<p>Group selction (st the top of list)</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+I</p></td>
+          <td width="524">
+<p>Invert selection</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+K</p></td>
+          <td width="524">
+<p>Remove selected files from list</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+L</p></td>
+          <td width="524">
+<p>Create File list/Playlist</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+M</p></td>
+          <td width="524">
+<p><strong>M</strong>ultiple Edit TAG Ver. 1</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+N</p></td>
+          <td width="524">
+<p>Multiple Edit TAG Ver. 2 (left of Multiple Edit TAG Ver. 1)</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+O</p></td>
+          <td width="524">
+<p>Organize files</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+R</p></td>
+          <td width="524">
+<p>TAG Ver. 2 to Filename (left of TAG Ver. 1 to Filename)</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+S</p></td>
+          <td width="524">
+<p>Save changes</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+T</p></td>
+          <td width="524">
+<p><strong>T</strong>AG Ver. 1 to Filename</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+W</p></td>
+          <td width="524">
+<p>Edit TAG Ver. 2 (left of Edit TAG Ver. 1)</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+Y</p></td>
+          <td width="524">
+<p>Move files</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+Z</p></td>
+          <td width="524">
+<p>Undo</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+Shift+C<br>
+            </p></td>
+          <td width="524">
+<p>Copy TAG Ver. 1 and TAG Ver. 2</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+Shift+D</p></td>
+          <td width="524">
+<p>Delte files</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+Shift+F</p></td>
+          <td width="524">
+<p>Remove empty folders</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+Shift+V</p></td>
+          <td width="524">
+<p>Paste TAG Ver. 1 and TAG Ver. 2</p></td>
+        </tr>
+        <tr> 
+          <td width="100" align="left"> <p>Ctrl+Shift+Z</p></td>
+          <td width="524">
+<p>Redo</p></td>
+        </tr>
+      </table>
+      <h2>&nbsp;</h2>
+      <h2>F-Keys:</h2>
+      <h2><br>
+      </h2>
+      <table width="640" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor="AABED2">
+        <tr> 
+          <td width="100"> <p>&nbsp;</p></td>
+          <td width="262"> 
+            <p class="center">Normal</p></td>
+          <td width="262"> 
+            <p class="center">Shift+</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F1</p></td>
+          <td width="262"> 
+            <p>Help</p></td>
+          <td width="262"> 
+            <p>Swap Artist - Title (Ver. 1)</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F2</p></td>
+          <td width="262"> 
+            <p>Rename</p></td>
+          <td width="262"> 
+            <p>Swap Artist - Album (Ver. 1)</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F3</p></td>
+          <td width="262"> 
+            <p>Serach and Replace</p></td>
+          <td width="262"> 
+            <p>Swap Title - Album (Ver. 1)</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F4</p></td>
+          <td width="262"> 
+            <p>Query FreeDB</p></td>
+          <td width="262"> 
+            <p>Split Artist into Artist - Title (Ver. 1)</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F5</p></td>
+          <td width="262"> 
+            <p>Refresh</p></td>
+          <td width="262"> 
+            <p>Swap Artist - Title (Ver. 2)</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F6</p></td>
+          <td width="262"> 
+            <p>Case Conversion</p></td>
+          <td width="262"> 
+            <p>Swap Artist - Album (Ver. 2)</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F7</p></td>
+          <td width="262"> 
+            <p>Transfer/Convert TAGs</p></td>
+          <td width="262"> 
+            <p>Swap Title - Album (Ver. 2)</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F8</p></td>
+          <td width="262"> 
+            <p>Add directory</p></td>
+          <td width="262"> 
+            <p>Split Artist into Artist - Title (Ver. 2)</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F9</p></td>
+          <td width="262"> 
+            <p>Play</p></td>
+          <td width="262"> 
+            <p>Enumerate in filename</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F10</p></td>
+          <td width="262"> 
+            <p>---</p></td>
+          <td width="262"> 
+            <p>---</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F11</p></td>
+          <td width="262"> 
+            <p>File properties</p></td>
+          <td width="262"> 
+            <p>Enumerate in TAG Ver. 1</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F12</p></td>
+          <td width="262"> 
+            <p>Preferences</p></td>
+          <td width="262"> 
+            <p>Enumerate in TAG Ver. 2</p></td>
+        </tr>
+      </table>
+      <br>
+      <table width="644" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor="AABED2">
+        <tr> 
+          <td width="100"> <p>&nbsp;</p></td>
+          <td width="262"> <p class="center">Ctrl+</p></td>
+          <td width="262"> <p class="center">Alt+</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F1</p></td>
+          <td width="262"><p>View TAG Ver. 1</p></td>
+          <td width="262"><p>&nbsp;</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F2</p></td>
+          <td width="262"><p>View TAG Ver. 2</p></td>
+          <td width="262"><p>&nbsp;</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F3</p></td>
+          <td width="262"><p>&nbsp;</p></td>
+          <td width="262"><p>&nbsp;</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F4</p></td>
+          <td width="262"><p>&nbsp;</p></td>
+          <td width="262"><p>&nbsp;</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F5</p></td>
+          <td width="262"><p>&nbsp;</p></td>
+          <td width="262"><p>Select by format</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F6</p></td>
+          <td width="262"><p>&nbsp;</p></td>
+          <td width="262"><p>Select changed files</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F7</p></td>
+          <td width="262"><p>Find duplicated files</p></td>
+          <td width="262"><p>Select duplicated files</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F8</p></td>
+          <td width="262"><p>Find TAG - Filename mismatches</p></td>
+          <td width="262"><p>Select mismatches</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F9</p></td>
+          <td width="262"><p>&nbsp;</p></td>
+          <td width="262"><p>Scan subdirctories</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F10</p></td>
+          <td width="262"><p>&nbsp;</p></td>
+          <td width="262"><p>Quick filename editing</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F11</p></td>
+          <td width="262"><p>Remove TAG Ver. 1</p></td>
+          <td width="262"><p>Sync. TAG Ver. 1 and Ver. 2 editing</p></td>
+        </tr>
+        <tr> 
+          <td width="100"> <p>F12</p></td>
+          <td width="262"><p>Remove TAG Ver. 2</p></td>
+          <td width="262"><p>Edit libraries</p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<br>
+</body>
+</html>

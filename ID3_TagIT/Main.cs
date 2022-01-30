@@ -213,16 +213,7 @@ namespace ID3_TagIT
                 File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Navpanel.xml"), Path.Combine(Declarations.vstrUserAppData, "Navpanel.xml"), true);
               }
 
-              if (StringType.StrCmp(sLeft, "3.3.0", false) < 0)
-              {
-                File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Toolbar.xml"), Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml"), true);
-                File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Interface.xml"), Path.Combine(Declarations.vstrUserAppData, "Interface.xml"), true);
-                File.Copy(Path.Combine(Declarations.vstrCommonAppData, "ExtToolbar.xml"), Path.Combine(Declarations.vstrUserAppData, "ExtToolbar.xml"), true);
-                File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Navpanel.xml"), Path.Combine(Declarations.vstrUserAppData, "Navpanel.xml"), true);
-                File.Copy(Path.Combine(Declarations.vstrCommonAppData, @"Libraries\Library-Columns.xml"), Path.Combine(Declarations.vstrUserAppData, @"Libraries\Library-Columns.xml"), true);
-              }
-
-              if (StringType.StrCmp(sLeft, "3.4.0", false) < 0)
+              if (StringType.StrCmp(sLeft, "3.3.0", false) < 0 || StringType.StrCmp(sLeft, "3.4.0", false) < 0)
               {
                 File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Toolbar.xml"), Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml"), true);
                 File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Interface.xml"), Path.Combine(Declarations.vstrUserAppData, "Interface.xml"), true);
