@@ -586,6 +586,9 @@ namespace ID3_TagIT
       if ((SortOrder.Length >= 1) && (SortOrder.Length <= ListView.Columns.Count))
       {
         int msg = 0x103a;
+        // NOTE - this is 4154 in int // 4154 = LVM_SETCOLUMNORDERARRAY
+        // https://autohotkey.com/board/topic/79966-help-how-to-change-listview-column-headers-in-fly/
+        // https://forum.powerbasic.com/forum/user-to-user-discussions/powerbasic-for-windows/780526-unable-to-get-wh_getmessage-hook-to-work-globally
 
         if (!Declarations.ListViewColumnOrder(ListView.Handle.ToInt32(), msg, SortOrder.Length, ref SortOrder[0]).Equals(0))
           ListView.Refresh();

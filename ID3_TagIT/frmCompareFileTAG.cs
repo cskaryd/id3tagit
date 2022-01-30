@@ -497,7 +497,7 @@ namespace ID3_TagIT
       base.Dispose(disposing);
     }
 
-    public frmCompareFileTAG(ref frmMain FormMain)
+    public frmCompareFileTAG(frmMain FormMain)
     {
       base.Load += new EventHandler(this.frmCompareFileTAG_Load);
       this.InitializeComponent();

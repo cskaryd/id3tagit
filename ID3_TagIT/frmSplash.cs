@@ -22,6 +22,7 @@ namespace ID3_TagIT
     [DebuggerStepThrough]
     private void InitializeComponent()
     {
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSplash));
       this.lblState = new System.Windows.Forms.Label();
       this.lblVersion = new System.Windows.Forms.Label();
       this.picLogo = new System.Windows.Forms.PictureBox();
@@ -77,7 +78,7 @@ namespace ID3_TagIT
       this.lblUpdate.Name = "lblUpdate";
       this.lblUpdate.Size = new System.Drawing.Size(376, 18);
       this.lblUpdate.TabIndex = 7;
-      this.lblUpdate.Text = "Recompiled Updates in 2018-2020 by Chris Skaryd";
+      this.lblUpdate.Text = "Recompiled Updates in 2022 by Chris Skaryd";
       this.lblUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // lblCopyright
@@ -104,12 +105,14 @@ namespace ID3_TagIT
       this.Controls.Add(this.picLogo);
       this.Controls.Add(this.lblState);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "frmSplash";
       this.ShowInTaskbar = false;
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "ID3-TagIT";
       ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
       this.ResumeLayout(false);
+
     }
 
     public frmSplash()

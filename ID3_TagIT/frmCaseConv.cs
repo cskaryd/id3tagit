@@ -456,7 +456,7 @@ namespace ID3_TagIT
       base.Dispose(disposing);
     }
 
-    public frmCaseConv(ref frmMain FormMain)
+    public frmCaseConv(frmMain FormMain)
     {
       base.Load += new EventHandler(this.frmCaseConv_Load);
       this.InitializeComponent();
@@ -798,7 +798,7 @@ namespace ID3_TagIT
                 SubItems = { Convert.ToString(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["FileAlreadyExistsRename"])).Replace("%1", newValue).Replace("%2", tag.CurrentFullName).Replace("%C", "") }
               };
               this.MainForm.ErrorMsg.Items.Insert(0, item2);
-              this.MainForm.SplitterBottom.Expanded = true;
+              // FIXME - exp this.MainForm.SplitterBottom.Expanded = true;
             }
           }
         }

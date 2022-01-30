@@ -3731,7 +3731,8 @@ namespace ID3_TagIT
       try
       {
         this.APICView.Image = null;
-        this.PicMStream.Close();
+        if (this.PicFStream != null)
+          this.PicMStream.Close();
       }
       catch (Exception exception3)
       {

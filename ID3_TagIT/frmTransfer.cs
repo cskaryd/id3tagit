@@ -288,7 +288,7 @@ namespace ID3_TagIT
 
     }
 
-    public frmTransfer(ref frmMain FormMain)
+    public frmTransfer(frmMain FormMain)
     {
       base.Load += new EventHandler(this.frmTransfer_Load);
       this.InitializeComponent();

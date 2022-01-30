@@ -1013,7 +1013,7 @@ namespace ID3_TagIT
           };
 
           this.MainForm.ErrorMsg.Items.Insert(0, item2);
-          this.MainForm.SplitterBottom.Expanded = true;
+          // FIXME - splitter this.MainForm.SplitterBottom.Expanded = true;
         }
         else
         {
@@ -1043,7 +1043,7 @@ namespace ID3_TagIT
             };
 
             this.MainForm.ErrorMsg.Items.Insert(0, item);
-            this.MainForm.SplitterBottom.Expanded = true;
+            // FIXME  - splitter this.MainForm.SplitterBottom.Expanded = true;
           }
         }
       }

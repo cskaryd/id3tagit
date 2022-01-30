@@ -787,7 +787,7 @@ namespace ID3_TagIT
             }
             else
             {
-              ListViewItem item3 = new ListViewItem              {                Text = tag.CurrentFullName              };
+              ListViewItem item3 = new ListViewItem { Text = tag.CurrentFullName };
               objArray2 = new object[1];
               resStrings = Declarations.objResources.ResStrings;
               str4 = "ErrorTFExists";
@@ -800,12 +800,12 @@ namespace ID3_TagIT
                 resStrings[str4] = RuntimeHelpers.GetObjectValue(objArray[0]);
 
               this.MainForm.ErrorMsg.Items.Insert(0, item3);
-              this.MainForm.SplitterBottom.Expanded = true;
+              // FIXME - exp this.MainForm.SplitterBottom.Expanded = true;
             }
           }
           else
           {
-            ListViewItem item4 = new ListViewItem            {              Text = tag.CurrentFullName            };
+            ListViewItem item4 = new ListViewItem { Text = tag.CurrentFullName };
             objArray = new object[1];
             resStrings = Declarations.objResources.ResStrings;
             str4 = "InvalidPathLength";
@@ -818,7 +818,7 @@ namespace ID3_TagIT
               resStrings[str4] = RuntimeHelpers.GetObjectValue(objArray2[0]);
 
             this.MainForm.ErrorMsg.Items.Insert(0, item4);
-            this.MainForm.SplitterBottom.Expanded = true;
+            // FIXME - exp this.MainForm.SplitterBottom.Expanded = true;
           }
         }
 

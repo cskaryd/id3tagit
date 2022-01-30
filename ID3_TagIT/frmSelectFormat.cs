@@ -180,7 +180,7 @@ namespace ID3_TagIT
       this.ResumeLayout(false);
     }
 
-    public frmSelectFormat(ref frmMain FormMain)
+    public frmSelectFormat(frmMain FormMain)
     {
       base.Load += new EventHandler(this.frmSelectFormat_Load);
       this.InitializeComponent();

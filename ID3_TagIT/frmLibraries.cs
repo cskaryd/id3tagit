@@ -690,7 +690,7 @@ namespace ID3_TagIT
 
     }
 
-    public frmLibraries(ref frmMain FormMain)
+    public frmLibraries(frmMain FormMain)
     {
       base.Load += new EventHandler(this.frmLibraries_Load);
       this.vstrPfad = Declarations.objSettings.CurrentPath;
@@ -1005,7 +1005,7 @@ namespace ID3_TagIT
       form = this;
 
       frmProgress.Callback cB = new frmProgress.Callback(this.ArtistCB);
-      frmProgress progress = new frmProgress(0, list.Count, 1, ref form, ref cB)      {        btnCancel = { Enabled = false }      };
+      frmProgress progress = new frmProgress(0, list.Count, 1, ref form, ref cB) { btnCancel = { Enabled = false } };
 
       progress.SetStateSaveLib();
       progress.List = list;
@@ -1013,22 +1013,22 @@ namespace ID3_TagIT
       Application.DoEvents();
       form = this;
       cB = new frmProgress.Callback(this.GenreCB);
-      frmProgress progress2 = new frmProgress(0, this.GenreList.Items.Count, 1, ref form, ref cB)      {        btnCancel = { Enabled = false }      };
+      frmProgress progress2 = new frmProgress(0, this.GenreList.Items.Count, 1, ref form, ref cB) { btnCancel = { Enabled = false } };
 
       progress2.SetStateSaveLib();
       progress2.ShowDialog(this);
       Application.DoEvents();
       form = this;
       cB = new frmProgress.Callback(this.CommDCB);
-      frmProgress progress3 = new frmProgress(0, list2.Count, 1, ref form, ref cB)      {        btnCancel = { Enabled = false }      };
+      frmProgress progress3 = new frmProgress(0, list2.Count, 1, ref form, ref cB) { btnCancel = { Enabled = false } };
 
       progress3.SetStateSaveLib();
       progress3.List = list2;
       progress3.ShowDialog(this);
-      this.MainForm.cmbArtist.Items.Clear();
+      this.MainForm.cboQEArtist.Items.Clear();
 
       foreach (DataRow row in Declarations.objSettings.Artists.Rows)
-        this.MainForm.cmbArtist.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));      
+        this.MainForm.cboQEArtist.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
 
       this.Close();
     }

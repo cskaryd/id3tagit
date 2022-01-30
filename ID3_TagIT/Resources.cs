@@ -101,11 +101,21 @@ namespace ID3_TagIT
       }
 
       Assembly entryAssembly = Assembly.GetEntryAssembly();
-      this.ID3TagITRes.ReadXml(entryAssembly.GetManifestResourceStream(str2));
-      this.ID3TagITToolTips.ReadXml(entryAssembly.GetManifestResourceStream(str3));
-      this.ID3TagITMenus.ReadXml(entryAssembly.GetManifestResourceStream(str));
-      this.ResStringsRow = this.ID3TagITRes.Tables[0].Rows[0];
-      this.SelectionBarRow = this.ID3TagITRes.Tables[1].Rows[0];
+
+      if (!string.IsNullOrEmpty(str2))
+        this.ID3TagITRes.ReadXml(entryAssembly.GetManifestResourceStream(str2));
+
+      if (!string.IsNullOrEmpty(str3))
+        this.ID3TagITToolTips.ReadXml(entryAssembly.GetManifestResourceStream(str3));
+
+      if (!string.IsNullOrEmpty(str))
+        this.ID3TagITMenus.ReadXml(entryAssembly.GetManifestResourceStream(str));
+
+      if (this.ID3TagITRes.Tables.Count > 1)
+        this.ResStringsRow = this.ID3TagITRes.Tables[0].Rows[0];
+
+      if (this.ID3TagITRes.Tables.Count > 2)
+        this.SelectionBarRow = this.ID3TagITRes.Tables[1].Rows[0];
     }
 
     public void ResourcesToForm(ref Form objForm)

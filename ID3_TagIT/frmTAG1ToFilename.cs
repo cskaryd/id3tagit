@@ -499,7 +499,7 @@ namespace ID3_TagIT
                 resStrings[str4] = RuntimeHelpers.GetObjectValue(objArray[0]);
 
               this.MainForm.ErrorMsg.Items.Insert(0, item3);
-              this.MainForm.SplitterBottom.Expanded = true;
+              // FIXME - exp this.MainForm.SplitterBottom.Expanded = true;
             }
           }
           else
@@ -517,7 +517,7 @@ namespace ID3_TagIT
               resStrings[str4] = RuntimeHelpers.GetObjectValue(objArray2[0]);
 
             this.MainForm.ErrorMsg.Items.Insert(0, item4);
-            this.MainForm.SplitterBottom.Expanded = true;
+            // FIXME - exp this.MainForm.SplitterBottom.Expanded = true;
           }
         }
 

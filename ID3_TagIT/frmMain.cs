@@ -21,49 +21,10 @@ namespace ID3_TagIT
   {
     #region Designer
 
-    private ButtonItem FavouritesPan;
-    private ButtonItem FoldersPan;
-    private ButtonItem btnV1V2View;
-    private ButtonItem mnubtnEnumCounter;
-    private ButtonItem mnubtnEnumMinus;
-    private ButtonItem mnubtnEnumPlus;
-    private ButtonItem mnubtnRedo;
-    private ButtonItem mnubtnUndo;
-    private ButtonItem mnubtnViewVer1;
-    private ButtonItem mnubtnViewVer2;
-    private ControlContainerItem CContainerAPICView;
-    private ControlContainerItem CContainerAlbum;
-    private ControlContainerItem CContainerArtist;
-    private ControlContainerItem CContainerTitle;
-    private ControlContainerItem CContainerbtnQuickEditMore;
-    private ControlContainerItem CContainerbtnQuickEditOK;
-    private ControlContainerItem CContainertxtInfo;
-    private DockSite barBottomDockSite;
-    private DockSite barLeftDockSite;
-    private DockSite barRightDockSite;
-    private DockSite barTopDockSite;
-    private ExpandableSplitter SplitterLeft;
-    private ExpandableSplitter SplitterRight;
-    private ExplorerBar SideBar;
-    private ExplorerBarGroupItem BarGroupEdit;
-    private ExplorerBarGroupItem BarGroupInfo;
-    private ExplorerBarGroupItem BarGroupPicture;
-    private ExplorerBarGroupItem BarGroupTools;
-    private LabelItem lblAlbum;
-    private LabelItem lblArtist;
-    private LabelItem lblQuickSpacer1;
-    private LabelItem lblTitle;
-    private NavigationPane NavigationPan;
-    private NavigationPanePanel FavouritesPanel;
-    private NavigationPanePanel FoldersPanel;
-    public DevComponents.DotNetBar.DotNetBarManager DotNetBarManager;
-    public ExpandableSplitter SplitterBottom;
-
+    private SplitContainer spltTop;
+    private SplitContainer spltMain;
     private ArrayList alstCopyPaste;
-    private Button btnQuickEdit;
-    private Button btnQuickEditMore;
     private ErrorProvider errorProvider1;
-    private FolderTreeView FolderTree;
     private IContainer components;
     private ImageList ColumnHeaderIcons;
     private ImageList GroupIcons;
@@ -72,13 +33,10 @@ namespace ID3_TagIT
     private MemoryStream PicMStream;
     private MenuStrip mnuBtns;
     private MenuStrip mnuDDs;
-    private PictureBox APICView;
-    private RichTextBox txtInfo;
-    private System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog;
+    private MenuStrip mnuExtended;
+    private FolderBrowserDialog FolderBrowserDialog;
     private System.Windows.Forms.Timer FolderRenameTimer;
     private System.Windows.Forms.Timer Timer;
-    private TextBox txtAlbum;
-    private TextBox txtTitle;
     private Thread CalcAudioCheckSumThread;
     private Thread GetFilesTimeThread;
     private ToolStripComboBox cboLanguage;
@@ -150,7 +108,7 @@ namespace ID3_TagIT
     private ToolStripMenuItem removeEmptyFoldersToolStripMenuItem;
     private ToolStripMenuItem removeSelectedFilesFromListToolStripMenuItem;
     private ToolStripMenuItem removeTAGVer1ToolStripMenuItem1;
-    private ToolStripMenuItem removeTAGVer1ToolStripMenuItem2;
+    private ToolStripMenuItem filenameToTagV2;
     private ToolStripMenuItem removeTAGVer1ToolStripMenuItem;
     private ToolStripMenuItem renameFilefolderToolStripMenuItem;
     private ToolStripMenuItem saveToolStripMenuItem;
@@ -181,6 +139,10 @@ namespace ID3_TagIT
     private ToolStripSeparator sepButtons3;
     private ToolStripSeparator sepButtons4;
     private ToolStripSeparator sepButtons5;
+    private ToolStripSeparator sepButtons6;
+    private ToolStripSeparator sepButtons7;
+    private ToolStripSeparator sepButtons8;
+    private ToolStripSeparator sepButtons9;
     private ToolStripSeparator toolStripSeparator10;
     private ToolStripSeparator toolStripSeparator11;
     private ToolStripSeparator toolStripSeparator12;
@@ -209,7 +171,6 @@ namespace ID3_TagIT
     private byte vbytFilterIndex;
     private byte vbytFolderRenameCount;
     private byte vbytSelTimerCount;
-    private byte vbytToolBarTAGVersion;
     private int vintEnumCount;
     private int vintHelpCount;
     private int vintSelTimerCount;
@@ -245,10 +206,7 @@ namespace ID3_TagIT
     public ColumnHeader colHVBR;
     public ColumnHeader colHVersion;
     public ColumnHeader colHYear;
-    public ComboBoxAutoComplete cmbArtist;
-    public ListView ErrorMsg;
     public ListView MP3View;
-    public TreeView FavTree;
     public byte vbytVersionToShow;
     public int LastSortedColumn;
     private StatusStrip statusStrip1;
@@ -259,6 +217,145 @@ namespace ID3_TagIT
     private ToolStripStatusLabel lblSubDirs;
     private ToolStripStatusLabel lblProgress;
     private ToolStripProgressBar StatusProgressBar;
+    private ContextMenuStrip errContext;
+    private ToolStripMenuItem ctxClearErrors;
+    private ToolStripMenuItem mnubCaseConv;
+    private ToolStripMenuItem mnubTransferConvertTags;
+    private ToolStripMenuItem mnubSwapV1;
+    private ToolStripMenuItem mnubSwapV2;
+    private ToolStripMenuItem mnubQueryFreeDB;
+    private ToolStripMenuItem mnubEnumerate;
+    private ToolStripMenuItem tsmiDecrease;
+    private ToolStripMenuItem tsmiIncrease;
+    private ToolStripMenuItem toolStripMenuItem9;
+    private ToolStripMenuItem toolStripMenuItem10;
+    private ToolStripMenuItem toolStripMenuItem11;
+    private ToolStripMenuItem tsmiClearFilter;
+    private ToolStripTextBox mnutEnumerateCounter;
+    private ToolStripMenuItem artistTitleToolStripMenuItem2;
+    private ToolStripMenuItem artistAlbumToolStripMenuItem2;
+    private ToolStripMenuItem titleAlbumToolStripMenuItem2;
+    private ToolStripMenuItem artistTitleToolStripMenuItem3;
+    private ToolStripMenuItem artistAlbumToolStripMenuItem3;
+    private ToolStripMenuItem titleAlbumToolStripMenuItem3;
+    private ToolStripMenuItem enumerateInFilenameToolStripMenuItem1;
+    private ToolStripMenuItem enumerateInTAGVer1ToolStripMenuItem1;
+    private ToolStripMenuItem enumerateInTAGVer2ToolStripMenuItem1;
+    private ToolStripMenuItem mnubArtistFilterA;
+    private ToolStripMenuItem bToolStripMenuItem;
+    private ToolStripMenuItem cToolStripMenuItem;
+    private ToolStripMenuItem dToolStripMenuItem;
+    private ToolStripMenuItem eToolStripMenuItem;
+    private ToolStripMenuItem fToolStripMenuItem;
+    private ToolStripMenuItem gToolStripMenuItem;
+    private ToolStripMenuItem hToolStripMenuItem;
+    private ToolStripMenuItem iToolStripMenuItem;
+    private ToolStripMenuItem jToolStripMenuItem;
+    private ToolStripMenuItem kToolStripMenuItem;
+    private ToolStripMenuItem lToolStripMenuItem;
+    private ToolStripMenuItem mToolStripMenuItem;
+    private ToolStripMenuItem nToolStripMenuItem;
+    private ToolStripMenuItem oToolStripMenuItem;
+    private ToolStripMenuItem pToolStripMenuItem;
+    private ToolStripMenuItem qToolStripMenuItem;
+    private ToolStripMenuItem rToolStripMenuItem;
+    private ToolStripMenuItem sToolStripMenuItem;
+    private ToolStripMenuItem tToolStripMenuItem;
+    private ToolStripMenuItem uToolStripMenuItem;
+    private ToolStripMenuItem vToolStripMenuItem;
+    private ToolStripMenuItem wToolStripMenuItem;
+    private ToolStripMenuItem xToolStripMenuItem;
+    private ToolStripMenuItem yToolStripMenuItem;
+    private ToolStripMenuItem zToolStripMenuItem;
+    private ToolStripMenuItem toolStripMenuItem2;
+    private ToolStripMenuItem toolStripMenuItem3;
+    private ToolStripMenuItem toolStripMenuItem4;
+    private ToolStripMenuItem mnubTitleFilterA;
+    private ToolStripMenuItem mnubAlbumFilterA;
+    private ToolStripMenuItem bToolStripMenuItem1;
+    private ToolStripMenuItem cToolStripMenuItem1;
+    private ToolStripMenuItem dToolStripMenuItem1;
+    private ToolStripMenuItem eToolStripMenuItem1;
+    private ToolStripMenuItem fToolStripMenuItem1;
+    private ToolStripMenuItem gToolStripMenuItem1;
+    private ToolStripMenuItem hToolStripMenuItem1;
+    private ToolStripMenuItem iToolStripMenuItem1;
+    private ToolStripMenuItem jToolStripMenuItem1;
+    private ToolStripMenuItem kToolStripMenuItem1;
+    private ToolStripMenuItem lToolStripMenuItem1;
+    private ToolStripMenuItem mToolStripMenuItem1;
+    private ToolStripMenuItem nToolStripMenuItem1;
+    private ToolStripMenuItem oToolStripMenuItem1;
+    private ToolStripMenuItem pToolStripMenuItem1;
+    private ToolStripMenuItem qToolStripMenuItem1;
+    private ToolStripMenuItem rToolStripMenuItem1;
+    private ToolStripMenuItem sToolStripMenuItem1;
+    private ToolStripMenuItem tToolStripMenuItem1;
+    private ToolStripMenuItem uToolStripMenuItem1;
+    private ToolStripMenuItem vToolStripMenuItem1;
+    private ToolStripMenuItem wToolStripMenuItem1;
+    private ToolStripMenuItem xToolStripMenuItem1;
+    private ToolStripMenuItem yToolStripMenuItem1;
+    private ToolStripMenuItem zToolStripMenuItem1;
+    private ToolStripMenuItem toolStripMenuItem5;
+    private ToolStripMenuItem toolStripMenuItem6;
+    private ToolStripMenuItem bToolStripMenuItem2;
+    private ToolStripMenuItem cToolStripMenuItem2;
+    private ToolStripMenuItem dToolStripMenuItem2;
+    private ToolStripMenuItem eToolStripMenuItem2;
+    private ToolStripMenuItem fToolStripMenuItem2;
+    private ToolStripMenuItem gToolStripMenuItem2;
+    private ToolStripMenuItem hToolStripMenuItem2;
+    private ToolStripMenuItem iToolStripMenuItem2;
+    private ToolStripMenuItem jToolStripMenuItem2;
+    private ToolStripMenuItem kToolStripMenuItem2;
+    private ToolStripMenuItem lToolStripMenuItem2;
+    private ToolStripMenuItem mToolStripMenuItem2;
+    private ToolStripMenuItem nToolStripMenuItem2;
+    private ToolStripMenuItem oToolStripMenuItem2;
+    private ToolStripMenuItem pToolStripMenuItem2;
+    private ToolStripMenuItem qToolStripMenuItem2;
+    private ToolStripMenuItem rToolStripMenuItem2;
+    private ToolStripMenuItem sToolStripMenuItem2;
+    private ToolStripMenuItem tToolStripMenuItem2;
+    private ToolStripMenuItem uToolStripMenuItem2;
+    private ToolStripMenuItem vToolStripMenuItem2;
+    private ToolStripMenuItem wToolStripMenuItem2;
+    private ToolStripMenuItem xToolStripMenuItem2;
+    private ToolStripMenuItem yToolStripMenuItem2;
+    private ToolStripMenuItem zToolStripMenuItem2;
+    private ToolStripMenuItem toolStripMenuItem7;
+    private ToolStripMenuItem toolStripMenuItem8;
+    private Panel pnlTools;
+    private LinkLabel lnkToolsExpCol;
+    private Label lblTools;
+    private ListView lstTools;
+    private Panel pnlInformation;
+    private LinkLabel lnkInfoExpCol;
+    private RichTextBox txtInformation;
+    private Label lblInformation;
+    private Panel pnlPicture;
+    private LinkLabel lnkPictureExpCol;
+    private PictureBox picCover;
+    private Label lblPicture;
+    private Panel pnlQuickEdit;
+    private LinkLabel lnkQuickEditExpCol;
+    private Button btnQuickEditOK;
+    private TextBox txtQETitle;
+    private TextBox txtQEAlbum;
+    private Label lblQETitle;
+    private Label lblQEAlbum;
+    public ComboBox cboQEArtist;
+    private Label lblQEArtist;
+    private Label lblQuickEdit;
+    private Button btnQuickEditMore;
+    private System.Windows.Forms.TabControl tabControl1;
+    private TabPage tabFolders;
+    private FolderTreeView FolderTree;
+    private TabPage tabFavorites;
+    public TreeView FavTree;
+    private SplitContainer spltMiddle;
+    public ListView ErrorMsg;
     public int SortedColumn;
 
     protected override void Dispose(bool disposing)
@@ -274,52 +371,47 @@ namespace ID3_TagIT
     {
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-      this.ColumnHeaderIcons = new System.Windows.Forms.ImageList(this.components);
-      this.ToolsIcons = new System.Windows.Forms.ImageList(this.components);
+      this.spltMain = new System.Windows.Forms.SplitContainer();
+      this.spltTop = new System.Windows.Forms.SplitContainer();
+      this.tabControl1 = new System.Windows.Forms.TabControl();
+      this.tabFolders = new System.Windows.Forms.TabPage();
+      this.FolderTree = new ID3_TagIT.FolderTreeView();
+      this.tabFavorites = new System.Windows.Forms.TabPage();
+      this.FavTree = new System.Windows.Forms.TreeView();
+      this.spltMiddle = new System.Windows.Forms.SplitContainer();
+      this.MP3View = new System.Windows.Forms.ListView();
+      this.ErrorMsg = new System.Windows.Forms.ListView();
+      this.errContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.ctxClearErrors = new System.Windows.Forms.ToolStripMenuItem();
+      this.pnlTools = new System.Windows.Forms.Panel();
+      this.lnkToolsExpCol = new System.Windows.Forms.LinkLabel();
+      this.lblTools = new System.Windows.Forms.Label();
+      this.lstTools = new System.Windows.Forms.ListView();
+      this.pnlInformation = new System.Windows.Forms.Panel();
+      this.lnkInfoExpCol = new System.Windows.Forms.LinkLabel();
+      this.txtInformation = new System.Windows.Forms.RichTextBox();
+      this.lblInformation = new System.Windows.Forms.Label();
+      this.pnlPicture = new System.Windows.Forms.Panel();
+      this.lnkPictureExpCol = new System.Windows.Forms.LinkLabel();
+      this.picCover = new System.Windows.Forms.PictureBox();
+      this.lblPicture = new System.Windows.Forms.Label();
+      this.pnlQuickEdit = new System.Windows.Forms.Panel();
+      this.btnQuickEditMore = new System.Windows.Forms.Button();
+      this.lnkQuickEditExpCol = new System.Windows.Forms.LinkLabel();
+      this.btnQuickEditOK = new System.Windows.Forms.Button();
+      this.txtQETitle = new System.Windows.Forms.TextBox();
+      this.txtQEAlbum = new System.Windows.Forms.TextBox();
+      this.lblQETitle = new System.Windows.Forms.Label();
+      this.lblQEAlbum = new System.Windows.Forms.Label();
+      this.cboQEArtist = new System.Windows.Forms.ComboBox();
+      this.lblQEArtist = new System.Windows.Forms.Label();
+      this.lblQuickEdit = new System.Windows.Forms.Label();
       this.GroupIcons = new System.Windows.Forms.ImageList(this.components);
+      this.ToolsIcons = new System.Windows.Forms.ImageList(this.components);
+      this.ColumnHeaderIcons = new System.Windows.Forms.ImageList(this.components);
       this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
       this.Timer = new System.Windows.Forms.Timer(this.components);
       this.FolderRenameTimer = new System.Windows.Forms.Timer(this.components);
-      this.DotNetBarManager = new DevComponents.DotNetBar.DotNetBarManager(this.components);
-      this.barBottomDockSite = new DevComponents.DotNetBar.DockSite();
-      this.barLeftDockSite = new DevComponents.DotNetBar.DockSite();
-      this.barRightDockSite = new DevComponents.DotNetBar.DockSite();
-      this.barTopDockSite = new DevComponents.DotNetBar.DockSite();
-      this.SplitterLeft = new DevComponents.DotNetBar.ExpandableSplitter();
-      this.NavigationPan = new DevComponents.DotNetBar.NavigationPane();
-      this.FoldersPanel = new DevComponents.DotNetBar.NavigationPanePanel();
-      this.FolderTree = new ID3_TagIT.FolderTreeView();
-      this.FoldersPan = new DevComponents.DotNetBar.ButtonItem();
-      this.FavouritesPanel = new DevComponents.DotNetBar.NavigationPanePanel();
-      this.FavTree = new System.Windows.Forms.TreeView();
-      this.FavouritesPan = new DevComponents.DotNetBar.ButtonItem();
-      this.SplitterBottom = new DevComponents.DotNetBar.ExpandableSplitter();
-      this.ErrorMsg = new System.Windows.Forms.ListView();
-      this.SplitterRight = new DevComponents.DotNetBar.ExpandableSplitter();
-      this.SideBar = new DevComponents.DotNetBar.ExplorerBar();
-      this.cmbArtist = new ID3_TagIT.ComboBoxAutoComplete();
-      this.txtTitle = new System.Windows.Forms.TextBox();
-      this.txtAlbum = new System.Windows.Forms.TextBox();
-      this.btnQuickEdit = new System.Windows.Forms.Button();
-      this.btnQuickEditMore = new System.Windows.Forms.Button();
-      this.APICView = new System.Windows.Forms.PictureBox();
-      this.txtInfo = new System.Windows.Forms.RichTextBox();
-      this.BarGroupEdit = new DevComponents.DotNetBar.ExplorerBarGroupItem();
-      this.lblArtist = new DevComponents.DotNetBar.LabelItem();
-      this.CContainerArtist = new DevComponents.DotNetBar.ControlContainerItem();
-      this.lblTitle = new DevComponents.DotNetBar.LabelItem();
-      this.CContainerTitle = new DevComponents.DotNetBar.ControlContainerItem();
-      this.lblAlbum = new DevComponents.DotNetBar.LabelItem();
-      this.CContainerAlbum = new DevComponents.DotNetBar.ControlContainerItem();
-      this.lblQuickSpacer1 = new DevComponents.DotNetBar.LabelItem();
-      this.CContainerbtnQuickEditOK = new DevComponents.DotNetBar.ControlContainerItem();
-      this.CContainerbtnQuickEditMore = new DevComponents.DotNetBar.ControlContainerItem();
-      this.BarGroupPicture = new DevComponents.DotNetBar.ExplorerBarGroupItem();
-      this.CContainerAPICView = new DevComponents.DotNetBar.ControlContainerItem();
-      this.BarGroupInfo = new DevComponents.DotNetBar.ExplorerBarGroupItem();
-      this.CContainertxtInfo = new DevComponents.DotNetBar.ControlContainerItem();
-      this.BarGroupTools = new DevComponents.DotNetBar.ExplorerBarGroupItem();
-      this.MP3View = new System.Windows.Forms.ListView();
       this.EnumInfo = new System.Windows.Forms.Label();
       this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
       this.mnuDDs = new System.Windows.Forms.MenuStrip();
@@ -387,7 +479,7 @@ namespace ID3_TagIT
       this.editTAGVer2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.multipleEditTAGVer2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.removeTAGVer1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.removeTAGVer1ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.filenameToTagV2 = new System.Windows.Forms.ToolStripMenuItem();
       this.tAGVer2FilenameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.extendedFunctionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.caseConversionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -422,6 +514,118 @@ namespace ID3_TagIT
       this.shortcutsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
       this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.mnuExtended = new System.Windows.Forms.MenuStrip();
+      this.mnubCaseConv = new System.Windows.Forms.ToolStripMenuItem();
+      this.mnubTransferConvertTags = new System.Windows.Forms.ToolStripMenuItem();
+      this.sepButtons6 = new System.Windows.Forms.ToolStripSeparator();
+      this.mnubSwapV1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.artistTitleToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.artistAlbumToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.titleAlbumToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.mnubSwapV2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.artistTitleToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+      this.artistAlbumToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+      this.titleAlbumToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+      this.sepButtons7 = new System.Windows.Forms.ToolStripSeparator();
+      this.mnubQueryFreeDB = new System.Windows.Forms.ToolStripMenuItem();
+      this.sepButtons8 = new System.Windows.Forms.ToolStripSeparator();
+      this.mnubEnumerate = new System.Windows.Forms.ToolStripMenuItem();
+      this.enumerateInFilenameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.enumerateInTAGVer1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.enumerateInTAGVer2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.tsmiDecrease = new System.Windows.Forms.ToolStripMenuItem();
+      this.mnutEnumerateCounter = new System.Windows.Forms.ToolStripTextBox();
+      this.tsmiIncrease = new System.Windows.Forms.ToolStripMenuItem();
+      this.sepButtons9 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+      this.mnubArtistFilterA = new System.Windows.Forms.ToolStripMenuItem();
+      this.bToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.dToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.eToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.fToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.gToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.hToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.iToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.jToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.kToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.lToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.mToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.nToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.oToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.pToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.qToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.rToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.tToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.uToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.vToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.wToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.xToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.yToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.zToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+      this.mnubTitleFilterA = new System.Windows.Forms.ToolStripMenuItem();
+      this.bToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.cToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.dToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.eToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.fToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.gToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.hToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.iToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.jToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.kToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.lToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.mToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.nToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.oToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.pToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.qToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.rToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.sToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.tToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.uToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.vToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.wToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.xToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.yToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.zToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+      this.mnubAlbumFilterA = new System.Windows.Forms.ToolStripMenuItem();
+      this.bToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.cToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.dToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.eToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.fToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.gToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.hToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.iToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.jToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.kToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.lToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.mToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.nToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.oToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.pToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.qToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.rToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.sToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.tToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.uToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.vToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.wToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.xToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.yToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.zToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+      this.tsmiClearFilter = new System.Windows.Forms.ToolStripMenuItem();
       this.sepButtons1 = new System.Windows.Forms.ToolStripSeparator();
       this.sepButtons2 = new System.Windows.Forms.ToolStripSeparator();
       this.sepButtons3 = new System.Windows.Forms.ToolStripSeparator();
@@ -453,236 +657,115 @@ namespace ID3_TagIT
       this.lblSubDirs = new System.Windows.Forms.ToolStripStatusLabel();
       this.lblProgress = new System.Windows.Forms.ToolStripStatusLabel();
       this.StatusProgressBar = new System.Windows.Forms.ToolStripProgressBar();
-      this.NavigationPan.SuspendLayout();
-      this.FoldersPanel.SuspendLayout();
-      this.FavouritesPanel.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.SideBar)).BeginInit();
-      this.SideBar.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.APICView)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.spltMain)).BeginInit();
+      this.spltMain.Panel1.SuspendLayout();
+      this.spltMain.Panel2.SuspendLayout();
+      this.spltMain.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.spltTop)).BeginInit();
+      this.spltTop.Panel1.SuspendLayout();
+      this.spltTop.Panel2.SuspendLayout();
+      this.spltTop.SuspendLayout();
+      this.tabControl1.SuspendLayout();
+      this.tabFolders.SuspendLayout();
+      this.tabFavorites.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.spltMiddle)).BeginInit();
+      this.spltMiddle.Panel1.SuspendLayout();
+      this.spltMiddle.Panel2.SuspendLayout();
+      this.spltMiddle.SuspendLayout();
+      this.errContext.SuspendLayout();
+      this.pnlTools.SuspendLayout();
+      this.pnlInformation.SuspendLayout();
+      this.pnlPicture.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.picCover)).BeginInit();
+      this.pnlQuickEdit.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
       this.mnuDDs.SuspendLayout();
+      this.mnuExtended.SuspendLayout();
       this.mnuBtns.SuspendLayout();
       this.statusStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
-      // ColumnHeaderIcons
+      // spltMain
       // 
-      this.ColumnHeaderIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ColumnHeaderIcons.ImageStream")));
-      this.ColumnHeaderIcons.TransparentColor = System.Drawing.Color.Transparent;
-      this.ColumnHeaderIcons.Images.SetKeyName(0, "");
-      this.ColumnHeaderIcons.Images.SetKeyName(1, "");
+      this.spltMain.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.spltMain.Location = new System.Drawing.Point(0, 78);
+      this.spltMain.Name = "spltMain";
       // 
-      // ToolsIcons
+      // spltMain.Panel1
       // 
-      this.ToolsIcons.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-      this.ToolsIcons.ImageSize = new System.Drawing.Size(16, 16);
-      this.ToolsIcons.TransparentColor = System.Drawing.Color.Transparent;
+      this.spltMain.Panel1.Controls.Add(this.spltTop);
       // 
-      // GroupIcons
+      // spltMain.Panel2
       // 
-      this.GroupIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("GroupIcons.ImageStream")));
-      this.GroupIcons.TransparentColor = System.Drawing.Color.Transparent;
-      this.GroupIcons.Images.SetKeyName(0, "");
-      this.GroupIcons.Images.SetKeyName(1, "");
-      this.GroupIcons.Images.SetKeyName(2, "");
-      this.GroupIcons.Images.SetKeyName(3, "");
+      this.spltMain.Panel2.Controls.Add(this.pnlTools);
+      this.spltMain.Panel2.Controls.Add(this.pnlInformation);
+      this.spltMain.Panel2.Controls.Add(this.pnlPicture);
+      this.spltMain.Panel2.Controls.Add(this.pnlQuickEdit);
+      this.spltMain.Size = new System.Drawing.Size(1178, 764);
+      this.spltMain.SplitterDistance = 975;
+      this.spltMain.TabIndex = 31;
       // 
-      // Timer
+      // spltTop
       // 
-      this.Timer.Enabled = true;
-      this.Timer.Interval = 200;
+      this.spltTop.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.spltTop.Location = new System.Drawing.Point(0, 0);
+      this.spltTop.Name = "spltTop";
       // 
-      // DotNetBarManager
+      // spltTop.Panel1
       // 
-      this.DotNetBarManager.AllowUserBarCustomize = false;
-      this.DotNetBarManager.BottomDockSite = this.barBottomDockSite;
-      this.DotNetBarManager.DefinitionName = "ID3-TagIT.MenuBars.xml";
-      this.DotNetBarManager.LeftDockSite = this.barLeftDockSite;
-      this.DotNetBarManager.ParentForm = this;
-      this.DotNetBarManager.RightDockSite = this.barRightDockSite;
-      this.DotNetBarManager.ShowShortcutKeysInToolTips = true;
-      this.DotNetBarManager.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-      this.DotNetBarManager.TopDockSite = this.barTopDockSite;
-      this.DotNetBarManager.ItemClick += new System.EventHandler(this.DotNetBarManager_ItemClick);
+      this.spltTop.Panel1.Controls.Add(this.tabControl1);
       // 
-      // barBottomDockSite
+      // spltTop.Panel2
       // 
-      this.barBottomDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-      this.barBottomDockSite.BackgroundImageAlpha = ((byte)(255));
-      this.barBottomDockSite.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.barBottomDockSite.Location = new System.Drawing.Point(0, 639);
-      this.barBottomDockSite.Name = "barBottomDockSite";
-      this.barBottomDockSite.Size = new System.Drawing.Size(1005, 0);
-      this.barBottomDockSite.TabIndex = 20;
-      this.barBottomDockSite.TabStop = false;
+      this.spltTop.Panel2.Controls.Add(this.spltMiddle);
+      this.spltTop.Size = new System.Drawing.Size(975, 764);
+      this.spltTop.SplitterDistance = 196;
+      this.spltTop.TabIndex = 26;
       // 
-      // barLeftDockSite
+      // tabControl1
       // 
-      this.barLeftDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-      this.barLeftDockSite.BackgroundImageAlpha = ((byte)(255));
-      this.barLeftDockSite.Dock = System.Windows.Forms.DockStyle.Left;
-      this.barLeftDockSite.Location = new System.Drawing.Point(0, 130);
-      this.barLeftDockSite.Name = "barLeftDockSite";
-      this.barLeftDockSite.Size = new System.Drawing.Size(0, 509);
-      this.barLeftDockSite.TabIndex = 17;
-      this.barLeftDockSite.TabStop = false;
+      this.tabControl1.Controls.Add(this.tabFolders);
+      this.tabControl1.Controls.Add(this.tabFavorites);
+      this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tabControl1.Location = new System.Drawing.Point(0, 0);
+      this.tabControl1.Name = "tabControl1";
+      this.tabControl1.SelectedIndex = 0;
+      this.tabControl1.Size = new System.Drawing.Size(196, 764);
+      this.tabControl1.TabIndex = 0;
       // 
-      // barRightDockSite
+      // tabFolders
       // 
-      this.barRightDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-      this.barRightDockSite.BackgroundImageAlpha = ((byte)(255));
-      this.barRightDockSite.Dock = System.Windows.Forms.DockStyle.Right;
-      this.barRightDockSite.Location = new System.Drawing.Point(1005, 130);
-      this.barRightDockSite.Name = "barRightDockSite";
-      this.barRightDockSite.Size = new System.Drawing.Size(0, 509);
-      this.barRightDockSite.TabIndex = 18;
-      this.barRightDockSite.TabStop = false;
-      // 
-      // barTopDockSite
-      // 
-      this.barTopDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-      this.barTopDockSite.BackgroundImageAlpha = ((byte)(255));
-      this.barTopDockSite.Dock = System.Windows.Forms.DockStyle.Top;
-      this.barTopDockSite.Location = new System.Drawing.Point(0, 51);
-      this.barTopDockSite.Name = "barTopDockSite";
-      this.barTopDockSite.Size = new System.Drawing.Size(1005, 79);
-      this.barTopDockSite.TabIndex = 19;
-      this.barTopDockSite.TabStop = false;
-      // 
-      // SplitterLeft
-      // 
-      this.SplitterLeft.BackColor2 = System.Drawing.SystemColors.ControlDarkDark;
-      this.SplitterLeft.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.SplitterLeft.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-      this.SplitterLeft.ExpandableControl = this.NavigationPan;
-      this.SplitterLeft.ExpandFillColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.SplitterLeft.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.SplitterLeft.ExpandLineColor = System.Drawing.SystemColors.ControlText;
-      this.SplitterLeft.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-      this.SplitterLeft.GripDarkColor = System.Drawing.SystemColors.ControlText;
-      this.SplitterLeft.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-      this.SplitterLeft.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-      this.SplitterLeft.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-      this.SplitterLeft.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
-      this.SplitterLeft.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-      this.SplitterLeft.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
-      this.SplitterLeft.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
-      this.SplitterLeft.HotExpandFillColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.SplitterLeft.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.SplitterLeft.HotExpandLineColor = System.Drawing.SystemColors.ControlText;
-      this.SplitterLeft.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-      this.SplitterLeft.HotGripDarkColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.SplitterLeft.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.SplitterLeft.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-      this.SplitterLeft.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-      this.SplitterLeft.Location = new System.Drawing.Point(216, 130);
-      this.SplitterLeft.MinExtra = 5;
-      this.SplitterLeft.MinSize = 5;
-      this.SplitterLeft.Name = "SplitterLeft";
-      this.SplitterLeft.Size = new System.Drawing.Size(8, 509);
-      this.SplitterLeft.TabIndex = 24;
-      this.SplitterLeft.TabStop = false;
-      // 
-      // NavigationPan
-      // 
-      this.NavigationPan.ConfigureAddRemoveVisible = false;
-      this.NavigationPan.Controls.Add(this.FavouritesPanel);
-      this.NavigationPan.Controls.Add(this.FoldersPanel);
-      this.NavigationPan.Dock = System.Windows.Forms.DockStyle.Left;
-      this.NavigationPan.ItemPaddingBottom = 2;
-      this.NavigationPan.ItemPaddingTop = 2;
-      this.NavigationPan.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.FoldersPan,
-            this.FavouritesPan});
-      this.NavigationPan.Location = new System.Drawing.Point(0, 130);
-      this.NavigationPan.Name = "NavigationPan";
-      this.NavigationPan.NavigationBarHeight = 88;
-      this.NavigationPan.Size = new System.Drawing.Size(216, 509);
-      this.NavigationPan.TabIndex = 23;
-      // 
-      // 
-      // 
-      this.NavigationPan.TitlePanel.AntiAlias = true;
-      this.NavigationPan.TitlePanel.Dock = System.Windows.Forms.DockStyle.Top;
-      this.NavigationPan.TitlePanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.NavigationPan.TitlePanel.Location = new System.Drawing.Point(0, 0);
-      this.NavigationPan.TitlePanel.Name = "panelEx1";
-      this.NavigationPan.TitlePanel.Size = new System.Drawing.Size(216, 24);
-      this.NavigationPan.TitlePanel.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-      this.NavigationPan.TitlePanel.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-      this.NavigationPan.TitlePanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.NavigationPan.TitlePanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.NavigationPan.TitlePanel.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-      this.NavigationPan.TitlePanel.Style.GradientAngle = 90;
-      this.NavigationPan.TitlePanel.Style.MarginLeft = 4;
-      this.NavigationPan.TitlePanel.TabIndex = 0;
-      this.NavigationPan.TitlePanel.Text = "Favourites";
-      // 
-      // FoldersPanel
-      // 
-      this.FoldersPanel.AntiAlias = true;
-      this.FoldersPanel.Controls.Add(this.FolderTree);
-      this.FoldersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.FoldersPanel.Location = new System.Drawing.Point(0, 24);
-      this.FoldersPanel.Name = "FoldersPanel";
-      this.FoldersPanel.Padding = new System.Windows.Forms.Padding(1, 1, 1, 0);
-      this.FoldersPanel.ParentItem = this.FoldersPan;
-      this.FoldersPanel.Size = new System.Drawing.Size(216, 397);
-      this.FoldersPanel.Style.Alignment = System.Drawing.StringAlignment.Center;
-      this.FoldersPanel.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-      this.FoldersPanel.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
-      this.FoldersPanel.Style.BackgroundImagePosition = DevComponents.DotNetBar.eBackgroundImagePosition.Tile;
-      this.FoldersPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.FoldersPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.FoldersPanel.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-      this.FoldersPanel.Style.GradientAngle = 90;
-      this.FoldersPanel.StyleMouseDown.Alignment = System.Drawing.StringAlignment.Center;
-      this.FoldersPanel.StyleMouseOver.Alignment = System.Drawing.StringAlignment.Center;
-      this.FoldersPanel.TabIndex = 2;
+      this.tabFolders.Controls.Add(this.FolderTree);
+      this.tabFolders.Location = new System.Drawing.Point(4, 22);
+      this.tabFolders.Name = "tabFolders";
+      this.tabFolders.Padding = new System.Windows.Forms.Padding(3);
+      this.tabFolders.Size = new System.Drawing.Size(188, 738);
+      this.tabFolders.TabIndex = 0;
+      this.tabFolders.Text = "Folders";
+      this.tabFolders.UseVisualStyleBackColor = true;
       // 
       // FolderTree
       // 
+      this.FolderTree.BackColor = System.Drawing.SystemColors.Control;
       this.FolderTree.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.FolderTree.Location = new System.Drawing.Point(1, 1);
+      this.FolderTree.Location = new System.Drawing.Point(3, 3);
       this.FolderTree.Name = "FolderTree";
-      this.FolderTree.Size = new System.Drawing.Size(214, 396);
-      this.FolderTree.TabIndex = 1;
+      this.FolderTree.Size = new System.Drawing.Size(182, 732);
+      this.FolderTree.TabIndex = 2;
       this.FolderTree.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.FolderTree_AfterLabelEdit);
       this.FolderTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.FolderTree_AfterSelect);
       this.FolderTree.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.FolderTree_BeforeLabelEdit);
-      this.FolderTree.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.FolderTree_BeforeSelect);
       // 
-      // FoldersPan
+      // tabFavorites
       // 
-      this.FoldersPan.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.FoldersPan.Icon = ((System.Drawing.Icon)(resources.GetObject("FoldersPan.Icon")));
-      this.FoldersPan.ImageIndex = 0;
-      this.FoldersPan.Name = "FoldersPan";
-      this.FoldersPan.OptionGroup = "navBar";
-      this.FoldersPan.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-      this.FoldersPan.Text = "Folders";
-      // 
-      // FavouritesPanel
-      // 
-      this.FavouritesPanel.AntiAlias = true;
-      this.FavouritesPanel.Controls.Add(this.FavTree);
-      this.FavouritesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.FavouritesPanel.Location = new System.Drawing.Point(0, 24);
-      this.FavouritesPanel.Name = "FavouritesPanel";
-      this.FavouritesPanel.Padding = new System.Windows.Forms.Padding(1, 1, 1, 0);
-      this.FavouritesPanel.ParentItem = this.FavouritesPan;
-      this.FavouritesPanel.Size = new System.Drawing.Size(216, 397);
-      this.FavouritesPanel.Style.Alignment = System.Drawing.StringAlignment.Center;
-      this.FavouritesPanel.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-      this.FavouritesPanel.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
-      this.FavouritesPanel.Style.BackgroundImagePosition = DevComponents.DotNetBar.eBackgroundImagePosition.Tile;
-      this.FavouritesPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.FavouritesPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.FavouritesPanel.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-      this.FavouritesPanel.Style.GradientAngle = 90;
-      this.FavouritesPanel.StyleMouseDown.Alignment = System.Drawing.StringAlignment.Center;
-      this.FavouritesPanel.StyleMouseOver.Alignment = System.Drawing.StringAlignment.Center;
-      this.FavouritesPanel.TabIndex = 3;
+      this.tabFavorites.Controls.Add(this.FavTree);
+      this.tabFavorites.Location = new System.Drawing.Point(4, 22);
+      this.tabFavorites.Name = "tabFavorites";
+      this.tabFavorites.Padding = new System.Windows.Forms.Padding(3);
+      this.tabFavorites.Size = new System.Drawing.Size(188, 738);
+      this.tabFavorites.TabIndex = 1;
+      this.tabFavorites.Text = "Favorites";
+      this.tabFavorites.UseVisualStyleBackColor = true;
       // 
       // FavTree
       // 
@@ -690,440 +773,31 @@ namespace ID3_TagIT
       this.FavTree.HideSelection = false;
       this.FavTree.Indent = 19;
       this.FavTree.ItemHeight = 16;
-      this.FavTree.Location = new System.Drawing.Point(1, 1);
+      this.FavTree.Location = new System.Drawing.Point(3, 3);
       this.FavTree.Name = "FavTree";
-      this.FavTree.Size = new System.Drawing.Size(214, 396);
-      this.FavTree.TabIndex = 8;
+      this.FavTree.Size = new System.Drawing.Size(182, 732);
+      this.FavTree.TabIndex = 9;
       this.FavTree.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.FavTree_BeforeSelect);
       this.FavTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.FavTree_AfterSelect);
       this.FavTree.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FavTree_MouseUp);
       // 
-      // FavouritesPan
+      // spltMiddle
       // 
-      this.FavouritesPan.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.FavouritesPan.Checked = true;
-      this.FavouritesPan.Icon = ((System.Drawing.Icon)(resources.GetObject("FavouritesPan.Icon")));
-      this.FavouritesPan.Name = "FavouritesPan";
-      this.FavouritesPan.OptionGroup = "navBar";
-      this.FavouritesPan.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-      this.FavouritesPan.Text = "Favourites";
+      this.spltMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.spltMiddle.Location = new System.Drawing.Point(0, 0);
+      this.spltMiddle.Name = "spltMiddle";
+      this.spltMiddle.Orientation = System.Windows.Forms.Orientation.Horizontal;
       // 
-      // SplitterBottom
+      // spltMiddle.Panel1
       // 
-      this.SplitterBottom.BackColor2 = System.Drawing.SystemColors.ControlDarkDark;
-      this.SplitterBottom.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.SplitterBottom.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-      this.SplitterBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.SplitterBottom.ExpandableControl = this.ErrorMsg;
-      this.SplitterBottom.ExpandFillColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.SplitterBottom.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.SplitterBottom.ExpandLineColor = System.Drawing.SystemColors.ControlText;
-      this.SplitterBottom.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-      this.SplitterBottom.GripDarkColor = System.Drawing.SystemColors.ControlText;
-      this.SplitterBottom.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-      this.SplitterBottom.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-      this.SplitterBottom.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-      this.SplitterBottom.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
-      this.SplitterBottom.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-      this.SplitterBottom.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
-      this.SplitterBottom.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
-      this.SplitterBottom.HotExpandFillColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.SplitterBottom.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.SplitterBottom.HotExpandLineColor = System.Drawing.SystemColors.ControlText;
-      this.SplitterBottom.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-      this.SplitterBottom.HotGripDarkColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.SplitterBottom.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.SplitterBottom.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-      this.SplitterBottom.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-      this.SplitterBottom.Location = new System.Drawing.Point(224, 511);
-      this.SplitterBottom.MinExtra = 5;
-      this.SplitterBottom.MinSize = 5;
-      this.SplitterBottom.Name = "SplitterBottom";
-      this.SplitterBottom.Size = new System.Drawing.Size(573, 8);
-      this.SplitterBottom.TabIndex = 25;
-      this.SplitterBottom.TabStop = false;
+      this.spltMiddle.Panel1.Controls.Add(this.MP3View);
       // 
-      // ErrorMsg
+      // spltMiddle.Panel2
       // 
-      this.ErrorMsg.BackColor = System.Drawing.SystemColors.Window;
-      this.ErrorMsg.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.ErrorMsg.FullRowSelect = true;
-      this.ErrorMsg.GridLines = true;
-      this.ErrorMsg.HideSelection = false;
-      this.ErrorMsg.Location = new System.Drawing.Point(224, 519);
-      this.ErrorMsg.Name = "ErrorMsg";
-      this.ErrorMsg.Size = new System.Drawing.Size(573, 120);
-      this.ErrorMsg.TabIndex = 7;
-      this.ErrorMsg.UseCompatibleStateImageBehavior = false;
-      this.ErrorMsg.View = System.Windows.Forms.View.Details;
-      this.ErrorMsg.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ErrorMsg_MouseUp);
-      // 
-      // SplitterRight
-      // 
-      this.SplitterRight.AnimationTime = 0;
-      this.SplitterRight.BackColor2 = System.Drawing.SystemColors.ControlDarkDark;
-      this.SplitterRight.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.SplitterRight.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-      this.SplitterRight.Dock = System.Windows.Forms.DockStyle.Right;
-      this.SplitterRight.ExpandableControl = this.SideBar;
-      this.SplitterRight.ExpandFillColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.SplitterRight.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.SplitterRight.ExpandLineColor = System.Drawing.SystemColors.ControlText;
-      this.SplitterRight.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-      this.SplitterRight.GripDarkColor = System.Drawing.SystemColors.ControlText;
-      this.SplitterRight.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-      this.SplitterRight.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-      this.SplitterRight.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-      this.SplitterRight.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
-      this.SplitterRight.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-      this.SplitterRight.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
-      this.SplitterRight.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
-      this.SplitterRight.HotExpandFillColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.SplitterRight.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.SplitterRight.HotExpandLineColor = System.Drawing.SystemColors.ControlText;
-      this.SplitterRight.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-      this.SplitterRight.HotGripDarkColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.SplitterRight.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.SplitterRight.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-      this.SplitterRight.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-      this.SplitterRight.Location = new System.Drawing.Point(797, 130);
-      this.SplitterRight.MinExtra = 5;
-      this.SplitterRight.MinSize = 5;
-      this.SplitterRight.Name = "SplitterRight";
-      this.SplitterRight.Size = new System.Drawing.Size(8, 509);
-      this.SplitterRight.TabIndex = 27;
-      this.SplitterRight.TabStop = false;
-      // 
-      // SideBar
-      // 
-      this.SideBar.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
-      this.SideBar.AntiAlias = true;
-      this.SideBar.BackColor = System.Drawing.SystemColors.Control;
-      this.SideBar.BackgroundStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground;
-      this.SideBar.BackgroundStyle.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground2;
-      this.SideBar.BackgroundStyle.GradientAngle = 90;
-      this.SideBar.Controls.Add(this.cmbArtist);
-      this.SideBar.Controls.Add(this.txtTitle);
-      this.SideBar.Controls.Add(this.txtAlbum);
-      this.SideBar.Controls.Add(this.btnQuickEdit);
-      this.SideBar.Controls.Add(this.btnQuickEditMore);
-      this.SideBar.Controls.Add(this.APICView);
-      this.SideBar.Controls.Add(this.txtInfo);
-      this.SideBar.Dock = System.Windows.Forms.DockStyle.Right;
-      this.SideBar.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
-      this.SideBar.GroupImages = this.GroupIcons;
-      this.SideBar.Groups.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.BarGroupEdit,
-            this.BarGroupPicture,
-            this.BarGroupInfo,
-            this.BarGroupTools});
-      this.SideBar.Images = this.ToolsIcons;
-      this.SideBar.Location = new System.Drawing.Point(805, 130);
-      this.SideBar.Name = "SideBar";
-      this.SideBar.Size = new System.Drawing.Size(200, 509);
-      this.SideBar.TabIndex = 2;
-      this.SideBar.Text = "SideBar";
-      this.SideBar.ThemeAware = true;
-      this.SideBar.ItemClick += new System.EventHandler(this.SideBar_ItemClick);
-      this.SideBar.ContainerLoadControl += new System.EventHandler(this.SideBar_ContainerLoadControl);
-      // 
-      // cmbArtist
-      // 
-      this.cmbArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.cmbArtist.Autocomplete = true;
-      this.cmbArtist.Location = new System.Drawing.Point(10, 43);
-      this.cmbArtist.Name = "cmbArtist";
-      this.cmbArtist.Size = new System.Drawing.Size(163, 21);
-      this.cmbArtist.TabIndex = 2;
-      this.cmbArtist.Enter += new System.EventHandler(this.txtArtistTitleAlbum_Enter);
-      this.cmbArtist.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQuickEdit_KeyUp);
-      // 
-      // txtTitle
-      // 
-      this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.txtTitle.Location = new System.Drawing.Point(10, 80);
-      this.txtTitle.Name = "txtTitle";
-      this.txtTitle.Size = new System.Drawing.Size(163, 21);
-      this.txtTitle.TabIndex = 3;
-      this.txtTitle.Enter += new System.EventHandler(this.txtArtistTitleAlbum_Enter);
-      this.txtTitle.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQuickEdit_KeyUp);
-      // 
-      // txtAlbum
-      // 
-      this.txtAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.txtAlbum.Location = new System.Drawing.Point(10, 117);
-      this.txtAlbum.Name = "txtAlbum";
-      this.txtAlbum.Size = new System.Drawing.Size(163, 21);
-      this.txtAlbum.TabIndex = 4;
-      this.txtAlbum.EnabledChanged += new System.EventHandler(this.txtArtistTitleAlbum_Enter);
-      this.txtAlbum.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQuickEdit_KeyUp);
-      // 
-      // btnQuickEdit
-      // 
-      this.btnQuickEdit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnQuickEdit.Location = new System.Drawing.Point(10, 154);
-      this.btnQuickEdit.Name = "btnQuickEdit";
-      this.btnQuickEdit.Size = new System.Drawing.Size(163, 24);
-      this.btnQuickEdit.TabIndex = 5;
-      this.btnQuickEdit.Text = "OK";
-      this.btnQuickEdit.Click += new System.EventHandler(this.btnQuickEdit_Click);
-      // 
-      // btnQuickEditMore
-      // 
-      this.btnQuickEditMore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnQuickEditMore.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnQuickEditMore.Location = new System.Drawing.Point(10, 180);
-      this.btnQuickEditMore.Name = "btnQuickEditMore";
-      this.btnQuickEditMore.Size = new System.Drawing.Size(163, 24);
-      this.btnQuickEditMore.TabIndex = 6;
-      this.btnQuickEditMore.Text = "More ...";
-      this.btnQuickEditMore.Click += new System.EventHandler(this.btnQuickEditMore_Click);
-      // 
-      // APICView
-      // 
-      this.APICView.Location = new System.Drawing.Point(11, 247);
-      this.APICView.Name = "APICView";
-      this.APICView.Size = new System.Drawing.Size(160, 160);
-      this.APICView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-      this.APICView.TabIndex = 28;
-      this.APICView.TabStop = false;
-      // 
-      // txtInfo
-      // 
-      this.txtInfo.AcceptsTab = true;
-      this.txtInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-      this.txtInfo.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.txtInfo.Location = new System.Drawing.Point(10, 450);
-      this.txtInfo.Name = "txtInfo";
-      this.txtInfo.ReadOnly = true;
-      this.txtInfo.Size = new System.Drawing.Size(163, 92);
-      this.txtInfo.TabIndex = 28;
-      this.txtInfo.TabStop = false;
-      this.txtInfo.Text = "";
-      // 
-      // BarGroupEdit
-      // 
-      this.BarGroupEdit.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
-      this.BarGroupEdit.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.BarGroupEdit.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
-      this.BarGroupEdit.Expanded = true;
-      this.BarGroupEdit.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupEdit.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
-      this.BarGroupEdit.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.BarGroupEdit.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.BarGroupEdit.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupEdit.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
-      this.BarGroupEdit.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.BarGroupEdit.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.BarGroupEdit.ImageIndex = 0;
-      this.BarGroupEdit.Name = "BarGroupEdit";
-      this.BarGroupEdit.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
-      this.BarGroupEdit.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.lblArtist,
-            this.CContainerArtist,
-            this.lblTitle,
-            this.CContainerTitle,
-            this.lblAlbum,
-            this.CContainerAlbum,
-            this.lblQuickSpacer1,
-            this.CContainerbtnQuickEditOK,
-            this.CContainerbtnQuickEditMore});
-      this.BarGroupEdit.Text = "Quick Edit";
-      this.BarGroupEdit.ThemeAware = true;
-      // 
-      // lblArtist
-      // 
-      this.lblArtist.BackColor = System.Drawing.Color.Empty;
-      this.lblArtist.BorderType = DevComponents.DotNetBar.eBorderType.None;
-      this.lblArtist.DividerStyle = false;
-      this.lblArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-      this.lblArtist.ForeColor = System.Drawing.SystemColors.ControlText;
-      this.lblArtist.Name = "lblArtist";
-      this.lblArtist.PaddingBottom = 0;
-      this.lblArtist.PaddingLeft = 0;
-      this.lblArtist.PaddingRight = 0;
-      this.lblArtist.PaddingTop = 0;
-      this.lblArtist.SingleLineColor = System.Drawing.SystemColors.ControlDark;
-      this.lblArtist.Text = "Artist";
-      this.lblArtist.TextAlignment = System.Drawing.StringAlignment.Near;
-      this.lblArtist.TextLineAlignment = System.Drawing.StringAlignment.Center;
-      this.lblArtist.ThemeAware = true;
-      // 
-      // CContainerArtist
-      // 
-      this.CContainerArtist.AllowItemResize = true;
-      this.CContainerArtist.Control = this.cmbArtist;
-      this.CContainerArtist.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
-      this.CContainerArtist.Name = "CContainerArtist";
-      this.CContainerArtist.ThemeAware = true;
-      // 
-      // lblTitle
-      // 
-      this.lblTitle.BackColor = System.Drawing.Color.Empty;
-      this.lblTitle.BorderType = DevComponents.DotNetBar.eBorderType.None;
-      this.lblTitle.DividerStyle = false;
-      this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-      this.lblTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-      this.lblTitle.Name = "lblTitle";
-      this.lblTitle.PaddingBottom = 0;
-      this.lblTitle.PaddingLeft = 0;
-      this.lblTitle.PaddingRight = 0;
-      this.lblTitle.PaddingTop = 0;
-      this.lblTitle.SingleLineColor = System.Drawing.SystemColors.ControlDark;
-      this.lblTitle.Text = "Title";
-      this.lblTitle.TextAlignment = System.Drawing.StringAlignment.Near;
-      this.lblTitle.TextLineAlignment = System.Drawing.StringAlignment.Center;
-      this.lblTitle.ThemeAware = true;
-      // 
-      // CContainerTitle
-      // 
-      this.CContainerTitle.AllowItemResize = true;
-      this.CContainerTitle.Control = this.txtTitle;
-      this.CContainerTitle.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
-      this.CContainerTitle.Name = "CContainerTitle";
-      this.CContainerTitle.ThemeAware = true;
-      // 
-      // lblAlbum
-      // 
-      this.lblAlbum.BackColor = System.Drawing.Color.Empty;
-      this.lblAlbum.BorderType = DevComponents.DotNetBar.eBorderType.None;
-      this.lblAlbum.DividerStyle = false;
-      this.lblAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-      this.lblAlbum.ForeColor = System.Drawing.SystemColors.ControlText;
-      this.lblAlbum.Name = "lblAlbum";
-      this.lblAlbum.PaddingBottom = 0;
-      this.lblAlbum.PaddingLeft = 0;
-      this.lblAlbum.PaddingRight = 0;
-      this.lblAlbum.PaddingTop = 0;
-      this.lblAlbum.SingleLineColor = System.Drawing.SystemColors.ControlDark;
-      this.lblAlbum.Text = "Album";
-      this.lblAlbum.TextAlignment = System.Drawing.StringAlignment.Near;
-      this.lblAlbum.TextLineAlignment = System.Drawing.StringAlignment.Center;
-      this.lblAlbum.ThemeAware = true;
-      // 
-      // CContainerAlbum
-      // 
-      this.CContainerAlbum.AllowItemResize = true;
-      this.CContainerAlbum.Control = this.txtAlbum;
-      this.CContainerAlbum.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
-      this.CContainerAlbum.Name = "CContainerAlbum";
-      this.CContainerAlbum.ThemeAware = true;
-      // 
-      // lblQuickSpacer1
-      // 
-      this.lblQuickSpacer1.BackColor = System.Drawing.Color.Empty;
-      this.lblQuickSpacer1.BorderType = DevComponents.DotNetBar.eBorderType.None;
-      this.lblQuickSpacer1.DividerStyle = true;
-      this.lblQuickSpacer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-      this.lblQuickSpacer1.ForeColor = System.Drawing.SystemColors.ControlText;
-      this.lblQuickSpacer1.Name = "lblQuickSpacer1";
-      this.lblQuickSpacer1.PaddingBottom = 0;
-      this.lblQuickSpacer1.PaddingLeft = 0;
-      this.lblQuickSpacer1.PaddingRight = 0;
-      this.lblQuickSpacer1.PaddingTop = 0;
-      this.lblQuickSpacer1.SingleLineColor = System.Drawing.SystemColors.ControlDark;
-      this.lblQuickSpacer1.TextAlignment = System.Drawing.StringAlignment.Near;
-      this.lblQuickSpacer1.TextLineAlignment = System.Drawing.StringAlignment.Center;
-      this.lblQuickSpacer1.ThemeAware = true;
-      // 
-      // CContainerbtnQuickEditOK
-      // 
-      this.CContainerbtnQuickEditOK.AllowItemResize = true;
-      this.CContainerbtnQuickEditOK.Control = this.btnQuickEdit;
-      this.CContainerbtnQuickEditOK.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
-      this.CContainerbtnQuickEditOK.Name = "CContainerbtnQuickEditOK";
-      this.CContainerbtnQuickEditOK.ThemeAware = true;
-      // 
-      // CContainerbtnQuickEditMore
-      // 
-      this.CContainerbtnQuickEditMore.AllowItemResize = true;
-      this.CContainerbtnQuickEditMore.Control = this.btnQuickEditMore;
-      this.CContainerbtnQuickEditMore.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
-      this.CContainerbtnQuickEditMore.Name = "CContainerbtnQuickEditMore";
-      this.CContainerbtnQuickEditMore.ThemeAware = true;
-      // 
-      // BarGroupPicture
-      // 
-      this.BarGroupPicture.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
-      this.BarGroupPicture.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.BarGroupPicture.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
-      this.BarGroupPicture.Expanded = true;
-      this.BarGroupPicture.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupPicture.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
-      this.BarGroupPicture.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.BarGroupPicture.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.BarGroupPicture.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupPicture.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
-      this.BarGroupPicture.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.BarGroupPicture.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.BarGroupPicture.ImageIndex = 2;
-      this.BarGroupPicture.Name = "BarGroupPicture";
-      this.BarGroupPicture.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
-      this.BarGroupPicture.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.CContainerAPICView});
-      this.BarGroupPicture.Text = "Picture";
-      this.BarGroupPicture.ThemeAware = true;
-      // 
-      // CContainerAPICView
-      // 
-      this.CContainerAPICView.AllowItemResize = false;
-      this.CContainerAPICView.Control = this.APICView;
-      this.CContainerAPICView.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
-      this.CContainerAPICView.Name = "CContainerAPICView";
-      this.CContainerAPICView.ThemeAware = true;
-      // 
-      // BarGroupInfo
-      // 
-      this.BarGroupInfo.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
-      this.BarGroupInfo.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.BarGroupInfo.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
-      this.BarGroupInfo.Expanded = true;
-      this.BarGroupInfo.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupInfo.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
-      this.BarGroupInfo.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.BarGroupInfo.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.BarGroupInfo.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupInfo.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
-      this.BarGroupInfo.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.BarGroupInfo.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.BarGroupInfo.ImageIndex = 3;
-      this.BarGroupInfo.Name = "BarGroupInfo";
-      this.BarGroupInfo.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
-      this.BarGroupInfo.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.CContainertxtInfo});
-      this.BarGroupInfo.Text = "Information";
-      this.BarGroupInfo.ThemeAware = true;
-      // 
-      // CContainertxtInfo
-      // 
-      this.CContainertxtInfo.AllowItemResize = true;
-      this.CContainertxtInfo.Control = this.txtInfo;
-      this.CContainertxtInfo.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
-      this.CContainertxtInfo.Name = "CContainertxtInfo";
-      this.CContainertxtInfo.ThemeAware = true;
-      // 
-      // BarGroupTools
-      // 
-      this.BarGroupTools.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
-      this.BarGroupTools.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.BarGroupTools.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
-      this.BarGroupTools.Expanded = true;
-      this.BarGroupTools.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupTools.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
-      this.BarGroupTools.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.BarGroupTools.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.BarGroupTools.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupTools.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
-      this.BarGroupTools.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.BarGroupTools.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.BarGroupTools.ImageIndex = 1;
-      this.BarGroupTools.Name = "BarGroupTools";
-      this.BarGroupTools.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
-      this.BarGroupTools.Text = "Tools";
-      this.BarGroupTools.ThemeAware = true;
+      this.spltMiddle.Panel2.Controls.Add(this.ErrorMsg);
+      this.spltMiddle.Size = new System.Drawing.Size(775, 756);
+      this.spltMiddle.SplitterDistance = 550;
+      this.spltMiddle.TabIndex = 26;
       // 
       // MP3View
       // 
@@ -1131,9 +805,9 @@ namespace ID3_TagIT
       this.MP3View.Dock = System.Windows.Forms.DockStyle.Fill;
       this.MP3View.FullRowSelect = true;
       this.MP3View.HideSelection = false;
-      this.MP3View.Location = new System.Drawing.Point(224, 130);
+      this.MP3View.Location = new System.Drawing.Point(0, 0);
       this.MP3View.Name = "MP3View";
-      this.MP3View.Size = new System.Drawing.Size(573, 381);
+      this.MP3View.Size = new System.Drawing.Size(775, 550);
       this.MP3View.TabIndex = 0;
       this.MP3View.UseCompatibleStateImageBehavior = false;
       this.MP3View.View = System.Windows.Forms.View.Details;
@@ -1148,6 +822,324 @@ namespace ID3_TagIT
       this.MP3View.MouseLeave += new System.EventHandler(this.MP3View_MouseLeave);
       this.MP3View.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MP3View_MouseMove);
       this.MP3View.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MP3View_MouseUp);
+      // 
+      // ErrorMsg
+      // 
+      this.ErrorMsg.BackColor = System.Drawing.SystemColors.Window;
+      this.ErrorMsg.ContextMenuStrip = this.errContext;
+      this.ErrorMsg.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.ErrorMsg.FullRowSelect = true;
+      this.ErrorMsg.GridLines = true;
+      this.ErrorMsg.HideSelection = false;
+      this.ErrorMsg.Location = new System.Drawing.Point(0, 0);
+      this.ErrorMsg.Name = "ErrorMsg";
+      this.ErrorMsg.Size = new System.Drawing.Size(775, 202);
+      this.ErrorMsg.TabIndex = 7;
+      this.ErrorMsg.UseCompatibleStateImageBehavior = false;
+      this.ErrorMsg.View = System.Windows.Forms.View.Details;
+      // 
+      // errContext
+      // 
+      this.errContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctxClearErrors});
+      this.errContext.Name = "contextMenuStrip1";
+      this.errContext.Size = new System.Drawing.Size(120, 26);
+      // 
+      // ctxClearErrors
+      // 
+      this.ctxClearErrors.Image = global::Properties.Resources.Delete;
+      this.ctxClearErrors.Name = "ctxClearErrors";
+      this.ctxClearErrors.Size = new System.Drawing.Size(119, 22);
+      this.ctxClearErrors.Text = "Clear list";
+      this.ctxClearErrors.Click += new System.EventHandler(this.ctxClearErrors_Click);
+      // 
+      // pnlTools
+      // 
+      this.pnlTools.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.pnlTools.Controls.Add(this.lnkToolsExpCol);
+      this.pnlTools.Controls.Add(this.lblTools);
+      this.pnlTools.Controls.Add(this.lstTools);
+      this.pnlTools.Location = new System.Drawing.Point(2, 571);
+      this.pnlTools.Name = "pnlTools";
+      this.pnlTools.Size = new System.Drawing.Size(195, 137);
+      this.pnlTools.TabIndex = 9;
+      this.pnlTools.Tag = "Expanded";
+      // 
+      // lnkToolsExpCol
+      // 
+      this.lnkToolsExpCol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.lnkToolsExpCol.Image = global::Properties.Resources.Collapse;
+      this.lnkToolsExpCol.Location = new System.Drawing.Point(171, 1);
+      this.lnkToolsExpCol.Name = "lnkToolsExpCol";
+      this.lnkToolsExpCol.Size = new System.Drawing.Size(18, 18);
+      this.lnkToolsExpCol.TabIndex = 4;
+      this.lnkToolsExpCol.Click += new System.EventHandler(this.lnkToolsExpCol_Click);
+      // 
+      // lblTools
+      // 
+      this.lblTools.AutoSize = true;
+      this.lblTools.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblTools.ForeColor = System.Drawing.SystemColors.HotTrack;
+      this.lblTools.Image = global::Properties.Resources.Tools;
+      this.lblTools.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.lblTools.Location = new System.Drawing.Point(3, 1);
+      this.lblTools.Name = "lblTools";
+      this.lblTools.Size = new System.Drawing.Size(68, 16);
+      this.lblTools.TabIndex = 0;
+      this.lblTools.Text = "     Tools";
+      // 
+      // lstTools
+      // 
+      this.lstTools.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.lstTools.HideSelection = false;
+      this.lstTools.Location = new System.Drawing.Point(6, 22);
+      this.lstTools.Name = "lstTools";
+      this.lstTools.Size = new System.Drawing.Size(183, 108);
+      this.lstTools.TabIndex = 2;
+      this.lstTools.UseCompatibleStateImageBehavior = false;
+      // 
+      // pnlInformation
+      // 
+      this.pnlInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.pnlInformation.Controls.Add(this.lnkInfoExpCol);
+      this.pnlInformation.Controls.Add(this.txtInformation);
+      this.pnlInformation.Controls.Add(this.lblInformation);
+      this.pnlInformation.Location = new System.Drawing.Point(3, 407);
+      this.pnlInformation.Name = "pnlInformation";
+      this.pnlInformation.Size = new System.Drawing.Size(195, 164);
+      this.pnlInformation.TabIndex = 7;
+      this.pnlInformation.Tag = "Expanded";
+      // 
+      // lnkInfoExpCol
+      // 
+      this.lnkInfoExpCol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.lnkInfoExpCol.Image = global::Properties.Resources.Collapse;
+      this.lnkInfoExpCol.Location = new System.Drawing.Point(171, 1);
+      this.lnkInfoExpCol.Name = "lnkInfoExpCol";
+      this.lnkInfoExpCol.Size = new System.Drawing.Size(18, 18);
+      this.lnkInfoExpCol.TabIndex = 6;
+      this.lnkInfoExpCol.Click += new System.EventHandler(this.lnkInfoExpCol_Click);
+      // 
+      // txtInformation
+      // 
+      this.txtInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtInformation.Location = new System.Drawing.Point(6, 22);
+      this.txtInformation.Name = "txtInformation";
+      this.txtInformation.Size = new System.Drawing.Size(183, 136);
+      this.txtInformation.TabIndex = 1;
+      this.txtInformation.Text = "";
+      // 
+      // lblInformation
+      // 
+      this.lblInformation.AutoSize = true;
+      this.lblInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+      this.lblInformation.ForeColor = System.Drawing.SystemColors.HotTrack;
+      this.lblInformation.Image = global::Properties.Resources.Info16;
+      this.lblInformation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.lblInformation.Location = new System.Drawing.Point(3, 1);
+      this.lblInformation.Name = "lblInformation";
+      this.lblInformation.Size = new System.Drawing.Size(104, 16);
+      this.lblInformation.TabIndex = 0;
+      this.lblInformation.Text = "     Information";
+      // 
+      // pnlPicture
+      // 
+      this.pnlPicture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.pnlPicture.Controls.Add(this.lnkPictureExpCol);
+      this.pnlPicture.Controls.Add(this.picCover);
+      this.pnlPicture.Controls.Add(this.lblPicture);
+      this.pnlPicture.Location = new System.Drawing.Point(2, 211);
+      this.pnlPicture.Name = "pnlPicture";
+      this.pnlPicture.Size = new System.Drawing.Size(195, 196);
+      this.pnlPicture.TabIndex = 8;
+      this.pnlPicture.Tag = "Expanded";
+      // 
+      // lnkPictureExpCol
+      // 
+      this.lnkPictureExpCol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.lnkPictureExpCol.Image = global::Properties.Resources.Collapse;
+      this.lnkPictureExpCol.Location = new System.Drawing.Point(171, 1);
+      this.lnkPictureExpCol.Name = "lnkPictureExpCol";
+      this.lnkPictureExpCol.Size = new System.Drawing.Size(18, 18);
+      this.lnkPictureExpCol.TabIndex = 5;
+      this.lnkPictureExpCol.Click += new System.EventHandler(this.lnkPictureExpCol_Click);
+      // 
+      // picCover
+      // 
+      this.picCover.BackColor = System.Drawing.SystemColors.ControlLight;
+      this.picCover.Location = new System.Drawing.Point(6, 22);
+      this.picCover.Name = "picCover";
+      this.picCover.Size = new System.Drawing.Size(168, 168);
+      this.picCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.picCover.TabIndex = 1;
+      this.picCover.TabStop = false;
+      // 
+      // lblPicture
+      // 
+      this.lblPicture.AutoSize = true;
+      this.lblPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+      this.lblPicture.ForeColor = System.Drawing.SystemColors.HotTrack;
+      this.lblPicture.Image = global::Properties.Resources.Picture;
+      this.lblPicture.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.lblPicture.Location = new System.Drawing.Point(3, 1);
+      this.lblPicture.Name = "lblPicture";
+      this.lblPicture.Size = new System.Drawing.Size(76, 16);
+      this.lblPicture.TabIndex = 0;
+      this.lblPicture.Text = "     Picture";
+      // 
+      // pnlQuickEdit
+      // 
+      this.pnlQuickEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.pnlQuickEdit.Controls.Add(this.btnQuickEditMore);
+      this.pnlQuickEdit.Controls.Add(this.lnkQuickEditExpCol);
+      this.pnlQuickEdit.Controls.Add(this.btnQuickEditOK);
+      this.pnlQuickEdit.Controls.Add(this.txtQETitle);
+      this.pnlQuickEdit.Controls.Add(this.txtQEAlbum);
+      this.pnlQuickEdit.Controls.Add(this.lblQETitle);
+      this.pnlQuickEdit.Controls.Add(this.lblQEAlbum);
+      this.pnlQuickEdit.Controls.Add(this.cboQEArtist);
+      this.pnlQuickEdit.Controls.Add(this.lblQEArtist);
+      this.pnlQuickEdit.Controls.Add(this.lblQuickEdit);
+      this.pnlQuickEdit.Location = new System.Drawing.Point(3, 3);
+      this.pnlQuickEdit.Name = "pnlQuickEdit";
+      this.pnlQuickEdit.Size = new System.Drawing.Size(195, 208);
+      this.pnlQuickEdit.TabIndex = 6;
+      this.pnlQuickEdit.Tag = "Expanded";
+      // 
+      // btnQuickEditMore
+      // 
+      this.btnQuickEditMore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnQuickEditMore.Location = new System.Drawing.Point(6, 175);
+      this.btnQuickEditMore.Name = "btnQuickEditMore";
+      this.btnQuickEditMore.Size = new System.Drawing.Size(183, 23);
+      this.btnQuickEditMore.TabIndex = 5;
+      this.btnQuickEditMore.Text = "More ...";
+      this.btnQuickEditMore.UseVisualStyleBackColor = true;
+      this.btnQuickEditMore.Click += new System.EventHandler(this.btnQuickEditMore_Click);
+      // 
+      // lnkQuickEditExpCol
+      // 
+      this.lnkQuickEditExpCol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.lnkQuickEditExpCol.Image = global::Properties.Resources.Collapse;
+      this.lnkQuickEditExpCol.Location = new System.Drawing.Point(171, 1);
+      this.lnkQuickEditExpCol.Name = "lnkQuickEditExpCol";
+      this.lnkQuickEditExpCol.Size = new System.Drawing.Size(18, 18);
+      this.lnkQuickEditExpCol.TabIndex = 4;
+      this.lnkQuickEditExpCol.Click += new System.EventHandler(this.lnkQuickEditExpCol_Click);
+      // 
+      // btnQuickEditOK
+      // 
+      this.btnQuickEditOK.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnQuickEditOK.Location = new System.Drawing.Point(6, 147);
+      this.btnQuickEditOK.Name = "btnQuickEditOK";
+      this.btnQuickEditOK.Size = new System.Drawing.Size(183, 23);
+      this.btnQuickEditOK.TabIndex = 3;
+      this.btnQuickEditOK.Text = "OK";
+      this.btnQuickEditOK.UseVisualStyleBackColor = true;
+      this.btnQuickEditOK.Click += new System.EventHandler(this.btnQuickEditOK_Click);
+      // 
+      // txtQETitle
+      // 
+      this.txtQETitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtQETitle.Location = new System.Drawing.Point(6, 80);
+      this.txtQETitle.Name = "txtQETitle";
+      this.txtQETitle.Size = new System.Drawing.Size(183, 20);
+      this.txtQETitle.TabIndex = 2;
+      // 
+      // txtQEAlbum
+      // 
+      this.txtQEAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtQEAlbum.Location = new System.Drawing.Point(6, 120);
+      this.txtQEAlbum.Name = "txtQEAlbum";
+      this.txtQEAlbum.Size = new System.Drawing.Size(183, 20);
+      this.txtQEAlbum.TabIndex = 2;
+      // 
+      // lblQETitle
+      // 
+      this.lblQETitle.AutoSize = true;
+      this.lblQETitle.Location = new System.Drawing.Point(3, 64);
+      this.lblQETitle.Name = "lblQETitle";
+      this.lblQETitle.Size = new System.Drawing.Size(27, 13);
+      this.lblQETitle.TabIndex = 0;
+      this.lblQETitle.Text = "Title";
+      // 
+      // lblQEAlbum
+      // 
+      this.lblQEAlbum.AutoSize = true;
+      this.lblQEAlbum.Location = new System.Drawing.Point(3, 104);
+      this.lblQEAlbum.Name = "lblQEAlbum";
+      this.lblQEAlbum.Size = new System.Drawing.Size(36, 13);
+      this.lblQEAlbum.TabIndex = 0;
+      this.lblQEAlbum.Text = "Album";
+      // 
+      // cboQEArtist
+      // 
+      this.cboQEArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.cboQEArtist.FormattingEnabled = true;
+      this.cboQEArtist.Location = new System.Drawing.Point(6, 39);
+      this.cboQEArtist.Name = "cboQEArtist";
+      this.cboQEArtist.Size = new System.Drawing.Size(183, 21);
+      this.cboQEArtist.TabIndex = 1;
+      // 
+      // lblQEArtist
+      // 
+      this.lblQEArtist.AutoSize = true;
+      this.lblQEArtist.Location = new System.Drawing.Point(3, 22);
+      this.lblQEArtist.Name = "lblQEArtist";
+      this.lblQEArtist.Size = new System.Drawing.Size(30, 13);
+      this.lblQEArtist.TabIndex = 0;
+      this.lblQEArtist.Text = "Artist";
+      // 
+      // lblQuickEdit
+      // 
+      this.lblQuickEdit.AutoSize = true;
+      this.lblQuickEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblQuickEdit.ForeColor = System.Drawing.SystemColors.HotTrack;
+      this.lblQuickEdit.Image = global::Properties.Resources.QuickEdit;
+      this.lblQuickEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.lblQuickEdit.Location = new System.Drawing.Point(3, 1);
+      this.lblQuickEdit.Name = "lblQuickEdit";
+      this.lblQuickEdit.Size = new System.Drawing.Size(98, 16);
+      this.lblQuickEdit.TabIndex = 0;
+      this.lblQuickEdit.Text = "     Quick Edit";
+      // 
+      // GroupIcons
+      // 
+      this.GroupIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("GroupIcons.ImageStream")));
+      this.GroupIcons.TransparentColor = System.Drawing.Color.Transparent;
+      this.GroupIcons.Images.SetKeyName(0, "");
+      this.GroupIcons.Images.SetKeyName(1, "");
+      this.GroupIcons.Images.SetKeyName(2, "");
+      this.GroupIcons.Images.SetKeyName(3, "");
+      // 
+      // ToolsIcons
+      // 
+      this.ToolsIcons.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+      this.ToolsIcons.ImageSize = new System.Drawing.Size(16, 16);
+      this.ToolsIcons.TransparentColor = System.Drawing.Color.Transparent;
+      // 
+      // ColumnHeaderIcons
+      // 
+      this.ColumnHeaderIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ColumnHeaderIcons.ImageStream")));
+      this.ColumnHeaderIcons.TransparentColor = System.Drawing.Color.Transparent;
+      this.ColumnHeaderIcons.Images.SetKeyName(0, "");
+      this.ColumnHeaderIcons.Images.SetKeyName(1, "");
+      // 
+      // Timer
+      // 
+      this.Timer.Enabled = true;
+      this.Timer.Interval = 200;
       // 
       // EnumInfo
       // 
@@ -1181,7 +1173,7 @@ namespace ID3_TagIT
             this.helpToolStripMenuItem});
       this.mnuDDs.Location = new System.Drawing.Point(0, 0);
       this.mnuDDs.Name = "mnuDDs";
-      this.mnuDDs.Size = new System.Drawing.Size(1005, 24);
+      this.mnuDDs.Size = new System.Drawing.Size(1178, 24);
       this.mnuDDs.TabIndex = 28;
       this.mnuDDs.Text = "menuStrip1";
       // 
@@ -1277,15 +1269,17 @@ namespace ID3_TagIT
       this.copyFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
       this.copyFilesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.copyFilesToolStripMenuItem.Text = "&Copy files";
+      this.copyFilesToolStripMenuItem.Click += new System.EventHandler(this.copyFilesToolStripMenuItem_Click);
       // 
       // deleteFilesToolStripMenuItem
       // 
       this.deleteFilesToolStripMenuItem.Image = global::Properties.Resources.Delete;
       this.deleteFilesToolStripMenuItem.Name = "deleteFilesToolStripMenuItem";
-      this.deleteFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+      this.deleteFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.D)));
       this.deleteFilesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.deleteFilesToolStripMenuItem.Text = "&Delete files";
+      this.deleteFilesToolStripMenuItem.Click += new System.EventHandler(this.deleteFilesToolStripMenuItem_Click);
       // 
       // organizeFilesToolStripMenuItem
       // 
@@ -1293,6 +1287,7 @@ namespace ID3_TagIT
       this.organizeFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
       this.organizeFilesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.organizeFilesToolStripMenuItem.Text = "&Organize files";
+      this.organizeFilesToolStripMenuItem.Click += new System.EventHandler(this.organizeFilesToolStripMenuItem_Click);
       // 
       // toolStripSeparator5
       // 
@@ -1305,15 +1300,17 @@ namespace ID3_TagIT
       this.openFileLocationToolStripMenuItem.Name = "openFileLocationToolStripMenuItem";
       this.openFileLocationToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.openFileLocationToolStripMenuItem.Text = "&Open file location";
+      this.openFileLocationToolStripMenuItem.Click += new System.EventHandler(this.openFileLocationToolStripMenuItem_Click);
       // 
       // removeEmptyFoldersToolStripMenuItem
       // 
       this.removeEmptyFoldersToolStripMenuItem.Image = global::Properties.Resources.DeleteFolder;
       this.removeEmptyFoldersToolStripMenuItem.Name = "removeEmptyFoldersToolStripMenuItem";
-      this.removeEmptyFoldersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+      this.removeEmptyFoldersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.F)));
       this.removeEmptyFoldersToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.removeEmptyFoldersToolStripMenuItem.Text = "R&emove empty folders";
+      this.removeEmptyFoldersToolStripMenuItem.Click += new System.EventHandler(this.removeEmptyFoldersToolStripMenuItem_Click);
       // 
       // renameFilefolderToolStripMenuItem
       // 
@@ -1322,6 +1319,7 @@ namespace ID3_TagIT
       this.renameFilefolderToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
       this.renameFilefolderToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.renameFilefolderToolStripMenuItem.Text = "&Rename file/folder";
+      this.renameFilefolderToolStripMenuItem.Click += new System.EventHandler(this.renameFilefolderToolStripMenuItem_Click);
       // 
       // filePropertiesToolStripMenuItem
       // 
@@ -1329,6 +1327,7 @@ namespace ID3_TagIT
       this.filePropertiesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
       this.filePropertiesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.filePropertiesToolStripMenuItem.Text = "&File properties";
+      this.filePropertiesToolStripMenuItem.Click += new System.EventHandler(this.filePropertiesToolStripMenuItem_Click);
       // 
       // toolStripSeparator6
       // 
@@ -1342,6 +1341,7 @@ namespace ID3_TagIT
       this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
       this.quitToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.quitToolStripMenuItem.Text = "&Quit";
+      this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
       // 
       // editToolStripMenuItem
       // 
@@ -1366,6 +1366,7 @@ namespace ID3_TagIT
       // undoToolStripMenuItem
       // 
       this.undoToolStripMenuItem.Enabled = false;
+      this.undoToolStripMenuItem.Image = global::Properties.Resources.Undo;
       this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
       this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
       this.undoToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
@@ -1375,8 +1376,9 @@ namespace ID3_TagIT
       // redoToolStripMenuItem
       // 
       this.redoToolStripMenuItem.Enabled = false;
+      this.redoToolStripMenuItem.Image = global::Properties.Resources.Redo;
       this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-      this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+      this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.Z)));
       this.redoToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
       this.redoToolStripMenuItem.Text = "&Redo";
@@ -1389,10 +1391,12 @@ namespace ID3_TagIT
       // 
       // searchandReplaceToolStripMenuItem
       // 
+      this.searchandReplaceToolStripMenuItem.Image = global::Properties.Resources.Search;
       this.searchandReplaceToolStripMenuItem.Name = "searchandReplaceToolStripMenuItem";
       this.searchandReplaceToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
       this.searchandReplaceToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
       this.searchandReplaceToolStripMenuItem.Text = "&Search (and Replace)";
+      this.searchandReplaceToolStripMenuItem.Click += new System.EventHandler(this.searchandReplaceToolStripMenuItem_Click);
       // 
       // toolStripSeparator19
       // 
@@ -1405,6 +1409,7 @@ namespace ID3_TagIT
             this.artistTitleToolStripMenuItem,
             this.artistAlbumToolStripMenuItem,
             this.titleAlbumToolStripMenuItem});
+      this.swapTAGVer1EntriesToolStripMenuItem.Image = global::Properties.Resources.SwapV1;
       this.swapTAGVer1EntriesToolStripMenuItem.Name = "swapTAGVer1EntriesToolStripMenuItem";
       this.swapTAGVer1EntriesToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
       this.swapTAGVer1EntriesToolStripMenuItem.Text = "S&wap TAG Ver. 1 entries";
@@ -1415,6 +1420,7 @@ namespace ID3_TagIT
       this.artistTitleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F1)));
       this.artistTitleToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
       this.artistTitleToolStripMenuItem.Text = "Artist <-> &Title";
+      this.artistTitleToolStripMenuItem.Click += new System.EventHandler(this.artistTitleToolStripMenuItem_Click);
       // 
       // artistAlbumToolStripMenuItem
       // 
@@ -1422,6 +1428,7 @@ namespace ID3_TagIT
       this.artistAlbumToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F2)));
       this.artistAlbumToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
       this.artistAlbumToolStripMenuItem.Text = "&Artist <-> Album";
+      this.artistAlbumToolStripMenuItem.Click += new System.EventHandler(this.artistAlbumToolStripMenuItem_Click);
       // 
       // titleAlbumToolStripMenuItem
       // 
@@ -1429,6 +1436,7 @@ namespace ID3_TagIT
       this.titleAlbumToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F3)));
       this.titleAlbumToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
       this.titleAlbumToolStripMenuItem.Text = "Title <-> Al&bum";
+      this.titleAlbumToolStripMenuItem.Click += new System.EventHandler(this.titleAlbumToolStripMenuItem_Click);
       // 
       // swapTAGVer2EntriesToolStripMenuItem
       // 
@@ -1436,6 +1444,7 @@ namespace ID3_TagIT
             this.artistTitleToolStripMenuItem1,
             this.artistAlbumToolStripMenuItem1,
             this.titleAlbumToolStripMenuItem1});
+      this.swapTAGVer2EntriesToolStripMenuItem.Image = global::Properties.Resources.SwapV2;
       this.swapTAGVer2EntriesToolStripMenuItem.Name = "swapTAGVer2EntriesToolStripMenuItem";
       this.swapTAGVer2EntriesToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
       this.swapTAGVer2EntriesToolStripMenuItem.Text = "Sw&ap TAG Ver. 2 entries";
@@ -1446,6 +1455,7 @@ namespace ID3_TagIT
       this.artistTitleToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F4)));
       this.artistTitleToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
       this.artistTitleToolStripMenuItem1.Text = "Artist <-> &Title";
+      this.artistTitleToolStripMenuItem1.Click += new System.EventHandler(this.artistTitleToolStripMenuItem1_Click);
       // 
       // artistAlbumToolStripMenuItem1
       // 
@@ -1453,6 +1463,7 @@ namespace ID3_TagIT
       this.artistAlbumToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F5)));
       this.artistAlbumToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
       this.artistAlbumToolStripMenuItem1.Text = "&Artist <-> Album";
+      this.artistAlbumToolStripMenuItem1.Click += new System.EventHandler(this.artistAlbumToolStripMenuItem1_Click);
       // 
       // titleAlbumToolStripMenuItem1
       // 
@@ -1460,6 +1471,7 @@ namespace ID3_TagIT
       this.titleAlbumToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F6)));
       this.titleAlbumToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
       this.titleAlbumToolStripMenuItem1.Text = "Title <-> Al&bum";
+      this.titleAlbumToolStripMenuItem1.Click += new System.EventHandler(this.titleAlbumToolStripMenuItem1_Click);
       // 
       // toolStripSeparator20
       // 
@@ -1472,6 +1484,7 @@ namespace ID3_TagIT
       this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F4)));
       this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
       this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem.Text = "S&plit TAG Ver. 1 Artist into Artist and Title";
+      this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem.Click += new System.EventHandler(this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem_Click);
       // 
       // splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem
       // 
@@ -1479,6 +1492,7 @@ namespace ID3_TagIT
       this.splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F8)));
       this.splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
       this.splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem.Text = "Sp&lit TAG Ver. 2 Artist into Artist and Title";
+      this.splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem.Click += new System.EventHandler(this.splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem_Click);
       // 
       // toolStripSeparator21
       // 
@@ -1500,28 +1514,34 @@ namespace ID3_TagIT
       this.copyTAGVer1OnlyToolStripMenuItem.Name = "copyTAGVer1OnlyToolStripMenuItem";
       this.copyTAGVer1OnlyToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
       this.copyTAGVer1OnlyToolStripMenuItem.Text = "Copy TAG Ver. &1 only";
+      this.copyTAGVer1OnlyToolStripMenuItem.Click += new System.EventHandler(this.copyTAGVer1OnlyToolStripMenuItem_Click);
       // 
       // copyTAGVer2OnlyToolStripMenuItem
       // 
       this.copyTAGVer2OnlyToolStripMenuItem.Name = "copyTAGVer2OnlyToolStripMenuItem";
       this.copyTAGVer2OnlyToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
       this.copyTAGVer2OnlyToolStripMenuItem.Text = "Copy TAG Ver. &2 only";
+      this.copyTAGVer2OnlyToolStripMenuItem.Click += new System.EventHandler(this.copyTAGVer2OnlyToolStripMenuItem_Click);
       // 
       // copyTAGVer1And2ToolStripMenuItem
       // 
+      this.copyTAGVer1And2ToolStripMenuItem.Image = global::Properties.Resources.Copy;
       this.copyTAGVer1And2ToolStripMenuItem.Name = "copyTAGVer1And2ToolStripMenuItem";
-      this.copyTAGVer1And2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+      this.copyTAGVer1And2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.C)));
       this.copyTAGVer1And2ToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
       this.copyTAGVer1And2ToolStripMenuItem.Text = "&Copy TAG Ver. 1 and 2";
+      this.copyTAGVer1And2ToolStripMenuItem.Click += new System.EventHandler(this.copyTAGVer1And2ToolStripMenuItem_Click);
       // 
       // pasteTAGInformationToolStripMenuItem
       // 
+      this.pasteTAGInformationToolStripMenuItem.Image = global::Properties.Resources.Paste;
       this.pasteTAGInformationToolStripMenuItem.Name = "pasteTAGInformationToolStripMenuItem";
-      this.pasteTAGInformationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+      this.pasteTAGInformationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.V)));
       this.pasteTAGInformationToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
       this.pasteTAGInformationToolStripMenuItem.Text = "&Paste TAG information";
+      this.pasteTAGInformationToolStripMenuItem.Click += new System.EventHandler(this.pasteTAGInformationToolStripMenuItem_Click);
       // 
       // viewToolStripMenuItem
       // 
@@ -1566,24 +1586,30 @@ namespace ID3_TagIT
       // 
       // selectallToolStripMenuItem
       // 
+      this.selectallToolStripMenuItem.Image = global::Properties.Resources.SelectAll;
       this.selectallToolStripMenuItem.Name = "selectallToolStripMenuItem";
       this.selectallToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
       this.selectallToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
       this.selectallToolStripMenuItem.Text = "Select &all";
+      this.selectallToolStripMenuItem.Click += new System.EventHandler(this.selectallToolStripMenuItem_Click);
       // 
       // groupSelectionToolStripMenuItem
       // 
+      this.groupSelectionToolStripMenuItem.Image = global::Properties.Resources.GroupSelection;
       this.groupSelectionToolStripMenuItem.Name = "groupSelectionToolStripMenuItem";
       this.groupSelectionToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
       this.groupSelectionToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
       this.groupSelectionToolStripMenuItem.Text = "&Group selection";
+      this.groupSelectionToolStripMenuItem.Click += new System.EventHandler(this.groupSelectionToolStripMenuItem_Click);
       // 
       // invertSelectionToolStripMenuItem
       // 
+      this.invertSelectionToolStripMenuItem.Image = global::Properties.Resources.Invert;
       this.invertSelectionToolStripMenuItem.Name = "invertSelectionToolStripMenuItem";
       this.invertSelectionToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
       this.invertSelectionToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
       this.invertSelectionToolStripMenuItem.Text = "&Invert selection";
+      this.invertSelectionToolStripMenuItem.Click += new System.EventHandler(this.invertSelectionToolStripMenuItem_Click);
       // 
       // toolStripSeparator8
       // 
@@ -1596,6 +1622,7 @@ namespace ID3_TagIT
       this.selectFilesByformatToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F5)));
       this.selectFilesByformatToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
       this.selectFilesByformatToolStripMenuItem.Text = "Select files by &format";
+      this.selectFilesByformatToolStripMenuItem.Click += new System.EventHandler(this.selectFilesByformatToolStripMenuItem_Click);
       // 
       // selectChangedFilesToolStripMenuItem
       // 
@@ -1603,6 +1630,7 @@ namespace ID3_TagIT
       this.selectChangedFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F6)));
       this.selectChangedFilesToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
       this.selectChangedFilesToolStripMenuItem.Text = "Select c&hanged files";
+      this.selectChangedFilesToolStripMenuItem.Click += new System.EventHandler(this.selectChangedFilesToolStripMenuItem_Click);
       // 
       // toolStripSeparator9
       // 
@@ -1615,6 +1643,7 @@ namespace ID3_TagIT
       this.removeSelectedFilesFromListToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
       this.removeSelectedFilesFromListToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
       this.removeSelectedFilesFromListToolStripMenuItem.Text = "&Remove selected files from list";
+      this.removeSelectedFilesFromListToolStripMenuItem.Click += new System.EventHandler(this.removeSelectedFilesFromListToolStripMenuItem_Click);
       // 
       // iD3FunctionsToolStripMenuItem
       // 
@@ -1628,7 +1657,7 @@ namespace ID3_TagIT
             this.editTAGVer2ToolStripMenuItem,
             this.multipleEditTAGVer2ToolStripMenuItem,
             this.removeTAGVer1ToolStripMenuItem1,
-            this.removeTAGVer1ToolStripMenuItem2,
+            this.filenameToTagV2,
             this.tAGVer2FilenameToolStripMenuItem});
       this.iD3FunctionsToolStripMenuItem.Name = "iD3FunctionsToolStripMenuItem";
       this.iD3FunctionsToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
@@ -1636,6 +1665,7 @@ namespace ID3_TagIT
       // 
       // editTAGVer1ToolStripMenuItem
       // 
+      this.editTAGVer1ToolStripMenuItem.Image = global::Properties.Resources.EditV1;
       this.editTAGVer1ToolStripMenuItem.Name = "editTAGVer1ToolStripMenuItem";
       this.editTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
       this.editTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
@@ -1644,6 +1674,7 @@ namespace ID3_TagIT
       // 
       // multipleEditTAGVer1ToolStripMenuItem
       // 
+      this.multipleEditTAGVer1ToolStripMenuItem.Image = global::Properties.Resources.MultiEditV1;
       this.multipleEditTAGVer1ToolStripMenuItem.Name = "multipleEditTAGVer1ToolStripMenuItem";
       this.multipleEditTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
       this.multipleEditTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
@@ -1652,22 +1683,25 @@ namespace ID3_TagIT
       // 
       // removeTAGVer1ToolStripMenuItem
       // 
+      this.removeTAGVer1ToolStripMenuItem.Image = global::Properties.Resources.RemoveV1;
       this.removeTAGVer1ToolStripMenuItem.Name = "removeTAGVer1ToolStripMenuItem";
-      this.removeTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F12)));
+      this.removeTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F11)));
       this.removeTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-      this.removeTAGVer1ToolStripMenuItem.Text = "Remo&ve TAG Ver. 2";
-      this.removeTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.mnuRemoveV2_Click);
+      this.removeTAGVer1ToolStripMenuItem.Text = "&Remove TAG Ver. 1";
+      this.removeTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.mnuRemoveV1_Click);
       // 
       // filenameTAGVer1ToolStripMenuItem
       // 
+      this.filenameTAGVer1ToolStripMenuItem.Image = global::Properties.Resources.FileToTagV1;
       this.filenameTAGVer1ToolStripMenuItem.Name = "filenameTAGVer1ToolStripMenuItem";
-      this.filenameTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+      this.filenameTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
       this.filenameTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-      this.filenameTAGVer1ToolStripMenuItem.Text = "File&name -> TAG Ver. 2";
+      this.filenameTAGVer1ToolStripMenuItem.Text = "&Filename -> TAG Ver. 1";
       this.filenameTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.mnuFileToTagV2_Click);
       // 
       // tAGVer1FilenameToolStripMenuItem
       // 
+      this.tAGVer1FilenameToolStripMenuItem.Image = global::Properties.Resources.TagToFileV1;
       this.tAGVer1FilenameToolStripMenuItem.Name = "tAGVer1FilenameToolStripMenuItem";
       this.tAGVer1FilenameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
       this.tAGVer1FilenameToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
@@ -1681,6 +1715,7 @@ namespace ID3_TagIT
       // 
       // editTAGVer2ToolStripMenuItem
       // 
+      this.editTAGVer2ToolStripMenuItem.Image = global::Properties.Resources.EditV2;
       this.editTAGVer2ToolStripMenuItem.Name = "editTAGVer2ToolStripMenuItem";
       this.editTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
       this.editTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
@@ -1689,6 +1724,7 @@ namespace ID3_TagIT
       // 
       // multipleEditTAGVer2ToolStripMenuItem
       // 
+      this.multipleEditTAGVer2ToolStripMenuItem.Image = global::Properties.Resources.MultiEditV2;
       this.multipleEditTAGVer2ToolStripMenuItem.Name = "multipleEditTAGVer2ToolStripMenuItem";
       this.multipleEditTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
       this.multipleEditTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
@@ -1697,16 +1733,25 @@ namespace ID3_TagIT
       // 
       // removeTAGVer1ToolStripMenuItem1
       // 
+      this.removeTAGVer1ToolStripMenuItem1.Image = global::Properties.Resources.RemoveV2;
       this.removeTAGVer1ToolStripMenuItem1.Name = "removeTAGVer1ToolStripMenuItem1";
+      this.removeTAGVer1ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F12)));
       this.removeTAGVer1ToolStripMenuItem1.Size = new System.Drawing.Size(244, 22);
+      this.removeTAGVer1ToolStripMenuItem1.Text = "Remo&ve TAG Ver. 2";
+      this.removeTAGVer1ToolStripMenuItem1.Click += new System.EventHandler(this.removeTAGVer2ToolStripMenuItem2_Click);
       // 
-      // removeTAGVer1ToolStripMenuItem2
+      // filenameToTagV2
       // 
-      this.removeTAGVer1ToolStripMenuItem2.Name = "removeTAGVer1ToolStripMenuItem2";
-      this.removeTAGVer1ToolStripMenuItem2.Size = new System.Drawing.Size(244, 22);
+      this.filenameToTagV2.Image = global::Properties.Resources.FileToTagV2;
+      this.filenameToTagV2.Name = "filenameToTagV2";
+      this.filenameToTagV2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+      this.filenameToTagV2.Size = new System.Drawing.Size(244, 22);
+      this.filenameToTagV2.Text = "File&name -> TAG Ver. 2";
+      this.filenameToTagV2.Click += new System.EventHandler(this.mnuFileToTagV2_Click);
       // 
       // tAGVer2FilenameToolStripMenuItem
       // 
+      this.tAGVer2FilenameToolStripMenuItem.Image = global::Properties.Resources.TagToFileV2;
       this.tAGVer2FilenameToolStripMenuItem.Name = "tAGVer2FilenameToolStripMenuItem";
       this.tAGVer2FilenameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
       this.tAGVer2FilenameToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
@@ -1734,23 +1779,28 @@ namespace ID3_TagIT
       // 
       // caseConversionToolStripMenuItem
       // 
+      this.caseConversionToolStripMenuItem.Image = global::Properties.Resources.CaseConversion;
       this.caseConversionToolStripMenuItem.Name = "caseConversionToolStripMenuItem";
       this.caseConversionToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
       this.caseConversionToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
       this.caseConversionToolStripMenuItem.Text = "C&ase Conversion";
+      this.caseConversionToolStripMenuItem.Click += new System.EventHandler(this.caseConversionToolStripMenuItem_Click);
       // 
       // transferConvertTAGsToolStripMenuItem
       // 
+      this.transferConvertTAGsToolStripMenuItem.Image = global::Properties.Resources.TransferConvertTags;
       this.transferConvertTAGsToolStripMenuItem.Name = "transferConvertTAGsToolStripMenuItem";
       this.transferConvertTAGsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
       this.transferConvertTAGsToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
       this.transferConvertTAGsToolStripMenuItem.Text = "&Transfer/Convert TAGs";
+      this.transferConvertTAGsToolStripMenuItem.Click += new System.EventHandler(this.transferConvertTAGsToolStripMenuItem_Click);
       // 
       // changeTAGVer2TextencodingToolStripMenuItem
       // 
       this.changeTAGVer2TextencodingToolStripMenuItem.Name = "changeTAGVer2TextencodingToolStripMenuItem";
       this.changeTAGVer2TextencodingToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
       this.changeTAGVer2TextencodingToolStripMenuItem.Text = "Change TAG Ver. 2 text &encoding";
+      this.changeTAGVer2TextencodingToolStripMenuItem.Click += new System.EventHandler(this.changeTAGVer2TextencodingToolStripMenuItem_Click);
       // 
       // toolStripSeparator14
       // 
@@ -1759,10 +1809,12 @@ namespace ID3_TagIT
       // 
       // queryFreeDBToolStripMenuItem
       // 
+      this.queryFreeDBToolStripMenuItem.Image = global::Properties.Resources.QueryFreeDB;
       this.queryFreeDBToolStripMenuItem.Name = "queryFreeDBToolStripMenuItem";
       this.queryFreeDBToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
       this.queryFreeDBToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
       this.queryFreeDBToolStripMenuItem.Text = "&Query FreeDB";
+      this.queryFreeDBToolStripMenuItem.Click += new System.EventHandler(this.queryFreeDBToolStripMenuItem_Click);
       // 
       // toolStripSeparator15
       // 
@@ -1775,6 +1827,7 @@ namespace ID3_TagIT
       this.enumerateInfilenameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F9)));
       this.enumerateInfilenameToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
       this.enumerateInfilenameToolStripMenuItem.Text = "Enumerate in &filename";
+      this.enumerateInfilenameToolStripMenuItem.Click += new System.EventHandler(this.enumerateInfilenameToolStripMenuItem_Click);
       // 
       // enumerateInTAGVer1ToolStripMenuItem
       // 
@@ -1782,6 +1835,7 @@ namespace ID3_TagIT
       this.enumerateInTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F11)));
       this.enumerateInTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
       this.enumerateInTAGVer1ToolStripMenuItem.Text = "Enumerate in TAG Ver. &1";
+      this.enumerateInTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.enumerateInTAGVer1ToolStripMenuItem_Click);
       // 
       // enumerateInTAGVer2ToolStripMenuItem
       // 
@@ -1789,6 +1843,7 @@ namespace ID3_TagIT
       this.enumerateInTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F12)));
       this.enumerateInTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
       this.enumerateInTAGVer2ToolStripMenuItem.Text = "Enumerate in TAG Ver. &2";
+      this.enumerateInTAGVer2ToolStripMenuItem.Click += new System.EventHandler(this.enumerateInTAGVer2ToolStripMenuItem_Click);
       // 
       // toolStripSeparator16
       // 
@@ -1797,10 +1852,12 @@ namespace ID3_TagIT
       // 
       // createFilelistPlaylistToolStripMenuItem
       // 
+      this.createFilelistPlaylistToolStripMenuItem.Image = global::Properties.Resources.Playlist;
       this.createFilelistPlaylistToolStripMenuItem.Name = "createFilelistPlaylistToolStripMenuItem";
       this.createFilelistPlaylistToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
       this.createFilelistPlaylistToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
       this.createFilelistPlaylistToolStripMenuItem.Text = "&Create Filelist / Playlist";
+      this.createFilelistPlaylistToolStripMenuItem.Click += new System.EventHandler(this.createFilelistPlaylistToolStripMenuItem_Click);
       // 
       // analyseToolStripMenuItem
       // 
@@ -1817,9 +1874,10 @@ namespace ID3_TagIT
       // findduplicateFilesToolStripMenuItem
       // 
       this.findduplicateFilesToolStripMenuItem.Name = "findduplicateFilesToolStripMenuItem";
-      this.findduplicateFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F7)));
+      this.findduplicateFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F7)));
       this.findduplicateFilesToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
       this.findduplicateFilesToolStripMenuItem.Text = "Find &duplicate files";
+      this.findduplicateFilesToolStripMenuItem.Click += new System.EventHandler(this.findduplicateFilesToolStripMenuItem_Click);
       // 
       // compareFilenameWthTAGInformationToolStripMenuItem
       // 
@@ -1827,6 +1885,7 @@ namespace ID3_TagIT
       this.compareFilenameWthTAGInformationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F8)));
       this.compareFilenameWthTAGInformationToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
       this.compareFilenameWthTAGInformationToolStripMenuItem.Text = "&Compare filename wth TAG information";
+      this.compareFilenameWthTAGInformationToolStripMenuItem.Click += new System.EventHandler(this.compareFilenameWthTAGInformationToolStripMenuItem_Click);
       // 
       // toolStripSeparator10
       // 
@@ -1839,6 +1898,7 @@ namespace ID3_TagIT
       this.selectDuplicateFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F7)));
       this.selectDuplicateFilesToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
       this.selectDuplicateFilesToolStripMenuItem.Text = "&Select duplicate files";
+      this.selectDuplicateFilesToolStripMenuItem.Click += new System.EventHandler(this.selectDuplicateFilesToolStripMenuItem_Click);
       // 
       // selectmismatchingFilenameTAGFilesToolStripMenuItem
       // 
@@ -1846,6 +1906,7 @@ namespace ID3_TagIT
       this.selectmismatchingFilenameTAGFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F8)));
       this.selectmismatchingFilenameTAGFilesToolStripMenuItem.Size = new System.Drawing.Size(346, 22);
       this.selectmismatchingFilenameTAGFilesToolStripMenuItem.Text = "Select &mismatching filename <--> TAG files";
+      this.selectmismatchingFilenameTAGFilesToolStripMenuItem.Click += new System.EventHandler(this.selectmismatchingFilenameTAGFilesToolStripMenuItem_Click);
       // 
       // optionsToolStripMenuItem
       // 
@@ -1869,6 +1930,7 @@ namespace ID3_TagIT
       this.scanSubdirectoriesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F9)));
       this.scanSubdirectoriesToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
       this.scanSubdirectoriesToolStripMenuItem.Text = "&Scan subdirectories";
+      this.scanSubdirectoriesToolStripMenuItem.Click += new System.EventHandler(this.scanSubdirectoriesToolStripMenuItem_Click);
       // 
       // quickFilenameEditingToolStripMenuItem
       // 
@@ -1878,6 +1940,7 @@ namespace ID3_TagIT
       this.quickFilenameEditingToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F10)));
       this.quickFilenameEditingToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
       this.quickFilenameEditingToolStripMenuItem.Text = "&Quick filename editing";
+      this.quickFilenameEditingToolStripMenuItem.Click += new System.EventHandler(this.quickFilenameEditingToolStripMenuItem_Click);
       // 
       // synchronizeVer1AndVer2EditingToolStripMenuItem
       // 
@@ -1885,6 +1948,7 @@ namespace ID3_TagIT
       this.synchronizeVer1AndVer2EditingToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F11)));
       this.synchronizeVer1AndVer2EditingToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
       this.synchronizeVer1AndVer2EditingToolStripMenuItem.Text = "Synchronize Ver. 1 and Ver. 2 editing";
+      this.synchronizeVer1AndVer2EditingToolStripMenuItem.Click += new System.EventHandler(this.synchronizeVer1AndVer2EditingToolStripMenuItem_Click);
       // 
       // toolStripSeparator11
       // 
@@ -1893,10 +1957,12 @@ namespace ID3_TagIT
       // 
       // editLibrariesToolStripMenuItem
       // 
+      this.editLibrariesToolStripMenuItem.Image = global::Properties.Resources.HelpBook;
       this.editLibrariesToolStripMenuItem.Name = "editLibrariesToolStripMenuItem";
       this.editLibrariesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F12)));
       this.editLibrariesToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
       this.editLibrariesToolStripMenuItem.Text = "Edit &Libraries";
+      this.editLibrariesToolStripMenuItem.Click += new System.EventHandler(this.editLibrariesToolStripMenuItem_Click);
       // 
       // toolStripSeparator12
       // 
@@ -1905,10 +1971,12 @@ namespace ID3_TagIT
       // 
       // preferencesToolStripMenuItem
       // 
+      this.preferencesToolStripMenuItem.Image = global::Properties.Resources.Preferences;
       this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
       this.preferencesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
       this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
       this.preferencesToolStripMenuItem.Text = "Preferences ...";
+      this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
       // 
       // toolStripSeparator13
       // 
@@ -1917,14 +1985,14 @@ namespace ID3_TagIT
       // 
       // cboLanguage
       // 
+      this.cboLanguage.AutoSize = false;
       this.cboLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cboLanguage.DropDownWidth = 250;
       this.cboLanguage.Items.AddRange(new object[] {
             "English",
             "Deutsch"});
       this.cboLanguage.Name = "cboLanguage";
-      this.cboLanguage.Size = new System.Drawing.Size(121, 23);
-      this.cboLanguage.Text = "English";
+      this.cboLanguage.Size = new System.Drawing.Size(250, 23);
       this.cboLanguage.Click += new System.EventHandler(this.cboLanguage_Click);
       // 
       // helpToolStripMenuItem
@@ -1940,6 +2008,7 @@ namespace ID3_TagIT
       // 
       // helpToolStripMenuItem1
       // 
+      this.helpToolStripMenuItem1.Image = global::Properties.Resources.Question;
       this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
       this.helpToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F1;
       this.helpToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
@@ -1960,10 +2029,913 @@ namespace ID3_TagIT
       // 
       // aboutToolStripMenuItem
       // 
+      this.aboutToolStripMenuItem.Image = global::Properties.Resources.Info;
       this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
       this.aboutToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
       this.aboutToolStripMenuItem.Text = "&About ...";
       this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+      // 
+      // mnuExtended
+      // 
+      this.mnuExtended.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnubCaseConv,
+            this.mnubTransferConvertTags,
+            this.sepButtons6,
+            this.mnubSwapV1,
+            this.mnubSwapV2,
+            this.sepButtons7,
+            this.mnubQueryFreeDB,
+            this.sepButtons8,
+            this.mnubEnumerate,
+            this.tsmiDecrease,
+            this.mnutEnumerateCounter,
+            this.tsmiIncrease,
+            this.sepButtons9,
+            this.toolStripMenuItem9,
+            this.toolStripMenuItem10,
+            this.toolStripMenuItem11,
+            this.tsmiClearFilter});
+      this.mnuExtended.Location = new System.Drawing.Point(0, 51);
+      this.mnuExtended.Name = "mnuExtended";
+      this.mnuExtended.Size = new System.Drawing.Size(1178, 27);
+      this.mnuExtended.TabIndex = 29;
+      // 
+      // mnubCaseConv
+      // 
+      this.mnubCaseConv.Image = global::Properties.Resources.CaseConversion;
+      this.mnubCaseConv.Name = "mnubCaseConv";
+      this.mnubCaseConv.Size = new System.Drawing.Size(28, 23);
+      this.mnubCaseConv.Click += new System.EventHandler(this.mnubCaseConv_Click);
+      // 
+      // mnubTransferConvertTags
+      // 
+      this.mnubTransferConvertTags.Image = global::Properties.Resources.TransferConvertTags;
+      this.mnubTransferConvertTags.Name = "mnubTransferConvertTags";
+      this.mnubTransferConvertTags.Size = new System.Drawing.Size(28, 23);
+      this.mnubTransferConvertTags.Click += new System.EventHandler(this.mnubTransferConvertTags_Click);
+      // 
+      // sepButtons6
+      // 
+      this.sepButtons6.Name = "sepButtons6";
+      this.sepButtons6.Size = new System.Drawing.Size(6, 23);
+      // 
+      // mnubSwapV1
+      // 
+      this.mnubSwapV1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.artistTitleToolStripMenuItem2,
+            this.artistAlbumToolStripMenuItem2,
+            this.titleAlbumToolStripMenuItem2});
+      this.mnubSwapV1.Image = global::Properties.Resources.SwapV1;
+      this.mnubSwapV1.Name = "mnubSwapV1";
+      this.mnubSwapV1.Size = new System.Drawing.Size(28, 23);
+      // 
+      // artistTitleToolStripMenuItem2
+      // 
+      this.artistTitleToolStripMenuItem2.Name = "artistTitleToolStripMenuItem2";
+      this.artistTitleToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F1)));
+      this.artistTitleToolStripMenuItem2.Size = new System.Drawing.Size(216, 22);
+      this.artistTitleToolStripMenuItem2.Text = "Artist <-> Title";
+      this.artistTitleToolStripMenuItem2.Click += new System.EventHandler(this.artistTitleToolStripMenuItem2_Click);
+      // 
+      // artistAlbumToolStripMenuItem2
+      // 
+      this.artistAlbumToolStripMenuItem2.Name = "artistAlbumToolStripMenuItem2";
+      this.artistAlbumToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F2)));
+      this.artistAlbumToolStripMenuItem2.Size = new System.Drawing.Size(216, 22);
+      this.artistAlbumToolStripMenuItem2.Text = "Artist <-> Album";
+      this.artistAlbumToolStripMenuItem2.Click += new System.EventHandler(this.artistAlbumToolStripMenuItem2_Click);
+      // 
+      // titleAlbumToolStripMenuItem2
+      // 
+      this.titleAlbumToolStripMenuItem2.Name = "titleAlbumToolStripMenuItem2";
+      this.titleAlbumToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F3)));
+      this.titleAlbumToolStripMenuItem2.Size = new System.Drawing.Size(216, 22);
+      this.titleAlbumToolStripMenuItem2.Text = "Title <-> Album";
+      this.titleAlbumToolStripMenuItem2.Click += new System.EventHandler(this.titleAlbumToolStripMenuItem2_Click);
+      // 
+      // mnubSwapV2
+      // 
+      this.mnubSwapV2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.artistTitleToolStripMenuItem3,
+            this.artistAlbumToolStripMenuItem3,
+            this.titleAlbumToolStripMenuItem3});
+      this.mnubSwapV2.Image = global::Properties.Resources.SwapV2;
+      this.mnubSwapV2.Name = "mnubSwapV2";
+      this.mnubSwapV2.Size = new System.Drawing.Size(28, 23);
+      // 
+      // artistTitleToolStripMenuItem3
+      // 
+      this.artistTitleToolStripMenuItem3.Name = "artistTitleToolStripMenuItem3";
+      this.artistTitleToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F5)));
+      this.artistTitleToolStripMenuItem3.Size = new System.Drawing.Size(216, 22);
+      this.artistTitleToolStripMenuItem3.Text = "Artist <-> Title";
+      this.artistTitleToolStripMenuItem3.Click += new System.EventHandler(this.artistTitleToolStripMenuItem3_Click);
+      // 
+      // artistAlbumToolStripMenuItem3
+      // 
+      this.artistAlbumToolStripMenuItem3.Name = "artistAlbumToolStripMenuItem3";
+      this.artistAlbumToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F6)));
+      this.artistAlbumToolStripMenuItem3.Size = new System.Drawing.Size(216, 22);
+      this.artistAlbumToolStripMenuItem3.Text = "Artist <-> Album";
+      this.artistAlbumToolStripMenuItem3.Click += new System.EventHandler(this.artistAlbumToolStripMenuItem3_Click);
+      // 
+      // titleAlbumToolStripMenuItem3
+      // 
+      this.titleAlbumToolStripMenuItem3.Name = "titleAlbumToolStripMenuItem3";
+      this.titleAlbumToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F7)));
+      this.titleAlbumToolStripMenuItem3.Size = new System.Drawing.Size(216, 22);
+      this.titleAlbumToolStripMenuItem3.Text = "Title <-> Album";
+      this.titleAlbumToolStripMenuItem3.Click += new System.EventHandler(this.titleAlbumToolStripMenuItem3_Click);
+      // 
+      // sepButtons7
+      // 
+      this.sepButtons7.Name = "sepButtons7";
+      this.sepButtons7.Size = new System.Drawing.Size(6, 23);
+      // 
+      // mnubQueryFreeDB
+      // 
+      this.mnubQueryFreeDB.Image = global::Properties.Resources.QueryFreeDB;
+      this.mnubQueryFreeDB.Name = "mnubQueryFreeDB";
+      this.mnubQueryFreeDB.Size = new System.Drawing.Size(28, 23);
+      this.mnubQueryFreeDB.Click += new System.EventHandler(this.mnubQueryFreeDB_Click);
+      // 
+      // sepButtons8
+      // 
+      this.sepButtons8.Name = "sepButtons8";
+      this.sepButtons8.Size = new System.Drawing.Size(6, 23);
+      // 
+      // mnubEnumerate
+      // 
+      this.mnubEnumerate.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.enumerateInFilenameToolStripMenuItem1,
+            this.enumerateInTAGVer1ToolStripMenuItem1,
+            this.enumerateInTAGVer2ToolStripMenuItem1});
+      this.mnubEnumerate.Image = global::Properties.Resources.Enumerate;
+      this.mnubEnumerate.Name = "mnubEnumerate";
+      this.mnubEnumerate.Size = new System.Drawing.Size(28, 23);
+      // 
+      // enumerateInFilenameToolStripMenuItem1
+      // 
+      this.enumerateInFilenameToolStripMenuItem1.Name = "enumerateInFilenameToolStripMenuItem1";
+      this.enumerateInFilenameToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F9)));
+      this.enumerateInFilenameToolStripMenuItem1.Size = new System.Drawing.Size(256, 22);
+      this.enumerateInFilenameToolStripMenuItem1.Text = "Enumerate in filename";
+      this.enumerateInFilenameToolStripMenuItem1.Click += new System.EventHandler(this.enumerateInFilenameToolStripMenuItem1_Click);
+      // 
+      // enumerateInTAGVer1ToolStripMenuItem1
+      // 
+      this.enumerateInTAGVer1ToolStripMenuItem1.Name = "enumerateInTAGVer1ToolStripMenuItem1";
+      this.enumerateInTAGVer1ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F11)));
+      this.enumerateInTAGVer1ToolStripMenuItem1.Size = new System.Drawing.Size(256, 22);
+      this.enumerateInTAGVer1ToolStripMenuItem1.Text = "Enumerate in TAG Ver. 1";
+      this.enumerateInTAGVer1ToolStripMenuItem1.Click += new System.EventHandler(this.enumerateInTAGVer1ToolStripMenuItem1_Click);
+      // 
+      // enumerateInTAGVer2ToolStripMenuItem1
+      // 
+      this.enumerateInTAGVer2ToolStripMenuItem1.Name = "enumerateInTAGVer2ToolStripMenuItem1";
+      this.enumerateInTAGVer2ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F12)));
+      this.enumerateInTAGVer2ToolStripMenuItem1.Size = new System.Drawing.Size(256, 22);
+      this.enumerateInTAGVer2ToolStripMenuItem1.Text = "Enumerate in TAG Ver. 2";
+      this.enumerateInTAGVer2ToolStripMenuItem1.Click += new System.EventHandler(this.enumerateInTAGVer2ToolStripMenuItem1_Click);
+      // 
+      // tsmiDecrease
+      // 
+      this.tsmiDecrease.Image = global::Properties.Resources.Decrease;
+      this.tsmiDecrease.Name = "tsmiDecrease";
+      this.tsmiDecrease.Size = new System.Drawing.Size(28, 23);
+      this.tsmiDecrease.Click += new System.EventHandler(this.tsmiDecrease_Click);
+      // 
+      // mnutEnumerateCounter
+      // 
+      this.mnutEnumerateCounter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+      this.mnutEnumerateCounter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+      this.mnutEnumerateCounter.Name = "mnutEnumerateCounter";
+      this.mnutEnumerateCounter.ReadOnly = true;
+      this.mnutEnumerateCounter.Size = new System.Drawing.Size(23, 23);
+      this.mnutEnumerateCounter.Text = "1";
+      this.mnutEnumerateCounter.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+      // 
+      // tsmiIncrease
+      // 
+      this.tsmiIncrease.Image = global::Properties.Resources.Increase;
+      this.tsmiIncrease.Name = "tsmiIncrease";
+      this.tsmiIncrease.Size = new System.Drawing.Size(28, 23);
+      this.tsmiIncrease.Click += new System.EventHandler(this.tsmiIncrease_Click);
+      // 
+      // sepButtons9
+      // 
+      this.sepButtons9.Name = "sepButtons9";
+      this.sepButtons9.Size = new System.Drawing.Size(6, 23);
+      // 
+      // toolStripMenuItem9
+      // 
+      this.toolStripMenuItem9.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnubArtistFilterA,
+            this.bToolStripMenuItem,
+            this.cToolStripMenuItem,
+            this.dToolStripMenuItem,
+            this.eToolStripMenuItem,
+            this.fToolStripMenuItem,
+            this.gToolStripMenuItem,
+            this.hToolStripMenuItem,
+            this.iToolStripMenuItem,
+            this.jToolStripMenuItem,
+            this.kToolStripMenuItem,
+            this.lToolStripMenuItem,
+            this.mToolStripMenuItem,
+            this.nToolStripMenuItem,
+            this.oToolStripMenuItem,
+            this.pToolStripMenuItem,
+            this.qToolStripMenuItem,
+            this.rToolStripMenuItem,
+            this.sToolStripMenuItem,
+            this.tToolStripMenuItem,
+            this.uToolStripMenuItem,
+            this.vToolStripMenuItem,
+            this.wToolStripMenuItem,
+            this.xToolStripMenuItem,
+            this.yToolStripMenuItem,
+            this.zToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4});
+      this.toolStripMenuItem9.Image = global::Properties.Resources.Filter;
+      this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+      this.toolStripMenuItem9.Size = new System.Drawing.Size(63, 23);
+      this.toolStripMenuItem9.Text = "Artist";
+      // 
+      // mnubArtistFilterA
+      // 
+      this.mnubArtistFilterA.Name = "mnubArtistFilterA";
+      this.mnubArtistFilterA.Size = new System.Drawing.Size(85, 22);
+      this.mnubArtistFilterA.Text = "A";
+      this.mnubArtistFilterA.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // bToolStripMenuItem
+      // 
+      this.bToolStripMenuItem.Name = "bToolStripMenuItem";
+      this.bToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.bToolStripMenuItem.Text = "B";
+      this.bToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // cToolStripMenuItem
+      // 
+      this.cToolStripMenuItem.Name = "cToolStripMenuItem";
+      this.cToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.cToolStripMenuItem.Text = "C";
+      this.cToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // dToolStripMenuItem
+      // 
+      this.dToolStripMenuItem.Name = "dToolStripMenuItem";
+      this.dToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.dToolStripMenuItem.Text = "D";
+      this.dToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // eToolStripMenuItem
+      // 
+      this.eToolStripMenuItem.Name = "eToolStripMenuItem";
+      this.eToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.eToolStripMenuItem.Text = "E";
+      this.eToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // fToolStripMenuItem
+      // 
+      this.fToolStripMenuItem.Name = "fToolStripMenuItem";
+      this.fToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.fToolStripMenuItem.Text = "F";
+      this.fToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // gToolStripMenuItem
+      // 
+      this.gToolStripMenuItem.Name = "gToolStripMenuItem";
+      this.gToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.gToolStripMenuItem.Text = "G";
+      this.gToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // hToolStripMenuItem
+      // 
+      this.hToolStripMenuItem.Name = "hToolStripMenuItem";
+      this.hToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.hToolStripMenuItem.Text = "H";
+      this.hToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // iToolStripMenuItem
+      // 
+      this.iToolStripMenuItem.Name = "iToolStripMenuItem";
+      this.iToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.iToolStripMenuItem.Text = "I";
+      this.iToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // jToolStripMenuItem
+      // 
+      this.jToolStripMenuItem.Name = "jToolStripMenuItem";
+      this.jToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.jToolStripMenuItem.Text = "J";
+      this.jToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // kToolStripMenuItem
+      // 
+      this.kToolStripMenuItem.Name = "kToolStripMenuItem";
+      this.kToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.kToolStripMenuItem.Text = "K";
+      this.kToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // lToolStripMenuItem
+      // 
+      this.lToolStripMenuItem.Name = "lToolStripMenuItem";
+      this.lToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.lToolStripMenuItem.Text = "L";
+      this.lToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // mToolStripMenuItem
+      // 
+      this.mToolStripMenuItem.Name = "mToolStripMenuItem";
+      this.mToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.mToolStripMenuItem.Text = "M";
+      this.mToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // nToolStripMenuItem
+      // 
+      this.nToolStripMenuItem.Name = "nToolStripMenuItem";
+      this.nToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.nToolStripMenuItem.Text = "N";
+      this.nToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // oToolStripMenuItem
+      // 
+      this.oToolStripMenuItem.Name = "oToolStripMenuItem";
+      this.oToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.oToolStripMenuItem.Text = "O";
+      this.oToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // pToolStripMenuItem
+      // 
+      this.pToolStripMenuItem.Name = "pToolStripMenuItem";
+      this.pToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.pToolStripMenuItem.Text = "P";
+      this.pToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // qToolStripMenuItem
+      // 
+      this.qToolStripMenuItem.Name = "qToolStripMenuItem";
+      this.qToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.qToolStripMenuItem.Text = "Q";
+      this.qToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // rToolStripMenuItem
+      // 
+      this.rToolStripMenuItem.Name = "rToolStripMenuItem";
+      this.rToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.rToolStripMenuItem.Text = "R";
+      this.rToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // sToolStripMenuItem
+      // 
+      this.sToolStripMenuItem.Name = "sToolStripMenuItem";
+      this.sToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.sToolStripMenuItem.Text = "S";
+      this.sToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // tToolStripMenuItem
+      // 
+      this.tToolStripMenuItem.Name = "tToolStripMenuItem";
+      this.tToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.tToolStripMenuItem.Text = "T";
+      this.tToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // uToolStripMenuItem
+      // 
+      this.uToolStripMenuItem.Name = "uToolStripMenuItem";
+      this.uToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.uToolStripMenuItem.Text = "U";
+      this.uToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // vToolStripMenuItem
+      // 
+      this.vToolStripMenuItem.Name = "vToolStripMenuItem";
+      this.vToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.vToolStripMenuItem.Text = "V";
+      this.vToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // wToolStripMenuItem
+      // 
+      this.wToolStripMenuItem.Name = "wToolStripMenuItem";
+      this.wToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.wToolStripMenuItem.Text = "W";
+      this.wToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // xToolStripMenuItem
+      // 
+      this.xToolStripMenuItem.Name = "xToolStripMenuItem";
+      this.xToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.xToolStripMenuItem.Text = "X";
+      this.xToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // yToolStripMenuItem
+      // 
+      this.yToolStripMenuItem.Name = "yToolStripMenuItem";
+      this.yToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.yToolStripMenuItem.Text = "Y";
+      this.yToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // zToolStripMenuItem
+      // 
+      this.zToolStripMenuItem.Name = "zToolStripMenuItem";
+      this.zToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+      this.zToolStripMenuItem.Text = "Z";
+      this.zToolStripMenuItem.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // toolStripMenuItem2
+      // 
+      this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+      this.toolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.toolStripMenuItem2.Text = "#";
+      this.toolStripMenuItem2.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // toolStripMenuItem3
+      // 
+      this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+      this.toolStripMenuItem3.Size = new System.Drawing.Size(85, 22);
+      this.toolStripMenuItem3.Text = "\'\'";
+      this.toolStripMenuItem3.Click += new System.EventHandler(this.mnubArtistFilter_Click);
+      // 
+      // toolStripMenuItem4
+      // 
+      this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+      this.toolStripMenuItem4.Size = new System.Drawing.Size(85, 22);
+      this.toolStripMenuItem4.Text = "@";
+      // 
+      // toolStripMenuItem10
+      // 
+      this.toolStripMenuItem10.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnubTitleFilterA,
+            this.bToolStripMenuItem1,
+            this.cToolStripMenuItem1,
+            this.dToolStripMenuItem1,
+            this.eToolStripMenuItem1,
+            this.fToolStripMenuItem1,
+            this.gToolStripMenuItem1,
+            this.hToolStripMenuItem1,
+            this.iToolStripMenuItem1,
+            this.jToolStripMenuItem1,
+            this.kToolStripMenuItem1,
+            this.lToolStripMenuItem1,
+            this.mToolStripMenuItem1,
+            this.nToolStripMenuItem1,
+            this.oToolStripMenuItem1,
+            this.pToolStripMenuItem1,
+            this.qToolStripMenuItem1,
+            this.rToolStripMenuItem1,
+            this.sToolStripMenuItem1,
+            this.tToolStripMenuItem1,
+            this.uToolStripMenuItem1,
+            this.vToolStripMenuItem1,
+            this.wToolStripMenuItem1,
+            this.xToolStripMenuItem1,
+            this.yToolStripMenuItem1,
+            this.zToolStripMenuItem1,
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem6});
+      this.toolStripMenuItem10.Image = global::Properties.Resources.Filter;
+      this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+      this.toolStripMenuItem10.Size = new System.Drawing.Size(57, 23);
+      this.toolStripMenuItem10.Text = "Title";
+      // 
+      // mnubTitleFilterA
+      // 
+      this.mnubTitleFilterA.Name = "mnubTitleFilterA";
+      this.mnubTitleFilterA.Size = new System.Drawing.Size(85, 22);
+      this.mnubTitleFilterA.Text = "A";
+      this.mnubTitleFilterA.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // bToolStripMenuItem1
+      // 
+      this.bToolStripMenuItem1.Name = "bToolStripMenuItem1";
+      this.bToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.bToolStripMenuItem1.Text = "B";
+      this.bToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // cToolStripMenuItem1
+      // 
+      this.cToolStripMenuItem1.Name = "cToolStripMenuItem1";
+      this.cToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.cToolStripMenuItem1.Text = "C";
+      this.cToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // dToolStripMenuItem1
+      // 
+      this.dToolStripMenuItem1.Name = "dToolStripMenuItem1";
+      this.dToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.dToolStripMenuItem1.Text = "D";
+      this.dToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // eToolStripMenuItem1
+      // 
+      this.eToolStripMenuItem1.Name = "eToolStripMenuItem1";
+      this.eToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.eToolStripMenuItem1.Text = "E";
+      this.eToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // fToolStripMenuItem1
+      // 
+      this.fToolStripMenuItem1.Name = "fToolStripMenuItem1";
+      this.fToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.fToolStripMenuItem1.Text = "F";
+      this.fToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // gToolStripMenuItem1
+      // 
+      this.gToolStripMenuItem1.Name = "gToolStripMenuItem1";
+      this.gToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.gToolStripMenuItem1.Text = "G";
+      this.gToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // hToolStripMenuItem1
+      // 
+      this.hToolStripMenuItem1.Name = "hToolStripMenuItem1";
+      this.hToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.hToolStripMenuItem1.Text = "H";
+      this.hToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // iToolStripMenuItem1
+      // 
+      this.iToolStripMenuItem1.Name = "iToolStripMenuItem1";
+      this.iToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.iToolStripMenuItem1.Text = "I";
+      this.iToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // jToolStripMenuItem1
+      // 
+      this.jToolStripMenuItem1.Name = "jToolStripMenuItem1";
+      this.jToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.jToolStripMenuItem1.Text = "J";
+      this.jToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // kToolStripMenuItem1
+      // 
+      this.kToolStripMenuItem1.Name = "kToolStripMenuItem1";
+      this.kToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.kToolStripMenuItem1.Text = "K";
+      this.kToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // lToolStripMenuItem1
+      // 
+      this.lToolStripMenuItem1.Name = "lToolStripMenuItem1";
+      this.lToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.lToolStripMenuItem1.Text = "L";
+      this.lToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // mToolStripMenuItem1
+      // 
+      this.mToolStripMenuItem1.Name = "mToolStripMenuItem1";
+      this.mToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.mToolStripMenuItem1.Text = "M";
+      this.mToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // nToolStripMenuItem1
+      // 
+      this.nToolStripMenuItem1.Name = "nToolStripMenuItem1";
+      this.nToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.nToolStripMenuItem1.Text = "N";
+      this.nToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // oToolStripMenuItem1
+      // 
+      this.oToolStripMenuItem1.Name = "oToolStripMenuItem1";
+      this.oToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.oToolStripMenuItem1.Text = "O";
+      this.oToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // pToolStripMenuItem1
+      // 
+      this.pToolStripMenuItem1.Name = "pToolStripMenuItem1";
+      this.pToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.pToolStripMenuItem1.Text = "P";
+      this.pToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // qToolStripMenuItem1
+      // 
+      this.qToolStripMenuItem1.Name = "qToolStripMenuItem1";
+      this.qToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.qToolStripMenuItem1.Text = "Q";
+      this.qToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // rToolStripMenuItem1
+      // 
+      this.rToolStripMenuItem1.Name = "rToolStripMenuItem1";
+      this.rToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.rToolStripMenuItem1.Text = "R";
+      this.rToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // sToolStripMenuItem1
+      // 
+      this.sToolStripMenuItem1.Name = "sToolStripMenuItem1";
+      this.sToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.sToolStripMenuItem1.Text = "S";
+      this.sToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // tToolStripMenuItem1
+      // 
+      this.tToolStripMenuItem1.Name = "tToolStripMenuItem1";
+      this.tToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.tToolStripMenuItem1.Text = "T";
+      this.tToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // uToolStripMenuItem1
+      // 
+      this.uToolStripMenuItem1.Name = "uToolStripMenuItem1";
+      this.uToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.uToolStripMenuItem1.Text = "U";
+      this.uToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // vToolStripMenuItem1
+      // 
+      this.vToolStripMenuItem1.Name = "vToolStripMenuItem1";
+      this.vToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.vToolStripMenuItem1.Text = "V";
+      this.vToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // wToolStripMenuItem1
+      // 
+      this.wToolStripMenuItem1.Name = "wToolStripMenuItem1";
+      this.wToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.wToolStripMenuItem1.Text = "W";
+      this.wToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // xToolStripMenuItem1
+      // 
+      this.xToolStripMenuItem1.Name = "xToolStripMenuItem1";
+      this.xToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.xToolStripMenuItem1.Text = "X";
+      this.xToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // yToolStripMenuItem1
+      // 
+      this.yToolStripMenuItem1.Name = "yToolStripMenuItem1";
+      this.yToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.yToolStripMenuItem1.Text = "Y";
+      this.yToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // zToolStripMenuItem1
+      // 
+      this.zToolStripMenuItem1.Name = "zToolStripMenuItem1";
+      this.zToolStripMenuItem1.Size = new System.Drawing.Size(85, 22);
+      this.zToolStripMenuItem1.Text = "Z";
+      this.zToolStripMenuItem1.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // toolStripMenuItem5
+      // 
+      this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+      this.toolStripMenuItem5.Size = new System.Drawing.Size(85, 22);
+      this.toolStripMenuItem5.Text = "#";
+      this.toolStripMenuItem5.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // toolStripMenuItem6
+      // 
+      this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+      this.toolStripMenuItem6.Size = new System.Drawing.Size(85, 22);
+      this.toolStripMenuItem6.Text = "\'\'";
+      this.toolStripMenuItem6.Click += new System.EventHandler(this.mnubTitleFilter_Click);
+      // 
+      // toolStripMenuItem11
+      // 
+      this.toolStripMenuItem11.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnubAlbumFilterA,
+            this.bToolStripMenuItem2,
+            this.cToolStripMenuItem2,
+            this.dToolStripMenuItem2,
+            this.eToolStripMenuItem2,
+            this.fToolStripMenuItem2,
+            this.gToolStripMenuItem2,
+            this.hToolStripMenuItem2,
+            this.iToolStripMenuItem2,
+            this.jToolStripMenuItem2,
+            this.kToolStripMenuItem2,
+            this.lToolStripMenuItem2,
+            this.mToolStripMenuItem2,
+            this.nToolStripMenuItem2,
+            this.oToolStripMenuItem2,
+            this.pToolStripMenuItem2,
+            this.qToolStripMenuItem2,
+            this.rToolStripMenuItem2,
+            this.sToolStripMenuItem2,
+            this.tToolStripMenuItem2,
+            this.uToolStripMenuItem2,
+            this.vToolStripMenuItem2,
+            this.wToolStripMenuItem2,
+            this.xToolStripMenuItem2,
+            this.yToolStripMenuItem2,
+            this.zToolStripMenuItem2,
+            this.toolStripMenuItem7,
+            this.toolStripMenuItem8});
+      this.toolStripMenuItem11.Image = global::Properties.Resources.Filter;
+      this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+      this.toolStripMenuItem11.Size = new System.Drawing.Size(71, 23);
+      this.toolStripMenuItem11.Text = "Album";
+      // 
+      // mnubAlbumFilterA
+      // 
+      this.mnubAlbumFilterA.Name = "mnubAlbumFilterA";
+      this.mnubAlbumFilterA.Size = new System.Drawing.Size(85, 22);
+      this.mnubAlbumFilterA.Text = "A";
+      this.mnubAlbumFilterA.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // bToolStripMenuItem2
+      // 
+      this.bToolStripMenuItem2.Name = "bToolStripMenuItem2";
+      this.bToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.bToolStripMenuItem2.Text = "B";
+      this.bToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // cToolStripMenuItem2
+      // 
+      this.cToolStripMenuItem2.Name = "cToolStripMenuItem2";
+      this.cToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.cToolStripMenuItem2.Text = "C";
+      this.cToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // dToolStripMenuItem2
+      // 
+      this.dToolStripMenuItem2.Name = "dToolStripMenuItem2";
+      this.dToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.dToolStripMenuItem2.Text = "D";
+      this.dToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // eToolStripMenuItem2
+      // 
+      this.eToolStripMenuItem2.Name = "eToolStripMenuItem2";
+      this.eToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.eToolStripMenuItem2.Text = "E";
+      this.eToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // fToolStripMenuItem2
+      // 
+      this.fToolStripMenuItem2.Name = "fToolStripMenuItem2";
+      this.fToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.fToolStripMenuItem2.Text = "F";
+      this.fToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // gToolStripMenuItem2
+      // 
+      this.gToolStripMenuItem2.Name = "gToolStripMenuItem2";
+      this.gToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.gToolStripMenuItem2.Text = "G";
+      this.gToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // hToolStripMenuItem2
+      // 
+      this.hToolStripMenuItem2.Name = "hToolStripMenuItem2";
+      this.hToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.hToolStripMenuItem2.Text = "H";
+      this.hToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // iToolStripMenuItem2
+      // 
+      this.iToolStripMenuItem2.Name = "iToolStripMenuItem2";
+      this.iToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.iToolStripMenuItem2.Text = "I";
+      this.iToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // jToolStripMenuItem2
+      // 
+      this.jToolStripMenuItem2.Name = "jToolStripMenuItem2";
+      this.jToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.jToolStripMenuItem2.Text = "J";
+      this.jToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // kToolStripMenuItem2
+      // 
+      this.kToolStripMenuItem2.Name = "kToolStripMenuItem2";
+      this.kToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.kToolStripMenuItem2.Text = "K";
+      this.kToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // lToolStripMenuItem2
+      // 
+      this.lToolStripMenuItem2.Name = "lToolStripMenuItem2";
+      this.lToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.lToolStripMenuItem2.Text = "L";
+      this.lToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // mToolStripMenuItem2
+      // 
+      this.mToolStripMenuItem2.Name = "mToolStripMenuItem2";
+      this.mToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.mToolStripMenuItem2.Text = "M";
+      this.mToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // nToolStripMenuItem2
+      // 
+      this.nToolStripMenuItem2.Name = "nToolStripMenuItem2";
+      this.nToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.nToolStripMenuItem2.Text = "N";
+      this.nToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // oToolStripMenuItem2
+      // 
+      this.oToolStripMenuItem2.Name = "oToolStripMenuItem2";
+      this.oToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.oToolStripMenuItem2.Text = "O";
+      this.oToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // pToolStripMenuItem2
+      // 
+      this.pToolStripMenuItem2.Name = "pToolStripMenuItem2";
+      this.pToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.pToolStripMenuItem2.Text = "P";
+      this.pToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // qToolStripMenuItem2
+      // 
+      this.qToolStripMenuItem2.Name = "qToolStripMenuItem2";
+      this.qToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.qToolStripMenuItem2.Text = "Q";
+      this.qToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // rToolStripMenuItem2
+      // 
+      this.rToolStripMenuItem2.Name = "rToolStripMenuItem2";
+      this.rToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.rToolStripMenuItem2.Text = "R";
+      this.rToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // sToolStripMenuItem2
+      // 
+      this.sToolStripMenuItem2.Name = "sToolStripMenuItem2";
+      this.sToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.sToolStripMenuItem2.Text = "S";
+      this.sToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // tToolStripMenuItem2
+      // 
+      this.tToolStripMenuItem2.Name = "tToolStripMenuItem2";
+      this.tToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.tToolStripMenuItem2.Text = "T";
+      this.tToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // uToolStripMenuItem2
+      // 
+      this.uToolStripMenuItem2.Name = "uToolStripMenuItem2";
+      this.uToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.uToolStripMenuItem2.Text = "U";
+      this.uToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // vToolStripMenuItem2
+      // 
+      this.vToolStripMenuItem2.Name = "vToolStripMenuItem2";
+      this.vToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.vToolStripMenuItem2.Text = "V";
+      this.vToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // wToolStripMenuItem2
+      // 
+      this.wToolStripMenuItem2.Name = "wToolStripMenuItem2";
+      this.wToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.wToolStripMenuItem2.Text = "W";
+      this.wToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // xToolStripMenuItem2
+      // 
+      this.xToolStripMenuItem2.Name = "xToolStripMenuItem2";
+      this.xToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.xToolStripMenuItem2.Text = "X";
+      this.xToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // yToolStripMenuItem2
+      // 
+      this.yToolStripMenuItem2.Name = "yToolStripMenuItem2";
+      this.yToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.yToolStripMenuItem2.Text = "Y";
+      this.yToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // zToolStripMenuItem2
+      // 
+      this.zToolStripMenuItem2.Name = "zToolStripMenuItem2";
+      this.zToolStripMenuItem2.Size = new System.Drawing.Size(85, 22);
+      this.zToolStripMenuItem2.Text = "Z";
+      this.zToolStripMenuItem2.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // toolStripMenuItem7
+      // 
+      this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+      this.toolStripMenuItem7.Size = new System.Drawing.Size(85, 22);
+      this.toolStripMenuItem7.Text = "#";
+      this.toolStripMenuItem7.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // toolStripMenuItem8
+      // 
+      this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+      this.toolStripMenuItem8.Size = new System.Drawing.Size(85, 22);
+      this.toolStripMenuItem8.Text = "\'\'";
+      this.toolStripMenuItem8.Click += new System.EventHandler(this.mnubAlbumFilter_Click);
+      // 
+      // tsmiClearFilter
+      // 
+      this.tsmiClearFilter.Image = global::Properties.Resources.ClearFilter;
+      this.tsmiClearFilter.Name = "tsmiClearFilter";
+      this.tsmiClearFilter.Size = new System.Drawing.Size(28, 23);
+      this.tsmiClearFilter.Click += new System.EventHandler(this.tsmiClearFilter_Click);
       // 
       // sepButtons1
       // 
@@ -2017,7 +2989,7 @@ namespace ID3_TagIT
             this.btnTagToFileV2});
       this.mnuBtns.Location = new System.Drawing.Point(0, 24);
       this.mnuBtns.Name = "mnuBtns";
-      this.mnuBtns.Size = new System.Drawing.Size(1005, 27);
+      this.mnuBtns.Size = new System.Drawing.Size(1178, 27);
       this.mnuBtns.TabIndex = 29;
       this.mnuBtns.Text = "mnuBtns";
       // 
@@ -2153,9 +3125,9 @@ namespace ID3_TagIT
             this.lblSubDirs,
             this.lblProgress,
             this.StatusProgressBar});
-      this.statusStrip1.Location = new System.Drawing.Point(0, 639);
+      this.statusStrip1.Location = new System.Drawing.Point(0, 842);
       this.statusStrip1.Name = "statusStrip1";
-      this.statusStrip1.Size = new System.Drawing.Size(1005, 22);
+      this.statusStrip1.Size = new System.Drawing.Size(1178, 22);
       this.statusStrip1.TabIndex = 30;
       this.statusStrip1.Text = "statusStrip1";
       // 
@@ -2170,7 +3142,7 @@ namespace ID3_TagIT
       // lblPath
       // 
       this.lblPath.Name = "lblPath";
-      this.lblPath.Size = new System.Drawing.Size(108, 17);
+      this.lblPath.Size = new System.Drawing.Size(281, 17);
       this.lblPath.Spring = true;
       this.lblPath.Text = "lblPath";
       this.lblPath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2216,19 +3188,10 @@ namespace ID3_TagIT
       // frmMain
       // 
       this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-      this.ClientSize = new System.Drawing.Size(1005, 661);
+      this.ClientSize = new System.Drawing.Size(1178, 864);
+      this.Controls.Add(this.spltMain);
       this.Controls.Add(this.EnumInfo);
-      this.Controls.Add(this.MP3View);
-      this.Controls.Add(this.SplitterBottom);
-      this.Controls.Add(this.ErrorMsg);
-      this.Controls.Add(this.SplitterRight);
-      this.Controls.Add(this.SideBar);
-      this.Controls.Add(this.SplitterLeft);
-      this.Controls.Add(this.NavigationPan);
-      this.Controls.Add(this.barLeftDockSite);
-      this.Controls.Add(this.barRightDockSite);
-      this.Controls.Add(this.barTopDockSite);
-      this.Controls.Add(this.barBottomDockSite);
+      this.Controls.Add(this.mnuExtended);
       this.Controls.Add(this.mnuBtns);
       this.Controls.Add(this.mnuDDs);
       this.Controls.Add(this.statusStrip1);
@@ -2236,16 +3199,36 @@ namespace ID3_TagIT
       this.MainMenuStrip = this.mnuDDs;
       this.Name = "frmMain";
       this.Text = "ID3-TagIT";
-      this.NavigationPan.ResumeLayout(false);
-      this.FoldersPanel.ResumeLayout(false);
-      this.FavouritesPanel.ResumeLayout(false);
-      ((System.ComponentModel.ISupportInitialize)(this.SideBar)).EndInit();
-      this.SideBar.ResumeLayout(false);
-      this.SideBar.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.APICView)).EndInit();
+      this.spltMain.Panel1.ResumeLayout(false);
+      this.spltMain.Panel2.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.spltMain)).EndInit();
+      this.spltMain.ResumeLayout(false);
+      this.spltTop.Panel1.ResumeLayout(false);
+      this.spltTop.Panel2.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.spltTop)).EndInit();
+      this.spltTop.ResumeLayout(false);
+      this.tabControl1.ResumeLayout(false);
+      this.tabFolders.ResumeLayout(false);
+      this.tabFavorites.ResumeLayout(false);
+      this.spltMiddle.Panel1.ResumeLayout(false);
+      this.spltMiddle.Panel2.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.spltMiddle)).EndInit();
+      this.spltMiddle.ResumeLayout(false);
+      this.errContext.ResumeLayout(false);
+      this.pnlTools.ResumeLayout(false);
+      this.pnlTools.PerformLayout();
+      this.pnlInformation.ResumeLayout(false);
+      this.pnlInformation.PerformLayout();
+      this.pnlPicture.ResumeLayout(false);
+      this.pnlPicture.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.picCover)).EndInit();
+      this.pnlQuickEdit.ResumeLayout(false);
+      this.pnlQuickEdit.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
       this.mnuDDs.ResumeLayout(false);
       this.mnuDDs.PerformLayout();
+      this.mnuExtended.ResumeLayout(false);
+      this.mnuExtended.PerformLayout();
       this.mnuBtns.ResumeLayout(false);
       this.mnuBtns.PerformLayout();
       this.statusStrip1.ResumeLayout(false);
@@ -2298,7 +3281,6 @@ namespace ID3_TagIT
       this.vbooClosing = false;
       this.vbooStartUp = true;
       this.vbooRefreshFlag = false;
-      this.vbytToolBarTAGVersion = 0;
       this.vbooFolderRename = false;
       this.vstrFolderRenameOldPath = "";
       this.vstrFolderRenameNewPath = "";
@@ -2312,7 +3294,7 @@ namespace ID3_TagIT
 
     #region Events
 
-    private void btnQuickEdit_Click(object sender, EventArgs e)
+    private void btnQuickEditOK_Click(object sender, EventArgs e)
     {
       Form form;
       frmProgress.Callback callback;
@@ -2399,1338 +3381,225 @@ namespace ID3_TagIT
       }
     }
 
-    private void DotNetBarManager_ItemClick(object sender, EventArgs e)
-    {
-      bool flag2;
-      frmMain main;
-      BaseItem item = (BaseItem)sender;
-
-      if (StringType.StrCmp(item.Name, "btnErrorListClear", false) == 0)
-      {
-        this.ErrorMsg.BeginUpdate();
-        this.ErrorMsg.Items.Clear();
-        this.ErrorMsg.EndUpdate();
-        return;
-      }
-
-      string name = item.Name;
-
-      if (StringType.StrCmp(name, "mnubtnRefresh", false) != 0)
-      {
-        if (StringType.StrCmp(name, "mnubtnSave", false) == 0)
-        {
-          this.SaveChanges();
-          return;
-        }
-
-        if (StringType.StrCmp(name, "mnubtnMoveFiles", false) == 0)
-        {
-          this.MoveFiles();
-          return;
-        }
-
-        if (StringType.StrCmp(name, "mnubtnCopyFiles", false) == 0)
-        {
-          this.CopyFiles();
-          return;
-        }
-
-        if (StringType.StrCmp(name, "mnubtnDeleteFiles", false) == 0)
-        {
-          this.DeleteFiles();
-          return;
-        }
-
-        if (StringType.StrCmp(name, "mnubtnOrganizeFiles", false) != 0)
-        {
-          Form form;
-          ButtonItem item23 = null;
-          Declarations.CopyTAG ytag2;
-          frmProgress.Callback callback;
-
-          if (StringType.StrCmp(name, "mnubtnLocation", false) == 0)
-          {
-            if (this.MP3View.SelectedItems.Count > 0)
-            {
-              Process process = new Process();
-              MP3 tag = (MP3)this.MP3View.FocusedItem.Tag;
-              process.StartInfo.UseShellExecute = true;
-              process.StartInfo.FileName = Path.GetDirectoryName(tag.FI.FullName);
-              process.StartInfo.Verb = "open";
-              process.Start();
-            }
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnRemoveFolders", false) == 0)
-          {
-            new frmRemoveFolders(this).ShowDialog(this);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnPlay", false) == 0)
-          {
-            string vLeft = "";
-            Process process2 = new Process();
-
-            foreach (ListViewItem item3 in this.MP3View.SelectedItems)
-              vLeft = StringType.FromObject(ObjectType.StrCatObj(vLeft, ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(item3.Tag, null, "FI", new object[0], null, null), null, "FullName", new object[0], null, null), "\r\n")));
-
-            if (StringType.StrCmp(vLeft, "", false) != 0)
-            {
-              string str3 = Id3TagIT_Main.CreateTempFile(Encoding.Default.GetBytes(vLeft), "m3u");
-              process2.StartInfo.UseShellExecute = true;
-              process2.StartInfo.FileName = str3;
-
-              try
-              {
-                process2.StartInfo.Verb = Declarations.objSettings.Play;
-              }
-              catch (Exception exception8)
-              {
-                ProjectData.SetProjectError(exception8);
-                process2.StartInfo.Verb = "open";
-                ProjectData.ClearProjectError();
-              }
-
-              process2.Start();
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnRename", false) == 0)
-          {
-            if ((this.ActiveControl == this.FolderTree) | (this.ActiveControl == this.NavigationPan))
-            // FIXME - Do rename...
-            { } // this.FolderTree.SelectedNode.ExecuteShellCommand(ShellCommands.Rename);
-            else if (this.MP3View.FocusedItem != null)
-            {
-              this.MP3View.LabelEdit = true;
-              this.MP3View.FocusedItem.BeginEdit();
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnProperties", false) == 0)
-          {
-            Declarations.SHELLEXECUTEINFO expression = new Declarations.SHELLEXECUTEINFO();
-            if (this.MP3View.FocusedItem != null)
-            {
-              expression.cbSize = Strings.Len(expression);
-              expression.fMask = 0x44c;
-              expression.hwnd = this.Handle.ToInt32();
-              expression.lpVerb = "properties";
-              expression.lpFile = StringType.FromObject(ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(this.MP3View.FocusedItem.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null), "\0"));
-              expression.lpParameters = "\0";
-              expression.lpDirectory = "\0";
-              expression.nShow = 0;
-              expression.hInstApp = 0;
-              expression.lpIDList = 0;
-              Declarations.ShellExecuteEx(ref expression);
-            }
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnQuit", false) == 0)
-          {
-            Declarations.MP3s = null;
-            this.Close();
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnUndo", false) == 0)
-          {
-            if (Declarations.UNDOList.Count > 0)
-            {
-              ArrayList list2 = (ArrayList)Declarations.UNDOList[Declarations.UNDOList.Count - 1];
-              ArrayList list3 = new ArrayList();
-              form = this;
-              callback = new frmProgress.Callback(this.UnDoCB);
-              frmProgress progress = new frmProgress(0, list2.Count, 50, ref form, ref callback);
-              progress.SetStateUndo();
-              progress.List = list2;
-              progress.ListHelp = list3;
-              progress.ShowDialog(this);
-              progress.ProgressBar.Value = progress.ProgressBar.Maximum;
-              Declarations.REDOList.Add(list3);
-              this.mnubtnRedo.Enabled = true;
-              Declarations.UNDOList.RemoveAt(Declarations.UNDOList.Count - 1);
-
-              if (Declarations.UNDOList.Count == 0)
-                this.UnDoEnable(false, false);
-
-              this.MP3View_FillColumns(ref Declarations.MP3s);
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnRedo", false) == 0)
-          {
-            if (Declarations.REDOList.Count > 0)
-            {
-              ArrayList list4 = (ArrayList)Declarations.REDOList[Declarations.REDOList.Count - 1];
-              ArrayList list5 = new ArrayList();
-              form = this;
-              callback = new frmProgress.Callback(this.ReDoCB);
-              frmProgress progress2 = new frmProgress(0, list4.Count, 50, ref form, ref callback);
-              progress2.SetStateRedo();
-              progress2.List = list4;
-              progress2.ListHelp = list5;
-              progress2.ShowDialog(this);
-              progress2.ProgressBar.Value = progress2.ProgressBar.Maximum;
-              Declarations.UNDOList.Add(list5);
-              this.UnDoEnable(true, false);
-              Declarations.REDOList.RemoveAt(Declarations.REDOList.Count - 1);
-
-              if (Declarations.REDOList.Count == 0)
-                this.mnubtnRedo.Enabled = false;
-
-              this.MP3View_FillColumns(ref Declarations.MP3s);
-              progress2.Close();
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnCopyV1", false) == 0)
-          {
-            foreach (ListViewItem item4 in this.MP3View.SelectedItems)
-            {
-              ytag2 = new Declarations.CopyTAG((V1TAG)LateBinding.LateGet(LateBinding.LateGet(item4.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), null);
-              this.alstCopyPaste.Add(ytag2);
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnCopyV2", false) == 0)
-          {
-            this.alstCopyPaste.Clear();
-
-            foreach (ListViewItem item5 in this.MP3View.SelectedItems)
-            {
-              ytag2 = new Declarations.CopyTAG(null, (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item5.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null));
-              this.alstCopyPaste.Add(ytag2);
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnCopyV1V2", false) == 0)
-          {
-            this.alstCopyPaste.Clear();
-
-            foreach (ListViewItem item6 in this.MP3View.SelectedItems)
-            {
-              ytag2 = new Declarations.CopyTAG((V1TAG)LateBinding.LateGet(LateBinding.LateGet(item6.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item6.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null));
-              this.alstCopyPaste.Add(ytag2);
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnPaste", false) == 0)
-          {
-            ArrayList list6 = new ArrayList();
-
-            if (!((this.MP3View.SelectedItems.Count == 0) | (this.alstCopyPaste.Count == 0)))
-            {
-              this.MP3View.BeginUpdate();
-
-              if (this.alstCopyPaste.Count == 1)
-              {
-                form = this;
-                callback = new frmProgress.Callback(this.Paste1CB);
-                frmProgress progress3 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
-                progress3.SetStatePaste();
-                progress3.List = list6;
-                progress3.ShowDialog(this);
-              }
-              else if (this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count)
-              {
-                form = this;
-                callback = new frmProgress.Callback(this.Paste2CB);
-                frmProgress progress4 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
-                progress4.SetStatePaste();
-                progress4.List = list6;
-                progress4.ShowDialog(this);
-              }
-              else
-              {
-                form = this;
-                callback = new frmProgress.Callback(this.Paste3CB);
-                frmProgress progress5 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
-                progress5.SetStatePaste();
-                progress5.List = list6;
-                progress5.ShowDialog(this);
-              }
-
-              this.MP3View.EndUpdate();
-
-              if (list6.Count > 0)
-              {
-                Declarations.UNDOList.Add(list6);
-                this.UnDoEnable(true, true);
-              }
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSearchReplace", false) == 0)
-          {
-            new frmSearch { MainForm = this }.Show();
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSelectAll", false) == 0)
-          {
-            this.MP3View.BeginUpdate();
-
-            foreach (ListViewItem item7 in this.MP3View.Items)
-              item7.Selected = true;
-
-            this.MP3View.EndUpdate();
-
-            try
-            {
-              if (this.MP3View.FocusedItem == null)
-                this.MP3View.Items[0].Focused = true;
-            }
-            catch (Exception exception9)
-            {
-              ProjectData.SetProjectError(exception9);
-              ProjectData.ClearProjectError();
-            }
-
-            this.MP3View.Focus();
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSelectInvert", false) == 0)
-          {
-            this.MP3View.BeginUpdate();
-
-            foreach (ListViewItem item8 in this.MP3View.Items)
-              item8.Selected ^= true;
-
-            this.MP3View.EndUpdate();
-
-            try
-            {
-              if (this.MP3View.FocusedItem == null)
-                this.MP3View.Items[0].Focused = true;
-            }
-            catch (Exception exception10)
-            {
-              ProjectData.SetProjectError(exception10);
-              ProjectData.ClearProjectError();
-            }
-
-            this.MP3View.Focus();
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSelectGroup", false) == 0)
-          {
-            int index = 0;
-            this.MP3View.ListViewItemSorter = null;
-            this.MP3View.BeginUpdate();
-
-            foreach (ListViewItem item9 in this.MP3View.SelectedItems)
-            {
-              ListViewItem item10 = (ListViewItem)item9.Clone();
-              this.MP3View.Items.Insert(index, item10);
-
-              if (index == 0)
-              {
-                item10.Focused = true;
-                item10.EnsureVisible();
-              }
-
-              index++;
-              item10.Selected = true;
-              this.MP3View.Items.Remove(item9);
-            }
-
-            this.MP3View.EndUpdate();
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSelectFormat", false) == 0)
-          {
-            main = this;
-            new frmSelectFormat(ref main).ShowDialog(this);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSelectChanged", false) == 0)
-          {
-            this.MP3View.ListViewItemSorter = null;
-
-            foreach (ListViewItem item11 in this.MP3View.Items)
-            {
-              if (BooleanType.FromObject(LateBinding.LateGet(item11.Tag, null, "Changed", new object[0], null, null)))
-                item11.Selected = true;
-              else if (Declarations.objSettings.SelectionMode == 1)
-                item11.Selected = false;
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSelectDouble", false) == 0)
-          {
-            this.MP3View.ListViewItemSorter = null;
-
-            foreach (ListViewItem item12 in this.MP3View.Items)
-            {
-              if (BooleanType.FromObject(LateBinding.LateGet(item12.Tag, null, "Doubled", new object[0], null, null)))
-                item12.Selected = true;
-              else if (Declarations.objSettings.SelectionMode == 1)
-                item12.Selected = false;
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSelectCompare", false) == 0)
-          {
-            this.MP3View.ListViewItemSorter = null;
-
-            foreach (ListViewItem item13 in this.MP3View.Items)
-            {
-              if (BooleanType.FromObject(LateBinding.LateGet(item13.Tag, null, "FileTAGCompare", new object[0], null, null)))
-                item13.Selected = true;
-              else if (Declarations.objSettings.SelectionMode == 1)
-                item13.Selected = false;
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnViewVer1", false) == 0)
-          {
-            SwitchToV1();
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnViewVer2", false) == 0)
-          {
-            SwitchToV2();
-            return;
-          }
-
-          if (StringType.StrCmp(name, "btnV1V2View", false) == 0)
-          {
-            btnSwitchV1V2_Click(sender, e);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnRemove", false) == 0)
-          {
-            this.MP3View.ListViewItemSorter = null;
-            this.MP3View.BeginUpdate();
-
-            foreach (ListViewItem item18 in this.MP3View.SelectedItems)
-            {
-              Declarations.MP3s.Remove(RuntimeHelpers.GetObjectValue(item18.Tag));
-              this.MP3View.Items.Remove(item18);
-            }
-
-            this.MP3View.EndUpdate();
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnE1", false) == 0)
-          {
-            if (this.MP3View.SelectedItems.Count == 0)
-            {
-              Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-              return;
-            }
-
-            main = this;
-            new frmTAG1(ref main).ShowDialog(this);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnME1", false) == 0)
-          {
-            if (this.MP3View.SelectedItems.Count == 0)
-            {
-              Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-              return;
-            }
-
-            main = this;
-            new frmTAG1Multi(ref main).ShowDialog(this);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnRemoveV1", false) == 0)
-          {
-            ArrayList list7 = new ArrayList();
-
-            if (this.MP3View.SelectedItems.Count == 0)
-            {
-              Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-              return;
-            }
-
-            if (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["TAGRemove"], null, "Replace", new object[] { "%1", "1" }, null, null), null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.OkCancel, null) == MsgBoxResult.Ok)
-            {
-              this.MP3View.BeginUpdate();
-              form = this;
-              callback = new frmProgress.Callback(this.Remove1CB);
-              frmProgress progress6 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback);
-              progress6.SetStateRemoveTAG();
-              progress6.List = list7;
-              progress6.ShowDialog(this);
-              this.MP3View.EndUpdate();
-
-              if (list7.Count > 0)
-              {
-                Declarations.UNDOList.Add(list7);
-                this.UnDoEnable(true, true);
-              }
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnFT1", false) == 0)
-          {
-            if (this.MP3View.SelectedItems.Count == 0)
-            {
-              Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-              return;
-            }
-
-            main = this;
-            new frmFilenameToTAG1(ref main).ShowDialog(this);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnT1F", false) == 0)
-          {
-            if (this.MP3View.SelectedItems.Count == 0)
-            {
-              Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-              return;
-            }
-
-            main = this;
-            new frmTAG1ToFilename(ref main).ShowDialog(this);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnE2", false) == 0)
-          {
-            if (this.MP3View.SelectedItems.Count == 0)
-            {
-              Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-              return;
-            }
-
-            main = this;
-            new frmTAG2(ref main).ShowDialog(this);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnME2", false) == 0)
-          {
-            if (this.MP3View.SelectedItems.Count == 0)
-            {
-              Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-              return;
-            }
-
-            main = this;
-            new frmTAG2Multi(ref main).ShowDialog();
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnRemoveV2", false) == 0)
-          {
-            ArrayList list8 = new ArrayList();
-
-            if (this.MP3View.SelectedItems.Count == 0)
-            {
-              Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-              return;
-            }
-
-            if (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["TAGRemove"], null, "Replace", new object[] { "%1", "2" }, null, null), null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.OkCancel, null) == MsgBoxResult.Ok)
-            {
-              this.MP3View.BeginUpdate();
-              form = this;
-              callback = new frmProgress.Callback(this.Remove2CB);
-              frmProgress progress7 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback);
-              progress7.SetStateRemoveTAG();
-              progress7.List = list8;
-              progress7.ShowDialog(this);
-              this.MP3View.EndUpdate();
-
-              if (list8.Count > 0)
-              {
-                Declarations.UNDOList.Add(list8);
-                this.UnDoEnable(true, true);
-              }
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnFT2", false) == 0)
-          {
-            if (this.MP3View.SelectedItems.Count == 0)
-            {
-              Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-              return;
-            }
-
-            main = this;
-            new frmFilenameToTAG2(ref main).ShowDialog(this);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnT2F", false) == 0)
-          {
-            if (this.MP3View.SelectedItems.Count == 0)
-            {
-              Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-              return;
-            }
-
-            main = this;
-            new frmTAG2ToFilename(ref main).ShowDialog(this);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnChangeTextEnc", false) == 0)
-          {
-            if (this.MP3View.SelectedItems.Count == 0)
-            {
-              Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-              return;
-            }
-
-            main = this;
-            new frmEncoding(ref main).ShowDialog(this);
-            return;
-          }
-
-          if (((StringType.StrCmp(name, "mnubtnEnumFilename", false) == 0) || (StringType.StrCmp(name, "mnubtnEnumV1", false) == 0)) || (StringType.StrCmp(name, "mnubtnEnumV2", false) == 0))
-          {
-            ((ButtonItem)item).Checked ^= true;
-
-            if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
-              this.aintLastSelected = null;
-
-            if (StringType.StrCmp(item.Name, "mnubtnEnumFilename", false) == 0)
-              Declarations.objSettings.EnumFile ^= true;
-
-            if (StringType.StrCmp(item.Name, "mnubtnEnumV1", false) == 0)
-              Declarations.objSettings.EnumVer1 ^= true;
-
-            if (StringType.StrCmp(item.Name, "mnubtnEnumV2", false) == 0)
-              Declarations.objSettings.EnumVer2 ^= true;
-
-            if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
-            {
-              this.vintEnumCount = Declarations.objSettings.FilenumberStart;
-              this.mnubtnEnumCounter.Text = StringType.FromInteger(this.vintEnumCount);
-            }
-
-            this.Enumerate();
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnEnumMinus", false) == 0)
-          {
-            this.vintEnumCount--;
-
-            if (this.vintEnumCount < 1)
-              this.vintEnumCount = 1;
-
-            this.mnubtnEnumCounter.Text = StringType.FromInteger(this.vintEnumCount);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnEnumPlus", false) == 0)
-          {
-            this.vintEnumCount++;
-            this.mnubtnEnumCounter.Text = StringType.FromInteger(this.vintEnumCount);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnCaseConversion", false) == 0)
-          {
-            main = this;
-            new frmCaseConv(ref main).ShowDialog(this);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnTransfer", false) == 0)
-          {
-            main = this;
-            new frmTransfer(ref main).ShowDialog(this);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSwapV1AT", false) == 0)
-          {
-            ArrayList list9 = new ArrayList();
-            this.MP3View.BeginUpdate();
-            form = this;
-            callback = new frmProgress.Callback(this.SwapArtistTitle1CB);
-            frmProgress progress8 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list9 };
-            progress8.SetStateSwap();
-            progress8.ShowDialog(this);
-            this.MP3View.EndUpdate();
-
-            if (list9.Count > 0)
-            {
-              Declarations.UNDOList.Add(list9);
-              this.UnDoEnable(true, true);
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSwapV2AT", false) == 0)
-          {
-            ArrayList list10 = new ArrayList();
-            this.MP3View.BeginUpdate();
-            form = this;
-            callback = new frmProgress.Callback(this.SwapArtistTitle2CB);
-            frmProgress progress9 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list10 };
-            progress9.SetStateSwap();
-            progress9.ShowDialog(this);
-            this.MP3View.EndUpdate();
-
-            if (list10.Count > 0)
-            {
-              Declarations.UNDOList.Add(list10);
-              this.UnDoEnable(true, true);
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSwapV1AA", false) == 0)
-          {
-            ArrayList list11 = new ArrayList();
-            this.MP3View.BeginUpdate();
-            form = this;
-            callback = new frmProgress.Callback(this.SwapArtistAlbum1CB);
-            frmProgress progress10 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list11 };
-            progress10.SetStateSwap();
-            progress10.ShowDialog(this);
-            this.MP3View.EndUpdate();
-
-            if (list11.Count > 0)
-            {
-              Declarations.UNDOList.Add(list11);
-              this.UnDoEnable(true, true);
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSwapV2AA", false) == 0)
-          {
-            ArrayList list12 = new ArrayList();
-            this.MP3View.BeginUpdate();
-            form = this;
-            callback = new frmProgress.Callback(this.SwapArtistAlbum2CB);
-            frmProgress progress11 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list12 };
-            progress11.SetStateSwap();
-            progress11.ShowDialog(this);
-            this.MP3View.EndUpdate();
-
-            if (list12.Count > 0)
-            {
-              Declarations.UNDOList.Add(list12);
-              this.UnDoEnable(true, true);
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSwapV1TA", false) == 0)
-          {
-            ArrayList list13 = new ArrayList();
-            this.MP3View.BeginUpdate();
-            form = this;
-            callback = new frmProgress.Callback(this.SwapTitleAlbum1CB);
-            frmProgress progress12 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list13 };
-            progress12.SetStateSwap();
-            progress12.ShowDialog(this);
-            this.MP3View.EndUpdate();
-
-            if (list13.Count > 0)
-            {
-              Declarations.UNDOList.Add(list13);
-              this.UnDoEnable(true, true);
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSwapV2TA", false) == 0)
-          {
-            ArrayList list14 = new ArrayList();
-            this.MP3View.BeginUpdate();
-            form = this;
-            callback = new frmProgress.Callback(this.SwapTitleAlbum2CB);
-            frmProgress progress13 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list14 };
-            progress13.SetStateSwap();
-            progress13.ShowDialog(this);
-            this.MP3View.EndUpdate();
-
-            if (list14.Count > 0)
-            {
-              Declarations.UNDOList.Add(list14);
-              this.UnDoEnable(true, true);
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSplitArtist1", false) == 0)
-          {
-            if (this.MP3View.SelectedItems.Count > 0)
-            {
-              ArrayList list15 = new ArrayList();
-              string str5 = Interaction.InputBox(StringType.FromObject(Declarations.objResources.ResStrings["SplitATText"]), StringType.FromObject(Declarations.objResources.ResStrings["SplitAT1"]), Declarations.objSettings.SplitSeparator, -1, -1);
-
-              if (StringType.StrCmp(str5, "", false) == 0)
-                return;
-
-              Declarations.objSettings.SplitSeparator = str5;
-              this.MP3View.BeginUpdate();
-              form = this;
-              callback = new frmProgress.Callback(this.SplitArtist1CB);
-              frmProgress progress14 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list15, String01 = str5 };
-              progress14.SetStateSplit();
-              progress14.ShowDialog(this);
-              this.MP3View.EndUpdate();
-
-              if (list15.Count > 0)
-              {
-                Declarations.UNDOList.Add(list15);
-                this.UnDoEnable(true, true);
-              }
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSplitArtist2", false) == 0)
-          {
-            if (this.MP3View.SelectedItems.Count > 0)
-            {
-              ArrayList list16 = new ArrayList();
-              string str6 = Interaction.InputBox(StringType.FromObject(Declarations.objResources.ResStrings["SplitATText"]), StringType.FromObject(Declarations.objResources.ResStrings["SplitAT2"]), Declarations.objSettings.SplitSeparator, -1, -1);
-
-              if (StringType.StrCmp(str6, "", false) == 0)
-                return;
-
-              Declarations.objSettings.SplitSeparator = str6;
-              this.MP3View.BeginUpdate();
-              form = this;
-              callback = new frmProgress.Callback(this.SplitArtist2CB);
-              frmProgress progress15 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list16, String01 = str6 };
-              progress15.SetStateSplit();
-              progress15.ShowDialog(this);
-              this.MP3View.EndUpdate();
-
-              if (list16.Count > 0)
-              {
-                Declarations.UNDOList.Add(list16);
-                this.UnDoEnable(true, true);
-              }
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnFreeDB", false) == 0)
-          {
-            int num2 = 0;
-
-            foreach (ListViewItem item19 in this.MP3View.SelectedItems)
-              num2 = IntegerType.FromObject(ObjectType.AddObj(num2, LateBinding.LateGet(item19.Tag, null, "Duration", new object[0], null, null)));
-
-            if (((this.MP3View.SelectedItems.Count > 0) & (this.MP3View.SelectedItems.Count < 100)) & (num2 < 0x1770))
-              new frmFreeDB(this).ShowDialog();
-            else
-              Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["FreeDBToLong"]), MsgBoxStyle.Exclamation, null);
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnDouble", false) == 0)
-          {
-            if (this.MP3View.Items.Count > 2)
-              new frmDouble(this).ShowDialog(this);
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnCompareFileTAG", false) == 0)
-          {
-            if (this.MP3View.Items.Count > 2)
-            {
-              main = this;
-              new frmCompareFileTAG(ref main).ShowDialog(this);
-            }
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnEditLibraries", false) == 0)
-          {
-            main = this;
-            new frmLibraries(ref main).ShowDialog(this);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnLists", false) == 0)
-          {
-            bool flag3 = false;
-            frmLists lists = new frmLists { MainForm = this };
-
-            do
-            {
-              if (this.CheckAllChanged())
-              {
-                switch (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["ChangesNotSaved"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.YesNoCancel, null))
-                {
-                  case MsgBoxResult.Cancel:
-                    return;
-
-                  case MsgBoxResult.Yes:
-                    this.SaveChanges();
-                    if (!this.CheckAllChanged())
-                      flag3 = true;
-
-                    break;
-
-                  case MsgBoxResult.No:
-                    flag3 = true;
-                    break;
-                }
-              }
-              else
-                flag3 = true;
-            }
-            while (!flag3);
-
-            lists.ShowDialog(this);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnQuickFilename", false) == 0)
-          {
-            Declarations.objSettings.QuickFilenameEditing ^= true;
-            LateBinding.LateSet(sender, null, "Checked", new object[] { ObjectType.BitXorObj(LateBinding.LateGet(sender, null, "Checked", new object[0], null, null), true) }, null);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnScanSubDirs", false) == 0)
-          {
-            Declarations.objSettings.ScanSubDirs ^= true;
-            LateBinding.LateSet(sender, null, "Checked", new object[] { ObjectType.BitXorObj(LateBinding.LateGet(sender, null, "Checked", new object[0], null, null), true) }, null);
-            if (Declarations.objSettings.ScanSubDirs)
-              lblSubDirs.Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsYes"]);
-            else
-              lblSubDirs.Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsNo"]);
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnSynchronize", false) == 0)
-          {
-            Declarations.objSettings.SynchronizeTAGs ^= true;
-            LateBinding.LateSet(sender, null, "Checked", new object[] { ObjectType.BitXorObj(LateBinding.LateGet(sender, null, "Checked", new object[0], null, null), true) }, null);
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnPreferences", false) == 0)
-          {
-            new frmPreferences(this).ShowDialog();
-            if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
-            {
-              this.vintEnumCount = Declarations.objSettings.FilenumberStart;
-              this.mnubtnEnumCounter.Text = StringType.FromInteger(this.vintEnumCount);
-            }
-
-            string str9 = "";
-            RegistryKey key = Registry.ClassesRoot.OpenSubKey(".mp3", false);
-            Application.DoEvents();
-
-            if (key != null)
-            {
-              str9 = StringType.FromObject(key.GetValue(""));
-              string str8 = str9 + @"\DefaultIcon\";
-              RegistryKey key2 = Registry.ClassesRoot.OpenSubKey(str8, false);
-              Application.DoEvents();
-
-              if (key2 != null)
-              {
-                str9 = StringType.FromObject(key2.GetValue(""));
-
-                try
-                {
-                  str9 = str9.Substring(0, str9.LastIndexOf(","));
-                }
-                catch (Exception exception15)
-                {
-                  ProjectData.SetProjectError(exception15);
-                  ProjectData.ClearProjectError();
-                }
-              }
-            }
-
-            this.BarGroupTools.SubItems.Clear();
-            this.ToolsIcons.Images.Clear();
-
-            int num4 = -1;
-
-            foreach (DataRow row in Declarations.objSettings.Tools.Rows)
-            {
-              num4++;
-
-              try
-              {
-                if (BooleanType.FromObject(row["DefaultPlayer"]))
-                {
-                  if (StringType.StrCmp(str9, "", false) != 0)
-                    this.ToolsIcons.Images.Add(Id3TagIT_Main.GetAppIcon(str9, true));
-
-                  ButtonItem item20 = new ButtonItem("ToolItem" + num4.ToString(), row["ToolDescription"].ToString())
-                  {
-                    ImageIndex = num4,
-                    Tag = num4,
-                    ButtonStyle = eButtonStyle.ImageAndText
-                  };
-
-                  this.BarGroupTools.SubItems.Add(item20);
-                }
-                else
-                {
-                  this.ToolsIcons.Images.Add(Id3TagIT_Main.GetAppIcon(StringType.FromObject(row["ToolPath"]), true));
-                  ButtonItem item21 = new ButtonItem("ToolItem" + num4.ToString(), row["ToolDescription"].ToString())
-                  {
-                    ImageIndex = num4,
-                    Tag = num4,
-                    ButtonStyle = eButtonStyle.ImageAndText
-                  };
-                  this.BarGroupTools.SubItems.Add(item21);
-                }
-              }
-              catch (Exception exception16)
-              {
-                ProjectData.SetProjectError(exception16);
-                ButtonItem item22 = new ButtonItem("ToolItem" + num4.ToString(), row["ToolDescription"].ToString())
-                {
-                  Tag = num4,
-                  ButtonStyle = eButtonStyle.TextOnlyAlways
-                };
-                this.BarGroupTools.SubItems.Add(item22);
-                ProjectData.ClearProjectError();
-              }
-            }
-
-            this.BarGroupTools.RecalcSize();
-            this.BarGroupTools.Expanded = false;
-            this.BarGroupTools.Expanded = true;
-
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnHelp", false) == 0)
-          {
-            new Process
-            {
-              StartInfo =
-              {
-                FileName = StringType.FromObject(Application.StartupPath.EndsWith(@"\") ? Application.StartupPath + @"Help\index.htm" : Application.StartupPath + @"\Help\index.htm"),
-                UseShellExecute = true
-              }
-            }.Start();
-            return;
-          }
-
-          if (StringType.StrCmp(name, "mnubtnShortcuts", false) == 0)
-          {
-            new Process
-            {
-              StartInfo =
-              {
-                FileName = StringType.FromObject(Application.StartupPath.EndsWith(@"\") ? Application.StartupPath + @"Help\shortcuts.htm" : Application.StartupPath + @"\Help\shortcuts.htm"),
-                UseShellExecute = true
-              }
-            }.Start();
-            return;
-          }
-
-          if ((((((StringType.StrCmp(name, "mnubtnFilterA", false) != 0) &&
-                  (StringType.StrCmp(name, "mnubtnFilterB", false) != 0)) &&
-                 ((StringType.StrCmp(name, "mnubtnFilterC", false) != 0) &&
-                  (StringType.StrCmp(name, "mnubtnFilterD", false) != 0))) &&
-                (((StringType.StrCmp(name, "mnubtnFilterE", false) != 0) &&
-                  (StringType.StrCmp(name, "mnubtnFilterF", false) != 0)) &&
-                 ((StringType.StrCmp(name, "mnubtnFilterG", false) != 0) &&
-                  (StringType.StrCmp(name, "mnubtnFilterH", false) != 0)))) &&
-               ((((StringType.StrCmp(name, "mnubtnFilterI", false) != 0) &&
-                  (StringType.StrCmp(name, "mnubtnFilterJ", false) != 0)) &&
-                 ((StringType.StrCmp(name, "mnubtnFilterK", false) != 0) &&
-                  (StringType.StrCmp(name, "mnubtnFilterL", false) != 0))) &&
-                (((StringType.StrCmp(name, "mnubtnFilterM", false) != 0) &&
-                  (StringType.StrCmp(name, "mnubtnFilterN", false) != 0)) &&
-                 ((StringType.StrCmp(name, "mnubtnFilterO", false) != 0) &&
-                  (StringType.StrCmp(name, "mnubtnFilterP", false) != 0))))) &&
-              (((((StringType.StrCmp(name, "mnubtnFilterQ", false) != 0) &&
-                  (StringType.StrCmp(name, "mnubtnFilterR", false) != 0)) &&
-                 ((StringType.StrCmp(name, "mnubtnFilterS", false) != 0) &&
-                  (StringType.StrCmp(name, "mnubtnFilterT", false) != 0))) &&
-                (((StringType.StrCmp(name, "mnubtnFilterU", false) != 0) &&
-                  (StringType.StrCmp(name, "mnubtnFilterV", false) != 0)) &&
-                 ((StringType.StrCmp(name, "mnubtnFilterW", false) != 0) &&
-                  (StringType.StrCmp(name, "mnubtnFilterX", false) != 0)))) &&
-                (((StringType.StrCmp(name, "mnubtnFilterY", false) != 0) &&
-                  (StringType.StrCmp(name, "mnubtnFilterZ", false) != 0)) &&
-                (((StringType.StrCmp(name, "mnubtnFilterOther", false) != 0) &&
-                  (StringType.StrCmp(name, "mnubtnFilterEmpty", false) != 0)) &&
-                  (StringType.StrCmp(name, "mnubtnFilterNumber", false) != 0)))))
-          {
-            ButtonItem item25 = null;
-
-            if (StringType.StrCmp(name, "mnubtnRemoveFilter", false) != 0)
-            {
-              if ((StringType.StrCmp(name, "mnucmbLanguage", false) == 0) && !this.vbooStartUp)
-              {
-                Declarations.objSettings.Language = (byte)((ComboBoxItem)this.DotNetBarManager.GetItem("mnucmbLanguage")).SelectedIndex;
-                Declarations.objResources.ReadResources();
-                this.SetLanguage();
-              }
-
-              return;
-            }
-
-            switch (this.vbytFilterIndex)
-            {
-              case 0:
-                item25 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterArtist"];
-                break;
-
-              case 1:
-                item25 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterTitle"];
-                break;
-
-              case 2:
-                item25 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterAlbum"];
-                break;
-
-              case 0xff:
-                return;
-            }
-
-            item25.Checked = false;
-
-            foreach (ButtonItem item26 in item25.SubItems)
-              item26.Checked = false;
-
-            this.vbytFilterIndex = 0xff;
-            this.vstrFilter = "*";
-            Application.DoEvents();
-            this.MP3View_FillColumns(ref Declarations.MP3s);
-            this.Timer.Start();
-            this.MP3View.Focus();
-            return;
-          }
-          switch (this.vbytFilterIndex)
-          {
-            case 0:
-              item23 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterArtist"];
-              break;
-
-            case 1:
-              item23 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterTitle"];
-              break;
-
-            case 2:
-              item23 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterAlbum"];
-              break;
-
-            case 0xff:
-              goto Label_31F2;
-          }
-
-          item23.Checked = false;
-
-          foreach (ButtonItem item24 in item23.SubItems)
-            item24.Checked = false;
-
-          goto Label_31F2;
-        }
-
-        if (this.MP3View.SelectedItems.Count == 0)
-        {
-          Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-          return;
-        }
-
-        flag2 = false;
-      }
-      else
-      {
-        bool flag = false;
-
-        do
-        {
-          if (this.CheckAllChanged())
-          {
-            switch (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["ChangesNotSaved"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.YesNoCancel, null))
-            {
-              case MsgBoxResult.Cancel:
-                return;
-
-              case MsgBoxResult.Yes:
-                this.SaveChanges();
-                if (!this.CheckAllChanged())
-                {
-                  flag = true;
-                }
-                break;
-
-              case MsgBoxResult.No:
-                flag = true;
-                break;
-            }
-          }
-          else
-            flag = true;
-        }
-        while (!flag);
-
-        try
-        {
-          this.CalcAudioCheckSumThread.Abort();
-          this.CalcAudioCheckSumThread.Join();
-        }
-        catch (Exception exception1)
-        {
-          ProjectData.SetProjectError(exception1);
-          Exception exception = exception1;
-          ProjectData.ClearProjectError();
-        }
-
-        this.vbooRefreshFlag = true;
-        this.FolderTree.RefreshView();
-        this.vbooRefreshFlag = false;
-        Declarations.UNDOList.Clear();
-        Declarations.REDOList.Clear();
-        this.mnubtnUndo.Enabled = false;
-        this.mnubtnRedo.Enabled = false;
-        return;
-      }
-
-      do
-      {
-        if (this.CheckAllChanged())
-        {
-          switch (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["ChangesNotSaved"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.YesNoCancel, null))
-          {
-            case MsgBoxResult.Cancel:
-              return;
-
-            case MsgBoxResult.Yes:
-              this.SaveChanges();
-
-              if (!this.CheckAllChanged())
-                flag2 = true;
-
-              break;
-
-            case MsgBoxResult.No:
-              flag2 = true;
-              break;
-          }
-        }
-        else
-          flag2 = true;
-      }
-      while (!flag2);
-
-      try
-      {
-        this.CalcAudioCheckSumThread.Abort();
-        this.CalcAudioCheckSumThread.Join();
-      }
-      catch (Exception exception7)
-      {
-        ProjectData.SetProjectError(exception7);
-        Exception exception2 = exception7;
-        ProjectData.ClearProjectError();
-      }
-
-      main = this;
-      frmOrganize organize = new frmOrganize(ref main);
-
-      if (organize.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
-      {
-        this.vbooRefreshFlag = true;
-        this.FolderTree.RefreshView();
-        this.vbooRefreshFlag = false;
-      }
-
-      this.AudioCheckSumCalculation();
-      return;
-
-      Label_31F2:
-      this.vstrFilter = ((ButtonItem)item).Text;
-      ((ButtonItem)item).Checked = true;
-      string sLeft = ((ButtonItem)item).Parent.Name;
-
-      if (StringType.StrCmp(sLeft, "mnubtnFilterArtist", false) == 0)
-      {
-        this.vbytFilterIndex = 0;
-        ((ButtonItem)this.DotNetBarManager.Items["mnubtnFilterArtist"]).Checked = true;
-      }
-      else if (StringType.StrCmp(sLeft, "mnubtnFilterTitle", false) == 0)
-      {
-        this.vbytFilterIndex = 1;
-        ((ButtonItem)this.DotNetBarManager.Items["mnubtnFilterTitle"]).Checked = true;
-      }
-      else if (StringType.StrCmp(sLeft, "mnubtnFilterAlbum", false) == 0)
-      {
-        this.vbytFilterIndex = 2;
-        ((ButtonItem)this.DotNetBarManager.Items["mnubtnFilterAlbum"]).Checked = true;
-      }
-
-      Application.DoEvents();
-      this.MP3View_FillColumns(ref Declarations.MP3s);
-      this.Timer.Start();
-      this.MP3View.Focus();
-    }
-
-    private void ErrorMsg_MouseUp(object sender, MouseEventArgs e)
-    {
-      if (e.Button == MouseButtons.Right)
-      {
-        ButtonItem item = (ButtonItem)this.DotNetBarManager.ContextMenus["ErrorListMenu"];
-        item.Displayed = false;
-        item.PopupMenu(Control.MousePosition);
-      }
-    }
+    //public DevComponents.DotNetBar.DotNetBarManager DotNetBarManager;
+    //this.DotNetBarManager = new DevComponents.DotNetBar.DotNetBarManager(this.components);
+    // 
+    // DotNetBarManager
+    // 
+    //this.DotNetBarManager.AllowUserBarCustomize = false;
+    //this.DotNetBarManager.DefinitionName = "ID3-TagIT.MenuBars.xml";
+    //this.DotNetBarManager.ParentForm = this;
+    //this.DotNetBarManager.ShowShortcutKeysInToolTips = true;
+    //this.DotNetBarManager.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
+    //this.DotNetBarManager.TopDockSite = null;
+    //this.DotNetBarManager.ItemClick += new System.EventHandler(this.DotNetBarManager_ItemClick);
+    //    private void DotNetBarManager_ItemClick(object sender, EventArgs e)
+    //    {
+    //      bool flag2 = false;
+    //      BaseItem item = (BaseItem)sender;
+
+    //      string name = item.Name;
+
+    //      if (StringType.StrCmp(name, "mnubtnRefresh", false) != 0)
+    //      {
+    //        if (StringType.StrCmp(name, "mnubtnOrganizeFiles", false) != 0)
+    //        {
+    //          ButtonItem item23 = null;
+
+    //          if ((StringType.StrCmp(name, "mnubtnEnumFilename", false) == 0) || (StringType.StrCmp(name, "mnubtnEnumV1", false) == 0) || (StringType.StrCmp(name, "mnubtnEnumV2", false) == 0))
+    //          {
+    //            ((ButtonItem)item).Checked ^= true;
+
+    //            if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+    //              this.aintLastSelected = null;
+
+    //            if (StringType.StrCmp(item.Name, "mnubtnEnumFilename", false) == 0)
+    //              Declarations.objSettings.EnumFile ^= true;
+
+    //            if (StringType.StrCmp(item.Name, "mnubtnEnumV1", false) == 0)
+    //              Declarations.objSettings.EnumVer1 ^= true;
+
+    //            if (StringType.StrCmp(item.Name, "mnubtnEnumV2", false) == 0)
+    //              Declarations.objSettings.EnumVer2 ^= true;
+
+    //            if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+    //            {
+    //              this.vintEnumCount = Declarations.objSettings.FilenumberStart;
+    //              this.mnutEnumerateCounter.Text = StringType.FromInteger(this.vintEnumCount);
+    //            }
+
+    //            this.Enumerate();
+    //            return;
+    //          }
+
+    //          if ((((((StringType.StrCmp(name, "mnubtnFilterA", false) != 0) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterB", false) != 0)) &&
+    //                 ((StringType.StrCmp(name, "mnubtnFilterC", false) != 0) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterD", false) != 0))) &&
+    //                (((StringType.StrCmp(name, "mnubtnFilterE", false) != 0) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterF", false) != 0)) &&
+    //                 ((StringType.StrCmp(name, "mnubtnFilterG", false) != 0) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterH", false) != 0)))) &&
+    //               ((((StringType.StrCmp(name, "mnubtnFilterI", false) != 0) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterJ", false) != 0)) &&
+    //                 ((StringType.StrCmp(name, "mnubtnFilterK", false) != 0) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterL", false) != 0))) &&
+    //                (((StringType.StrCmp(name, "mnubtnFilterM", false) != 0) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterN", false) != 0)) &&
+    //                 ((StringType.StrCmp(name, "mnubtnFilterO", false) != 0) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterP", false) != 0))))) &&
+    //              (((((StringType.StrCmp(name, "mnubtnFilterQ", false) != 0) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterR", false) != 0)) &&
+    //                 ((StringType.StrCmp(name, "mnubtnFilterS", false) != 0) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterT", false) != 0))) &&
+    //                (((StringType.StrCmp(name, "mnubtnFilterU", false) != 0) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterV", false) != 0)) &&
+    //                 ((StringType.StrCmp(name, "mnubtnFilterW", false) != 0) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterX", false) != 0)))) &&
+    //                (((StringType.StrCmp(name, "mnubtnFilterY", false) != 0) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterZ", false) != 0)) &&
+    //                (((StringType.StrCmp(name, "mnubtnFilterOther", false) != 0) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterEmpty", false) != 0)) &&
+    //                  (StringType.StrCmp(name, "mnubtnFilterNumber", false) != 0)))))
+    //          {
+    //            ButtonItem item25 = null;
+
+    //            if (StringType.StrCmp(name, "mnubtnRemoveFilter", false) != 0)
+    //              return;
+
+    //            switch (this.vbytFilterIndex)
+    //            {
+    //              case 0:
+    //                item25 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterArtist"];
+    //                break;
+
+    //              case 1:
+    //                item25 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterTitle"];
+    //                break;
+
+    //              case 2:
+    //                item25 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterAlbum"];
+    //                break;
+
+    //              case 0xff:
+    //                return;
+    //            }
+
+    //            item25.Checked = false;
+
+    //            foreach (ButtonItem item26 in item25.SubItems)
+    //              item26.Checked = false;
+
+    //            this.vbytFilterIndex = 0xff;
+    //            this.vstrFilter = "*";
+    //            Application.DoEvents();
+    //            this.MP3View_FillColumns(ref Declarations.MP3s);
+    //            this.Timer.Start();
+    //            this.MP3View.Focus();
+    //            return;
+    //          }
+    //          switch (this.vbytFilterIndex)
+    //          {
+    //            case 0:
+    //              item23 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterArtist"];
+    //              break;
+
+    //            case 1:
+    //              item23 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterTitle"];
+    //              break;
+
+    //            case 2:
+    //              item23 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterAlbum"];
+    //              break;
+
+    //            case 0xff:
+    //              goto Label_31F2;
+    //          }
+
+    //          item23.Checked = false;
+
+    //          foreach (ButtonItem item24 in item23.SubItems)
+    //            item24.Checked = false;
+
+    //          goto Label_31F2;
+    //        }
+
+    //        if (this.MP3View.SelectedItems.Count == 0)
+    //        {
+    //          Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+    //          return;
+    //        }
+
+    //        flag2 = false;
+    //      }
+
+    //      do
+    //      {
+    //        if (this.CheckAllChanged())
+    //        {
+    //          switch (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(
+    //            Declarations.objResources.ResStrings["ChangesNotSaved"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)),
+    //            MsgBoxStyle.Question | MsgBoxStyle.YesNoCancel, null))
+    //          {
+    //            case MsgBoxResult.Cancel:
+    //              return;
+
+    //            case MsgBoxResult.Yes:
+    //              this.SaveChanges();
+
+    //              if (!this.CheckAllChanged())
+    //                flag2 = true;
+
+    //              break;
+
+    //            case MsgBoxResult.No:
+    //              flag2 = true;
+    //              break;
+    //          }
+    //        }
+    //        else
+    //          flag2 = true;
+    //      }
+    //      while (!flag2);
+
+    //      try
+    //      {
+    //        this.CalcAudioCheckSumThread.Abort();
+    //        this.CalcAudioCheckSumThread.Join();
+    //      }
+    //      catch (Exception exception7)
+    //      {
+    //        ProjectData.SetProjectError(exception7);
+    //        Exception exception2 = exception7;
+    //        ProjectData.ClearProjectError();
+    //      }
+
+    //Label_31F2:
+    //      this.vstrFilter = ((ButtonItem)item).Text;
+    //      ((ButtonItem)item).Checked = true;
+    //      string sLeft = ((ButtonItem)item).Parent.Name;
+
+    //      if (StringType.StrCmp(sLeft, "mnubtnFilterArtist", false) == 0)
+    //      {
+    //        this.vbytFilterIndex = 0;
+    //        ((ButtonItem)this.DotNetBarManager.Items["mnubtnFilterArtist"]).Checked = true;
+    //      }
+    //      else if (StringType.StrCmp(sLeft, "mnubtnFilterTitle", false) == 0)
+    //      {
+    //        this.vbytFilterIndex = 1;
+    //        ((ButtonItem)this.DotNetBarManager.Items["mnubtnFilterTitle"]).Checked = true;
+    //      }
+    //      else if (StringType.StrCmp(sLeft, "mnubtnFilterAlbum", false) == 0)
+    //      {
+    //        this.vbytFilterIndex = 2;
+    //        ((ButtonItem)this.DotNetBarManager.Items["mnubtnFilterAlbum"]).Checked = true;
+    //      }
+
+    //      Application.DoEvents();
+    //      this.MP3View_FillColumns(ref Declarations.MP3s);
+    //      this.Timer.Start();
+    //      this.MP3View.Focus();
+    //    }
 
     private void FavTree_AfterSelect(object sender, TreeViewEventArgs e)
     {
@@ -3745,15 +3614,15 @@ namespace ID3_TagIT
       switch (this.vbytFilterIndex)
       {
         case 0:
-          item2 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterArtist"];
+          // FIXME DNB item2 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterArtist"];
           break;
 
         case 1:
-          item2 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterTitle"];
+          // FIXME DNB item2 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterTitle"];
           break;
 
         case 2:
-          item2 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterAlbum"];
+          // FIXME DNB item2 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterAlbum"];
           break;
 
         case 0xff:
@@ -3767,7 +3636,7 @@ namespace ID3_TagIT
 
       this.vbytFilterIndex = 0xff;
 
-      Label_010A:
+Label_010A:
       this.MP3View.Items.Clear();
       Declarations.MP3s.Clear();
 
@@ -3799,7 +3668,7 @@ namespace ID3_TagIT
 
       this.MP3View_FillColumns(ref Declarations.MP3s);
 
-      Label_021B:
+Label_021B:
       num = 0;
 
       foreach (ListViewItem item in this.MP3View.SelectedItems)
@@ -3882,9 +3751,9 @@ namespace ID3_TagIT
     {
       if (e.Button == MouseButtons.Right)
       {
-        ButtonItem item = (ButtonItem)this.DotNetBarManager.ContextMenus["FavouritesMenu"];
-        item.Displayed = false;
-        item.PopupMenu(Control.MousePosition);
+        // FIXME DNB ButtonItem item = (ButtonItem)this.DotNetBarManager.ContextMenus["FavouritesMenu"];
+        //item.Displayed = false;
+        //item.PopupMenu(Control.MousePosition);
       }
     }
 
@@ -3961,15 +3830,15 @@ namespace ID3_TagIT
       switch (this.vbytFilterIndex)
       {
         case 0:
-          item2 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterArtist"];
+          // FIXME DNB item2 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterArtist"];
           break;
 
         case 1:
-          item2 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterTitle"];
+          // FIXME DNB item2 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterTitle"];
           break;
 
         case 2:
-          item2 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterAlbum"];
+          // FIXME DNB item2 = (ButtonItem)this.DotNetBarManager.Items["mnubtnFilterAlbum"];
           break;
 
         case 0xff:
@@ -3983,7 +3852,7 @@ namespace ID3_TagIT
 
       this.vbytFilterIndex = 0xff;
 
-      Label_010B:
+Label_010B:
       this.GetFiles(null, true, true);
       int num = 0;
 
@@ -4002,7 +3871,13 @@ namespace ID3_TagIT
       if (copyBack[1])
         str = StringType.FromObject(args[1]);
 
-      lblNumber.Text = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["Number"], null, "Replace", new object[] { "%1", this.MP3View.Items.Count.ToString() }, null, null), null, "Replace", new object[] { "%2", this.MP3View.SelectedItems.Count.ToString() }, null, null), null, "Replace", args, null, copyBack));
+      lblNumber.Text = StringType.FromObject(
+                         LateBinding.LateGet(
+                           LateBinding.LateGet(
+                             LateBinding.LateGet(
+                               Declarations.objResources.ResStrings["Number"], null, "Replace", new object[] { "%1", this.MP3View.Items.Count.ToString() }, null, null),
+                             null, "Replace", new object[] { "%2", this.MP3View.SelectedItems.Count.ToString() }, null, null),
+                           null, "Replace", args, null, copyBack));
       args = new object[2];
       args[0] = "%1";
       Settings objSettings = Declarations.objSettings;
@@ -4017,7 +3892,13 @@ namespace ID3_TagIT
 
       try
       {
-        lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
+        if (this.MP3View.FocusedItem != null)
+          lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"],
+                                                                     null,
+                                                                     "Replace",
+                                                                     new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() },
+                                                                     null,
+                                                                     null));
       }
       catch (Exception exception1)
       {
@@ -4030,8 +3911,11 @@ namespace ID3_TagIT
       {
         Declarations.UNDOList.Clear();
         Declarations.REDOList.Clear();
-        this.mnubtnUndo.Enabled = false;
-        this.mnubtnRedo.Enabled = false;
+
+        this.btnUndo.Enabled = false;
+        this.btnRedo.Enabled = false;
+        this.undoToolStripMenuItem.Enabled = false;
+        this.redoToolStripMenuItem.Enabled = false;
       }
       catch (Exception exception2)
       {
@@ -4167,7 +4051,8 @@ namespace ID3_TagIT
 
       try
       {
-        this.PicMStream.Close();
+        if (this.PicMStream != null)
+          this.PicMStream.Close();
       }
       catch (Exception exception7)
       {
@@ -4178,12 +4063,12 @@ namespace ID3_TagIT
 
       try
       {
-        this.DotNetBarManager.SaveLayout(Path.Combine(Declarations.vstrUserAppData, "Interface.xml"));
-        this.NavigationPan.SaveLayout(Path.Combine(Declarations.vstrUserAppData, "Navpanel.xml"));
-        this.DotNetBarManager.Bars["Toolbar"].SaveDefinition(Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml"));
-        this.DotNetBarManager.Bars["ExtToolbar"].SaveDefinition(Path.Combine(Declarations.vstrUserAppData, "ExtToolbar.xml"));
-        this.BarGroupTools.SubItems.Clear();
-        this.SideBar.SaveDefinition(Path.Combine(Declarations.vstrUserAppData, "Sidebar.xml"));
+        // FIXME DNB this.DotNetBarManager.SaveLayout(Path.Combine(Declarations.vstrUserAppData, "Interface.xml"));
+        // FIXME DNB this.DotNetBarManager.Bars["Toolbar"].SaveDefinition(Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml"));
+        // FIXME DNB this.DotNetBarManager.Bars["ExtToolbar"].SaveDefinition(Path.Combine(Declarations.vstrUserAppData, "ExtToolbar.xml"));
+        // FIXME this.BarGroupTools.SubItems.Clear();
+        //this.SideBar.SaveDefinition(Path.Combine(Declarations.vstrUserAppData, "Sidebar.xml"));
+        //this.NavigationPan.SaveLayout(Path.Combine(Declarations.vstrUserAppData, "Navpanel.xml"));
       }
       catch (Exception exception8)
       {
@@ -4191,12 +4076,12 @@ namespace ID3_TagIT
         ProjectData.ClearProjectError();
       }
 
-      Declarations.objSettings.NavPanWidth = this.NavigationPan.Width;
-      Declarations.objSettings.SideBarWidth = this.SideBar.Width;
-      Declarations.objSettings.ErrorHeight = this.ErrorMsg.Height;
-      Declarations.objSettings.NavPanExpanded = this.SplitterLeft.Expanded;
-      Declarations.objSettings.SideBarExpanded = this.SplitterRight.Expanded;
-      Declarations.objSettings.ErrorExpanded = this.SplitterBottom.Expanded;
+      // FIXME - Distaince - Declarations.objSettings.NavPanWidth = this.NavigationPan.Width;
+      // FIXME - Distaince - Declarations.objSettings.SideBarWidth = this.splitContainer1.Panel2.Width;
+      //Declarations.objSettings.ErrorHeight = this.ErrorMsg.Height;
+      //Declarations.objSettings.NavPanExpanded = this.SplitterLeft.Expanded;
+      //Declarations.objSettings.SideBarExpanded = this.SplitterRight.Expanded;
+      //Declarations.objSettings.ErrorExpanded = this.SplitterBottom.Expanded;
 
       Form form = this;
       Id3TagIT_Main.SaveFormSettings(ref form);
@@ -4267,43 +4152,43 @@ namespace ID3_TagIT
       Form form = this;
       Id3TagIT_Main.RestoreFormSettings(ref form);
 
-      try
-      {
-        if (File.Exists(Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml")))
-          this.DotNetBarManager.Bars["Toolbar"].LoadDefinition(Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml"));
-      }
-      catch (Exception exception2)
-      {
-        ProjectData.SetProjectError(exception2);
-        ProjectData.ClearProjectError();
-      }
+      //try
+      //{
+      //  if (File.Exists(Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml")))
+      //    this.DotNetBarManager.Bars["Toolbar"].LoadDefinition(Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml"));
+      //}
+      //catch (Exception exception2)
+      //{
+      //  ProjectData.SetProjectError(exception2);
+      //  ProjectData.ClearProjectError();
+      //}
+
+      //try
+      //{
+      //  if (File.Exists(Path.Combine(Declarations.vstrUserAppData, "ExtToolbar.xml")))
+      //    this.DotNetBarManager.Bars["ExtToolbar"].LoadDefinition(Path.Combine(Declarations.vstrUserAppData, "ExtToolbar.xml"));
+      //}
+      //catch (Exception exception3)
+      //{
+      //  ProjectData.SetProjectError(exception3);
+      //  ProjectData.ClearProjectError();
+      //}
+
+      //try
+      //{
+      //  if (File.Exists(Path.Combine(Declarations.vstrUserAppData, "Navpanel.xml")))
+      //    this.NavigationPan.LoadLayout(Path.Combine(Declarations.vstrUserAppData, "Navpanel.xml"));
+      //}
+      //catch (Exception exception4)
+      //{
+      //  ProjectData.SetProjectError(exception4);
+      //  ProjectData.ClearProjectError();
+      //}
 
       try
       {
-        if (File.Exists(Path.Combine(Declarations.vstrUserAppData, "ExtToolbar.xml")))
-          this.DotNetBarManager.Bars["ExtToolbar"].LoadDefinition(Path.Combine(Declarations.vstrUserAppData, "ExtToolbar.xml"));
-      }
-      catch (Exception exception3)
-      {
-        ProjectData.SetProjectError(exception3);
-        ProjectData.ClearProjectError();
-      }
-
-      try
-      {
-        if (File.Exists(Path.Combine(Declarations.vstrUserAppData, "Navpanel.xml")))
-          this.NavigationPan.LoadLayout(Path.Combine(Declarations.vstrUserAppData, "Navpanel.xml"));
-      }
-      catch (Exception exception4)
-      {
-        ProjectData.SetProjectError(exception4);
-        ProjectData.ClearProjectError();
-      }
-
-      try
-      {
-        if (File.Exists(Path.Combine(Declarations.vstrUserAppData, "Interface.xml")))
-          this.DotNetBarManager.LoadLayout(Path.Combine(Declarations.vstrUserAppData, "Interface.xml"));
+        // FIXME DNB if (File.Exists(Path.Combine(Declarations.vstrUserAppData, "Interface.xml")))
+        // FIXME DNB   this.DotNetBarManager.LoadLayout(Path.Combine(Declarations.vstrUserAppData, "Interface.xml"));
       }
       catch (Exception exception5)
       {
@@ -4315,11 +4200,12 @@ namespace ID3_TagIT
       {
         if (File.Exists(Path.Combine(Declarations.vstrUserAppData, "Sidebar.xml")))
         {
-          this.SideBar.LoadDefinition(Path.Combine(Declarations.vstrUserAppData, "Sidebar.xml"));
-          this.BarGroupEdit = (ExplorerBarGroupItem)this.SideBar.Groups[0];
-          this.BarGroupPicture = (ExplorerBarGroupItem)this.SideBar.Groups[1];
-          this.BarGroupInfo = (ExplorerBarGroupItem)this.SideBar.Groups[2];
-          this.BarGroupTools = (ExplorerBarGroupItem)this.SideBar.Groups[3];
+          // FIXME
+          //this.SideBar.LoadDefinition(Path.Combine(Declarations.vstrUserAppData, "Sidebar.xml"));
+          //this.BarGroupEdit = (ExplorerBarGroupItem)this.SideBar.Groups[0];
+          //this.BarGroupPicture = (ExplorerBarGroupItem)this.SideBar.Groups[1];
+          //this.BarGroupInfo = (ExplorerBarGroupItem)this.SideBar.Groups[2];
+          //this.BarGroupTools = (ExplorerBarGroupItem)this.SideBar.Groups[3];
         }
       }
       catch (Exception exception6)
@@ -4328,60 +4214,45 @@ namespace ID3_TagIT
         ProjectData.ClearProjectError();
       }
 
-      this.mnubtnUndo = (ButtonItem)this.DotNetBarManager.GetItem("mnubtnUndo");
-      this.mnubtnRedo = (ButtonItem)this.DotNetBarManager.GetItem("mnubtnRedo");
-      this.mnubtnEnumMinus = (ButtonItem)this.DotNetBarManager.GetItem("mnubtnEnumMinus");
-      this.mnubtnEnumPlus = (ButtonItem)this.DotNetBarManager.GetItem("mnubtnEnumPlus");
-      this.mnubtnEnumCounter = (ButtonItem)this.DotNetBarManager.GetItem("mnubtnEnumCounter");
-      this.mnubtnEnumCounter.Text = StringType.FromInteger(Declarations.objSettings.FilenumberStart);
-      this.mnubtnViewVer1 = (ButtonItem)this.DotNetBarManager.GetItem("mnubtnViewVer1");
-      this.mnubtnViewVer2 = (ButtonItem)this.DotNetBarManager.GetItem("mnubtnViewVer2");
+      this.mnutEnumerateCounter.Text = StringType.FromInteger(Declarations.objSettings.FilenumberStart);
 
-      ((ButtonItem)this.DotNetBarManager.Items["mnubtnFilterArtist"]).Text = StringType.FromObject(Declarations.objResources.ResStrings["Col05"]);
-      ((ButtonItem)this.DotNetBarManager.Items["mnubtnFilterTitle"]).Text = StringType.FromObject(Declarations.objResources.ResStrings["Col06"]);
-      ((ButtonItem)this.DotNetBarManager.Items["mnubtnFilterAlbum"]).Text = StringType.FromObject(Declarations.objResources.ResStrings["Col07"]);
-
-      this.mnubtnUndo.Enabled = false;
-      this.mnubtnRedo.Enabled = false;
-
-      ((ButtonItem)this.DotNetBarManager.GetItem("mnubtnEnumFilename")).Checked = Declarations.objSettings.EnumFile;
-      ((ButtonItem)this.DotNetBarManager.GetItem("mnubtnEnumV1")).Checked = Declarations.objSettings.EnumVer1;
-      ((ButtonItem)this.DotNetBarManager.GetItem("mnubtnEnumV2")).Checked = Declarations.objSettings.EnumVer2;
-      ((ButtonItem)this.DotNetBarManager.GetItem("mnubtnScanSubDirs")).Checked = Declarations.objSettings.ScanSubDirs;
-      ((ButtonItem)this.DotNetBarManager.GetItem("mnubtnQuickFilename")).Checked = Declarations.objSettings.QuickFilenameEditing;
-      ((ButtonItem)this.DotNetBarManager.GetItem("mnubtnSynchronize")).Checked = Declarations.objSettings.SynchronizeTAGs;
-
-      this.mnubtnViewVer1.Checked = BooleanType.FromObject(Declarations.objSettings.VersionToShow == 1);
-      this.mnubtnViewVer2.Checked = BooleanType.FromObject(Declarations.objSettings.VersionToShow == 2);
-
-      btnSwitchV1V2.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
-      this.DotNetBarManager.GetItem("btnV1V2View").Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
-      lblVersion.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
-
-      if (Declarations.objSettings.ScanSubDirs)
-        lblSubDirs.Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsYes"]);
-      else
-        lblSubDirs.Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsNo"]);
-
-      if (Declarations.objSettings.UseThemes)
+      if (Declarations.objResources.ResStrings != null)
       {
-        foreach (Bar bar in this.DotNetBarManager.Bars)
-        {
-          bar.ThemeAware = true;
-          bar.Refresh();
-        }
-      }
-      else
-      {
-        foreach (Bar bar in this.DotNetBarManager.Bars)
-        {
-          bar.ThemeAware = false;
-          bar.Refresh();
-        }
+        // FIXME DNB ((ButtonItem)this.DotNetBarManager.Items["mnubtnFilterArtist"]).Text = StringType.FromObject(Declarations.objResources.ResStrings["Col05"]);
+        // FIXME DNB ((ButtonItem)this.DotNetBarManager.Items["mnubtnFilterTitle"]).Text = StringType.FromObject(Declarations.objResources.ResStrings["Col06"]);
+        // FIXME DNB ((ButtonItem)this.DotNetBarManager.Items["mnubtnFilterAlbum"]).Text = StringType.FromObject(Declarations.objResources.ResStrings["Col07"]);
       }
 
-      this.NavigationPan.Width = Declarations.objSettings.NavPanWidth;
-      this.SideBar.Width = Declarations.objSettings.SideBarWidth;
+      this.btnUndo.Enabled = false;
+      this.btnRedo.Enabled = false;
+      this.undoToolStripMenuItem.Enabled = false;
+      this.redoToolStripMenuItem.Enabled = false;
+
+      enumerateInTAGVer1ToolStripMenuItem1.Checked = Declarations.objSettings.EnumVer1;
+      enumerateInTAGVer2ToolStripMenuItem1.Checked = Declarations.objSettings.EnumVer2;
+      enumerateInTAGVer1ToolStripMenuItem.Checked = Declarations.objSettings.EnumVer1;
+      enumerateInTAGVer2ToolStripMenuItem.Checked = Declarations.objSettings.EnumVer2;
+      scanSubdirectoriesToolStripMenuItem.Checked = Declarations.objSettings.ScanSubDirs;
+      quickFilenameEditingToolStripMenuItem.Checked = Declarations.objSettings.QuickFilenameEditing;
+      synchronizeVer1AndVer2EditingToolStripMenuItem.Checked = Declarations.objSettings.SynchronizeTAGs;
+
+      viewTAGVer1ToolStripMenuItem.Checked = BooleanType.FromObject(Declarations.objSettings.VersionToShow == 1);
+      viewTAGVer2ToolStripMenuItem.Checked = BooleanType.FromObject(Declarations.objSettings.VersionToShow == 2);
+
+      if (Declarations.objResources.ResStrings != null)
+      {
+        btnSwitchV1V2.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
+        lblVersion.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
+      }
+
+      if (Declarations.objResources.ResStrings != null)
+        if (Declarations.objSettings.ScanSubDirs)
+          lblSubDirs.Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsYes"]);
+        else
+          lblSubDirs.Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsNo"]);
+
+      // FIXME - Distance - this.NavigationPan.Width = Declarations.objSettings.NavPanWidth;
+      // FIXME - Distance - this.splitContainer1.Panel2.Width = Declarations.objSettings.SideBarWidth;
       this.ErrorMsg.Height = Declarations.objSettings.ErrorHeight;
       string sLeft = "";
       RegistryKey key = Registry.ClassesRoot.OpenSubKey(".mp3", false);
@@ -4429,7 +4300,7 @@ namespace ID3_TagIT
               ButtonStyle = eButtonStyle.ImageAndText
             };
 
-            this.BarGroupTools.SubItems.Add(item2);
+            // FIXME this.BarGroupTools.SubItems.Add(item2);
           }
           else
           {
@@ -4440,7 +4311,7 @@ namespace ID3_TagIT
               Tag = num,
               ButtonStyle = eButtonStyle.ImageAndText
             };
-            this.BarGroupTools.SubItems.Add(item3);
+            // FIXME this.BarGroupTools.SubItems.Add(item3);
           }
         }
         catch (Exception exception8)
@@ -4451,7 +4322,7 @@ namespace ID3_TagIT
             Tag = num,
             ButtonStyle = eButtonStyle.Default
           };
-          this.BarGroupTools.SubItems.Add(item4);
+          // FIXME this.BarGroupTools.SubItems.Add(item4);
           ProjectData.ClearProjectError();
         }
       }
@@ -4464,22 +4335,26 @@ namespace ID3_TagIT
       this.FavTree.EndUpdate();
 
       foreach (DataRow row in Declarations.objSettings.Artists.Rows)
-        this.cmbArtist.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
+        this.cboQEArtist.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
 
-      this.colHErrFile.Text = StringType.FromObject(Declarations.objResources.ResStrings["CHError1"]);
+      if (Declarations.objResources.ResStrings != null)
+      {
+        this.colHErrFile.Text = StringType.FromObject(Declarations.objResources.ResStrings["CHError1"]);
+        this.colHErrMsg.Text = StringType.FromObject(Declarations.objResources.ResStrings["CHError2"]);
+      }
+
       this.colHErrFile.Width = 200;
-      this.colHErrMsg.Text = StringType.FromObject(Declarations.objResources.ResStrings["CHError2"]);
       this.colHErrMsg.Width = 200;
       this.ErrorMsg.Columns.AddRange(new ColumnHeader[] { this.colHErrFile, this.colHErrMsg });
       splash.lblState.Text = "Adding Columns";
       Application.DoEvents();
 
       this.MP3View_AddColumns();
-      this.lblArtist.Text = this.colHArtist.Text;
-      this.lblTitle.Text = this.colHTitle.Text;
-      this.lblAlbum.Text = this.colHAlbum.Text;
+      this.lblQEArtist.Text = this.colHArtist.Text;
+      this.lblQETitle.Text = this.colHTitle.Text;
+      this.lblQEAlbum.Text = this.colHAlbum.Text;
       splash.lblState.Text = "Localizing Menus";
-      ((ComboBoxItem)this.DotNetBarManager.GetItem("mnucmbLanguage")).SelectedIndex = Declarations.objSettings.Language;
+      cboLanguage.SelectedIndex = Declarations.objSettings.Language;
       this.SetLanguage();
       splash.lblState.Text = "Restoring folder";
       Application.DoEvents();
@@ -4500,7 +4375,7 @@ namespace ID3_TagIT
       this.FolderRenameTimer.Tick += new EventHandler(this.FolderRenameEventProcessor);
       int num2 = 0;
 
-      foreach (ListViewItem item in this.MP3View.SelectedItems)
+      foreach (ListViewItem item in this.MP3View.Items)
         num2 = IntegerType.FromObject(ObjectType.AddObj(num2, LateBinding.LateGet(item.Tag, null, "Duration", new object[0], null, null)));
 
       int num4 = num2 / 3600;
@@ -4530,7 +4405,8 @@ namespace ID3_TagIT
 
       try
       {
-        lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
+        if (this.MP3View.FocusedItem != null)
+          lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
       }
       catch (Exception exception9)
       {
@@ -4541,11 +4417,11 @@ namespace ID3_TagIT
 
       this.colHErrFile.Width = (int)Math.Round((double)(this.ErrorMsg.Width * 0.4));
       this.colHErrMsg.Width = (int)Math.Round((double)(this.ErrorMsg.Width * 0.55));
-      this.SplitterLeft.Expanded = Declarations.objSettings.NavPanExpanded;
-      this.SplitterRight.Expanded = Declarations.objSettings.SideBarExpanded;
-      this.SplitterBottom.Expanded = Declarations.objSettings.ErrorExpanded;
-      this.NavigationPan.RecalcLayout();
-      this.NavigationPan.ResetText();
+      //this.SplitterLeft.Expanded = Declarations.objSettings.NavPanExpanded;
+      //this.SplitterRight.Expanded = Declarations.objSettings.SideBarExpanded;
+      //this.SplitterBottom.Expanded = Declarations.objSettings.ErrorExpanded;
+      //this.NavigationPan.RecalcLayout();
+      //this.NavigationPan.ResetText();
       this.vbooStartUp = false;
     }
 
@@ -4739,18 +4615,18 @@ namespace ID3_TagIT
       ColumnClickEventArgs e = new ColumnClickEventArgs(this.SortedColumn);
       this.MP3View_ColumnClick(this, e);
       this.MP3View.EndUpdate();
-      this.cmbArtist.Text = "";
-      this.txtTitle.Text = "";
-      this.txtAlbum.Text = "";
-      this.APICView.Image = null;
-      this.txtInfo.Text = "";
-      this.txtInfo.Text = this.colHDuration.Text + ":\r\n";
-      this.txtInfo.AppendText(this.colHFileSize.Text + ":\r\n");
-      this.txtInfo.AppendText(this.colHBitrate.Text + ":\r\n");
-      this.txtInfo.AppendText(this.colHVBR.Text + ":\r\n");
-      this.txtInfo.AppendText(this.colHSamplerate.Text + ":\r\n");
-      this.txtInfo.AppendText(this.colHChannel.Text + ":\r\n");
-      this.txtInfo.AppendText(this.colHVersion.Text + ":");
+      this.cboQEArtist.Text = "";
+      this.txtQETitle.Text = "";
+      this.txtQEAlbum.Text = "";
+      this.picCover.Image = null;
+      this.txtInformation.Text = "";
+      this.txtInformation.Text = this.colHDuration.Text + ":\r\n";
+      this.txtInformation.AppendText(this.colHFileSize.Text + ":\r\n");
+      this.txtInformation.AppendText(this.colHBitrate.Text + ":\r\n");
+      this.txtInformation.AppendText(this.colHVBR.Text + ":\r\n");
+      this.txtInformation.AppendText(this.colHSamplerate.Text + ":\r\n");
+      this.txtInformation.AppendText(this.colHChannel.Text + ":\r\n");
+      this.txtInformation.AppendText(this.colHVersion.Text + ":");
       this.AudioCheckSumCalculation();
     }
 
@@ -4866,11 +4742,11 @@ namespace ID3_TagIT
         else if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null), null, "ToUpper", new object[0], null, null), this.vstrFilter, false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_051D:
+Label_051D:
         if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_053C:
+Label_053C:
         if (StringType.StrCmp(mp.V1TAG.Artist, "", false) != 0)
         {
           if (StringType.StrCmp(mp.V1TAG.Artist, "", false) != 0)
@@ -4886,7 +4762,7 @@ namespace ID3_TagIT
         else if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_0739:
+Label_0739:
         objArray5 = new object[1];
         obj3 = mp.V2TAG.GetFrame("TIT2");
         object[] objArray2 = new object[0];
@@ -4940,11 +4816,11 @@ namespace ID3_TagIT
         else if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null), null, "ToUpper", new object[0], null, null), this.vstrFilter, false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_0ADF:
+Label_0ADF:
         if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_0AFE:
+Label_0AFE:
         if (StringType.StrCmp(mp.V1TAG.Title, "", false) != 0)
         {
           if (StringType.StrCmp(mp.V1TAG.Title, "", false) != 0)
@@ -4962,7 +4838,7 @@ namespace ID3_TagIT
           flag = true;
         }
         goto Label_11ED;
-        Label_0CFB:
+Label_0CFB:
         objArray5 = new object[1];
         obj3 = mp.V2TAG.GetFrame("TALB");
         objArray2 = new object[0];
@@ -5016,11 +4892,11 @@ namespace ID3_TagIT
         else if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null), null, "ToUpper", new object[0], null, null), this.vstrFilter, false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_10A1:
+Label_10A1:
         if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_10C0:
+Label_10C0:
         if (StringType.StrCmp(mp.V1TAG.Album, "", false) != 0)
         {
           if (StringType.StrCmp(mp.V1TAG.Album, "", false) != 0)
@@ -5036,9 +4912,9 @@ namespace ID3_TagIT
         else if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_11EA:
+Label_11EA:
         flag = true;
-        Label_11ED:
+Label_11ED:
         if (!flag)
           goto Label_23AA;
         ListViewItem item = new ListViewItem(mp.CurrentName);
@@ -5214,7 +5090,7 @@ namespace ID3_TagIT
           else
             item.SubItems[this.colHComment.Index].Text = "";
         }
-        Label_1FBE:
+Label_1FBE:
         if (this.MP3View.Columns.Contains(this.colHRating))
         {
           if (mp.V2TAG.FrameExists("POPM"))
@@ -5230,7 +5106,7 @@ namespace ID3_TagIT
           else
             item.SubItems[this.colHRating.Index].Text = "";
         }
-        Label_208F:
+Label_208F:
         if (this.MP3View.Columns.Contains(this.colHComposer))
         {
           if (mp.V2TAG.FrameExists("TCOM"))
@@ -5240,7 +5116,7 @@ namespace ID3_TagIT
         }
         if (this.MP3View.Columns.Contains(this.colHPicCount))
           item.SubItems[this.colHPicCount.Index].Text = StringType.FromInteger(mp.V2TAG.GetFrames("APIC").Count);
-        Label_216E:
+Label_216E:
         if (mp.V1TAG.TAGPresent && (this.vbytVersionToShow == 1))
         {
           if (this.MP3View.Columns.Contains(this.colHArtist))
@@ -5260,7 +5136,7 @@ namespace ID3_TagIT
         }
         item.Tag = mp;
         this.MP3View.Items.Add(item);
-        Label_23AA:
+Label_23AA:
         if ((num3 > 0) && ((num2 % num3) == 0))
           frmProg.ProgressBar.PerformStep();
         if (num2 == list.Count)
@@ -5360,9 +5236,9 @@ namespace ID3_TagIT
     {
       if (e.Button == MouseButtons.Right)
       {
-        ButtonItem item = (ButtonItem)this.DotNetBarManager.ContextMenus["MP3ViewMenu"];
-        item.Displayed = false;
-        item.PopupMenu(Control.MousePosition);
+        // FIXME DNB ButtonItem item = (ButtonItem)this.DotNetBarManager.ContextMenus["MP3ViewMenu"];
+        //item.Displayed = false;
+        //item.PopupMenu(Control.MousePosition);
       }
     }
 
@@ -5465,27 +5341,7 @@ namespace ID3_TagIT
       this.Timer.Start();
     }
 
-    private void SideBar_ContainerLoadControl(object sender, EventArgs e)
-    {
-      ControlContainerItem item = (ControlContainerItem)sender;
-      string name = item.Name;
-      if (StringType.StrCmp(name, "CContainerArtist", false) == 0)
-        item.Control = this.cmbArtist;
-      else if (StringType.StrCmp(name, "CContainerTitle", false) == 0)
-        item.Control = this.txtTitle;
-      else if (StringType.StrCmp(name, "CContainerAlbum", false) == 0)
-        item.Control = this.txtAlbum;
-      else if (StringType.StrCmp(name, "CContainerbtnQuickEditOK", false) == 0)
-        item.Control = this.btnQuickEdit;
-      else if (StringType.StrCmp(name, "CContainerbtnQuickEditMore", false) == 0)
-        item.Control = this.btnQuickEditMore;
-      else if (StringType.StrCmp(name, "CContainerAPICView", false) == 0)
-        item.Control = this.APICView;
-      else if (StringType.StrCmp(name, "CContainertxtInfo", false) == 0)
-        item.Control = this.txtInfo;
-    }
-
-    private void SideBar_ItemClick(object sender, EventArgs e)
+    private void SideBar_ItemClick_Fuck(object sender, EventArgs e)
     {
       if ((sender is BaseItem) && StringType.FromObject(LateBinding.LateGet(sender, null, "Name", new object[0], null, null)).StartsWith("ToolItem"))
       {
@@ -5501,7 +5357,10 @@ namespace ID3_TagIT
             while (enumerator2.MoveNext())
             {
               current = (ListViewItem)enumerator2.Current;
-              process.StartInfo.FileName = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj('"', LateBinding.LateGet(LateBinding.LateGet(current.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null)), '"'));
+              process.StartInfo.FileName = StringType.FromObject(
+                ObjectType.StrCatObj(
+                  ObjectType.StrCatObj(
+                    '"', LateBinding.LateGet(LateBinding.LateGet(current.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null)), '"'));
               process.StartInfo.Verb = StringType.FromObject(row["ShellCommand"]);
               process.Start();
             }
@@ -5514,7 +5373,12 @@ namespace ID3_TagIT
             {
               current = (ListViewItem)enumerator.Current;
               process.StartInfo.FileName = StringType.FromObject(row["ToolPath"]);
-              process.StartInfo.Arguments = StringType.FromObject(LateBinding.LateGet(row["ToolParameter"], null, "Replace", new object[] { "%P", ObjectType.StrCatObj(ObjectType.StrCatObj('"', LateBinding.LateGet(LateBinding.LateGet(current.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null)), '"') }, null, null));
+              process.StartInfo.Arguments = StringType.FromObject(
+                LateBinding.LateGet(
+                  row["ToolParameter"], null, "Replace", new object[] { "%P", ObjectType.StrCatObj(
+                    ObjectType.StrCatObj(
+                      '"', LateBinding.LateGet(
+                        LateBinding.LateGet(current.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null)), '"') }, null, null));
               process.Start();
             }
           }
@@ -5536,7 +5400,7 @@ namespace ID3_TagIT
     {
       MP3 tag;
       byte num3;
-     
+
       if (this.vbooStartUp)
         return;
 
@@ -5572,7 +5436,8 @@ namespace ID3_TagIT
 
       try
       {
-        lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
+        if (this.MP3View.FocusedItem != null)
+          lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
       }
       catch (Exception exception1)
       {
@@ -5581,13 +5446,13 @@ namespace ID3_TagIT
         ProjectData.ClearProjectError();
       }
 
-      this.cmbArtist.Text = "";
-      this.txtTitle.Text = "";
-      this.txtAlbum.Text = "";
+      this.cboQEArtist.Text = "";
+      this.txtQETitle.Text = "";
+      this.txtQEAlbum.Text = "";
 
       try
       {
-        this.APICView.Image = null;
+        this.picCover.Image = null;
       }
       catch (Exception exception3)
       {
@@ -5617,13 +5482,13 @@ namespace ID3_TagIT
           tag = (MP3)this.MP3View.SelectedItems[0].Tag;
 
           if (tag.V2TAG.FrameExists("TPE1"))
-            this.cmbArtist.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
+            this.cboQEArtist.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
 
           if (tag.V2TAG.FrameExists("TIT2"))
-            this.txtTitle.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
+            this.txtQETitle.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
 
           if (tag.V2TAG.FrameExists("TALB"))
-            this.txtAlbum.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
+            this.txtQEAlbum.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
         }
 
         if (this.MP3View.SelectedItems.Count <= 1)
@@ -5674,9 +5539,9 @@ namespace ID3_TagIT
         if (this.MP3View.SelectedItems.Count == 1)
         {
           mp = (MP3)this.MP3View.SelectedItems[0].Tag;
-          this.cmbArtist.Text = mp.V1TAG.Artist;
-          this.txtTitle.Text = mp.V1TAG.Title;
-          this.txtAlbum.Text = mp.V1TAG.Album;
+          this.cboQEArtist.Text = mp.V1TAG.Artist;
+          this.txtQETitle.Text = mp.V1TAG.Title;
+          this.txtQEAlbum.Text = mp.V1TAG.Album;
         }
 
         if (this.MP3View.SelectedItems.Count > 1)
@@ -5706,13 +5571,13 @@ namespace ID3_TagIT
           if (num2 != 7)
           {
             if ((num2 & 1) == 0)
-              this.cmbArtist.Text = mp.V1TAG.Artist;
+              this.cboQEArtist.Text = mp.V1TAG.Artist;
 
             if ((num2 & 2) == 0)
-              this.txtTitle.Text = mp.V1TAG.Title;
+              this.txtQETitle.Text = mp.V1TAG.Title;
 
             if ((num2 & 4) == 0)
-              this.txtAlbum.Text = mp.V1TAG.Album;
+              this.txtQEAlbum.Text = mp.V1TAG.Album;
           }
         }
         goto Label_0B93;
@@ -5721,43 +5586,43 @@ namespace ID3_TagIT
       if (num3 != 7)
       {
         if ((num3 & 1) == 0)
-          this.cmbArtist.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
+          this.cboQEArtist.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
 
         if ((num3 & 2) == 0)
-          this.txtTitle.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
+          this.txtQETitle.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
 
         if ((num3 & 4) == 0)
-          this.txtAlbum.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
+          this.txtQEAlbum.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
       }
 
-      Label_0B93:
-      if (this.BarGroupInfo.Expanded & (this.MP3View.SelectedItems.Count == 1))
+Label_0B93:
+      if (this.pnlInformation.Tag.ToString() == "Expanded" & (this.MP3View.SelectedItems.Count == 1))
       {
         MP3 mp5 = (MP3)this.MP3View.SelectedItems[0].Tag;
-        this.txtInfo.Text = "";
-        this.txtInfo.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHDuration.Text + ":", this.colHDuration.Text.Length < 9 ? "\t\t" : "\t"), mp5.DurationFormated), "\r\n"));
+        this.txtInformation.Text = "";
+        this.txtInformation.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHDuration.Text + ":", this.colHDuration.Text.Length < 9 ? "\t\t" : "\t"), mp5.DurationFormated), "\r\n"));
         long num4 = mp5.FI.Length / 1024L;
-        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHFileSize.Text + ":", this.colHFileSize.Text.Length < 9 ? "\t\t" : "\t"), num4.ToString()), "\r\n")));
+        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHFileSize.Text + ":", this.colHFileSize.Text.Length < 9 ? "\t\t" : "\t"), num4.ToString()), "\r\n")));
         int num5 = mp5.Bitrate / 1000;
-        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHBitrate.Text + ":", this.colHBitrate.Text.Length < 9 ? "\t\t" : "\t"), num5.ToString()), "\r\n")));
-        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHVBR.Text + ":", this.colHVBR.Text.Length < 9 ? "\t\t" : "\t"), mp5.VBR ? "VBR" : "CBR"), "\r\n")));
-        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHSamplerate.Text + ":", this.colHSamplerate.Text.Length < 9 ? "\t\t" : "\t"), mp5.Samplerate), "\r\n")));
-        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHChannel.Text + ":", this.colHChannel.Text.Length < 9 ? "\t\t" : "\t"), mp5.ChannelText), "\r\n")));
-        this.txtInfo.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHVersion.Text + ":", this.colHVersion.Text.Length < 9 ? "\t\t" : "\t"), mp5.VersionText), " "), mp5.LayerText)));
+        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHBitrate.Text + ":", this.colHBitrate.Text.Length < 9 ? "\t\t" : "\t"), num5.ToString()), "\r\n")));
+        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHVBR.Text + ":", this.colHVBR.Text.Length < 9 ? "\t\t" : "\t"), mp5.VBR ? "VBR" : "CBR"), "\r\n")));
+        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHSamplerate.Text + ":", this.colHSamplerate.Text.Length < 9 ? "\t\t" : "\t"), mp5.Samplerate), "\r\n")));
+        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHChannel.Text + ":", this.colHChannel.Text.Length < 9 ? "\t\t" : "\t"), mp5.ChannelText), "\r\n")));
+        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHVersion.Text + ":", this.colHVersion.Text.Length < 9 ? "\t\t" : "\t"), mp5.VersionText), " "), mp5.LayerText)));
       }
       else
       {
-        this.txtInfo.Text = "";
-        this.txtInfo.Text = this.colHDuration.Text + ":\r\n";
-        this.txtInfo.AppendText(this.colHFileSize.Text + ":\r\n");
-        this.txtInfo.AppendText(this.colHBitrate.Text + ":\r\n");
-        this.txtInfo.AppendText(this.colHVBR.Text + ":\r\n");
-        this.txtInfo.AppendText(this.colHSamplerate.Text + ":\r\n");
-        this.txtInfo.AppendText(this.colHChannel.Text + ":\r\n");
-        this.txtInfo.AppendText(this.colHVersion.Text + ":");
+        this.txtInformation.Text = "";
+        this.txtInformation.Text = this.colHDuration.Text + ":\r\n";
+        this.txtInformation.AppendText(this.colHFileSize.Text + ":\r\n");
+        this.txtInformation.AppendText(this.colHBitrate.Text + ":\r\n");
+        this.txtInformation.AppendText(this.colHVBR.Text + ":\r\n");
+        this.txtInformation.AppendText(this.colHSamplerate.Text + ":\r\n");
+        this.txtInformation.AppendText(this.colHChannel.Text + ":\r\n");
+        this.txtInformation.AppendText(this.colHVersion.Text + ":");
       }
 
-      if (this.BarGroupPicture.Expanded & (this.MP3View.SelectedItems.Count == 1))
+      if (pnlPicture.Tag.ToString() == "Expanded" & (this.MP3View.SelectedItems.Count == 1))
       {
         MP3 mp6 = (MP3)this.MP3View.SelectedItems[0].Tag;
 
@@ -5772,7 +5637,7 @@ namespace ID3_TagIT
               byte[] array = new byte[(frame3.DataLength - 1) + 1];
               stream.Read(array, 0, frame3.DataLength);
               this.PicMStream = new MemoryStream(array);
-              this.APICView.Image = Image.FromStream(this.PicMStream);
+              this.picCover.Image = Image.FromStream(this.PicMStream);
               stream.Close();
             }
             else
@@ -5782,7 +5647,7 @@ namespace ID3_TagIT
               byte[] buffer2 = new byte[((int)(stream2.Length - 1L)) + 1];
               stream2.Read(buffer2, 0, buffer2.Length);
               this.PicMStream = new MemoryStream(buffer2);
-              this.APICView.Image = Image.FromStream(this.PicMStream);
+              this.picCover.Image = Image.FromStream(this.PicMStream);
               stream2.Close();
             }
           }
@@ -5797,7 +5662,7 @@ namespace ID3_TagIT
               byte[] buffer3 = new byte[((int)(stream3.Length - 1L)) + 1];
               stream3.Read(buffer3, 0, buffer3.Length);
               this.PicMStream = new MemoryStream(buffer3);
-              this.APICView.Image = Image.FromStream(this.PicMStream);
+              this.picCover.Image = Image.FromStream(this.PicMStream);
               stream3.Close();
             }
           }
@@ -5806,7 +5671,7 @@ namespace ID3_TagIT
         }
       }
       else
-        this.APICView.Image = null;
+        this.picCover.Image = null;
     }
 
     private void txtArtistTitleAlbum_Enter(object sender, EventArgs e)
@@ -6181,7 +6046,7 @@ namespace ID3_TagIT
             }
 
             this.vintEnumCount++;
-            this.mnubtnEnumCounter.Text = this.vintEnumCount.ToString();
+            this.mnutEnumerateCounter.Text = this.vintEnumCount.ToString();
           }
         }
 
@@ -6192,6 +6057,61 @@ namespace ID3_TagIT
 
       this.aintLastSelected = new int[(this.MP3View.SelectedIndices.Count - 1) + 1];
       this.MP3View.SelectedIndices.CopyTo(this.aintLastSelected, 0);
+    }
+
+    private void enumerateInFilename(object sender)
+    {
+      ((ToolStripMenuItem)sender).Checked ^= true;
+
+      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+        this.aintLastSelected = null;
+
+      Declarations.objSettings.EnumFile ^= true;
+
+      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+      {
+        this.vintEnumCount = Declarations.objSettings.FilenumberStart;
+        this.mnutEnumerateCounter.Text = StringType.FromInteger(this.vintEnumCount);
+      }
+
+      this.Enumerate();
+    }
+
+    private void enumerateInTAGVer1(object sender)
+    {
+      ((ToolStripMenuItem)sender).Checked ^= true;
+
+      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+        this.aintLastSelected = null;
+
+      Declarations.objSettings.EnumVer1 ^= true;
+
+      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+      {
+        this.vintEnumCount = Declarations.objSettings.FilenumberStart;
+        this.mnutEnumerateCounter.Text = StringType.FromInteger(this.vintEnumCount);
+      }
+
+      this.Enumerate();
+    }
+
+    private void enumerateInTAGVer2(object sender)
+    {
+      ((ToolStripMenuItem)sender).Checked ^= true;
+
+      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+        this.aintLastSelected = null;
+
+      Declarations.objSettings.EnumVer2 ^= true;
+
+
+      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+      {
+        this.vintEnumCount = Declarations.objSettings.FilenumberStart;
+        this.mnutEnumerateCounter.Text = StringType.FromInteger(this.vintEnumCount);
+      }
+
+      this.Enumerate();
     }
 
     private void FolderRenameCB(ref frmProgress frmProg)
@@ -6533,42 +6453,42 @@ namespace ID3_TagIT
         frmProg.Infos.Text = tag.CurrentFullName;
         if (this.MP3View.SelectedItems.Count == 1)
         {
-          if (StringType.StrCmp(tag.V1TAG.Artist, this.cmbArtist.Text.Trim(new char[] { ' ' }), false) != 0)
+          if (StringType.StrCmp(tag.V1TAG.Artist, this.cboQEArtist.Text.Trim(new char[] { ' ' }), false) != 0)
           {
-            tag.V1TAG.Artist = this.cmbArtist.Text.Trim(new char[] { ' ' });
+            tag.V1TAG.Artist = this.cboQEArtist.Text.Trim(new char[] { ' ' });
             tag.V1TAG.TAGPresent = true;
             tag.Changed = true;
           }
-          if (StringType.StrCmp(tag.V1TAG.Title, this.txtTitle.Text.Trim(new char[] { ' ' }), false) != 0)
+          if (StringType.StrCmp(tag.V1TAG.Title, this.txtQETitle.Text.Trim(new char[] { ' ' }), false) != 0)
           {
-            tag.V1TAG.Title = this.txtTitle.Text.Trim(new char[] { ' ' });
+            tag.V1TAG.Title = this.txtQETitle.Text.Trim(new char[] { ' ' });
             tag.V1TAG.TAGPresent = true;
             tag.Changed = true;
           }
-          if (StringType.StrCmp(tag.V1TAG.Album, this.txtAlbum.Text.Trim(new char[] { ' ' }), false) != 0)
+          if (StringType.StrCmp(tag.V1TAG.Album, this.txtQEAlbum.Text.Trim(new char[] { ' ' }), false) != 0)
           {
-            tag.V1TAG.Album = this.txtAlbum.Text.Trim(new char[] { ' ' });
+            tag.V1TAG.Album = this.txtQEAlbum.Text.Trim(new char[] { ' ' });
             tag.V1TAG.TAGPresent = true;
             tag.Changed = true;
           }
         }
         else
         {
-          if ((StringType.StrCmp(tag.V1TAG.Artist, this.cmbArtist.Text.Trim(new char[] { ' ' }), false) != 0) & (StringType.StrCmp(this.cmbArtist.Text.Trim(new char[] { ' ' }), "", false) != 0))
+          if ((StringType.StrCmp(tag.V1TAG.Artist, this.cboQEArtist.Text.Trim(new char[] { ' ' }), false) != 0) & (StringType.StrCmp(this.cboQEArtist.Text.Trim(new char[] { ' ' }), "", false) != 0))
           {
-            tag.V1TAG.Artist = this.cmbArtist.Text.Trim(new char[] { ' ' });
+            tag.V1TAG.Artist = this.cboQEArtist.Text.Trim(new char[] { ' ' });
             tag.V1TAG.TAGPresent = true;
             tag.Changed = true;
           }
-          if ((StringType.StrCmp(tag.V1TAG.Title, this.txtTitle.Text.Trim(new char[] { ' ' }), false) != 0) & (StringType.StrCmp(this.txtTitle.Text.Trim(new char[] { ' ' }), "", false) != 0))
+          if ((StringType.StrCmp(tag.V1TAG.Title, this.txtQETitle.Text.Trim(new char[] { ' ' }), false) != 0) & (StringType.StrCmp(this.txtQETitle.Text.Trim(new char[] { ' ' }), "", false) != 0))
           {
-            tag.V1TAG.Title = this.txtTitle.Text.Trim(new char[] { ' ' });
+            tag.V1TAG.Title = this.txtQETitle.Text.Trim(new char[] { ' ' });
             tag.V1TAG.TAGPresent = true;
             tag.Changed = true;
           }
-          if ((StringType.StrCmp(tag.V1TAG.Album, this.txtAlbum.Text.Trim(new char[] { ' ' }), false) != 0) & (StringType.StrCmp(this.txtAlbum.Text.Trim(new char[] { ' ' }), "", false) != 0))
+          if ((StringType.StrCmp(tag.V1TAG.Album, this.txtQEAlbum.Text.Trim(new char[] { ' ' }), false) != 0) & (StringType.StrCmp(this.txtQEAlbum.Text.Trim(new char[] { ' ' }), "", false) != 0))
           {
-            tag.V1TAG.Album = this.txtAlbum.Text.Trim(new char[] { ' ' });
+            tag.V1TAG.Album = this.txtQEAlbum.Text.Trim(new char[] { ' ' });
             tag.V1TAG.TAGPresent = true;
             tag.Changed = true;
           }
@@ -6578,34 +6498,34 @@ namespace ID3_TagIT
           object obj2;
           if (this.MP3View.SelectedItems.Count == 1)
           {
-            obj2 = ID3Functions.CreateTextFrame("TPE1", this.cmbArtist.Text.Trim(new char[] { ' ' }));
-            if (StringType.StrCmp(this.cmbArtist.Text.Trim(new char[] { ' ' }), "", false) == 0)
+            obj2 = ID3Functions.CreateTextFrame("TPE1", this.cboQEArtist.Text.Trim(new char[] { ' ' }));
+            if (StringType.StrCmp(this.cboQEArtist.Text.Trim(new char[] { ' ' }), "", false) == 0)
               LateBinding.LateSet(obj2, null, "Remove", new object[] { true }, null);
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
-            obj2 = ID3Functions.CreateTextFrame("TIT2", this.txtTitle.Text.Trim(new char[] { ' ' }));
-            if (StringType.StrCmp(this.txtTitle.Text.Trim(new char[] { ' ' }), "", false) == 0)
+            obj2 = ID3Functions.CreateTextFrame("TIT2", this.txtQETitle.Text.Trim(new char[] { ' ' }));
+            if (StringType.StrCmp(this.txtQETitle.Text.Trim(new char[] { ' ' }), "", false) == 0)
               LateBinding.LateSet(obj2, null, "Remove", new object[] { true }, null);
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
-            obj2 = ID3Functions.CreateTextFrame("TALB", this.txtAlbum.Text.Trim(new char[] { ' ' }));
-            if (StringType.StrCmp(this.txtAlbum.Text.Trim(new char[] { ' ' }), "", false) == 0)
+            obj2 = ID3Functions.CreateTextFrame("TALB", this.txtQEAlbum.Text.Trim(new char[] { ' ' }));
+            if (StringType.StrCmp(this.txtQEAlbum.Text.Trim(new char[] { ' ' }), "", false) == 0)
               LateBinding.LateSet(obj2, null, "Remove", new object[] { true }, null);
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
           }
           else
           {
-            if (StringType.StrCmp(this.cmbArtist.Text.Trim(new char[] { ' ' }), "", false) != 0)
+            if (StringType.StrCmp(this.cboQEArtist.Text.Trim(new char[] { ' ' }), "", false) != 0)
             {
-              obj2 = ID3Functions.CreateTextFrame("TPE1", this.cmbArtist.Text.Trim(new char[] { ' ' }));
+              obj2 = ID3Functions.CreateTextFrame("TPE1", this.cboQEArtist.Text.Trim(new char[] { ' ' }));
               tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
             }
-            if (StringType.StrCmp(this.txtTitle.Text.Trim(new char[] { ' ' }), "", false) != 0)
+            if (StringType.StrCmp(this.txtQETitle.Text.Trim(new char[] { ' ' }), "", false) != 0)
             {
-              obj2 = ID3Functions.CreateTextFrame("TIT2", this.txtTitle.Text.Trim(new char[] { ' ' }));
+              obj2 = ID3Functions.CreateTextFrame("TIT2", this.txtQETitle.Text.Trim(new char[] { ' ' }));
               tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
             }
-            if (StringType.StrCmp(this.txtAlbum.Text.Trim(new char[] { ' ' }), "", false) != 0)
+            if (StringType.StrCmp(this.txtQEAlbum.Text.Trim(new char[] { ' ' }), "", false) != 0)
             {
-              obj2 = ID3Functions.CreateTextFrame("TALB", this.txtAlbum.Text.Trim(new char[] { ' ' }));
+              obj2 = ID3Functions.CreateTextFrame("TALB", this.txtQEAlbum.Text.Trim(new char[] { ' ' }));
               tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
             }
           }
@@ -6636,34 +6556,34 @@ namespace ID3_TagIT
         frmProg.List.Add(@do);
         if (this.MP3View.SelectedItems.Count == 1)
         {
-          obj2 = ID3Functions.CreateTextFrame("TPE1", this.cmbArtist.Text.Trim(new char[] { ' ' }));
-          if (StringType.StrCmp(this.cmbArtist.Text.Trim(new char[] { ' ' }), "", false) == 0)
+          obj2 = ID3Functions.CreateTextFrame("TPE1", this.cboQEArtist.Text.Trim(new char[] { ' ' }));
+          if (StringType.StrCmp(this.cboQEArtist.Text.Trim(new char[] { ' ' }), "", false) == 0)
             LateBinding.LateSet(obj2, null, "Remove", new object[] { true }, null);
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
-          obj2 = ID3Functions.CreateTextFrame("TIT2", this.txtTitle.Text.Trim(new char[] { ' ' }));
-          if (StringType.StrCmp(this.txtTitle.Text.Trim(new char[] { ' ' }), "", false) == 0)
+          obj2 = ID3Functions.CreateTextFrame("TIT2", this.txtQETitle.Text.Trim(new char[] { ' ' }));
+          if (StringType.StrCmp(this.txtQETitle.Text.Trim(new char[] { ' ' }), "", false) == 0)
             LateBinding.LateSet(obj2, null, "Remove", new object[] { true }, null);
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
-          obj2 = ID3Functions.CreateTextFrame("TALB", this.txtAlbum.Text.Trim(new char[] { ' ' }));
-          if (StringType.StrCmp(this.txtAlbum.Text.Trim(new char[] { ' ' }), "", false) == 0)
+          obj2 = ID3Functions.CreateTextFrame("TALB", this.txtQEAlbum.Text.Trim(new char[] { ' ' }));
+          if (StringType.StrCmp(this.txtQEAlbum.Text.Trim(new char[] { ' ' }), "", false) == 0)
             LateBinding.LateSet(obj2, null, "Remove", new object[] { true }, null);
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
         }
         else
         {
-          if (StringType.StrCmp(this.cmbArtist.Text.Trim(new char[] { ' ' }), "", false) != 0)
+          if (StringType.StrCmp(this.cboQEArtist.Text.Trim(new char[] { ' ' }), "", false) != 0)
           {
-            obj2 = ID3Functions.CreateTextFrame("TPE1", this.cmbArtist.Text.Trim(new char[] { ' ' }));
+            obj2 = ID3Functions.CreateTextFrame("TPE1", this.cboQEArtist.Text.Trim(new char[] { ' ' }));
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
           }
-          if (StringType.StrCmp(this.txtTitle.Text.Trim(new char[] { ' ' }), "", false) != 0)
+          if (StringType.StrCmp(this.txtQETitle.Text.Trim(new char[] { ' ' }), "", false) != 0)
           {
-            obj2 = ID3Functions.CreateTextFrame("TIT2", this.txtTitle.Text.Trim(new char[] { ' ' }));
+            obj2 = ID3Functions.CreateTextFrame("TIT2", this.txtQETitle.Text.Trim(new char[] { ' ' }));
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
           }
-          if (StringType.StrCmp(this.txtAlbum.Text.Trim(new char[] { ' ' }), "", false) != 0)
+          if (StringType.StrCmp(this.txtQEAlbum.Text.Trim(new char[] { ' ' }), "", false) != 0)
           {
-            obj2 = ID3Functions.CreateTextFrame("TALB", this.txtAlbum.Text.Trim(new char[] { ' ' }));
+            obj2 = ID3Functions.CreateTextFrame("TALB", this.txtQEAlbum.Text.Trim(new char[] { ' ' }));
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
           }
         }
@@ -6678,42 +6598,42 @@ namespace ID3_TagIT
         {
           if (this.MP3View.SelectedItems.Count == 1)
           {
-            if (StringType.StrCmp(tag.V1TAG.Artist, this.cmbArtist.Text.Trim(new char[] { ' ' }), false) != 0)
+            if (StringType.StrCmp(tag.V1TAG.Artist, this.cboQEArtist.Text.Trim(new char[] { ' ' }), false) != 0)
             {
-              tag.V1TAG.Artist = this.cmbArtist.Text.Trim(new char[] { ' ' });
+              tag.V1TAG.Artist = this.cboQEArtist.Text.Trim(new char[] { ' ' });
               tag.V1TAG.TAGPresent = true;
               tag.Changed = true;
             }
-            if (StringType.StrCmp(tag.V1TAG.Title, this.txtTitle.Text.Trim(new char[] { ' ' }), false) != 0)
+            if (StringType.StrCmp(tag.V1TAG.Title, this.txtQETitle.Text.Trim(new char[] { ' ' }), false) != 0)
             {
-              tag.V1TAG.Title = this.txtTitle.Text.Trim(new char[] { ' ' });
+              tag.V1TAG.Title = this.txtQETitle.Text.Trim(new char[] { ' ' });
               tag.V1TAG.TAGPresent = true;
               tag.Changed = true;
             }
-            if (StringType.StrCmp(tag.V1TAG.Album, this.txtAlbum.Text.Trim(new char[] { ' ' }), false) != 0)
+            if (StringType.StrCmp(tag.V1TAG.Album, this.txtQEAlbum.Text.Trim(new char[] { ' ' }), false) != 0)
             {
-              tag.V1TAG.Album = this.txtAlbum.Text.Trim(new char[] { ' ' });
+              tag.V1TAG.Album = this.txtQEAlbum.Text.Trim(new char[] { ' ' });
               tag.V1TAG.TAGPresent = true;
               tag.Changed = true;
             }
           }
           else
           {
-            if ((StringType.StrCmp(tag.V1TAG.Artist, this.cmbArtist.Text.Trim(new char[] { ' ' }), false) != 0) & (StringType.StrCmp(this.cmbArtist.Text.Trim(new char[] { ' ' }), "", false) != 0))
+            if ((StringType.StrCmp(tag.V1TAG.Artist, this.cboQEArtist.Text.Trim(new char[] { ' ' }), false) != 0) & (StringType.StrCmp(this.cboQEArtist.Text.Trim(new char[] { ' ' }), "", false) != 0))
             {
-              tag.V1TAG.Artist = this.cmbArtist.Text.Trim(new char[] { ' ' });
+              tag.V1TAG.Artist = this.cboQEArtist.Text.Trim(new char[] { ' ' });
               tag.V1TAG.TAGPresent = true;
               tag.Changed = true;
             }
-            if ((StringType.StrCmp(tag.V1TAG.Title, this.txtTitle.Text.Trim(new char[] { ' ' }), false) != 0) & (StringType.StrCmp(this.txtTitle.Text.Trim(new char[] { ' ' }), "", false) != 0))
+            if ((StringType.StrCmp(tag.V1TAG.Title, this.txtQETitle.Text.Trim(new char[] { ' ' }), false) != 0) & (StringType.StrCmp(this.txtQETitle.Text.Trim(new char[] { ' ' }), "", false) != 0))
             {
-              tag.V1TAG.Title = this.txtTitle.Text.Trim(new char[] { ' ' });
+              tag.V1TAG.Title = this.txtQETitle.Text.Trim(new char[] { ' ' });
               tag.V1TAG.TAGPresent = true;
               tag.Changed = true;
             }
-            if ((StringType.StrCmp(tag.V1TAG.Album, this.txtAlbum.Text.Trim(new char[] { ' ' }), false) != 0) & (StringType.StrCmp(this.txtAlbum.Text.Trim(new char[] { ' ' }), "", false) != 0))
+            if ((StringType.StrCmp(tag.V1TAG.Album, this.txtQEAlbum.Text.Trim(new char[] { ' ' }), false) != 0) & (StringType.StrCmp(this.txtQEAlbum.Text.Trim(new char[] { ' ' }), "", false) != 0))
             {
-              tag.V1TAG.Album = this.txtAlbum.Text.Trim(new char[] { ' ' });
+              tag.V1TAG.Album = this.txtQEAlbum.Text.Trim(new char[] { ' ' });
               tag.V1TAG.TAGPresent = true;
               tag.Changed = true;
             }
@@ -6856,6 +6776,19 @@ namespace ID3_TagIT
       }
     }
 
+    private void queryFreeDb()
+    {
+      int num2 = 0;
+
+      foreach (ListViewItem item19 in this.MP3View.SelectedItems)
+        num2 = IntegerType.FromObject(ObjectType.AddObj(num2, LateBinding.LateGet(item19.Tag, null, "Duration", new object[0], null, null)));
+
+      if (((this.MP3View.SelectedItems.Count > 0) & (this.MP3View.SelectedItems.Count < 100)) & (num2 < 0x1770))
+        new frmFreeDB(this).ShowDialog();
+      else
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["FreeDBToLong"]), MsgBoxStyle.Exclamation, null);
+    }
+
     private void ReDoCB(ref frmProgress frmProg)
     {
       IEnumerator enumerator = null;
@@ -6935,6 +6868,66 @@ namespace ID3_TagIT
           }
         }
         frmProg.ProgressBar.PerformStep();
+      }
+    }
+
+    private void RemoveV1Tag()
+    {
+      ArrayList list7 = new ArrayList();
+
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      if (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["TAGRemove"], null, "Replace", new object[] { "%1", "1" }, null, null), null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.OkCancel, null) == MsgBoxResult.Ok)
+      {
+        this.MP3View.BeginUpdate();
+
+        var form = (Form)this;
+        var callback = new frmProgress.Callback(this.Remove1CB);
+
+        frmProgress progress6 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback);
+        progress6.SetStateRemoveTAG();
+        progress6.List = list7;
+        progress6.ShowDialog(this);
+        this.MP3View.EndUpdate();
+
+        if (list7.Count > 0)
+        {
+          Declarations.UNDOList.Add(list7);
+          this.UnDoEnable(true, true);
+        }
+      }
+    }
+
+    private void RemoveV2Tag()
+    {
+      ArrayList list8 = new ArrayList();
+
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      if (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["TAGRemove"], null, "Replace", new object[] { "%1", "2" }, null, null), null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.OkCancel, null) == MsgBoxResult.Ok)
+      {
+        this.MP3View.BeginUpdate();
+        var form = (Form)this;
+        var callback = new frmProgress.Callback(this.Remove2CB);
+        frmProgress progress7 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback);
+        progress7.SetStateRemoveTAG();
+        progress7.List = list8;
+        progress7.ShowDialog(this);
+        this.MP3View.EndUpdate();
+
+        if (list8.Count > 0)
+        {
+          Declarations.UNDOList.Add(list8);
+          this.UnDoEnable(true, true);
+        }
       }
     }
 
@@ -7027,7 +7020,7 @@ namespace ID3_TagIT
               resStrings[str] = RuntimeHelpers.GetObjectValue(args[0]);
 
             this.ErrorMsg.Items.Insert(0, item2);
-            this.SplitterBottom.Expanded = true;
+            // FIXME - Exp this.SplitterBottom.Expanded = true;
           }
         }
 
@@ -7047,41 +7040,41 @@ namespace ID3_TagIT
     {
       foreach (DataColumn column in Declarations.objResources.MenuTable.Columns)
       {
-        var enumerator = this.DotNetBarManager.GetItems(column.ColumnName).GetEnumerator();
-        while (enumerator.MoveNext())
-        {
-          object objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
-          try
-          {
-            LateBinding.LateSet(objectValue, null, "Text", new object[] { Declarations.objResources.GetMenuText(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Name", new object[0], null, null))) }, null);
-          }
-          catch (Exception exception1)
-          {
-            ProjectData.SetProjectError(exception1);
-            Exception exception = exception1;
-            ProjectData.ClearProjectError();
-          }
-          try
-          {
-            LateBinding.LateSet(objectValue, null, "Tooltip", new object[] { Declarations.objResources.GetMenuToolTip(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Name", new object[0], null, null))) }, null);
-            continue;
-          }
-          catch (Exception exception4)
-          {
-            ProjectData.SetProjectError(exception4);
-            Exception exception2 = exception4;
-            ProjectData.ClearProjectError();
-            continue;
-          }
-        }
+        // FIXME - internationalization
+        //var enumerator = this.DotNetBarManager.GetItems(column.ColumnName).GetEnumerator();
+        //while (enumerator.MoveNext())
+        //{
+        //  object objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
+        //  try
+        //  {
+        //    LateBinding.LateSet(objectValue, null, "Text", new object[] { Declarations.objResources.GetMenuText(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Name", new object[0], null, null))) }, null);
+        //  }
+        //  catch (Exception exception1)
+        //  {
+        //    ProjectData.SetProjectError(exception1);
+        //    Exception exception = exception1;
+        //    ProjectData.ClearProjectError();
+        //  }
+        //  try
+        //  {
+        //    LateBinding.LateSet(objectValue, null, "Tooltip", new object[] { Declarations.objResources.GetMenuToolTip(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Name", new object[0], null, null))) }, null);
+        //    continue;
+        //  }
+        //  catch (Exception exception4)
+        //  {
+        //    ProjectData.SetProjectError(exception4);
+        //    Exception exception2 = exception4;
+        //    ProjectData.ClearProjectError();
+        //    continue;
+        //  }
+        //}
       }
-      ((ButtonItem)this.DotNetBarManager.ContextMenus["MP3ViewMenu"]).SubItems["TAGV1"].Text = Declarations.objResources.GetMenuText("TAGV1");
-      ((ButtonItem)this.DotNetBarManager.ContextMenus["MP3ViewMenu"]).SubItems["TAGV2"].Text = Declarations.objResources.GetMenuText("TAGV2");
+      //((ButtonItem)this.DotNetBarManager.ContextMenus["MP3ViewMenu"]).SubItems["TAGV1"].Text = Declarations.objResources.GetMenuText("TAGV1");
+      //((ButtonItem)this.DotNetBarManager.ContextMenus["MP3ViewMenu"]).SubItems["TAGV2"].Text = Declarations.objResources.GetMenuText("TAGV2");
 
       try
       {
         btnSwitchV1V2.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
-        this.DotNetBarManager.GetItem("btnV1V2View").Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
       }
       catch (Exception exception5)
       {
@@ -7133,25 +7126,21 @@ namespace ID3_TagIT
       this.colHCreateDate.Text = StringType.FromObject(Declarations.objResources.ResStrings["Col26"]);
       this.colHErrFile.Text = StringType.FromObject(Declarations.objResources.ResStrings["CHError1"]);
       this.colHErrMsg.Text = StringType.FromObject(Declarations.objResources.ResStrings["CHError2"]);
-      this.lblArtist.Text = this.colHArtist.Text;
-      this.lblTitle.Text = this.colHTitle.Text;
-      this.lblAlbum.Text = this.colHAlbum.Text;
+      this.lblQEArtist.Text = this.colHArtist.Text;
+      this.lblQETitle.Text = this.colHTitle.Text;
+      this.lblQEAlbum.Text = this.colHAlbum.Text;
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
-      this.FoldersPan.Text = StringType.FromObject(Declarations.objResources.ResStrings["FoldersPan"]);
-      this.BarGroupTools.Text = StringType.FromObject(Declarations.objResources.ResStrings["ToolsPan"]);
-      this.BarGroupEdit.Text = StringType.FromObject(Declarations.objResources.ResStrings["QuickEditPan"]);
-      this.BarGroupPicture.Text = StringType.FromObject(Declarations.objResources.ResStrings["PicturePan"]);
-      this.FavouritesPan.Text = StringType.FromObject(Declarations.objResources.ResStrings["FavouritesPan"]);
-      this.FoldersPan.Refresh();
-      this.FavouritesPan.Refresh();
-      this.BarGroupTools.Refresh();
-      this.BarGroupEdit.Refresh();
-      this.BarGroupPicture.Refresh();
-      this.NavigationPan.RecalcLayout();
-      this.NavigationPan.Refresh();
       this.Timer.Start();
     }
+    //this.NavigationPan.RecalcLayout();
+    //this.NavigationPan.Refresh();
+    // this.BarGroupTools.Refresh();
+    // this.BarGroupEdit.Refresh();
+    // this.BarGroupPicture.Refresh();
+    //this.BarGroupTools.Text = StringType.FromObject(Declarations.objResources.ResStrings["ToolsPan"]);
+    //this.BarGroupEdit.Text = StringType.FromObject(Declarations.objResources.ResStrings["QuickEditPan"]);
+    //this.BarGroupPicture.Text = StringType.FromObject(Declarations.objResources.ResStrings["PicturePan"]);
 
     private void SplitArtist1CB(ref frmProgress frmProg)
     {
@@ -7357,6 +7346,46 @@ namespace ID3_TagIT
       }
     }
 
+    private void swapArtistAlbumV1()
+    {
+      Form form;
+      frmProgress.Callback callback;
+      ArrayList list11 = new ArrayList();
+      this.MP3View.BeginUpdate();
+      form = this;
+      callback = new frmProgress.Callback(this.SwapArtistAlbum1CB);
+      frmProgress progress10 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list11 };
+      progress10.SetStateSwap();
+      progress10.ShowDialog(this);
+      this.MP3View.EndUpdate();
+
+      if (list11.Count > 0)
+      {
+        Declarations.UNDOList.Add(list11);
+        this.UnDoEnable(true, true);
+      }
+    }
+
+    private void swapArtistAlbumV2()
+    {
+      Form form;
+      frmProgress.Callback callback;
+      ArrayList list12 = new ArrayList();
+      this.MP3View.BeginUpdate();
+      form = this;
+      callback = new frmProgress.Callback(this.SwapArtistAlbum2CB);
+      frmProgress progress11 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list12 };
+      progress11.SetStateSwap();
+      progress11.ShowDialog(this);
+      this.MP3View.EndUpdate();
+
+      if (list12.Count > 0)
+      {
+        Declarations.UNDOList.Add(list12);
+        this.UnDoEnable(true, true);
+      }
+    }
+
     private void SwapArtistTitle1CB(ref frmProgress frmProg)
     {
       foreach (ListViewItem item in this.MP3View.SelectedItems)
@@ -7498,6 +7527,46 @@ namespace ID3_TagIT
         }
         this.UpdateListItem(item, false);
         frmProg.ProgressBar.PerformStep();
+      }
+    }
+
+    private void swapArtistTitleV1()
+    {
+      Form form;
+      frmProgress.Callback callback;
+      ArrayList list9 = new ArrayList();
+      this.MP3View.BeginUpdate();
+      form = this;
+      callback = new frmProgress.Callback(this.SwapArtistTitle1CB);
+      frmProgress progress8 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list9 };
+      progress8.SetStateSwap();
+      progress8.ShowDialog(this);
+      this.MP3View.EndUpdate();
+
+      if (list9.Count > 0)
+      {
+        Declarations.UNDOList.Add(list9);
+        this.UnDoEnable(true, true);
+      }
+    }
+
+    private void swapArtistTitleV2()
+    {
+      Form form;
+      frmProgress.Callback callback;
+      ArrayList list10 = new ArrayList();
+      this.MP3View.BeginUpdate();
+      form = this;
+      callback = new frmProgress.Callback(this.SwapArtistTitle2CB);
+      frmProgress progress9 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list10 };
+      progress9.SetStateSwap();
+      progress9.ShowDialog(this);
+      this.MP3View.EndUpdate();
+
+      if (list10.Count > 0)
+      {
+        Declarations.UNDOList.Add(list10);
+        this.UnDoEnable(true, true);
       }
     }
 
@@ -7645,6 +7714,46 @@ namespace ID3_TagIT
       }
     }
 
+    private void swapTitleAlbumV1()
+    {
+      Form form;
+      frmProgress.Callback callback;
+      ArrayList list13 = new ArrayList();
+      this.MP3View.BeginUpdate();
+      form = this;
+      callback = new frmProgress.Callback(this.SwapTitleAlbum1CB);
+      frmProgress progress12 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list13 };
+      progress12.SetStateSwap();
+      progress12.ShowDialog(this);
+      this.MP3View.EndUpdate();
+
+      if (list13.Count > 0)
+      {
+        Declarations.UNDOList.Add(list13);
+        this.UnDoEnable(true, true);
+      }
+    }
+
+    private void swapTitleAlbumV2()
+    {
+      Form form;
+      frmProgress.Callback callback;
+      ArrayList list14 = new ArrayList();
+      this.MP3View.BeginUpdate();
+      form = this;
+      callback = new frmProgress.Callback(this.SwapTitleAlbum2CB);
+      frmProgress progress13 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list14 };
+      progress13.SetStateSwap();
+      progress13.ShowDialog(this);
+      this.MP3View.EndUpdate();
+
+      if (list14.Count > 0)
+      {
+        Declarations.UNDOList.Add(list14);
+        this.UnDoEnable(true, true);
+      }
+    }
+
     private void SwitchToV1()
     {
       if (this.vbytVersionToShow == 1)
@@ -7652,15 +7761,12 @@ namespace ID3_TagIT
 
       this.vbytVersionToShow = 1;
       Declarations.objSettings.VersionToShow = this.vbytVersionToShow;
-      this.mnubtnViewVer2.Checked = false;
-      this.mnubtnViewVer1.Checked = true;
       viewTAGVer1ToolStripMenuItem.Checked = true;
       viewTAGVer2ToolStripMenuItem.Checked = false;
 
       try
       {
         btnSwitchV1V2.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
-        this.DotNetBarManager.GetItem("btnV1V2View").Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
       }
       catch (Exception exception13)
       {
@@ -7685,15 +7791,12 @@ namespace ID3_TagIT
 
       this.vbytVersionToShow = 2;
       Declarations.objSettings.VersionToShow = this.vbytVersionToShow;
-      this.mnubtnViewVer1.Checked = false;
-      this.mnubtnViewVer2.Checked = true;
       viewTAGVer1ToolStripMenuItem.Checked = false;
       viewTAGVer2ToolStripMenuItem.Checked = true;
 
       try
       {
         btnSwitchV1V2.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
-        this.DotNetBarManager.GetItem("btnV1V2View").Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
       }
       catch (Exception exception14)
       {
@@ -7745,10 +7848,12 @@ namespace ID3_TagIT
 
     public void UnDoEnable(bool vbooEnabled, bool vbooClear)
     {
-      this.mnubtnUndo.Enabled = vbooEnabled;
+      this.btnUndo.Enabled = vbooEnabled;
+      this.undoToolStripMenuItem.Enabled = vbooEnabled;
+
       if (vbooClear)
       {
-        this.mnubtnRedo.Enabled = false;
+        this.btnRedo.Enabled = false;
         Declarations.REDOList.Clear();
       }
     }
@@ -7944,7 +8049,7 @@ namespace ID3_TagIT
           lstItem.SubItems[this.colHComment.Index].Text = "";
       }
 
-      Label_0BFB:
+Label_0BFB:
       if (this.MP3View.Columns.Contains(this.colHRating))
       {
         if (tag.V2TAG.FrameExists("POPM"))
@@ -7963,7 +8068,7 @@ namespace ID3_TagIT
         }
       }
 
-      Label_0CC7:
+Label_0CC7:
       if (this.MP3View.Columns.Contains(this.colHComposer))
       {
         if (tag.V2TAG.FrameExists("TCOM"))
@@ -7975,7 +8080,7 @@ namespace ID3_TagIT
       if (this.MP3View.Columns.Contains(this.colHPicCount))
         lstItem.SubItems[this.colHPicCount.Index].Text = StringType.FromInteger(tag.V2TAG.GetFrames("APIC").Count);
 
-      Label_0DA3:
+Label_0DA3:
       if (tag.V1TAG.TAGPresent && (this.vbytVersionToShow == 1))
       {
         if (this.MP3View.Columns.Contains(this.colHArtist))
@@ -8005,6 +8110,275 @@ namespace ID3_TagIT
 
     #region New Events
 
+    private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      new frmAbout().ShowDialog();
+    }
+
+    private void artistAlbumToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      swapArtistAlbumV1();
+    }
+
+    private void artistAlbumToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+      swapArtistAlbumV2();
+    }
+
+    private void artistAlbumToolStripMenuItem2_Click(object sender, EventArgs e)
+    {
+      swapArtistAlbumV1();
+    }
+
+    private void artistAlbumToolStripMenuItem3_Click(object sender, EventArgs e)
+    {
+      swapArtistAlbumV2();
+    }
+
+    private void artistTitleToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      swapArtistTitleV1();
+    }
+
+    private void artistTitleToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+      swapArtistTitleV2();
+    }
+
+    private void artistTitleToolStripMenuItem2_Click(object sender, EventArgs e)
+    {
+      swapArtistTitleV1();
+    }
+
+    private void artistTitleToolStripMenuItem3_Click(object sender, EventArgs e)
+    {
+      swapArtistTitleV2();
+    }
+
+    private void btnSwitchV1V2_Click(object sender, EventArgs e)
+    {
+      if (this.vbytVersionToShow != 1)
+        SwitchToV1();
+      else
+        SwitchToV2();
+    }
+
+    private void caseConversionToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      new frmCaseConv(this).ShowDialog(this);
+    }
+
+    private void cboLanguage_Click(object sender, EventArgs e)
+    {
+      Declarations.objSettings.Language = (byte)cboLanguage.SelectedIndex;
+      Declarations.objResources.ReadResources();
+      this.SetLanguage();
+    }
+
+    private void changeTAGVer2TextencodingToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      new frmEncoding(this).ShowDialog(this);
+    }
+
+    private void compareFilenameWthTAGInformationToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      if (this.MP3View.Items.Count > 2)
+        new frmCompareFileTAG(this).ShowDialog(this);
+    }
+
+    private void copyFilesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      this.CopyFiles();
+    }
+
+    private void copyTAGVer1OnlyToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      foreach (ListViewItem item4 in this.MP3View.SelectedItems)
+      {
+        var ytag2 = new Declarations.CopyTAG((V1TAG)LateBinding.LateGet(LateBinding.LateGet(item4.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), null);
+        this.alstCopyPaste.Add(ytag2);
+      }
+    }
+
+    private void copyTAGVer2OnlyToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      this.alstCopyPaste.Clear();
+
+      foreach (ListViewItem item5 in this.MP3View.SelectedItems)
+      {
+        var ytag2 = new Declarations.CopyTAG(null, (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item5.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null));
+        this.alstCopyPaste.Add(ytag2);
+      }
+    }
+
+    private void copyTAGVer1And2ToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      this.alstCopyPaste.Clear();
+
+      foreach (ListViewItem item6 in this.MP3View.SelectedItems)
+      {
+        var ytag2 = new Declarations.CopyTAG(
+          (V1TAG)LateBinding.LateGet(
+            LateBinding.LateGet(item6.Tag, null, "V1TAG", new object[0], null, null),
+              null, "Clone", new object[0], null, null),
+          (V2TAG)LateBinding.LateGet(
+            LateBinding.LateGet(item6.Tag, null, "V2TAG", new object[0], null, null),
+            null, "Clone", new object[0], null, null));
+        this.alstCopyPaste.Add(ytag2);
+      }
+    }
+
+    private void createFilelistPlaylistToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      bool flag3 = false;
+      frmLists lists = new frmLists { MainForm = this };
+
+      do
+      {
+        if (this.CheckAllChanged())
+        {
+          switch (Interaction.MsgBox(
+            RuntimeHelpers.GetObjectValue(
+              LateBinding.LateGet(
+                Declarations.objResources.ResStrings["ChangesNotSaved"],
+                null,
+                "Replace",
+                new object[] { "%C", "\r\n" }, null, null)),
+            MsgBoxStyle.Question | MsgBoxStyle.YesNoCancel,
+            null))
+          {
+            case MsgBoxResult.Cancel:
+              return;
+
+            case MsgBoxResult.Yes:
+              this.SaveChanges();
+              if (!this.CheckAllChanged())
+                flag3 = true;
+
+              break;
+
+            case MsgBoxResult.No:
+              flag3 = true;
+              break;
+          }
+        }
+        else
+          flag3 = true;
+      }
+      while (!flag3);
+
+      lists.ShowDialog(this);
+    }
+
+    private void ctxClearErrors_Click(object sender, EventArgs e)
+    {
+      this.ErrorMsg.BeginUpdate();
+      this.ErrorMsg.Items.Clear();
+      this.ErrorMsg.EndUpdate();
+    }
+
+    private void deleteFilesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      this.DeleteFiles();
+    }
+
+    private void editLibrariesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      new frmLibraries(this).ShowDialog(this);
+    }
+
+    private void enumerateInfilenameToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      enumerateInFilename(sender);
+    }
+
+    private void enumerateInFilenameToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+      enumerateInFilename(sender);
+    }
+
+    private void enumerateInTAGVer1ToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      enumerateInTAGVer1(sender);
+    }
+
+    private void enumerateInTAGVer1ToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+      enumerateInTAGVer2(sender);
+    }
+
+    private void enumerateInTAGVer2ToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      enumerateInTAGVer2(sender);
+    }
+
+    private void enumerateInTAGVer2ToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+      enumerateInTAGVer2(sender);
+    }
+
+    private void filePropertiesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Declarations.SHELLEXECUTEINFO expression = new Declarations.SHELLEXECUTEINFO();
+      if (this.MP3View.FocusedItem != null)
+      {
+        expression.cbSize = Strings.Len(expression);
+        expression.fMask = 0x44c;
+        expression.hwnd = this.Handle.ToInt32();
+        expression.lpVerb = "properties";
+        expression.lpFile = StringType.FromObject(
+          ObjectType.StrCatObj(
+            LateBinding.LateGet(
+              LateBinding.LateGet(
+                this.MP3View.FocusedItem.Tag, null, "FI", new object[0], null, null),
+              null, "Fullname", new object[0], null, null),
+            "\0"));
+        expression.lpParameters = "\0";
+        expression.lpDirectory = "\0";
+        expression.nShow = 0;
+        expression.hInstApp = 0;
+        expression.lpIDList = 0;
+        Declarations.ShellExecuteEx(ref expression);
+      }
+    }
+
+    private void findduplicateFilesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      if (this.MP3View.Items.Count > 2)
+        new frmDouble(this).ShowDialog(this);
+    }
+
+    private void groupSelectionToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      int index = 0;
+      this.MP3View.ListViewItemSorter = null;
+      this.MP3View.BeginUpdate();
+
+      foreach (ListViewItem item9 in this.MP3View.SelectedItems)
+      {
+        ListViewItem item10 = (ListViewItem)item9.Clone();
+        this.MP3View.Items.Insert(index, item10);
+
+        if (index == 0)
+        {
+          item10.Focused = true;
+          item10.EnsureVisible();
+        }
+
+        index++;
+        item10.Selected = true;
+        this.MP3View.Items.Remove(item9);
+      }
+
+      this.MP3View.EndUpdate();
+    }
+
     private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
     {
       new Process
@@ -8017,28 +8391,27 @@ namespace ID3_TagIT
       }.Start();
     }
 
-    private void shortcutsToolStripMenuItem_Click(object sender, EventArgs e)
+    private void invertSelectionToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      new Process
+      this.MP3View.BeginUpdate();
+
+      foreach (ListViewItem item8 in this.MP3View.Items)
+        item8.Selected ^= true;
+
+      this.MP3View.EndUpdate();
+
+      try
       {
-        StartInfo =
-        {
-          FileName = StringType.FromObject(Application.StartupPath.EndsWith(@"\") ? Application.StartupPath + @"Help\shortcuts.htm" : Application.StartupPath + @"\Help\shortcuts.htm"),
-          UseShellExecute = true
-        }
-      }.Start();
-    }
+        if (this.MP3View.FocusedItem == null)
+          this.MP3View.Items[0].Focused = true;
+      }
+      catch (Exception exception10)
+      {
+        ProjectData.SetProjectError(exception10);
+        ProjectData.ClearProjectError();
+      }
 
-    private void cboLanguage_Click(object sender, EventArgs e)
-    {
-      Declarations.objSettings.Language = (byte)cboLanguage.SelectedIndex;
-      Declarations.objResources.ReadResources();
-      this.SetLanguage();
-    }
-
-    private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      new frmAbout().ShowDialog();
+      this.MP3View.Focus();
     }
 
     private void mnuAddFolder_Click(object sender, EventArgs e)
@@ -8058,67 +8431,683 @@ namespace ID3_TagIT
       this.Timer.Start();
     }
 
-    private void mnuRefresh_Click(object sender, EventArgs e)
+    private void mnubCaseConv_Click(object sender, EventArgs e)
     {
-
+      new frmCaseConv(this).ShowDialog(this);
     }
 
-    private void mnuSave_Click(object sender, EventArgs e)
+    private void mnubQueryFreeDB_Click(object sender, EventArgs e)
     {
-
+      queryFreeDb();
     }
 
-    private void mnuPlay_Click(object sender, EventArgs e)
+    private void mnubTransferConvertTags_Click(object sender, EventArgs e)
     {
-
-    }
-
-    private void moveFilesToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void mnuUndo_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void mnuRedo_Click(object sender, EventArgs e)
-    {
-
+      new frmTransfer(this).ShowDialog(this);
     }
 
     private void mnuEditV1_Click(object sender, EventArgs e)
     {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
 
+      var main = this;
+      new frmTAG1(ref main).ShowDialog(this);
     }
 
-    private void mnuMultiEditV1_Click(object sender, EventArgs e)
+    private void mnuEditV2_Click(object sender, EventArgs e)
     {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
 
-    }
-
-    private void mnuRemoveV1_Click(object sender, EventArgs e)
-    {
-
+      var main = this;
+      new frmTAG2(ref main).ShowDialog(this);
     }
 
     private void mnuFileToTagV1_Click(object sender, EventArgs e)
     {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
 
+      var main = this;
+      new frmFilenameToTAG1(ref main).ShowDialog(this);
+    }
+
+    private void mnuFileToTagV2_Click(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      var main = this;
+      new frmFilenameToTAG2(ref main).ShowDialog(this);
+    }
+
+    private void mnuMultiEditV1_Click(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      var main = this;
+      new frmTAG1Multi(ref main).ShowDialog(this);
+    }
+
+    private void mnuMultiEditV2_Click(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      var main = this;
+      new frmTAG2Multi(ref main).ShowDialog();
+    }
+
+    private void mnuPlay_Click(object sender, EventArgs e)
+    {
+      string vLeft = "";
+      Process process2 = new Process();
+
+      foreach (ListViewItem item3 in this.MP3View.SelectedItems)
+        vLeft = StringType.FromObject(ObjectType.StrCatObj(vLeft, ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(item3.Tag, null, "FI", new object[0], null, null), null, "FullName", new object[0], null, null), "\r\n")));
+
+      if (StringType.StrCmp(vLeft, "", false) != 0)
+      {
+        string str3 = Id3TagIT_Main.CreateTempFile(Encoding.Default.GetBytes(vLeft), "m3u");
+        process2.StartInfo.UseShellExecute = true;
+        process2.StartInfo.FileName = str3;
+
+        try
+        {
+          process2.StartInfo.Verb = Declarations.objSettings.Play;
+        }
+        catch (Exception exception8)
+        {
+          ProjectData.SetProjectError(exception8);
+          process2.StartInfo.Verb = "open";
+          ProjectData.ClearProjectError();
+        }
+
+        process2.Start();
+      }
+    }
+
+    private void mnuRedo_Click(object sender, EventArgs e)
+    {
+      if (Declarations.REDOList.Count > 0)
+      {
+        ArrayList list4 = (ArrayList)Declarations.REDOList[Declarations.REDOList.Count - 1];
+        ArrayList list5 = new ArrayList();
+        var form = (Form)this;
+        var callback = new frmProgress.Callback(this.ReDoCB);
+        frmProgress progress2 = new frmProgress(0, list4.Count, 50, ref form, ref callback);
+        progress2.SetStateRedo();
+        progress2.List = list4;
+        progress2.ListHelp = list5;
+        progress2.ShowDialog(this);
+        progress2.ProgressBar.Value = progress2.ProgressBar.Maximum;
+        Declarations.UNDOList.Add(list5);
+        this.UnDoEnable(true, false);
+        Declarations.REDOList.RemoveAt(Declarations.REDOList.Count - 1);
+
+        if (Declarations.REDOList.Count == 0)
+        {
+          this.btnRedo.Enabled = false;
+          this.redoToolStripMenuItem.Enabled = false;
+        }
+
+        this.MP3View_FillColumns(ref Declarations.MP3s);
+        progress2.Close();
+      }
+    }
+
+    private void mnuRemoveV1_Click(object sender, EventArgs e)
+    {
+      RemoveV1Tag();
+    }
+
+    private void mnuRemoveV2_Click(object sender, EventArgs e)
+    {
+      RemoveV2Tag();
+    }
+
+    private void mnuRefresh_Click(object sender, EventArgs e)
+    {
+      bool flag = false;
+
+      do
+      {
+        if (this.CheckAllChanged())
+        {
+          switch (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["ChangesNotSaved"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.YesNoCancel, null))
+          {
+            case MsgBoxResult.Cancel:
+              return;
+
+            case MsgBoxResult.Yes:
+              this.SaveChanges();
+
+              if (!this.CheckAllChanged())
+                flag = true;
+
+              break;
+
+            case MsgBoxResult.No:
+              flag = true;
+              break;
+          }
+        }
+        else
+          flag = true;
+      }
+      while (!flag);
+
+      try
+      {
+        this.CalcAudioCheckSumThread.Abort();
+        this.CalcAudioCheckSumThread.Join();
+      }
+      catch (Exception exception1)
+      {
+        ProjectData.SetProjectError(exception1);
+        Exception exception = exception1;
+        ProjectData.ClearProjectError();
+      }
+
+      this.vbooRefreshFlag = true;
+      this.FolderTree.RefreshView();
+      this.vbooRefreshFlag = false;
+      Declarations.UNDOList.Clear();
+      Declarations.REDOList.Clear();
+      this.btnUndo.Enabled = false;
+      this.btnRedo.Enabled = false;
+      this.undoToolStripMenuItem.Enabled = false;
+      this.redoToolStripMenuItem.Enabled = false;
+    }
+
+    private void mnuSave_Click(object sender, EventArgs e)
+    {
+      this.SaveChanges();
     }
 
     private void mnuTagToFileV1_Click(object sender, EventArgs e)
     {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
 
+      var main = this;
+      new frmTAG1ToFilename(ref main).ShowDialog(this);
     }
 
-    private void btnSwitchV1V2_Click(object sender, EventArgs e)
+    private void mnuTagToFileV2_Click(object sender, EventArgs e)
     {
-      if (this.vbytVersionToShow != 1)
-        SwitchToV1();
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      var main = this;
+      new frmTAG2ToFilename(ref main).ShowDialog(this);
+    }
+
+    private void mnuUndo_Click(object sender, EventArgs e)
+    {
+      if (Declarations.UNDOList.Count > 0)
+      {
+        ArrayList list2 = (ArrayList)Declarations.UNDOList[Declarations.UNDOList.Count - 1];
+        ArrayList list3 = new ArrayList();
+        var form = (Form)this;
+        var callback = new frmProgress.Callback(this.UnDoCB);
+        frmProgress progress = new frmProgress(0, list2.Count, 50, ref form, ref callback);
+        progress.SetStateUndo();
+        progress.List = list2;
+        progress.ListHelp = list3;
+        progress.ShowDialog(this);
+        progress.ProgressBar.Value = progress.ProgressBar.Maximum;
+        Declarations.REDOList.Add(list3);
+        this.btnRedo.Enabled = true;
+        this.redoToolStripMenuItem.Enabled = true;
+        Declarations.UNDOList.RemoveAt(Declarations.UNDOList.Count - 1);
+
+        if (Declarations.UNDOList.Count == 0)
+          this.UnDoEnable(false, false);
+
+        this.MP3View_FillColumns(ref Declarations.MP3s);
+      }
+    }
+
+    private void moveFilesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      this.MoveFiles();
+    }
+
+    private void openFileLocationToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count > 0)
+      {
+        Process process = new Process();
+        MP3 tag = (MP3)this.MP3View.FocusedItem.Tag;
+        process.StartInfo.UseShellExecute = true;
+        process.StartInfo.FileName = Path.GetDirectoryName(tag.FI.FullName);
+        process.StartInfo.Verb = "open";
+        process.Start();
+      }
+    }
+
+    private void organizeFilesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      var organize = new frmOrganize(this);
+
+      if (organize.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+      {
+        this.vbooRefreshFlag = true;
+        this.FolderTree.RefreshView();
+        this.vbooRefreshFlag = false;
+      }
+
+      this.AudioCheckSumCalculation();
+    }
+
+    private void pasteTAGInformationToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      ArrayList list6 = new ArrayList();
+
+      if (!((this.MP3View.SelectedItems.Count == 0) | (this.alstCopyPaste.Count == 0)))
+      {
+        Form form;
+        frmProgress.Callback callback;
+        this.MP3View.BeginUpdate();
+
+        if (this.alstCopyPaste.Count == 1)
+        {
+          form = this;
+          callback = new frmProgress.Callback(this.Paste1CB);
+          frmProgress progress3 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
+          progress3.SetStatePaste();
+          progress3.List = list6;
+          progress3.ShowDialog(this);
+        }
+        else if (this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count)
+        {
+          form = this;
+          callback = new frmProgress.Callback(this.Paste2CB);
+          frmProgress progress4 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
+          progress4.SetStatePaste();
+          progress4.List = list6;
+          progress4.ShowDialog(this);
+        }
+        else
+        {
+          form = this;
+          callback = new frmProgress.Callback(this.Paste3CB);
+          frmProgress progress5 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
+          progress5.SetStatePaste();
+          progress5.List = list6;
+          progress5.ShowDialog(this);
+        }
+
+        this.MP3View.EndUpdate();
+
+        if (list6.Count > 0)
+        {
+          Declarations.UNDOList.Add(list6);
+          this.UnDoEnable(true, true);
+        }
+      }
+    }
+
+    private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      new frmPreferences(this).ShowDialog();
+
+      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+      {
+        this.vintEnumCount = Declarations.objSettings.FilenumberStart;
+        this.mnutEnumerateCounter.Text = StringType.FromInteger(this.vintEnumCount);
+      }
+
+      string str9 = "";
+      RegistryKey key = Registry.ClassesRoot.OpenSubKey(".mp3", false);
+      Application.DoEvents();
+
+      if (key != null)
+      {
+        str9 = StringType.FromObject(key.GetValue(""));
+        string str8 = str9 + @"\DefaultIcon\";
+        RegistryKey key2 = Registry.ClassesRoot.OpenSubKey(str8, false);
+        Application.DoEvents();
+
+        if (key2 != null)
+        {
+          str9 = StringType.FromObject(key2.GetValue(""));
+
+          try
+          {
+            str9 = str9.Substring(0, str9.LastIndexOf(","));
+          }
+          catch (Exception exception15)
+          {
+            ProjectData.SetProjectError(exception15);
+            ProjectData.ClearProjectError();
+          }
+        }
+      }
+
+      // FIXME this.BarGroupTools.SubItems.Clear();
+      this.ToolsIcons.Images.Clear();
+
+      int num4 = -1;
+
+      foreach (DataRow row in Declarations.objSettings.Tools.Rows)
+      {
+        num4++;
+
+        try
+        {
+          if (BooleanType.FromObject(row["DefaultPlayer"]))
+          {
+            if (StringType.StrCmp(str9, "", false) != 0)
+              this.ToolsIcons.Images.Add(Id3TagIT_Main.GetAppIcon(str9, true));
+
+            ButtonItem item20 = new ButtonItem("ToolItem" + num4.ToString(), row["ToolDescription"].ToString())
+            {
+              ImageIndex = num4,
+              Tag = num4,
+              ButtonStyle = eButtonStyle.ImageAndText
+            };
+
+            // FIXME this.BarGroupTools.SubItems.Add(item20);
+          }
+          else
+          {
+            this.ToolsIcons.Images.Add(Id3TagIT_Main.GetAppIcon(StringType.FromObject(row["ToolPath"]), true));
+            ButtonItem item21 = new ButtonItem("ToolItem" + num4.ToString(), row["ToolDescription"].ToString())
+            {
+              ImageIndex = num4,
+              Tag = num4,
+              ButtonStyle = eButtonStyle.ImageAndText
+            };
+            // FIXME this.BarGroupTools.SubItems.Add(item21);
+          }
+        }
+        catch (Exception exception16)
+        {
+          ProjectData.SetProjectError(exception16);
+          ButtonItem item22 = new ButtonItem("ToolItem" + num4.ToString(), row["ToolDescription"].ToString())
+          {
+            Tag = num4,
+            ButtonStyle = eButtonStyle.TextOnlyAlways
+          };
+          // FIXME this.BarGroupTools.SubItems.Add(item22);
+          ProjectData.ClearProjectError();
+        }
+      }
+
+      // FIXME
+      // this.BarGroupTools.RecalcSize();
+      // this.BarGroupTools.Expanded = false;
+      // this.BarGroupTools.Expanded = true;
+    }
+
+    private void queryFreeDBToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      queryFreeDb();
+    }
+
+    private void quickFilenameEditingToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Declarations.objSettings.QuickFilenameEditing ^= true;
+      LateBinding.LateSet(sender, null, "Checked", new object[] { ObjectType.BitXorObj(LateBinding.LateGet(sender, null, "Checked", new object[0], null, null), true) }, null);
+    }
+
+    private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Declarations.MP3s = null;
+      this.Close();
+    }
+
+    private void removeEmptyFoldersToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      new frmRemoveFolders(this).ShowDialog(this);
+    }
+
+    private void renameFilefolderToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      if (this.ActiveControl == this.FolderTree | this.ActiveControl == this.tabControl1 |
+          this.ActiveControl == this.tabFolders | this.ActiveControl == this.tabFavorites)
+      // FIXME - Do rename...
+      { } // this.FolderTree.SelectedNode.ExecuteShellCommand(ShellCommands.Rename);
+      else if (this.MP3View.FocusedItem != null)
+      {
+        this.MP3View.LabelEdit = true;
+        this.MP3View.FocusedItem.BeginEdit();
+      }
+    }
+
+    private void removeSelectedFilesFromListToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      this.MP3View.ListViewItemSorter = null;
+      this.MP3View.BeginUpdate();
+
+      foreach (ListViewItem item18 in this.MP3View.SelectedItems)
+      {
+        Declarations.MP3s.Remove(RuntimeHelpers.GetObjectValue(item18.Tag));
+        this.MP3View.Items.Remove(item18);
+      }
+
+      this.MP3View.EndUpdate();
+    }
+
+    private void removeTAGVer1ToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+      RemoveV1Tag();
+    }
+
+    private void removeTAGVer2ToolStripMenuItem2_Click(object sender, EventArgs e)
+    {
+      RemoveV2Tag();
+    }
+
+    private void scanSubdirectoriesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Declarations.objSettings.ScanSubDirs ^= true;
+      LateBinding.LateSet(sender, null, "Checked", new object[] { ObjectType.BitXorObj(LateBinding.LateGet(sender, null, "Checked", new object[0], null, null), true) }, null);
+      if (Declarations.objSettings.ScanSubDirs)
+        lblSubDirs.Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsYes"]);
       else
-        SwitchToV2();
+        lblSubDirs.Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsNo"]);
+    }
+
+    private void searchandReplaceToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      new frmSearch { MainForm = this }.Show();
+    }
+
+    private void selectallToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      this.MP3View.BeginUpdate();
+
+      foreach (ListViewItem item7 in this.MP3View.Items)
+        item7.Selected = true;
+
+      this.MP3View.EndUpdate();
+
+      try
+      {
+        if (this.MP3View.FocusedItem == null)
+          this.MP3View.Items[0].Focused = true;
+      }
+      catch (Exception exception9)
+      {
+        ProjectData.SetProjectError(exception9);
+        ProjectData.ClearProjectError();
+      }
+
+      this.MP3View.Focus();
+    }
+
+    private void selectChangedFilesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      this.MP3View.ListViewItemSorter = null;
+
+      foreach (ListViewItem item11 in this.MP3View.Items)
+      {
+        if (BooleanType.FromObject(LateBinding.LateGet(item11.Tag, null, "Changed", new object[0], null, null)))
+          item11.Selected = true;
+        else if (Declarations.objSettings.SelectionMode == 1)
+          item11.Selected = false;
+      }
+    }
+
+    private void selectDuplicateFilesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      this.MP3View.ListViewItemSorter = null;
+
+      foreach (ListViewItem item12 in this.MP3View.Items)
+      {
+        if (BooleanType.FromObject(LateBinding.LateGet(item12.Tag, null, "Doubled", new object[0], null, null)))
+          item12.Selected = true;
+        else if (Declarations.objSettings.SelectionMode == 1)
+          item12.Selected = false;
+      }
+    }
+
+    private void selectFilesByformatToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      new frmSelectFormat(this).ShowDialog(this);
+    }
+
+    private void selectmismatchingFilenameTAGFilesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      this.MP3View.ListViewItemSorter = null;
+
+      foreach (ListViewItem item13 in this.MP3View.Items)
+      {
+        if (BooleanType.FromObject(LateBinding.LateGet(item13.Tag, null, "FileTAGCompare", new object[0], null, null)))
+          item13.Selected = true;
+        else if (Declarations.objSettings.SelectionMode == 1)
+          item13.Selected = false;
+      }
+    }
+
+    private void shortcutsToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      new Process
+      {
+        StartInfo =
+        {
+          FileName = StringType.FromObject(Application.StartupPath.EndsWith(@"\") ? Application.StartupPath + @"Help\shortcuts.htm" : Application.StartupPath + @"\Help\shortcuts.htm"),
+          UseShellExecute = true
+        }
+      }.Start();
+    }
+
+    private void splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count > 0)
+      {
+        ArrayList list15 = new ArrayList();
+        string str5 = Interaction.InputBox(StringType.FromObject(Declarations.objResources.ResStrings["SplitATText"]), StringType.FromObject(Declarations.objResources.ResStrings["SplitAT1"]), Declarations.objSettings.SplitSeparator, -1, -1);
+
+        if (StringType.StrCmp(str5, "", false) == 0)
+          return;
+
+        Form form;
+        frmProgress.Callback callback;
+        Declarations.objSettings.SplitSeparator = str5;
+        this.MP3View.BeginUpdate();
+        form = this;
+        callback = new frmProgress.Callback(this.SplitArtist1CB);
+        frmProgress progress14 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list15, String01 = str5 };
+        progress14.SetStateSplit();
+        progress14.ShowDialog(this);
+        this.MP3View.EndUpdate();
+
+        if (list15.Count > 0)
+        {
+          Declarations.UNDOList.Add(list15);
+          this.UnDoEnable(true, true);
+        }
+      }
+    }
+
+    private void splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count > 0)
+      {
+        ArrayList list16 = new ArrayList();
+        string str6 = Interaction.InputBox(StringType.FromObject(Declarations.objResources.ResStrings["SplitATText"]), StringType.FromObject(Declarations.objResources.ResStrings["SplitAT2"]), Declarations.objSettings.SplitSeparator, -1, -1);
+
+        if (StringType.StrCmp(str6, "", false) == 0)
+          return;
+
+        Form form;
+        frmProgress.Callback callback;
+        Declarations.objSettings.SplitSeparator = str6;
+        this.MP3View.BeginUpdate();
+        form = this;
+        callback = new frmProgress.Callback(this.SplitArtist2CB);
+        frmProgress progress15 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list16, String01 = str6 };
+        progress15.SetStateSplit();
+        progress15.ShowDialog(this);
+        this.MP3View.EndUpdate();
+
+        if (list16.Count > 0)
+        {
+          Declarations.UNDOList.Add(list16);
+          this.UnDoEnable(true, true);
+        }
+      }
+    }
+
+    private void synchronizeVer1AndVer2EditingToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Declarations.objSettings.SynchronizeTAGs ^= true;
+      LateBinding.LateSet(sender, null, "Checked", new object[] { ObjectType.BitXorObj(LateBinding.LateGet(sender, null, "Checked", new object[0], null, null), true) }, null);
+    }
+
+    private void titleAlbumToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      swapTitleAlbumV1();
+    }
+
+    private void titleAlbumToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+      swapTitleAlbumV2();
+    }
+
+    private void titleAlbumToolStripMenuItem2_Click(object sender, EventArgs e)
+    {
+      swapTitleAlbumV1();
+    }
+
+    private void titleAlbumToolStripMenuItem3_Click(object sender, EventArgs e)
+    {
+      swapTitleAlbumV2();
+    }
+
+    private void transferConvertTAGsToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      new frmTransfer(this).ShowDialog(this);
     }
 
     private void viewTAGVer1ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -8131,31 +9120,119 @@ namespace ID3_TagIT
       SwitchToV2();
     }
 
-    private void mnuEditV2_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void mnuMultiEditV2_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void mnuRemoveV2_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void mnuFileToTagV2_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void mnuTagToFileV2_Click(object sender, EventArgs e)
-    {
-
-    }
-
     #endregion
+
+    private void lnkQuickEditExpCol_Click(object sender, EventArgs e)
+    {
+      if (pnlQuickEdit.Tag.ToString() == "Expanded")
+      {
+        lnkQuickEditExpCol.Image = global::Properties.Resources.Expand;
+        pnlQuickEdit.Height = 21;
+        pnlQuickEdit.Tag = "Collapsed";
+      }
+      else
+      {
+        lnkQuickEditExpCol.Image = global::Properties.Resources.Collapse;
+        pnlQuickEdit.Height = 208;
+        pnlQuickEdit.Tag = "Expanded";
+      }
+
+      pnlPicture.Top = pnlQuickEdit.Top + pnlQuickEdit.Height + 6;
+      pnlInformation.Top = pnlPicture.Top + pnlPicture.Height + 6;
+      pnlTools.Top = pnlInformation.Top + pnlInformation.Height + 6;
+    }
+
+    private void lnkPictureExpCol_Click(object sender, EventArgs e)
+    {
+      if (pnlPicture.Tag.ToString() == "Expanded")
+      {
+        lnkPictureExpCol.Image = global::Properties.Resources.Expand;
+        pnlPicture.Height = 21;
+        pnlPicture.Tag = "Collapsed";
+      }
+      else
+      {
+        lnkPictureExpCol.Image = global::Properties.Resources.Collapse;
+        pnlPicture.Height = 196;
+        pnlPicture.Tag = "Expanded";
+      }
+
+      pnlInformation.Top = pnlPicture.Top + pnlPicture.Height + 6;
+      pnlTools.Top = pnlInformation.Top + pnlInformation.Height + 6;
+    }
+
+    private void lnkInfoExpCol_Click(object sender, EventArgs e)
+    {
+      if (pnlInformation.Tag.ToString() == "Expanded")
+      {
+        lnkInfoExpCol.Image = global::Properties.Resources.Expand;
+        pnlInformation.Height = 21;
+        pnlInformation.Tag = "Collapsed";
+      }
+      else
+      {
+        lnkInfoExpCol.Image = global::Properties.Resources.Collapse;
+        pnlInformation.Height = 164;
+        pnlInformation.Tag = "Expanded";
+      }
+
+      pnlTools.Top = pnlInformation.Top + pnlInformation.Height + 6;
+    }
+
+    private void lnkToolsExpCol_Click(object sender, EventArgs e)
+    {
+      if (pnlTools.Tag.ToString() == "Expanded")
+      {
+        lnkToolsExpCol.Image = global::Properties.Resources.Expand;
+        pnlTools.Height = 21;
+        pnlTools.Tag = "Collapsed";
+      }
+      else
+      {
+        lnkToolsExpCol.Image = global::Properties.Resources.Collapse;
+        pnlTools.Height = 137;
+        pnlTools.Tag = "Expanded";
+      }
+    }
+
+    private void tsmiDecrease_Click(object sender, EventArgs e)
+    {
+      this.vintEnumCount--;
+
+      if (this.vintEnumCount < 1)
+        this.vintEnumCount = 1;
+
+      this.mnutEnumerateCounter.Text = StringType.FromInteger(this.vintEnumCount);
+    }
+
+    private void tsmiIncrease_Click(object sender, EventArgs e)
+    {
+      this.vintEnumCount++;
+      this.mnutEnumerateCounter.Text = StringType.FromInteger(this.vintEnumCount);
+    }
+
+    private void tsmiClearFilter_Click(object sender, EventArgs e)
+    {
+    }
+
+    private void mnubArtistFilter_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnubTitleFilter_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnubAlbumFilter_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void FolderTree_BeforeSelect(object sender, TreeViewCancelEventArgs e)
+    {
+
+    }
   }
 }

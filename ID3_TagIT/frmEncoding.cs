@@ -138,7 +138,7 @@ namespace ID3_TagIT
       base.Dispose(disposing);
     }
 
-    public frmEncoding(ref frmMain FormMain)
+    public frmEncoding(frmMain FormMain)
     {
       base.Load += new EventHandler(this.frmEncoding_Load);
       this.InitializeComponent();

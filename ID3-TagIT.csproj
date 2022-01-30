@@ -136,6 +136,7 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -439,7 +440,15 @@
     <Content Include="Help\top.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="ID3_TagIT\icons\Playlist.ico" />
+    <None Include="ID3_TagIT\icons\Question.ico" />
+    <None Include="ID3_TagIT\icons\Info16.png" />
+    <None Include="ID3_TagIT\icons\Picture.bmp" />
+    <None Include="ID3_TagIT\icons\Tools.bmp" />
+    <None Include="ID3_TagIT\icons\Collapse.png" />
     <Content Include="ID3_TagIT\icons\CopyFiles.png" />
+    <None Include="ID3_TagIT\icons\Expand.png" />
+    <None Include="ID3_TagIT\icons\QuickEdit.bmp" />
     <None Include="ID3_TagIT\icons\Next.png" />
     <None Include="ID3_TagIT\icons\Previous.png" />
     <None Include="ID3_TagIT\icons\Previous.ico" />

@@ -537,7 +537,7 @@ namespace ID3_TagIT
       this.PerformLayout();
     }
 
-    public frmOrganize(ref frmMain FormMain)
+    public frmOrganize(frmMain FormMain)
     {
       base.Load += new EventHandler(this.frmOrganize_Load);
       this.InitializeComponent();
@@ -861,7 +861,7 @@ namespace ID3_TagIT
                 SubItems = { exception.Message }
               };
               this.MainForm.ErrorMsg.Items.Insert(0, item2);
-              this.MainForm.SplitterBottom.Expanded = true;
+              // FIXME - exp this.MainForm.SplitterBottom.Expanded = true;
               ProjectData.ClearProjectError();
             }
           }
@@ -882,7 +882,7 @@ namespace ID3_TagIT
           if (copyBack[0])
             resStrings[str6] = RuntimeHelpers.GetObjectValue(args[0]);
           this.MainForm.ErrorMsg.Items.Insert(0, item3);
-          this.MainForm.SplitterBottom.Expanded = true;
+          // FIXME - exp this.MainForm.SplitterBottom.Expanded = true;
         }
         frmProg.ProgressBar.PerformStep();
       }
