@@ -5,3 +5,4 @@ Aims to update Michael Pluemper's ID3 tag editor to a more modern version of .NE
 
 Original version also has issues with v2.2 tags from iTunes.  Aim to fix this.
 
+Original Homepage: https://id3-tagit.de/
