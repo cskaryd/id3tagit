@@ -476,7 +476,7 @@ namespace ID3_TagIT
           tag = (MP3)this.MainForm.MP3View.Items[num].Tag;
 
           if (this.MainForm.MP3View.Columns.Contains(this.MainForm.colHAudioCheckSum))
-            this.MainForm.MP3View.Items[num].SubItems[this.MainForm.colHAudioCheckSum.Index].Text = StringType.FromObject(Interaction.IIf(tag.AudioCheckSum != 0, tag.AudioCheckSum.ToString(), ""));
+            this.MainForm.MP3View.Items[num].SubItems[this.MainForm.colHAudioCheckSum.Index].Text = StringType.FromObject(tag.AudioCheckSum != 0 ? tag.AudioCheckSum.ToString() : "");
 
           int num3 = this.MainForm.MP3View.Items.Count - 1;
 
@@ -517,7 +517,6 @@ namespace ID3_TagIT
       objForm = this;
       Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.ProgressBar.Minimum = 0;
       this.ProgressBar.Maximum = this.MainForm.MP3View.Items.Count - 2;
       this.ProgressBar.Step = 1;

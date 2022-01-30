@@ -1057,7 +1057,6 @@ namespace ID3_TagIT
       objForm = this;
       Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Id3TagIT_Main.WindowsXPCheck(ref objForm);
 
       foreach (TreeNode node in Declarations.objSettings.FavNodes)
         LateBinding.LateCall(this.FavTree.Nodes, null, "Add", new object[] { RuntimeHelpers.GetObjectValue(node.Clone()) }, null, null);

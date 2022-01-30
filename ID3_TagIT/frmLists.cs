@@ -1158,7 +1158,6 @@ namespace ID3_TagIT
       objForm = this;
       Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.chkRelativ.Checked = Declarations.objSettings.PlaylistRelPath;
       this.txtExtInfo.Text = Declarations.objSettings.ListExtInfo;
       this.txtPath.Text = Declarations.objSettings.ListPath;

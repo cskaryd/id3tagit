@@ -221,6 +221,15 @@ namespace ID3_TagIT
                 File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Navpanel.xml"), Path.Combine(Declarations.vstrUserAppData, "Navpanel.xml"), true);
                 File.Copy(Path.Combine(Declarations.vstrCommonAppData, @"Libraries\Library-Columns.xml"), Path.Combine(Declarations.vstrUserAppData, @"Libraries\Library-Columns.xml"), true);
               }
+
+              if (StringType.StrCmp(sLeft, "3.4.0", false) < 0)
+              {
+                File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Toolbar.xml"), Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml"), true);
+                File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Interface.xml"), Path.Combine(Declarations.vstrUserAppData, "Interface.xml"), true);
+                File.Copy(Path.Combine(Declarations.vstrCommonAppData, "ExtToolbar.xml"), Path.Combine(Declarations.vstrUserAppData, "ExtToolbar.xml"), true);
+                File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Navpanel.xml"), Path.Combine(Declarations.vstrUserAppData, "Navpanel.xml"), true);
+                File.Copy(Path.Combine(Declarations.vstrCommonAppData, @"Libraries\Library-Columns.xml"), Path.Combine(Declarations.vstrUserAppData, @"Libraries\Library-Columns.xml"), true);
+              }
             }
           }
 
@@ -478,21 +487,6 @@ namespace ID3_TagIT
       Application.Exit();
     }
 
-    // FIXME - Kill with fire
-    private static void RecursivelyFormatForWinXP(Control objControl)
-    {
-      int num2 = objControl.Controls.Count - 1;
-
-      for (int i = 0; i <= num2; i++)
-      {
-        if (objControl.Controls[i].GetType() == typeof(Button))
-          ((ButtonBase)objControl.Controls[i]).FlatStyle = FlatStyle.System;
-
-        if (objControl.Controls.Count > 0)
-          RecursivelyFormatForWinXP(objControl.Controls[i]);
-      }
-    }
-
     public static void RestoreFormSettings(ref Form Form)
     {
       int num2 = Declarations.objSettings.Forms.Rows.Count - 1;
@@ -620,22 +614,6 @@ namespace ID3_TagIT
       lpFileOp.fFlags = (short)Flags;
       Application.DoEvents();
       return (Declarations.SHFileOperation(ref lpFileOp) == 0);
-    }
-
-    // FIXME - Kill with fire
-    public static void WindowsXPCheck(ref Form FormToCheck)
-    {
-      if (((Environment.OSVersion.Version.Major > 4) & (Environment.OSVersion.Version.Minor > 0)) & File.Exists(Application.ExecutablePath + ".manifest"))
-      {
-        int num2 = FormToCheck.Controls.Count - 1;
-        for (int i = 0; i <= num2; i++)
-        {
-          if (FormToCheck.Controls[i].GetType() == typeof(Button))
-            ((ButtonBase)FormToCheck.Controls[i]).FlatStyle = FlatStyle.System;
-
-          RecursivelyFormatForWinXP(FormToCheck.Controls[i]);
-        }
-      }
     }
   }
 }

@@ -77,7 +77,7 @@ namespace ID3_TagIT
       this.lblUpdate.Name = "lblUpdate";
       this.lblUpdate.Size = new System.Drawing.Size(376, 18);
       this.lblUpdate.TabIndex = 7;
-      this.lblUpdate.Text = "Recompiled Updates in 2018-2019 by Chris Skaryd";
+      this.lblUpdate.Text = "Recompiled Updates in 2018-2020 by Chris Skaryd";
       this.lblUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // lblCopyright

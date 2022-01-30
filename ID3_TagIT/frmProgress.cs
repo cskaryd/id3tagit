@@ -176,7 +176,6 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.Text = StringType.FromObject(Declarations.objResources.ResStrings["Name"]);
     }
 

@@ -598,7 +598,6 @@ namespace ID3_TagIT
       objForm = this;
       Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.lstExceptions.DataSource = Declarations.objSettings.Exceptions;
       this.lstExceptions.DisplayMember = "Name";
       this.lstExceptions.ValueMember = "Name";

@@ -4376,7 +4376,6 @@ namespace ID3_TagIT
       Application.DoEvents();
 
       form = this;
-      Id3TagIT_Main.WindowsXPCheck(ref form);
       this.MP3View.Focus();
       Application.DoEvents();
 

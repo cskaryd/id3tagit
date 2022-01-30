@@ -281,7 +281,6 @@ namespace ID3_TagIT
       objForm = this;
       Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       int num2 = Declarations.objSettings.SelectFormats.Rows.Count - 1;
 
       for (int i = 0; i <= num2; i++)

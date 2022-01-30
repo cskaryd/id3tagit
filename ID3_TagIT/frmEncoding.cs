@@ -177,7 +177,6 @@ namespace ID3_TagIT
       objForm = this;
       Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.cmbV23Enc.SelectedIndex = Declarations.objSettings.V23Encoding;
       this.cmbV24Enc.SelectedIndex = Declarations.objSettings.V24Encoding;
     }

@@ -1708,7 +1708,6 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.ColorChangedBack.FlatStyle = FlatStyle.Flat;
       this.ColorChangedText.FlatStyle = FlatStyle.Flat;
       this.ColorDoubleBack.FlatStyle = FlatStyle.Flat;

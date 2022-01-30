@@ -1276,7 +1276,6 @@ namespace ID3_TagIT
       objForm = this;
       Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.optSingleArtist.Checked = Declarations.objSettings.FreeDBSingleArtist;
       this.optVariousArtist.Checked = !Declarations.objSettings.FreeDBSingleArtist;
       this.chkWrite1.Checked = Declarations.objSettings.FreeDBWrite1;
