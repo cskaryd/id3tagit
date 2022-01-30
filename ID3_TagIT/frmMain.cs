@@ -2,7 +2,6 @@
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using Microsoft.Win32;
-using SkySoftware.FolderViewControl;
 using System;
 using System.Collections;
 using System.ComponentModel;
@@ -54,7 +53,7 @@ namespace ID3_TagIT
     private ExplorerBarGroupItem BarGroupInfo;
     private ExplorerBarGroupItem BarGroupPicture;
     private ExplorerBarGroupItem BarGroupTools;
-    private FolderView FolderTree;
+    private FolderTreeView FolderTree;
     private IContainer components;
     private ImageList ColumnHeaderIcons;
     private ImageList GroupIcons;
@@ -280,7 +279,7 @@ namespace ID3_TagIT
       this.SplitterLeft = new DevComponents.DotNetBar.ExpandableSplitter();
       this.NavigationPan = new DevComponents.DotNetBar.NavigationPane();
       this.FoldersPanel = new DevComponents.DotNetBar.NavigationPanePanel();
-      this.FolderTree = new SkySoftware.FolderViewControl.FolderView();
+      this.FolderTree = new ID3_TagIT.FolderTreeView();
       this.FoldersPan = new DevComponents.DotNetBar.ButtonItem();
       this.FavouritesPanel = new DevComponents.DotNetBar.NavigationPanePanel();
       this.FavTree = new System.Windows.Forms.TreeView();
@@ -625,22 +624,15 @@ namespace ID3_TagIT
       // 
       // FolderTree
       // 
-      this.FolderTree.AllowDragDrop = false;
-      this.FolderTree.BorderStyle = SkySoftware.FolderViewControl.BorderStyles.None;
       this.FolderTree.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.FolderTree.HasLines = false;
       this.FolderTree.Location = new System.Drawing.Point(1, 1);
       this.FolderTree.Name = "FolderTree";
-      this.FolderTree.ShowContextMenus = false;
-      this.FolderTree.ShowHiddenObjects = false;
-      this.FolderTree.ShowSpecialFolders = false;
       this.FolderTree.Size = new System.Drawing.Size(214, 509);
       this.FolderTree.TabIndex = 1;
-      this.FolderTree.Text = "FolderTree";
-      this.FolderTree.AfterLabelEdit += new SkySoftware.FolderViewControl.AfterLabelEditHandler(this.FolderTree_AfterLabelEdit);
-      this.FolderTree.BeforeLabelEdit += new SkySoftware.FolderViewControl.BeforeLabelEditHandler(this.FolderTree_BeforeLabelEdit);
-      this.FolderTree.BeforeSelect += new SkySoftware.FolderViewControl.BeforeSelectHandler(this.FolderTree_BeforeSelect);
-      this.FolderTree.AfterSelect += new SkySoftware.FolderViewControl.AfterSelectHandler(this.FolderTree_AfterSelect);
+      this.FolderTree.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.FolderTree_AfterLabelEdit);
+      this.FolderTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.FolderTree_AfterSelect);
+      this.FolderTree.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.FolderTree_BeforeLabelEdit);
+      this.FolderTree.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.FolderTree_BeforeSelect);
       // 
       // FoldersPan
       // 
@@ -819,7 +811,7 @@ namespace ID3_TagIT
       // 
       // cmbArtist
       // 
-      this.cmbArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.cmbArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.cmbArtist.Autocomplete = true;
       this.cmbArtist.Location = new System.Drawing.Point(10, 43);
@@ -831,7 +823,7 @@ namespace ID3_TagIT
       // 
       // txtTitle
       // 
-      this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.txtTitle.Location = new System.Drawing.Point(10, 80);
       this.txtTitle.Name = "txtTitle";
@@ -842,7 +834,7 @@ namespace ID3_TagIT
       // 
       // txtAlbum
       // 
-      this.txtAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.txtAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.txtAlbum.Location = new System.Drawing.Point(10, 117);
       this.txtAlbum.Name = "txtAlbum";
@@ -1271,7 +1263,7 @@ namespace ID3_TagIT
       // 
       this.deleteFilesToolStripMenuItem.Image = global::Properties.Resources.Delete;
       this.deleteFilesToolStripMenuItem.Name = "deleteFilesToolStripMenuItem";
-      this.deleteFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+      this.deleteFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.D)));
       this.deleteFilesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.deleteFilesToolStripMenuItem.Text = "&Delete files";
@@ -1299,7 +1291,7 @@ namespace ID3_TagIT
       // 
       this.removeEmptyFoldersToolStripMenuItem.Image = global::Properties.Resources.DeleteFolder;
       this.removeEmptyFoldersToolStripMenuItem.Name = "removeEmptyFoldersToolStripMenuItem";
-      this.removeEmptyFoldersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+      this.removeEmptyFoldersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.F)));
       this.removeEmptyFoldersToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.removeEmptyFoldersToolStripMenuItem.Text = "R&emove empty folders";
@@ -1365,7 +1357,7 @@ namespace ID3_TagIT
       // 
       this.redoToolStripMenuItem.Enabled = false;
       this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-      this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+      this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.Z)));
       this.redoToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
       this.redoToolStripMenuItem.Text = "&Redo";
@@ -1499,7 +1491,7 @@ namespace ID3_TagIT
       // copyTAGVer1And2ToolStripMenuItem
       // 
       this.copyTAGVer1And2ToolStripMenuItem.Name = "copyTAGVer1And2ToolStripMenuItem";
-      this.copyTAGVer1And2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+      this.copyTAGVer1And2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.C)));
       this.copyTAGVer1And2ToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
       this.copyTAGVer1And2ToolStripMenuItem.Text = "&Copy TAG Ver. 1 and 2";
@@ -1507,7 +1499,7 @@ namespace ID3_TagIT
       // pasteTAGInformationToolStripMenuItem
       // 
       this.pasteTAGInformationToolStripMenuItem.Name = "pasteTAGInformationToolStripMenuItem";
-      this.pasteTAGInformationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+      this.pasteTAGInformationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.V)));
       this.pasteTAGInformationToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
       this.pasteTAGInformationToolStripMenuItem.Text = "&Paste TAG information";
@@ -1906,7 +1898,6 @@ namespace ID3_TagIT
       // 
       // cboLanguage
       // 
-      this.cboLanguage.AutoSize = true;
       this.cboLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cboLanguage.DropDownWidth = 250;
       this.cboLanguage.Items.AddRange(new object[] {
@@ -2418,7 +2409,8 @@ namespace ID3_TagIT
           if (StringType.StrCmp(name, "mnubtnRename", false) == 0)
           {
             if ((this.ActiveControl == this.FolderTree) | (this.ActiveControl == this.NavigationPan))
-              this.FolderTree.SelectedNode.ExecuteShellCommand(ShellCommands.Rename);
+            // FIXME - Do rename...
+            { } // this.FolderTree.SelectedNode.ExecuteShellCommand(ShellCommands.Rename);
             else if (this.MP3View.FocusedItem != null)
             {
               this.MP3View.LabelEdit = true;
@@ -3812,7 +3804,7 @@ namespace ID3_TagIT
       {
         this.FolderRenameTimer.Stop();
         this.vbytFolderRenameCount = 0;
-        Declarations.objSettings.CurrentPath = this.FolderTree.SelectedNode.Path;
+        Declarations.objSettings.CurrentPath = (string)this.FolderTree.SelectedNode.Tag;
         object[] objArray2 = new object[2];
         objArray2[0] = "%1";
         Settings objSettings = Declarations.objSettings;
@@ -3847,10 +3839,10 @@ namespace ID3_TagIT
       }
     }
 
-    private void FolderTree_AfterLabelEdit(object sender, FolderViewNodeLabelEditEventArgs e)
+    private void FolderTree_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
     {
       string label = e.Label;
-      this.vstrFolderRenameOldPath = e.Node.Path;
+      this.vstrFolderRenameOldPath = (string)e.Node.Tag;
       this.vstrFolderRenameNewPath = this.vstrFolderRenameOldPath.Substring(0, this.vstrFolderRenameOldPath.LastIndexOf(@"\")) + @"\" + label;
 
       if (!Directory.Exists(this.vstrFolderRenameNewPath))
@@ -3863,14 +3855,14 @@ namespace ID3_TagIT
       }
     }
 
-    private void FolderTree_AfterSelect(object sender, FolderViewEventArgs e)
+    private void FolderTree_AfterSelect(object sender, TreeViewEventArgs e)
     {
       ButtonItem item2 = null;
 
       if (this.vbooClosing | this.vbooStartUp)
         return;
 
-      Declarations.objSettings.CurrentPath = this.FolderTree.SelectedNode.Path;
+      Declarations.objSettings.CurrentPath = (string)this.FolderTree.SelectedNode.Tag;
       this.vstrFilter = "*";
 
       switch (this.vbytFilterIndex)
@@ -3955,12 +3947,12 @@ namespace ID3_TagIT
       }
     }
 
-    private void FolderTree_BeforeLabelEdit(object sender, FolderViewNodeLabelEditEventArgs e)
+    private void FolderTree_BeforeLabelEdit(object sender, NodeLabelEditEventArgs e)
     {
       this.vbooFolderRename = true;
     }
 
-    private void FolderTree_BeforeSelect(object sender, FolderViewCancelEventArgs e)
+    private void FolderTree_BeforeSelect(object sender, CancelEventArgs e)
     {
       bool flag = false;
       if ((!this.vbooRefreshFlag & !this.vbooClosing) & !this.vbooFolderRename)
@@ -4396,7 +4388,7 @@ namespace ID3_TagIT
       splash.lblState.Text = "Restoring folder";
       Application.DoEvents();
 
-      this.FolderTree.SelectNode(Declarations.objSettings.CurrentPath, null, true);
+      this.FolderTree.SelectNode(Declarations.objSettings.CurrentPath);
       Application.DoEvents();
 
       splash.Close();
@@ -5448,28 +5440,26 @@ namespace ID3_TagIT
     {
       MP3 tag;
       byte num3;
+     
       if (this.vbooStartUp)
-      {
         return;
-      }
+
       if (this.vintSelTimerCount == this.MP3View.SelectedItems.Count)
-      {
         this.vbytSelTimerCount = (byte)(this.vbytSelTimerCount + 1);
-      }
       else
-      {
         this.vintSelTimerCount = this.MP3View.SelectedItems.Count;
-      }
+
       if (this.vbytSelTimerCount > 5)
       {
         this.Timer.Stop();
         this.vbytSelTimerCount = 0;
       }
+
       int num = 0;
+
       foreach (ListViewItem item in this.MP3View.SelectedItems)
-      {
         num = IntegerType.FromObject(ObjectType.AddObj(num, LateBinding.LateGet(item.Tag, null, "Duration", new object[0], null, null)));
-      }
+
       int num6 = num / 3600;
       num6 = (num - ((num / 3600) * 3600)) / 60;
       string introduced34 = num6.ToString().PadLeft(2, '0') + ":";
@@ -5478,11 +5468,12 @@ namespace ID3_TagIT
       string str = introduced35 + num6.ToString().PadLeft(2, '0');
       object[] args = new object[] { "%3", str };
       bool[] copyBack = new bool[] { false, true };
+
       if (copyBack[1])
-      {
         str = StringType.FromObject(args[1]);
-      }
+
       this.DotNetBarManager.GetItem("lblNumber").Text = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["Number"], null, "Replace", new object[] { "%1", this.MP3View.Items.Count.ToString() }, null, null), null, "Replace", new object[] { "%2", this.MP3View.SelectedItems.Count.ToString() }, null, null), null, "Replace", args, null, copyBack));
+
       try
       {
         this.DotNetBarManager.GetItem("lblLength").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
@@ -5493,9 +5484,11 @@ namespace ID3_TagIT
         this.DotNetBarManager.GetItem("lblLength").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", "0" }, null, null));
         ProjectData.ClearProjectError();
       }
+
       this.cmbArtist.Text = "";
       this.txtTitle.Text = "";
       this.txtAlbum.Text = "";
+
       try
       {
         this.APICView.Image = null;
@@ -5506,9 +5499,11 @@ namespace ID3_TagIT
         Exception exception = exception3;
         ProjectData.ClearProjectError();
       }
+
       try
       {
-        this.PicMStream.Close();
+        if (this.PicMStream != null)
+          this.PicMStream.Close();
       }
       catch (Exception exception4)
       {
@@ -5516,72 +5511,62 @@ namespace ID3_TagIT
         Exception exception2 = exception4;
         ProjectData.ClearProjectError();
       }
+
       if (this.vbytVersionToShow != 1)
       {
         num3 = 0;
+
         if (this.MP3View.SelectedItems.Count == 1)
         {
           tag = (MP3)this.MP3View.SelectedItems[0].Tag;
+
           if (tag.V2TAG.FrameExists("TPE1"))
-          {
             this.cmbArtist.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
-          }
+
           if (tag.V2TAG.FrameExists("TIT2"))
-          {
             this.txtTitle.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
-          }
+
           if (tag.V2TAG.FrameExists("TALB"))
-          {
             this.txtAlbum.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
-          }
         }
+
         if (this.MP3View.SelectedItems.Count <= 1)
-        {
           goto Label_0B93;
-        }
+
         tag = (MP3)this.MP3View.SelectedItems[0].Tag;
+
         foreach (ListViewItem item in this.MP3View.SelectedItems)
         {
           MP3 mp4 = (MP3)item.Tag;
+
           if (tag != mp4)
           {
             if ((((num3 & 1) == 0) && tag.V2TAG.FrameExists("TPE1")) && mp4.V2TAG.FrameExists("TPE1"))
             {
               if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp4.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp4.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), "", false) == 0)))
-              {
                 num3 = (byte)(num3 | 1);
-              }
             }
             else
-            {
               num3 = (byte)(num3 | 1);
-            }
+
             if ((((num3 & 2) == 0) && tag.V2TAG.FrameExists("TIT2")) && mp4.V2TAG.FrameExists("TIT2"))
             {
               if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp4.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp4.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), "", false) == 0)))
-              {
                 num3 = (byte)(num3 | 2);
-              }
             }
             else
-            {
               num3 = (byte)(num3 | 2);
-            }
+
             if ((((num3 & 4) == 0) && tag.V2TAG.FrameExists("TALB")) && mp4.V2TAG.FrameExists("TALB"))
             {
               if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp4.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp4.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), "", false) == 0)))
-              {
                 num3 = (byte)(num3 | 4);
-              }
             }
             else
-            {
               num3 = (byte)(num3 | 4);
-            }
+
             if (num3 == 7)
-            {
               break;
-            }
           }
         }
       }
@@ -5589,6 +5574,7 @@ namespace ID3_TagIT
       {
         MP3 mp;
         byte num2 = 0;
+
         if (this.MP3View.SelectedItems.Count == 1)
         {
           mp = (MP3)this.MP3View.SelectedItems[0].Tag;
@@ -5596,65 +5582,58 @@ namespace ID3_TagIT
           this.txtTitle.Text = mp.V1TAG.Title;
           this.txtAlbum.Text = mp.V1TAG.Album;
         }
+
         if (this.MP3View.SelectedItems.Count > 1)
         {
           mp = (MP3)this.MP3View.SelectedItems[0].Tag;
+
           foreach (ListViewItem item in this.MP3View.SelectedItems)
           {
             MP3 mp2 = (MP3)item.Tag;
+
             if (mp != mp2)
             {
               if ((((num2 & 1) == 0) && (StringType.StrCmp(mp2.V1TAG.Artist.ToLower(), mp.V1TAG.Artist.ToLower(), false) != 0)) | (StringType.StrCmp(mp2.V1TAG.Artist, "", false) == 0))
-              {
                 num2 = (byte)(num2 | 1);
-              }
+
               if ((((num2 & 2) == 0) && (StringType.StrCmp(mp2.V1TAG.Title.ToLower(), mp.V1TAG.Title.ToLower(), false) != 0)) | (StringType.StrCmp(mp2.V1TAG.Title, "", false) == 0))
-              {
                 num2 = (byte)(num2 | 2);
-              }
+
               if ((((num2 & 4) == 0) && (StringType.StrCmp(mp2.V1TAG.Album.ToLower(), mp.V1TAG.Album.ToLower(), false) != 0)) | (StringType.StrCmp(mp2.V1TAG.Album, "", false) == 0))
-              {
                 num2 = (byte)(num2 | 4);
-              }
+
               if (num2 == 7)
-              {
                 break;
-              }
             }
           }
+
           if (num2 != 7)
           {
             if ((num2 & 1) == 0)
-            {
               this.cmbArtist.Text = mp.V1TAG.Artist;
-            }
+
             if ((num2 & 2) == 0)
-            {
               this.txtTitle.Text = mp.V1TAG.Title;
-            }
+
             if ((num2 & 4) == 0)
-            {
               this.txtAlbum.Text = mp.V1TAG.Album;
-            }
           }
         }
         goto Label_0B93;
       }
+
       if (num3 != 7)
       {
         if ((num3 & 1) == 0)
-        {
           this.cmbArtist.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
-        }
+
         if ((num3 & 2) == 0)
-        {
           this.txtTitle.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
-        }
+
         if ((num3 & 4) == 0)
-        {
           this.txtAlbum.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
-        }
       }
+
       Label_0B93:
       if (this.BarGroupInfo.Expanded & (this.MP3View.SelectedItems.Count == 1))
       {
@@ -5681,9 +5660,11 @@ namespace ID3_TagIT
         this.txtInfo.AppendText(this.colHChannel.Text + ":\r\n");
         this.txtInfo.AppendText(this.colHVersion.Text + ":");
       }
+
       if (this.BarGroupPicture.Expanded & (this.MP3View.SelectedItems.Count == 1))
       {
         MP3 mp6 = (MP3)this.MP3View.SelectedItems[0].Tag;
+
         foreach (V2APICFrame frame3 in mp6.V2TAG.GetFrames("APIC"))
         {
           if (StringType.StrCmp(frame3.Path, mp6.FI.FullName, false) == 0)
@@ -5712,6 +5693,7 @@ namespace ID3_TagIT
           else
           {
             Directory.SetCurrentDirectory(Path.GetDirectoryName(mp6.FI.FullName));
+
             if (File.Exists(frame3.Path))
             {
               FileStream stream3 = new FileStream(frame3.Path, FileMode.Open, FileAccess.Read);
@@ -5723,13 +5705,12 @@ namespace ID3_TagIT
               stream3.Close();
             }
           }
+
           break;
         }
       }
       else
-      {
         this.APICView.Image = null;
-      }
     }
 
     private void txtArtistTitleAlbum_Enter(object sender, EventArgs e)
@@ -6154,7 +6135,8 @@ namespace ID3_TagIT
 
       try
       {
-        this.GetFilesTimeThread.Abort();
+        if (this.GetFilesTimeThread != null)
+          this.GetFilesTimeThread.Abort();
       }
       catch (Exception exception1)
       {
@@ -6165,8 +6147,11 @@ namespace ID3_TagIT
 
       try
       {
-        this.CalcAudioCheckSumThread.Abort();
-        this.CalcAudioCheckSumThread.Join();
+        if (this.CalcAudioCheckSumThread != null)
+        {
+          this.CalcAudioCheckSumThread.Abort();
+          this.CalcAudioCheckSumThread.Join();
+        }
       }
       catch (Exception exception4)
       {
@@ -6870,8 +6855,11 @@ namespace ID3_TagIT
       {
         try
         {
-          this.CalcAudioCheckSumThread.Abort();
-          this.CalcAudioCheckSumThread.Join();
+          if (this.CalcAudioCheckSumThread != null)
+          {
+            this.CalcAudioCheckSumThread.Abort();
+            this.CalcAudioCheckSumThread.Join();
+          }
         }
         catch (Exception exception1)
         {

@@ -41,6 +41,12 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <Compile Include="ID3_TagIT\FolderTreeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\FolderTreeView.Designer.cs">
+      <DependentUpon>FolderTreeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -53,9 +59,9 @@
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="SkySoftware.FolderView">
-      <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\SkySoftware.FolderView.dll</HintPath>
-    </Reference>
+    <EmbeddedResource Include="ID3_TagIT\FolderTreeView.resx">
+      <DependentUpon>FolderTreeView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ID3_TagIT\frmCaseConv.resx">
       <DependentUpon>frmCaseConv.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +279,7 @@
     <EmbeddedResource Include="ID3-TagIT.MenuBars.xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".editorconfig" />
     <None Include="app.config" />
     <None Include="ID3_TagIT\icons\RemoveV1.png" />
   </ItemGroup>
