@@ -54,14 +54,26 @@
     <EmbeddedResource Include="ID3_TagIT\frmCaseConv.resx">
       <DependentUpon>frmCaseConv.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmCompareFileTAG.resx">
+      <DependentUpon>frmCompareFileTAG.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ID3_TagIT\frmEncoding.resx">
       <DependentUpon>frmEncoding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ID3_TagIT\frmFilenameToTAG1.resx">
       <DependentUpon>frmFilenameToTAG1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmFilenameToTAG2.resx">
+      <DependentUpon>frmFilenameToTAG2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ID3_TagIT\frmFreeDB.resx">
       <DependentUpon>frmFreeDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmLibraries.resx">
+      <DependentUpon>frmLibraries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmRemoveFolders.resx">
+      <DependentUpon>frmRemoveFolders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ID3_TagIT\frmSearch.resx">
       <DependentUpon>frmSearch.cs</DependentUpon>

@@ -119,7 +119,7 @@
     public void GetMP3Header(int vintStartPos)
     {
       MP3Frame frame = null;
-      byte samplerateValue;
+      byte samplerateValue = null;
       if (vintStartPos >= (this.FI.Length - 4L))
       {
         return;

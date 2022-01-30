@@ -3,42 +3,169 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace ID3_TagIT
 {
   public class frmRemoveFolders : Form
   {
-    [AccessedThroughProperty("btnBrowse")]
-    private Button _btnBrowse;
-    [AccessedThroughProperty("btnCancel")]
-    private Button _btnCancel;
-    [AccessedThroughProperty("btnOK")]
-    private Button _btnOK;
-    [AccessedThroughProperty("chkIgnoreOther")]
-    private CheckBox _chkIgnoreOther;
-    [AccessedThroughProperty("FolderBrowserDialog")]
-    private System.Windows.Forms.FolderBrowserDialog _FolderBrowserDialog;
-    [AccessedThroughProperty("GroupBox")]
-    private System.Windows.Forms.GroupBox _GroupBox;
-    [AccessedThroughProperty("lblInfo")]
-    private Label _lblInfo;
-    [AccessedThroughProperty("lblPath")]
-    private Label _lblPath;
-    [AccessedThroughProperty("lblStatus")]
-    private Label _lblStatus;
-    [AccessedThroughProperty("ProgressBar")]
-    private System.Windows.Forms.ProgressBar _ProgressBar;
-    [AccessedThroughProperty("ToolTip")]
-    private System.Windows.Forms.ToolTip _ToolTip;
-    [AccessedThroughProperty("txtPath")]
-    private TextBox _txtPath;
+    private Button btnBrowse;
+    private Button btnCancel;
+    private Button btnOK;
+    private CheckBox chkIgnoreOther;
+    private System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog;
+    private System.Windows.Forms.GroupBox GroupBox;
+    private Label lblInfo;
+    private Label lblPath;
+    private Label lblStatus;
+    private System.Windows.Forms.ProgressBar ProgressBar;
+    private System.Windows.Forms.ToolTip ToolTip;
+    private TextBox txtPath;
     private IContainer components;
     private frmMain MainForm;
     private bool vbooCancel;
+
+    [DebuggerStepThrough]
+    private void InitializeComponent()
+    {
+      this.components = new System.ComponentModel.Container();
+      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new System.Windows.Forms.Button();
+      this.GroupBox = new System.Windows.Forms.GroupBox();
+      this.lblStatus = new System.Windows.Forms.Label();
+      this.ProgressBar = new System.Windows.Forms.ProgressBar();
+      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+      this.btnBrowse = new System.Windows.Forms.Button();
+      this.txtPath = new System.Windows.Forms.TextBox();
+      this.lblInfo = new System.Windows.Forms.Label();
+      this.lblPath = new System.Windows.Forms.Label();
+      this.chkIgnoreOther = new System.Windows.Forms.CheckBox();
+      this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+      this.GroupBox.SuspendLayout();
+      this.SuspendLayout();
+      // 
+      // btnCancel
+      // 
+      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+      this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCancel.Location = new System.Drawing.Point(352, 256);
+      this.btnCancel.Name = "btnCancel";
+      this.btnCancel.Size = new System.Drawing.Size(112, 24);
+      this.btnCancel.TabIndex = 19;
+      this.btnCancel.Text = "&Cancel";
+      // 
+      // btnOK
+      // 
+      this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+      this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnOK.Location = new System.Drawing.Point(232, 256);
+      this.btnOK.Name = "btnOK";
+      this.btnOK.Size = new System.Drawing.Size(112, 24);
+      this.btnOK.TabIndex = 18;
+      this.btnOK.Text = "&OK";
+      this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+      // 
+      // GroupBox
+      // 
+      this.GroupBox.Controls.Add(this.lblStatus);
+      this.GroupBox.Controls.Add(this.ProgressBar);
+      this.GroupBox.Enabled = false;
+      this.GroupBox.Location = new System.Drawing.Point(8, 168);
+      this.GroupBox.Name = "GroupBox";
+      this.GroupBox.Size = new System.Drawing.Size(464, 80);
+      this.GroupBox.TabIndex = 20;
+      this.GroupBox.TabStop = false;
+      this.GroupBox.Text = "Progress ...";
+      // 
+      // lblStatus
+      // 
+      this.lblStatus.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblStatus.Location = new System.Drawing.Point(8, 24);
+      this.lblStatus.Name = "lblStatus";
+      this.lblStatus.Size = new System.Drawing.Size(448, 16);
+      this.lblStatus.TabIndex = 1;
+      this.lblStatus.Text = "Status";
+      // 
+      // ProgressBar
+      // 
+      this.ProgressBar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.ProgressBar.Location = new System.Drawing.Point(8, 48);
+      this.ProgressBar.Name = "ProgressBar";
+      this.ProgressBar.Size = new System.Drawing.Size(448, 16);
+      this.ProgressBar.TabIndex = 0;
+      // 
+      // btnBrowse
+      // 
+      this.btnBrowse.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnBrowse.Location = new System.Drawing.Point(384, 52);
+      this.btnBrowse.Name = "btnBrowse";
+      this.btnBrowse.Size = new System.Drawing.Size(88, 24);
+      this.btnBrowse.TabIndex = 24;
+      this.btnBrowse.Text = "&Browse ...";
+      this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+      // 
+      // txtPath
+      // 
+      this.txtPath.Location = new System.Drawing.Point(72, 54);
+      this.txtPath.Name = "txtPath";
+      this.txtPath.Size = new System.Drawing.Size(304, 20);
+      this.txtPath.TabIndex = 23;
+      // 
+      // lblInfo
+      // 
+      this.lblInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInfo.Location = new System.Drawing.Point(8, 8);
+      this.lblInfo.Name = "lblInfo";
+      this.lblInfo.Size = new System.Drawing.Size(464, 32);
+      this.lblInfo.TabIndex = 21;
+      this.lblInfo.Text = "This function will scan a folder with its subdirectories and remove all subdirect" +
+    "ories which do not contain any files.";
+      // 
+      // lblPath
+      // 
+      this.lblPath.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPath.Location = new System.Drawing.Point(8, 56);
+      this.lblPath.Name = "lblPath";
+      this.lblPath.Size = new System.Drawing.Size(64, 16);
+      this.lblPath.TabIndex = 22;
+      this.lblPath.Text = "&Root-Path:";
+      // 
+      // chkIgnoreOther
+      // 
+      this.chkIgnoreOther.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkIgnoreOther.Location = new System.Drawing.Point(72, 88);
+      this.chkIgnoreOther.Name = "chkIgnoreOther";
+      this.chkIgnoreOther.Size = new System.Drawing.Size(304, 56);
+      this.chkIgnoreOther.TabIndex = 25;
+      this.chkIgnoreOther.Text = "Delete all folders with no MP3 files ignoring any other possible present files. (" +
+    "WARNING: This will delete non MP3 files when no MP3 files are found in a folder)" +
+    "";
+      // 
+      // frmRemoveFolders
+      // 
+      this.AcceptButton = this.btnOK;
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+      this.CancelButton = this.btnCancel;
+      this.ClientSize = new System.Drawing.Size(480, 288);
+      this.ControlBox = false;
+      this.Controls.Add(this.chkIgnoreOther);
+      this.Controls.Add(this.btnBrowse);
+      this.Controls.Add(this.txtPath);
+      this.Controls.Add(this.lblPath);
+      this.Controls.Add(this.lblInfo);
+      this.Controls.Add(this.GroupBox);
+      this.Controls.Add(this.btnCancel);
+      this.Controls.Add(this.btnOK);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+      this.Name = "frmRemoveFolders";
+      this.ShowInTaskbar = false;
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+      this.Text = "Remove empty folders";
+      this.GroupBox.ResumeLayout(false);
+      this.ResumeLayout(false);
+      this.PerformLayout();
+    }
 
     public frmRemoveFolders(frmMain Main)
     {
@@ -104,131 +231,6 @@ namespace ID3_TagIT
       this.AddToolTips();
     }
 
-    [DebuggerStepThrough]
-    private void InitializeComponent()
-    {
-      this.components = new Container();
-      this.btnCancel = new Button();
-      this.btnOK = new Button();
-      this.GroupBox = new System.Windows.Forms.GroupBox();
-      this.lblStatus = new Label();
-      this.ProgressBar = new System.Windows.Forms.ProgressBar();
-      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.btnBrowse = new Button();
-      this.txtPath = new TextBox();
-      this.lblInfo = new Label();
-      this.lblPath = new Label();
-      this.chkIgnoreOther = new CheckBox();
-      this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-      this.GroupBox.SuspendLayout();
-      this.SuspendLayout();
-      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnCancel.ImeMode = ImeMode.NoControl;
-      Point point = new Point(0x160, 0x100);
-      this.btnCancel.Location = point;
-      this.btnCancel.Name = "btnCancel";
-      Size size = new Size(0x70, 0x18);
-      this.btnCancel.Size = size;
-      this.btnCancel.TabIndex = 0x13;
-      this.btnCancel.Text = "&Cancel";
-      this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-      this.btnOK.ImeMode = ImeMode.NoControl;
-      point = new Point(0xe8, 0x100);
-      this.btnOK.Location = point;
-      this.btnOK.Name = "btnOK";
-      size = new Size(0x70, 0x18);
-      this.btnOK.Size = size;
-      this.btnOK.TabIndex = 0x12;
-      this.btnOK.Text = "&OK";
-      this.GroupBox.Controls.Add(this.lblStatus);
-      this.GroupBox.Controls.Add(this.ProgressBar);
-      this.GroupBox.Enabled = false;
-      point = new Point(8, 0xa8);
-      this.GroupBox.Location = point;
-      this.GroupBox.Name = "GroupBox";
-      size = new Size(0x1d0, 80);
-      this.GroupBox.Size = size;
-      this.GroupBox.TabIndex = 20;
-      this.GroupBox.TabStop = false;
-      this.GroupBox.Text = "Progress ...";
-      this.lblStatus.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x18);
-      this.lblStatus.Location = point;
-      this.lblStatus.Name = "lblStatus";
-      size = new Size(0x1c0, 0x10);
-      this.lblStatus.Size = size;
-      this.lblStatus.TabIndex = 1;
-      this.lblStatus.Text = "Status";
-      this.ProgressBar.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x30);
-      this.ProgressBar.Location = point;
-      this.ProgressBar.Name = "ProgressBar";
-      size = new Size(0x1c0, 0x10);
-      this.ProgressBar.Size = size;
-      this.ProgressBar.TabIndex = 0;
-      this.btnBrowse.ImeMode = ImeMode.NoControl;
-      point = new Point(0x180, 0x34);
-      this.btnBrowse.Location = point;
-      this.btnBrowse.Name = "btnBrowse";
-      size = new Size(0x58, 0x18);
-      this.btnBrowse.Size = size;
-      this.btnBrowse.TabIndex = 0x18;
-      this.btnBrowse.Text = "&Browse ...";
-      point = new Point(0x48, 0x36);
-      this.txtPath.Location = point;
-      this.txtPath.Name = "txtPath";
-      size = new Size(0x130, 20);
-      this.txtPath.Size = size;
-      this.txtPath.TabIndex = 0x17;
-      this.txtPath.Text = "";
-      this.lblInfo.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblInfo.Location = point;
-      this.lblInfo.Name = "lblInfo";
-      size = new Size(0x1d0, 0x20);
-      this.lblInfo.Size = size;
-      this.lblInfo.TabIndex = 0x15;
-      this.lblInfo.Text = "This function will scan a folder with its subdirectories and remove all subdirectories which do not contain any files.";
-      this.lblPath.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x38);
-      this.lblPath.Location = point;
-      this.lblPath.Name = "lblPath";
-      size = new Size(0x40, 0x10);
-      this.lblPath.Size = size;
-      this.lblPath.TabIndex = 0x16;
-      this.lblPath.Text = "&Root-Path:";
-      this.chkIgnoreOther.ImeMode = ImeMode.NoControl;
-      point = new Point(0x48, 0x58);
-      this.chkIgnoreOther.Location = point;
-      this.chkIgnoreOther.Name = "chkIgnoreOther";
-      size = new Size(0x130, 0x38);
-      this.chkIgnoreOther.Size = size;
-      this.chkIgnoreOther.TabIndex = 0x19;
-      this.chkIgnoreOther.Text = "Delete all folders with no MP3 files ignoring any other possible present files. (WARNING: This will delete non MP3 files when no MP3 files are found in a folder)";
-      this.AcceptButton = this.btnOK;
-      size = new Size(5, 13);
-      this.AutoScaleBaseSize = size;
-      this.CancelButton = this.btnCancel;
-      size = new Size(480, 0x120);
-      this.ClientSize = size;
-      this.ControlBox = false;
-      this.Controls.Add(this.chkIgnoreOther);
-      this.Controls.Add(this.btnBrowse);
-      this.Controls.Add(this.txtPath);
-      this.Controls.Add(this.lblPath);
-      this.Controls.Add(this.lblInfo);
-      this.Controls.Add(this.GroupBox);
-      this.Controls.Add(this.btnCancel);
-      this.Controls.Add(this.btnOK);
-      this.FormBorderStyle = FormBorderStyle.FixedDialog;
-      this.Name = "frmRemoveFolders";
-      this.ShowInTaskbar = false;
-      this.StartPosition = FormStartPosition.CenterParent;
-      this.Text = "Remove empty folders";
-      this.GroupBox.ResumeLayout(false);
-      this.ResumeLayout(false);
-    }
-
     public void ScanFolders(ArrayList alstFolders, string vstrSearchPattern, string vstrStartFolder)
     {
       foreach (string str in alstFolders)
@@ -288,238 +290,6 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception3);
           ProjectData.ClearProjectError();
           continue;
-        }
-      }
-    }
-
-    public Button btnBrowse
-    {
-      get
-      {
-        return this._btnBrowse;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnBrowse != null)
-        {
-          this._btnBrowse.Click -= new EventHandler(this.btnBrowse_Click);
-        }
-        this._btnBrowse = value;
-        if (this._btnBrowse != null)
-        {
-          this._btnBrowse.Click += new EventHandler(this.btnBrowse_Click);
-        }
-      }
-    }
-
-    public Button btnCancel
-    {
-      get
-      {
-        return this._btnCancel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnCancel != null)
-        {
-        }
-        this._btnCancel = value;
-        if (this._btnCancel != null)
-        {
-        }
-      }
-    }
-
-    public Button btnOK
-    {
-      get
-      {
-        return this._btnOK;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click -= new EventHandler(this.btnOK_Click);
-        }
-        this._btnOK = value;
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click += new EventHandler(this.btnOK_Click);
-        }
-      }
-    }
-
-    public CheckBox chkIgnoreOther
-    {
-      get
-      {
-        return this._chkIgnoreOther;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkIgnoreOther != null)
-        {
-        }
-        this._chkIgnoreOther = value;
-        if (this._chkIgnoreOther != null)
-        {
-        }
-      }
-    }
-
-    public System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog
-    {
-      get
-      {
-        return this._FolderBrowserDialog;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._FolderBrowserDialog != null)
-        {
-        }
-        this._FolderBrowserDialog = value;
-        if (this._FolderBrowserDialog != null)
-        {
-        }
-      }
-    }
-
-    public System.Windows.Forms.GroupBox GroupBox
-    {
-      get
-      {
-        return this._GroupBox;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._GroupBox != null)
-        {
-        }
-        this._GroupBox = value;
-        if (this._GroupBox != null)
-        {
-        }
-      }
-    }
-
-    public Label lblInfo
-    {
-      get
-      {
-        return this._lblInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblInfo != null)
-        {
-        }
-        this._lblInfo = value;
-        if (this._lblInfo != null)
-        {
-        }
-      }
-    }
-
-    public Label lblPath
-    {
-      get
-      {
-        return this._lblPath;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblPath != null)
-        {
-        }
-        this._lblPath = value;
-        if (this._lblPath != null)
-        {
-        }
-      }
-    }
-
-    public Label lblStatus
-    {
-      get
-      {
-        return this._lblStatus;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblStatus != null)
-        {
-        }
-        this._lblStatus = value;
-        if (this._lblStatus != null)
-        {
-        }
-      }
-    }
-
-    public System.Windows.Forms.ProgressBar ProgressBar
-    {
-      get
-      {
-        return this._ProgressBar;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ProgressBar != null)
-        {
-        }
-        this._ProgressBar = value;
-        if (this._ProgressBar != null)
-        {
-        }
-      }
-    }
-
-    public System.Windows.Forms.ToolTip ToolTip
-    {
-      get
-      {
-        return this._ToolTip;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ToolTip != null)
-        {
-        }
-        this._ToolTip = value;
-        if (this._ToolTip != null)
-        {
-        }
-      }
-    }
-
-    public TextBox txtPath
-    {
-      get
-      {
-        return this._txtPath;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtPath != null)
-        {
-        }
-        this._txtPath = value;
-        if (this._txtPath != null)
-        {
         }
       }
     }

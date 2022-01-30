@@ -242,7 +242,7 @@
 
     public void AddFrames(ArrayList alstFrames)
     {
-      IEnumerator enumerator;
+      IEnumerator enumerator = null;
       try
       {
         enumerator = alstFrames.GetEnumerator();
@@ -276,125 +276,107 @@
       object[] objArray3;
       ArrayList list = new ArrayList();
       int num = 0;
-      using (IEnumerator enumerator10 = this.htSingleFrames.Keys.GetEnumerator())
+      var enumerator10 = this.htSingleFrames.Keys.GetEnumerator();
+      while (enumerator10.MoveNext())
       {
-        while (enumerator10.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(enumerator10.Current);
+        objArray2 = new object[] { MP3 };
+        flagArray = new bool[] { true };
+        if (flagArray[0])
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator10.Current);
-          objArray2 = new object[] { MP3 };
-          flagArray = new bool[] { true };
-          if (flagArray[0])
-          {
-            MP3 = (MP3)objArray2[0];
-          }
-          list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htSingleFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray2, null, flagArray)));
+          MP3 = (MP3)objArray2[0];
         }
+        list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htSingleFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray2, null, flagArray)));
       }
-      using (IEnumerator enumerator9 = this.htCOMMFrames.Keys.GetEnumerator())
+      var enumerator9 = this.htCOMMFrames.Keys.GetEnumerator();
+      while (enumerator9.MoveNext())
       {
-        while (enumerator9.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(enumerator9.Current);
+        objArray3 = new object[] { MP3 };
+        flagArray = new bool[] { true };
+        if (flagArray[0])
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator9.Current);
-          objArray3 = new object[] { MP3 };
-          flagArray = new bool[] { true };
-          if (flagArray[0])
-          {
-            MP3 = (MP3)objArray3[0];
-          }
-          list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htCOMMFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
+          MP3 = (MP3)objArray3[0];
         }
+        list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htCOMMFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
       }
-      using (IEnumerator enumerator8 = this.htUSLTFrames.Keys.GetEnumerator())
+      var enumerator8 = this.htUSLTFrames.Keys.GetEnumerator();
+      while (enumerator8.MoveNext())
       {
-        while (enumerator8.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(enumerator8.Current);
+        objArray3 = new object[] { MP3 };
+        flagArray = new bool[] { true };
+        if (flagArray[0])
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator8.Current);
-          objArray3 = new object[] { MP3 };
-          flagArray = new bool[] { true };
-          if (flagArray[0])
-          {
-            MP3 = (MP3)objArray3[0];
-          }
-          list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htUSLTFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
+          MP3 = (MP3)objArray3[0];
         }
+        list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htUSLTFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
       }
-      using (IEnumerator enumerator7 = this.htAPICFrames.Keys.GetEnumerator())
+      var enumerator7 = this.htAPICFrames.Keys.GetEnumerator();
+      while (enumerator7.MoveNext())
       {
-        while (enumerator7.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(enumerator7.Current);
+        objArray3 = new object[] { MP3 };
+        flagArray = new bool[] { true };
+        if (flagArray[0])
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator7.Current);
-          objArray3 = new object[] { MP3 };
-          flagArray = new bool[] { true };
-          if (flagArray[0])
-          {
-            MP3 = (MP3)objArray3[0];
-          }
-          list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htAPICFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
+          MP3 = (MP3)objArray3[0];
         }
+        list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htAPICFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
       }
-      using (IEnumerator enumerator6 = this.htTXXXFrames.Keys.GetEnumerator())
+      var enumerator6 = this.htTXXXFrames.Keys.GetEnumerator();
+      while (enumerator6.MoveNext())
       {
-        while (enumerator6.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(enumerator6.Current);
+        objArray3 = new object[] { MP3 };
+        flagArray = new bool[] { true };
+        if (flagArray[0])
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator6.Current);
-          objArray3 = new object[] { MP3 };
-          flagArray = new bool[] { true };
-          if (flagArray[0])
-          {
-            MP3 = (MP3)objArray3[0];
-          }
-          list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htTXXXFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
+          MP3 = (MP3)objArray3[0];
         }
+        list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htTXXXFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
       }
-      using (IEnumerator enumerator5 = this.htWXXXFrames.Keys.GetEnumerator())
+      var enumerator5 = this.htWXXXFrames.Keys.GetEnumerator();
+      while (enumerator5.MoveNext())
       {
-        while (enumerator5.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(enumerator5.Current);
+        objArray3 = new object[] { MP3 };
+        flagArray = new bool[] { true };
+        if (flagArray[0])
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator5.Current);
-          objArray3 = new object[] { MP3 };
-          flagArray = new bool[] { true };
-          if (flagArray[0])
-          {
-            MP3 = (MP3)objArray3[0];
-          }
-          list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htWXXXFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
+          MP3 = (MP3)objArray3[0];
         }
+        list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htWXXXFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
       }
-      using (IEnumerator enumerator4 = this.htPOPMFrames.Keys.GetEnumerator())
+      var enumerator4 = this.htPOPMFrames.Keys.GetEnumerator();
+      while (enumerator4.MoveNext())
       {
-        while (enumerator4.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(enumerator4.Current);
+        objArray3 = new object[] { MP3 };
+        flagArray = new bool[] { true };
+        if (flagArray[0])
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator4.Current);
-          objArray3 = new object[] { MP3 };
-          flagArray = new bool[] { true };
-          if (flagArray[0])
-          {
-            MP3 = (MP3)objArray3[0];
-          }
-          list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htPOPMFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
+          MP3 = (MP3)objArray3[0];
         }
+        list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htPOPMFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
       }
-      using (IEnumerator enumerator3 = this.htBinFrames.GetEnumerator())
+      var enumerator3 = this.htBinFrames.GetEnumerator();
+      while (enumerator3.MoveNext())
       {
-        while (enumerator3.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(enumerator3.Current);
+        objArray3 = new object[] { MP3 };
+        flagArray = new bool[] { true };
+        if (flagArray[0])
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator3.Current);
-          objArray3 = new object[] { MP3 };
-          flagArray = new bool[] { true };
-          if (flagArray[0])
-          {
-            MP3 = (MP3)objArray3[0];
-          }
-          list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "CreateFrame", objArray3, null, flagArray)));
+          MP3 = (MP3)objArray3[0];
         }
+        list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "CreateFrame", objArray3, null, flagArray)));
       }
-      using (IEnumerator enumerator2 = list.GetEnumerator())
+      var enumerator2 = list.GetEnumerator();
+      while (enumerator2.MoveNext())
       {
-        while (enumerator2.MoveNext())
-        {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
-          num = IntegerType.FromObject(ObjectType.AddObj(num, LateBinding.LateGet(objectValue, null, "Length", new object[0], null, null)));
-        }
+        objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
+        num = IntegerType.FromObject(ObjectType.AddObj(num, LateBinding.LateGet(objectValue, null, "Length", new object[0], null, null)));
       }
       if (!MP3.V2TAG.FooterPresent)
       {
@@ -403,59 +385,49 @@
           if (vintPadSize > (((num / 0x400) * 0x400) + 0x7f6))
           {
             if (vintPadSize > 0x8000)
-            {
               num = ((num / 0x400) * 0x400) + 0x7f6;
-            }
             else
-            {
               num = vintPadSize;
-            }
           }
           else
-          {
             num = vintPadSize;
-          }
         }
         else
-        {
           num = ((num / 0x400) * 0x400) + 0x7f6;
-        }
       }
       byte[] abytBuffer = new byte[(num - 1) + 1];
       num = 0;
-      using (IEnumerator enumerator = list.GetEnumerator())
+      var enumerator = list.GetEnumerator();
+      while (enumerator.MoveNext())
       {
-        while (enumerator.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
+        objArray2 = new object[5];
+        objArray2[0] = RuntimeHelpers.GetObjectValue(objectValue);
+        objArray2[1] = 0;
+        objArray2[2] = abytBuffer;
+        objArray2[3] = num;
+        object o = objectValue;
+        objArray2[4] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(o, null, "Length", new object[0], null, null));
+        objArray3 = objArray2;
+        flagArray = new bool[] { true, false, true, true, true };
+        LateBinding.LateCall(null, typeof(Array), "Copy", objArray3, null, flagArray);
+        if (flagArray[4])
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
-          objArray2 = new object[5];
-          objArray2[0] = RuntimeHelpers.GetObjectValue(objectValue);
-          objArray2[1] = 0;
-          objArray2[2] = abytBuffer;
-          objArray2[3] = num;
-          object o = objectValue;
-          objArray2[4] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(o, null, "Length", new object[0], null, null));
-          objArray3 = objArray2;
-          flagArray = new bool[] { true, false, true, true, true };
-          LateBinding.LateCall(null, typeof(Array), "Copy", objArray3, null, flagArray);
-          if (flagArray[4])
-          {
-            LateBinding.LateSetComplex(o, null, "Length", new object[] { RuntimeHelpers.GetObjectValue(objArray3[4]) }, null, true, false);
-          }
-          if (flagArray[3])
-          {
-            num = IntegerType.FromObject(objArray3[3]);
-          }
-          if (flagArray[2])
-          {
-            abytBuffer = (byte[])objArray3[2];
-          }
-          if (flagArray[0])
-          {
-            objectValue = RuntimeHelpers.GetObjectValue(objArray3[0]);
-          }
-          num = IntegerType.FromObject(ObjectType.AddObj(num, LateBinding.LateGet(objectValue, null, "Length", new object[0], null, null)));
+          LateBinding.LateSetComplex(o, null, "Length", new object[] { RuntimeHelpers.GetObjectValue(objArray3[4]) }, null, true, false);
         }
+        if (flagArray[3])
+        {
+          num = IntegerType.FromObject(objArray3[3]);
+        }
+        if (flagArray[2])
+        {
+          abytBuffer = (byte[])objArray3[2];
+        }
+        if (flagArray[0])
+        {
+          objectValue = RuntimeHelpers.GetObjectValue(objArray3[0]);
+        }
+        num = IntegerType.FromObject(ObjectType.AddObj(num, LateBinding.LateGet(objectValue, null, "Length", new object[0], null, null)));
       }
       ReturnedPadAdded = abytBuffer.Length - num;
       if ((MP3.V2TAG.TAGVersion == 3) & Declarations.objSettings.WriteUnsync)
@@ -591,61 +563,47 @@
     {
       string str;
       ArrayList list = new ArrayList();
-      using (IEnumerator enumerator7 = this.htSingleFrames.Keys.GetEnumerator())
+      var enumerator7 = this.htSingleFrames.Keys.GetEnumerator();
+      while (enumerator7.MoveNext())
       {
-        while (enumerator7.MoveNext())
-        {
-          str = StringType.FromObject(enumerator7.Current);
-          list.Add(RuntimeHelpers.GetObjectValue(this.htSingleFrames[str]));
-        }
+        str = StringType.FromObject(enumerator7.Current);
+        list.Add(RuntimeHelpers.GetObjectValue(this.htSingleFrames[str]));
       }
-      using (IEnumerator enumerator6 = this.htCOMMFrames.Keys.GetEnumerator())
+      var enumerator6 = this.htCOMMFrames.Keys.GetEnumerator();
+      while (enumerator6.MoveNext())
       {
-        while (enumerator6.MoveNext())
-        {
-          str = StringType.FromObject(enumerator6.Current);
-          list.Add(RuntimeHelpers.GetObjectValue(this.htCOMMFrames[str]));
-        }
+        str = StringType.FromObject(enumerator6.Current);
+        list.Add(RuntimeHelpers.GetObjectValue(this.htCOMMFrames[str]));
       }
-      using (IEnumerator enumerator5 = this.htUSLTFrames.Keys.GetEnumerator())
+      var enumerator5 = this.htUSLTFrames.Keys.GetEnumerator();
+      while (enumerator5.MoveNext())
       {
-        while (enumerator5.MoveNext())
-        {
-          str = StringType.FromObject(enumerator5.Current);
-          list.Add(RuntimeHelpers.GetObjectValue(this.htUSLTFrames[str]));
-        }
+        str = StringType.FromObject(enumerator5.Current);
+        list.Add(RuntimeHelpers.GetObjectValue(this.htUSLTFrames[str]));
       }
-      using (IEnumerator enumerator4 = this.htTXXXFrames.Keys.GetEnumerator())
+      var enumerator4 = this.htTXXXFrames.Keys.GetEnumerator();
+      while (enumerator4.MoveNext())
       {
-        while (enumerator4.MoveNext())
-        {
-          str = StringType.FromObject(enumerator4.Current);
-          list.Add(RuntimeHelpers.GetObjectValue(this.htTXXXFrames[str]));
-        }
+        str = StringType.FromObject(enumerator4.Current);
+        list.Add(RuntimeHelpers.GetObjectValue(this.htTXXXFrames[str]));
       }
-      using (IEnumerator enumerator3 = this.htWXXXFrames.Keys.GetEnumerator())
+      var enumerator3 = this.htWXXXFrames.Keys.GetEnumerator();
+      while (enumerator3.MoveNext())
       {
-        while (enumerator3.MoveNext())
-        {
-          str = StringType.FromObject(enumerator3.Current);
-          list.Add(RuntimeHelpers.GetObjectValue(this.htWXXXFrames[str]));
-        }
+        str = StringType.FromObject(enumerator3.Current);
+        list.Add(RuntimeHelpers.GetObjectValue(this.htWXXXFrames[str]));
       }
-      using (IEnumerator enumerator2 = this.htPOPMFrames.Keys.GetEnumerator())
+      var enumerator2 = this.htPOPMFrames.Keys.GetEnumerator();
+      while (enumerator2.MoveNext())
       {
-        while (enumerator2.MoveNext())
-        {
-          str = StringType.FromObject(enumerator2.Current);
-          list.Add(RuntimeHelpers.GetObjectValue(this.htPOPMFrames[str]));
-        }
+        str = StringType.FromObject(enumerator2.Current);
+        list.Add(RuntimeHelpers.GetObjectValue(this.htPOPMFrames[str]));
       }
-      using (IEnumerator enumerator = this.htAPICFrames.Keys.GetEnumerator())
+      var enumerator = this.htAPICFrames.Keys.GetEnumerator();
+      while (enumerator.MoveNext())
       {
-        while (enumerator.MoveNext())
-        {
-          str = StringType.FromObject(enumerator.Current);
-          list.Add(RuntimeHelpers.GetObjectValue(this.htAPICFrames[str]));
-        }
+        str = StringType.FromObject(enumerator.Current);
+        list.Add(RuntimeHelpers.GetObjectValue(this.htAPICFrames[str]));
       }
       return list;
     }
@@ -664,75 +622,63 @@
       string sLeft = vstrFrameID;
       if (StringType.StrCmp(sLeft, "COMM", false) == 0)
       {
-        using (IEnumerator enumerator7 = this.htCOMMFrames.Keys.GetEnumerator())
+        var enumerator7 = this.htCOMMFrames.Keys.GetEnumerator();
+        while (enumerator7.MoveNext())
         {
-          while (enumerator7.MoveNext())
-          {
-            str = StringType.FromObject(enumerator7.Current);
-            return this.htCOMMFrames[str];
-          }
-          goto Label_0335;
+          str = StringType.FromObject(enumerator7.Current);
+          return this.htCOMMFrames[str];
         }
+        goto Label_0335;
       }
       if (StringType.StrCmp(sLeft, "USLT", false) == 0)
       {
-        using (IEnumerator enumerator6 = this.htUSLTFrames.Keys.GetEnumerator())
+        var enumerator6 = this.htUSLTFrames.Keys.GetEnumerator();
+        while (enumerator6.MoveNext())
         {
-          while (enumerator6.MoveNext())
-          {
-            str = StringType.FromObject(enumerator6.Current);
-            return this.htUSLTFrames[str];
-          }
-          goto Label_0335;
+          str = StringType.FromObject(enumerator6.Current);
+          return this.htUSLTFrames[str];
         }
+        goto Label_0335;
       }
       if (StringType.StrCmp(sLeft, "TXXX", false) == 0)
       {
-        using (IEnumerator enumerator5 = this.htTXXXFrames.Keys.GetEnumerator())
+        var enumerator5 = this.htTXXXFrames.Keys.GetEnumerator();
+        while (enumerator5.MoveNext())
         {
-          while (enumerator5.MoveNext())
-          {
-            str = StringType.FromObject(enumerator5.Current);
-            return this.htTXXXFrames[str];
-          }
-          goto Label_0335;
+          str = StringType.FromObject(enumerator5.Current);
+          return this.htTXXXFrames[str];
         }
+        goto Label_0335;
       }
       if (StringType.StrCmp(sLeft, "WXXX", false) == 0)
       {
-        using (IEnumerator enumerator4 = this.htWXXXFrames.Keys.GetEnumerator())
+        var enumerator4 = this.htWXXXFrames.Keys.GetEnumerator();
+        while (enumerator4.MoveNext())
         {
-          while (enumerator4.MoveNext())
-          {
-            str = StringType.FromObject(enumerator4.Current);
-            return this.htWXXXFrames[str];
-          }
-          goto Label_0335;
+          str = StringType.FromObject(enumerator4.Current);
+          return this.htWXXXFrames[str];
         }
+        goto Label_0335;
       }
       if (StringType.StrCmp(sLeft, "POPM", false) == 0)
       {
-        using (IEnumerator enumerator3 = this.htPOPMFrames.Keys.GetEnumerator())
+        var enumerator3 = this.htPOPMFrames.Keys.GetEnumerator();
+        while (enumerator3.MoveNext())
         {
-          while (enumerator3.MoveNext())
-          {
-            str = StringType.FromObject(enumerator3.Current);
-            return this.htPOPMFrames[str];
-          }
-          goto Label_0335;
+          str = StringType.FromObject(enumerator3.Current);
+          return this.htPOPMFrames[str];
         }
+        goto Label_0335;
       }
       if (StringType.StrCmp(sLeft, "APIC", false) == 0)
       {
-        using (IEnumerator enumerator2 = this.htAPICFrames.Keys.GetEnumerator())
+        var enumerator2 = this.htAPICFrames.Keys.GetEnumerator();
+        while (enumerator2.MoveNext())
         {
-          while (enumerator2.MoveNext())
-          {
-            str = StringType.FromObject(enumerator2.Current);
-            return this.htAPICFrames[str];
-          }
-          goto Label_0335;
+          str = StringType.FromObject(enumerator2.Current);
+          return this.htAPICFrames[str];
         }
+        goto Label_0335;
       }
       foreach (V2BinFrame frame in this.htBinFrames)
       {
@@ -760,83 +706,69 @@
       string sLeft = vstrFrameID;
       if (StringType.StrCmp(sLeft, "COMM", false) == 0)
       {
-        using (IEnumerator enumerator7 = this.htCOMMFrames.Keys.GetEnumerator())
+        var enumerator7 = this.htCOMMFrames.Keys.GetEnumerator();
+        while (enumerator7.MoveNext())
         {
-          while (enumerator7.MoveNext())
-          {
-            str = StringType.FromObject(enumerator7.Current);
-            list.Add(RuntimeHelpers.GetObjectValue(this.htCOMMFrames[str]));
-          }
-          return list;
+          str = StringType.FromObject(enumerator7.Current);
+          list.Add(RuntimeHelpers.GetObjectValue(this.htCOMMFrames[str]));
         }
+        return list;
       }
       if (StringType.StrCmp(sLeft, "USLT", false) == 0)
       {
-        using (IEnumerator enumerator6 = this.htUSLTFrames.Keys.GetEnumerator())
+        var enumerator6 = this.htUSLTFrames.Keys.GetEnumerator();
+        while (enumerator6.MoveNext())
         {
-          while (enumerator6.MoveNext())
-          {
-            str = StringType.FromObject(enumerator6.Current);
-            list.Add(RuntimeHelpers.GetObjectValue(this.htUSLTFrames[str]));
-          }
-          return list;
+          str = StringType.FromObject(enumerator6.Current);
+          list.Add(RuntimeHelpers.GetObjectValue(this.htUSLTFrames[str]));
         }
+        return list;
       }
       if (StringType.StrCmp(sLeft, "TXXX", false) == 0)
       {
-        using (IEnumerator enumerator5 = this.htTXXXFrames.Keys.GetEnumerator())
+        var enumerator5 = this.htTXXXFrames.Keys.GetEnumerator();
+        while (enumerator5.MoveNext())
         {
-          while (enumerator5.MoveNext())
-          {
-            str = StringType.FromObject(enumerator5.Current);
-            list.Add(RuntimeHelpers.GetObjectValue(this.htTXXXFrames[str]));
-          }
-          return list;
+          str = StringType.FromObject(enumerator5.Current);
+          list.Add(RuntimeHelpers.GetObjectValue(this.htTXXXFrames[str]));
         }
+        return list;
       }
       if (StringType.StrCmp(sLeft, "WXXX", false) == 0)
       {
-        using (IEnumerator enumerator4 = this.htWXXXFrames.Keys.GetEnumerator())
+        var enumerator4 = this.htWXXXFrames.Keys.GetEnumerator();
+        while (enumerator4.MoveNext())
         {
-          while (enumerator4.MoveNext())
-          {
-            str = StringType.FromObject(enumerator4.Current);
-            list.Add(RuntimeHelpers.GetObjectValue(this.htWXXXFrames[str]));
-          }
-          return list;
+          str = StringType.FromObject(enumerator4.Current);
+          list.Add(RuntimeHelpers.GetObjectValue(this.htWXXXFrames[str]));
         }
+        return list;
       }
       if (StringType.StrCmp(sLeft, "POPM", false) == 0)
       {
-        using (IEnumerator enumerator3 = this.htPOPMFrames.Keys.GetEnumerator())
+        var enumerator3 = this.htPOPMFrames.Keys.GetEnumerator();
+        while (enumerator3.MoveNext())
         {
-          while (enumerator3.MoveNext())
-          {
-            str = StringType.FromObject(enumerator3.Current);
-            list.Add(RuntimeHelpers.GetObjectValue(this.htPOPMFrames[str]));
-          }
-          return list;
+          str = StringType.FromObject(enumerator3.Current);
+          list.Add(RuntimeHelpers.GetObjectValue(this.htPOPMFrames[str]));
         }
+        return list;
       }
       if (StringType.StrCmp(sLeft, "APIC", false) == 0)
       {
-        using (IEnumerator enumerator2 = this.htAPICFrames.Keys.GetEnumerator())
+        var enumerator2 = this.htAPICFrames.Keys.GetEnumerator();
+        while (enumerator2.MoveNext())
         {
-          while (enumerator2.MoveNext())
-          {
-            str = StringType.FromObject(enumerator2.Current);
-            list.Add(RuntimeHelpers.GetObjectValue(this.htAPICFrames[str]));
-          }
-          return list;
+          str = StringType.FromObject(enumerator2.Current);
+          list.Add(RuntimeHelpers.GetObjectValue(this.htAPICFrames[str]));
         }
+        return list;
       }
+
       foreach (V2BinFrame frame in this.htBinFrames)
-      {
         if (StringType.StrCmp(frame.FID, vstrFrameID, false) == 0)
-        {
           list.Add(frame);
-        }
-      }
+
       return list;
     }
 
@@ -1026,74 +958,62 @@
                   return;
                 }
                 str7 = "";
-                using (IEnumerator enumerator2 = this.htAPICFrames.Keys.GetEnumerator())
+                var enumerator2 = this.htAPICFrames.Keys.GetEnumerator();
+                while (enumerator2.MoveNext())
                 {
-                  while (enumerator2.MoveNext())
-                  {
-                    str7 = StringType.FromObject(enumerator2.Current);
-                    this.vbooChanged = true;
-                    goto Label_0381;
-                  }
+                  str7 = StringType.FromObject(enumerator2.Current);
+                  this.vbooChanged = true;
+                  goto Label_0381;
                 }
                 goto Label_0381;
               }
               str6 = "";
-              using (IEnumerator enumerator3 = this.htPOPMFrames.Keys.GetEnumerator())
+              var enumerator3 = this.htPOPMFrames.Keys.GetEnumerator();
+              while (enumerator3.MoveNext())
               {
-                while (enumerator3.MoveNext())
-                {
-                  str6 = StringType.FromObject(enumerator3.Current);
-                  this.vbooChanged = true;
-                  goto Label_02F7;
-                }
+                str6 = StringType.FromObject(enumerator3.Current);
+                this.vbooChanged = true;
+                goto Label_02F7;
               }
               goto Label_02F7;
             }
             str5 = "";
-            using (IEnumerator enumerator4 = this.htWXXXFrames.Keys.GetEnumerator())
+            var enumerator4 = this.htWXXXFrames.Keys.GetEnumerator();
+            while (enumerator4.MoveNext())
             {
-              while (enumerator4.MoveNext())
-              {
-                str5 = StringType.FromObject(enumerator4.Current);
-                this.vbooChanged = true;
-                goto Label_026D;
-              }
+              str5 = StringType.FromObject(enumerator4.Current);
+              this.vbooChanged = true;
+              goto Label_026D;
             }
             goto Label_026D;
           }
           str4 = "";
-          using (IEnumerator enumerator5 = this.htTXXXFrames.Keys.GetEnumerator())
+          var enumerator5 = this.htTXXXFrames.Keys.GetEnumerator();
+          while (enumerator5.MoveNext())
           {
-            while (enumerator5.MoveNext())
-            {
-              str4 = StringType.FromObject(enumerator5.Current);
-              this.vbooChanged = true;
-              goto Label_01E5;
-            }
+            str4 = StringType.FromObject(enumerator5.Current);
+            this.vbooChanged = true;
+            goto Label_01E5;
           }
           goto Label_01E5;
         }
         str3 = "";
-        using (IEnumerator enumerator6 = this.htUSLTFrames.Keys.GetEnumerator())
+        var enumerator6 = this.htUSLTFrames.Keys.GetEnumerator();
+        while (enumerator6.MoveNext())
         {
-          while (enumerator6.MoveNext())
-          {
-            str3 = StringType.FromObject(enumerator6.Current);
-            this.vbooChanged = true;
-            goto Label_015F;
-          }
+          str3 = StringType.FromObject(enumerator6.Current);
+          this.vbooChanged = true;
+          goto Label_015F;
         }
         goto Label_015F;
       }
       string str2 = "";
-      using (IEnumerator enumerator7 = this.htCOMMFrames.Keys.GetEnumerator())
+      var enumerator7 = this.htCOMMFrames.Keys.GetEnumerator();
+      while (enumerator7.MoveNext())
       {
-        while (enumerator7.MoveNext())
-        {
-          str2 = StringType.FromObject(enumerator7.Current);
-          this.vbooChanged = true;
-          goto Label_00D9;
-        }
+        str2 = StringType.FromObject(enumerator7.Current);
+        this.vbooChanged = true;
+        goto Label_00D9;
       }
       Label_00D9:
       if (StringType.StrCmp(str2, "", false) != 0)

@@ -51,69 +51,83 @@ namespace ID3_TagIT
     [DebuggerStepThrough]
     private void InitializeComponent()
     {
-      this.components = new Container();
-      this.lblInfo = new Label();
-      this.lblDigits = new Label();
-      this.txtDigits = new NumericUpDown();
-      this.framePara = new GroupBox();
-      this.L17 = new Label();
-      this.L18 = new Label();
-      this.L16 = new Label();
-      this.L19 = new Label();
-      this.L15 = new Label();
-      this.L14 = new Label();
-      this.L13 = new Label();
-      this.L12 = new Label();
-      this.L11 = new Label();
-      this.L10 = new Label();
-      this.L9 = new Label();
-      this.L8 = new Label();
-      this.L7 = new Label();
-      this.L6 = new Label();
-      this.L5 = new Label();
-      this.L4 = new Label();
-      this.L3 = new Label();
-      this.L2 = new Label();
-      this.L1 = new Label();
-      this.btnRemove = new Button();
-      this.btnAdd = new Button();
-      this.cmbFormat = new ComboBox();
-      this.btnCancel = new Button();
-      this.btnOK = new Button();
-      this.lblFormat = new Label();
+      this.components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFilenameToTAG2));
+      this.lblInfo = new System.Windows.Forms.Label();
+      this.lblDigits = new System.Windows.Forms.Label();
+      this.txtDigits = new System.Windows.Forms.NumericUpDown();
+      this.framePara = new System.Windows.Forms.GroupBox();
+      this.L17 = new System.Windows.Forms.Label();
+      this.L18 = new System.Windows.Forms.Label();
+      this.L16 = new System.Windows.Forms.Label();
+      this.L19 = new System.Windows.Forms.Label();
+      this.L15 = new System.Windows.Forms.Label();
+      this.L14 = new System.Windows.Forms.Label();
+      this.L13 = new System.Windows.Forms.Label();
+      this.L12 = new System.Windows.Forms.Label();
+      this.L11 = new System.Windows.Forms.Label();
+      this.L10 = new System.Windows.Forms.Label();
+      this.L9 = new System.Windows.Forms.Label();
+      this.L8 = new System.Windows.Forms.Label();
+      this.L7 = new System.Windows.Forms.Label();
+      this.L6 = new System.Windows.Forms.Label();
+      this.L5 = new System.Windows.Forms.Label();
+      this.L4 = new System.Windows.Forms.Label();
+      this.L3 = new System.Windows.Forms.Label();
+      this.L2 = new System.Windows.Forms.Label();
+      this.L1 = new System.Windows.Forms.Label();
+      this.btnRemove = new System.Windows.Forms.Button();
+      this.btnAdd = new System.Windows.Forms.Button();
+      this.cmbFormat = new System.Windows.Forms.ComboBox();
+      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new System.Windows.Forms.Button();
+      this.lblFormat = new System.Windows.Forms.Label();
       this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.chkSaveName = new CheckBox();
-      this.txtDigits.BeginInit();
+      this.chkSaveName = new System.Windows.Forms.CheckBox();
+      ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).BeginInit();
       this.framePara.SuspendLayout();
       this.SuspendLayout();
-      this.lblInfo.BorderStyle = BorderStyle.Fixed3D;
-      this.lblInfo.ImeMode = ImeMode.NoControl;
-      Point point = new Point(8, 0x110);
-      this.lblInfo.Location = point;
+      // 
+      // lblInfo
+      // 
+      this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInfo.Location = new System.Drawing.Point(8, 272);
       this.lblInfo.Name = "lblInfo";
-      Size size = new Size(0x1f0, 0x38);
-      this.lblInfo.Size = size;
-      this.lblInfo.TabIndex = 0x18;
-      this.lblInfo.Text = "This function offers you the possibilty to extract information from the filename and write it into the TAG.  Enter the format using the parameters above. To save the format give it a description (using the following syntax: \"Description: Format\") and add it to the list.";
-      this.lblInfo.TextAlign = ContentAlignment.MiddleCenter;
-      this.lblDigits.ImeMode = ImeMode.NoControl;
-      point = new Point(0x68, 0x40);
-      this.lblDigits.Location = point;
+      this.lblInfo.Size = new System.Drawing.Size(496, 56);
+      this.lblInfo.TabIndex = 24;
+      this.lblInfo.Text = resources.GetString("lblInfo.Text");
+      this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // lblDigits
+      // 
+      this.lblDigits.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblDigits.Location = new System.Drawing.Point(104, 64);
       this.lblDigits.Name = "lblDigits";
-      size = new Size(0xb8, 0x10);
-      this.lblDigits.Size = size;
-      this.lblDigits.TabIndex = 0x15;
+      this.lblDigits.Size = new System.Drawing.Size(184, 16);
+      this.lblDigits.TabIndex = 21;
       this.lblDigits.Text = "&Number of digits of track numbers:";
-      point = new Point(0x138, 0x40);
-      this.txtDigits.Location = point;
-      decimal num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtDigits.Minimum = num;
+      // 
+      // txtDigits
+      // 
+      this.txtDigits.Location = new System.Drawing.Point(312, 64);
+      this.txtDigits.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
       this.txtDigits.Name = "txtDigits";
-      size = new Size(0x40, 20);
-      this.txtDigits.Size = size;
-      this.txtDigits.TabIndex = 0x16;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtDigits.Value = num;
+      this.txtDigits.Size = new System.Drawing.Size(64, 20);
+      this.txtDigits.TabIndex = 22;
+      this.txtDigits.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.txtDigits.Validated += new System.EventHandler(this.txtDigits_Validated);
+      // 
+      // framePara
+      // 
       this.framePara.Controls.Add(this.L17);
       this.framePara.Controls.Add(this.L18);
       this.framePara.Controls.Add(this.L16);
@@ -133,252 +147,276 @@ namespace ID3_TagIT
       this.framePara.Controls.Add(this.L3);
       this.framePara.Controls.Add(this.L2);
       this.framePara.Controls.Add(this.L1);
-      point = new Point(8, 0x70);
-      this.framePara.Location = point;
+      this.framePara.Location = new System.Drawing.Point(8, 112);
       this.framePara.Name = "framePara";
-      size = new Size(0x1f0, 0x98);
-      this.framePara.Size = size;
-      this.framePara.TabIndex = 0x17;
+      this.framePara.Size = new System.Drawing.Size(496, 152);
+      this.framePara.TabIndex = 23;
       this.framePara.TabStop = false;
       this.framePara.Text = "Parameters (Tip: click the label to add the parameter to the format)";
-      this.L17.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x58);
-      this.L17.Location = point;
+      // 
+      // L17
+      // 
+      this.L17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L17.Location = new System.Drawing.Point(8, 88);
       this.L17.Name = "L17";
-      size = new Size(0x98, 0x10);
-      this.L17.Size = size;
-      this.L17.TabIndex = 0x12;
+      this.L17.Size = new System.Drawing.Size(152, 16);
+      this.L17.TabIndex = 18;
       this.L17.Text = "<R> = Composer";
-      this.L18.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x68);
-      this.L18.Location = point;
+      this.L17.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L18
+      // 
+      this.L18.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L18.Location = new System.Drawing.Point(328, 104);
       this.L18.Name = "L18";
-      size = new Size(0x98, 0x10);
-      this.L18.Size = size;
-      this.L18.TabIndex = 0x11;
+      this.L18.Size = new System.Drawing.Size(152, 16);
+      this.L18.TabIndex = 17;
       this.L18.Text = "<X> = Unused";
-      this.L16.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x68);
-      this.L16.Location = point;
+      this.L18.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L16
+      // 
+      this.L16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L16.Location = new System.Drawing.Point(8, 104);
       this.L16.Name = "L16";
-      size = new Size(160, 0x10);
-      this.L16.Size = size;
-      this.L16.TabIndex = 0x10;
+      this.L16.Size = new System.Drawing.Size(160, 16);
+      this.L16.TabIndex = 16;
       this.L16.Text = "<E> = Beats/minute (BPM)";
-      this.L19.ImeMode = ImeMode.NoControl;
-      point = new Point(0x18, 0x80);
-      this.L19.Location = point;
+      this.L16.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L19
+      // 
+      this.L19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L19.Location = new System.Drawing.Point(24, 128);
       this.L19.Name = "L19";
-      size = new Size(0x88, 0x10);
-      this.L19.Size = size;
+      this.L19.Size = new System.Drawing.Size(136, 16);
       this.L19.TabIndex = 15;
-      this.L19.Text = @"\ = Folder";
-      this.L15.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x58);
-      this.L15.Location = point;
+      this.L19.Text = "\\ = Folder";
+      // 
+      // L15
+      // 
+      this.L15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L15.Location = new System.Drawing.Point(328, 88);
       this.L15.Name = "L15";
-      size = new Size(160, 0x10);
-      this.L15.Size = size;
+      this.L15.Size = new System.Drawing.Size(160, 16);
       this.L15.TabIndex = 14;
       this.L15.Text = "<O> = Band / Orchestra";
-      this.L14.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x58);
-      this.L14.Location = point;
+      this.L15.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L14
+      // 
+      this.L14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L14.Location = new System.Drawing.Point(168, 88);
       this.L14.Name = "L14";
-      size = new Size(160, 0x10);
-      this.L14.Size = size;
+      this.L14.Size = new System.Drawing.Size(160, 16);
       this.L14.TabIndex = 13;
       this.L14.Text = "<S> = Subtitle";
-      this.L13.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x68);
-      this.L13.Location = point;
+      this.L14.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L13
+      // 
+      this.L13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L13.Location = new System.Drawing.Point(168, 104);
       this.L13.Name = "L13";
-      size = new Size(160, 0x10);
-      this.L13.Size = size;
+      this.L13.Size = new System.Drawing.Size(160, 16);
       this.L13.TabIndex = 12;
       this.L13.Text = "<M> = Modified / Remixed by";
-      this.L12.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x48);
-      this.L12.Location = point;
+      this.L13.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L12
+      // 
+      this.L12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L12.Location = new System.Drawing.Point(328, 72);
       this.L12.Name = "L12";
-      size = new Size(160, 0x10);
-      this.L12.Size = size;
+      this.L12.Size = new System.Drawing.Size(160, 16);
       this.L12.TabIndex = 11;
       this.L12.Text = "<N> = Conductor";
-      this.L11.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x48);
-      this.L11.Location = point;
+      this.L12.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L11
+      // 
+      this.L11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L11.Location = new System.Drawing.Point(168, 72);
       this.L11.Name = "L11";
-      size = new Size(160, 0x10);
-      this.L11.Size = size;
+      this.L11.Size = new System.Drawing.Size(160, 16);
       this.L11.TabIndex = 10;
       this.L11.Text = "<p> = Total number of medias";
-      this.L10.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x48);
-      this.L10.Location = point;
+      this.L11.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L10
+      // 
+      this.L10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L10.Location = new System.Drawing.Point(8, 72);
       this.L10.Name = "L10";
-      size = new Size(160, 0x10);
-      this.L10.Size = size;
+      this.L10.Size = new System.Drawing.Size(160, 16);
       this.L10.TabIndex = 9;
       this.L10.Text = "<P> = Position in media set";
-      this.L9.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x38);
-      this.L9.Location = point;
+      this.L10.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L9
+      // 
+      this.L9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L9.Location = new System.Drawing.Point(328, 56);
       this.L9.Name = "L9";
-      size = new Size(160, 0x10);
-      this.L9.Size = size;
+      this.L9.Size = new System.Drawing.Size(160, 16);
       this.L9.TabIndex = 8;
       this.L9.Text = "<U> = Content Group";
-      this.L8.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x38);
-      this.L8.Location = point;
+      this.L9.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L8
+      // 
+      this.L8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L8.Location = new System.Drawing.Point(168, 56);
       this.L8.Name = "L8";
-      size = new Size(160, 0x10);
-      this.L8.Size = size;
+      this.L8.Size = new System.Drawing.Size(160, 16);
       this.L8.TabIndex = 7;
       this.L8.Text = "<k> = Total number of tracks";
-      this.L7.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x38);
-      this.L7.Location = point;
+      this.L8.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L7
+      // 
+      this.L7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L7.Location = new System.Drawing.Point(8, 56);
       this.L7.Name = "L7";
-      size = new Size(160, 0x10);
-      this.L7.Size = size;
+      this.L7.Size = new System.Drawing.Size(160, 16);
       this.L7.TabIndex = 6;
       this.L7.Text = "<K> = Track number";
-      this.L6.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 40);
-      this.L6.Location = point;
+      this.L7.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L6
+      // 
+      this.L6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L6.Location = new System.Drawing.Point(328, 40);
       this.L6.Name = "L6";
-      size = new Size(160, 0x10);
-      this.L6.Size = size;
+      this.L6.Size = new System.Drawing.Size(160, 16);
       this.L6.TabIndex = 5;
       this.L6.Text = "<G> = First Genre";
-      this.L5.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 40);
-      this.L5.Location = point;
+      this.L6.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L5
+      // 
+      this.L5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L5.Location = new System.Drawing.Point(168, 40);
       this.L5.Name = "L5";
-      size = new Size(160, 0x10);
-      this.L5.Size = size;
+      this.L5.Size = new System.Drawing.Size(160, 16);
       this.L5.TabIndex = 4;
       this.L5.Text = "<Y> = Year";
-      this.L4.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 40);
-      this.L4.Location = point;
+      this.L5.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L4
+      // 
+      this.L4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L4.Location = new System.Drawing.Point(8, 40);
       this.L4.Name = "L4";
-      size = new Size(160, 0x10);
-      this.L4.Size = size;
+      this.L4.Size = new System.Drawing.Size(160, 16);
       this.L4.TabIndex = 3;
       this.L4.Text = "<C> = Comment";
-      this.L3.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x18);
-      this.L3.Location = point;
+      this.L4.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L3
+      // 
+      this.L3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L3.Location = new System.Drawing.Point(328, 24);
       this.L3.Name = "L3";
-      size = new Size(160, 0x10);
-      this.L3.Size = size;
+      this.L3.Size = new System.Drawing.Size(160, 16);
       this.L3.TabIndex = 2;
       this.L3.Text = "<B> = Album";
-      this.L2.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x18);
-      this.L2.Location = point;
+      this.L3.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L2
+      // 
+      this.L2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L2.Location = new System.Drawing.Point(168, 24);
       this.L2.Name = "L2";
-      size = new Size(160, 0x10);
-      this.L2.Size = size;
+      this.L2.Size = new System.Drawing.Size(160, 16);
       this.L2.TabIndex = 1;
       this.L2.Text = "<T> = Title";
-      this.L1.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x18);
-      this.L1.Location = point;
+      this.L2.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L1
+      // 
+      this.L1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L1.Location = new System.Drawing.Point(8, 24);
       this.L1.Name = "L1";
-      size = new Size(160, 0x10);
-      this.L1.Size = size;
+      this.L1.Size = new System.Drawing.Size(160, 16);
       this.L1.TabIndex = 0;
       this.L1.Text = "<A> = Artist";
-      this.btnRemove.ImeMode = ImeMode.NoControl;
-      point = new Point(0x138, 0x20);
-      this.btnRemove.Location = point;
+      this.L1.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // btnRemove
+      // 
+      this.btnRemove.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemove.Location = new System.Drawing.Point(312, 32);
       this.btnRemove.Name = "btnRemove";
-      size = new Size(0xc0, 0x18);
-      this.btnRemove.Size = size;
-      this.btnRemove.TabIndex = 0x12;
+      this.btnRemove.Size = new System.Drawing.Size(192, 24);
+      this.btnRemove.TabIndex = 18;
       this.btnRemove.Text = "&Remove format from list";
-      this.btnAdd.ImeMode = ImeMode.NoControl;
-      point = new Point(0x68, 0x20);
-      this.btnAdd.Location = point;
+      this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+      // 
+      // btnAdd
+      // 
+      this.btnAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAdd.Location = new System.Drawing.Point(104, 32);
       this.btnAdd.Name = "btnAdd";
-      size = new Size(0xc0, 0x18);
-      this.btnAdd.Size = size;
-      this.btnAdd.TabIndex = 0x11;
+      this.btnAdd.Size = new System.Drawing.Size(192, 24);
+      this.btnAdd.TabIndex = 17;
       this.btnAdd.Text = "&Add format to list";
+      this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+      // 
+      // cmbFormat
+      // 
       this.cmbFormat.ItemHeight = 13;
-      point = new Point(0x68, 8);
-      this.cmbFormat.Location = point;
+      this.cmbFormat.Location = new System.Drawing.Point(104, 8);
       this.cmbFormat.Name = "cmbFormat";
-      size = new Size(400, 0x15);
-      this.cmbFormat.Size = size;
-      this.cmbFormat.TabIndex = 0x10;
+      this.cmbFormat.Size = new System.Drawing.Size(400, 21);
+      this.cmbFormat.TabIndex = 16;
+      this.cmbFormat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbFormat_KeyPress);
+      // 
+      // btnCancel
+      // 
       this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnCancel.ImeMode = ImeMode.NoControl;
-      point = new Point(0x180, 0x150);
-      this.btnCancel.Location = point;
+      this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCancel.Location = new System.Drawing.Point(384, 336);
       this.btnCancel.Name = "btnCancel";
-      size = new Size(120, 0x18);
-      this.btnCancel.Size = size;
-      this.btnCancel.TabIndex = 0x1a;
+      this.btnCancel.Size = new System.Drawing.Size(120, 24);
+      this.btnCancel.TabIndex = 26;
       this.btnCancel.Text = "&Cancel";
+      // 
+      // btnOK
+      // 
       this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-      this.btnOK.ImeMode = ImeMode.NoControl;
-      point = new Point(0x100, 0x150);
-      this.btnOK.Location = point;
+      this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnOK.Location = new System.Drawing.Point(256, 336);
       this.btnOK.Name = "btnOK";
-      size = new Size(120, 0x18);
-      this.btnOK.Size = size;
-      this.btnOK.TabIndex = 0x19;
+      this.btnOK.Size = new System.Drawing.Size(120, 24);
+      this.btnOK.TabIndex = 25;
       this.btnOK.Text = "&OK";
-      this.lblFormat.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblFormat.Location = point;
+      this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+      // 
+      // lblFormat
+      // 
+      this.lblFormat.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblFormat.Location = new System.Drawing.Point(8, 8);
       this.lblFormat.Name = "lblFormat";
-      size = new Size(0x60, 0x10);
-      this.lblFormat.Size = size;
+      this.lblFormat.Size = new System.Drawing.Size(96, 16);
       this.lblFormat.TabIndex = 15;
       this.lblFormat.Text = "&Format:";
-      this.chkSaveName.ImeMode = ImeMode.NoControl;
-      point = new Point(0x68, 0x58);
-      this.chkSaveName.Location = point;
+      // 
+      // chkSaveName
+      // 
+      this.chkSaveName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkSaveName.Location = new System.Drawing.Point(104, 88);
       this.chkSaveName.Name = "chkSaveName";
-      size = new Size(0x188, 0x10);
-      this.chkSaveName.Size = size;
-      this.chkSaveName.TabIndex = 0x17;
+      this.chkSaveName.Size = new System.Drawing.Size(392, 16);
+      this.chkSaveName.TabIndex = 23;
       this.chkSaveName.Text = "Save filename to original filename entry";
-      this.btnAdd.Click += new EventHandler(this.btnAdd_Click);
-      this.btnOK.Click += new EventHandler(this.btnOK_Click);
-      this.btnRemove.Click += new EventHandler(this.btnRemove_Click);
-      this.cmbFormat.KeyPress += new KeyPressEventHandler(this.cmbFormat_KeyPress);
-      this.L11.Click += new EventHandler(this.Label_Click);
-      this.L10.Click += new EventHandler(this.Label_Click);
-      this.L12.Click += new EventHandler(this.Label_Click);
-      this.L1.Click += new EventHandler(this.Label_Click);
-      this.L13.Click += new EventHandler(this.Label_Click);
-      this.L14.Click += new EventHandler(this.Label_Click);
-      this.L15.Click += new EventHandler(this.Label_Click);
-      this.L16.Click += new EventHandler(this.Label_Click);
-      this.L17.Click += new EventHandler(this.Label_Click);
-      this.L18.Click += new EventHandler(this.Label_Click);
-      this.L2.Click += new EventHandler(this.Label_Click);
-      this.L3.Click += new EventHandler(this.Label_Click);
-      this.L4.Click += new EventHandler(this.Label_Click);
-      this.L5.Click += new EventHandler(this.Label_Click);
-      this.L6.Click += new EventHandler(this.Label_Click);
-      this.L7.Click += new EventHandler(this.Label_Click);
-      this.L8.Click += new EventHandler(this.Label_Click);
-      this.L9.Click += new EventHandler(this.Label_Click);
-      this.txtDigits.Validated += new EventHandler(this.txtDigits_Validated);
+      // 
+      // frmFilenameToTAG2
+      // 
       this.AcceptButton = this.btnOK;
-      size = new Size(5, 13);
-      this.AutoScaleBaseSize = size;
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
       this.CancelButton = this.btnCancel;
-      size = new Size(0x202, 0x16d);
-      this.ClientSize = size;
+      this.ClientSize = new System.Drawing.Size(514, 365);
       this.ControlBox = false;
       this.Controls.Add(this.chkSaveName);
       this.Controls.Add(this.lblInfo);
@@ -391,13 +429,13 @@ namespace ID3_TagIT
       this.Controls.Add(this.btnCancel);
       this.Controls.Add(this.btnOK);
       this.Controls.Add(this.lblFormat);
-      this.FormBorderStyle = FormBorderStyle.FixedDialog;
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
       this.Name = "frmFilenameToTAG2";
       this.ShowInTaskbar = false;
       this.Text = "Filename -> TAG Ver. 2";
-      this.txtDigits.EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).EndInit();
       this.framePara.ResumeLayout(false);
       this.ResumeLayout(false);
     }

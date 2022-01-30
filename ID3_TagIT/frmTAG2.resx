@@ -1,0 +1,3058 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System" name="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtInvFunction.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnMoveLyrics.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblCOMM.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblCOMMDesc.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOOwner.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel4.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="chkPicRelativPath.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblMusicianName.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="CommentList.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtTORY.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddComment.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtOOwner.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblAudioSRCURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblYear.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="SelectionBar.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="txtTLEN.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtPOS1.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtTLEN.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panDetail.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtWXXXContent.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="FrameID.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="OpenFileDialog.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnMoveLyrics.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2grpCommands.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtYear.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtPOS2.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnGet.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="$this.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtArtistURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panNot.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel8.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblSubTitle.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblEncoded.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtCopyInfURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblPicDesc.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtPubURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblInvPerson.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel2.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtRatingCounter.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblAlbum.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="colLanguage.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ToolTip.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtCOMMInfURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblCOMMLan.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnMoveComment.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Artist.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="cmbArtist.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblBand.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtConductor.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panUser.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="TAGV2ButtonItem9.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnSwapAT.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem7.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Artist.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtComment.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel9.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="Panel16.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="lblPayURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveRating.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtTitle.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtPayURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblRatingUser.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel1.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="btnAddRating.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblConductor.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtCopyInfURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="chkPicRelativPath.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel8.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblPayURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblCOMMLan.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtOOwner.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblWXXXDesc.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panInvolved.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="Panel12.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtInvPerson.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtTXXXDesc.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnExPic.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="$this.TrayLargeIcon" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtDigits.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TMCLList.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panUser.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblLyWriter.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblConductor.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblPicType.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panUser.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Panel15.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnGet.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem5.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtComment.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panOriginal.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Panel5.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblRatingCounter.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblOf1.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel6.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.Name" xml:space="preserve">
+    <value>frmTAG2</value>
+  </data>
+  <data name="ColumnHeader1.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader12.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblCOMMLan.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblOYearInfo.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel7.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panRating.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cmbCDescriptor.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveTXXX.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtSortTitle.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblGenreInfo.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtRatingUser.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TAGV2grpTransfer.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblConductor.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="chkPicInclude.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnMoveComment.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblWXXXDesc.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panPic.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="panWeb.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblTitle.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panRating.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblBand.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="SaveFileDialog.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="SelectionBar.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtTitle.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel9.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblMusicianName.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader10.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnPrev.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAABILAAASCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAkAAAAWAAAAIgAAACIAAAAWAAAACQAAAAIAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAkAAAAcAAAANwAAAEsAAABJAAAAMwAAABYAAAAFAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAkAAAAcAAAAOgZVBv8GVAb/AAAAbwAAAFUAAAAxAAAAGgAA
+        AA8AAAALAAAABQAAAAIAAAAAAAAAAgAAAAkAAAAcAAAAOgZVBv8rmSv/KJYo/wVTBf8AAABxAAAAUQAA
+        ADwAAAAvAAAAJQAAABYAAAAJAAAAAgAAAAkAAAAcAAAAOgZWBv8unC7/OKY4/zOhM/8GVQb/AAAAiAAA
+        AHcAAABrAAAAYAAAAE8AAAAzAAAAFgAAAAQAAAATAAAAMQZWBv8vnS//Pas9/1G/Uf9GtEb/CFsI/wZW
+        Bv8GVAb/BVMF/wVTBf8AAABxAAAATwAAACUAAAAFAAAAGAdYB/8wnjD/Paw9/1TCVP9fzl//WchZ/0q4
+        Sv89qz3/NKI0/y6cLv8olij/BlQG/wAAAFsAAAArAAAABAhbCP8yoDL/Oqk6/0++T/9gz2D/YtFi/2HQ
+        Yf9fzl//X85f/17NXv9KuUr/MqAy/wZWBv8AAABPAAAAJQAAAAIAAAAJCFsI/zelN/9Fs0X/WchZ/2LR
+        Yv9dzF3/UcBR/0e2R/9ArkD/Oac5/zGfMf8HVwf/AAAAMwAAABYAAAAAAAAAAgAAAAkIWwj/OKY4/0W0
+        Rf9Zx1n/TrxO/wlhCf8IXQj/CFsI/wdaB/8HWgf/AAAAJQAAABYAAAAJAAAAAAAAAAAAAAACAAAACQhb
+        CP84pjj/RLJE/z2rPf8HWwf/AAAAVQAAADEAAAAaAAAADwAAAAsAAAAFAAAAAgAAAAAAAAAAAAAAAAAA
+        AAIAAAAJCFwI/zemN/80ojT/B1kH/wAAADMAAAAWAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAgAAAAkIXAj/CFsI/wAAACIAAAAWAAAACQAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAACAAAABQAAAAkAAAAJAAAABQAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA///////////8////+H////A////gB///wAP//4AD///AA///4Af///B////4f////P//////
+        /////////////w==
+</value>
+  </data>
+  <data name="txtCOMMInfURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnNext.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblContent.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtOAlbum.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader3.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblWXXXContent.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader16.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panWeb.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtPicPath.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnAddLyrics.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="RatingList.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtCOMMInfURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel11.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel16.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ButtomPanel.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="panMain.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblRatingCounter.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="RatingList.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtArtistURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOOwner.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TopPanel.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="panMain.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RatingList.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtPOS1.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel15.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtINetRadioURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveMusician.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnLyricsFile.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblTXXXDesc.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ColumnHeader17.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ButtomPanel.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="NotSupportList.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtInvPerson.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtOFilename.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel6.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="txtDigits.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtTXXXDesc.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtPicPath.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtTORY.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="$this.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemovePicture.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtTrack1.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnAddLyrics.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel4.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtSelected.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblGenre.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnMoveGenre.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TXXXList.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtPDescriptor.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel7.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtWXXXContent.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblCOMMInfURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="$this.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblAudioFileURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem7.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel9.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtEncoded.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblLyLan.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="$this.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Panel14.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="TORYFormat.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveLyrics.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtRatingCounter.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ColumnHeader10.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Title.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddInv.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="LyricsList.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblCopyright.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnAddWXXX.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtRatingUser.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel11.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtPublisher.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="YearFormat.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtPOS1.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtComment.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtOOwner.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtPayURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TAGV2ButtonItem6.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader4.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOAlbum.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TopPanel.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Panel7.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblTitle.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblBPM.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="colDescriptor.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel16.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Panel16.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnV1Track.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel12.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="panNot.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="panOriginal.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ColumnHeader11.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblCommDescInfo.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOYearInfo.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblCopyright.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnImport.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TORYFormat.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtPublisher.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cmbMedia.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtTitle.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panMain.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="LyricsList.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnRemoveLyrics.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddMusician.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtLyWriter.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtContent.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblLyrics.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtMusicianName.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemovePicture.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader6.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel9.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Title.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panDetail.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblDigits.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblInfo.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblCopyInfURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TAGV2ButtonItem10.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAABMLAAATCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAACQklgwjI5RvIyOUvSMjk9UhIYvPHh59pRoabmkYGGQJAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAACcno0UnJ6bnKSmv/ywsuf8tLb3SKyu28CYmof8gIIf/Ghpv4RgY
+        ZDkAAAAAAAAAAAAAAAAAAAAAAAAAACkpr0sqKrH5LCy68zMzw3I+PscSAAAAAAAAAAAzM8NCKSmuuiIi
+        kP8cHHf2GhptNgAAAAAAAAAAAAAAACwsuhUsLLjtLCy68y8vwjMAAAAAAAAAAAAAAAAAAAAAQ0PILTk5
+        xfYsLLnqJSWc+R8fg9sdHXkGAAAAAAAAAAAuLsKBLS28/ywsuWwAAAAAAAAAAAAAAAAAAAAAQEDHG0VF
+        yeRHR8n5QEDHNi4uwXsmJqH/ICCIZgAAAAAAAAAAMTHDzywsufYpKa0JAAAAAAAAAAAAAAAALi7BCTU1
+        xMk/P8f/SUnKWgAAAAA/P8cSLCy4/CQkl7EAAAAAAAAAADMzw/YqKrLGAAAAAAAAAAAAAAAAAAAAACsr
+        t64vL8L/OTnFhAAAAAAAAAAAAAAAAC4uwtgmJqLbAAAAAAAAAAA3N8X2KiqwwwAAAAAAAAAAAAAAACcn
+        pocrK7T/LS3AqwAAAAAAAAAAAAAAAAAAAAAtLcDVKCin3gAAAAAAAAAAPj7Hzywsue0kJJoGAAAAACIi
+        kV0mJqH/KSmtySsrtgkAAAAAAAAAAAAAAAAwMMMMLCy69igoqb0AAAAAAAAAAElJyoc3N8X/KiqweCUl
+        mzwjI5X5JCSY5CYmnhsAAAAAAAAAAAAAAAAAAAAALCy6hysrtv8pKa1yAAAAAAAAAABVVc0bTEzL8zo6
+        xvMsLLnqJyel9iQkmDAAAAAAAAAAAAAAAAAAAAAAKiqxQiwsufksLLnqKyu1DAAAAAAAAAAAAAAAAF1d
+        0FpUVM3/QkLI/y4uwpwoKKkGAAAAAAAAAAAlJZ0PKSmseCwsuvwuLsH5Li7BSAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAY2PSWlpaz/NJScr/NjbE7Swsu8wrK7XYLCy6/zAwwv81NcTtNzfFSAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAABkZNIbXFzPhFFRzNhHR8n/QkLI/EJCyMZCQsh+QkLIDwAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA//8AAPw/AADwDwAA58cAAM/DAACfmwAAnzkAAJ45AACceQAAnPkAAJnzAADD8wAA4+cAAPAP
+        AAD4P////////w==
+</value>
+  </data>
+  <data name="btnAddPicture.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnImport.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panOriginal.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtBPM.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panPic.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="OpenFileDialog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 17</value>
+  </data>
+  <data name="lblGenreInfo.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddGenre.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ColumnHeader18.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnSwapTA.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel1.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblDigits.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel2.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblCopyInfURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddTXXX.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblPubURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddComment.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtOFilename.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel9.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblRatingRating.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtCopyright.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtWXXXContent.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblPublisher.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddRating.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtPubURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ToolTip.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtSortTitle.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnMoveRating.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="WXXXList.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtModified.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Track.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panMain.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="lblPublisher.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblPosMedia.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel5.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveComment.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ButtomPanel.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveComment.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel6.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel3.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtSubTitle.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblTXXXDesc.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="cmbGenre.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="SaveFileDialog.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="GenreList.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TopPanel.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Track.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblMusicianName.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblPubURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel10.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CommentList.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel5.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblTLEN.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtMusicianName.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnCancel.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="colComment.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOLyWriter.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblTXXXContent.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel11.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblPayURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel8.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TAGV2ButtonItem9.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtLyWriter.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddTXXX.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtConductor.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblLyLan.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel11.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnRemoveMusician.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="colLanguage.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtRatingUser.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel12.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Year.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TMCLList.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtAudioFileURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnSwapAT.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel2.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="lblOYear.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblSelected.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnAddPicture.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panWeb.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panPic.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblDigits.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtOArtist.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblArtistURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblBPM.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panLyrics.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="TMCLList.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panWeb.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="txtDigits.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TAGV2grpTransfer.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem8.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel6.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblPosMedia.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="SaveFileDialog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 17</value>
+  </data>
+  <data name="txtModified.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel13.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Panel3.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblComposer.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtTXXXContent.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblTXXXDesc.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel4.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="lblWXXXContent.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblRatingRating.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel10.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="lblOf2.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblPosMedia.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnMoveRating.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblNot.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Artist.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem1.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtOFilename.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblOFilename.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOArtist.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtRatingCounter.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblCOMMInfURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblCOMM.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panRating.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="Content.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblAlbumSort.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panOriginal.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TIPLList.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TAGV2ButtonItem3.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtTrack2.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TAGV2ButtonItem8.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblCopyright.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtAudioSRCURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtPicPath.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtYear.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtLyWriter.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblArtist.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem6.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="cmbCLanguage.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ButtomPanel.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panLyrics.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2grpTAG.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblMediaTyp.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtTLEN.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtOAlbum.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtModified.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ColumnHeader5.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtPublisher.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="FrameID.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveInv.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblMusicianInst.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtTrack1.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblTitle.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2grpTAG.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel11.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Album.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem1.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddComment.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOf1.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ColumnHeader3.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnOK.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblInvFunction.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader5.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader16.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblMediaTyp.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem4.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblTrack.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblInvPerson.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblTitleSort.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblTrack.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panLyrics.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblAudioSRCURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtAlbum.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ColumnHeader6.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnLyricsFile.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ColumnHeader13.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtTrack2.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblArtistURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtSubTitle.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel1.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="APICView.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveLyrics.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel10.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnOK.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panMain.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Panel8.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="panInvolved.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtPOS2.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panNot.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtTrack2.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtEncoded.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblInvFunction.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel14.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Panel13.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="cmbCDescriptor.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtTORY.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblSelected.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblRatingRating.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel14.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblPicType.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel3.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtSortAlbum.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblRatingUser.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblLyWriter.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader14.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panWeb.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="cmbGenre.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panDetail.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblBand.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblLyWriter.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel15.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ColumnHeader9.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel6.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOf2.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtAlbum.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Genre.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel14.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader11.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtBand.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnGetPic.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TopPanel.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnRemoveMusician.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtInvFunction.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel12.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panWeb.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNot.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblMusicianInfo.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtSortArtist.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblMusicianInfo.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panOriginal.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="WXXXList.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TXXXList.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblInfo.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtRatingRating.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtBPM.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtSortArtist.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel13.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="btnCancel.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panInvolved.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblCOMMDesc.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
+    <value />
+  </data>
+  <data name="panDetail.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="panNot.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Comment.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnNext.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnCancel.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panRating.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnAddMusician.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="APICView.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ColumnHeader18.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="cmbArtist.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panLyrics.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="SelectionBar.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOYearInfo.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblTitleSort.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel4.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnPrev.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblBPM.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveTXXX.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="PicList.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel10.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtINetRadioURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="cmbArtist.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblWXXXDesc.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblPicPath.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader12.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnMoveGenre.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtAlbum.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblAudioSRCURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtLyrics.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtContent.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel15.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="$this.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="btnRemoveWXXX.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtCopyright.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveWXXX.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel15.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TIPLList.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtAudioFileURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblInvPerson.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblRatingCounter.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtSubTitle.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel8.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="panUser.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="cmbMedia.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panMain.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtInvFunction.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel15.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="SelectionBar.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblCommDescInfo.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panPic.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel13.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblInvFunction.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblGenre.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader13.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtCopyright.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtRatingRating.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblTitleSort.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtOLyWriter.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel13.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblYear.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TAGV2grpCommands.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtCopyInfURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtSortAlbum.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblTrack.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnV1Year.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblArtistSort.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblWXXXContent.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveRating.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panUser.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="lblYear.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblContent.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtContent.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnOK.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnTLEN.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOf2.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnV1Album.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel7.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="cmbPicType.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel16.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblArtistSort.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblModified.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtMusicianInst.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panRating.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="cmbLLanguage.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOArtist.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblPubURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblMusicianInfo.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblModified.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnExPic.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panInvolved.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnAddMusician.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel3.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="SelectionBar.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblLyrics.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnTLEN.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="OpenFileDialog.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblEncoded.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveTXXX.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Comment.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panInvolved.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtTXXXDesc.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnExPic.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel13.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtComposer.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblINetRadioURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel7.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblPicDesc.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem2.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAABMLAAATCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAEAAAABgAAAAOAAAAAgAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAgAAAAXAAAAGQAAAAwAAAAEAAAAEhYKAEQAAABKAAAAMQAAAA4AAAADAAAADQAA
+        ABoAAAAYAAAACQAAAAAAAAAXAAAAQwAAAEsAAAAyAAAAJkEdAIxRJQD+JhEAlgAAAFYAAAAzAAAAJgAA
+        ADcAAABQAAAARgAAABoAAAAAdDkA9ms0APYsFQCQAAAAYCYSAIRTJgD1USQA+k0jAPMSCAB/AAAAZSwT
+        AJNPJAD7UyYA+w0GAGYAAAAiAAAAAHg8APKzqaHWYC8A42UwAP9fLQD/Z0041lktCPdzXVHdUSUA/1Ak
+        AP9TLhDxhHRu61UqCPgNBgBnAAAAIgAAAACAPwDy3djX9NfRz//MxML/wrm2/7OppvZiMwr4qp2Y/6OV
+        kP+ej4r/mouG/5mKhf9XLAj4DQYAZwAAACIAAAAAikUA8vHv7vTDn57/r4GA/6h7ev/DtrT4cDsL+MC3
+        s/+3rKn/jmpo/4BZV/+FYl//Wy8J+A0GAGcAAAAiAAAAAJFREPL5+Pj0///////////5+Pj/6Obl9oBG
+        Dfjb1dT/0MnH/8a9uv+8sq//taqn/2M0CvgOBwBnAAAAIgAAAACZXCDy+fj49Na1tf/JnJz/x5qa/+7l
+        5fiQUhL4+fj4/+zp6P+ugoH/onV0/6uMiv9tOQv4DwcAZwAAACIAAAAAn2Yu8vn4+PT/////////////
+        ///39vb2mmAn+P//////////+fj4/+zp6P/g29r/eEAM+BEIAGcAAAAiAAAAAKNuOPL5+Pj01ra2/9Gs
+        rP/Qqqr/7eTk+KFtOPf/////7+Li/8aYmP/Dk5P/1ry8/4JHDvgSCQBnAAAAIgAAAACmcz7x+/r68v//
+        ////////49/c3aJwPu2lcDr/p3VA8eDWzM7///////////////+NTg/2GAwAUgAAABkAAAAAp3RA36p4
+        Rf+sekj/rHpI/6x6SPyJYDdhAAAADZhnNSepd0TunWMo/5lcHv+UVBP/kVAP+ScUACAAAAAIAAAAAAAA
+        AAAAAAAAAAAAAAAAAACreUYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA///////////8f///iGP//4AD//+AA///gAP//4AD//+AA///gAP//4AD//+AA///g4P/////
+        /////////////w==
+</value>
+  </data>
+  <data name="btnRemoveGenre.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtSortAlbum.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="$this.TrayHeight" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="txtAudioFileURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel1.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAABILAAASCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAyk5T/L4qM/yyEh/8qgIP/Kn+C/yl+gv8qf4L/KoCD/yuChf8shIb/LISGlQAA
+        AAAAAAAAAAAAAAAAAAAAAAAANpub/5vy8/+R5Oj/iNrf/4LU2v9+09j/e9PZ/3rW2/9+2+D/LomL4i+K
+        jM0uiIqQAAAAAAAAAAAAAAAAAAAAAEekpP+z////qfL0/53m6f+S3uL/jNrf/4bZ3v+D29//guDk/y+M
+        juEwjpArMI2PzC6Ji4QAAAAAAAAAAAAAAABTqqr/xv///8L///+39ff/quzu/5/m6f+U4eX/i9/j/4bf
+        4/8vioznMI2PSzCOkEQvjI7YLomL/wAAAAAAAAAAWKys/9b////U////0P///8P5+f+08PL/o+jr/5Th
+        5P+I2+D/LYaI7C6IitEviozML4uNnC6KjP8AAAAAAAAAAFmtrf/j////4////+D////X////yPr7/7Pw
+        8v+f5ej/jt3h/4Pa3v992t//gN3h/4Lg5P8uiYv/AAAAAAAAAABara3/7f///+/////s////5P///9j/
+        ///F+/z/sPLz/5zp7P+O5Of/hOHl/4Lh5P+C4eT/LomL/wAAAAAAAAAAXa6u//X////5////9f///+3/
+        ///i////1P///8P///+y/v7/ofn6/5X09v+M7vD/iOjr/y+KjP8AAAAAAAAAAGGxsf/5//////////n/
+        ///x////5////9z////P////wv///7T///+n////mv///5L19/8xj5H/AAAAAAAAAABotLT/9v////n/
+        ///3////8P///+j////e////1P///8v///+/////tP///6n///+d////NJaX/wAAAAAAAAAAcrm5/3a7
+        u/95vLz/e729/3u+vv97vr7/e76+/3u+vv97vr7/er29/3W6uv9qtbX/WKys/0CgoP8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA//8AAP//AACADwAAgAcAAIATAACAGQAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAP//
+        AAD//////////w==
+</value>
+  </data>
+  <data name="GenreList.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtOArtist.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem10.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem4.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAABILAAASCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAC3RA6r/pYi8P2YKfD8oDnw/KM+8PycMfD/nCbw3G4Y4gAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAoioGYOuDIv//rkz//r1t//7Cd//+tl7//KE4/7dCDMQAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAJohAw60QhPJ/71s///gpv//5bT//9aO/9N4PP5bNaL0R0Pk8EM/
+        4/A+OuLwNzPc5AAAAAAAAAAAAAAAAAAAAAAAAAAAph0AG8ZUIMv1vIX3/tSk/MhmPv9xPI//YmDr/3Fv
+        7v9lYuz/T0vo/yUhzO4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABPOUwwXU5d02JVY+kqHX6jVFHk/4uK
+        +P+iofv/kY/5/1VS4/8FA6+NAAAAAAAAAAAAAAAAAAAAAAAAAAAQb7RHVK7n3HHG+/9vxP3/SaLk2xk5
+        u9F2b+v0oZv5+3Rs6PggF7+xAQCsBwAAAAAAAAAAAAAAAAAAAAAHVbMnVprS65fZ//+Q1v//gcv//4DI
+        //9MmdfjETyrrhxEs/ILMqmDAyqjAwAAAAAAAAAAAAAAAAAAAAAAAAAAFYDY5ySy7P88leD/VZbg/2+1
+        8/93wP//abPy/0+f0Px8yfT/YrPj7Sl/toUAAAAAAAAAAAAAAAAAAAAAAAAAABeY4/ca6f//Ntn7/0+2
+        6f9Aidn/VZvp/1+o6/9Un9n/hM3//3/I//9jruz/E2WlVwAAAAAAAAAAAAAAAAAAAAAZetarR+P+/1zq
+        //+L9v//rvX9/4bC6/9NkNr/Jm/S/3Cw7v90vv3/d8H//zmIxbAAAAAAAAAAAAAAAAAAAAAAA0/GGzKK
+        282N7v3/s////8/////I+Pz/QKLj/0i87f9Ll93/SpHh/2ev8/86iM26AAAAAAAAAAAAAAAAAAAAAAAA
+        AAAATMUdMHjThFmc3tNWmdzjMp/j/0vZ+f988v//qfn//5vW8f9io+H/GGPLzwAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAE3FBhps0JF52/b/qv3//8j////S////ca/k5QdSxzQAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATMUFHWbNbFGW275foN7hPYHUlAFQxjgAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA//8AAMA/AADgPwAA4AMAAPADAAD4AwAA8AcAAOAPAADABwAAwAcAAMADAADgAwAA8AMAAP4H
+        AAD/j////////w==
+</value>
+  </data>
+  <data name="TIPLList.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="NotSupportList.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblLyLan.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader7.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panPic.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel10.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblTXXXContent.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtAudioSRCURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="chkPicInclude.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem3.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAABILAAASCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAD/ztrP/0GSaP8kYEH/Il0+/yJcPf8hWzz/IVo7/yFaO/8gWjv/IVo7/yFb
+        PP8AAAAAAAAAAAAAAAAAAAAAtbu2/3d9eP9El23/L3o8/y13Of8sczf/K3I2/ypwNf8qbzT/KW80/ylu
+        M/8pbzT/IVs8/wAAAAAAAAAAAAAAAAAAAP/l6+X/Sp91/zOBQP8xfT7/L3k7/y13Of8sdDj/K3M3/ypx
+        Nf8qbzT/KW80/yFbPP8AAAAAAAAAAAAAAADIycj/h4iH/0+ofv84iUb/NYVD/zOBQP8xfT7/L3o8/y53
+        Ov8sdDj/K3I2/ypxNf8iXD3/AAAAAAAAAAAAAAAACgoK//////9VsYf/PJBL/zqMSP84iUb/NYVD/zOB
+        QP8xfT7/L3k7/y12Of8sczf/Il0+/wAAAAAAAAAAAAAAAM7Ozv+UlJT/XbaO/0GXUP8+lE3/PJBL/zmM
+        SP83iEX/NINC/zJ+Pv8vejv/LXc5/yNfQP8AAAAAAAAAAAAAAAAcHBz//////2W6k/9LnVr/RZlV/z+W
+        T/89kkz/Oo5J/ziJRv80g0L/Mn4+/y96O/8kYUL/AAAAAAAAAAAAAAAA0dHR/5ycnP9rvJf/U6Fi/0+f
+        Xf9Jm1j/QZdR/z2TTf86jkn/N4hF/zSCQf8xfT7/JmRE/wAAAAAAAAAAAAAAACkpKf//////cb+c/1ym
+        af+y0bn/j7WY/4qyk/+Er47/fqmI/3eigf90o33/M4FB/ydnR/8AAAAAAAAAAAAAAADU1NT/o6Oj/3jC
+        of9kqnH/t9O9/9Xc2f/U29f/0tnV/8/X0//I0cz/eqqD/zaGRP8pakv/AAAAAAAAAAAAAAAAODg4////
+        //9+xaX/bK94/7vWwf/Y3tv/1t3a/9Tb2P/S2db/z9fT/4Gxi/86jEj/LG5P/wAAAAAAAAAAAAAAANfX
+        1/+rq6v/hMip/3Szf/++2MT/oMGo/52/pf+ZvKH/k7ib/4yzlf+It5L/PZJN/y5zU/8AAAAAAAAAAAAA
+        AABERET//////4jKrP94tYP/d7SC/3Szf/9vsHv/aa12/2Kpb/9ZpGb/Tp5d/0SYU/8xeFj/AAAAAAAA
+        AAAAAAAA2dnZ/6+vr/+Kyq3/isqt/4jKrP+Gyav/g8eo/3/Fpv96w6L/csCd/2u8l/9iuJH/AAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA//8AAMADAADAAQAAwAEAAMABAADAAQAAwAEAAMABAADAAQAAwAEAAMABAADAAQAAwAEAAMAB
+        AADAA////////w==
+</value>
+  </data>
+  <data name="APICView.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblGenreInfo.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TopPanel.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="TAGV2ButtonItem6.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAABILAAASCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE5OThtFRUVlUlJSTgAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFBQUA1GRkZTPT09mkFBQd1fXl//g4OD/0JC
+        QrQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABKSko6Pz8/iD4+Ps1UVFT/jImM/8m/yP/27PX/+//8//39
+        /f9ERETxAAAAAAAAAABQUFArREREbj09Pb1MTEz5dnN1/7Srsf/l2+P//////+n16P+azZ3+Vqxg/RyQ
+        LP3w+fP/cm9w/0tLSzEAAAAATk5O/42Njf/TzdH//Pj7//n//vvP/d3yoOe0+oXlov4zezf/NqxL/U3E
+        aP0ygzf+2d7C+6OlrP9BQUF1AAAAAD09PcLo5Of/2v/m9XvYluZx1pDkddiS4I7prPJsr3f/WptO+0Su
+        X/9VxnT+aXgv9vzepevU2N7/PT09wgAAAABBQUF3p56k/9r75/OP6avhnum25qXruuWn7b7qTnUz/dWq
+        WOdkl2T5Nnwy/5jb8/2/yavx/Pr7/01NTfdQUFAES0tLNG5sbf/////9Nnw+/K7uwua09szmVppm+MOs
+        X+ncu2rlu9PJ83K4vf+Q3v//jdbv+/z///96eHf/SEhIRQAAAABGRkbz9fb6/9G6detKcS39jsmX7WWG
+        Rfngw3jl3r5r46fW1faQ5v//jN7//5TU4Pjt9eL2rayx/z4+PogAAAAAPDw8sMjL1P/86Ljv58V24HmN
+        SfbCuXTp1saB5tjGfOTBzJ3qpdHI85bW4/i61sDx+/bV8vHx9P9AQEDTAAAAAENDQ2GSlJn//vzo99DB
+        dePezYfj1ciA487GfuTUzo7n6OCu6/f64/X////++vj5/87O0/+Xl5f/Tk5O/wAAAABOTk4cYmJj////
+        //7RyoXk4Nun6/f00fL///T5/////9zd4/+trK//dXNz/0xMTPk9PT29QkJCd1BQUCoAAAAAAAAAAEBA
+        QOLz8/T//////ebn7f+4ucD/hYaJ/1RUVP8+Pj7NPz8/iElJSUIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AABCQkKafn5+/2NjZP9BQUHdPT09mkZGRlNQUFANAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAUlJSQkZGRmVNTU0iAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA//8AAP+DAAD4AwAAwAMAAAADAAAAAQAAgAEAAIABAACAAAAAgAAAAMAAAADAAwAAwB8AAMH/
+        AAD//////////w==
+</value>
+  </data>
+  <data name="lblLyrics.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOOwner.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="YearFormat.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOf1.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem5.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAABILAAASCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAfmpYSYx1YOqvgVXqxpFa6qyEVOpoXkPqj3pr5nZjTRMAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAs4FOKZx1TvjloFr/+71v//3Hd//uvnD/SVEv/1FWLv9tZUfQiHJGDQAA
+        AAAAAAAAAAAAAAAAAAAAAAAAp3hHMciJSvn6qlz//8V2//7Qf//91ID/p6Fk/yJMM/8AXSv/F3Qz/3Zw
+        Q8CoclALAAAAAAAAAAAAAAAAnohvMrB3Pe7jlkr/+rBm//7Kev//3Ib/19WC/waQcv8AfET/AHk4/wCE
+        Q/8djUz/onNNwL+YhgMAAAAApZWFH6J9V+y7dCv/4ZhQ//uzaP/+zX3//+CJ/+7ghv85rIL/ALFz/wGk
+        Yf8ArWv/AL58/0CCQ/+1lH3PwaCPDbKklk+VWhz/unYw/9uTTf//r2P//8x6/+LGd/+JqWP/Wqxx/xCz
+        ev8Kvnr/IrRy/2yVVP+RcS3/lmg3+Mu+tTmnkHr/jEkE/7FwLf/Ti0P/zZBN/4KDVf85dU3/pbBs/+jM
+        e/+ltGv/tKtk/9qUTf/Sfjn/r2Uj/4pNEP/CtKX5kG9N+4JBAP+jZST/r28t/yhnW/9yeFf/spJS/9Gz
+        av+5tGz/0q9l/+6aUv/Th0H/snEu/5heHP9/QQn/uqKM6ZNxUft4NwD/k1IS/0FdOP8AfIL/ZHpJ/7uE
+        Pv+NgET/25VN/+CSS//Hgj7/tXMw/6FhH/+MTQ7/cT4I/7GrlOmiiHD7dDAA/3ZCBP8OZFr/DHuO/wCO
+        V/8AgUH/FoxP/6hyMv/AdTH/q2sq/55fHf+KUA//gzwA/1lWGf+lwKzpyb61/3kvAP9XSBf/BHeG/xx1
+        lP8Qp33/DaNc/wqpZ/9Mej3/qFIS/5hVEv+ISwv/fEAC/304AP9Scj3/x9XO/OXl5l+SYkD/aDoG/yaM
+        hv89j6v/Msak/zesXv9BrWX/P8uB/1RyLf+BTQX/h0gA/4ZEAf9lPwH/kKOL+ufn6kkAAAAAoox4aIJA
+        Cv9vlXH/YrTC/1PHjv9U0nL/ccNk/5n8uf9ut2P/kWwP/6lrGv+PWhT/XndI8aS4qyoAAAAAAAAAAAAA
+        AACGVCdxbnhV/33by/+V9rX/qduE/8/AaP+5347/2b1k/9ioW/+oh0v/bHtK6maJZC4AAAAAAAAAAAAA
+        AAAAAAAAAAAAAFWFZWdjs5X/m6J1/7/Nmf/X88v//+3I/+LNtP+fjGD/i39g9mCHYDQAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAgaKKK4x7X5SqlH37mZ+E+76tovuvnpD7f2pDTp+aiCEAAAAAAAAAAAAA
+        AAAAAAAA+B////AP///gB///wAP//4AB//+AAf//AAD//wAA//8AAP//AAD//wAA//+AAf//wAP//+AH
+        ///wD///+D///w==
+</value>
+  </data>
+  <data name="PicList.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOLyWriter.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblINetRadioURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panDetail.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TAGV2ButtonItem8.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAYAICAAAAEACACoCAAAZgAAABgYAAABAAgAyAYAAA4JAAAQEAAAAQAIAGgFAADWDwAAICAAAAEA
+        IACoEAAAPhUAABgYAAABACAAiAkAAOYlAAAQEAAAAQAgAGgEAABuLwAAKAAAACAAAABAAAAAAQAIAAAA
+        AAAABAAAAAAAAAAAAAAAAQAAAAEAAAAAAAA8T1oAP1FbABtaeQApVWsAKFRuADVRYAAwUmUAIVp4ADdl
+        fQBJU1oATlRYAFhbXABiXV0AZl5cAE5dZwBDYXUASmV1AFRsfABqZGMAbmlpAHhvbAB6cW4Aam90AGZ2
+        fwBoc3sAcXF0AHpzcQB8dHAAc3l9ABxdgQAfYoUAFWOIABFmjQAaYogACWmWAA1smgAPbpwAFGWQABpo
+        kAAcb5YAD3GdAB90ngAmYIAAK2SCACJmiAAmaIoAKW2NADVlgAA1bYsAJ3eeAClzmAAwcJMAPHiaAAty
+        oQAOc6EADnSjAAt2pQALeKYAAXqtAA55qQASc6MAHnSgABV4oQAbfqoAI3qlACV7pwApeqQAI32pACt+
+        qABCb4oARHCKAEx3jwBedIMAVnaIAFV6jwBxfIQAA4W3AAqGtgAPibcAAIy/AAqLuwAMi7oACIy8ABCH
+        tAAXkLoAFZK/ACqBrAAsg60ANIKqADmCqgAkh7EAMYiwADGNtQA+jrUANpK5AFyCmQB2gIgAdoWPAGiC
+        kQB5ipYAfY2YAEKEqABLiKoAXpGuAEaPtABKjLAAQ5C2AEaTuABNlbkARZm+AFOXugBlj6sAf5amAGKY
+        tgAGkMEABpzMABucxwAhmsEABKDSAACm2QAEp9gABKzeACqjyAAmrdMAI67VACe43gAxsNIAN7LSAACw
+        4wAAs+YABLXnAAS87QAUuuUAAr7wAEOdwQBin8EAXLLNAEuw0QBCvNkAcKvHAH6zzABzuNIAeLrTAAbC
+        8wAJx/cABs3/AAnO/gAMz/8AEMLwABjL9gAUzvoADdD/ABDR/wAW0v8AF9T/ABvV/gAlw+kAM8TnADvQ
+        7wAgzfYAKtD1ACPU+wAh1v8AJtb+ACXY/wAr2v8AMdn7ADLY/wA22P8AMdz/ADTd/wA+2v8AOt7+AD/g
+        /gBAwd4AQtLwAEHa/gBD4v8ATOX/AFDm/wBa5P8AXuX/AFXo/wBb6v8AZOP/AGvj/wBj7P4Aau3+AH/r
+        /wBt8P8AcvH+AHr0/wCJgoAAj4uLAIyLjACLjI8AlY+NAJaQjwCFjpYAg5OeAJOSkwCForMAj6q6AI27
+        0QCTv9UAgMzeAJbA1QCXx9sAosvcAKrM3QCYy+AAnM3hAK3W5gCz0uEAudbjALjZ5gCA5/8Agen/AIzp
+        /wCO7v8Aler/AJvu/wCe7f4Agvb/AIn1/wCE+P8Ai/r/AJT0/wCR+/8ArO//AL7s+ACh8v8Aqfr/ALT1
+        /wC88/8AuvX+ALL8/wDB3OgAxeLtAMri7QDO5O4AxunzAM7t9QDW6fEAxPX/AMrz/QDB/P8A0PL7ANby
+        +gDS9P0A1fT8ANvz+gDd+v8A5fj6AOT7/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEwaAAAAAAAAAAAAAAAAAABhF8IAAAAA
+        AAAAAAAAAAAzJR4LxQAAAAAAAAAAAAAANConDwAAAAAAAAAAAAAAylakeTYCGwAAAAAAAAAAZDLU7Isr
+        AAAAAAAAAAAAAADLbt+TgyMGGwAAAAAAAGVB1Oy2gAkAAAAAAAAAAAAAAABX8KiSlVIFDQAAAABLXOfd
+        pK0/TAAAAAAAAAAAAAAAAGrN25OToFYIDQAASIfy2ZqanS0AAAAAAAAAAAAAAAAAAEH6qJOaqHwiAS+J
+        /9ummJNSSQAAAAAAAAAAAAAAAAAAWtW6k5imroA2zv/kt6ichDzJAAAAAAAAAAAAAAAAAAAAbfqTk5yo
+        tLz96cC7rqZ3MAAAAAAAAAAAAAAAAAAAAABE7rGSmqauu+Hl4r6zqDoYAAAAAAAAAAAAAAAAAAAAAGiM
+        5pqSo660vuLlwLieIsIAAAAAAAAAAAAAAAAAAAAAyD76rZKaqK68wOXiu3YGFQAAAAAAAAAAAAAAAAAA
+        AGEqULGkk5ijrri+4+O/rz8GEwAAAAAAAAAAAAAAAABHOoGXpqOYkqOos7vi5eC7n3UIC8EAAAAAAAAA
+        AABKKXeXrriuqJySmKauuL/j47+3rYVNBQzGAAAAAADHMU2DqL+/uLSoo5iTo66zvuLl4Leuo5F0IQsW
+        AAAAYDt5mrfl5eC7t66jo5OYpq67v+XivremmpOWTggUAAA8hpy3wOXt6e3q6uimk5Ojrrfo9+3kvK6j
+        k5qhThAAAFL6/Pzz79jW0dCP9LmYk5qmsI7R0tbY9PT8+vaKRgAAWWtfXFtAV1lmZ0PMvZyTmKN9JjVn
+        WVlEV15rbUFxAAAAAAAAAAAAAAAAAG/2o5iTo1IRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWfSmnJOY
+        JRgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABa1rmjk5AgwgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHLP
+        6KOaeiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGn1rZtzEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAQf22pE0dAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABa772dNgAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAHCN6H4uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD17NmMAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAAAA///////////+f/4//B/8P/gP8D/4B+A//APAP/wB
+        gH/+AAB//gAAf/8AAP//AAD//wAA//8AAP/+AAB//AAAH/AAAAfAAAADgAAAAYAAAAGAAAABgAAAAf/w
+        D///8A////AP///wH///+B////gf///4P///+D////w////+//8oAAAAGAAAADAAAAABAAgAAAAAAEAC
+        AAAAAAAAAAAAAAABAAAAAQAAAAAAAC1UaQAgWXYAK1p0AExTWgBIV18AUVFSAFlZWwBPa3sAVG18AGpk
+        YgBsaGcAdW5rAHtybwBqdn8Af35/ABlfgwAWY4sAD2iQAA5qlgAXbZcAGG6YAAtxnQAZcZsAI2KDACRi
+        gwAqYoAAL2WCAD1viwAlcZgAK3ueADF4mwALc6EADHimABN7pQAVe6oAKXynACp7qABNbYAASHOLAEJ1
+        kQBafZAAE4m2ABuLtQATjLgAGpC6ADOAqQA2iLAAf4OGAHaBiQBogpIAdoqWAEOGqwBIi64ATYusAFCJ
+        qABcka4ATJK3AFmRsABUmLsAVZq9AH2XpgBhlrMAYZm3AGuYsgB4nLAAf6C1AAGPwQABksQACpnJABqV
+        wQANoc8ADaPSAASp2gAAqt0AGbHcADKnyQAgtN0APbXUAAS26AAIuOgAE7rmAE2jxABfpsUAUq3PAF6o
+        yABzqscAdq3JAHOxzAB7scsAbr/cAHi+2QAGzf4ACc7/AB3L9QAZz/oACtD/AA7Q/wAR0f4AFNL/ABjT
+        /wAZ1P8AHNX/ACbD6QAlyO8AJ83yACDS+gAi1/8AJtj/ACjZ/wAs2v8AM9n7ADTZ/gAx3P8ANt3/ADne
+        /wA83/8APeD/AEDa/wBO3/8AUd7/AH/W6wBA4f8AROL/AEfk/wBP4foASOP/AEnk/wBM5f8AU+f/AFjp
+        /wBc6v8AZeL/AGXm/wBi7P8AZu3+AGns/wB35/8AbvD/AHPy/wB08v8AePT/AH72/wCGgoMAkoyKAIaO
+        lACLkZcAg5unAIWerQCOp7UAgaO4AIe40ACIuNAAir3TAI+80gCWwdUAl8TZAJrL3QCg1ucAqtvpALjX
+        5QCH6P8Aje7/AJHs/wCD9/8AifL/AIj2/wCI+f8Ajfr/AI/8/wCQ9/8AmfD/AJ/w/wCR/P8Anvj/AKPt
+        /wCm7v8Ao/T/AKP5/wCm/f8AvfX+ALP8/wDD3uoAzeTuAMTp8gDL6PIAzOv1AMnt9gDV6/IAx/L8AMH1
+        /wDO8/wAzvT8ANXx+gDb+PsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAACUFAMNAAAAAAAAAAAzHRmPAAAAAAAAAAAkcEkQCgAAAAAAAClVtEwOAAAAAAAA
+        AAA1umJQEgcAAAAAKFuweisAAAAAAAAAAAAAV4RcXiIEAAAfnqFgaRsAAAAAAAAAAAAAJL1dYnAtAR64
+        om1cRTEAAAAAAAAAAAAAlpx2XW1+TsKyg3NiFQAAAAAAAAAAAAAAAC+wXGRzg6qpinpLJgAAAAAAAAAA
+        AAAAADW2ZF1ufoupjoMqDwAAAAAAAAAAAAAAACdUeF1keoakqYYUBgAAAAAAAAAAAACRF0lkbmBicIGL
+        rY59RgEMAAAAAAAAABxDX4F+cGJgbXqGqaSGdFEWBJAAAAAyIU9+qYuDdG1cYnCDi62Lfm5cSAILAABE
+        YoGmsq6xq4lgYG56prWyiHNgYmcRAFZav7qfnZlYU7xkYGR0UlmXm6C6wb8jAAA/NTg9AAAAQpqBXWBo
+        GQAAAJNAOjSVAAAAAAAAAAAAADujZF1ICQAAAAAAAAAAAAAAAAAAAAAAAC69bWBDMAAAAAAAAAAAAAAA
+        AAAAAAAAAD63bmIgAAAAAAAAAAAAAAAAAAAAAAAAAACZhGobAAAAAAAAAAAAAAAAAAAAAAAAAAA7q00I
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAleSySAAAAAAAAAAAAAAAAAAAAAAAAAAAAOUEAAAAAAAAAAAAAAP//
+        /wD///8A8P8PAPB+DwDwPB8A+BgfAPgAHwD4AD8A/AA/APwAPwD8AD8A8AAPAOAAAwCAAAEAgAABAAAA
+        AQCHAcEA/4H/AP+B/wD/g/8A/8P/AP/D/wD/w/8A/+f/ACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAA
+        AAAAAAAAAAEAAAABAAAAAAAAP1xrADJkewBeZ20AV2lzAF5rcwBabHgAJ2mDADVwigAkdJMALXiXAFR4
+        iwBWfZIAXX+RAGF5hgAcha0AGY21ACeMrQA0iqcAIZW8AGOElABTi6cAWIqmAEuZvgBbnLwAdZWmAHmb
+        rABvmLEAYJ25AGSeugBsn7oAe6O2AAudywAHp9cACaPTAAit3QATsNwAOqbJABG35QASuucASLveAGyl
+        wQBvqMUAYq3MAG6tyQBwpcEAcqjEAHm3ywB9tM0ACsTzAAnP/wAOzvwADdD/ABHR/wAX0v8AHdX/ACbT
+        +QAh1/8AJdj/ACva/wAt2f4AMNDzADPX/wA03f8AOt//AEXN6QBE3f8AQeH/AEnk/wBP5f8AUeD/AFfo
+        /gBa6v8AXuv/AGTl9gBu7f8AdOT+AHrk/QBz7/8Af+z/AHPy/wB08v8AfPX/AIeFhQCIh4kAgLfRAIC9
+        1QCKvtUAi8PZAI3C2ACZ3O0AktzwAIjh+ACN7P8AnOf3AIL3/wCJ+f8Al/H/AJD1/wCZ+/8Ao/v/AKj6
+        /wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        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
+        //9V6P//QOH//y7b//8X0///B87//xDR//8n2P//Q+L//1np//918///jPr//4r6//9x8v//Uef//znf
+        //8UuuX/A4W3/xtKYu8rLjDIMCUjgS8qKkgtLTQYFx8fBg8PEQgwLS8yKjpHkRRVeNsEhbf+ALPm/zrf
+        //9w8f//cfH//1/r//9I5P//Nd7//x7W//8N0P//CM7//x3V//853v//T+b//2zv//+D9///kfz//3v1
+        //9d6///Q+L//yLX//8Jx/f/BpzM/wxji/kqNT7ZMSMfpC8qKlQwMzgdDRUaJxxScbcBeq3/AKbZ/xnU
+        //9X6f//jvv//5D8//969f//aO7//1Lo//8/4f//Kdn//xbT//8Gzv//ENH//y7b//9D4v//YOz//3bz
+        //+Q+///ifn//2rv//9P5v//MNz//xXT//8Hzv//GMv2/w2Gtf8TVHX2LygnsTMmI1ARVnxkCHeo+QK+
+        8P8e1v7/Uef//3vy//+W+v//sP3//6r5//+09///tPX//7b0//+e7v//Mtn//wnP//8Jz///I9f//zrf
+        //9W6P//ofT//8H8//+0/P//kvT//2zs//9G4f//INb//wfO//8S0v//KtD1/xCHtP8kR17aMx8XZxJv
+        oXgKi7v/1vL6/9z3/f/b8/n/zu31/8Xk7v+42eb/sdPi/6HN3v+Xx9v/eLrT/9Xr8/9k4///EdL//wXN
+        //8X0///Ltv//0LS8P9zuNL/o8nb/6rM3f+21OL/udbj/87k7v/W6fH/3PH5/9X0/P/L9P7/S7DR/x9V
+        ddcxJCBXDj1YPxl1o+JDkLb/NpK5/zGNtf8kh7H/G36q/xl0oesYcJ3hFGaTzBJjkMEUbZvojbvR/4Hp
+        //8Z1P//CM7//w7Q//8l2P//I67V/w1hjfcUXYXTEmSRyBxxn+Afc6HlJH6q/yyDrf8+jrX/RpO4/06W
+        uv8je6f+JExnlTEtMywICBABJ0RcFx5ceVwiU3FRJVBrQys0SiUuJyQRIRMQDiQaGg0fHCIMIyMxDiFR
+        c19Tl7r/yvP9/yLX//8Q0f//Bs3//xjU//8Pibf/IUJVzzEpKkUhJj0UHR0nDCEbHg0jGhcNMCU/FiJQ
+        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
+        AAD8PwAA/D8AAA==
+</value>
+  </data>
+  <data name="cmbLLanguage.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader8.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblEncoded.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panInvolved.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblPublisher.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem7.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAABILAAASCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIlKADqDQgCAg0EAzY1OAv+LSwA0AAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAI9TACqISQBuhEMAtIxNAPmfZR7/uIJG/9Wlcv+3gUX/hEIAfAAA
+        AAAAAAAAAAAAAAAAAACUYgAwj1wAo45UAOugahr/t4hK/9Cnd//pxJ7/7Mag/+vCmv/qwJb/0Z9r/4NA
+        AMkAAAAAAAAAAAAAAAAAAAAAqGQAbr14Iv/s3MX/9+bW//Tfyf/y2L7/8NGy/+C5lP/AjmT/pGs8/+m+
+        lP+OTgP/jEwADAAAAAAAAAAAAAAAANRvEhXVdx3//fn1//br4f/TtJr/r4BY/5ZeLv+UWSr/rHdL/82f
+        df/rwpr/pGom/4dHAEgAAAAAAAAAAAAAAAAAAAAAzmwf2/3w4v/HrZL/roRd/8+wlP/r1L7/8trB/925
+        mP/InHT/5LqW/8SSWf+CQACUAAAAAAAAAAAAAAAAAAAAANN8OpLuyKT///////fz7//SuqP/to5o/6d3
+        S/+vf1X/zaN+/+3Kpv/ar4D/hEMA2gAAAAAAAAAAAAAAAAAAAADbk1NH5K53//z////Ls5n/y7GY/+HP
+        vv/kz7z/0K2O/69+VP+ygFb/7cij/5VZDP+LTAAUAAAAAAAAAAAAAAAA4aVpC+CiZ/7+/v3/9/Lv/9G5
+        ov+pfVP/l2Mw/6NzR/+/nXz/5Muw/+3Jpv+oZx//iU0AbQAAAAAAAAAAAAAAAAAAAADgpHXL+uzf/+7p
+        4//Tvab/4tLD//r39P/78un/56qC/9FzJP/EVQH/oUwA+otQAEcAAAAAAAAAAAAAAAAAAAAA5K+Fe/LW
+        u///////////////////////7Mmn/7xDAP/CmXT/vJ+A/4lMAKMAAAAAAAAAAAAAAAAAAAAAAAAAAOi6
+        kDLsxZ7////+//////////////////37+P/JYwH/zMnI/5llGP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AADqwJYG6LqT7v369///////////////////////24g6/7F3Pf+SWwB0AAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAOe4lbf359j//////////////////Pj0/+GYVP+vVgDfj14ACgAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAADoupVp8NO1//nt4f/vza3/4qht/9R+LPnOaA69u2UAQwAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA6byRI+i5i//iqHvN3ptniNqSTzoAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA/4////wP///AB///wAf//8AH///AA///wAP//+AD///gA///4AP///AD///wB///8A////AP
+        ///4H///+P///w==
+</value>
+  </data>
+  <data name="btnLyricsFile.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOAlbum.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtWXXXDesc.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Album.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnAddInv.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panUser.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Genre.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnGetPic.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtConductor.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panOriginal.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblComposer.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtINetRadioURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnV1Year.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnMoveGenre.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblLyDesc.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddLyrics.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtWXXXDesc.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem9.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAABILAAASCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAABh2ecTA+wfE7Rc/wMjvN8Cw1zPAqM8/wLDTQ8DE50PA9RNXwJDS55AAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQbnDlTWt3/c3H//19c+P9VUff/T0z2/1BN9v9XVPf/aGT8/zA+
+        w+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGJkCLz6+y3Fx9v9mZfT/XV3z/1lY8v9aWfL/YWD1/2Nl
+        8P8WKaqGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXmG5BTcz/fXz+/2tr9P9mZ/P/amn1/3h2
+        /f8yQMP8ABeYLgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGZwFDyKkhlph3P+CgPv/gX/9/3V1
+        9P8+Scr/DSKjbQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABHZt1L0K72EJS
+        yPIiOLLFABiVZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOXaIaKne3ez2J
+        xOZBjMj7MX28uhJgpEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALYJwSQI/Fy4/X
+        /f+R2f//jNT//4TN//9grOT/FWinVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABT8IHJ3G6l4PF
+        9f+W2v//jNT//4DI/v93wP3/e8P//zuJyNgKXZ4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlbJiCCP
+        3/8okuD/WKPl/2Gk6f91u/b/ecL9/3K7//9eqOf/EmSiOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhb
+        yqQY0/z/Fdr//zbU+f8+oeL/KnPS/0uS5P94v/v/c730/xNksUEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAHV8huLsz3/zLi//9O5P//ffP//4zd9f9Wmd3/PYDX/zuE1P8FVcNYAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAU3FEDGW391n7v//dO7//5Hy//+5////zf///7nu+f9Ultz6AUzGOQAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAGT8ZTTKLi5Ynl+f+q9P3/wvr+/7zx+v+Nxev1FV/LbQAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFOxhoNWsmAMHbQ0jt+0d8VYMqfAE/GKQAAAAAAAAAAAAAAAAAA
+        AAAAAAAA//8AAPAHAADwBwAA8AcAAPgPAAD4HwAA/j8AAP4/AAD4HwAA8A8AAOAPAADgDwAA8A8AAPAP
+        AAD4H////D///w==
+</value>
+  </data>
+  <data name="colComment.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveRating.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ToolTip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>143, 17</value>
+  </data>
+  <data name="cmbCDescriptor.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddInv.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem3.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOYear.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblLyDesc.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="cmbCLanguage.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblNot.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtAudioSRCURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cmbPicType.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveGenre.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblArtistURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtOLyWriter.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ColumnHeader14.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="LyricsList.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtRatingRating.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel2.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="SelectionBar.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAlbumSort.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panDetail.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="txtTXXXContent.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddTXXX.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtOArtist.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel11.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="lblTXXXContent.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtArtistURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="CommentList.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TXXXList.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblPicType.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtSortArtist.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panPic.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="Panel16.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panRating.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="WXXXList.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtLDescriptor.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddWXXX.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TAGV2ButtonItem2.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnNext.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAABILAAASCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAJAAAAFgAAACIAAAAiAAAAFgAAAAkAAAACAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAFgAAADMAAABJAAAASwAAADcAAAAcAAAACQAA
+        AAIAAAAAAAAAAAAAAAAAAAACAAAABQAAAAsAAAAPAAAAGgAAADEGVQb/BlQG/wAAAHMAAABcAAAAOgAA
+        ABwAAAAJAAAAAgAAAAAAAAACAAAACQAAABYAAAAlAAAALwAAADwGVgb/K5kr/ymXKf8FUwX/AAAAfAAA
+        AF4AAAA6AAAAHAAAAAkAAAACAAAABQAAABYAAAAzAAAATwAAAGAAAABrB1gH/zakNv82pDb/KZcp/wVT
+        Bf8AAAB8AAAAXgAAADoAAAAcAAAACQAAAAsAAAAlBlUG/wZUBv8GVQb/B1gH/wheCP9JuEn/T75P/zim
+        OP8qlyr/BVMF/wAAAHoAAABYAAAAMQAAABMAAAANB1gH/y6cLv8xnzH/NqQ2/z+tP/9Nu03/W8pb/1/O
+        X/9Qv1D/OKY4/yqYKv8GVAb/AAAAZQAAADwAAAAYAAAACwdaB/85pzn/UL5Q/2DPYP9h0GH/YdBh/2LR
+        Yv9i0WL/Xs1e/0q4Sv80ojT/Kpgq/wZXBv8AAAAxAAAAEwAAAAUIWwj/N6U3/z2rPf9CsEL/SrhK/1TD
+        VP9fzl//YtFi/1bEVv8/rj//MZ8x/wdXB/8AAAA6AAAAHAAAAAkAAAACAAAACQhcCP8IXAj/CFwI/wlf
+        Cf8KYwr/UcBR/1fGV/9Br0H/M6Ez/wdYB/8AAAA6AAAAHAAAAAkAAAACAAAAAAAAAAIAAAAFAAAACwAA
+        AA8AAAAaCF4I/0GvQf9CsEL/M6Ez/wdYB/8AAAA6AAAAHAAAAAkAAAACAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAABQhcCP83pTf/NqQ2/wdZB/8AAAA3AAAAHAAAAAkAAAACAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAIAAAAJCF0I/whbCP8AAAAiAAAAFgAAAAkAAAACAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAUAAAAJAAAACQAAAAUAAAACAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA///////////+f////D////wf///AD///gAf//4AD//+AB///wA////wf///8P////n//////
+        /////////////w==
+</value>
+  </data>
+  <data name="cmbCLanguage.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Genre.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnSwapTA.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnV1Comment.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnAddPicture.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnRemovePicture.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panNot.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ColumnHeader15.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel1.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtComposer.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="chkPicRelativPath.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnMoveRating.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TAGV2ButtonItem2.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtOAlbum.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtOLyWriter.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtSortTitle.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnRemoveWXXX.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cmbPicType.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnSwapAA.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TORYFormat.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel3.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="lblAudioFileURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel12.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnAddWXXX.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TopPanel.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panNot.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="PicList.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblTLEN.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblCOMMDesc.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="colDescriptor.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel5.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel9.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem5.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddRating.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader7.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel8.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveInv.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtSelected.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ButtomPanel.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="lblOAlbum.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtMusicianInst.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblContent.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="GenreList.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtLyrics.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel5.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="txtTXXXContent.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblGenre.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblCopyInfURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnExport.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader17.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtYear.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOArtist.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblArtist.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtPubURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="panLyrics.GridSize" type="System.Drawing.Size, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="lblAlbumSort.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Content.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOYear.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblComposer.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnPrev.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblCommDescInfo.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel2.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel3.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TAGV2ButtonItem4.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader2.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtMusicianInst.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtLDescriptor.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel12.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnV1Title.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader1.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnRemoveComment.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="chkPicInclude.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ColumnHeader4.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblPicPath.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblAudioFileURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel4.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtEncoded.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblMusicianInst.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblArtist.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnGetPic.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel2.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblSubTitle.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel10.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblArtistSort.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader15.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblModified.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel1.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtComposer.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblSelected.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="cmbMedia.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblPicPath.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtPDescriptor.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblMusicianInst.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblRatingUser.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="cmbGenre.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader2.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnExport.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblLyDesc.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel14.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblInfo.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel14.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtBand.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddGenre.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtMusicianName.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblSubTitle.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblPicDesc.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ColumnHeader8.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel7.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtBPM.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnMoveComment.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtBand.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblMediaTyp.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtPOS2.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtLyrics.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOFilename.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnAddGenre.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblTLEN.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnSwapAA.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtPayURL.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="btnTLEN.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblOLyWriter.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtTrack1.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ColumnHeader9.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel6.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnRemoveInv.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="TAGV2ButtonItem10.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="NotSupportList.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtInvPerson.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnRemoveGenre.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="ButtomPanel.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtWXXXDesc.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblCOMMInfURL.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="cmbLLanguage.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblAlbum.DefaultModifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtPDescriptor.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblCOMM.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="txtSelected.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnMoveLyrics.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panLyrics.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="lblINetRadioURL.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblAlbum.Modifiers" type="System.CodeDom.MemberAttributes, System">
+    <value>Assembly</value>
+  </data>
+  <data name="Panel4.DrawGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtLDescriptor.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="YearFormat.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblOFilename.Locked" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Panel5.SnapToGrid" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+</root>

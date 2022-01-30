@@ -132,7 +132,7 @@
       }
       try
       {
-        IEnumerator enumerator;
+        IEnumerator enumerator = null;
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream serializationStream = new FileStream(str5, FileMode.OpenOrCreate);
         ArrayList list = (ArrayList)formatter.Deserialize(serializationStream);
@@ -148,9 +148,7 @@
         finally
         {
           if (enumerator is IDisposable)
-          {
             ((IDisposable)enumerator).Dispose();
-          }
         }
       }
       catch (Exception exception1)
@@ -1968,7 +1966,7 @@
 
       public void CreateFromNode(TreeNode objNode)
       {
-        IEnumerator enumerator;
+        IEnumerator enumerator = null;
         TreeNode current = new TreeNode();
         this.vstrName = objNode.Text;
         try
@@ -1983,22 +1981,18 @@
         finally
         {
           if (enumerator is IDisposable)
-          {
             ((IDisposable)enumerator).Dispose();
-          }
         }
       }
 
       public TreeNode CreateNode()
       {
         TreeNode node2 = new TreeNode(this.vstrName);
-        using (IEnumerator enumerator = this.alstDirs.GetEnumerator())
+        var enumerator = this.alstDirs.GetEnumerator();
+        while (enumerator.MoveNext())
         {
-          while (enumerator.MoveNext())
-          {
-            string text = StringType.FromObject(enumerator.Current);
-            node2.Nodes.Add(text);
-          }
+          string text = StringType.FromObject(enumerator.Current);
+          node2.Nodes.Add(text);
         }
         return node2;
       }
