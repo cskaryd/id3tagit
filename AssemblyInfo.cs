@@ -8,4 +8,3 @@
 [assembly: System.Reflection.AssemblyCopyright("Michael Pluemper")]
 [assembly: System.Reflection.AssemblyCompany("")]
 [assembly: System.Reflection.AssemblyTrademark("")]
-
