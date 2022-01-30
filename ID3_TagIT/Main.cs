@@ -1,12 +1,13 @@
-﻿  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.Data;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.IO;
-  using System.Runtime.InteropServices;
-  using System.Windows.Forms;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ID3_TagIT
 {
@@ -20,8 +21,8 @@ namespace ID3_TagIT
       if (vbooCompletePath)
         if (((((((vstrName.IndexOf("<") >= 0) | (vstrName.IndexOf(">") >= 0)) | (vstrName.IndexOf('"') >= 0)) | (vstrName.IndexOf("/") >= 0)) | (vstrName.IndexOf("*") >= 0)) | (vstrName.IndexOf("|") >= 0)) | (vstrName.IndexOf("?") >= 0))
           return false;
-      else if ((((((((vstrName.IndexOf(@"\") >= 0) | (vstrName.IndexOf("<") >= 0)) | (vstrName.IndexOf(">") >= 0)) | (vstrName.IndexOf('"') >= 0)) | (vstrName.IndexOf("/") >= 0)) | (vstrName.IndexOf("*") >= 0)) | (vstrName.IndexOf("|") >= 0)) | (vstrName.IndexOf("?") >= 0))
-        return false;
+        else if ((((((((vstrName.IndexOf(@"\") >= 0) | (vstrName.IndexOf("<") >= 0)) | (vstrName.IndexOf(">") >= 0)) | (vstrName.IndexOf('"') >= 0)) | (vstrName.IndexOf("/") >= 0)) | (vstrName.IndexOf("*") >= 0)) | (vstrName.IndexOf("|") >= 0)) | (vstrName.IndexOf("?") >= 0))
+          return false;
 
       return true;
     }
@@ -52,13 +53,16 @@ namespace ID3_TagIT
       Declarations.SHGFI shgfi;
       Declarations.SHFILEINFO structure = new Declarations.SHFILEINFO(true);
       int cbFileInfo = Marshal.SizeOf(structure);
+
       if (vbooSmallIcon)
         shgfi = Declarations.SHGFI.ATTRIBUTES | Declarations.SHGFI.ICON | Declarations.SHGFI.ADDOVERLAYS | Declarations.SHGFI.SMALLICON;
       else
         shgfi = Declarations.SHGFI.ATTRIBUTES | Declarations.SHGFI.ICON | Declarations.SHGFI.ADDOVERLAYS;
+
       Declarations.SHGetFileInfo(ref vstrPath, 0x100, ref structure, cbFileInfo, shgfi);
       Icon icon2 = (Icon)Icon.FromHandle(structure.hIcon).Clone();
       Declarations.DestroyIcon(structure.hIcon);
+
       return icon2;
     }
 
