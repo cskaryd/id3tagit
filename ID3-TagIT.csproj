@@ -74,6 +74,9 @@
     <EmbeddedResource Include="ID3_TagIT\frmFreeDB.resx">
       <DependentUpon>frmFreeDB.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmFreeDBAssociate.resx">
+      <DependentUpon>frmFreeDBAssociate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ID3_TagIT\frmLibraries.resx">
       <DependentUpon>frmLibraries.cs</DependentUpon>
     </EmbeddedResource>

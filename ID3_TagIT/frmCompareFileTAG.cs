@@ -1,5 +1,4 @@
-﻿using DevComponents.DotNetBar;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.ComponentModel;
@@ -13,7 +12,8 @@ namespace ID3_TagIT
 {
   public class frmCompareFileTAG : Form
   {
-    private BalloonTip BalloonTip1;
+    #region Designer
+
     private Button btnAdd;
     private Button btnCancel;
     private Button btnOK;
@@ -91,7 +91,6 @@ namespace ID3_TagIT
       this.optTAGV2 = new System.Windows.Forms.RadioButton();
       this.chkReplaceUnderScore = new System.Windows.Forms.CheckBox();
       this.chkIgnoreCase = new System.Windows.Forms.CheckBox();
-      this.BalloonTip1 = new DevComponents.DotNetBar.BalloonTip();
       ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).BeginInit();
       this.framePara.SuspendLayout();
       this.SuspendLayout();
@@ -105,7 +104,7 @@ namespace ID3_TagIT
       this.lblInfo.Size = new System.Drawing.Size(496, 40);
       this.lblInfo.TabIndex = 34;
       this.lblInfo.Text = "This function compares the current filename with the filename created by the form" +
-    "at. If there is a mismatch the file will marked.";
+    " at. If there is a mismatch the file will marked.";
       this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // lblDigits
@@ -457,10 +456,6 @@ namespace ID3_TagIT
       this.chkIgnoreCase.TabIndex = 40;
       this.chkIgnoreCase.Text = "Ignore case during comparing";
       // 
-      // BalloonTip1
-      // 
-      this.BalloonTip1.Style = DevComponents.DotNetBar.eBallonStyle.Alert;
-      // 
       // frmCompareFileTAG
       // 
       this.AcceptButton = this.btnOK;
@@ -491,67 +486,42 @@ namespace ID3_TagIT
       ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).EndInit();
       this.framePara.ResumeLayout(false);
       this.ResumeLayout(false);
+
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+        this.components.Dispose();
+
+      base.Dispose(disposing);
     }
 
     public frmCompareFileTAG(ref frmMain FormMain)
     {
-      base.Load += new EventHandler(this.frmTAG2ToFilename_Load);
+      base.Load += new EventHandler(this.frmCompareFileTAG_Load);
       this.InitializeComponent();
       this.MainForm = FormMain;
     }
 
-    private void AddToolTips()
-    {
-      string vstrName = "frmCompareFileTAG";
-      Control txtDigits = this.txtDigits;
-      this.txtDigits = (NumericUpDown)txtDigits;
-      this.ToolTip.SetToolTip(this.txtDigits, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmCompareFileTAG";
-      txtDigits = this.btnRemove;
-      this.btnRemove = (Button)txtDigits;
-      this.ToolTip.SetToolTip(this.btnRemove, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmCompareFileTAG";
-      txtDigits = this.btnAdd;
-      this.btnAdd = (Button)txtDigits;
-      this.ToolTip.SetToolTip(this.btnAdd, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmCompareFileTAG";
-      txtDigits = this.cmbFormat;
-      this.cmbFormat = (ComboBox)txtDigits;
-      this.ToolTip.SetToolTip(this.cmbFormat, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmCompareFileTAG";
-      txtDigits = this.optTAGV1;
-      this.optTAGV1 = (RadioButton)txtDigits;
-      this.ToolTip.SetToolTip(this.optTAGV1, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmCompareFileTAG";
-      txtDigits = this.optTAGV2;
-      this.optTAGV2 = (RadioButton)txtDigits;
-      this.ToolTip.SetToolTip(this.optTAGV2, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmCompareFileTAG";
-      txtDigits = this.chkReplaceUnderScore;
-      this.chkReplaceUnderScore = (CheckBox)txtDigits;
-      this.ToolTip.SetToolTip(this.chkReplaceUnderScore, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmCompareFileTAG";
-      txtDigits = this.chkIgnoreCase;
-      this.chkIgnoreCase = (CheckBox)txtDigits;
-      this.ToolTip.SetToolTip(this.chkIgnoreCase, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-    }
+    #endregion
+
+    #region Events
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
       if (StringType.StrCmp(this.cmbFormat.Text, "", false) != 0)
-      {
         this.cmbFormat.Items.Add(this.cmbFormat.Text);
-      }
     }
 
     private void btnOK_Click(object sender, EventArgs e)
     {
       string vstrFormat = "";
       vstrFormat = this.cmbFormat.Text.TrimStart(new char[] { ' ' });
+
       if (vstrFormat.IndexOf(":") >= 0)
-      {
         vstrFormat = vstrFormat.Substring(vstrFormat.IndexOf(":") + 1).TrimStart(new char[] { ' ' });
-      }
+
       if (this.optTAGV2.Checked)
       {
         switch (ID3Functions.FormatReplaceCheck(vstrFormat, Declarations.FormatReplace.CompareTAGFilename | Declarations.FormatReplace.TAGVer2))
@@ -582,28 +552,30 @@ namespace ID3_TagIT
             return;
         }
       }
+
       Form form = this;
       Id3TagIT_Main.SaveFormSettings(ref form);
+
       if (this.optTAGV2.Checked)
-      {
         Declarations.objSettings.CompareFileTAGVersion = 2;
-      }
       else
-      {
         Declarations.objSettings.CompareFileTAGVersion = 1;
-      }
+
       Declarations.objSettings.CompareFormats.Rows.Clear();
       Declarations.objSettings.CompareFormat = this.cmbFormat.Text;
       Declarations.objSettings.CompareFileTAGReplace = this.chkReplaceUnderScore.Checked;
       Declarations.objSettings.CompareFileTAGIgnoreCase = this.chkIgnoreCase.Checked;
       Declarations.objSettings.TracknumberDigitsFilename = Convert.ToByte(this.txtDigits.Value);
+
       int num2 = this.cmbFormat.Items.Count - 1;
+
       for (int i = 0; i <= num2; i++)
       {
         DataRow row = Declarations.objSettings.CompareFormats.NewRow();
         row["Format"] = this.cmbFormat.Items[i].ToString();
         Declarations.objSettings.CompareFormats.Rows.Add(row);
       }
+
       this.MainForm.MP3View.BeginUpdate();
       form = this;
       frmProgress.Callback cB = new frmProgress.Callback(this.CompareFileTAGCB);
@@ -636,71 +608,7 @@ namespace ID3_TagIT
       }
     }
 
-    private void CompareFileTAGCB(ref frmProgress frmProg)
-    {
-      foreach (ListViewItem item in this.MainForm.MP3View.Items)
-      {
-        Application.DoEvents();
-        if (frmProg.Canceled)
-        {
-          break;
-        }
-        MP3 tag = (MP3)item.Tag;
-        frmProg.Infos.Text = tag.CurrentFullName;
-        string sLeft = ID3Functions.FormatReplacedByTag(tag, frmProg.String01, ByteType.FromObject(Interaction.IIf(this.optTAGV1.Checked, 1, 2))) + tag.FI.Extension;
-        if (this.chkReplaceUnderScore.Checked)
-        {
-          sLeft = sLeft.Replace("<", "_").Replace(">", "_").Replace("|", "_").Replace("\"", "_").Replace("/", "_").Replace("*", "_").Replace("?", "_").Replace(":", "_").Trim(new char[] { ' ' });
-        }
-        if (this.chkIgnoreCase.Checked)
-        {
-          sLeft = sLeft.ToLower();
-        }
-        if (StringType.StrCmp(sLeft, "", false) != 0)
-        {
-          tag.FileTAGCompare = false;
-          item.BackColor = SystemColors.Window;
-          item.ForeColor = SystemColors.WindowText;
-          if (tag.Changed)
-          {
-            item.BackColor = Color.FromArgb(Declarations.objSettings.ColorChangedBack);
-            item.ForeColor = Color.FromArgb(Declarations.objSettings.ColorChangedText);
-          }
-          if (tag.Doubled)
-          {
-            item.BackColor = Color.FromArgb(Declarations.objSettings.ColorDoubleBack);
-            item.ForeColor = Color.FromArgb(Declarations.objSettings.ColorDoubleText);
-          }
-          if (this.chkIgnoreCase.Checked)
-          {
-            if (!tag.CurrentFullName.ToLower().EndsWith(sLeft))
-            {
-              tag.FileTAGCompare = true;
-              item.BackColor = Color.FromArgb(Declarations.objSettings.ColorCompareBack);
-              item.ForeColor = Color.FromArgb(Declarations.objSettings.ColorCompareText);
-            }
-          }
-          else if (!tag.CurrentFullName.EndsWith(sLeft))
-          {
-            tag.FileTAGCompare = true;
-            item.BackColor = Color.FromArgb(Declarations.objSettings.ColorCompareBack);
-            item.ForeColor = Color.FromArgb(Declarations.objSettings.ColorCompareText);
-          }
-        }
-        frmProg.ProgressBar.PerformStep();
-      }
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-      {
-        this.components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
-
-    private void frmTAG2ToFilename_Load(object sender, EventArgs e)
+    private void frmCompareFileTAG_Load(object sender, EventArgs e)
     {
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
@@ -708,21 +616,19 @@ namespace ID3_TagIT
       Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
       Id3TagIT_Main.WindowsXPCheck(ref objForm);
+
       int num2 = Declarations.objSettings.CompareFormats.Rows.Count - 1;
       for (int i = 0; i <= num2; i++)
-      {
         this.cmbFormat.Items.Add(RuntimeHelpers.GetObjectValue(Declarations.objSettings.CompareFormats.Rows[i]["Format"]));
-      }
+
       this.cmbFormat.Text = Declarations.objSettings.CompareFormat;
       this.txtDigits.Value = new decimal(Declarations.objSettings.TracknumberDigitsFilename);
+
       if (Declarations.objSettings.CompareFileTAGVersion == 1)
-      {
         this.optTAGV1.Checked = true;
-      }
       else
-      {
         this.optTAGV2.Checked = true;
-      }
+
       this.chkReplaceUnderScore.Checked = Declarations.objSettings.CompareFileTAGReplace;
       this.chkIgnoreCase.Checked = Declarations.objSettings.CompareFileTAGIgnoreCase;
       this.AddToolTips();
@@ -732,6 +638,7 @@ namespace ID3_TagIT
     {
       string selectedText = this.cmbFormat.SelectedText;
       int selectionStart = this.cmbFormat.SelectionStart;
+
       if (this.cmbFormat.SelectionLength == 0)
       {
         this.cmbFormat.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(this.cmbFormat.Text.Substring(0, this.cmbFormat.SelectionStart), LateBinding.LateGet(LateBinding.LateGet(sender, null, "Text", new object[0], null, null), null, "Substring", new object[] { 0, 3 }, null, null)), this.cmbFormat.Text.Substring(this.cmbFormat.SelectionStart)));
@@ -748,44 +655,132 @@ namespace ID3_TagIT
 
     private void optTAG_CheckedChanged(object sender, EventArgs e)
     {
-      if (this.optTAGV2.Checked)
-      {
-        this.L8.Visible = true;
-        this.L9.Visible = true;
-        this.L10.Visible = true;
-        this.L11.Visible = true;
-        this.L12.Visible = true;
-        this.L13.Visible = true;
-        this.L14.Visible = true;
-        this.L15.Visible = true;
-        this.L16.Visible = true;
-        this.L17.Visible = true;
-      }
-      else
-      {
-        this.L8.Visible = false;
-        this.L9.Visible = false;
-        this.L10.Visible = false;
-        this.L11.Visible = false;
-        this.L12.Visible = false;
-        this.L13.Visible = false;
-        this.L14.Visible = false;
-        this.L15.Visible = false;
-        this.L16.Visible = false;
-        this.L17.Visible = false;
-      }
+      this.L8.Visible = this.optTAGV2.Checked;
+      this.L9.Visible = this.optTAGV2.Checked;
+      this.L10.Visible = this.optTAGV2.Checked;
+      this.L11.Visible = this.optTAGV2.Checked;
+      this.L12.Visible = this.optTAGV2.Checked;
+      this.L13.Visible = this.optTAGV2.Checked;
+      this.L14.Visible = this.optTAGV2.Checked;
+      this.L15.Visible = this.optTAGV2.Checked;
+      this.L16.Visible = this.optTAGV2.Checked;
+      this.L17.Visible = this.optTAGV2.Checked;
     }
 
     private void txtDigits_Validated(object sender, EventArgs e)
     {
       if (decimal.Compare(this.txtDigits.Value, this.txtDigits.Minimum) < 0)
-      {
         this.txtDigits.Value = this.txtDigits.Minimum;
-      }
+
       if (decimal.Compare(this.txtDigits.Value, this.txtDigits.Maximum) > 0)
-      {
         this.txtDigits.Value = this.txtDigits.Maximum;
+    }
+
+    #endregion
+
+    #region Class logic
+
+    private void AddToolTips()
+    {
+      string vstrName = "frmCompareFileTAG";
+      Control txtDigits = this.txtDigits;
+      this.txtDigits = (NumericUpDown)txtDigits;
+      this.ToolTip.SetToolTip(this.txtDigits, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+
+      vstrName = "frmCompareFileTAG";
+      txtDigits = this.btnRemove;
+      this.btnRemove = (Button)txtDigits;
+      this.ToolTip.SetToolTip(this.btnRemove, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+
+      vstrName = "frmCompareFileTAG";
+      txtDigits = this.btnAdd;
+      this.btnAdd = (Button)txtDigits;
+      this.ToolTip.SetToolTip(this.btnAdd, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+
+      vstrName = "frmCompareFileTAG";
+      txtDigits = this.cmbFormat;
+      this.cmbFormat = (ComboBox)txtDigits;
+      this.ToolTip.SetToolTip(this.cmbFormat, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+
+      vstrName = "frmCompareFileTAG";
+      txtDigits = this.optTAGV1;
+      this.optTAGV1 = (RadioButton)txtDigits;
+      this.ToolTip.SetToolTip(this.optTAGV1, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+
+      vstrName = "frmCompareFileTAG";
+      txtDigits = this.optTAGV2;
+      this.optTAGV2 = (RadioButton)txtDigits;
+      this.ToolTip.SetToolTip(this.optTAGV2, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+
+      vstrName = "frmCompareFileTAG";
+      txtDigits = this.chkReplaceUnderScore;
+      this.chkReplaceUnderScore = (CheckBox)txtDigits;
+      this.ToolTip.SetToolTip(this.chkReplaceUnderScore, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+
+      vstrName = "frmCompareFileTAG";
+      txtDigits = this.chkIgnoreCase;
+      this.chkIgnoreCase = (CheckBox)txtDigits;
+      this.ToolTip.SetToolTip(this.chkIgnoreCase, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+    }
+
+    private void CompareFileTAGCB(ref frmProgress frmProg)
+    {
+      foreach (ListViewItem item in this.MainForm.MP3View.Items)
+      {
+        Application.DoEvents();
+
+        if (frmProg.Canceled)
+          break;
+
+        MP3 tag = (MP3)item.Tag;
+        frmProg.Infos.Text = tag.CurrentFullName;
+        string sLeft = ID3Functions.FormatReplacedByTag(tag, frmProg.String01, ByteType.FromObject(Interaction.IIf(this.optTAGV1.Checked, 1, 2))) + tag.FI.Extension;
+
+        if (this.chkReplaceUnderScore.Checked)
+          sLeft = sLeft.Replace("<", "_").Replace(">", "_").Replace("|", "_").Replace("\"", "_").Replace("/", "_").Replace("*", "_").Replace("?", "_").Replace(":", "_").Trim(new char[] { ' ' });
+
+        if (this.chkIgnoreCase.Checked)
+          sLeft = sLeft.ToLower();
+
+        if (StringType.StrCmp(sLeft, "", false) != 0)
+        {
+          tag.FileTAGCompare = false;
+          item.BackColor = SystemColors.Window;
+          item.ForeColor = SystemColors.WindowText;
+
+          if (tag.Changed)
+          {
+            item.BackColor = Color.FromArgb(Declarations.objSettings.ColorChangedBack);
+            item.ForeColor = Color.FromArgb(Declarations.objSettings.ColorChangedText);
+          }
+
+          if (tag.Doubled)
+          {
+            item.BackColor = Color.FromArgb(Declarations.objSettings.ColorDoubleBack);
+            item.ForeColor = Color.FromArgb(Declarations.objSettings.ColorDoubleText);
+          }
+
+          if (this.chkIgnoreCase.Checked)
+          {
+            if (!tag.CurrentFullName.ToLower().EndsWith(sLeft))
+            {
+              tag.FileTAGCompare = true;
+              item.BackColor = Color.FromArgb(Declarations.objSettings.ColorCompareBack);
+              item.ForeColor = Color.FromArgb(Declarations.objSettings.ColorCompareText);
+            }
+          }
+          else if (!tag.CurrentFullName.EndsWith(sLeft))
+          {
+            tag.FileTAGCompare = true;
+            item.BackColor = Color.FromArgb(Declarations.objSettings.ColorCompareBack);
+            item.ForeColor = Color.FromArgb(Declarations.objSettings.ColorCompareText);
+          }
+        }
+
+        frmProg.ProgressBar.PerformStep();
       }
     }
+
+    #endregion
   }
 }

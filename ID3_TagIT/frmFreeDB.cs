@@ -14,6 +14,8 @@ namespace ID3_TagIT
 {
   public class frmFreeDB : Form
   {
+    #region Designer
+
     private Button btnCancel;
     private Button btnClose;
     private Button btnQuery;
@@ -40,9 +42,15 @@ namespace ID3_TagIT
     private TextBox txtSearch;
     public ArrayList alstFilesToTAG;
     private IContainer components;
-    private ID3_TagIT.FreeDB FreeDB;
     private frmMain MainForm;
-    private bool vbooCancel;
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+        this.components.Dispose();
+
+      base.Dispose(disposing);
+    }
 
     [DebuggerStepThrough]
     private void InitializeComponent()
@@ -80,7 +88,7 @@ namespace ID3_TagIT
       // 
       // lblInfo
       // 
-      this.lblInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+      this.lblInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.lblInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -94,7 +102,7 @@ namespace ID3_TagIT
       // 
       // btnQuery
       // 
-      this.btnQuery.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.btnQuery.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.btnQuery.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.btnQuery.Location = new System.Drawing.Point(8, 96);
@@ -114,8 +122,8 @@ namespace ID3_TagIT
       // 
       // ResultTree
       // 
-      this.ResultTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+      this.ResultTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.ResultTree.Indent = 19;
       this.ResultTree.ItemHeight = 16;
@@ -139,7 +147,7 @@ namespace ID3_TagIT
       // 
       // pnlWrite
       // 
-      this.pnlWrite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.pnlWrite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.pnlWrite.Controls.Add(this.btnWrite);
       this.pnlWrite.Controls.Add(this.chkWrite2);
@@ -222,7 +230,7 @@ namespace ID3_TagIT
       // 
       // btnSearch
       // 
-      this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.btnSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.btnSearch.Location = new System.Drawing.Point(8, 96);
@@ -234,7 +242,7 @@ namespace ID3_TagIT
       // 
       // txtSearch
       // 
-      this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.txtSearch.Location = new System.Drawing.Point(8, 16);
       this.txtSearch.Name = "txtSearch";
@@ -255,7 +263,7 @@ namespace ID3_TagIT
       // 
       // grpStatus
       // 
-      this.grpStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.grpStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.grpStatus.Controls.Add(this.btnCancel);
       this.grpStatus.Controls.Add(this.Status);
@@ -268,7 +276,7 @@ namespace ID3_TagIT
       // 
       // grpSearchWord
       // 
-      this.grpSearchWord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.grpSearchWord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.grpSearchWord.Controls.Add(this.chkArtistExact);
       this.grpSearchWord.Controls.Add(this.chkArtist);
@@ -315,7 +323,7 @@ namespace ID3_TagIT
       // 
       // grpSearchFile
       // 
-      this.grpSearchFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.grpSearchFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.grpSearchFile.Controls.Add(this.lblSearchWord);
       this.grpSearchFile.Controls.Add(this.btnQuery);
@@ -328,7 +336,7 @@ namespace ID3_TagIT
       // 
       // lblSearchWord
       // 
-      this.lblSearchWord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.lblSearchWord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.lblSearchWord.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.lblSearchWord.Location = new System.Drawing.Point(8, 24);
@@ -336,8 +344,7 @@ namespace ID3_TagIT
       this.lblSearchWord.Size = new System.Drawing.Size(232, 56);
       this.lblSearchWord.TabIndex = 3;
       this.lblSearchWord.Text = "ID3-TagIT will try to find the CDs that match the selected MP3 files. So it is ne" +
-    "ssesary for a successful search to select all files of the album in the correct " +
-    "order.";
+    "ssesary for a successful search to select all files of the album in the correct order.";
       this.lblSearchWord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // frmFreeDB
@@ -377,45 +384,26 @@ namespace ID3_TagIT
       this.MainForm = frmM;
     }
 
-    private void AddToolTips()
+    #endregion
+
+    #region Local variables
+
+    private ID3_TagIT.FreeDB FreeDB;
+    private bool vbooCancel;
+
+    [StructLayout(LayoutKind.Sequential)]
+    private struct Result
     {
-      string vstrName = "frmFreeDB";
-      Control btnQuery = this.btnQuery;
-      this.btnQuery = (Button)btnQuery;
-      this.ToolTip.SetToolTip(this.btnQuery, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
-      vstrName = "frmFreeDB";
-      btnQuery = this.optVariousArtist;
-      this.optVariousArtist = (RadioButton)btnQuery;
-      this.ToolTip.SetToolTip(this.optVariousArtist, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
-      vstrName = "frmFreeDB";
-      btnQuery = this.optSingleArtist;
-      this.optSingleArtist = (RadioButton)btnQuery;
-      this.ToolTip.SetToolTip(this.optSingleArtist, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
-      vstrName = "frmFreeDB";
-      btnQuery = this.chkTrack;
-      this.chkTrack = (CheckBox)btnQuery;
-      this.ToolTip.SetToolTip(this.chkTrack, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
-      vstrName = "frmFreeDB";
-      btnQuery = this.chkTitle;
-      this.chkTitle = (CheckBox)btnQuery;
-      this.ToolTip.SetToolTip(this.chkTitle, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
-      vstrName = "frmFreeDB";
-      btnQuery = this.btnSearch;
-      this.btnSearch = (Button)btnQuery;
-      this.ToolTip.SetToolTip(this.btnSearch, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
-      vstrName = "frmFreeDB";
-      btnQuery = this.chkArtistExact;
-      this.chkArtistExact = (CheckBox)btnQuery;
-      this.ToolTip.SetToolTip(this.chkArtistExact, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
-      vstrName = "frmFreeDB";
-      btnQuery = this.chkArtist;
-      this.chkArtist = (CheckBox)btnQuery;
-      this.ToolTip.SetToolTip(this.chkArtist, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
-      vstrName = "frmFreeDB";
-      btnQuery = this.chkComplete;
-      this.chkComplete = (CheckBox)btnQuery;
-      this.ToolTip.SetToolTip(this.chkComplete, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
+      public string Artist;
+      public string Album;
+      public ArrayList Tracks;
+      public string Year;
+      public string Genre;
     }
+
+    #endregion
+
+    #region Events
 
     private void btnCancel_Click(object sender, EventArgs e)
     {
@@ -440,17 +428,21 @@ namespace ID3_TagIT
       int[] tracksLength = new int[(this.MainForm.MP3View.SelectedItems.Count - 1) + 1];
       ArrayList returnedMatches = new ArrayList();
       this.FreeDB = new ID3_TagIT.FreeDB(Declarations.objSettings.FreeDBUser, "www.id3-tagit.de", "ID3-TagIT", Application.ProductVersion.ToString(), Declarations.objSettings.FreeDBServer, Declarations.objSettings.FreeDBPort);
+
       int num2 = this.MainForm.MP3View.SelectedItems.Count - 1;
+
       for (int i = 0; i <= num2; i++)
       {
         MP3 tag = (MP3)this.MainForm.MP3View.SelectedItems[i].Tag;
         tracksLength[i] = tag.Duration;
       }
+
       string discID = this.FreeDB.HTMLCalcDiskID(tracksLength);
       Application.DoEvents();
       this.Status.Text = StringType.FromObject(Declarations.objResources.ResStrings["Querying"]);
       bool flag = false;
       this.ResultTree.Nodes.Clear();
+
       switch (this.FreeDB.HTMLQuery(discID, tracksLength, ref returnedMatches))
       {
         case ID3_TagIT.FreeDB.FreeDBQueryResult.FoundExactMatch:
@@ -462,13 +454,16 @@ namespace ID3_TagIT
             string str5;
             string str6 = null;
             Application.DoEvents();
+
             if (this.vbooCancel)
             {
               this.vbooCancel = false;
               break;
             }
+
             ArrayList returnedTracks = new ArrayList();
             str4 = this.FreeDB.HTMLRead(item.Category, item.DiscID, ref str2, ref str, ref returnedTracks, ref str6) + "\r\n";
+
             Result result = new Result
             {
               Artist = str2,
@@ -477,7 +472,9 @@ namespace ID3_TagIT
               Year = str6,
               Genre = Strings.StrConv(item.Category, VbStrConv.ProperCase, 0)
             };
+
             bool flag2 = false;
+
             foreach (TreeNode node in this.ResultTree.Nodes)
             {
               if (StringType.StrCmp(node.Text, str2.Trim(new char[] { ' ' }), false) == 0)
@@ -488,49 +485,53 @@ namespace ID3_TagIT
                   Text = str.Trim(new char[] { ' ' }),
                   Tag = result
                 };
+
                 var enumerator2 = returnedTracks.GetEnumerator();
+
                 while (enumerator2.MoveNext())
                 {
                   str5 = StringType.FromObject(enumerator2.Current);
                   node2.Nodes.Add(str5.Trim(new char[] { ' ' }));
                 }
+
                 if (returnedTracks.Count > 0)
                 {
                   flag2 = true;
                   node3.Nodes.Add(node2);
                   flag = true;
                 }
+
                 node3.Expand();
               }
+
               if (flag2)
                 break;
             }
+
             if (!flag2)
             {
-              TreeNode node5 = new TreeNode
-              {
-                Text = str2.Trim(new char[] { ' ' })
-              };
-              TreeNode node4 = new TreeNode
-              {
-                Text = str.Trim(new char[] { ' ' }),
-                Tag = result
-              };
+              TreeNode node5 = new TreeNode { Text = str2.Trim(new char[] { ' ' }) };
+              TreeNode node4 = new TreeNode { Text = str.Trim(new char[] { ' ' }), Tag = result };
+
               var enumerator = returnedTracks.GetEnumerator();
+
               while (enumerator.MoveNext())
               {
                 str5 = StringType.FromObject(enumerator.Current);
                 node4.Nodes.Add(str5.Trim(new char[] { ' ' }));
               }
+
               if (returnedTracks.Count > 0)
               {
                 node5.Nodes.Add(node4);
                 this.ResultTree.Nodes.Add(node5);
                 flag = true;
               }
+
               node5.Expand();
             }
           }
+
           break;
 
         default:
@@ -538,6 +539,7 @@ namespace ID3_TagIT
           this.pnlWrite.Enabled = false;
           goto Label_0515;
       }
+
       if (flag)
       {
         this.Status.Text = StringType.FromObject(Declarations.objResources.ResStrings["Matches"]);
@@ -548,6 +550,7 @@ namespace ID3_TagIT
         this.Status.Text = StringType.FromObject(Declarations.objResources.ResStrings["NoMatches"]);
         this.pnlWrite.Enabled = false;
       }
+
       Label_0515:
       this.btnClose.Enabled = true;
       this.btnSearch.Enabled = true;
@@ -564,23 +567,22 @@ namespace ID3_TagIT
       this.btnCancel.Enabled = true;
       string requestUriString = "http://www.freedb.org/freedb_search.php?";
       requestUriString = (requestUriString + "words=" + this.txtSearch.Text.Replace(" ", "+")) + "&allfields=NO";
+
       if (this.chkArtist.Checked | this.chkArtistExact.Checked)
-      {
         requestUriString = requestUriString + "&fields=artist";
-      }
+
       if (this.chkTitle.Checked)
-      {
         requestUriString = requestUriString + "&fields=title";
-      }
+
       if (this.chkTrack.Checked)
-      {
         requestUriString = requestUriString + "&fields=track";
-      }
+
       requestUriString = requestUriString + "&allcats=YES&grouping=none";
       this.Status.Text = StringType.FromObject(Declarations.objResources.ResStrings["Connecting"]);
       Application.DoEvents();
       this.FreeDB = new ID3_TagIT.FreeDB(Declarations.objSettings.FreeDBUser, "www.id3-tagit.de", "ID3-TagIT", Application.ProductVersion.ToString(), Declarations.objSettings.FreeDBServer, Declarations.objSettings.FreeDBPort);
       string str = "";
+
       try
       {
         str = new StreamReader(WebRequest.Create(requestUriString).GetResponse().GetResponseStream()).ReadToEnd();
@@ -590,13 +592,17 @@ namespace ID3_TagIT
         ProjectData.SetProjectError(exception1);
         ProjectData.ClearProjectError();
       }
+
       ArrayList list = new ArrayList();
+
       if (str.IndexOf("http://www.freedb.org/freedb_search_fmt.php?") >= 0)
       {
         str = str.Substring(str.IndexOf("cat="));
+
         while (str.IndexOf("cat=") >= 0)
         {
           list.Add(str.Substring(str.IndexOf("cat=") + 4, (str.IndexOf('"', str.IndexOf("cat=") + 4) - str.IndexOf("cat=")) - 4));
+
           try
           {
             str = str.Substring(str.IndexOf("cat=", 1));
@@ -610,11 +616,14 @@ namespace ID3_TagIT
           }
         }
       }
+
       string str5 = "";
       this.Status.Text = StringType.FromObject(Declarations.objResources.ResStrings["Querying"]);
       bool flag2 = false;
       this.ResultTree.Nodes.Clear();
+
       var enumerator6 = list.GetEnumerator();
+
       while (enumerator6.MoveNext())
       {
         string str2 = null;
@@ -622,14 +631,17 @@ namespace ID3_TagIT
         string str8 = null;
         string str4 = StringType.FromObject(enumerator6.Current);
         Application.DoEvents();
+
         if (this.vbooCancel)
         {
           this.vbooCancel = false;
           goto Label_0903;
         }
+
         ArrayList returnedTracks = new ArrayList();
         str5 = this.FreeDB.HTMLRead(str4.Substring(0, str4.IndexOf("&")), str4.Substring(str4.IndexOf("&") + 4), ref str3, ref str2, ref returnedTracks, ref str8) + "\r\n";
         bool flag = false;
+
         if ((((this.chkArtistExact.Checked & (StringType.StrCmp(str3.ToLower(), this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower(), false) == 0)) | this.chkArtist.Checked) | this.chkTitle.Checked) | this.chkTrack.Checked)
         {
           string str6;
@@ -641,6 +653,7 @@ namespace ID3_TagIT
             Year = str8,
             Genre = Strings.StrConv(str4.Substring(0, str4.IndexOf("&")), VbStrConv.ProperCase, 0)
           };
+
           bool flag3 = false;
           foreach (TreeNode node2 in this.ResultTree.Nodes)
           {
@@ -652,39 +665,38 @@ namespace ID3_TagIT
                 Text = str2.Trim(new char[] { ' ' }),
                 Tag = result
               };
+
               var enumerator4 = returnedTracks.GetEnumerator();
               while (enumerator4.MoveNext())
               {
                 str6 = StringType.FromObject(enumerator4.Current);
                 node3.Nodes.Add(str6.Trim(new char[] { ' ' }));
               }
+
               if (returnedTracks.Count > 0)
               {
                 flag3 = true;
+
                 if (this.chkComplete.Checked)
                 {
                   if (this.chkArtist.Checked & (str3.ToLower().Trim(new char[] { ' ' }).IndexOf(this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower()) >= 0))
-                  {
                     flag = true;
-                  }
+
                   if (this.chkTitle.Checked & (str2.ToLower().Trim(new char[] { ' ' }).IndexOf(this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower()) >= 0))
-                  {
                     flag = true;
-                  }
+
                   if (this.chkTrack.Checked)
                   {
                     foreach (TreeNode node in node3.Nodes)
                     {
                       if (flag)
-                      {
                         break;
-                      }
+
                       if (node.Text.ToLower().Trim(new char[] { ' ' }).IndexOf(this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower()) >= 0)
-                      {
                         flag = true;
-                      }
                     }
                   }
+
                   if (flag)
                   {
                     node4.Nodes.Add(node3);
@@ -697,56 +709,48 @@ namespace ID3_TagIT
                   flag2 = true;
                 }
               }
+
               node4.Expand();
             }
+
             if (flag3)
-            {
               break;
-            }
           }
+
           if (!flag3)
           {
-            TreeNode node6 = new TreeNode
-            {
-              Text = str3.Trim(new char[] { ' ' })
-            };
-            TreeNode node5 = new TreeNode
-            {
-              Text = str2.Trim(new char[] { ' ' }),
-              Tag = result
-            };
+            TreeNode node6 = new TreeNode { Text = str3.Trim(new char[] { ' ' }) };
+            TreeNode node5 = new TreeNode { Text = str2.Trim(new char[] { ' ' }), Tag = result };
+
             var enumerator2 = returnedTracks.GetEnumerator();
             while (enumerator2.MoveNext())
             {
               str6 = StringType.FromObject(enumerator2.Current);
               node5.Nodes.Add(str6.Trim(new char[] { ' ' }));
             }
+
             if (returnedTracks.Count > 0)
             {
               if (this.chkComplete.Checked)
               {
                 if (this.chkArtist.Checked & (str3.ToLower().Trim(new char[] { ' ' }).IndexOf(this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower()) >= 0))
-                {
                   flag = true;
-                }
+
                 if (this.chkTitle.Checked & (str2.ToLower().Trim(new char[] { ' ' }).IndexOf(this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower()) >= 0))
-                {
                   flag = true;
-                }
+
                 if (this.chkTrack.Checked)
                 {
                   foreach (TreeNode node in node5.Nodes)
                   {
                     if (flag)
-                    {
                       break;
-                    }
+
                     if (node.Text.ToLower().Trim(new char[] { ' ' }).IndexOf(this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower()) >= 0)
-                    {
                       flag = true;
-                    }
                   }
                 }
+
                 if (flag)
                 {
                   node6.Nodes.Add(node5);
@@ -761,10 +765,12 @@ namespace ID3_TagIT
                 flag2 = true;
               }
             }
+
             node6.Expand();
           }
         }
       }
+
       Label_0903:
       if (flag2)
       {
@@ -776,6 +782,7 @@ namespace ID3_TagIT
         this.Status.Text = StringType.FromObject(Declarations.objResources.ResStrings["NoMatches"]);
         this.pnlWrite.Enabled = false;
       }
+
       this.btnSearch.Enabled = true;
       this.btnQuery.Enabled = true;
       this.btnClose.Enabled = true;
@@ -792,26 +799,22 @@ namespace ID3_TagIT
       Declarations.objSettings.FreeDBWrite2 = this.chkWrite2.Checked;
       Declarations.objSettings.FreeDBLastSearch = this.txtSearch.Text;
       byte num2 = 0;
+
       if (this.chkArtist.Checked)
-      {
         num2 = (byte)(num2 | 1);
-      }
+
       if (this.chkTitle.Checked)
-      {
         num2 = (byte)(num2 | 2);
-      }
+
       if (this.chkTrack.Checked)
-      {
         num2 = (byte)(num2 | 4);
-      }
+
       if (this.chkArtistExact.Checked)
-      {
         num2 = (byte)(num2 | 8);
-      }
+
       if (this.chkComplete.Checked)
-      {
         num2 = (byte)(num2 | 0x10);
-      }
+
       Declarations.objSettings.FreeDBSearchOptions = num2;
       if (ObjectType.ObjTst(this.Status.Text, Declarations.objResources.ResStrings["NoMatches"], false) != 0)
       {
@@ -822,24 +825,25 @@ namespace ID3_TagIT
           this.alstFilesToTAG.Clear();
           associate.lblYear.Text = StringType.FromObject(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Year", new object[0], null, null));
           associate.lblGenre.Text = StringType.FromObject(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Genre", new object[0], null, null));
+
           foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
-          {
             LateBinding.LateCall(associate.lvwFiles.Items, null, "Add", new object[] { RuntimeHelpers.GetObjectValue(item.Clone()) }, null, null);
-          }
+
           var enumerator2 = ((IEnumerable)LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Tracks", new object[0], null, null)).GetEnumerator();
           while (enumerator2.MoveNext())
           {
             string text = StringType.FromObject(enumerator2.Current);
             associate.lvwFreeDB.Items.Add(text);
           }
+
           if (associate.lvwFiles.Items.Count < associate.lvwFreeDB.Items.Count)
           {
             int count = associate.lvwFreeDB.Items.Count;
+
             for (num = associate.lvwFiles.Items.Count + 1; num <= count; num++)
-            {
               associate.lvwFiles.Items.Add("***** Ignore *****");
-            }
           }
+
           if (associate.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
           {
             int num4;
@@ -849,6 +853,7 @@ namespace ID3_TagIT
             bool[] flagArray2;
             object[] objArray3;
             int num10 = this.alstFilesToTAG.Count - 1;
+
             for (num = 0; num <= num10; num++)
             {
               if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.NotObj(LateBinding.LateGet(LateBinding.LateGet(this.alstFilesToTAG[num], null, "Text", new object[0], null, null), null, "StartsWith", new object[] { "*" }, null, null)), LateBinding.LateGet(this.alstFilesToTAG[num], null, "Checked", new object[0], null, null))))
@@ -858,7 +863,9 @@ namespace ID3_TagIT
                 list.Add(@do);
               }
             }
+
             this.MainForm.UnDoEnable(true, true);
+
             if (this.chkWrite1.Checked)
             {
               string sLeft = StringType.FromObject(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Artist", new object[0], null, null));
@@ -866,62 +873,70 @@ namespace ID3_TagIT
               string str5 = StringType.FromObject(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Year", new object[0], null, null));
               string str4 = StringType.FromObject(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Genre", new object[0], null, null));
               num4 = IntegerType.FromObject(LateBinding.LateGet(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Tracks", new object[0], null, null), null, "Count", new object[0], null, null));
+
               if (this.optSingleArtist.Checked)
               {
                 int num9 = num4 - 1;
+
                 for (num = 0; num <= num9; num++)
                 {
                   if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.NotObj(LateBinding.LateGet(LateBinding.LateGet(this.alstFilesToTAG[num], null, "Text", new object[0], null, null), null, "StartsWith", new object[] { "*" }, null, null)), LateBinding.LateGet(this.alstFilesToTAG[num], null, "Checked", new object[0], null, null))))
                   {
                     MP3 mp2 = (MP3)LateBinding.LateGet(this.alstFilesToTAG[num], null, "Tag", new object[0], null, null);
+
                     if ((StringType.StrCmp(sLeft, mp2.V1TAG.Artist, false) != 0) & (StringType.StrCmp(sLeft, "", false) != 0))
                     {
                       mp2.V1TAG.Artist = sLeft;
                       mp2.V1TAG.TAGPresent = true;
                       mp2.Changed = true;
                     }
+
                     if ((StringType.StrCmp(str2, mp2.V1TAG.Album, false) != 0) & (StringType.StrCmp(str2, "", false) != 0))
                     {
                       mp2.V1TAG.Album = str2;
                       mp2.V1TAG.TAGPresent = true;
                       mp2.Changed = true;
                     }
+
                     if ((StringType.StrCmp(str5, mp2.V1TAG.Year.ToString(), false) != 0) & (StringType.StrCmp(str5, "", false) != 0))
                     {
                       mp2.V1TAG.Year = (int)Math.Round(Conversion.Val(str5));
                       mp2.V1TAG.TAGPresent = true;
                       mp2.Changed = true;
                     }
+
                     if ((StringType.StrCmp(str4, mp2.V1TAG.GenreText, false) != 0) & (StringType.StrCmp(str4, "", false) != 0))
                     {
                       mp2.V1TAG.GenreText = str4;
                       mp2.V1TAG.TAGPresent = true;
                       mp2.Changed = true;
                     }
+
                     object[] args = new object[] { num };
                     bool[] copyBack = new bool[] { true };
+
                     if (copyBack[0])
-                    {
                       num = IntegerType.FromObject(args[0]);
-                    }
+
                     objArray3 = new object[] { num };
                     flagArray2 = new bool[] { true };
+
                     if (flagArray2[0])
-                    {
                       num = IntegerType.FromObject(objArray3[0]);
-                    }
+
                     if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.ObjTst(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Tracks", args, null, copyBack), mp2.V1TAG.Title, false) != 0, ObjectType.ObjTst(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Tracks", objArray3, null, flagArray2), "", false) != 0)))
                     {
                       objArray = new object[] { num };
                       flagArray = new bool[] { true };
+
                       if (flagArray[0])
-                      {
                         num = IntegerType.FromObject(objArray[0]);
-                      }
+
                       mp2.V1TAG.Title = StringType.FromObject(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Tracks", objArray, null, flagArray));
                       mp2.V1TAG.TAGPresent = true;
                       mp2.Changed = true;
                     }
+
                     if (mp2.V1TAG.Tracknumber != (num + 1))
                     {
                       mp2.V1TAG.Tracknumber = (byte)(num + 1);
@@ -934,50 +949,58 @@ namespace ID3_TagIT
               else
               {
                 int num7 = num4 - 1;
+
                 for (num = 0; num <= num7; num++)
                 {
                   if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.NotObj(LateBinding.LateGet(LateBinding.LateGet(this.alstFilesToTAG[num], null, "Text", new object[0], null, null), null, "StartsWith", new object[] { "*" }, null, null)), LateBinding.LateGet(this.alstFilesToTAG[num], null, "Checked", new object[0], null, null))))
                   {
                     MP3 mp3 = (MP3)LateBinding.LateGet(this.alstFilesToTAG[num], null, "Tag", new object[0], null, null);
+
                     try
                     {
                       objArray2 = new object[] { num };
                       flagArray = new bool[] { true };
+
                       if (flagArray[0])
-                      {
                         num = IntegerType.FromObject(objArray2[0]);
-                      }
+
                       string[] strArray = (string[])LateBinding.LateGet(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Tracks", objArray2, null, flagArray), null, "Split", new object[] { "/" }, null, null);
+
                       if ((StringType.StrCmp(strArray[0].Trim(new char[] { ' ' }), mp3.V1TAG.Artist, false) != 0) & (StringType.StrCmp(strArray[0].Trim(new char[] { ' ' }), "", false) != 0))
                       {
                         mp3.V1TAG.Artist = strArray[0].Trim(new char[] { ' ' });
                         mp3.V1TAG.TAGPresent = true;
                         mp3.Changed = true;
                       }
+
                       if ((StringType.StrCmp(str2, mp3.V1TAG.Album, false) != 0) & (StringType.StrCmp(str2, "", false) != 0))
                       {
                         mp3.V1TAG.Album = str2;
                         mp3.V1TAG.TAGPresent = true;
                         mp3.Changed = true;
                       }
+
                       if ((StringType.StrCmp(str5, mp3.V1TAG.Year.ToString(), false) != 0) & (StringType.StrCmp(str5, "", false) != 0))
                       {
                         mp3.V1TAG.Year = (int)Math.Round(Conversion.Val(str5));
                         mp3.V1TAG.TAGPresent = true;
                         mp3.Changed = true;
                       }
+
                       if ((StringType.StrCmp(str4, mp3.V1TAG.GenreText, false) != 0) & (StringType.StrCmp(str4, "", false) != 0))
                       {
                         mp3.V1TAG.GenreText = str4;
                         mp3.V1TAG.TAGPresent = true;
                         mp3.Changed = true;
                       }
+
                       if ((StringType.StrCmp(strArray[1].Trim(new char[] { ' ' }), mp3.V1TAG.Title, false) != 0) & (StringType.StrCmp(strArray[1].Trim(new char[] { ' ' }), "", false) != 0))
                       {
                         mp3.V1TAG.Title = strArray[1].Trim(new char[] { ' ' });
                         mp3.V1TAG.TAGPresent = true;
                         mp3.Changed = true;
                       }
+
                       if (mp3.V1TAG.Tracknumber != (num + 1))
                       {
                         mp3.V1TAG.Tracknumber = (byte)(num + 1);
@@ -994,6 +1017,7 @@ namespace ID3_TagIT
                 }
               }
             }
+
             if (this.chkWrite2.Checked)
             {
               object objectValue;
@@ -1009,62 +1033,60 @@ namespace ID3_TagIT
               string str9 = StringType.FromObject(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Year", new object[0], null, null));
               string str8 = StringType.FromObject(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Genre", new object[0], null, null));
               num4 = IntegerType.FromObject(LateBinding.LateGet(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Tracks", new object[0], null, null), null, "Count", new object[0], null, null));
+
               if (this.optSingleArtist.Checked)
               {
                 int num6 = num4 - 1;
+
                 for (num = 0; num <= num6; num++)
                 {
                   if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.NotObj(LateBinding.LateGet(LateBinding.LateGet(this.alstFilesToTAG[num], null, "Text", new object[0], null, null), null, "StartsWith", new object[] { "*" }, null, null)), LateBinding.LateGet(this.alstFilesToTAG[num], null, "Checked", new object[0], null, null))))
                   {
                     MP3 mp4 = (MP3)LateBinding.LateGet(this.alstFilesToTAG[num], null, "Tag", new object[0], null, null);
+
                     if (StringType.StrCmp(str7, "", false) != 0)
-                    {
                       mp4.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TPE1", str7));
-                    }
+
                     if (StringType.StrCmp(str6, "", false) != 0)
-                    {
                       mp4.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TALB", str6));
-                    }
+
                     if (StringType.StrCmp(str9, "", false) != 0)
                     {
                       if (!mp4.V2TAG.TAGHeaderPresent)
-                      {
                         mp4.V2TAG.TAGHeaderPresent = true;
-                      }
+
                       if (mp4.V2TAG.TAGVersion == 3)
-                      {
                         mp4.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TYER", str9));
-                      }
                       else
-                      {
                         mp4.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TDRC", str9));
-                      }
                     }
+
                     if (StringType.StrCmp(str8, "", false) != 0)
-                    {
                       mp4.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TCON", str8));
-                    }
+
                     objArray2 = new object[] { num };
                     flagArray = new bool[] { true };
+
                     if (flagArray[0])
-                    {
                       num = IntegerType.FromObject(objArray2[0]);
-                    }
+
                     if (ObjectType.ObjTst(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Tracks", objArray2, null, flagArray), "", false) != 0)
                     {
                       objArray4 = new object[] { num };
                       flagArray2 = new bool[] { true };
+
                       if (flagArray2[0])
-                      {
                         num = IntegerType.FromObject(objArray4[0]);
-                      }
+
                       mp4.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TIT2", StringType.FromObject(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Tracks", objArray4, null, flagArray2))));
                     }
+
                     if (mp4.V2TAG.FrameExists("TRCK"))
                     {
                       objectValue = RuntimeHelpers.GetObjectValue(mp4.V2TAG.GetFrame("TRCK"));
                       obj3 = new V2TextFrame();
                       LateBinding.LateSet(obj3, null, "FID", new object[] { "TRCK" }, null);
+
                       if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 0, false) < 0)
                       {
                         objArray2 = new object[1];
@@ -1086,13 +1108,14 @@ namespace ID3_TagIT
                         objArray3[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", objArray2, null, null));
                         objArray4 = objArray3;
                         flagArray = new bool[] { true };
+
                         if (flagArray[0])
-                        {
                           LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", new object[] { str10, RuntimeHelpers.GetObjectValue(objArray4[0]) }, null, true, true);
-                        }
+
                         objArray6[0] = ObjectType.StrCatObj(num8.ToString().PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'), LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray4, null, flagArray));
                         LateBinding.LateSet(obj3, null, "Content", objArray6, null);
                       }
+
                       mp4.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
                     }
                     else
@@ -1100,12 +1123,12 @@ namespace ID3_TagIT
                       num8 = num + 1;
                       mp4.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TRCK", num8.ToString().PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0')));
                     }
+
                     if (mp4.V2TAG.Changed)
                     {
                       if (!mp4.V2TAG.TAGHeaderPresent)
-                      {
                         mp4.V2TAG.TAGHeaderPresent = true;
-                      }
+
                       mp4.Changed = true;
                     }
                   }
@@ -1114,56 +1137,52 @@ namespace ID3_TagIT
               else
               {
                 int num5 = num4 - 1;
+
                 for (num = 0; num <= num5; num++)
                 {
                   if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.NotObj(LateBinding.LateGet(LateBinding.LateGet(this.alstFilesToTAG[num], null, "Text", new object[0], null, null), null, "StartsWith", new object[] { "*" }, null, null)), LateBinding.LateGet(this.alstFilesToTAG[num], null, "Checked", new object[0], null, null))))
                   {
                     MP3 mp5 = (MP3)LateBinding.LateGet(this.alstFilesToTAG[num], null, "Tag", new object[0], null, null);
+
                     try
                     {
                       objArray2 = new object[] { num };
                       flagArray = new bool[] { true };
+
                       if (flagArray[0])
-                      {
                         num = IntegerType.FromObject(objArray2[0]);
-                      }
+
                       string[] strArray2 = (string[])LateBinding.LateGet(LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Tracks", objArray2, null, flagArray), null, "Split", new object[] { "/" }, null, null);
+
                       if (StringType.StrCmp(strArray2[0].Trim(new char[] { ' ' }), "", false) != 0)
-                      {
                         mp5.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TPE1", strArray2[0].Trim(new char[] { ' ' })));
-                      }
+
                       if (StringType.StrCmp(str6, "", false) != 0)
-                      {
                         mp5.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TALB", str6));
-                      }
+
                       if (StringType.StrCmp(strArray2[1].Trim(new char[] { ' ' }), "", false) != 0)
-                      {
                         mp5.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TIT2", strArray2[1].Trim(new char[] { ' ' })));
-                      }
+
                       if (StringType.StrCmp(str9, "", false) != 0)
                       {
                         if (!mp5.V2TAG.TAGHeaderPresent)
-                        {
                           mp5.V2TAG.TAGHeaderPresent = true;
-                        }
+
                         if (mp5.V2TAG.TAGVersion == 3)
-                        {
                           mp5.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TYER", str9));
-                        }
                         else
-                        {
                           mp5.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TDRC", str9));
-                        }
                       }
+
                       if (StringType.StrCmp(str8, "", false) != 0)
-                      {
                         mp5.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TCON", str8));
-                      }
+
                       if (mp5.V2TAG.FrameExists("TRCK"))
                       {
                         objectValue = RuntimeHelpers.GetObjectValue(mp5.V2TAG.GetFrame("TRCK"));
                         obj3 = new V2TextFrame();
                         LateBinding.LateSet(obj3, null, "FID", new object[] { "TRCK" }, null);
+
                         if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 0, false) < 0)
                         {
                           objArray2 = new object[1];
@@ -1185,13 +1204,14 @@ namespace ID3_TagIT
                           objArray3[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", objArray2, null, null));
                           objArray4 = objArray3;
                           flagArray = new bool[] { true };
+
                           if (flagArray[0])
-                          {
                             LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", new object[] { str10, RuntimeHelpers.GetObjectValue(objArray4[0]) }, null, true, true);
-                          }
+
                           objArray6[0] = ObjectType.StrCatObj(num8.ToString().PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'), LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray4, null, flagArray));
                           LateBinding.LateSet(obj3, null, "Content", objArray6, null);
                         }
+
                         mp5.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
                       }
                       else
@@ -1205,34 +1225,31 @@ namespace ID3_TagIT
                       ProjectData.SetProjectError(exception2);
                       ProjectData.ClearProjectError();
                     }
+
                     if (mp5.V2TAG.Changed)
                     {
                       if (!mp5.V2TAG.TAGHeaderPresent)
-                      {
                         mp5.V2TAG.TAGHeaderPresent = true;
-                      }
+
                       mp5.Changed = true;
                     }
                   }
                 }
               }
             }
+
             foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
-            {
               this.MainForm.UpdateListItem(item, false);
-            }
+
             if (list.Count > 0)
-            {
               Declarations.UNDOList.Add(list);
-            }
+
             this.Close();
           }
         }
       }
       else
-      {
         this.Close();
-      }
     }
 
     private void chkArtistEact_CheckedChanged(object sender, EventArgs e)
@@ -1252,15 +1269,6 @@ namespace ID3_TagIT
       }
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-      {
-        this.components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
-
     private void frmFreeDB_Load(object sender, EventArgs e)
     {
       Form objForm = this;
@@ -1274,53 +1282,47 @@ namespace ID3_TagIT
       this.chkWrite1.Checked = Declarations.objSettings.FreeDBWrite1;
       this.chkWrite2.Checked = Declarations.objSettings.FreeDBWrite2;
       this.txtSearch.Text = Declarations.objSettings.FreeDBLastSearch;
+
       if ((Declarations.objSettings.FreeDBSearchOptions & 1) == 1)
-      {
         this.chkArtist.Checked = true;
-      }
+
       if ((Declarations.objSettings.FreeDBSearchOptions & 2) == 2)
-      {
         this.chkTitle.Checked = true;
-      }
+
       if ((Declarations.objSettings.FreeDBSearchOptions & 4) == 4)
-      {
         this.chkTrack.Checked = true;
-      }
+
       if ((Declarations.objSettings.FreeDBSearchOptions & 8) == 8)
-      {
         this.chkArtistExact.Checked = true;
-      }
+
       if ((Declarations.objSettings.FreeDBSearchOptions & 0x10) == 0x10)
-      {
         this.chkComplete.Checked = true;
-      }
+
       this.alstFilesToTAG.Clear();
+
       if (Declarations.objSettings.FreeDBProxyUse)
       {
         NetworkCredential credential = new NetworkCredential(Declarations.objSettings.FreeDBProxyUser, Declarations.objSettings.FreeDBProxyPassword);
         WebProxy proxy = new WebProxy(Declarations.objSettings.FreeDBProxyServer, Declarations.objSettings.FreeDBProxyPort);
+
         try
         {
           if (StringType.StrCmp(Declarations.objSettings.FreeDBProxyUser, "", false) != 0)
-          {
             proxy.Credentials = credential;
-          }
           else
-          {
             proxy.Credentials = CredentialCache.DefaultCredentials;
-          }
         }
         catch (Exception exception1)
         {
           ProjectData.SetProjectError(exception1);
           ProjectData.ClearProjectError();
         }
+
         GlobalProxySelection.Select = proxy;
       }
       else
-      {
         GlobalProxySelection.Select = GlobalProxySelection.GetEmptyWebProxy();
-      }
+
       if (Declarations.objSettings.SynchronizeTAGs)
       {
         this.chkWrite1.Checked = true;
@@ -1328,6 +1330,7 @@ namespace ID3_TagIT
         this.chkWrite1.Enabled = false;
         this.chkWrite2.Enabled = false;
       }
+
       this.AddToolTips();
     }
 
@@ -1338,9 +1341,7 @@ namespace ID3_TagIT
         if (this.ResultTree.SelectedNode.Parent == null)
         {
           if (this.ResultTree.SelectedNode.FirstNode != null)
-          {
             this.ResultTree.SelectedNode = this.ResultTree.SelectedNode.FirstNode;
-          }
         }
         else if (this.ResultTree.SelectedNode.FirstNode == null)
         {
@@ -1352,19 +1353,61 @@ namespace ID3_TagIT
     private void txtSearch_KeyUp(object sender, KeyEventArgs e)
     {
       if (e.KeyCode == Keys.Enter)
-      {
         this.btnSearch.PerformClick();
-      }
     }
 
-    [StructLayout(LayoutKind.Sequential)]
-    private struct Result
+    #endregion
+
+    #region Class logic
+
+    private void AddToolTips()
     {
-      public string Artist;
-      public string Album;
-      public ArrayList Tracks;
-      public string Year;
-      public string Genre;
+      string vstrName = "frmFreeDB";
+      Control btnQuery = this.btnQuery;
+      this.btnQuery = (Button)btnQuery;
+      this.ToolTip.SetToolTip(this.btnQuery, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
+
+      vstrName = "frmFreeDB";
+      btnQuery = this.optVariousArtist;
+      this.optVariousArtist = (RadioButton)btnQuery;
+      this.ToolTip.SetToolTip(this.optVariousArtist, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
+
+      vstrName = "frmFreeDB";
+      btnQuery = this.optSingleArtist;
+      this.optSingleArtist = (RadioButton)btnQuery;
+      this.ToolTip.SetToolTip(this.optSingleArtist, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
+
+      vstrName = "frmFreeDB";
+      btnQuery = this.chkTrack;
+      this.chkTrack = (CheckBox)btnQuery;
+      this.ToolTip.SetToolTip(this.chkTrack, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
+
+      vstrName = "frmFreeDB";
+      btnQuery = this.chkTitle;
+      this.chkTitle = (CheckBox)btnQuery;
+      this.ToolTip.SetToolTip(this.chkTitle, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
+
+      vstrName = "frmFreeDB";
+      btnQuery = this.btnSearch;
+      this.btnSearch = (Button)btnQuery;
+      this.ToolTip.SetToolTip(this.btnSearch, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
+
+      vstrName = "frmFreeDB";
+      btnQuery = this.chkArtistExact;
+      this.chkArtistExact = (CheckBox)btnQuery;
+      this.ToolTip.SetToolTip(this.chkArtistExact, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
+
+      vstrName = "frmFreeDB";
+      btnQuery = this.chkArtist;
+      this.chkArtist = (CheckBox)btnQuery;
+      this.ToolTip.SetToolTip(this.chkArtist, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
+
+      vstrName = "frmFreeDB";
+      btnQuery = this.chkComplete;
+      this.chkComplete = (CheckBox)btnQuery;
+      this.ToolTip.SetToolTip(this.chkComplete, Declarations.objResources.GetToolTip(ref vstrName, ref btnQuery));
     }
+
+    #endregion
   }
 }

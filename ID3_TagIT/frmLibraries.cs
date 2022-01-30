@@ -6,7 +6,6 @@ using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
@@ -15,6 +14,8 @@ namespace ID3_TagIT
 {
   public class frmLibraries : Form
   {
+    #region Designer
+
     private TabItem Artist;
     private ListBox ArtistList;
     private Button btnAdd;
@@ -34,7 +35,6 @@ namespace ID3_TagIT
     private Button btnRemoveCommD;
     private Button btnRemoveFav;
     private Button btnRemoveFavDir;
-    private PanelEx ButtomPanel;
     private CheckBox chkOnlyOwn;
     private ComboBox cmbV1V2;
     private ComboBox cmbV2V1;
@@ -71,7 +71,14 @@ namespace ID3_TagIT
     private TextBox txtNewCommD;
     private IContainer components;
     private frmMain MainForm;
-    private string vstrPfad;
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+        this.components.Dispose();
+
+      base.Dispose(disposing);
+    }
 
     [DebuggerStepThrough]
     private void InitializeComponent()
@@ -131,14 +138,12 @@ namespace ID3_TagIT
       this.Genre = new DevComponents.DotNetBar.TabItem(this.components);
       this.TabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
       this.Artist = new DevComponents.DotNetBar.TabItem(this.components);
-      this.ButtomPanel = new DevComponents.DotNetBar.PanelEx();
       ((System.ComponentModel.ISupportInitialize)(this.Libraries)).BeginInit();
       this.Libraries.SuspendLayout();
       this.TabControlPanel1.SuspendLayout();
       this.TabControlPanel4.SuspendLayout();
       this.TabControlPanel2.SuspendLayout();
       this.TabControlPanel3.SuspendLayout();
-      this.ButtomPanel.SuspendLayout();
       this.SuspendLayout();
       // 
       // lblInfo1
@@ -557,7 +562,7 @@ namespace ID3_TagIT
       this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
       this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
       this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnCancel.Location = new System.Drawing.Point(472, 8);
+      this.btnCancel.Location = new System.Drawing.Point(472, 412);
       this.btnCancel.Name = "btnCancel";
       this.btnCancel.Size = new System.Drawing.Size(120, 24);
       this.btnCancel.TabIndex = 21;
@@ -568,7 +573,7 @@ namespace ID3_TagIT
       // 
       this.btnOK.BackColor = System.Drawing.SystemColors.Control;
       this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnOK.Location = new System.Drawing.Point(344, 8);
+      this.btnOK.Location = new System.Drawing.Point(335, 412);
       this.btnOK.Name = "btnOK";
       this.btnOK.Size = new System.Drawing.Size(120, 24);
       this.btnOK.TabIndex = 20;
@@ -588,7 +593,7 @@ namespace ID3_TagIT
       this.Libraries.Name = "Libraries";
       this.Libraries.SelectedTabFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
       this.Libraries.SelectedTabIndex = 0;
-      this.Libraries.Size = new System.Drawing.Size(602, 440);
+      this.Libraries.Size = new System.Drawing.Size(606, 478);
       this.Libraries.Style = DevComponents.DotNetBar.eTabStripStyle.VS2005Document;
       this.Libraries.TabIndex = 22;
       this.Libraries.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
@@ -600,7 +605,9 @@ namespace ID3_TagIT
       // TabControlPanel1
       // 
       this.TabControlPanel1.AntiAlias = true;
+      this.TabControlPanel1.Controls.Add(this.btnCancel);
       this.TabControlPanel1.Controls.Add(this.btnAddFavDir);
+      this.TabControlPanel1.Controls.Add(this.btnOK);
       this.TabControlPanel1.Controls.Add(this.lblInfo1);
       this.TabControlPanel1.Controls.Add(this.btnFavBrowse);
       this.TabControlPanel1.Controls.Add(this.FavTree);
@@ -615,11 +622,11 @@ namespace ID3_TagIT
       this.TabControlPanel1.Location = new System.Drawing.Point(0, 26);
       this.TabControlPanel1.Name = "TabControlPanel1";
       this.TabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
-      this.TabControlPanel1.Size = new System.Drawing.Size(602, 414);
+      this.TabControlPanel1.Size = new System.Drawing.Size(606, 452);
       this.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
       this.TabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.TabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
+      this.TabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
             | DevComponents.DotNetBar.eBorderSide.Bottom)));
       this.TabControlPanel1.Style.GradientAngle = 90;
       this.TabControlPanel1.TabIndex = 1;
@@ -645,11 +652,11 @@ namespace ID3_TagIT
       this.TabControlPanel4.Location = new System.Drawing.Point(0, 26);
       this.TabControlPanel4.Name = "TabControlPanel4";
       this.TabControlPanel4.Padding = new System.Windows.Forms.Padding(1);
-      this.TabControlPanel4.Size = new System.Drawing.Size(602, 414);
+      this.TabControlPanel4.Size = new System.Drawing.Size(606, 452);
       this.TabControlPanel4.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
       this.TabControlPanel4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.TabControlPanel4.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel4.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
+      this.TabControlPanel4.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
             | DevComponents.DotNetBar.eBorderSide.Bottom)));
       this.TabControlPanel4.Style.GradientAngle = 90;
       this.TabControlPanel4.TabIndex = 4;
@@ -678,11 +685,11 @@ namespace ID3_TagIT
       this.TabControlPanel2.Location = new System.Drawing.Point(0, 26);
       this.TabControlPanel2.Name = "TabControlPanel2";
       this.TabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
-      this.TabControlPanel2.Size = new System.Drawing.Size(602, 414);
+      this.TabControlPanel2.Size = new System.Drawing.Size(606, 452);
       this.TabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
       this.TabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.TabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
+      this.TabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
             | DevComponents.DotNetBar.eBorderSide.Bottom)));
       this.TabControlPanel2.Style.GradientAngle = 90;
       this.TabControlPanel2.TabIndex = 2;
@@ -710,11 +717,11 @@ namespace ID3_TagIT
       this.TabControlPanel3.Location = new System.Drawing.Point(0, 26);
       this.TabControlPanel3.Name = "TabControlPanel3";
       this.TabControlPanel3.Padding = new System.Windows.Forms.Padding(1);
-      this.TabControlPanel3.Size = new System.Drawing.Size(602, 414);
+      this.TabControlPanel3.Size = new System.Drawing.Size(606, 452);
       this.TabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
       this.TabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.TabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel3.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
+      this.TabControlPanel3.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
             | DevComponents.DotNetBar.eBorderSide.Bottom)));
       this.TabControlPanel3.Style.GradientAngle = 90;
       this.TabControlPanel3.TabIndex = 3;
@@ -726,38 +733,14 @@ namespace ID3_TagIT
       this.Artist.Name = "Artist";
       this.Artist.Text = "Artist Library";
       // 
-      // ButtomPanel
-      // 
-      this.ButtomPanel.AntiAlias = true;
-      this.ButtomPanel.Controls.Add(this.btnCancel);
-      this.ButtomPanel.Controls.Add(this.btnOK);
-      this.ButtomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.ButtomPanel.Location = new System.Drawing.Point(0, 440);
-      this.ButtomPanel.Name = "ButtomPanel";
-      this.ButtomPanel.Size = new System.Drawing.Size(602, 40);
-      this.ButtomPanel.Style.BackColor1.Color = System.Drawing.Color.White;
-      this.ButtomPanel.Style.BackColor2.Color = System.Drawing.Color.White;
-      this.ButtomPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.ButtomPanel.Style.BorderWidth = 0;
-      this.ButtomPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ButtomPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
-      this.ButtomPanel.Style.GradientAngle = 90;
-      this.ButtomPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
-      this.ButtomPanel.Style.MarginBottom = 2;
-      this.ButtomPanel.Style.MarginLeft = 7;
-      this.ButtomPanel.Style.MarginRight = 2;
-      this.ButtomPanel.Style.MarginTop = 2;
-      this.ButtomPanel.TabIndex = 118;
-      // 
       // frmLibraries
       // 
       this.AcceptButton = this.btnOK;
       this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
       this.CancelButton = this.btnCancel;
-      this.ClientSize = new System.Drawing.Size(602, 480);
+      this.ClientSize = new System.Drawing.Size(606, 478);
       this.ControlBox = false;
       this.Controls.Add(this.Libraries);
-      this.Controls.Add(this.ButtomPanel);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
@@ -775,8 +758,8 @@ namespace ID3_TagIT
       this.TabControlPanel2.PerformLayout();
       this.TabControlPanel3.ResumeLayout(false);
       this.TabControlPanel3.PerformLayout();
-      this.ButtomPanel.ResumeLayout(false);
       this.ResumeLayout(false);
+
     }
 
     public frmLibraries(ref frmMain FormMain)
@@ -787,125 +770,15 @@ namespace ID3_TagIT
       this.MainForm = FormMain;
     }
 
-    private void AddToolTips()
-    {
-      string vstrName = "frmLibraries";
-      Control txtDir = this.txtDir;
-      this.txtDir = (TextBox)txtDir;
-      this.ToolTip.SetToolTip(this.txtDir, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.txtName;
-      this.txtName = (TextBox)txtDir;
-      this.ToolTip.SetToolTip(this.txtName, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.chkOnlyOwn;
-      this.chkOnlyOwn = (CheckBox)txtDir;
-      this.ToolTip.SetToolTip(this.chkOnlyOwn, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.cmbV2V1;
-      this.cmbV2V1 = (ComboBox)txtDir;
-      this.ToolTip.SetToolTip(this.cmbV2V1, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.cmbV1V2;
-      this.cmbV1V2 = (ComboBox)txtDir;
-      this.ToolTip.SetToolTip(this.cmbV1V2, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.btnDeleteG;
-      this.btnDeleteG = (Button)txtDir;
-      this.ToolTip.SetToolTip(this.btnDeleteG, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.btnAddG;
-      this.btnAddG = (Button)txtDir;
-      this.ToolTip.SetToolTip(this.btnAddG, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.txtGenreName;
-      this.txtGenreName = (TextBox)txtDir;
-      this.ToolTip.SetToolTip(this.txtGenreName, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.GenreList;
-      this.GenreList = (ListView)txtDir;
-      this.ToolTip.SetToolTip(this.GenreList, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.btnClearA;
-      this.btnClearA = (Button)txtDir;
-      this.ToolTip.SetToolTip(this.btnClearA, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.btnDeleteA;
-      this.btnDeleteA = (Button)txtDir;
-      this.ToolTip.SetToolTip(this.btnDeleteA, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.btnAdd;
-      this.btnAdd = (Button)txtDir;
-      this.ToolTip.SetToolTip(this.btnAdd, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.txtArtistName;
-      this.txtArtistName = (TextBox)txtDir;
-      this.ToolTip.SetToolTip(this.txtArtistName, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.btnGetArtistV1;
-      this.btnGetArtistV1 = (Button)txtDir;
-      this.ToolTip.SetToolTip(this.btnGetArtistV1, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.ArtistList;
-      this.ArtistList = (ListBox)txtDir;
-      this.ToolTip.SetToolTip(this.ArtistList, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.btnGetArtistV2;
-      this.btnGetArtistV2 = (Button)txtDir;
-      this.ToolTip.SetToolTip(this.btnGetArtistV2, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.btnClearCommD;
-      this.btnClearCommD = (Button)txtDir;
-      this.ToolTip.SetToolTip(this.btnClearCommD, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.btnRemoveCommD;
-      this.btnRemoveCommD = (Button)txtDir;
-      this.ToolTip.SetToolTip(this.btnRemoveCommD, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.btnAddCommD;
-      this.btnAddCommD = (Button)txtDir;
-      this.ToolTip.SetToolTip(this.btnAddCommD, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.txtNewCommD;
-      this.txtNewCommD = (TextBox)txtDir;
-      this.ToolTip.SetToolTip(this.txtNewCommD, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-      vstrName = "frmLibraries";
-      txtDir = this.CommDList;
-      this.CommDList = (ListBox)txtDir;
-      this.ToolTip.SetToolTip(this.CommDList, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
-    }
+    #endregion
 
-    private void ArtistCB(ref frmProgress frmProg)
-    {
-      IEnumerator enumerator = null;
-      try
-      {
-        enumerator = frmProg.List.GetEnumerator();
-        while (enumerator.MoveNext())
-        {
-          string str = StringType.FromObject(enumerator.Current);
-          DataRow row = Declarations.objSettings.Artists.NewRow();
-          row["Name"] = str;
-          try
-          {
-            Declarations.objSettings.Artists.Rows.Add(row);
-          }
-          catch (Exception exception1)
-          {
-            ProjectData.SetProjectError(exception1);
-            ProjectData.ClearProjectError();
-          }
-          frmProg.ProgressBar.PerformStep();
-        }
-      }
-      finally
-      {
-        if (enumerator is IDisposable)
-        {
-          ((IDisposable)enumerator).Dispose();
-        }
-      }
-    }
+    #region Local variables
+
+    private string vstrPfad;
+
+    #endregion
+
+    #region Event handlers
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
@@ -913,6 +786,7 @@ namespace ID3_TagIT
       {
         DataRow current;
         var enumerator2 = Declarations.objSettings.Artists.Rows.GetEnumerator();
+
         while (enumerator2.MoveNext())
         {
           current = (DataRow)enumerator2.Current;
@@ -922,10 +796,12 @@ namespace ID3_TagIT
             return;
           }
         }
+
         current = Declarations.objSettings.Artists.NewRow();
         current["Name"] = this.txtArtistName.Text.Trim();
         Declarations.objSettings.Artists.Rows.Add(current);
         LateBinding.LateSetComplex(LateBinding.LateGet(this.ArtistList.Items[0], null, "DataView", new object[0], null, null), null, "Sort", new object[] { "Name" }, null, false, true);
+
         foreach (DataRowView view in this.ArtistList.Items)
         {
           if (ObjectType.ObjTst(view["Name"], this.txtArtistName.Text.Trim(), false) == 0)
@@ -943,6 +819,7 @@ namespace ID3_TagIT
       {
         DataRow current;
         var enumerator2 = Declarations.objSettings.CommDescriptors.Rows.GetEnumerator();
+
         while (enumerator2.MoveNext())
         {
           current = (DataRow)enumerator2.Current;
@@ -952,10 +829,12 @@ namespace ID3_TagIT
             return;
           }
         }
+
         current = Declarations.objSettings.CommDescriptors.NewRow();
         current["Name"] = this.txtNewCommD.Text.Trim();
         Declarations.objSettings.CommDescriptors.Rows.Add(current);
         LateBinding.LateSetComplex(LateBinding.LateGet(this.CommDList.Items[0], null, "DataView", new object[0], null, null), null, "Sort", new object[] { "Name" }, null, false, true);
+
         foreach (DataRowView view in this.CommDList.Items)
         {
           if (ObjectType.ObjTst(view["Name"], this.txtNewCommD.Text.Trim(), false) == 0)
@@ -972,12 +851,9 @@ namespace ID3_TagIT
       if (StringType.StrCmp(this.txtName.Text, "", false) != 0)
       {
         foreach (TreeNode node2 in this.FavTree.Nodes)
-        {
           if (StringType.StrCmp(node2.Text, this.txtName.Text, false) == 0)
-          {
             return;
-          }
-        }
+
         TreeNode node = new TreeNode(this.txtName.Text);
         this.FavTree.Nodes.Add(node);
         this.FavTree.SelectedNode = node;
@@ -989,22 +865,15 @@ namespace ID3_TagIT
       if (this.FavTree.SelectedNode != null)
       {
         if (this.FavTree.SelectedNode.Parent != null)
-        {
           this.FavTree.SelectedNode = this.FavTree.SelectedNode.Parent;
-        }
+
         if (Directory.Exists(this.txtDir.Text.Trim()))
         {
           foreach (TreeNode node in this.FavTree.SelectedNode.Nodes)
-          {
             if (StringType.StrCmp(node.Text, this.txtName.Text, false) == 0)
-            {
               return;
-            }
-          }
-          TreeNode node2 = new TreeNode
-          {
-            Text = this.txtDir.Text.Trim()
-          };
+
+          TreeNode node2 = new TreeNode { Text = this.txtDir.Text.Trim() };
           this.FavTree.SelectedNode.Nodes.Add(node2);
           this.FavTree.SelectedNode.Expand();
         }
@@ -1022,39 +891,38 @@ namespace ID3_TagIT
           row["V1V2"] = ID3Functions.GetV1GenreByName(this.cmbV1V2.SelectedItem.ToString());
           row["V2V1"] = ID3Functions.GetV1GenreByName(this.cmbV2V1.SelectedItem.ToString());
           Declarations.objSettings.Genres.Rows.Add(row);
+
           ListViewItem item = new ListViewItem(this.txtGenreName.Text.Trim())
           {
-            SubItems = {
-                            this.cmbV1V2.SelectedItem.ToString(),
-                            this.cmbV2V1.SelectedItem.ToString()
-                        }
+            SubItems = { this.cmbV1V2.SelectedItem.ToString(), this.cmbV2V1.SelectedItem.ToString() }
           };
+
           this.GenreList.Items.Add(item);
         }
         catch (Exception exception1)
         {
           ProjectData.SetProjectError(exception1);
+
           foreach (DataRow row in Declarations.objSettings.Genres.Rows)
-          {
             if (ObjectType.ObjTst(row["Name"], this.txtGenreName.Text.Trim(), false) == 0)
             {
               row["V1V2"] = ID3Functions.GetV1GenreByName(this.cmbV1V2.SelectedItem.ToString());
               row["V2V1"] = ID3Functions.GetV1GenreByName(this.cmbV2V1.SelectedItem.ToString());
               break;
             }
-          }
+
           foreach (ListViewItem item2 in this.GenreList.Items)
-          {
             if (StringType.StrCmp(item2.Text, this.txtGenreName.Text.Trim(), false) == 0)
             {
               item2.SubItems[this.colHV1V2.Index].Text = this.cmbV1V2.SelectedItem.ToString();
               item2.SubItems[this.colHV2V1.Index].Text = this.cmbV2V1.SelectedItem.ToString();
               break;
             }
-          }
+
           ProjectData.ClearProjectError();
         }
       }
+
       this.txtGenreName.Text = "";
       this.cmbV1V2.SelectedIndex = 0;
       this.cmbV2V1.SelectedIndex = 0;
@@ -1086,16 +954,13 @@ namespace ID3_TagIT
     private void btnDeleteG_Click(object sender, EventArgs e)
     {
       if (this.GenreList.FocusedItem != null)
-      {
         foreach (DataRow row in Declarations.objSettings.Genres.Rows)
-        {
           if (ObjectType.ObjTst(row["Name"], this.GenreList.FocusedItem.Text, false) == 0)
           {
             Declarations.objSettings.Genres.Rows.Remove(row);
             break;
           }
-        }
-      }
+
       this.GenreList.Items.Remove(this.GenreList.FocusedItem);
     }
 
@@ -1104,6 +969,7 @@ namespace ID3_TagIT
       string vstrPfad = this.vstrPfad;
       this.FolderBrowserDialog.Description = "";
       this.FolderBrowserDialog.SelectedPath = vstrPfad;
+
       if (this.FolderBrowserDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
       {
         this.vstrPfad = this.FolderBrowserDialog.SelectedPath;
@@ -1118,42 +984,51 @@ namespace ID3_TagIT
       ArrayList list = new ArrayList();
       this.ArtistList.Enabled = false;
       this.ArtistList.DataSource = null;
+
       foreach (DataRow row in Declarations.objSettings.Artists.Rows)
-      {
         list.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
-      }
+
       Declarations.objSettings.Artists.Rows.Clear();
+
       if (ObjectType.ObjTst(LateBinding.LateGet(sender, null, "Name", new object[0], null, null), this.btnGetArtistV1.Name, false) == 0)
       {
         form = this;
         callback = new frmProgress.Callback(this.V1CB);
+
         frmProgress progress2 = new frmProgress(0, Declarations.MP3s.Count, 1, ref form, ref callback)
         {
           btnCancel = { Enabled = false },
           List = list
         };
+
         progress2.SetStateGetArtists();
         progress2.ShowDialog(this);
       }
+
       if (ObjectType.ObjTst(LateBinding.LateGet(sender, null, "Name", new object[0], null, null), this.btnGetArtistV2.Name, false) == 0)
       {
         form = this;
         callback = new frmProgress.Callback(this.V2CB);
+
         frmProgress progress3 = new frmProgress(0, Declarations.MP3s.Count, 1, ref form, ref callback)
         {
           btnCancel = { Enabled = false },
           List = list
         };
+
         progress3.SetStateGetArtists();
         progress3.ShowDialog(this);
       }
+
       list.Sort();
       form = this;
       callback = new frmProgress.Callback(this.LibCB);
+
       frmProgress progress = new frmProgress(0, list.Count, 1, ref form, ref callback)
       {
         List = list
       };
+
       progress.SetStateCreateLib();
       progress.ShowDialog(this);
       this.ArtistList.DataSource = Declarations.objSettings.Artists;
@@ -1168,31 +1043,31 @@ namespace ID3_TagIT
       Form form = this;
       Id3TagIT_Main.SaveFormSettings(ref form);
       Declarations.objSettings.FavNodes.Clear();
+
       foreach (TreeNode node in this.FavTree.Nodes)
-      {
         Declarations.objSettings.FavNodes.Add(node);
-      }
+
       this.MainForm.FavTree.BeginUpdate();
       this.MainForm.FavTree.Nodes.Clear();
+
       foreach (TreeNode node in Declarations.objSettings.FavNodes)
-      {
         LateBinding.LateCall(this.MainForm.FavTree.Nodes, null, "Add", new object[] { RuntimeHelpers.GetObjectValue(node.Clone()) }, null, null);
-      }
+
       this.MainForm.FavTree.EndUpdate();
       ArrayList list = new ArrayList();
       ArrayList list2 = new ArrayList();
       Declarations.objSettings.OwnGenreOnly = this.chkOnlyOwn.Checked;
+
       foreach (DataRow row in Declarations.objSettings.Artists.Rows)
-      {
         list.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
-      }
+
       list.Sort();
       this.ArtistList.Enabled = false;
       this.ArtistList.DataSource = null;
+
       foreach (DataRow row in Declarations.objSettings.CommDescriptors.Rows)
-      {
         list2.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
-      }
+
       list2.Sort();
       this.CommDList.Enabled = false;
       this.CommDList.DataSource = null;
@@ -1200,38 +1075,33 @@ namespace ID3_TagIT
       Declarations.objSettings.CommDescriptors.Rows.Clear();
       Declarations.objSettings.Genres.Rows.Clear();
       form = this;
+
       frmProgress.Callback cB = new frmProgress.Callback(this.ArtistCB);
-      frmProgress progress = new frmProgress(0, list.Count, 1, ref form, ref cB)
-      {
-        btnCancel = { Enabled = false }
-      };
+      frmProgress progress = new frmProgress(0, list.Count, 1, ref form, ref cB)      {        btnCancel = { Enabled = false }      };
+
       progress.SetStateSaveLib();
       progress.List = list;
       progress.ShowDialog(this);
       Application.DoEvents();
       form = this;
       cB = new frmProgress.Callback(this.GenreCB);
-      frmProgress progress2 = new frmProgress(0, this.GenreList.Items.Count, 1, ref form, ref cB)
-      {
-        btnCancel = { Enabled = false }
-      };
+      frmProgress progress2 = new frmProgress(0, this.GenreList.Items.Count, 1, ref form, ref cB)      {        btnCancel = { Enabled = false }      };
+
       progress2.SetStateSaveLib();
       progress2.ShowDialog(this);
       Application.DoEvents();
       form = this;
       cB = new frmProgress.Callback(this.CommDCB);
-      frmProgress progress3 = new frmProgress(0, list2.Count, 1, ref form, ref cB)
-      {
-        btnCancel = { Enabled = false }
-      };
+      frmProgress progress3 = new frmProgress(0, list2.Count, 1, ref form, ref cB)      {        btnCancel = { Enabled = false }      };
+
       progress3.SetStateSaveLib();
       progress3.List = list2;
       progress3.ShowDialog(this);
       this.MainForm.cmbArtist.Items.Clear();
+
       foreach (DataRow row in Declarations.objSettings.Artists.Rows)
-      {
-        this.MainForm.cmbArtist.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
-      }
+        this.MainForm.cmbArtist.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));      
+
       this.Close();
     }
 
@@ -1243,58 +1113,13 @@ namespace ID3_TagIT
     private void btnRemoveFav_Click(object sender, EventArgs e)
     {
       if ((this.FavTree.SelectedNode != null) && (this.FavTree.SelectedNode.Parent == null))
-      {
         this.FavTree.Nodes.Remove(this.FavTree.SelectedNode);
-      }
     }
 
     private void btnRemoveFavDir_Click(object sender, EventArgs e)
     {
       if ((this.FavTree.SelectedNode != null) && (this.FavTree.SelectedNode.Parent != null))
-      {
         this.FavTree.Nodes.Remove(this.FavTree.SelectedNode);
-      }
-    }
-
-    private void CommDCB(ref frmProgress frmProg)
-    {
-      IEnumerator enumerator = null;
-      try
-      {
-        enumerator = frmProg.List.GetEnumerator();
-        while (enumerator.MoveNext())
-        {
-          string str = StringType.FromObject(enumerator.Current);
-          DataRow row = Declarations.objSettings.CommDescriptors.NewRow();
-          row["Name"] = str;
-          try
-          {
-            Declarations.objSettings.CommDescriptors.Rows.Add(row);
-          }
-          catch (Exception exception1)
-          {
-            ProjectData.SetProjectError(exception1);
-            ProjectData.ClearProjectError();
-          }
-          frmProg.ProgressBar.PerformStep();
-        }
-      }
-      finally
-      {
-        if (enumerator is IDisposable)
-        {
-          ((IDisposable)enumerator).Dispose();
-        }
-      }
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-      {
-        this.components.Dispose();
-      }
-      base.Dispose(disposing);
     }
 
     private void frmLibraries_Load(object sender, EventArgs e)
@@ -1305,19 +1130,21 @@ namespace ID3_TagIT
       Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
       Id3TagIT_Main.WindowsXPCheck(ref objForm);
+
       foreach (TreeNode node in Declarations.objSettings.FavNodes)
-      {
         LateBinding.LateCall(this.FavTree.Nodes, null, "Add", new object[] { RuntimeHelpers.GetObjectValue(node.Clone()) }, null, null);
-      }
+
       this.chkOnlyOwn.Checked = Declarations.objSettings.OwnGenreOnly;
       this.cmbV1V2.Items.Add("< undefined >");
       this.cmbV2V1.Items.Add("< undefined >");
       byte upperBound = (byte)Declarations.astrGenreLookup.GetUpperBound(0);
+
       for (byte i = 0; i <= upperBound; i = (byte)(i + 1))
       {
         this.cmbV1V2.Items.Add(Declarations.astrGenreLookup[i]);
         this.cmbV2V1.Items.Add(Declarations.astrGenreLookup[i]);
       }
+
       this.cmbV1V2.Sorted = true;
       this.cmbV1V2.SelectedIndex = 0;
       this.cmbV2V1.Sorted = true;
@@ -1331,36 +1158,221 @@ namespace ID3_TagIT
       this.GenreList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol01"]);
       this.GenreList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol02"]);
       this.GenreList.Columns[2].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol03"]);
+
       foreach (DataRow row in Declarations.objSettings.Genres.Rows)
       {
         ListViewItem item = new ListViewItem(row["Name"].ToString());
+
         if (ObjectType.ObjTst(row["V1V2"], 0x94, false) < 0)
-        {
           item.SubItems.Add(Declarations.astrGenreLookup[IntegerType.FromObject(row["V1V2"])]);
-        }
         else
-        {
           item.SubItems.Add("< undefined >");
-        }
+
         if (ObjectType.ObjTst(row["V2V1"], 0x94, false) < 0)
-        {
           item.SubItems.Add(Declarations.astrGenreLookup[IntegerType.FromObject(row["V2V1"])]);
-        }
         else
-        {
           item.SubItems.Add("< undefined >");
-        }
+
         this.GenreList.Items.Add(item);
       }
       this.AddToolTips();
     }
 
+    private void GenreList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      this.txtGenreName.Text = this.GenreList.FocusedItem.Text;
+      this.cmbV1V2.Text = this.GenreList.FocusedItem.SubItems[this.colHV1V2.Index].Text;
+      this.cmbV2V1.Text = this.GenreList.FocusedItem.SubItems[this.colHV2V1.Index].Text;
+    }
+
+    #endregion
+
+    #region Class logic
+
+    private void AddToolTips()
+    {
+      string vstrName = "frmLibraries";
+      Control txtDir = this.txtDir;
+      this.txtDir = (TextBox)txtDir;
+      this.ToolTip.SetToolTip(this.txtDir, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.txtName;
+      this.txtName = (TextBox)txtDir;
+      this.ToolTip.SetToolTip(this.txtName, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.chkOnlyOwn;
+      this.chkOnlyOwn = (CheckBox)txtDir;
+      this.ToolTip.SetToolTip(this.chkOnlyOwn, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.cmbV2V1;
+      this.cmbV2V1 = (ComboBox)txtDir;
+      this.ToolTip.SetToolTip(this.cmbV2V1, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.cmbV1V2;
+      this.cmbV1V2 = (ComboBox)txtDir;
+      this.ToolTip.SetToolTip(this.cmbV1V2, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.btnDeleteG;
+      this.btnDeleteG = (Button)txtDir;
+      this.ToolTip.SetToolTip(this.btnDeleteG, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.btnAddG;
+      this.btnAddG = (Button)txtDir;
+      this.ToolTip.SetToolTip(this.btnAddG, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.txtGenreName;
+      this.txtGenreName = (TextBox)txtDir;
+      this.ToolTip.SetToolTip(this.txtGenreName, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.GenreList;
+      this.GenreList = (ListView)txtDir;
+      this.ToolTip.SetToolTip(this.GenreList, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.btnClearA;
+      this.btnClearA = (Button)txtDir;
+      this.ToolTip.SetToolTip(this.btnClearA, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.btnDeleteA;
+      this.btnDeleteA = (Button)txtDir;
+      this.ToolTip.SetToolTip(this.btnDeleteA, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.btnAdd;
+      this.btnAdd = (Button)txtDir;
+      this.ToolTip.SetToolTip(this.btnAdd, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.txtArtistName;
+      this.txtArtistName = (TextBox)txtDir;
+      this.ToolTip.SetToolTip(this.txtArtistName, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.btnGetArtistV1;
+      this.btnGetArtistV1 = (Button)txtDir;
+      this.ToolTip.SetToolTip(this.btnGetArtistV1, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.ArtistList;
+      this.ArtistList = (ListBox)txtDir;
+      this.ToolTip.SetToolTip(this.ArtistList, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.btnGetArtistV2;
+      this.btnGetArtistV2 = (Button)txtDir;
+      this.ToolTip.SetToolTip(this.btnGetArtistV2, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.btnClearCommD;
+      this.btnClearCommD = (Button)txtDir;
+      this.ToolTip.SetToolTip(this.btnClearCommD, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.btnRemoveCommD;
+      this.btnRemoveCommD = (Button)txtDir;
+      this.ToolTip.SetToolTip(this.btnRemoveCommD, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.btnAddCommD;
+      this.btnAddCommD = (Button)txtDir;
+      this.ToolTip.SetToolTip(this.btnAddCommD, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.txtNewCommD;
+      this.txtNewCommD = (TextBox)txtDir;
+      this.ToolTip.SetToolTip(this.txtNewCommD, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+
+      vstrName = "frmLibraries";
+      txtDir = this.CommDList;
+      this.CommDList = (ListBox)txtDir;
+      this.ToolTip.SetToolTip(this.CommDList, Declarations.objResources.GetToolTip(ref vstrName, ref txtDir));
+    }
+
+    private void ArtistCB(ref frmProgress frmProg)
+    {
+      IEnumerator enumerator = null;
+
+      try
+      {
+        enumerator = frmProg.List.GetEnumerator();
+
+        while (enumerator.MoveNext())
+        {
+          string str = StringType.FromObject(enumerator.Current);
+          DataRow row = Declarations.objSettings.Artists.NewRow();
+          row["Name"] = str;
+
+          try
+          {
+            Declarations.objSettings.Artists.Rows.Add(row);
+          }
+          catch (Exception exception1)
+          {
+            ProjectData.SetProjectError(exception1);
+            ProjectData.ClearProjectError();
+          }
+
+          frmProg.ProgressBar.PerformStep();
+        }
+      }
+      finally
+      {
+        if (enumerator is IDisposable)
+          ((IDisposable)enumerator).Dispose();
+      }
+    }
+
+    private void CommDCB(ref frmProgress frmProg)
+    {
+      IEnumerator enumerator = null;
+
+      try
+      {
+        enumerator = frmProg.List.GetEnumerator();
+
+        while (enumerator.MoveNext())
+        {
+          string str = StringType.FromObject(enumerator.Current);
+          DataRow row = Declarations.objSettings.CommDescriptors.NewRow();
+          row["Name"] = str;
+
+          try
+          {
+            Declarations.objSettings.CommDescriptors.Rows.Add(row);
+          }
+          catch (Exception exception1)
+          {
+            ProjectData.SetProjectError(exception1);
+            ProjectData.ClearProjectError();
+          }
+
+          frmProg.ProgressBar.PerformStep();
+        }
+      }
+      finally
+      {
+        if (enumerator is IDisposable)
+          ((IDisposable)enumerator).Dispose();
+      }
+    }
+
     private void GenreCB(ref frmProgress frmProg)
     {
       IEnumerator enumerator = null;
+
       try
       {
         enumerator = this.GenreList.Items.GetEnumerator();
+
         while (enumerator.MoveNext())
         {
           ListViewItem current = (ListViewItem)enumerator.Current;
@@ -1375,34 +1387,27 @@ namespace ID3_TagIT
       finally
       {
         if (enumerator is IDisposable)
-        {
           ((IDisposable)enumerator).Dispose();
-        }
       }
-    }
-
-    private void GenreList_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      this.txtGenreName.Text = this.GenreList.FocusedItem.Text;
-      this.cmbV1V2.Text = this.GenreList.FocusedItem.SubItems[this.colHV1V2.Index].Text;
-      this.cmbV2V1.Text = this.GenreList.FocusedItem.SubItems[this.colHV2V1.Index].Text;
     }
 
     private void LibCB(ref frmProgress frmProg)
     {
       var enumerator = frmProg.List.GetEnumerator();
+
       while (enumerator.MoveNext())
       {
         string sLeft = StringType.FromObject(enumerator.Current);
         Application.DoEvents();
+
         if (frmProg.Canceled)
-        {
           return;
-        }
+
         if (StringType.StrCmp(sLeft, "", false) != 0)
         {
           DataRow row = Declarations.objSettings.Artists.NewRow();
           row["Name"] = sLeft;
+
           try
           {
             Declarations.objSettings.Artists.Rows.Add(row);
@@ -1413,6 +1418,7 @@ namespace ID3_TagIT
             ProjectData.ClearProjectError();
           }
         }
+
         frmProg.ProgressBar.PerformStep();
       }
     }
@@ -1420,45 +1426,48 @@ namespace ID3_TagIT
     private void V1CB(ref frmProgress frmProg)
     {
       IEnumerator enumerator = null;
+
       try
       {
         enumerator = Declarations.MP3s.GetEnumerator();
+
         while (enumerator.MoveNext())
         {
           MP3 current = (MP3)enumerator.Current;
+
           if (current.V1TAG.TAGPresent && !frmProg.List.Contains(current.V1TAG.Artist))
-          {
             frmProg.List.Add(current.V1TAG.Artist);
-          }
+
           frmProg.ProgressBar.PerformStep();
         }
       }
       finally
       {
         if (enumerator is IDisposable)
-        {
           ((IDisposable)enumerator).Dispose();
-        }
       }
     }
 
     private void V2CB(ref frmProgress frmProg)
     {
       IEnumerator enumerator = null;
+
       try
       {
         enumerator = Declarations.MP3s.GetEnumerator();
+
         while (enumerator.MoveNext())
         {
           MP3 current = (MP3)enumerator.Current;
+
           if (current.V2TAG.TAGHeaderPresent && current.V2TAG.FrameExists("TPE1"))
           {
             object objectValue = RuntimeHelpers.GetObjectValue(current.V2TAG.GetFrame("TPE1"));
+
             if (!frmProg.List.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null))))
-            {
               frmProg.List.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)));
-            }
           }
+
           frmProg.ProgressBar.PerformStep();
         }
       }
@@ -1468,5 +1477,7 @@ namespace ID3_TagIT
           ((IDisposable)enumerator).Dispose();
       }
     }
+
+    #endregion
   }
 }

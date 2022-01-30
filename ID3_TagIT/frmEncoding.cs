@@ -10,6 +10,8 @@ namespace ID3_TagIT
 {
   public class frmEncoding : Form
   {
+    #region Designer
+
     private Button btnCancel;
     private Button btnOK;
     private ComboBox cmbV23Enc;
@@ -125,6 +127,15 @@ namespace ID3_TagIT
       this.Name = "frmEncoding";
       this.Text = "Change TAG Ver. 2 text encoding";
       this.ResumeLayout(false);
+
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+        this.components.Dispose();
+
+      base.Dispose(disposing);
     }
 
     public frmEncoding(ref frmMain FormMain)
@@ -133,6 +144,10 @@ namespace ID3_TagIT
       this.InitializeComponent();
       this.MainForm = FormMain;
     }
+
+    #endregion
+
+    #region Events
 
     private void btnOK_Click(object sender, EventArgs e)
     {
@@ -155,28 +170,48 @@ namespace ID3_TagIT
       this.Close();
     }
 
+    private void frmEncoding_Load(object sender, EventArgs e)
+    {
+      Form objForm = this;
+      Declarations.objResources.ResourcesToForm(ref objForm);
+      objForm = this;
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
+      objForm = this;
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
+      this.cmbV23Enc.SelectedIndex = Declarations.objSettings.V23Encoding;
+      this.cmbV24Enc.SelectedIndex = Declarations.objSettings.V24Encoding;
+    }
+
+    #endregion
+
+    #region Class logic
+
     private void CBTextEnc(ref frmProgress frmProg)
     {
       byte selectedIndex = (byte)this.cmbV23Enc.SelectedIndex;
       byte num2 = (byte)this.cmbV24Enc.SelectedIndex;
+
       foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
       {
         Application.DoEvents();
+
         if (frmProg.Canceled)
-        {
           break;
-        }
+
         MP3 tag = (MP3)item.Tag;
         frmProg.Infos.Text = tag.CurrentFullName;
+
         if (tag.V2TAG.TAGHeaderPresent)
         {
           object objectValue;
           Declarations.UnDoReDo @do;
+
           if (tag.V2TAG.TAGVersion == 3)
           {
             @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
             frmProg.List.Add(@do);
             var enumerator2 = tag.V2TAG.GetAllSupportedFrames().GetEnumerator();
+
             while (enumerator2.MoveNext())
             {
               objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
@@ -195,29 +230,32 @@ namespace ID3_TagIT
             }
             goto Label_0320;
           }
+
           if (tag.V2TAG.TAGVersion == 4)
           {
             @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
             frmProg.List.Add(@do);
+
             var enumerator = tag.V2TAG.GetAllSupportedFrames().GetEnumerator();
-              while (enumerator.MoveNext())
+            while (enumerator.MoveNext())
+            {
+              objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
+              try
               {
-                objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
-                try
-                {
-                  LateBinding.LateSet(objectValue, null, "EncodingByte", new object[] { num2 }, null);
-                  continue;
-                }
-                catch (Exception exception3)
-                {
-                  ProjectData.SetProjectError(exception3);
-                  Exception exception2 = exception3;
-                  ProjectData.ClearProjectError();
-                  continue;
-                }
+                LateBinding.LateSet(objectValue, null, "EncodingByte", new object[] { num2 }, null);
+                continue;
               }
+              catch (Exception exception3)
+              {
+                ProjectData.SetProjectError(exception3);
+                Exception exception2 = exception3;
+                ProjectData.ClearProjectError();
+                continue;
+              }
+            }
           }
         }
+
         Label_0320:
         tag.Changed = true;
         this.MainForm.UpdateListItem(item, false);
@@ -225,24 +263,6 @@ namespace ID3_TagIT
       }
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-        this.components.Dispose();
-
-      base.Dispose(disposing);
-    }
-
-    private void frmEncoding_Load(object sender, EventArgs e)
-    {
-      Form objForm = this;
-      Declarations.objResources.ResourcesToForm(ref objForm);
-      objForm = this;
-      Id3TagIT_Main.RestoreFormSettings(ref objForm);
-      objForm = this;
-      Id3TagIT_Main.WindowsXPCheck(ref objForm);
-      this.cmbV23Enc.SelectedIndex = Declarations.objSettings.V23Encoding;
-      this.cmbV24Enc.SelectedIndex = Declarations.objSettings.V24Encoding;
-    }
+    #endregion
   }
 }

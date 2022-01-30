@@ -6,6 +6,8 @@ namespace ID3_TagIT
 {
   public class frmAbout : Form
   {
+    #region Designer
+
     private Button btnOK;
     private Label lblCopyright;
     private Label lblHome;
@@ -13,24 +15,6 @@ namespace ID3_TagIT
     private Label lblVersion;
     private Label lblUpdate;
     private System.Windows.Forms.PictureBox picLogo;
-
-    public frmAbout()
-    {
-      base.Load += new EventHandler(this.frmAbout_Load);
-      this.InitializeComponent();
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-      base.Dispose(disposing);
-    }
-
-    private void frmAbout_Load(object sender, EventArgs e)
-    {
-      Form formToCheck = this;
-      //Main.WindowsXPCheck(ref formToCheck);
-      this.lblVersion.Text = "Version: " + Application.ProductVersion.ToString().Substring(0, Application.ProductVersion.ToString().LastIndexOf("."));
-    }
 
     [DebuggerStepThrough]
     private void InitializeComponent()
@@ -120,7 +104,7 @@ namespace ID3_TagIT
       this.lblUpdate.Name = "lblUpdate";
       this.lblUpdate.Size = new System.Drawing.Size(230, 13);
       this.lblUpdate.TabIndex = 19;
-      this.lblUpdate.Text = "Recompiled version by Chris Skaryd 2018-2019";
+      this.lblUpdate.Text = "Recompiled version by Chris Skaryd made in 2022";
       // 
       // frmAbout
       // 
@@ -150,9 +134,33 @@ namespace ID3_TagIT
 
     }
 
+    protected override void Dispose(bool disposing)
+    {
+      base.Dispose(disposing);
+    }
+
+    public frmAbout()
+    {
+      base.Load += new EventHandler(this.frmAbout_Load);
+      this.InitializeComponent();
+    }
+
+    #endregion
+
+    #region Events
+
+    private void frmAbout_Load(object sender, EventArgs e)
+    {
+      Form formToCheck = this;
+      //Main.WindowsXPCheck(ref formToCheck);
+      this.lblVersion.Text = "Version: " + Application.ProductVersion.ToString().Substring(0, Application.ProductVersion.ToString().LastIndexOf("."));
+    }
+
     private void lblLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
       Process.Start(this.lblLink.Text);
     }
+
+    #endregion
   }
 }

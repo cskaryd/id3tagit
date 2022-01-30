@@ -11,6 +11,8 @@ namespace ID3_TagIT
 {
   public class frmDouble : Form
   {
+    #region Designer
+
     private Button btnCancel;
     private Button btnOK;
     private System.Windows.Forms.GroupBox GroupBox;
@@ -26,7 +28,6 @@ namespace ID3_TagIT
     private System.Windows.Forms.ToolTip ToolTip;
     private IContainer components;
     private frmMain MainForm;
-    private bool vbooCancel;
 
     [DebuggerStepThrough]
     private void InitializeComponent()
@@ -115,7 +116,7 @@ namespace ID3_TagIT
       this.optTAGV1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.optTAGV1.Location = new System.Drawing.Point(8, 8);
       this.optTAGV1.Name = "optTAGV1";
-      this.optTAGV1.Size = new System.Drawing.Size(256, 16);
+      this.optTAGV1.Size = new System.Drawing.Size(256, 18);
       this.optTAGV1.TabIndex = 5;
       this.optTAGV1.Text = "Use TAG Ver. 1 for comparing";
       // 
@@ -124,7 +125,7 @@ namespace ID3_TagIT
       this.optTAGV2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.optTAGV2.Location = new System.Drawing.Point(8, 32);
       this.optTAGV2.Name = "optTAGV2";
-      this.optTAGV2.Size = new System.Drawing.Size(256, 16);
+      this.optTAGV2.Size = new System.Drawing.Size(256, 18);
       this.optTAGV2.TabIndex = 4;
       this.optTAGV2.Text = "Use TAG Ver. 2 for comparing";
       // 
@@ -143,7 +144,7 @@ namespace ID3_TagIT
       this.optAD.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.optAD.Location = new System.Drawing.Point(8, 60);
       this.optAD.Name = "optAD";
-      this.optAD.Size = new System.Drawing.Size(424, 16);
+      this.optAD.Size = new System.Drawing.Size(424, 18);
       this.optAD.TabIndex = 8;
       this.optAD.Text = "Find files with same audio data (LENGTHLY operation)";
       // 
@@ -152,7 +153,7 @@ namespace ID3_TagIT
       this.optATA.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.optATA.Location = new System.Drawing.Point(8, 36);
       this.optATA.Name = "optATA";
-      this.optATA.Size = new System.Drawing.Size(424, 16);
+      this.optATA.Size = new System.Drawing.Size(424, 18);
       this.optATA.TabIndex = 7;
       this.optATA.Text = "Find files with same artist, title, album";
       // 
@@ -161,7 +162,7 @@ namespace ID3_TagIT
       this.optAT.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.optAT.Location = new System.Drawing.Point(8, 12);
       this.optAT.Name = "optAT";
-      this.optAT.Size = new System.Drawing.Size(424, 16);
+      this.optAT.Size = new System.Drawing.Size(424, 18);
       this.optAT.TabIndex = 6;
       this.optAT.Text = "Find files with same artist and title";
       // 
@@ -189,6 +190,14 @@ namespace ID3_TagIT
 
     }
 
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+        this.components.Dispose();
+
+      base.Dispose(disposing);
+    }
+
     public frmDouble(frmMain Main)
     {
       base.Load += new EventHandler(this.frmDouble_Load);
@@ -197,38 +206,15 @@ namespace ID3_TagIT
       this.MainForm = Main;
     }
 
-    private void AddToolTips()
-    {
-      string vstrName = "frmDouble";
-      Control objControl = this.optTAGV1;
+    #endregion
 
-      this.optTAGV1 = (RadioButton)objControl;
-      this.ToolTip.SetToolTip(this.optTAGV1, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+    #region Local variables
 
-      vstrName = "frmDouble";
-      objControl = this.optTAGV2;
+    private bool vbooCancel;
 
-      this.optTAGV2 = (RadioButton)objControl;
-      this.ToolTip.SetToolTip(this.optTAGV2, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+    #endregion
 
-      vstrName = "frmDouble";
-      objControl = this.optAD;
-
-      this.optAD = (RadioButton)objControl;
-      this.ToolTip.SetToolTip(this.optAD, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
-
-      vstrName = "frmDouble";
-      objControl = this.optATA;
-
-      this.optATA = (RadioButton)objControl;
-      this.ToolTip.SetToolTip(this.optATA, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
-
-      vstrName = "frmDouble";
-      objControl = this.optAT;
-
-      this.optAT = (RadioButton)objControl;
-      this.ToolTip.SetToolTip(this.optAT, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
-    }
+    #region Events
 
     private void btnCancel_Click(object sender, EventArgs e)
     {
@@ -524,14 +510,6 @@ namespace ID3_TagIT
       this.Close();
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-        this.components.Dispose();
-
-      base.Dispose(disposing);
-    }
-
     private void frmDouble_Load(object sender, EventArgs e)
     {
       Form objForm = this;
@@ -566,5 +544,44 @@ namespace ID3_TagIT
 
       this.AddToolTips();
     }
+
+    #endregion
+
+    #region Class logic
+
+    private void AddToolTips()
+    {
+      string vstrName = "frmDouble";
+      Control objControl = this.optTAGV1;
+
+      this.optTAGV1 = (RadioButton)objControl;
+      this.ToolTip.SetToolTip(this.optTAGV1, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
+      vstrName = "frmDouble";
+      objControl = this.optTAGV2;
+
+      this.optTAGV2 = (RadioButton)objControl;
+      this.ToolTip.SetToolTip(this.optTAGV2, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
+      vstrName = "frmDouble";
+      objControl = this.optAD;
+
+      this.optAD = (RadioButton)objControl;
+      this.ToolTip.SetToolTip(this.optAD, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
+      vstrName = "frmDouble";
+      objControl = this.optATA;
+
+      this.optATA = (RadioButton)objControl;
+      this.ToolTip.SetToolTip(this.optATA, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
+      vstrName = "frmDouble";
+      objControl = this.optAT;
+
+      this.optAT = (RadioButton)objControl;
+      this.ToolTip.SetToolTip(this.optAT, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+    }
+
+    #endregion
   }
 }
