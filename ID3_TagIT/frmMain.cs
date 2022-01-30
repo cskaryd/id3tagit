@@ -21,9 +21,6 @@ namespace ID3_TagIT
   {
     #region Designer
 
-    private ArrayList alstCopyPaste;
-    private Button btnQuickEdit;
-    private Button btnQuickEditMore;
     private ButtonItem FavouritesPan;
     private ButtonItem FoldersPan;
     private ButtonItem btnV1V2View;
@@ -45,7 +42,6 @@ namespace ID3_TagIT
     private DockSite barLeftDockSite;
     private DockSite barRightDockSite;
     private DockSite barTopDockSite;
-    private ErrorProvider errorProvider1;
     private ExpandableSplitter SplitterLeft;
     private ExpandableSplitter SplitterRight;
     private ExplorerBar SideBar;
@@ -53,22 +49,29 @@ namespace ID3_TagIT
     private ExplorerBarGroupItem BarGroupInfo;
     private ExplorerBarGroupItem BarGroupPicture;
     private ExplorerBarGroupItem BarGroupTools;
+    private LabelItem lblAlbum;
+    private LabelItem lblArtist;
+    private LabelItem lblQuickSpacer1;
+    private LabelItem lblTitle;
+    private NavigationPane NavigationPan;
+    private NavigationPanePanel FavouritesPanel;
+    private NavigationPanePanel FoldersPanel;
+    public DevComponents.DotNetBar.DotNetBarManager DotNetBarManager;
+    public ExpandableSplitter SplitterBottom;
+
+    private ArrayList alstCopyPaste;
+    private Button btnQuickEdit;
+    private Button btnQuickEditMore;
+    private ErrorProvider errorProvider1;
     private FolderTreeView FolderTree;
     private IContainer components;
     private ImageList ColumnHeaderIcons;
     private ImageList GroupIcons;
     private ImageList ToolsIcons;
     private Label EnumInfo;
-    private LabelItem lblAlbum;
-    private LabelItem lblArtist;
-    private LabelItem lblQuickSpacer1;
-    private LabelItem lblTitle;
     private MemoryStream PicMStream;
     private MenuStrip mnuBtns;
     private MenuStrip mnuDDs;
-    private NavigationPane NavigationPan;
-    private NavigationPanePanel FavouritesPanel;
-    private NavigationPanePanel FoldersPanel;
     private PictureBox APICView;
     private RichTextBox txtInfo;
     private System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog;
@@ -243,8 +246,6 @@ namespace ID3_TagIT
     public ColumnHeader colHVersion;
     public ColumnHeader colHYear;
     public ComboBoxAutoComplete cmbArtist;
-    public DevComponents.DotNetBar.DotNetBarManager DotNetBarManager;
-    public ExpandableSplitter SplitterBottom;
     public ListView ErrorMsg;
     public ListView MP3View;
     public TreeView FavTree;
@@ -585,8 +586,8 @@ namespace ID3_TagIT
       // NavigationPan
       // 
       this.NavigationPan.ConfigureAddRemoveVisible = false;
-      this.NavigationPan.Controls.Add(this.FoldersPanel);
       this.NavigationPan.Controls.Add(this.FavouritesPanel);
+      this.NavigationPan.Controls.Add(this.FoldersPanel);
       this.NavigationPan.Dock = System.Windows.Forms.DockStyle.Left;
       this.NavigationPan.ItemPaddingBottom = 2;
       this.NavigationPan.ItemPaddingTop = 2;
@@ -615,7 +616,7 @@ namespace ID3_TagIT
       this.NavigationPan.TitlePanel.Style.GradientAngle = 90;
       this.NavigationPan.TitlePanel.Style.MarginLeft = 4;
       this.NavigationPan.TitlePanel.TabIndex = 0;
-      this.NavigationPan.TitlePanel.Text = "Folders";
+      this.NavigationPan.TitlePanel.Text = "Favourites";
       // 
       // FoldersPanel
       // 
@@ -654,7 +655,6 @@ namespace ID3_TagIT
       // FoldersPan
       // 
       this.FoldersPan.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.FoldersPan.Checked = true;
       this.FoldersPan.Icon = ((System.Drawing.Icon)(resources.GetObject("FoldersPan.Icon")));
       this.FoldersPan.ImageIndex = 0;
       this.FoldersPan.Name = "FoldersPan";
@@ -667,11 +667,11 @@ namespace ID3_TagIT
       this.FavouritesPanel.AntiAlias = true;
       this.FavouritesPanel.Controls.Add(this.FavTree);
       this.FavouritesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.FavouritesPanel.Location = new System.Drawing.Point(0, 0);
+      this.FavouritesPanel.Location = new System.Drawing.Point(0, 24);
       this.FavouritesPanel.Name = "FavouritesPanel";
       this.FavouritesPanel.Padding = new System.Windows.Forms.Padding(1, 1, 1, 0);
       this.FavouritesPanel.ParentItem = this.FavouritesPan;
-      this.FavouritesPanel.Size = new System.Drawing.Size(216, 421);
+      this.FavouritesPanel.Size = new System.Drawing.Size(216, 397);
       this.FavouritesPanel.Style.Alignment = System.Drawing.StringAlignment.Center;
       this.FavouritesPanel.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
       this.FavouritesPanel.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
@@ -692,7 +692,7 @@ namespace ID3_TagIT
       this.FavTree.ItemHeight = 16;
       this.FavTree.Location = new System.Drawing.Point(1, 1);
       this.FavTree.Name = "FavTree";
-      this.FavTree.Size = new System.Drawing.Size(214, 420);
+      this.FavTree.Size = new System.Drawing.Size(214, 396);
       this.FavTree.TabIndex = 8;
       this.FavTree.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.FavTree_BeforeSelect);
       this.FavTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.FavTree_AfterSelect);
@@ -701,6 +701,7 @@ namespace ID3_TagIT
       // FavouritesPan
       // 
       this.FavouritesPan.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.FavouritesPan.Checked = true;
       this.FavouritesPan.Icon = ((System.Drawing.Icon)(resources.GetObject("FavouritesPan.Icon")));
       this.FavouritesPan.Name = "FavouritesPan";
       this.FavouritesPan.OptionGroup = "navBar";
@@ -833,7 +834,7 @@ namespace ID3_TagIT
       this.cmbArtist.Autocomplete = true;
       this.cmbArtist.Location = new System.Drawing.Point(10, 43);
       this.cmbArtist.Name = "cmbArtist";
-      this.cmbArtist.Size = new System.Drawing.Size(180, 21);
+      this.cmbArtist.Size = new System.Drawing.Size(163, 21);
       this.cmbArtist.TabIndex = 2;
       this.cmbArtist.Enter += new System.EventHandler(this.txtArtistTitleAlbum_Enter);
       this.cmbArtist.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQuickEdit_KeyUp);
@@ -844,7 +845,7 @@ namespace ID3_TagIT
             | System.Windows.Forms.AnchorStyles.Right)));
       this.txtTitle.Location = new System.Drawing.Point(10, 80);
       this.txtTitle.Name = "txtTitle";
-      this.txtTitle.Size = new System.Drawing.Size(180, 21);
+      this.txtTitle.Size = new System.Drawing.Size(163, 21);
       this.txtTitle.TabIndex = 3;
       this.txtTitle.Enter += new System.EventHandler(this.txtArtistTitleAlbum_Enter);
       this.txtTitle.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQuickEdit_KeyUp);
@@ -855,7 +856,7 @@ namespace ID3_TagIT
             | System.Windows.Forms.AnchorStyles.Right)));
       this.txtAlbum.Location = new System.Drawing.Point(10, 117);
       this.txtAlbum.Name = "txtAlbum";
-      this.txtAlbum.Size = new System.Drawing.Size(180, 21);
+      this.txtAlbum.Size = new System.Drawing.Size(163, 21);
       this.txtAlbum.TabIndex = 4;
       this.txtAlbum.EnabledChanged += new System.EventHandler(this.txtArtistTitleAlbum_Enter);
       this.txtAlbum.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQuickEdit_KeyUp);
@@ -865,7 +866,7 @@ namespace ID3_TagIT
       this.btnQuickEdit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.btnQuickEdit.Location = new System.Drawing.Point(10, 154);
       this.btnQuickEdit.Name = "btnQuickEdit";
-      this.btnQuickEdit.Size = new System.Drawing.Size(180, 24);
+      this.btnQuickEdit.Size = new System.Drawing.Size(163, 24);
       this.btnQuickEdit.TabIndex = 5;
       this.btnQuickEdit.Text = "OK";
       this.btnQuickEdit.Click += new System.EventHandler(this.btnQuickEdit_Click);
@@ -876,14 +877,14 @@ namespace ID3_TagIT
       this.btnQuickEditMore.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.btnQuickEditMore.Location = new System.Drawing.Point(10, 180);
       this.btnQuickEditMore.Name = "btnQuickEditMore";
-      this.btnQuickEditMore.Size = new System.Drawing.Size(180, 24);
+      this.btnQuickEditMore.Size = new System.Drawing.Size(163, 24);
       this.btnQuickEditMore.TabIndex = 6;
       this.btnQuickEditMore.Text = "More ...";
       this.btnQuickEditMore.Click += new System.EventHandler(this.btnQuickEditMore_Click);
       // 
       // APICView
       // 
-      this.APICView.Location = new System.Drawing.Point(10, 251);
+      this.APICView.Location = new System.Drawing.Point(11, 247);
       this.APICView.Name = "APICView";
       this.APICView.Size = new System.Drawing.Size(160, 160);
       this.APICView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -895,10 +896,10 @@ namespace ID3_TagIT
       this.txtInfo.AcceptsTab = true;
       this.txtInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
       this.txtInfo.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.txtInfo.Location = new System.Drawing.Point(10, 285);
+      this.txtInfo.Location = new System.Drawing.Point(10, 450);
       this.txtInfo.Name = "txtInfo";
       this.txtInfo.ReadOnly = true;
-      this.txtInfo.Size = new System.Drawing.Size(180, 92);
+      this.txtInfo.Size = new System.Drawing.Size(163, 92);
       this.txtInfo.TabIndex = 28;
       this.txtInfo.TabStop = false;
       this.txtInfo.Text = "";
@@ -1049,6 +1050,7 @@ namespace ID3_TagIT
       this.BarGroupPicture.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
       this.BarGroupPicture.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.BarGroupPicture.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
+      this.BarGroupPicture.Expanded = true;
       this.BarGroupPicture.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
       this.BarGroupPicture.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
       this.BarGroupPicture.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
