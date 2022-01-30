@@ -1,73 +1,372 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.ComponentModel;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.IO;
-  using System.Net;
-  using System.Runtime.CompilerServices;
-  using System.Runtime.InteropServices;
-  using System.Windows.Forms;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.Net;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class frmFreeDB : Form
   {
-    [AccessedThroughProperty("btnCancel")]
-    private Button _btnCancel;
-    [AccessedThroughProperty("btnClose")]
-    private Button _btnClose;
-    [AccessedThroughProperty("btnQuery")]
-    private Button _btnQuery;
-    [AccessedThroughProperty("btnSearch")]
-    private Button _btnSearch;
-    [AccessedThroughProperty("btnWrite")]
-    private Button _btnWrite;
-    [AccessedThroughProperty("chkArtist")]
-    private CheckBox _chkArtist;
-    [AccessedThroughProperty("chkArtistExact")]
-    private CheckBox _chkArtistExact;
-    [AccessedThroughProperty("chkComplete")]
-    private CheckBox _chkComplete;
-    [AccessedThroughProperty("chkTitle")]
-    private CheckBox _chkTitle;
-    [AccessedThroughProperty("chkTrack")]
-    private CheckBox _chkTrack;
-    [AccessedThroughProperty("chkWrite1")]
-    private CheckBox _chkWrite1;
-    [AccessedThroughProperty("chkWrite2")]
-    private CheckBox _chkWrite2;
-    [AccessedThroughProperty("grpSearchFile")]
-    private GroupBox _grpSearchFile;
-    [AccessedThroughProperty("grpSearchWord")]
-    private GroupBox _grpSearchWord;
-    [AccessedThroughProperty("grpStatus")]
-    private GroupBox _grpStatus;
-    [AccessedThroughProperty("lblInfo")]
-    private Label _lblInfo;
-    [AccessedThroughProperty("lblSearchWord")]
-    private Label _lblSearchWord;
-    [AccessedThroughProperty("optSingleArtist")]
-    private RadioButton _optSingleArtist;
-    [AccessedThroughProperty("optVariousArtist")]
-    private RadioButton _optVariousArtist;
-    [AccessedThroughProperty("pnlWrite")]
-    private GroupBox _pnlWrite;
-    [AccessedThroughProperty("ResultTree")]
-    private TreeView _ResultTree;
-    [AccessedThroughProperty("Status")]
-    private Label _Status;
-    [AccessedThroughProperty("ToolTip")]
-    private System.Windows.Forms.ToolTip _ToolTip;
-    [AccessedThroughProperty("txtSearch")]
-    private TextBox _txtSearch;
+    private Button btnCancel;
+    private Button btnClose;
+    private Button btnQuery;
+    private Button btnSearch;
+    private Button btnWrite;
+    private CheckBox chkArtist;
+    private CheckBox chkArtistExact;
+    private CheckBox chkComplete;
+    private CheckBox chkTitle;
+    private CheckBox chkTrack;
+    private CheckBox chkWrite1;
+    private CheckBox chkWrite2;
+    private GroupBox grpSearchFile;
+    private GroupBox grpSearchWord;
+    private GroupBox grpStatus;
+    private Label lblInfo;
+    private Label lblSearchWord;
+    private RadioButton optSingleArtist;
+    private RadioButton optVariousArtist;
+    private GroupBox pnlWrite;
+    private TreeView ResultTree;
+    private Label Status;
+    private System.Windows.Forms.ToolTip ToolTip;
+    private TextBox txtSearch;
     public ArrayList alstFilesToTAG;
     private IContainer components;
     private ID3_TagIT.FreeDB FreeDB;
     private frmMain MainForm;
     private bool vbooCancel;
+
+    [DebuggerStepThrough]
+    private void InitializeComponent()
+    {
+      this.components = new System.ComponentModel.Container();
+      this.lblInfo = new System.Windows.Forms.Label();
+      this.btnQuery = new System.Windows.Forms.Button();
+      this.Status = new System.Windows.Forms.Label();
+      this.ResultTree = new System.Windows.Forms.TreeView();
+      this.btnClose = new System.Windows.Forms.Button();
+      this.pnlWrite = new System.Windows.Forms.GroupBox();
+      this.btnWrite = new System.Windows.Forms.Button();
+      this.chkWrite2 = new System.Windows.Forms.CheckBox();
+      this.chkWrite1 = new System.Windows.Forms.CheckBox();
+      this.optVariousArtist = new System.Windows.Forms.RadioButton();
+      this.optSingleArtist = new System.Windows.Forms.RadioButton();
+      this.chkTrack = new System.Windows.Forms.CheckBox();
+      this.chkTitle = new System.Windows.Forms.CheckBox();
+      this.btnSearch = new System.Windows.Forms.Button();
+      this.txtSearch = new System.Windows.Forms.TextBox();
+      this.btnCancel = new System.Windows.Forms.Button();
+      this.grpStatus = new System.Windows.Forms.GroupBox();
+      this.grpSearchWord = new System.Windows.Forms.GroupBox();
+      this.chkArtistExact = new System.Windows.Forms.CheckBox();
+      this.chkArtist = new System.Windows.Forms.CheckBox();
+      this.chkComplete = new System.Windows.Forms.CheckBox();
+      this.grpSearchFile = new System.Windows.Forms.GroupBox();
+      this.lblSearchWord = new System.Windows.Forms.Label();
+      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+      this.pnlWrite.SuspendLayout();
+      this.grpStatus.SuspendLayout();
+      this.grpSearchWord.SuspendLayout();
+      this.grpSearchFile.SuspendLayout();
+      this.SuspendLayout();
+      // 
+      // lblInfo
+      // 
+      this.lblInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInfo.Location = new System.Drawing.Point(8, 480);
+      this.lblInfo.Name = "lblInfo";
+      this.lblInfo.Size = new System.Drawing.Size(536, 24);
+      this.lblInfo.TabIndex = 3;
+      this.lblInfo.Text = "With this function you can query FreeDB for information. For connection settings " +
+    "go to the preferences.";
+      this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // btnQuery
+      // 
+      this.btnQuery.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnQuery.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnQuery.Location = new System.Drawing.Point(8, 96);
+      this.btnQuery.Name = "btnQuery";
+      this.btnQuery.Size = new System.Drawing.Size(232, 24);
+      this.btnQuery.TabIndex = 1;
+      this.btnQuery.Text = "Start search by files";
+      this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
+      // 
+      // Status
+      // 
+      this.Status.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.Status.Location = new System.Drawing.Point(8, 24);
+      this.Status.Name = "Status";
+      this.Status.Size = new System.Drawing.Size(232, 40);
+      this.Status.TabIndex = 13;
+      // 
+      // ResultTree
+      // 
+      this.ResultTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.ResultTree.Indent = 19;
+      this.ResultTree.ItemHeight = 16;
+      this.ResultTree.Location = new System.Drawing.Point(8, 256);
+      this.ResultTree.Name = "ResultTree";
+      this.ResultTree.Size = new System.Drawing.Size(656, 216);
+      this.ResultTree.TabIndex = 5;
+      this.ResultTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.ResultTree_AfterSelect);
+      // 
+      // btnClose
+      // 
+      this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+      this.btnClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnClose.Location = new System.Drawing.Point(552, 480);
+      this.btnClose.Name = "btnClose";
+      this.btnClose.Size = new System.Drawing.Size(112, 24);
+      this.btnClose.TabIndex = 6;
+      this.btnClose.Text = "Close";
+      this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+      // 
+      // pnlWrite
+      // 
+      this.pnlWrite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.pnlWrite.Controls.Add(this.btnWrite);
+      this.pnlWrite.Controls.Add(this.chkWrite2);
+      this.pnlWrite.Controls.Add(this.chkWrite1);
+      this.pnlWrite.Controls.Add(this.optVariousArtist);
+      this.pnlWrite.Controls.Add(this.optSingleArtist);
+      this.pnlWrite.Enabled = false;
+      this.pnlWrite.Location = new System.Drawing.Point(264, 144);
+      this.pnlWrite.Name = "pnlWrite";
+      this.pnlWrite.Size = new System.Drawing.Size(400, 104);
+      this.pnlWrite.TabIndex = 4;
+      this.pnlWrite.TabStop = false;
+      this.pnlWrite.Text = "Where should the selected information be stored?";
+      // 
+      // btnWrite
+      // 
+      this.btnWrite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnWrite.Location = new System.Drawing.Point(8, 72);
+      this.btnWrite.Name = "btnWrite";
+      this.btnWrite.Size = new System.Drawing.Size(384, 24);
+      this.btnWrite.TabIndex = 14;
+      this.btnWrite.Text = "Write information";
+      this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
+      // 
+      // chkWrite2
+      // 
+      this.chkWrite2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkWrite2.Location = new System.Drawing.Point(200, 48);
+      this.chkWrite2.Name = "chkWrite2";
+      this.chkWrite2.Size = new System.Drawing.Size(192, 16);
+      this.chkWrite2.TabIndex = 13;
+      this.chkWrite2.Text = "Write information into TAG Ver. 2";
+      // 
+      // chkWrite1
+      // 
+      this.chkWrite1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkWrite1.Location = new System.Drawing.Point(200, 24);
+      this.chkWrite1.Name = "chkWrite1";
+      this.chkWrite1.Size = new System.Drawing.Size(192, 16);
+      this.chkWrite1.TabIndex = 12;
+      this.chkWrite1.Text = "Write information into TAG Ver. 1";
+      // 
+      // optVariousArtist
+      // 
+      this.optVariousArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optVariousArtist.Location = new System.Drawing.Point(16, 48);
+      this.optVariousArtist.Name = "optVariousArtist";
+      this.optVariousArtist.Size = new System.Drawing.Size(176, 16);
+      this.optVariousArtist.TabIndex = 11;
+      this.optVariousArtist.Text = "Album of various artists";
+      // 
+      // optSingleArtist
+      // 
+      this.optSingleArtist.Checked = true;
+      this.optSingleArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optSingleArtist.Location = new System.Drawing.Point(16, 24);
+      this.optSingleArtist.Name = "optSingleArtist";
+      this.optSingleArtist.Size = new System.Drawing.Size(176, 16);
+      this.optSingleArtist.TabIndex = 10;
+      this.optSingleArtist.TabStop = true;
+      this.optSingleArtist.Text = "Album of single artist";
+      // 
+      // chkTrack
+      // 
+      this.chkTrack.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkTrack.Location = new System.Drawing.Point(296, 48);
+      this.chkTrack.Name = "chkTrack";
+      this.chkTrack.Size = new System.Drawing.Size(96, 16);
+      this.chkTrack.TabIndex = 5;
+      this.chkTrack.Text = "Track";
+      // 
+      // chkTitle
+      // 
+      this.chkTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkTitle.Location = new System.Drawing.Point(176, 48);
+      this.chkTitle.Name = "chkTitle";
+      this.chkTitle.Size = new System.Drawing.Size(104, 16);
+      this.chkTitle.TabIndex = 4;
+      this.chkTitle.Text = "Title";
+      // 
+      // btnSearch
+      // 
+      this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnSearch.Location = new System.Drawing.Point(8, 96);
+      this.btnSearch.Name = "btnSearch";
+      this.btnSearch.Size = new System.Drawing.Size(384, 24);
+      this.btnSearch.TabIndex = 8;
+      this.btnSearch.Text = "Start search by words";
+      this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+      // 
+      // txtSearch
+      // 
+      this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtSearch.Location = new System.Drawing.Point(8, 16);
+      this.txtSearch.Name = "txtSearch";
+      this.txtSearch.Size = new System.Drawing.Size(384, 20);
+      this.txtSearch.TabIndex = 0;
+      this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
+      // 
+      // btnCancel
+      // 
+      this.btnCancel.Enabled = false;
+      this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCancel.Location = new System.Drawing.Point(8, 72);
+      this.btnCancel.Name = "btnCancel";
+      this.btnCancel.Size = new System.Drawing.Size(232, 24);
+      this.btnCancel.TabIndex = 8;
+      this.btnCancel.Text = "Cancel connection";
+      this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+      // 
+      // grpStatus
+      // 
+      this.grpStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.grpStatus.Controls.Add(this.btnCancel);
+      this.grpStatus.Controls.Add(this.Status);
+      this.grpStatus.Location = new System.Drawing.Point(8, 144);
+      this.grpStatus.Name = "grpStatus";
+      this.grpStatus.Size = new System.Drawing.Size(248, 104);
+      this.grpStatus.TabIndex = 3;
+      this.grpStatus.TabStop = false;
+      this.grpStatus.Text = "Status ... ";
+      // 
+      // grpSearchWord
+      // 
+      this.grpSearchWord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.grpSearchWord.Controls.Add(this.chkArtistExact);
+      this.grpSearchWord.Controls.Add(this.chkArtist);
+      this.grpSearchWord.Controls.Add(this.chkComplete);
+      this.grpSearchWord.Controls.Add(this.chkTitle);
+      this.grpSearchWord.Controls.Add(this.btnSearch);
+      this.grpSearchWord.Controls.Add(this.chkTrack);
+      this.grpSearchWord.Controls.Add(this.txtSearch);
+      this.grpSearchWord.Location = new System.Drawing.Point(8, 8);
+      this.grpSearchWord.Name = "grpSearchWord";
+      this.grpSearchWord.Size = new System.Drawing.Size(400, 128);
+      this.grpSearchWord.TabIndex = 0;
+      this.grpSearchWord.TabStop = false;
+      this.grpSearchWord.Text = "Search by words ";
+      // 
+      // chkArtistExact
+      // 
+      this.chkArtistExact.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkArtistExact.Location = new System.Drawing.Point(16, 72);
+      this.chkArtistExact.Name = "chkArtistExact";
+      this.chkArtistExact.Size = new System.Drawing.Size(152, 16);
+      this.chkArtistExact.TabIndex = 6;
+      this.chkArtistExact.Text = "Exact artist search";
+      this.chkArtistExact.CheckedChanged += new System.EventHandler(this.chkArtistEact_CheckedChanged);
+      // 
+      // chkArtist
+      // 
+      this.chkArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkArtist.Location = new System.Drawing.Point(16, 48);
+      this.chkArtist.Name = "chkArtist";
+      this.chkArtist.Size = new System.Drawing.Size(152, 16);
+      this.chkArtist.TabIndex = 3;
+      this.chkArtist.Text = "Artist";
+      this.chkArtist.CheckedChanged += new System.EventHandler(this.chkArtistEact_CheckedChanged);
+      // 
+      // chkComplete
+      // 
+      this.chkComplete.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkComplete.Location = new System.Drawing.Point(176, 72);
+      this.chkComplete.Name = "chkComplete";
+      this.chkComplete.Size = new System.Drawing.Size(208, 16);
+      this.chkComplete.TabIndex = 7;
+      this.chkComplete.Text = "Match complete search string";
+      // 
+      // grpSearchFile
+      // 
+      this.grpSearchFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.grpSearchFile.Controls.Add(this.lblSearchWord);
+      this.grpSearchFile.Controls.Add(this.btnQuery);
+      this.grpSearchFile.Location = new System.Drawing.Point(416, 8);
+      this.grpSearchFile.Name = "grpSearchFile";
+      this.grpSearchFile.Size = new System.Drawing.Size(248, 128);
+      this.grpSearchFile.TabIndex = 1;
+      this.grpSearchFile.TabStop = false;
+      this.grpSearchFile.Text = "Search by selected files ";
+      // 
+      // lblSearchWord
+      // 
+      this.lblSearchWord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.lblSearchWord.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblSearchWord.Location = new System.Drawing.Point(8, 24);
+      this.lblSearchWord.Name = "lblSearchWord";
+      this.lblSearchWord.Size = new System.Drawing.Size(232, 56);
+      this.lblSearchWord.TabIndex = 3;
+      this.lblSearchWord.Text = "ID3-TagIT will try to find the CDs that match the selected MP3 files. So it is ne" +
+    "ssesary for a successful search to select all files of the album in the correct " +
+    "order.";
+      this.lblSearchWord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // frmFreeDB
+      // 
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+      this.CancelButton = this.btnClose;
+      this.ClientSize = new System.Drawing.Size(666, 528);
+      this.ControlBox = false;
+      this.Controls.Add(this.grpSearchFile);
+      this.Controls.Add(this.grpSearchWord);
+      this.Controls.Add(this.grpStatus);
+      this.Controls.Add(this.btnClose);
+      this.Controls.Add(this.pnlWrite);
+      this.Controls.Add(this.ResultTree);
+      this.Controls.Add(this.lblInfo);
+      this.MaximumSize = new System.Drawing.Size(682, 1600);
+      this.MinimumSize = new System.Drawing.Size(682, 544);
+      this.Name = "frmFreeDB";
+      this.ShowInTaskbar = false;
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+      this.Text = "FreeDB";
+      this.pnlWrite.ResumeLayout(false);
+      this.grpStatus.ResumeLayout(false);
+      this.grpSearchWord.ResumeLayout(false);
+      this.grpSearchWord.PerformLayout();
+      this.grpSearchFile.ResumeLayout(false);
+      this.ResumeLayout(false);
+
+    }
 
     public frmFreeDB(frmMain frmM)
     {
@@ -1046,286 +1345,6 @@
       this.AddToolTips();
     }
 
-    [DebuggerStepThrough]
-    private void InitializeComponent()
-    {
-      this.components = new Container();
-      this.lblInfo = new Label();
-      this.btnQuery = new Button();
-      this.Status = new Label();
-      this.ResultTree = new TreeView();
-      this.btnClose = new Button();
-      this.pnlWrite = new GroupBox();
-      this.btnWrite = new Button();
-      this.chkWrite2 = new CheckBox();
-      this.chkWrite1 = new CheckBox();
-      this.optVariousArtist = new RadioButton();
-      this.optSingleArtist = new RadioButton();
-      this.chkTrack = new CheckBox();
-      this.chkTitle = new CheckBox();
-      this.btnSearch = new Button();
-      this.txtSearch = new TextBox();
-      this.btnCancel = new Button();
-      this.grpStatus = new GroupBox();
-      this.grpSearchWord = new GroupBox();
-      this.chkArtistExact = new CheckBox();
-      this.chkArtist = new CheckBox();
-      this.chkComplete = new CheckBox();
-      this.grpSearchFile = new GroupBox();
-      this.lblSearchWord = new Label();
-      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.pnlWrite.SuspendLayout();
-      this.grpStatus.SuspendLayout();
-      this.grpSearchWord.SuspendLayout();
-      this.grpSearchFile.SuspendLayout();
-      this.SuspendLayout();
-      this.lblInfo.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom;
-      this.lblInfo.BorderStyle = BorderStyle.Fixed3D;
-      this.lblInfo.ImeMode = ImeMode.NoControl;
-      Point point = new Point(8, 480);
-      this.lblInfo.Location = point;
-      this.lblInfo.Name = "lblInfo";
-      Size size = new Size(0x218, 0x18);
-      this.lblInfo.Size = size;
-      this.lblInfo.TabIndex = 3;
-      this.lblInfo.Text = "With this function you can query FreeDB for information. For connection settings go to the preferences.";
-      this.lblInfo.TextAlign = ContentAlignment.MiddleCenter;
-      this.btnQuery.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-      this.btnQuery.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x60);
-      this.btnQuery.Location = point;
-      this.btnQuery.Name = "btnQuery";
-      size = new Size(0xe8, 0x18);
-      this.btnQuery.Size = size;
-      this.btnQuery.TabIndex = 1;
-      this.btnQuery.Text = "Start search by files";
-      this.Status.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x18);
-      this.Status.Location = point;
-      this.Status.Name = "Status";
-      size = new Size(0xe8, 40);
-      this.Status.Size = size;
-      this.Status.TabIndex = 13;
-      this.ResultTree.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Top;
-      this.ResultTree.ImageIndex = -1;
-      this.ResultTree.Indent = 0x13;
-      this.ResultTree.ItemHeight = 0x10;
-      point = new Point(8, 0x100);
-      this.ResultTree.Location = point;
-      this.ResultTree.Name = "ResultTree";
-      this.ResultTree.SelectedImageIndex = -1;
-      size = new Size(0x290, 0xd8);
-      this.ResultTree.Size = size;
-      this.ResultTree.TabIndex = 5;
-      this.btnClose.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
-      this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnClose.ImeMode = ImeMode.NoControl;
-      point = new Point(0x228, 480);
-      this.btnClose.Location = point;
-      this.btnClose.Name = "btnClose";
-      size = new Size(0x70, 0x18);
-      this.btnClose.Size = size;
-      this.btnClose.TabIndex = 6;
-      this.btnClose.Text = "Close";
-      this.pnlWrite.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-      this.pnlWrite.Controls.Add(this.btnWrite);
-      this.pnlWrite.Controls.Add(this.chkWrite2);
-      this.pnlWrite.Controls.Add(this.chkWrite1);
-      this.pnlWrite.Controls.Add(this.optVariousArtist);
-      this.pnlWrite.Controls.Add(this.optSingleArtist);
-      this.pnlWrite.Enabled = false;
-      point = new Point(0x108, 0x90);
-      this.pnlWrite.Location = point;
-      this.pnlWrite.Name = "pnlWrite";
-      size = new Size(400, 0x68);
-      this.pnlWrite.Size = size;
-      this.pnlWrite.TabIndex = 4;
-      this.pnlWrite.TabStop = false;
-      this.pnlWrite.Text = "Where should the selected information be stored?";
-      this.btnWrite.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x48);
-      this.btnWrite.Location = point;
-      this.btnWrite.Name = "btnWrite";
-      size = new Size(0x180, 0x18);
-      this.btnWrite.Size = size;
-      this.btnWrite.TabIndex = 14;
-      this.btnWrite.Text = "Write information";
-      this.chkWrite2.ImeMode = ImeMode.NoControl;
-      point = new Point(200, 0x30);
-      this.chkWrite2.Location = point;
-      this.chkWrite2.Name = "chkWrite2";
-      size = new Size(0xc0, 0x10);
-      this.chkWrite2.Size = size;
-      this.chkWrite2.TabIndex = 13;
-      this.chkWrite2.Text = "Write information into TAG Ver. 2";
-      this.chkWrite1.ImeMode = ImeMode.NoControl;
-      point = new Point(200, 0x18);
-      this.chkWrite1.Location = point;
-      this.chkWrite1.Name = "chkWrite1";
-      size = new Size(0xc0, 0x10);
-      this.chkWrite1.Size = size;
-      this.chkWrite1.TabIndex = 12;
-      this.chkWrite1.Text = "Write information into TAG Ver. 1";
-      this.optVariousArtist.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x30);
-      this.optVariousArtist.Location = point;
-      this.optVariousArtist.Name = "optVariousArtist";
-      size = new Size(0xb0, 0x10);
-      this.optVariousArtist.Size = size;
-      this.optVariousArtist.TabIndex = 11;
-      this.optVariousArtist.Text = "Album of various artists";
-      this.optSingleArtist.Checked = true;
-      this.optSingleArtist.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x18);
-      this.optSingleArtist.Location = point;
-      this.optSingleArtist.Name = "optSingleArtist";
-      size = new Size(0xb0, 0x10);
-      this.optSingleArtist.Size = size;
-      this.optSingleArtist.TabIndex = 10;
-      this.optSingleArtist.TabStop = true;
-      this.optSingleArtist.Text = "Album of single artist";
-      this.chkTrack.ImeMode = ImeMode.NoControl;
-      point = new Point(0x128, 0x30);
-      this.chkTrack.Location = point;
-      this.chkTrack.Name = "chkTrack";
-      size = new Size(0x60, 0x10);
-      this.chkTrack.Size = size;
-      this.chkTrack.TabIndex = 5;
-      this.chkTrack.Text = "Track";
-      this.chkTitle.ImeMode = ImeMode.NoControl;
-      point = new Point(0xb0, 0x30);
-      this.chkTitle.Location = point;
-      this.chkTitle.Name = "chkTitle";
-      size = new Size(0x68, 0x10);
-      this.chkTitle.Size = size;
-      this.chkTitle.TabIndex = 4;
-      this.chkTitle.Text = "Title";
-      this.btnSearch.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-      this.btnSearch.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x60);
-      this.btnSearch.Location = point;
-      this.btnSearch.Name = "btnSearch";
-      size = new Size(0x180, 0x18);
-      this.btnSearch.Size = size;
-      this.btnSearch.TabIndex = 8;
-      this.btnSearch.Text = "Start search by words";
-      this.txtSearch.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-      point = new Point(8, 0x10);
-      this.txtSearch.Location = point;
-      this.txtSearch.Name = "txtSearch";
-      size = new Size(0x180, 20);
-      this.txtSearch.Size = size;
-      this.txtSearch.TabIndex = 0;
-      this.txtSearch.Text = "";
-      this.btnCancel.Enabled = false;
-      this.btnCancel.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x48);
-      this.btnCancel.Location = point;
-      this.btnCancel.Name = "btnCancel";
-      size = new Size(0xe8, 0x18);
-      this.btnCancel.Size = size;
-      this.btnCancel.TabIndex = 8;
-      this.btnCancel.Text = "Cancel connection";
-      this.grpStatus.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-      this.grpStatus.Controls.Add(this.btnCancel);
-      this.grpStatus.Controls.Add(this.Status);
-      point = new Point(8, 0x90);
-      this.grpStatus.Location = point;
-      this.grpStatus.Name = "grpStatus";
-      size = new Size(0xf8, 0x68);
-      this.grpStatus.Size = size;
-      this.grpStatus.TabIndex = 3;
-      this.grpStatus.TabStop = false;
-      this.grpStatus.Text = "Status ... ";
-      this.grpSearchWord.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-      this.grpSearchWord.Controls.Add(this.chkArtistExact);
-      this.grpSearchWord.Controls.Add(this.chkArtist);
-      this.grpSearchWord.Controls.Add(this.chkComplete);
-      this.grpSearchWord.Controls.Add(this.chkTitle);
-      this.grpSearchWord.Controls.Add(this.btnSearch);
-      this.grpSearchWord.Controls.Add(this.chkTrack);
-      this.grpSearchWord.Controls.Add(this.txtSearch);
-      point = new Point(8, 8);
-      this.grpSearchWord.Location = point;
-      this.grpSearchWord.Name = "grpSearchWord";
-      size = new Size(400, 0x80);
-      this.grpSearchWord.Size = size;
-      this.grpSearchWord.TabIndex = 0;
-      this.grpSearchWord.TabStop = false;
-      this.grpSearchWord.Text = "Search by words ";
-      this.chkArtistExact.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x48);
-      this.chkArtistExact.Location = point;
-      this.chkArtistExact.Name = "chkArtistExact";
-      size = new Size(0x98, 0x10);
-      this.chkArtistExact.Size = size;
-      this.chkArtistExact.TabIndex = 6;
-      this.chkArtistExact.Text = "Exact artist search";
-      this.chkArtist.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x30);
-      this.chkArtist.Location = point;
-      this.chkArtist.Name = "chkArtist";
-      size = new Size(0x98, 0x10);
-      this.chkArtist.Size = size;
-      this.chkArtist.TabIndex = 3;
-      this.chkArtist.Text = "Artist";
-      this.chkComplete.ImeMode = ImeMode.NoControl;
-      point = new Point(0xb0, 0x48);
-      this.chkComplete.Location = point;
-      this.chkComplete.Name = "chkComplete";
-      size = new Size(0xd0, 0x10);
-      this.chkComplete.Size = size;
-      this.chkComplete.TabIndex = 7;
-      this.chkComplete.Text = "Match complete search string";
-      this.grpSearchFile.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-      this.grpSearchFile.Controls.Add(this.lblSearchWord);
-      this.grpSearchFile.Controls.Add(this.btnQuery);
-      point = new Point(0x1a0, 8);
-      this.grpSearchFile.Location = point;
-      this.grpSearchFile.Name = "grpSearchFile";
-      size = new Size(0xf8, 0x80);
-      this.grpSearchFile.Size = size;
-      this.grpSearchFile.TabIndex = 1;
-      this.grpSearchFile.TabStop = false;
-      this.grpSearchFile.Text = "Search by selected files ";
-      this.lblSearchWord.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-      this.lblSearchWord.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x18);
-      this.lblSearchWord.Location = point;
-      this.lblSearchWord.Name = "lblSearchWord";
-      size = new Size(0xe8, 0x38);
-      this.lblSearchWord.Size = size;
-      this.lblSearchWord.TabIndex = 3;
-      this.lblSearchWord.Text = "ID3-TagIT will try to find the CDs that match the selected MP3 files. So it is nessesary for a successful search to select all files of the album in the correct order.";
-      this.lblSearchWord.TextAlign = ContentAlignment.MiddleCenter;
-      size = new Size(5, 13);
-      this.AutoScaleBaseSize = size;
-      this.CancelButton = this.btnClose;
-      size = new Size(0x2a2, 510);
-      this.ClientSize = size;
-      this.ControlBox = false;
-      this.Controls.Add(this.grpSearchFile);
-      this.Controls.Add(this.grpSearchWord);
-      this.Controls.Add(this.grpStatus);
-      this.Controls.Add(this.btnClose);
-      this.Controls.Add(this.pnlWrite);
-      this.Controls.Add(this.ResultTree);
-      this.Controls.Add(this.lblInfo);
-      size = new Size(0x2aa, 0x640);
-      this.MaximumSize = size;
-      size = new Size(0x2aa, 0x220);
-      this.MinimumSize = size;
-      this.Name = "frmFreeDB";
-      this.ShowInTaskbar = false;
-      this.StartPosition = FormStartPosition.CenterParent;
-      this.Text = "FreeDB";
-      this.pnlWrite.ResumeLayout(false);
-      this.grpStatus.ResumeLayout(false);
-      this.grpSearchWord.ResumeLayout(false);
-      this.grpSearchFile.ResumeLayout(false);
-      this.ResumeLayout(false);
-    }
-
     private void ResultTree_AfterSelect(object sender, TreeViewEventArgs e)
     {
       if (this.ResultTree.SelectedNode != null)
@@ -1349,480 +1368,6 @@
       if (e.KeyCode == Keys.Enter)
       {
         this.btnSearch.PerformClick();
-      }
-    }
-
-    internal virtual Button btnCancel
-    {
-      get
-      {
-        return this._btnCancel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnCancel != null)
-        {
-          this._btnCancel.Click -= new EventHandler(this.btnCancel_Click);
-        }
-        this._btnCancel = value;
-        if (this._btnCancel != null)
-        {
-          this._btnCancel.Click += new EventHandler(this.btnCancel_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnClose
-    {
-      get
-      {
-        return this._btnClose;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnClose != null)
-        {
-          this._btnClose.Click -= new EventHandler(this.btnClose_Click);
-        }
-        this._btnClose = value;
-        if (this._btnClose != null)
-        {
-          this._btnClose.Click += new EventHandler(this.btnClose_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnQuery
-    {
-      get
-      {
-        return this._btnQuery;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnQuery != null)
-        {
-          this._btnQuery.Click -= new EventHandler(this.btnQuery_Click);
-        }
-        this._btnQuery = value;
-        if (this._btnQuery != null)
-        {
-          this._btnQuery.Click += new EventHandler(this.btnQuery_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnSearch
-    {
-      get
-      {
-        return this._btnSearch;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnSearch != null)
-        {
-          this._btnSearch.Click -= new EventHandler(this.btnSearch_Click);
-        }
-        this._btnSearch = value;
-        if (this._btnSearch != null)
-        {
-          this._btnSearch.Click += new EventHandler(this.btnSearch_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnWrite
-    {
-      get
-      {
-        return this._btnWrite;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnWrite != null)
-        {
-          this._btnWrite.Click -= new EventHandler(this.btnWrite_Click);
-        }
-        this._btnWrite = value;
-        if (this._btnWrite != null)
-        {
-          this._btnWrite.Click += new EventHandler(this.btnWrite_Click);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkArtist
-    {
-      get
-      {
-        return this._chkArtist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkArtist != null)
-        {
-          this._chkArtist.CheckedChanged -= new EventHandler(this.chkArtistEact_CheckedChanged);
-        }
-        this._chkArtist = value;
-        if (this._chkArtist != null)
-        {
-          this._chkArtist.CheckedChanged += new EventHandler(this.chkArtistEact_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkArtistExact
-    {
-      get
-      {
-        return this._chkArtistExact;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkArtistExact != null)
-        {
-          this._chkArtistExact.CheckedChanged -= new EventHandler(this.chkArtistEact_CheckedChanged);
-        }
-        this._chkArtistExact = value;
-        if (this._chkArtistExact != null)
-        {
-          this._chkArtistExact.CheckedChanged += new EventHandler(this.chkArtistEact_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkComplete
-    {
-      get
-      {
-        return this._chkComplete;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkComplete != null)
-        {
-        }
-        this._chkComplete = value;
-        if (this._chkComplete != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkTitle
-    {
-      get
-      {
-        return this._chkTitle;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkTitle != null)
-        {
-        }
-        this._chkTitle = value;
-        if (this._chkTitle != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkTrack
-    {
-      get
-      {
-        return this._chkTrack;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkTrack != null)
-        {
-        }
-        this._chkTrack = value;
-        if (this._chkTrack != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkWrite1
-    {
-      get
-      {
-        return this._chkWrite1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkWrite1 != null)
-        {
-        }
-        this._chkWrite1 = value;
-        if (this._chkWrite1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkWrite2
-    {
-      get
-      {
-        return this._chkWrite2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkWrite2 != null)
-        {
-        }
-        this._chkWrite2 = value;
-        if (this._chkWrite2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox grpSearchFile
-    {
-      get
-      {
-        return this._grpSearchFile;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._grpSearchFile != null)
-        {
-        }
-        this._grpSearchFile = value;
-        if (this._grpSearchFile != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox grpSearchWord
-    {
-      get
-      {
-        return this._grpSearchWord;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._grpSearchWord != null)
-        {
-        }
-        this._grpSearchWord = value;
-        if (this._grpSearchWord != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox grpStatus
-    {
-      get
-      {
-        return this._grpStatus;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._grpStatus != null)
-        {
-        }
-        this._grpStatus = value;
-        if (this._grpStatus != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblInfo
-    {
-      get
-      {
-        return this._lblInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblInfo != null)
-        {
-        }
-        this._lblInfo = value;
-        if (this._lblInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblSearchWord
-    {
-      get
-      {
-        return this._lblSearchWord;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblSearchWord != null)
-        {
-        }
-        this._lblSearchWord = value;
-        if (this._lblSearchWord != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optSingleArtist
-    {
-      get
-      {
-        return this._optSingleArtist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optSingleArtist != null)
-        {
-        }
-        this._optSingleArtist = value;
-        if (this._optSingleArtist != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optVariousArtist
-    {
-      get
-      {
-        return this._optVariousArtist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optVariousArtist != null)
-        {
-        }
-        this._optVariousArtist = value;
-        if (this._optVariousArtist != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox pnlWrite
-    {
-      get
-      {
-        return this._pnlWrite;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._pnlWrite != null)
-        {
-        }
-        this._pnlWrite = value;
-        if (this._pnlWrite != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TreeView ResultTree
-    {
-      get
-      {
-        return this._ResultTree;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ResultTree != null)
-        {
-          this._ResultTree.AfterSelect -= new TreeViewEventHandler(this.ResultTree_AfterSelect);
-        }
-        this._ResultTree = value;
-        if (this._ResultTree != null)
-        {
-          this._ResultTree.AfterSelect += new TreeViewEventHandler(this.ResultTree_AfterSelect);
-        }
-      }
-    }
-
-    internal virtual Label Status
-    {
-      get
-      {
-        return this._Status;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Status != null)
-        {
-        }
-        this._Status = value;
-        if (this._Status != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.ToolTip ToolTip
-    {
-      get
-      {
-        return this._ToolTip;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ToolTip != null)
-        {
-        }
-        this._ToolTip = value;
-        if (this._ToolTip != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TextBox txtSearch
-    {
-      get
-      {
-        return this._txtSearch;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtSearch != null)
-        {
-          this._txtSearch.KeyUp -= new KeyEventHandler(this.txtSearch_KeyUp);
-        }
-        this._txtSearch = value;
-        if (this._txtSearch != null)
-        {
-          this._txtSearch.KeyUp += new KeyEventHandler(this.txtSearch_KeyUp);
-        }
       }
     }
 

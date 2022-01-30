@@ -1,16 +1,16 @@
-﻿namespace ID3_TagIT
-{
-  using DevComponents.DotNetBar;
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.ComponentModel;
-  using System.Data;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.Runtime.CompilerServices;
-  using System.Windows.Forms;
+﻿using DevComponents.DotNetBar;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class frmCompareFileTAG : Form
   {
     [AccessedThroughProperty("BalloonTip1")]

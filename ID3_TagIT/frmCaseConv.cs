@@ -1,93 +1,522 @@
-﻿namespace ID3_TagIT
-{
-  using DevComponents.DotNetBar;
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.ComponentModel;
-  using System.Data;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.Runtime.CompilerServices;
-  using System.Text.RegularExpressions;
-  using System.Windows.Forms;
+﻿using DevComponents.DotNetBar;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class frmCaseConv : Form
   {
-    [AccessedThroughProperty("btnAdd")]
-    private Button _btnAdd;
-    [AccessedThroughProperty("btnCancel")]
-    private Button _btnCancel;
-    [AccessedThroughProperty("btnOK")]
-    private Button _btnOK;
-    [AccessedThroughProperty("btnRemove")]
-    private Button _btnRemove;
-    [AccessedThroughProperty("ButtomPanel")]
-    private PanelEx _ButtomPanel;
-    [AccessedThroughProperty("chkAlbum")]
-    private CheckBox _chkAlbum;
-    [AccessedThroughProperty("chkAlwaysFirst")]
-    private CheckBox _chkAlwaysFirst;
-    [AccessedThroughProperty("chkArtist")]
-    private CheckBox _chkArtist;
-    [AccessedThroughProperty("chkComment")]
-    private CheckBox _chkComment;
-    [AccessedThroughProperty("chkFilename")]
-    private CheckBox _chkFilename;
-    [AccessedThroughProperty("chkReplace20Space")]
-    private CheckBox _chkReplace20Space;
-    [AccessedThroughProperty("chkReplaceSpace20")]
-    private CheckBox _chkReplaceSpace20;
-    [AccessedThroughProperty("chkReplaceSpaceUnder")]
-    private CheckBox _chkReplaceSpaceUnder;
-    [AccessedThroughProperty("chkReplaceUnderSpace")]
-    private CheckBox _chkReplaceUnderSpace;
-    [AccessedThroughProperty("chkSeparator")]
-    private CheckBox _chkSeparator;
-    [AccessedThroughProperty("chkTitle")]
-    private CheckBox _chkTitle;
-    [AccessedThroughProperty("chkVer1")]
-    private CheckBox _chkVer1;
-    [AccessedThroughProperty("chkVer2")]
-    private CheckBox _chkVer2;
-    [AccessedThroughProperty("frameMethod")]
-    private GroupBox _frameMethod;
-    [AccessedThroughProperty("frameOptions")]
-    private GroupBox _frameOptions;
-    [AccessedThroughProperty("frameTAGOptions")]
-    private GroupBox _frameTAGOptions;
-    [AccessedThroughProperty("lblInfo")]
-    private Label _lblInfo;
-    [AccessedThroughProperty("lstExceptions")]
-    private ListBox _lstExceptions;
-    [AccessedThroughProperty("optAllFirstUp")]
-    private RadioButton _optAllFirstUp;
-    [AccessedThroughProperty("optAllLow")]
-    private RadioButton _optAllLow;
-    [AccessedThroughProperty("optAllUp")]
-    private RadioButton _optAllUp;
-    [AccessedThroughProperty("optFirstUp")]
-    private RadioButton _optFirstUp;
-    [AccessedThroughProperty("TabControl")]
-    private DevComponents.DotNetBar.TabControl _TabControl;
-    [AccessedThroughProperty("TabControlPanel1")]
-    private TabControlPanel _TabControlPanel1;
-    [AccessedThroughProperty("TabControlPanel2")]
-    private TabControlPanel _TabControlPanel2;
-    [AccessedThroughProperty("TabPage1")]
-    private TabItem _TabPage1;
-    [AccessedThroughProperty("TabPage2")]
-    private TabItem _TabPage2;
-    [AccessedThroughProperty("ToolTip")]
-    private System.Windows.Forms.ToolTip _ToolTip;
-    [AccessedThroughProperty("txtException")]
-    private TextBox _txtException;
-    [AccessedThroughProperty("txtSeparator")]
-    private TextBox _txtSeparator;
+    private Button btnAdd;
+    private Button btnCancel;
+    private Button btnOK;
+    private Button btnRemove;
+    private PanelEx ButtomPanel;
+    private CheckBox chkAlbum;
+    private CheckBox chkAlwaysFirst;
+    private CheckBox chkArtist;
+    private CheckBox chkComment;
+    private CheckBox chkFilename;
+    private CheckBox chkReplace20Space;
+    private CheckBox chkReplaceSpace20;
+    private CheckBox chkReplaceSpaceUnder;
+    private CheckBox chkReplaceUnderSpace;
+    private CheckBox chkSeparator;
+    private CheckBox chkTitle;
+    private CheckBox chkVer1;
+    private CheckBox chkVer2;
+    private GroupBox frameMethod;
+    private GroupBox frameOptions;
+    private GroupBox frameTAGOptions;
+    private Label lblInfo;
+    private ListBox lstExceptions;
+    private RadioButton optAllFirstUp;
+    private RadioButton optAllLow;
+    private RadioButton optAllUp;
+    private RadioButton optFirstUp;
+    private DevComponents.DotNetBar.TabControl TabControl;
+    private TabControlPanel TabControlPanel1;
+    private TabControlPanel TabControlPanel2;
+    private TabItem TabPage1;
+    private TabItem TabPage2;
+    private System.Windows.Forms.ToolTip ToolTip;
+    private TextBox txtException;
+    private TextBox txtSeparator;
     private IContainer components;
     private frmMain MainForm;
     private string vstrExcep;
+
+    [DebuggerStepThrough]
+    private void InitializeComponent()
+    {
+      this.components = new System.ComponentModel.Container();
+      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new System.Windows.Forms.Button();
+      this.frameOptions = new System.Windows.Forms.GroupBox();
+      this.chkAlwaysFirst = new System.Windows.Forms.CheckBox();
+      this.chkReplaceSpaceUnder = new System.Windows.Forms.CheckBox();
+      this.chkReplaceSpace20 = new System.Windows.Forms.CheckBox();
+      this.chkReplaceUnderSpace = new System.Windows.Forms.CheckBox();
+      this.chkReplace20Space = new System.Windows.Forms.CheckBox();
+      this.txtSeparator = new System.Windows.Forms.TextBox();
+      this.chkSeparator = new System.Windows.Forms.CheckBox();
+      this.frameMethod = new System.Windows.Forms.GroupBox();
+      this.optAllFirstUp = new System.Windows.Forms.RadioButton();
+      this.optFirstUp = new System.Windows.Forms.RadioButton();
+      this.optAllUp = new System.Windows.Forms.RadioButton();
+      this.optAllLow = new System.Windows.Forms.RadioButton();
+      this.chkVer1 = new System.Windows.Forms.CheckBox();
+      this.chkVer2 = new System.Windows.Forms.CheckBox();
+      this.chkFilename = new System.Windows.Forms.CheckBox();
+      this.frameTAGOptions = new System.Windows.Forms.GroupBox();
+      this.chkArtist = new System.Windows.Forms.CheckBox();
+      this.chkTitle = new System.Windows.Forms.CheckBox();
+      this.chkAlbum = new System.Windows.Forms.CheckBox();
+      this.chkComment = new System.Windows.Forms.CheckBox();
+      this.lblInfo = new System.Windows.Forms.Label();
+      this.btnRemove = new System.Windows.Forms.Button();
+      this.btnAdd = new System.Windows.Forms.Button();
+      this.lstExceptions = new System.Windows.Forms.ListBox();
+      this.txtException = new System.Windows.Forms.TextBox();
+      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+      this.TabControl = new DevComponents.DotNetBar.TabControl();
+      this.TabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
+      this.TabPage1 = new DevComponents.DotNetBar.TabItem(this.components);
+      this.TabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
+      this.TabPage2 = new DevComponents.DotNetBar.TabItem(this.components);
+      this.ButtomPanel = new DevComponents.DotNetBar.PanelEx();
+      this.frameOptions.SuspendLayout();
+      this.frameMethod.SuspendLayout();
+      this.frameTAGOptions.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
+      this.TabControl.SuspendLayout();
+      this.TabControlPanel1.SuspendLayout();
+      this.TabControlPanel2.SuspendLayout();
+      this.ButtomPanel.SuspendLayout();
+      this.SuspendLayout();
+      // 
+      // btnCancel
+      // 
+      this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
+      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+      this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCancel.Location = new System.Drawing.Point(328, 8);
+      this.btnCancel.Name = "btnCancel";
+      this.btnCancel.Size = new System.Drawing.Size(112, 24);
+      this.btnCancel.TabIndex = 2;
+      this.btnCancel.Text = "&Cancel";
+      this.btnCancel.UseVisualStyleBackColor = false;
+      // 
+      // btnOK
+      // 
+      this.btnOK.BackColor = System.Drawing.SystemColors.Control;
+      this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnOK.Location = new System.Drawing.Point(208, 8);
+      this.btnOK.Name = "btnOK";
+      this.btnOK.Size = new System.Drawing.Size(112, 24);
+      this.btnOK.TabIndex = 1;
+      this.btnOK.Text = "&OK";
+      this.btnOK.UseVisualStyleBackColor = false;
+      this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+      // 
+      // frameOptions
+      // 
+      this.frameOptions.BackColor = System.Drawing.Color.Transparent;
+      this.frameOptions.Controls.Add(this.chkAlwaysFirst);
+      this.frameOptions.Controls.Add(this.chkReplaceSpaceUnder);
+      this.frameOptions.Controls.Add(this.chkReplaceSpace20);
+      this.frameOptions.Controls.Add(this.chkReplaceUnderSpace);
+      this.frameOptions.Controls.Add(this.chkReplace20Space);
+      this.frameOptions.Controls.Add(this.txtSeparator);
+      this.frameOptions.Controls.Add(this.chkSeparator);
+      this.frameOptions.Location = new System.Drawing.Point(8, 184);
+      this.frameOptions.Name = "frameOptions";
+      this.frameOptions.Size = new System.Drawing.Size(432, 120);
+      this.frameOptions.TabIndex = 24;
+      this.frameOptions.TabStop = false;
+      this.frameOptions.Text = "Options";
+      // 
+      // chkAlwaysFirst
+      // 
+      this.chkAlwaysFirst.BackColor = System.Drawing.Color.Transparent;
+      this.chkAlwaysFirst.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkAlwaysFirst.Location = new System.Drawing.Point(16, 96);
+      this.chkAlwaysFirst.Name = "chkAlwaysFirst";
+      this.chkAlwaysFirst.Size = new System.Drawing.Size(408, 16);
+      this.chkAlwaysFirst.TabIndex = 16;
+      this.chkAlwaysFirst.Text = "Always uppercase first letter of entry";
+      this.chkAlwaysFirst.UseVisualStyleBackColor = false;
+      // 
+      // chkReplaceSpaceUnder
+      // 
+      this.chkReplaceSpaceUnder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkReplaceSpaceUnder.Location = new System.Drawing.Point(232, 72);
+      this.chkReplaceSpaceUnder.Name = "chkReplaceSpaceUnder";
+      this.chkReplaceSpaceUnder.Size = new System.Drawing.Size(192, 16);
+      this.chkReplaceSpaceUnder.TabIndex = 18;
+      this.chkReplaceSpaceUnder.Text = "Replace space by \'_\'";
+      this.chkReplaceSpaceUnder.CheckedChanged += new System.EventHandler(this.chkReplaceSpace_CheckedChanged);
+      // 
+      // chkReplaceSpace20
+      // 
+      this.chkReplaceSpace20.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkReplaceSpace20.Location = new System.Drawing.Point(232, 48);
+      this.chkReplaceSpace20.Name = "chkReplaceSpace20";
+      this.chkReplaceSpace20.Size = new System.Drawing.Size(192, 16);
+      this.chkReplaceSpace20.TabIndex = 17;
+      this.chkReplaceSpace20.Text = "Replace space by \'%20\'";
+      this.chkReplaceSpace20.CheckedChanged += new System.EventHandler(this.chkReplaceSpace_CheckedChanged);
+      // 
+      // chkReplaceUnderSpace
+      // 
+      this.chkReplaceUnderSpace.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkReplaceUnderSpace.Location = new System.Drawing.Point(16, 72);
+      this.chkReplaceUnderSpace.Name = "chkReplaceUnderSpace";
+      this.chkReplaceUnderSpace.Size = new System.Drawing.Size(208, 16);
+      this.chkReplaceUnderSpace.TabIndex = 15;
+      this.chkReplaceUnderSpace.Text = "Replace \'_\' by space";
+      // 
+      // chkReplace20Space
+      // 
+      this.chkReplace20Space.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkReplace20Space.Location = new System.Drawing.Point(16, 48);
+      this.chkReplace20Space.Name = "chkReplace20Space";
+      this.chkReplace20Space.Size = new System.Drawing.Size(208, 16);
+      this.chkReplace20Space.TabIndex = 14;
+      this.chkReplace20Space.Text = "Replace \'%20\' by space";
+      // 
+      // txtSeparator
+      // 
+      this.txtSeparator.Location = new System.Drawing.Point(96, 22);
+      this.txtSeparator.Name = "txtSeparator";
+      this.txtSeparator.Size = new System.Drawing.Size(64, 20);
+      this.txtSeparator.TabIndex = 13;
+      // 
+      // chkSeparator
+      // 
+      this.chkSeparator.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkSeparator.Location = new System.Drawing.Point(16, 24);
+      this.chkSeparator.Name = "chkSeparator";
+      this.chkSeparator.Size = new System.Drawing.Size(80, 16);
+      this.chkSeparator.TabIndex = 12;
+      this.chkSeparator.Text = "&Separator:";
+      // 
+      // frameMethod
+      // 
+      this.frameMethod.BackColor = System.Drawing.Color.Transparent;
+      this.frameMethod.Controls.Add(this.optAllFirstUp);
+      this.frameMethod.Controls.Add(this.optFirstUp);
+      this.frameMethod.Controls.Add(this.optAllUp);
+      this.frameMethod.Controls.Add(this.optAllLow);
+      this.frameMethod.Location = new System.Drawing.Point(200, 56);
+      this.frameMethod.Name = "frameMethod";
+      this.frameMethod.Size = new System.Drawing.Size(240, 120);
+      this.frameMethod.TabIndex = 23;
+      this.frameMethod.TabStop = false;
+      this.frameMethod.Text = "Convert method";
+      // 
+      // optAllFirstUp
+      // 
+      this.optAllFirstUp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optAllFirstUp.Location = new System.Drawing.Point(16, 96);
+      this.optAllFirstUp.Name = "optAllFirstUp";
+      this.optAllFirstUp.Size = new System.Drawing.Size(216, 16);
+      this.optAllFirstUp.TabIndex = 11;
+      this.optAllFirstUp.Text = "A&ll first letters uppercase";
+      // 
+      // optFirstUp
+      // 
+      this.optFirstUp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optFirstUp.Location = new System.Drawing.Point(16, 72);
+      this.optFirstUp.Name = "optFirstUp";
+      this.optFirstUp.Size = new System.Drawing.Size(216, 16);
+      this.optFirstUp.TabIndex = 10;
+      this.optFirstUp.Text = "&First letter uppercase";
+      // 
+      // optAllUp
+      // 
+      this.optAllUp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optAllUp.Location = new System.Drawing.Point(16, 48);
+      this.optAllUp.Name = "optAllUp";
+      this.optAllUp.Size = new System.Drawing.Size(216, 16);
+      this.optAllUp.TabIndex = 9;
+      this.optAllUp.Text = "All &uppercase";
+      // 
+      // optAllLow
+      // 
+      this.optAllLow.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optAllLow.Location = new System.Drawing.Point(16, 24);
+      this.optAllLow.Name = "optAllLow";
+      this.optAllLow.Size = new System.Drawing.Size(216, 16);
+      this.optAllLow.TabIndex = 8;
+      this.optAllLow.Text = "All &lowercase";
+      // 
+      // chkVer1
+      // 
+      this.chkVer1.BackColor = System.Drawing.Color.Transparent;
+      this.chkVer1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkVer1.Location = new System.Drawing.Point(24, 32);
+      this.chkVer1.Name = "chkVer1";
+      this.chkVer1.Size = new System.Drawing.Size(192, 16);
+      this.chkVer1.TabIndex = 2;
+      this.chkVer1.Text = "Convert TAG Ver. &1";
+      this.chkVer1.UseVisualStyleBackColor = false;
+      this.chkVer1.CheckedChanged += new System.EventHandler(this.chkVer_CheckedChanged);
+      // 
+      // chkVer2
+      // 
+      this.chkVer2.BackColor = System.Drawing.Color.Transparent;
+      this.chkVer2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkVer2.Location = new System.Drawing.Point(240, 32);
+      this.chkVer2.Name = "chkVer2";
+      this.chkVer2.Size = new System.Drawing.Size(192, 16);
+      this.chkVer2.TabIndex = 3;
+      this.chkVer2.Text = "Convert TAG Ver. &2";
+      this.chkVer2.UseVisualStyleBackColor = false;
+      this.chkVer2.CheckedChanged += new System.EventHandler(this.chkVer_CheckedChanged);
+      // 
+      // chkFilename
+      // 
+      this.chkFilename.BackColor = System.Drawing.Color.Transparent;
+      this.chkFilename.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkFilename.Location = new System.Drawing.Point(24, 8);
+      this.chkFilename.Name = "chkFilename";
+      this.chkFilename.Size = new System.Drawing.Size(192, 16);
+      this.chkFilename.TabIndex = 1;
+      this.chkFilename.Text = "Convert &Filename";
+      this.chkFilename.UseVisualStyleBackColor = false;
+      // 
+      // frameTAGOptions
+      // 
+      this.frameTAGOptions.BackColor = System.Drawing.Color.Transparent;
+      this.frameTAGOptions.Controls.Add(this.chkArtist);
+      this.frameTAGOptions.Controls.Add(this.chkTitle);
+      this.frameTAGOptions.Controls.Add(this.chkAlbum);
+      this.frameTAGOptions.Controls.Add(this.chkComment);
+      this.frameTAGOptions.Location = new System.Drawing.Point(8, 56);
+      this.frameTAGOptions.Name = "frameTAGOptions";
+      this.frameTAGOptions.Size = new System.Drawing.Size(184, 120);
+      this.frameTAGOptions.TabIndex = 19;
+      this.frameTAGOptions.TabStop = false;
+      this.frameTAGOptions.Text = "TAG fields to convert";
+      // 
+      // chkArtist
+      // 
+      this.chkArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkArtist.Location = new System.Drawing.Point(16, 24);
+      this.chkArtist.Name = "chkArtist";
+      this.chkArtist.Size = new System.Drawing.Size(160, 16);
+      this.chkArtist.TabIndex = 4;
+      this.chkArtist.Text = "&Artist";
+      // 
+      // chkTitle
+      // 
+      this.chkTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkTitle.Location = new System.Drawing.Point(16, 72);
+      this.chkTitle.Name = "chkTitle";
+      this.chkTitle.Size = new System.Drawing.Size(160, 16);
+      this.chkTitle.TabIndex = 6;
+      this.chkTitle.Text = "&Title";
+      // 
+      // chkAlbum
+      // 
+      this.chkAlbum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkAlbum.Location = new System.Drawing.Point(16, 48);
+      this.chkAlbum.Name = "chkAlbum";
+      this.chkAlbum.Size = new System.Drawing.Size(160, 16);
+      this.chkAlbum.TabIndex = 5;
+      this.chkAlbum.Text = "Al&bum";
+      // 
+      // chkComment
+      // 
+      this.chkComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkComment.Location = new System.Drawing.Point(16, 96);
+      this.chkComment.Name = "chkComment";
+      this.chkComment.Size = new System.Drawing.Size(160, 16);
+      this.chkComment.TabIndex = 7;
+      this.chkComment.Text = "&Comment";
+      // 
+      // lblInfo
+      // 
+      this.lblInfo.BackColor = System.Drawing.Color.Transparent;
+      this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInfo.Location = new System.Drawing.Point(216, 248);
+      this.lblInfo.Name = "lblInfo";
+      this.lblInfo.Size = new System.Drawing.Size(216, 56);
+      this.lblInfo.TabIndex = 45;
+      this.lblInfo.Text = "All the words in the list will always be written in the casing you entered here.";
+      this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // btnRemove
+      // 
+      this.btnRemove.BackColor = System.Drawing.SystemColors.Control;
+      this.btnRemove.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemove.Location = new System.Drawing.Point(216, 72);
+      this.btnRemove.Name = "btnRemove";
+      this.btnRemove.Size = new System.Drawing.Size(216, 24);
+      this.btnRemove.TabIndex = 3;
+      this.btnRemove.Text = "&Remove";
+      this.btnRemove.UseVisualStyleBackColor = false;
+      this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+      // 
+      // btnAdd
+      // 
+      this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
+      this.btnAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAdd.Location = new System.Drawing.Point(216, 40);
+      this.btnAdd.Name = "btnAdd";
+      this.btnAdd.Size = new System.Drawing.Size(216, 24);
+      this.btnAdd.TabIndex = 2;
+      this.btnAdd.Text = "&Add";
+      this.btnAdd.UseVisualStyleBackColor = false;
+      this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+      // 
+      // lstExceptions
+      // 
+      this.lstExceptions.Location = new System.Drawing.Point(8, 40);
+      this.lstExceptions.Name = "lstExceptions";
+      this.lstExceptions.Size = new System.Drawing.Size(200, 264);
+      this.lstExceptions.TabIndex = 4;
+      // 
+      // txtException
+      // 
+      this.txtException.Location = new System.Drawing.Point(8, 8);
+      this.txtException.Name = "txtException";
+      this.txtException.Size = new System.Drawing.Size(424, 20);
+      this.txtException.TabIndex = 1;
+      // 
+      // TabControl
+      // 
+      this.TabControl.CanReorderTabs = true;
+      this.TabControl.Controls.Add(this.TabControlPanel1);
+      this.TabControl.Controls.Add(this.TabControlPanel2);
+      this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TabControl.Location = new System.Drawing.Point(0, 0);
+      this.TabControl.Name = "TabControl";
+      this.TabControl.SelectedTabFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+      this.TabControl.SelectedTabIndex = 0;
+      this.TabControl.Size = new System.Drawing.Size(450, 336);
+      this.TabControl.Style = DevComponents.DotNetBar.eTabStripStyle.VS2005Document;
+      this.TabControl.TabIndex = 3;
+      this.TabControl.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
+      this.TabControl.Tabs.Add(this.TabPage1);
+      this.TabControl.Tabs.Add(this.TabPage2);
+      // 
+      // TabControlPanel1
+      // 
+      this.TabControlPanel1.AntiAlias = true;
+      this.TabControlPanel1.Controls.Add(this.frameTAGOptions);
+      this.TabControlPanel1.Controls.Add(this.chkFilename);
+      this.TabControlPanel1.Controls.Add(this.chkVer2);
+      this.TabControlPanel1.Controls.Add(this.chkVer1);
+      this.TabControlPanel1.Controls.Add(this.frameOptions);
+      this.TabControlPanel1.Controls.Add(this.frameMethod);
+      this.TabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TabControlPanel1.Location = new System.Drawing.Point(0, 26);
+      this.TabControlPanel1.Name = "TabControlPanel1";
+      this.TabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
+      this.TabControlPanel1.Size = new System.Drawing.Size(450, 310);
+      this.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.TabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
+      this.TabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+      this.TabControlPanel1.Style.GradientAngle = 90;
+      this.TabControlPanel1.TabIndex = 1;
+      this.TabControlPanel1.TabItem = this.TabPage1;
+      // 
+      // TabPage1
+      // 
+      this.TabPage1.AttachedControl = this.TabControlPanel1;
+      this.TabPage1.Name = "TabPage1";
+      this.TabPage1.Text = "Case Conversion";
+      // 
+      // TabControlPanel2
+      // 
+      this.TabControlPanel2.AntiAlias = true;
+      this.TabControlPanel2.Controls.Add(this.lstExceptions);
+      this.TabControlPanel2.Controls.Add(this.btnAdd);
+      this.TabControlPanel2.Controls.Add(this.btnRemove);
+      this.TabControlPanel2.Controls.Add(this.lblInfo);
+      this.TabControlPanel2.Controls.Add(this.txtException);
+      this.TabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TabControlPanel2.Location = new System.Drawing.Point(0, 26);
+      this.TabControlPanel2.Name = "TabControlPanel2";
+      this.TabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
+      this.TabControlPanel2.Size = new System.Drawing.Size(450, 310);
+      this.TabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.TabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
+      this.TabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+      this.TabControlPanel2.Style.GradientAngle = 90;
+      this.TabControlPanel2.TabIndex = 2;
+      this.TabControlPanel2.TabItem = this.TabPage2;
+      // 
+      // TabPage2
+      // 
+      this.TabPage2.AttachedControl = this.TabControlPanel2;
+      this.TabPage2.Name = "TabPage2";
+      this.TabPage2.Text = "Exceptions";
+      // 
+      // ButtomPanel
+      // 
+      this.ButtomPanel.AntiAlias = true;
+      this.ButtomPanel.Controls.Add(this.btnCancel);
+      this.ButtomPanel.Controls.Add(this.btnOK);
+      this.ButtomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.ButtomPanel.Location = new System.Drawing.Point(0, 336);
+      this.ButtomPanel.Name = "ButtomPanel";
+      this.ButtomPanel.Size = new System.Drawing.Size(450, 40);
+      this.ButtomPanel.Style.BackColor1.Color = System.Drawing.Color.White;
+      this.ButtomPanel.Style.BackColor2.Color = System.Drawing.Color.White;
+      this.ButtomPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.ButtomPanel.Style.BorderWidth = 0;
+      this.ButtomPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ButtomPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
+      this.ButtomPanel.Style.GradientAngle = 90;
+      this.ButtomPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
+      this.ButtomPanel.Style.MarginBottom = 2;
+      this.ButtomPanel.Style.MarginLeft = 7;
+      this.ButtomPanel.Style.MarginRight = 2;
+      this.ButtomPanel.Style.MarginTop = 2;
+      this.ButtomPanel.TabIndex = 117;
+      // 
+      // frmCaseConv
+      // 
+      this.AcceptButton = this.btnOK;
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+      this.CancelButton = this.btnCancel;
+      this.ClientSize = new System.Drawing.Size(450, 376);
+      this.ControlBox = false;
+      this.Controls.Add(this.TabControl);
+      this.Controls.Add(this.ButtomPanel);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
+      this.Name = "frmCaseConv";
+      this.ShowInTaskbar = false;
+      this.Text = "Case Conversion";
+      this.frameOptions.ResumeLayout(false);
+      this.frameOptions.PerformLayout();
+      this.frameMethod.ResumeLayout(false);
+      this.frameTAGOptions.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
+      this.TabControl.ResumeLayout(false);
+      this.TabControlPanel1.ResumeLayout(false);
+      this.TabControlPanel2.ResumeLayout(false);
+      this.TabControlPanel2.PerformLayout();
+      this.ButtomPanel.ResumeLayout(false);
+      this.ResumeLayout(false);
+    }
 
     public frmCaseConv(ref frmMain FormMain)
     {
@@ -589,9 +1018,8 @@
     protected override void Dispose(bool disposing)
     {
       if (disposing && (this.components != null))
-      {
         this.components.Dispose();
-      }
+
       base.Dispose(disposing);
     }
 
@@ -641,1098 +1069,10 @@
       this.AddToolTips();
     }
 
-    [DebuggerStepThrough]
-    private void InitializeComponent()
-    {
-      this.components = new Container();
-      this.btnCancel = new Button();
-      this.btnOK = new Button();
-      this.frameOptions = new GroupBox();
-      this.chkAlwaysFirst = new CheckBox();
-      this.chkReplaceSpaceUnder = new CheckBox();
-      this.chkReplaceSpace20 = new CheckBox();
-      this.chkReplaceUnderSpace = new CheckBox();
-      this.chkReplace20Space = new CheckBox();
-      this.txtSeparator = new TextBox();
-      this.chkSeparator = new CheckBox();
-      this.frameMethod = new GroupBox();
-      this.optAllFirstUp = new RadioButton();
-      this.optFirstUp = new RadioButton();
-      this.optAllUp = new RadioButton();
-      this.optAllLow = new RadioButton();
-      this.chkVer1 = new CheckBox();
-      this.chkVer2 = new CheckBox();
-      this.chkFilename = new CheckBox();
-      this.frameTAGOptions = new GroupBox();
-      this.chkArtist = new CheckBox();
-      this.chkTitle = new CheckBox();
-      this.chkAlbum = new CheckBox();
-      this.chkComment = new CheckBox();
-      this.lblInfo = new Label();
-      this.btnRemove = new Button();
-      this.btnAdd = new Button();
-      this.lstExceptions = new ListBox();
-      this.txtException = new TextBox();
-      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.TabControl = new DevComponents.DotNetBar.TabControl();
-      this.TabControlPanel1 = new TabControlPanel();
-      this.TabPage1 = new TabItem(this.components);
-      this.TabControlPanel2 = new TabControlPanel();
-      this.TabPage2 = new TabItem(this.components);
-      this.ButtomPanel = new PanelEx();
-      this.frameOptions.SuspendLayout();
-      this.frameMethod.SuspendLayout();
-      this.frameTAGOptions.SuspendLayout();
-      ((ISupportInitialize)this.TabControl).BeginInit();
-      this.TabControl.SuspendLayout();
-      this.TabControlPanel1.SuspendLayout();
-      this.TabControlPanel2.SuspendLayout();
-      this.ButtomPanel.SuspendLayout();
-      this.SuspendLayout();
-      this.btnCancel.BackColor = SystemColors.Control;
-      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnCancel.ImeMode = ImeMode.NoControl;
-      Point point = new Point(0x148, 8);
-      this.btnCancel.Location = point;
-      this.btnCancel.Name = "btnCancel";
-      Size size = new Size(0x70, 0x18);
-      this.btnCancel.Size = size;
-      this.btnCancel.TabIndex = 2;
-      this.btnCancel.Text = "&Cancel";
-      this.btnOK.BackColor = SystemColors.Control;
-      this.btnOK.ImeMode = ImeMode.NoControl;
-      point = new Point(0xd0, 8);
-      this.btnOK.Location = point;
-      this.btnOK.Name = "btnOK";
-      size = new Size(0x70, 0x18);
-      this.btnOK.Size = size;
-      this.btnOK.TabIndex = 1;
-      this.btnOK.Text = "&OK";
-      this.frameOptions.BackColor = Color.Transparent;
-      this.frameOptions.Controls.Add(this.chkAlwaysFirst);
-      this.frameOptions.Controls.Add(this.chkReplaceSpaceUnder);
-      this.frameOptions.Controls.Add(this.chkReplaceSpace20);
-      this.frameOptions.Controls.Add(this.chkReplaceUnderSpace);
-      this.frameOptions.Controls.Add(this.chkReplace20Space);
-      this.frameOptions.Controls.Add(this.txtSeparator);
-      this.frameOptions.Controls.Add(this.chkSeparator);
-      point = new Point(8, 0xb8);
-      this.frameOptions.Location = point;
-      this.frameOptions.Name = "frameOptions";
-      size = new Size(0x1b0, 120);
-      this.frameOptions.Size = size;
-      this.frameOptions.TabIndex = 0x18;
-      this.frameOptions.TabStop = false;
-      this.frameOptions.Text = "Options";
-      this.chkAlwaysFirst.BackColor = Color.Transparent;
-      this.chkAlwaysFirst.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x60);
-      this.chkAlwaysFirst.Location = point;
-      this.chkAlwaysFirst.Name = "chkAlwaysFirst";
-      size = new Size(0x198, 0x10);
-      this.chkAlwaysFirst.Size = size;
-      this.chkAlwaysFirst.TabIndex = 0x10;
-      this.chkAlwaysFirst.Text = "Always uppercase first letter of entry";
-      this.chkReplaceSpaceUnder.ImeMode = ImeMode.NoControl;
-      point = new Point(0xe8, 0x48);
-      this.chkReplaceSpaceUnder.Location = point;
-      this.chkReplaceSpaceUnder.Name = "chkReplaceSpaceUnder";
-      size = new Size(0xc0, 0x10);
-      this.chkReplaceSpaceUnder.Size = size;
-      this.chkReplaceSpaceUnder.TabIndex = 0x12;
-      this.chkReplaceSpaceUnder.Text = "Replace space by '_'";
-      this.chkReplaceSpace20.ImeMode = ImeMode.NoControl;
-      point = new Point(0xe8, 0x30);
-      this.chkReplaceSpace20.Location = point;
-      this.chkReplaceSpace20.Name = "chkReplaceSpace20";
-      size = new Size(0xc0, 0x10);
-      this.chkReplaceSpace20.Size = size;
-      this.chkReplaceSpace20.TabIndex = 0x11;
-      this.chkReplaceSpace20.Text = "Replace space by '%20'";
-      this.chkReplaceUnderSpace.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x48);
-      this.chkReplaceUnderSpace.Location = point;
-      this.chkReplaceUnderSpace.Name = "chkReplaceUnderSpace";
-      size = new Size(0xd0, 0x10);
-      this.chkReplaceUnderSpace.Size = size;
-      this.chkReplaceUnderSpace.TabIndex = 15;
-      this.chkReplaceUnderSpace.Text = "Replace '_' by space";
-      this.chkReplace20Space.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x30);
-      this.chkReplace20Space.Location = point;
-      this.chkReplace20Space.Name = "chkReplace20Space";
-      size = new Size(0xd0, 0x10);
-      this.chkReplace20Space.Size = size;
-      this.chkReplace20Space.TabIndex = 14;
-      this.chkReplace20Space.Text = "Replace '%20' by space";
-      point = new Point(0x60, 0x16);
-      this.txtSeparator.Location = point;
-      this.txtSeparator.Name = "txtSeparator";
-      size = new Size(0x40, 20);
-      this.txtSeparator.Size = size;
-      this.txtSeparator.TabIndex = 13;
-      this.txtSeparator.Text = "";
-      this.chkSeparator.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x18);
-      this.chkSeparator.Location = point;
-      this.chkSeparator.Name = "chkSeparator";
-      size = new Size(80, 0x10);
-      this.chkSeparator.Size = size;
-      this.chkSeparator.TabIndex = 12;
-      this.chkSeparator.Text = "&Separator:";
-      this.frameMethod.BackColor = Color.Transparent;
-      this.frameMethod.Controls.Add(this.optAllFirstUp);
-      this.frameMethod.Controls.Add(this.optFirstUp);
-      this.frameMethod.Controls.Add(this.optAllUp);
-      this.frameMethod.Controls.Add(this.optAllLow);
-      point = new Point(200, 0x38);
-      this.frameMethod.Location = point;
-      this.frameMethod.Name = "frameMethod";
-      size = new Size(240, 120);
-      this.frameMethod.Size = size;
-      this.frameMethod.TabIndex = 0x17;
-      this.frameMethod.TabStop = false;
-      this.frameMethod.Text = "Convert method";
-      this.optAllFirstUp.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x60);
-      this.optAllFirstUp.Location = point;
-      this.optAllFirstUp.Name = "optAllFirstUp";
-      size = new Size(0xd8, 0x10);
-      this.optAllFirstUp.Size = size;
-      this.optAllFirstUp.TabIndex = 11;
-      this.optAllFirstUp.Text = "A&ll first letters uppercase";
-      this.optFirstUp.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x48);
-      this.optFirstUp.Location = point;
-      this.optFirstUp.Name = "optFirstUp";
-      size = new Size(0xd8, 0x10);
-      this.optFirstUp.Size = size;
-      this.optFirstUp.TabIndex = 10;
-      this.optFirstUp.Text = "&First letter uppercase";
-      this.optAllUp.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x30);
-      this.optAllUp.Location = point;
-      this.optAllUp.Name = "optAllUp";
-      size = new Size(0xd8, 0x10);
-      this.optAllUp.Size = size;
-      this.optAllUp.TabIndex = 9;
-      this.optAllUp.Text = "All &uppercase";
-      this.optAllLow.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x18);
-      this.optAllLow.Location = point;
-      this.optAllLow.Name = "optAllLow";
-      size = new Size(0xd8, 0x10);
-      this.optAllLow.Size = size;
-      this.optAllLow.TabIndex = 8;
-      this.optAllLow.Text = "All &lowercase";
-      this.chkVer1.BackColor = Color.Transparent;
-      this.chkVer1.ImeMode = ImeMode.NoControl;
-      point = new Point(0x18, 0x20);
-      this.chkVer1.Location = point;
-      this.chkVer1.Name = "chkVer1";
-      size = new Size(0xc0, 0x10);
-      this.chkVer1.Size = size;
-      this.chkVer1.TabIndex = 2;
-      this.chkVer1.Text = "Convert TAG Ver. &1";
-      this.chkVer2.BackColor = Color.Transparent;
-      this.chkVer2.ImeMode = ImeMode.NoControl;
-      point = new Point(240, 0x20);
-      this.chkVer2.Location = point;
-      this.chkVer2.Name = "chkVer2";
-      size = new Size(0xc0, 0x10);
-      this.chkVer2.Size = size;
-      this.chkVer2.TabIndex = 3;
-      this.chkVer2.Text = "Convert TAG Ver. &2";
-      this.chkFilename.BackColor = Color.Transparent;
-      this.chkFilename.ImeMode = ImeMode.NoControl;
-      point = new Point(0x18, 8);
-      this.chkFilename.Location = point;
-      this.chkFilename.Name = "chkFilename";
-      size = new Size(0xc0, 0x10);
-      this.chkFilename.Size = size;
-      this.chkFilename.TabIndex = 1;
-      this.chkFilename.Text = "Convert &Filename";
-      this.frameTAGOptions.BackColor = Color.Transparent;
-      this.frameTAGOptions.Controls.Add(this.chkArtist);
-      this.frameTAGOptions.Controls.Add(this.chkTitle);
-      this.frameTAGOptions.Controls.Add(this.chkAlbum);
-      this.frameTAGOptions.Controls.Add(this.chkComment);
-      point = new Point(8, 0x38);
-      this.frameTAGOptions.Location = point;
-      this.frameTAGOptions.Name = "frameTAGOptions";
-      size = new Size(0xb8, 120);
-      this.frameTAGOptions.Size = size;
-      this.frameTAGOptions.TabIndex = 0x13;
-      this.frameTAGOptions.TabStop = false;
-      this.frameTAGOptions.Text = "TAG fields to convert";
-      this.chkArtist.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x18);
-      this.chkArtist.Location = point;
-      this.chkArtist.Name = "chkArtist";
-      size = new Size(160, 0x10);
-      this.chkArtist.Size = size;
-      this.chkArtist.TabIndex = 4;
-      this.chkArtist.Text = "&Artist";
-      this.chkTitle.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x48);
-      this.chkTitle.Location = point;
-      this.chkTitle.Name = "chkTitle";
-      size = new Size(160, 0x10);
-      this.chkTitle.Size = size;
-      this.chkTitle.TabIndex = 6;
-      this.chkTitle.Text = "&Title";
-      this.chkAlbum.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x30);
-      this.chkAlbum.Location = point;
-      this.chkAlbum.Name = "chkAlbum";
-      size = new Size(160, 0x10);
-      this.chkAlbum.Size = size;
-      this.chkAlbum.TabIndex = 5;
-      this.chkAlbum.Text = "Al&bum";
-      this.chkComment.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x60);
-      this.chkComment.Location = point;
-      this.chkComment.Name = "chkComment";
-      size = new Size(160, 0x10);
-      this.chkComment.Size = size;
-      this.chkComment.TabIndex = 7;
-      this.chkComment.Text = "&Comment";
-      this.lblInfo.BackColor = Color.Transparent;
-      this.lblInfo.BorderStyle = BorderStyle.Fixed3D;
-      this.lblInfo.ImeMode = ImeMode.NoControl;
-      point = new Point(0xd8, 0xf8);
-      this.lblInfo.Location = point;
-      this.lblInfo.Name = "lblInfo";
-      size = new Size(0xd8, 0x38);
-      this.lblInfo.Size = size;
-      this.lblInfo.TabIndex = 0x2d;
-      this.lblInfo.Text = "All the words in the list will always be written in the casing you entered here.";
-      this.lblInfo.TextAlign = ContentAlignment.MiddleCenter;
-      this.btnRemove.BackColor = SystemColors.Control;
-      this.btnRemove.ImeMode = ImeMode.NoControl;
-      point = new Point(0xd8, 0x48);
-      this.btnRemove.Location = point;
-      this.btnRemove.Name = "btnRemove";
-      size = new Size(0xd8, 0x18);
-      this.btnRemove.Size = size;
-      this.btnRemove.TabIndex = 3;
-      this.btnRemove.Text = "&Remove";
-      this.btnAdd.BackColor = SystemColors.Control;
-      this.btnAdd.ImeMode = ImeMode.NoControl;
-      point = new Point(0xd8, 40);
-      this.btnAdd.Location = point;
-      this.btnAdd.Name = "btnAdd";
-      size = new Size(0xd8, 0x18);
-      this.btnAdd.Size = size;
-      this.btnAdd.TabIndex = 2;
-      this.btnAdd.Text = "&Add";
-      point = new Point(8, 40);
-      this.lstExceptions.Location = point;
-      this.lstExceptions.Name = "lstExceptions";
-      size = new Size(200, 0x108);
-      this.lstExceptions.Size = size;
-      this.lstExceptions.TabIndex = 4;
-      point = new Point(8, 8);
-      this.txtException.Location = point;
-      this.txtException.Name = "txtException";
-      size = new Size(0x1a8, 20);
-      this.txtException.Size = size;
-      this.txtException.TabIndex = 1;
-      this.txtException.Text = "";
-      this.TabControl.CanReorderTabs = true;
-      this.TabControl.Controls.Add(this.TabControlPanel1);
-      this.TabControl.Controls.Add(this.TabControlPanel2);
-      this.TabControl.Dock = DockStyle.Fill;
-      point = new Point(0, 0);
-      this.TabControl.Location = point;
-      this.TabControl.Name = "TabControl";
-      this.TabControl.SelectedTabFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
-      this.TabControl.SelectedTabIndex = 0;
-      size = new Size(450, 0x150);
-      this.TabControl.Size = size;
-      this.TabControl.Style = eTabStripStyle.VS2005Document;
-      this.TabControl.TabIndex = 3;
-      this.TabControl.TabLayoutType = eTabLayoutType.FixedWithNavigationBox;
-      this.TabControl.Tabs.Add(this.TabPage1);
-      this.TabControl.Tabs.Add(this.TabPage2);
-      this.TabControlPanel1.AntiAlias = true;
-      this.TabControlPanel1.Controls.Add(this.frameTAGOptions);
-      this.TabControlPanel1.Controls.Add(this.chkFilename);
-      this.TabControlPanel1.Controls.Add(this.chkVer2);
-      this.TabControlPanel1.Controls.Add(this.chkVer1);
-      this.TabControlPanel1.Controls.Add(this.frameOptions);
-      this.TabControlPanel1.Controls.Add(this.frameMethod);
-      this.TabControlPanel1.Dock = DockStyle.Fill;
-      this.TabControlPanel1.DockPadding.All = 1;
-      point = new Point(0, 0x1a);
-      this.TabControlPanel1.Location = point;
-      this.TabControlPanel1.Name = "TabControlPanel1";
-      size = new Size(450, 310);
-      this.TabControlPanel1.Size = size;
-      this.TabControlPanel1.Style.BackColor2.Color = Color.FromArgb(0xfb, 250, 0xf7);
-      this.TabControlPanel1.Style.Border = eBorderType.SingleLine;
-      this.TabControlPanel1.Style.BorderColor.Color = Color.FromArgb(0x7f, 0x9d, 0xb9);
-      this.TabControlPanel1.Style.BorderSide = eBorderSide.Bottom | eBorderSide.Right | eBorderSide.Left;
-      this.TabControlPanel1.Style.GradientAngle = 90;
-      this.TabControlPanel1.TabIndex = 1;
-      this.TabControlPanel1.TabItem = this.TabPage1;
-      this.TabPage1.AttachedControl = this.TabControlPanel1;
-      this.TabPage1.Name = "TabPage1";
-      this.TabPage1.Text = "Case Conversion";
-      this.TabControlPanel2.AntiAlias = true;
-      this.TabControlPanel2.Controls.Add(this.lstExceptions);
-      this.TabControlPanel2.Controls.Add(this.btnAdd);
-      this.TabControlPanel2.Controls.Add(this.btnRemove);
-      this.TabControlPanel2.Controls.Add(this.lblInfo);
-      this.TabControlPanel2.Controls.Add(this.txtException);
-      this.TabControlPanel2.Dock = DockStyle.Fill;
-      this.TabControlPanel2.DockPadding.All = 1;
-      point = new Point(0, 0x1a);
-      this.TabControlPanel2.Location = point;
-      this.TabControlPanel2.Name = "TabControlPanel2";
-      size = new Size(450, 310);
-      this.TabControlPanel2.Size = size;
-      this.TabControlPanel2.Style.BackColor2.Color = Color.FromArgb(0xfb, 250, 0xf7);
-      this.TabControlPanel2.Style.Border = eBorderType.SingleLine;
-      this.TabControlPanel2.Style.BorderColor.Color = Color.FromArgb(0x7f, 0x9d, 0xb9);
-      this.TabControlPanel2.Style.BorderSide = eBorderSide.Bottom | eBorderSide.Right | eBorderSide.Left;
-      this.TabControlPanel2.Style.GradientAngle = 90;
-      this.TabControlPanel2.TabIndex = 2;
-      this.TabControlPanel2.TabItem = this.TabPage2;
-      this.TabPage2.AttachedControl = this.TabControlPanel2;
-      this.TabPage2.Name = "TabPage2";
-      this.TabPage2.Text = "Exceptions";
-      this.ButtomPanel.AntiAlias = true;
-      this.ButtomPanel.Controls.Add(this.btnCancel);
-      this.ButtomPanel.Controls.Add(this.btnOK);
-      this.ButtomPanel.Dock = DockStyle.Bottom;
-      point = new Point(0, 0x150);
-      this.ButtomPanel.Location = point;
-      this.ButtomPanel.Name = "ButtomPanel";
-      size = new Size(450, 40);
-      this.ButtomPanel.Size = size;
-      this.ButtomPanel.Style.BackColor1.Color = Color.White;
-      this.ButtomPanel.Style.BackColor2.Color = Color.White;
-      this.ButtomPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this.ButtomPanel.Style.BorderWidth = 0;
-      this.ButtomPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.ButtomPanel.Style.ForeColor.Color = Color.Black;
-      this.ButtomPanel.Style.GradientAngle = 90;
-      this.ButtomPanel.Style.LineAlignment = StringAlignment.Near;
-      this.ButtomPanel.Style.MarginBottom = 2;
-      this.ButtomPanel.Style.MarginLeft = 7;
-      this.ButtomPanel.Style.MarginRight = 2;
-      this.ButtomPanel.Style.MarginTop = 2;
-      this.ButtomPanel.TabIndex = 0x75;
-      this.AcceptButton = this.btnOK;
-      size = new Size(5, 13);
-      this.AutoScaleBaseSize = size;
-      this.CancelButton = this.btnCancel;
-      size = new Size(450, 0x178);
-      this.ClientSize = size;
-      this.ControlBox = false;
-      this.Controls.Add(this.TabControl);
-      this.Controls.Add(this.ButtomPanel);
-      this.FormBorderStyle = FormBorderStyle.FixedDialog;
-      this.MaximizeBox = false;
-      this.MinimizeBox = false;
-      this.Name = "frmCaseConv";
-      this.ShowInTaskbar = false;
-      this.Text = "Case Conversion";
-      this.frameOptions.ResumeLayout(false);
-      this.frameMethod.ResumeLayout(false);
-      this.frameTAGOptions.ResumeLayout(false);
-      ((ISupportInitialize)this.TabControl).EndInit();
-      this.TabControl.ResumeLayout(false);
-      this.TabControlPanel1.ResumeLayout(false);
-      this.TabControlPanel2.ResumeLayout(false);
-      this.ButtomPanel.ResumeLayout(false);
-      this.ResumeLayout(false);
-    }
-
     private string ReplaceCallback(Match Match)
     {
       this.vstrExcep = this.vstrExcep.Replace(@"\\", "\x0001").Replace(@"\", "").Replace("\x0001", @"\");
       return Strings.Replace(Match.Value, this.vstrExcep, this.vstrExcep, 1, -1, CompareMethod.Text);
-    }
-
-    internal virtual Button btnAdd
-    {
-      get
-      {
-        return this._btnAdd;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnAdd != null)
-        {
-          this._btnAdd.Click -= new EventHandler(this.btnAdd_Click);
-        }
-        this._btnAdd = value;
-        if (this._btnAdd != null)
-        {
-          this._btnAdd.Click += new EventHandler(this.btnAdd_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnCancel
-    {
-      get
-      {
-        return this._btnCancel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnCancel != null)
-        {
-        }
-        this._btnCancel = value;
-        if (this._btnCancel != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Button btnOK
-    {
-      get
-      {
-        return this._btnOK;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click -= new EventHandler(this.btnOK_Click);
-        }
-        this._btnOK = value;
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click += new EventHandler(this.btnOK_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnRemove
-    {
-      get
-      {
-        return this._btnRemove;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnRemove != null)
-        {
-          this._btnRemove.Click -= new EventHandler(this.btnRemove_Click);
-        }
-        this._btnRemove = value;
-        if (this._btnRemove != null)
-        {
-          this._btnRemove.Click += new EventHandler(this.btnRemove_Click);
-        }
-      }
-    }
-
-    internal virtual PanelEx ButtomPanel
-    {
-      get
-      {
-        return this._ButtomPanel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ButtomPanel != null)
-        {
-        }
-        this._ButtomPanel = value;
-        if (this._ButtomPanel != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkAlbum
-    {
-      get
-      {
-        return this._chkAlbum;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkAlbum != null)
-        {
-        }
-        this._chkAlbum = value;
-        if (this._chkAlbum != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkAlwaysFirst
-    {
-      get
-      {
-        return this._chkAlwaysFirst;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkAlwaysFirst != null)
-        {
-        }
-        this._chkAlwaysFirst = value;
-        if (this._chkAlwaysFirst != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkArtist
-    {
-      get
-      {
-        return this._chkArtist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkArtist != null)
-        {
-        }
-        this._chkArtist = value;
-        if (this._chkArtist != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkComment
-    {
-      get
-      {
-        return this._chkComment;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkComment != null)
-        {
-        }
-        this._chkComment = value;
-        if (this._chkComment != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkFilename
-    {
-      get
-      {
-        return this._chkFilename;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkFilename != null)
-        {
-        }
-        this._chkFilename = value;
-        if (this._chkFilename != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkReplace20Space
-    {
-      get
-      {
-        return this._chkReplace20Space;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkReplace20Space != null)
-        {
-        }
-        this._chkReplace20Space = value;
-        if (this._chkReplace20Space != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkReplaceSpace20
-    {
-      get
-      {
-        return this._chkReplaceSpace20;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkReplaceSpace20 != null)
-        {
-          this._chkReplaceSpace20.CheckedChanged -= new EventHandler(this.chkReplaceSpace_CheckedChanged);
-        }
-        this._chkReplaceSpace20 = value;
-        if (this._chkReplaceSpace20 != null)
-        {
-          this._chkReplaceSpace20.CheckedChanged += new EventHandler(this.chkReplaceSpace_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkReplaceSpaceUnder
-    {
-      get
-      {
-        return this._chkReplaceSpaceUnder;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkReplaceSpaceUnder != null)
-        {
-          this._chkReplaceSpaceUnder.CheckedChanged -= new EventHandler(this.chkReplaceSpace_CheckedChanged);
-        }
-        this._chkReplaceSpaceUnder = value;
-        if (this._chkReplaceSpaceUnder != null)
-        {
-          this._chkReplaceSpaceUnder.CheckedChanged += new EventHandler(this.chkReplaceSpace_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkReplaceUnderSpace
-    {
-      get
-      {
-        return this._chkReplaceUnderSpace;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkReplaceUnderSpace != null)
-        {
-        }
-        this._chkReplaceUnderSpace = value;
-        if (this._chkReplaceUnderSpace != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkSeparator
-    {
-      get
-      {
-        return this._chkSeparator;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkSeparator != null)
-        {
-        }
-        this._chkSeparator = value;
-        if (this._chkSeparator != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkTitle
-    {
-      get
-      {
-        return this._chkTitle;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkTitle != null)
-        {
-        }
-        this._chkTitle = value;
-        if (this._chkTitle != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkVer1
-    {
-      get
-      {
-        return this._chkVer1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkVer1 != null)
-        {
-          this._chkVer1.CheckedChanged -= new EventHandler(this.chkVer_CheckedChanged);
-        }
-        this._chkVer1 = value;
-        if (this._chkVer1 != null)
-        {
-          this._chkVer1.CheckedChanged += new EventHandler(this.chkVer_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkVer2
-    {
-      get
-      {
-        return this._chkVer2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkVer2 != null)
-        {
-          this._chkVer2.CheckedChanged -= new EventHandler(this.chkVer_CheckedChanged);
-        }
-        this._chkVer2 = value;
-        if (this._chkVer2 != null)
-        {
-          this._chkVer2.CheckedChanged += new EventHandler(this.chkVer_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual GroupBox frameMethod
-    {
-      get
-      {
-        return this._frameMethod;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._frameMethod != null)
-        {
-        }
-        this._frameMethod = value;
-        if (this._frameMethod != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox frameOptions
-    {
-      get
-      {
-        return this._frameOptions;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._frameOptions != null)
-        {
-        }
-        this._frameOptions = value;
-        if (this._frameOptions != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox frameTAGOptions
-    {
-      get
-      {
-        return this._frameTAGOptions;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._frameTAGOptions != null)
-        {
-        }
-        this._frameTAGOptions = value;
-        if (this._frameTAGOptions != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblInfo
-    {
-      get
-      {
-        return this._lblInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblInfo != null)
-        {
-        }
-        this._lblInfo = value;
-        if (this._lblInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ListBox lstExceptions
-    {
-      get
-      {
-        return this._lstExceptions;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lstExceptions != null)
-        {
-        }
-        this._lstExceptions = value;
-        if (this._lstExceptions != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optAllFirstUp
-    {
-      get
-      {
-        return this._optAllFirstUp;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optAllFirstUp != null)
-        {
-        }
-        this._optAllFirstUp = value;
-        if (this._optAllFirstUp != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optAllLow
-    {
-      get
-      {
-        return this._optAllLow;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optAllLow != null)
-        {
-        }
-        this._optAllLow = value;
-        if (this._optAllLow != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optAllUp
-    {
-      get
-      {
-        return this._optAllUp;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optAllUp != null)
-        {
-        }
-        this._optAllUp = value;
-        if (this._optAllUp != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optFirstUp
-    {
-      get
-      {
-        return this._optFirstUp;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optFirstUp != null)
-        {
-        }
-        this._optFirstUp = value;
-        if (this._optFirstUp != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DevComponents.DotNetBar.TabControl TabControl
-    {
-      get
-      {
-        return this._TabControl;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabControl != null)
-        {
-        }
-        this._TabControl = value;
-        if (this._TabControl != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabControlPanel TabControlPanel1
-    {
-      get
-      {
-        return this._TabControlPanel1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabControlPanel1 != null)
-        {
-        }
-        this._TabControlPanel1 = value;
-        if (this._TabControlPanel1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabControlPanel TabControlPanel2
-    {
-      get
-      {
-        return this._TabControlPanel2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabControlPanel2 != null)
-        {
-        }
-        this._TabControlPanel2 = value;
-        if (this._TabControlPanel2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabItem TabPage1
-    {
-      get
-      {
-        return this._TabPage1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabPage1 != null)
-        {
-        }
-        this._TabPage1 = value;
-        if (this._TabPage1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabItem TabPage2
-    {
-      get
-      {
-        return this._TabPage2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabPage2 != null)
-        {
-        }
-        this._TabPage2 = value;
-        if (this._TabPage2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.ToolTip ToolTip
-    {
-      get
-      {
-        return this._ToolTip;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ToolTip != null)
-        {
-        }
-        this._ToolTip = value;
-        if (this._ToolTip != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TextBox txtException
-    {
-      get
-      {
-        return this._txtException;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtException != null)
-        {
-        }
-        this._txtException = value;
-        if (this._txtException != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TextBox txtSeparator
-    {
-      get
-      {
-        return this._txtSeparator;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtSeparator != null)
-        {
-        }
-        this._txtSeparator = value;
-        if (this._txtSeparator != null)
-        {
-        }
-      }
     }
   }
 }

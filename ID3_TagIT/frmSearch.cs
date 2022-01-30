@@ -1,74 +1,365 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.ComponentModel;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.Runtime.CompilerServices;
-  using System.Text.RegularExpressions;
-  using System.Windows.Forms;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class frmSearch : Form
   {
-    [AccessedThroughProperty("btnClose")]
-    private Button _btnClose;
-    [AccessedThroughProperty("btnReplace")]
-    private Button _btnReplace;
-    [AccessedThroughProperty("btnSelect")]
-    private Button _btnSelect;
-    [AccessedThroughProperty("chkAlbum")]
-    private CheckBox _chkAlbum;
-    [AccessedThroughProperty("chkArtist")]
-    private CheckBox _chkArtist;
-    [AccessedThroughProperty("chkCase")]
-    private CheckBox _chkCase;
-    [AccessedThroughProperty("chkComment")]
-    private CheckBox _chkComment;
-    [AccessedThroughProperty("chkFilename")]
-    private CheckBox _chkFilename;
-    [AccessedThroughProperty("chkGenre")]
-    private CheckBox _chkGenre;
-    [AccessedThroughProperty("chkRegExpress")]
-    private CheckBox _chkRegExpress;
-    [AccessedThroughProperty("chkSelected")]
-    private CheckBox _chkSelected;
-    [AccessedThroughProperty("chkTitle")]
-    private CheckBox _chkTitle;
-    [AccessedThroughProperty("chkTracknumber")]
-    private CheckBox _chkTracknumber;
-    [AccessedThroughProperty("chkVer1")]
-    private CheckBox _chkVer1;
-    [AccessedThroughProperty("chkVer2")]
-    private CheckBox _chkVer2;
-    [AccessedThroughProperty("chkYear")]
-    private CheckBox _chkYear;
-    [AccessedThroughProperty("FrameMode")]
-    private GroupBox _FrameMode;
-    [AccessedThroughProperty("frameTAGOptions")]
-    private GroupBox _frameTAGOptions;
-    [AccessedThroughProperty("lblReplace")]
-    private Label _lblReplace;
-    [AccessedThroughProperty("lblSearch")]
-    private Label _lblSearch;
-    [AccessedThroughProperty("LinkLabel")]
-    private System.Windows.Forms.LinkLabel _LinkLabel;
-    [AccessedThroughProperty("optAND")]
-    private RadioButton _optAND;
-    [AccessedThroughProperty("optOR")]
-    private RadioButton _optOR;
-    [AccessedThroughProperty("ProgressBar")]
-    private System.Windows.Forms.ProgressBar _ProgressBar;
-    [AccessedThroughProperty("ToolTip")]
-    private System.Windows.Forms.ToolTip _ToolTip;
-    [AccessedThroughProperty("txtReplace")]
-    private TextBox _txtReplace;
-    [AccessedThroughProperty("txtSearch")]
-    private TextBox _txtSearch;
+    private Button btnClose;
+    private Button btnReplace;
+    private Button btnSelect;
+    private CheckBox chkAlbum;
+    private CheckBox chkArtist;
+    private CheckBox chkCase;
+    private CheckBox chkComment;
+    private CheckBox chkFilename;
+    private CheckBox chkGenre;
+    private CheckBox chkRegExpress;
+    private CheckBox chkSelected;
+    private CheckBox chkTitle;
+    private CheckBox chkTracknumber;
+    private CheckBox chkVer1;
+    private CheckBox chkVer2;
+    private CheckBox chkYear;
+    private GroupBox FrameMode;
+    private GroupBox frameTAGOptions;
+    private Label lblReplace;
+    private Label lblSearch;
+    private System.Windows.Forms.LinkLabel LinkLabel;
+    private RadioButton optAND;
+    private RadioButton optOR;
+    private System.Windows.Forms.ProgressBar ProgressBar;
+    private System.Windows.Forms.ToolTip ToolTip;
+    private TextBox txtReplace;
+    private TextBox txtSearch;
     private IContainer components;
     public frmMain MainForm;
+
+    [DebuggerStepThrough]
+    private void InitializeComponent()
+    {
+      this.components = new System.ComponentModel.Container();
+      this.lblSearch = new System.Windows.Forms.Label();
+      this.lblReplace = new System.Windows.Forms.Label();
+      this.txtSearch = new System.Windows.Forms.TextBox();
+      this.txtReplace = new System.Windows.Forms.TextBox();
+      this.btnSelect = new System.Windows.Forms.Button();
+      this.btnReplace = new System.Windows.Forms.Button();
+      this.btnClose = new System.Windows.Forms.Button();
+      this.chkFilename = new System.Windows.Forms.CheckBox();
+      this.chkVer1 = new System.Windows.Forms.CheckBox();
+      this.chkVer2 = new System.Windows.Forms.CheckBox();
+      this.FrameMode = new System.Windows.Forms.GroupBox();
+      this.LinkLabel = new System.Windows.Forms.LinkLabel();
+      this.chkRegExpress = new System.Windows.Forms.CheckBox();
+      this.chkSelected = new System.Windows.Forms.CheckBox();
+      this.chkCase = new System.Windows.Forms.CheckBox();
+      this.optAND = new System.Windows.Forms.RadioButton();
+      this.optOR = new System.Windows.Forms.RadioButton();
+      this.frameTAGOptions = new System.Windows.Forms.GroupBox();
+      this.chkArtist = new System.Windows.Forms.CheckBox();
+      this.chkTitle = new System.Windows.Forms.CheckBox();
+      this.chkAlbum = new System.Windows.Forms.CheckBox();
+      this.chkTracknumber = new System.Windows.Forms.CheckBox();
+      this.chkYear = new System.Windows.Forms.CheckBox();
+      this.chkGenre = new System.Windows.Forms.CheckBox();
+      this.chkComment = new System.Windows.Forms.CheckBox();
+      this.ProgressBar = new System.Windows.Forms.ProgressBar();
+      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+      this.FrameMode.SuspendLayout();
+      this.frameTAGOptions.SuspendLayout();
+      this.SuspendLayout();
+      // 
+      // lblSearch
+      // 
+      this.lblSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblSearch.Location = new System.Drawing.Point(8, 8);
+      this.lblSearch.Name = "lblSearch";
+      this.lblSearch.Size = new System.Drawing.Size(96, 16);
+      this.lblSearch.TabIndex = 0;
+      this.lblSearch.Text = "&Search for:";
+      // 
+      // lblReplace
+      // 
+      this.lblReplace.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblReplace.Location = new System.Drawing.Point(8, 34);
+      this.lblReplace.Name = "lblReplace";
+      this.lblReplace.Size = new System.Drawing.Size(96, 16);
+      this.lblReplace.TabIndex = 0;
+      this.lblReplace.Text = "&Replace by:";
+      // 
+      // txtSearch
+      // 
+      this.txtSearch.Location = new System.Drawing.Point(104, 6);
+      this.txtSearch.Name = "txtSearch";
+      this.txtSearch.Size = new System.Drawing.Size(384, 20);
+      this.txtSearch.TabIndex = 1;
+      // 
+      // txtReplace
+      // 
+      this.txtReplace.Location = new System.Drawing.Point(104, 32);
+      this.txtReplace.Name = "txtReplace";
+      this.txtReplace.Size = new System.Drawing.Size(384, 20);
+      this.txtReplace.TabIndex = 1;
+      // 
+      // btnSelect
+      // 
+      this.btnSelect.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnSelect.Location = new System.Drawing.Point(8, 320);
+      this.btnSelect.Name = "btnSelect";
+      this.btnSelect.Size = new System.Drawing.Size(144, 24);
+      this.btnSelect.TabIndex = 3;
+      this.btnSelect.Text = "Search and S&elect";
+      this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+      // 
+      // btnReplace
+      // 
+      this.btnReplace.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnReplace.Location = new System.Drawing.Point(176, 320);
+      this.btnReplace.Name = "btnReplace";
+      this.btnReplace.Size = new System.Drawing.Size(144, 24);
+      this.btnReplace.TabIndex = 3;
+      this.btnReplace.Text = "Search and Re&place";
+      this.btnReplace.Click += new System.EventHandler(this.btnReplace_Click);
+      // 
+      // btnClose
+      // 
+      this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+      this.btnClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnClose.Location = new System.Drawing.Point(376, 320);
+      this.btnClose.Name = "btnClose";
+      this.btnClose.Size = new System.Drawing.Size(112, 24);
+      this.btnClose.TabIndex = 3;
+      this.btnClose.Text = "Clo&se";
+      this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+      // 
+      // chkFilename
+      // 
+      this.chkFilename.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkFilename.Location = new System.Drawing.Point(16, 64);
+      this.chkFilename.Name = "chkFilename";
+      this.chkFilename.Size = new System.Drawing.Size(144, 16);
+      this.chkFilename.TabIndex = 7;
+      this.chkFilename.Text = "Search in &Filename";
+      // 
+      // chkVer1
+      // 
+      this.chkVer1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkVer1.Location = new System.Drawing.Point(176, 64);
+      this.chkVer1.Name = "chkVer1";
+      this.chkVer1.Size = new System.Drawing.Size(152, 16);
+      this.chkVer1.TabIndex = 10;
+      this.chkVer1.Text = "Search in TAG Ver. &1";
+      this.chkVer1.CheckedChanged += new System.EventHandler(this.chkVer_CheckedChanged);
+      // 
+      // chkVer2
+      // 
+      this.chkVer2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkVer2.Location = new System.Drawing.Point(336, 64);
+      this.chkVer2.Name = "chkVer2";
+      this.chkVer2.Size = new System.Drawing.Size(152, 16);
+      this.chkVer2.TabIndex = 9;
+      this.chkVer2.Text = "Search in TAG Ver. &2";
+      this.chkVer2.CheckedChanged += new System.EventHandler(this.chkVer_CheckedChanged);
+      // 
+      // FrameMode
+      // 
+      this.FrameMode.Controls.Add(this.LinkLabel);
+      this.FrameMode.Controls.Add(this.chkRegExpress);
+      this.FrameMode.Controls.Add(this.chkSelected);
+      this.FrameMode.Controls.Add(this.chkCase);
+      this.FrameMode.Controls.Add(this.optAND);
+      this.FrameMode.Controls.Add(this.optOR);
+      this.FrameMode.Location = new System.Drawing.Point(8, 96);
+      this.FrameMode.Name = "FrameMode";
+      this.FrameMode.Size = new System.Drawing.Size(480, 96);
+      this.FrameMode.TabIndex = 11;
+      this.FrameMode.TabStop = false;
+      this.FrameMode.Text = "Search options";
+      // 
+      // LinkLabel
+      // 
+      this.LinkLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.LinkLabel.LinkArea = new System.Windows.Forms.LinkArea(0, 50);
+      this.LinkLabel.Location = new System.Drawing.Point(208, 72);
+      this.LinkLabel.Name = "LinkLabel";
+      this.LinkLabel.Size = new System.Drawing.Size(264, 16);
+      this.LinkLabel.TabIndex = 18;
+      this.LinkLabel.TabStop = true;
+      this.LinkLabel.Text = "http://www.regular-expressions.info/reference.html";
+      this.LinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel_LinkClicked);
+      // 
+      // chkRegExpress
+      // 
+      this.chkRegExpress.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkRegExpress.Location = new System.Drawing.Point(8, 72);
+      this.chkRegExpress.Name = "chkRegExpress";
+      this.chkRegExpress.Size = new System.Drawing.Size(192, 16);
+      this.chkRegExpress.TabIndex = 17;
+      this.chkRegExpress.Text = "&Use regular expressions";
+      // 
+      // chkSelected
+      // 
+      this.chkSelected.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkSelected.Location = new System.Drawing.Point(8, 48);
+      this.chkSelected.Name = "chkSelected";
+      this.chkSelected.Size = new System.Drawing.Size(208, 16);
+      this.chkSelected.TabIndex = 16;
+      this.chkSelected.Text = "Search selected files only";
+      // 
+      // chkCase
+      // 
+      this.chkCase.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkCase.Location = new System.Drawing.Point(8, 24);
+      this.chkCase.Name = "chkCase";
+      this.chkCase.Size = new System.Drawing.Size(208, 16);
+      this.chkCase.TabIndex = 15;
+      this.chkCase.Text = "Search case sensitive";
+      // 
+      // optAND
+      // 
+      this.optAND.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optAND.Location = new System.Drawing.Point(224, 24);
+      this.optAND.Name = "optAND";
+      this.optAND.Size = new System.Drawing.Size(248, 16);
+      this.optAND.TabIndex = 3;
+      this.optAND.Text = "Search AN&D (\'Search and Select\' only)";
+      // 
+      // optOR
+      // 
+      this.optOR.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optOR.Location = new System.Drawing.Point(224, 48);
+      this.optOR.Name = "optOR";
+      this.optOR.Size = new System.Drawing.Size(248, 16);
+      this.optOR.TabIndex = 2;
+      this.optOR.Text = "Search &OR  (\'Search and Select\' only)";
+      // 
+      // frameTAGOptions
+      // 
+      this.frameTAGOptions.Controls.Add(this.chkArtist);
+      this.frameTAGOptions.Controls.Add(this.chkTitle);
+      this.frameTAGOptions.Controls.Add(this.chkAlbum);
+      this.frameTAGOptions.Controls.Add(this.chkTracknumber);
+      this.frameTAGOptions.Controls.Add(this.chkYear);
+      this.frameTAGOptions.Controls.Add(this.chkGenre);
+      this.frameTAGOptions.Controls.Add(this.chkComment);
+      this.frameTAGOptions.Location = new System.Drawing.Point(8, 200);
+      this.frameTAGOptions.Name = "frameTAGOptions";
+      this.frameTAGOptions.Size = new System.Drawing.Size(480, 88);
+      this.frameTAGOptions.TabIndex = 12;
+      this.frameTAGOptions.TabStop = false;
+      this.frameTAGOptions.Text = "TAG fields to search in";
+      // 
+      // chkArtist
+      // 
+      this.chkArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkArtist.Location = new System.Drawing.Point(8, 16);
+      this.chkArtist.Name = "chkArtist";
+      this.chkArtist.Size = new System.Drawing.Size(128, 16);
+      this.chkArtist.TabIndex = 20;
+      this.chkArtist.Text = "&Artist";
+      // 
+      // chkTitle
+      // 
+      this.chkTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkTitle.Location = new System.Drawing.Point(8, 40);
+      this.chkTitle.Name = "chkTitle";
+      this.chkTitle.Size = new System.Drawing.Size(128, 16);
+      this.chkTitle.TabIndex = 22;
+      this.chkTitle.Text = "&Title";
+      // 
+      // chkAlbum
+      // 
+      this.chkAlbum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkAlbum.Location = new System.Drawing.Point(8, 64);
+      this.chkAlbum.Name = "chkAlbum";
+      this.chkAlbum.Size = new System.Drawing.Size(128, 16);
+      this.chkAlbum.TabIndex = 21;
+      this.chkAlbum.Text = "Al&bum";
+      // 
+      // chkTracknumber
+      // 
+      this.chkTracknumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkTracknumber.Location = new System.Drawing.Point(328, 16);
+      this.chkTracknumber.Name = "chkTracknumber";
+      this.chkTracknumber.Size = new System.Drawing.Size(136, 16);
+      this.chkTracknumber.TabIndex = 17;
+      this.chkTracknumber.Text = "Trac&knumber";
+      // 
+      // chkYear
+      // 
+      this.chkYear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkYear.Location = new System.Drawing.Point(168, 64);
+      this.chkYear.Name = "chkYear";
+      this.chkYear.Size = new System.Drawing.Size(144, 16);
+      this.chkYear.TabIndex = 16;
+      this.chkYear.Text = "&Year";
+      // 
+      // chkGenre
+      // 
+      this.chkGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkGenre.Location = new System.Drawing.Point(168, 16);
+      this.chkGenre.Name = "chkGenre";
+      this.chkGenre.Size = new System.Drawing.Size(144, 16);
+      this.chkGenre.TabIndex = 19;
+      this.chkGenre.Text = "&Genre (Ver. 2 only)";
+      // 
+      // chkComment
+      // 
+      this.chkComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkComment.Location = new System.Drawing.Point(168, 40);
+      this.chkComment.Name = "chkComment";
+      this.chkComment.Size = new System.Drawing.Size(144, 16);
+      this.chkComment.TabIndex = 18;
+      this.chkComment.Text = "&Comment";
+      // 
+      // ProgressBar
+      // 
+      this.ProgressBar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.ProgressBar.Location = new System.Drawing.Point(8, 296);
+      this.ProgressBar.Name = "ProgressBar";
+      this.ProgressBar.Size = new System.Drawing.Size(480, 16);
+      this.ProgressBar.Step = 25;
+      this.ProgressBar.TabIndex = 13;
+      // 
+      // frmSearch
+      // 
+      this.AcceptButton = this.btnSelect;
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+      this.CancelButton = this.btnClose;
+      this.ClientSize = new System.Drawing.Size(498, 350);
+      this.ControlBox = false;
+      this.Controls.Add(this.ProgressBar);
+      this.Controls.Add(this.frameTAGOptions);
+      this.Controls.Add(this.FrameMode);
+      this.Controls.Add(this.chkVer1);
+      this.Controls.Add(this.chkVer2);
+      this.Controls.Add(this.chkFilename);
+      this.Controls.Add(this.btnSelect);
+      this.Controls.Add(this.txtSearch);
+      this.Controls.Add(this.txtReplace);
+      this.Controls.Add(this.lblSearch);
+      this.Controls.Add(this.lblReplace);
+      this.Controls.Add(this.btnReplace);
+      this.Controls.Add(this.btnClose);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
+      this.Name = "frmSearch";
+      this.ShowInTaskbar = false;
+      this.Text = "Search and Replace";
+      this.FrameMode.ResumeLayout(false);
+      this.frameTAGOptions.ResumeLayout(false);
+      this.ResumeLayout(false);
+      this.PerformLayout();
+    }
 
     public frmSearch()
     {
@@ -390,294 +681,6 @@
       this.chkTracknumber.Checked = Declarations.objSettings.SearchTracknumber;
       this.frameTAGOptions.Enabled = this.chkVer1.Checked | this.chkVer2.Checked;
       this.AddToolTips();
-    }
-
-    [DebuggerStepThrough]
-    private void InitializeComponent()
-    {
-      this.components = new Container();
-      this.lblSearch = new Label();
-      this.lblReplace = new Label();
-      this.txtSearch = new TextBox();
-      this.txtReplace = new TextBox();
-      this.btnSelect = new Button();
-      this.btnReplace = new Button();
-      this.btnClose = new Button();
-      this.chkFilename = new CheckBox();
-      this.chkVer1 = new CheckBox();
-      this.chkVer2 = new CheckBox();
-      this.FrameMode = new GroupBox();
-      this.LinkLabel = new System.Windows.Forms.LinkLabel();
-      this.chkRegExpress = new CheckBox();
-      this.chkSelected = new CheckBox();
-      this.chkCase = new CheckBox();
-      this.optAND = new RadioButton();
-      this.optOR = new RadioButton();
-      this.frameTAGOptions = new GroupBox();
-      this.chkArtist = new CheckBox();
-      this.chkTitle = new CheckBox();
-      this.chkAlbum = new CheckBox();
-      this.chkTracknumber = new CheckBox();
-      this.chkYear = new CheckBox();
-      this.chkGenre = new CheckBox();
-      this.chkComment = new CheckBox();
-      this.ProgressBar = new System.Windows.Forms.ProgressBar();
-      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.FrameMode.SuspendLayout();
-      this.frameTAGOptions.SuspendLayout();
-      this.SuspendLayout();
-      this.lblSearch.ImeMode = ImeMode.NoControl;
-      Point point = new Point(8, 8);
-      this.lblSearch.Location = point;
-      this.lblSearch.Name = "lblSearch";
-      Size size = new Size(0x60, 0x10);
-      this.lblSearch.Size = size;
-      this.lblSearch.TabIndex = 0;
-      this.lblSearch.Text = "&Search for:";
-      this.lblReplace.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x22);
-      this.lblReplace.Location = point;
-      this.lblReplace.Name = "lblReplace";
-      size = new Size(0x60, 0x10);
-      this.lblReplace.Size = size;
-      this.lblReplace.TabIndex = 0;
-      this.lblReplace.Text = "&Replace by:";
-      point = new Point(0x68, 6);
-      this.txtSearch.Location = point;
-      this.txtSearch.Name = "txtSearch";
-      size = new Size(0x180, 20);
-      this.txtSearch.Size = size;
-      this.txtSearch.TabIndex = 1;
-      this.txtSearch.Text = "";
-      point = new Point(0x68, 0x20);
-      this.txtReplace.Location = point;
-      this.txtReplace.Name = "txtReplace";
-      size = new Size(0x180, 20);
-      this.txtReplace.Size = size;
-      this.txtReplace.TabIndex = 1;
-      this.txtReplace.Text = "";
-      this.btnSelect.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 320);
-      this.btnSelect.Location = point;
-      this.btnSelect.Name = "btnSelect";
-      size = new Size(0x90, 0x18);
-      this.btnSelect.Size = size;
-      this.btnSelect.TabIndex = 3;
-      this.btnSelect.Text = "Search and S&elect";
-      this.btnReplace.ImeMode = ImeMode.NoControl;
-      point = new Point(0xb0, 320);
-      this.btnReplace.Location = point;
-      this.btnReplace.Name = "btnReplace";
-      size = new Size(0x90, 0x18);
-      this.btnReplace.Size = size;
-      this.btnReplace.TabIndex = 3;
-      this.btnReplace.Text = "Search and Re&place";
-      this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnClose.ImeMode = ImeMode.NoControl;
-      point = new Point(0x178, 320);
-      this.btnClose.Location = point;
-      this.btnClose.Name = "btnClose";
-      size = new Size(0x70, 0x18);
-      this.btnClose.Size = size;
-      this.btnClose.TabIndex = 3;
-      this.btnClose.Text = "Clo&se";
-      this.chkFilename.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x40);
-      this.chkFilename.Location = point;
-      this.chkFilename.Name = "chkFilename";
-      size = new Size(0x90, 0x10);
-      this.chkFilename.Size = size;
-      this.chkFilename.TabIndex = 7;
-      this.chkFilename.Text = "Search in &Filename";
-      this.chkVer1.ImeMode = ImeMode.NoControl;
-      point = new Point(0xb0, 0x40);
-      this.chkVer1.Location = point;
-      this.chkVer1.Name = "chkVer1";
-      size = new Size(0x98, 0x10);
-      this.chkVer1.Size = size;
-      this.chkVer1.TabIndex = 10;
-      this.chkVer1.Text = "Search in TAG Ver. &1";
-      this.chkVer2.ImeMode = ImeMode.NoControl;
-      point = new Point(0x150, 0x40);
-      this.chkVer2.Location = point;
-      this.chkVer2.Name = "chkVer2";
-      size = new Size(0x98, 0x10);
-      this.chkVer2.Size = size;
-      this.chkVer2.TabIndex = 9;
-      this.chkVer2.Text = "Search in TAG Ver. &2";
-      this.FrameMode.Controls.Add(this.LinkLabel);
-      this.FrameMode.Controls.Add(this.chkRegExpress);
-      this.FrameMode.Controls.Add(this.chkSelected);
-      this.FrameMode.Controls.Add(this.chkCase);
-      this.FrameMode.Controls.Add(this.optAND);
-      this.FrameMode.Controls.Add(this.optOR);
-      point = new Point(8, 0x60);
-      this.FrameMode.Location = point;
-      this.FrameMode.Name = "FrameMode";
-      size = new Size(480, 0x60);
-      this.FrameMode.Size = size;
-      this.FrameMode.TabIndex = 11;
-      this.FrameMode.TabStop = false;
-      this.FrameMode.Text = "Search options";
-      this.LinkLabel.ImeMode = ImeMode.NoControl;
-      LinkArea area = new LinkArea(0, 50);
-      this.LinkLabel.LinkArea = area;
-      point = new Point(0xd0, 0x48);
-      this.LinkLabel.Location = point;
-      this.LinkLabel.Name = "LinkLabel";
-      size = new Size(0x108, 0x10);
-      this.LinkLabel.Size = size;
-      this.LinkLabel.TabIndex = 0x12;
-      this.LinkLabel.TabStop = true;
-      this.LinkLabel.Text = "http://www.regular-expressions.info/reference.html";
-      this.chkRegExpress.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x48);
-      this.chkRegExpress.Location = point;
-      this.chkRegExpress.Name = "chkRegExpress";
-      size = new Size(0xc0, 0x10);
-      this.chkRegExpress.Size = size;
-      this.chkRegExpress.TabIndex = 0x11;
-      this.chkRegExpress.Text = "&Use regular expressions";
-      this.chkSelected.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x30);
-      this.chkSelected.Location = point;
-      this.chkSelected.Name = "chkSelected";
-      size = new Size(0xd0, 0x10);
-      this.chkSelected.Size = size;
-      this.chkSelected.TabIndex = 0x10;
-      this.chkSelected.Text = "Search selected files only";
-      this.chkCase.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x18);
-      this.chkCase.Location = point;
-      this.chkCase.Name = "chkCase";
-      size = new Size(0xd0, 0x10);
-      this.chkCase.Size = size;
-      this.chkCase.TabIndex = 15;
-      this.chkCase.Text = "Search case sensitive";
-      this.optAND.ImeMode = ImeMode.NoControl;
-      point = new Point(0xe0, 0x18);
-      this.optAND.Location = point;
-      this.optAND.Name = "optAND";
-      size = new Size(0xf8, 0x10);
-      this.optAND.Size = size;
-      this.optAND.TabIndex = 3;
-      this.optAND.Text = "Search AN&D ('Search and Select' only)";
-      this.optOR.ImeMode = ImeMode.NoControl;
-      point = new Point(0xe0, 0x30);
-      this.optOR.Location = point;
-      this.optOR.Name = "optOR";
-      size = new Size(0xf8, 0x10);
-      this.optOR.Size = size;
-      this.optOR.TabIndex = 2;
-      this.optOR.Text = "Search &OR  ('Search and Select' only)";
-      this.frameTAGOptions.Controls.Add(this.chkArtist);
-      this.frameTAGOptions.Controls.Add(this.chkTitle);
-      this.frameTAGOptions.Controls.Add(this.chkAlbum);
-      this.frameTAGOptions.Controls.Add(this.chkTracknumber);
-      this.frameTAGOptions.Controls.Add(this.chkYear);
-      this.frameTAGOptions.Controls.Add(this.chkGenre);
-      this.frameTAGOptions.Controls.Add(this.chkComment);
-      point = new Point(8, 200);
-      this.frameTAGOptions.Location = point;
-      this.frameTAGOptions.Name = "frameTAGOptions";
-      size = new Size(480, 0x58);
-      this.frameTAGOptions.Size = size;
-      this.frameTAGOptions.TabIndex = 12;
-      this.frameTAGOptions.TabStop = false;
-      this.frameTAGOptions.Text = "TAG fields to search in";
-      this.chkArtist.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x10);
-      this.chkArtist.Location = point;
-      this.chkArtist.Name = "chkArtist";
-      size = new Size(0x80, 0x10);
-      this.chkArtist.Size = size;
-      this.chkArtist.TabIndex = 20;
-      this.chkArtist.Text = "&Artist";
-      this.chkTitle.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 40);
-      this.chkTitle.Location = point;
-      this.chkTitle.Name = "chkTitle";
-      size = new Size(0x80, 0x10);
-      this.chkTitle.Size = size;
-      this.chkTitle.TabIndex = 0x16;
-      this.chkTitle.Text = "&Title";
-      this.chkAlbum.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x40);
-      this.chkAlbum.Location = point;
-      this.chkAlbum.Name = "chkAlbum";
-      size = new Size(0x80, 0x10);
-      this.chkAlbum.Size = size;
-      this.chkAlbum.TabIndex = 0x15;
-      this.chkAlbum.Text = "Al&bum";
-      this.chkTracknumber.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x10);
-      this.chkTracknumber.Location = point;
-      this.chkTracknumber.Name = "chkTracknumber";
-      size = new Size(0x88, 0x10);
-      this.chkTracknumber.Size = size;
-      this.chkTracknumber.TabIndex = 0x11;
-      this.chkTracknumber.Text = "Trac&knumber";
-      this.chkYear.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x40);
-      this.chkYear.Location = point;
-      this.chkYear.Name = "chkYear";
-      size = new Size(0x90, 0x10);
-      this.chkYear.Size = size;
-      this.chkYear.TabIndex = 0x10;
-      this.chkYear.Text = "&Year";
-      this.chkGenre.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x10);
-      this.chkGenre.Location = point;
-      this.chkGenre.Name = "chkGenre";
-      size = new Size(0x90, 0x10);
-      this.chkGenre.Size = size;
-      this.chkGenre.TabIndex = 0x13;
-      this.chkGenre.Text = "&Genre (Ver. 2 only)";
-      this.chkComment.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 40);
-      this.chkComment.Location = point;
-      this.chkComment.Name = "chkComment";
-      size = new Size(0x90, 0x10);
-      this.chkComment.Size = size;
-      this.chkComment.TabIndex = 0x12;
-      this.chkComment.Text = "&Comment";
-      this.ProgressBar.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x128);
-      this.ProgressBar.Location = point;
-      this.ProgressBar.Name = "ProgressBar";
-      size = new Size(480, 0x10);
-      this.ProgressBar.Size = size;
-      this.ProgressBar.Step = 0x19;
-      this.ProgressBar.TabIndex = 13;
-      this.AcceptButton = this.btnSelect;
-      size = new Size(5, 13);
-      this.AutoScaleBaseSize = size;
-      this.CancelButton = this.btnClose;
-      size = new Size(0x1f2, 350);
-      this.ClientSize = size;
-      this.ControlBox = false;
-      this.Controls.Add(this.ProgressBar);
-      this.Controls.Add(this.frameTAGOptions);
-      this.Controls.Add(this.FrameMode);
-      this.Controls.Add(this.chkVer1);
-      this.Controls.Add(this.chkVer2);
-      this.Controls.Add(this.chkFilename);
-      this.Controls.Add(this.btnSelect);
-      this.Controls.Add(this.txtSearch);
-      this.Controls.Add(this.txtReplace);
-      this.Controls.Add(this.lblSearch);
-      this.Controls.Add(this.lblReplace);
-      this.Controls.Add(this.btnReplace);
-      this.Controls.Add(this.btnClose);
-      this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
-      this.MaximizeBox = false;
-      this.MinimizeBox = false;
-      this.Name = "frmSearch";
-      this.ShowInTaskbar = false;
-      this.Text = "Search and Replace";
-      this.FrameMode.ResumeLayout(false);
-      this.frameTAGOptions.ResumeLayout(false);
-      this.ResumeLayout(false);
     }
 
     private void LinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -1180,531 +1183,6 @@
       {
         UNDO.Add(@do);
         this.MainForm.UpdateListItem(lstItem, false);
-      }
-    }
-
-    internal virtual Button btnClose
-    {
-      get
-      {
-        return this._btnClose;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnClose != null)
-        {
-          this._btnClose.Click -= new EventHandler(this.btnClose_Click);
-        }
-        this._btnClose = value;
-        if (this._btnClose != null)
-        {
-          this._btnClose.Click += new EventHandler(this.btnClose_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnReplace
-    {
-      get
-      {
-        return this._btnReplace;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnReplace != null)
-        {
-          this._btnReplace.Click -= new EventHandler(this.btnReplace_Click);
-        }
-        this._btnReplace = value;
-        if (this._btnReplace != null)
-        {
-          this._btnReplace.Click += new EventHandler(this.btnReplace_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnSelect
-    {
-      get
-      {
-        return this._btnSelect;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnSelect != null)
-        {
-          this._btnSelect.Click -= new EventHandler(this.btnSelect_Click);
-        }
-        this._btnSelect = value;
-        if (this._btnSelect != null)
-        {
-          this._btnSelect.Click += new EventHandler(this.btnSelect_Click);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkAlbum
-    {
-      get
-      {
-        return this._chkAlbum;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkAlbum != null)
-        {
-        }
-        this._chkAlbum = value;
-        if (this._chkAlbum != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkArtist
-    {
-      get
-      {
-        return this._chkArtist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkArtist != null)
-        {
-        }
-        this._chkArtist = value;
-        if (this._chkArtist != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkCase
-    {
-      get
-      {
-        return this._chkCase;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkCase != null)
-        {
-        }
-        this._chkCase = value;
-        if (this._chkCase != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkComment
-    {
-      get
-      {
-        return this._chkComment;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkComment != null)
-        {
-        }
-        this._chkComment = value;
-        if (this._chkComment != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkFilename
-    {
-      get
-      {
-        return this._chkFilename;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkFilename != null)
-        {
-        }
-        this._chkFilename = value;
-        if (this._chkFilename != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkGenre
-    {
-      get
-      {
-        return this._chkGenre;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkGenre != null)
-        {
-        }
-        this._chkGenre = value;
-        if (this._chkGenre != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkRegExpress
-    {
-      get
-      {
-        return this._chkRegExpress;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkRegExpress != null)
-        {
-        }
-        this._chkRegExpress = value;
-        if (this._chkRegExpress != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkSelected
-    {
-      get
-      {
-        return this._chkSelected;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkSelected != null)
-        {
-        }
-        this._chkSelected = value;
-        if (this._chkSelected != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkTitle
-    {
-      get
-      {
-        return this._chkTitle;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkTitle != null)
-        {
-        }
-        this._chkTitle = value;
-        if (this._chkTitle != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkTracknumber
-    {
-      get
-      {
-        return this._chkTracknumber;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkTracknumber != null)
-        {
-        }
-        this._chkTracknumber = value;
-        if (this._chkTracknumber != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkVer1
-    {
-      get
-      {
-        return this._chkVer1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkVer1 != null)
-        {
-          this._chkVer1.CheckedChanged -= new EventHandler(this.chkVer_CheckedChanged);
-        }
-        this._chkVer1 = value;
-        if (this._chkVer1 != null)
-        {
-          this._chkVer1.CheckedChanged += new EventHandler(this.chkVer_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkVer2
-    {
-      get
-      {
-        return this._chkVer2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkVer2 != null)
-        {
-          this._chkVer2.CheckedChanged -= new EventHandler(this.chkVer_CheckedChanged);
-        }
-        this._chkVer2 = value;
-        if (this._chkVer2 != null)
-        {
-          this._chkVer2.CheckedChanged += new EventHandler(this.chkVer_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkYear
-    {
-      get
-      {
-        return this._chkYear;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkYear != null)
-        {
-        }
-        this._chkYear = value;
-        if (this._chkYear != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox FrameMode
-    {
-      get
-      {
-        return this._FrameMode;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._FrameMode != null)
-        {
-        }
-        this._FrameMode = value;
-        if (this._FrameMode != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox frameTAGOptions
-    {
-      get
-      {
-        return this._frameTAGOptions;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._frameTAGOptions != null)
-        {
-        }
-        this._frameTAGOptions = value;
-        if (this._frameTAGOptions != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblReplace
-    {
-      get
-      {
-        return this._lblReplace;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblReplace != null)
-        {
-        }
-        this._lblReplace = value;
-        if (this._lblReplace != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblSearch
-    {
-      get
-      {
-        return this._lblSearch;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblSearch != null)
-        {
-        }
-        this._lblSearch = value;
-        if (this._lblSearch != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.LinkLabel LinkLabel
-    {
-      get
-      {
-        return this._LinkLabel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._LinkLabel != null)
-        {
-          this._LinkLabel.LinkClicked -= new LinkLabelLinkClickedEventHandler(this.LinkLabel_LinkClicked);
-        }
-        this._LinkLabel = value;
-        if (this._LinkLabel != null)
-        {
-          this._LinkLabel.LinkClicked += new LinkLabelLinkClickedEventHandler(this.LinkLabel_LinkClicked);
-        }
-      }
-    }
-
-    internal virtual RadioButton optAND
-    {
-      get
-      {
-        return this._optAND;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optAND != null)
-        {
-        }
-        this._optAND = value;
-        if (this._optAND != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optOR
-    {
-      get
-      {
-        return this._optOR;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optOR != null)
-        {
-        }
-        this._optOR = value;
-        if (this._optOR != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.ProgressBar ProgressBar
-    {
-      get
-      {
-        return this._ProgressBar;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ProgressBar != null)
-        {
-        }
-        this._ProgressBar = value;
-        if (this._ProgressBar != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.ToolTip ToolTip
-    {
-      get
-      {
-        return this._ToolTip;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ToolTip != null)
-        {
-        }
-        this._ToolTip = value;
-        if (this._ToolTip != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TextBox txtReplace
-    {
-      get
-      {
-        return this._txtReplace;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtReplace != null)
-        {
-        }
-        this._txtReplace = value;
-        if (this._txtReplace != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TextBox txtSearch
-    {
-      get
-      {
-        return this._txtSearch;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtSearch != null)
-        {
-        }
-        this._txtSearch = value;
-        if (this._txtSearch != null)
-        {
-        }
       }
     }
   }

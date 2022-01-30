@@ -1,7 +1,7 @@
-﻿  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.ComponentModel;
-  using System.Windows.Forms;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace ID3_TagIT
 {
@@ -77,8 +77,8 @@ namespace ID3_TagIT
 
     protected virtual void OnNoMatchFound(CancelEventArgs e)
     {
-      if (this.NoMatchFoundEvent != null)
-        this.NoMatchFoundEvent(this, e);
+      if (this.NoMatchFound != null)
+        this.NoMatchFound(this, e);
     }
 
     protected override void OnTextChanged(EventArgs e)

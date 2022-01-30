@@ -1,120 +1,73 @@
-﻿namespace ID3_TagIT
-{
-  using DevComponents.DotNetBar;
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using Microsoft.Win32;
-  using SkySoftware.FolderViewControl;
-  using System;
-  using System.Collections;
-  using System.ComponentModel;
-  using System.Data;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.IO;
-  using System.Resources;
-  using System.Runtime.CompilerServices;
-  using System.Runtime.InteropServices;
-  using System.Text;
-  using System.Threading;
-  using System.Windows.Forms;
+﻿using DevComponents.DotNetBar;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using Microsoft.Win32;
+using SkySoftware.FolderViewControl;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Resources;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class frmMain : Form
   {
-    [AccessedThroughProperty("APICView")]
-    private PictureBox _APICView;
-    [AccessedThroughProperty("barBottomDockSite")]
-    private DockSite _barBottomDockSite;
-    [AccessedThroughProperty("BarGroupEdit")]
-    private ExplorerBarGroupItem _BarGroupEdit;
-    [AccessedThroughProperty("BarGroupInfo")]
-    private ExplorerBarGroupItem _BarGroupInfo;
-    [AccessedThroughProperty("BarGroupPicture")]
-    private ExplorerBarGroupItem _BarGroupPicture;
-    [AccessedThroughProperty("BarGroupTools")]
-    private ExplorerBarGroupItem _BarGroupTools;
-    [AccessedThroughProperty("barLeftDockSite")]
-    private DockSite _barLeftDockSite;
-    [AccessedThroughProperty("barRightDockSite")]
-    private DockSite _barRightDockSite;
-    [AccessedThroughProperty("barTopDockSite")]
-    private DockSite _barTopDockSite;
-    [AccessedThroughProperty("btnQuickEdit")]
-    private Button _btnQuickEdit;
-    [AccessedThroughProperty("btnQuickEditMore")]
-    private Button _btnQuickEditMore;
-    [AccessedThroughProperty("CContainerAlbum")]
-    private ControlContainerItem _CContainerAlbum;
-    [AccessedThroughProperty("CContainerAPICView")]
-    private ControlContainerItem _CContainerAPICView;
-    [AccessedThroughProperty("CContainerArtist")]
-    private ControlContainerItem _CContainerArtist;
-    [AccessedThroughProperty("CContainerbtnQuickEditMore")]
-    private ControlContainerItem _CContainerbtnQuickEditMore;
-    [AccessedThroughProperty("CContainerbtnQuickEditOK")]
-    private ControlContainerItem _CContainerbtnQuickEditOK;
-    [AccessedThroughProperty("CContainerTitle")]
-    private ControlContainerItem _CContainerTitle;
-    [AccessedThroughProperty("CContainertxtInfo")]
-    private ControlContainerItem _CContainertxtInfo;
-    [AccessedThroughProperty("cmbArtist")]
-    private ComboBoxAutoComplete _cmbArtist;
-    [AccessedThroughProperty("ColumnHeaderIcons")]
-    private ImageList _ColumnHeaderIcons;
-    [AccessedThroughProperty("DotNetBarManager")]
-    private DevComponents.DotNetBar.DotNetBarManager _DotNetBarManager;
-    [AccessedThroughProperty("EnumInfo")]
-    private Label _EnumInfo;
-    [AccessedThroughProperty("ErrorMsg")]
-    private ListView _ErrorMsg;
-    [AccessedThroughProperty("FavouritesPan")]
-    private ButtonItem _FavouritesPan;
-    [AccessedThroughProperty("FavouritesPanel")]
-    private NavigationPanePanel _FavouritesPanel;
-    [AccessedThroughProperty("FavTree")]
-    private TreeView _FavTree;
-    [AccessedThroughProperty("FolderBrowserDialog")]
-    private System.Windows.Forms.FolderBrowserDialog _FolderBrowserDialog;
-    [AccessedThroughProperty("FolderRenameTimer")]
-    private System.Windows.Forms.Timer _FolderRenameTimer;
-    [AccessedThroughProperty("FoldersPan")]
-    private ButtonItem _FoldersPan;
-    [AccessedThroughProperty("FoldersPanel")]
-    private NavigationPanePanel _FoldersPanel;
-    [AccessedThroughProperty("FolderTree")]
-    private FolderView _FolderTree;
-    [AccessedThroughProperty("GroupIcons")]
-    private ImageList _GroupIcons;
-    [AccessedThroughProperty("lblAlbum")]
-    private LabelItem _lblAlbum;
-    [AccessedThroughProperty("lblArtist")]
-    private LabelItem _lblArtist;
-    [AccessedThroughProperty("lblQuickSpacer1")]
-    private LabelItem _lblQuickSpacer1;
-    [AccessedThroughProperty("lblTitle")]
-    private LabelItem _lblTitle;
-    [AccessedThroughProperty("MP3View")]
-    private ListView _MP3View;
-    [AccessedThroughProperty("NavigationPan")]
-    private NavigationPane _NavigationPan;
-    [AccessedThroughProperty("SideBar")]
-    private ExplorerBar _SideBar;
-    [AccessedThroughProperty("SplitterBottom")]
-    private ExpandableSplitter _SplitterBottom;
-    [AccessedThroughProperty("SplitterLeft")]
-    private ExpandableSplitter _SplitterLeft;
-    [AccessedThroughProperty("SplitterRight")]
-    private ExpandableSplitter _SplitterRight;
-    [AccessedThroughProperty("Timer")]
-    private System.Windows.Forms.Timer _Timer;
-    [AccessedThroughProperty("ToolsIcons")]
-    private ImageList _ToolsIcons;
-    [AccessedThroughProperty("txtAlbum")]
-    private TextBox _txtAlbum;
-    [AccessedThroughProperty("txtInfo")]
-    private RichTextBox _txtInfo;
-    [AccessedThroughProperty("txtTitle")]
-    private TextBox _txtTitle;
+    private PictureBox APICView;
+    private DockSite barBottomDockSite;
+    private ExplorerBarGroupItem BarGroupEdit;
+    private ExplorerBarGroupItem BarGroupInfo;
+    private ExplorerBarGroupItem BarGroupPicture;
+    private ExplorerBarGroupItem BarGroupTools;
+    private DockSite barLeftDockSite;
+    private DockSite barRightDockSite;
+    private DockSite barTopDockSite;
+    private Button btnQuickEdit;
+    private Button btnQuickEditMore;
+    private ControlContainerItem CContainerAlbum;
+    private ControlContainerItem CContainerAPICView;
+    private ControlContainerItem CContainerArtist;
+    private ControlContainerItem CContainerbtnQuickEditMore;
+    private ControlContainerItem CContainerbtnQuickEditOK;
+    private ControlContainerItem CContainerTitle;
+    private ControlContainerItem CContainertxtInfo;
+    private ComboBoxAutoComplete cmbArtist;
+    private ImageList ColumnHeaderIcons;
+    private DevComponents.DotNetBar.DotNetBarManager DotNetBarManager;
+    private Label EnumInfo;
+    private ListView ErrorMsg;
+    private ButtonItem FavouritesPan;
+    private NavigationPanePanel FavouritesPanel;
+    private TreeView FavTree;
+    private System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog;
+    private System.Windows.Forms.Timer FolderRenameTimer;
+    private ButtonItem FoldersPan;
+    private NavigationPanePanel FoldersPanel;
+    private FolderView FolderTree;
+    private ImageList GroupIcons;
+    private LabelItem lblAlbum;
+    private LabelItem lblArtist;
+    private LabelItem lblQuickSpacer1;
+    private LabelItem lblTitle;
+    private ListView MP3View;
+    private NavigationPane NavigationPan;
+    private ExplorerBar SideBar;
+    private ExpandableSplitter SplitterBottom;
+    private ExpandableSplitter SplitterLeft;
+    private ExpandableSplitter SplitterRight;
+    private System.Windows.Forms.Timer Timer;
+    private ImageList ToolsIcons;
+    private TextBox txtAlbum;
+    private RichTextBox txtInfo;
+    private TextBox txtTitle;
     private int[] aintLastSelected;
     private ArrayList alstCopyPaste;
     private ButtonItem btnV1V2View;
@@ -174,6 +127,636 @@
     private string vstrFilter;
     private string vstrFolderRenameNewPath;
     private string vstrFolderRenameOldPath;
+
+    [DebuggerStepThrough]
+    private void InitializeComponent()
+    {
+      this.components = new Container();
+      this.ColumnHeaderIcons = new ImageList(this.components);
+      this.ToolsIcons = new ImageList(this.components);
+      this.GroupIcons = new ImageList(this.components);
+      this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+      this.Timer = new System.Windows.Forms.Timer(this.components);
+      this.FolderRenameTimer = new System.Windows.Forms.Timer(this.components);
+      this.DotNetBarManager = new DevComponents.DotNetBar.DotNetBarManager(this.components);
+      this.barBottomDockSite = new DockSite();
+      this.barLeftDockSite = new DockSite();
+      this.barRightDockSite = new DockSite();
+      this.barTopDockSite = new DockSite();
+      this.SplitterLeft = new ExpandableSplitter();
+      this.NavigationPan = new NavigationPane();
+      this.FoldersPanel = new NavigationPanePanel();
+      this.FolderTree = new FolderView();
+      this.FoldersPan = new ButtonItem();
+      this.FavouritesPanel = new NavigationPanePanel();
+      this.FavTree = new TreeView();
+      this.FavouritesPan = new ButtonItem();
+      this.SplitterBottom = new ExpandableSplitter();
+      this.ErrorMsg = new ListView();
+      this.SplitterRight = new ExpandableSplitter();
+      this.SideBar = new ExplorerBar();
+      this.cmbArtist = new ComboBoxAutoComplete();
+      this.txtTitle = new TextBox();
+      this.txtAlbum = new TextBox();
+      this.btnQuickEdit = new Button();
+      this.btnQuickEditMore = new Button();
+      this.APICView = new PictureBox();
+      this.txtInfo = new RichTextBox();
+      this.BarGroupEdit = new ExplorerBarGroupItem();
+      this.lblArtist = new LabelItem();
+      this.CContainerArtist = new ControlContainerItem();
+      this.lblTitle = new LabelItem();
+      this.CContainerTitle = new ControlContainerItem();
+      this.lblAlbum = new LabelItem();
+      this.CContainerAlbum = new ControlContainerItem();
+      this.lblQuickSpacer1 = new LabelItem();
+      this.CContainerbtnQuickEditOK = new ControlContainerItem();
+      this.CContainerbtnQuickEditMore = new ControlContainerItem();
+      this.BarGroupPicture = new ExplorerBarGroupItem();
+      this.CContainerAPICView = new ControlContainerItem();
+      this.BarGroupInfo = new ExplorerBarGroupItem();
+      this.CContainertxtInfo = new ControlContainerItem();
+      this.BarGroupTools = new ExplorerBarGroupItem();
+      this.MP3View = new ListView();
+      this.EnumInfo = new Label();
+      this.NavigationPan.SuspendLayout();
+      this.FoldersPanel.SuspendLayout();
+      this.FavouritesPanel.SuspendLayout();
+      ((ISupportInitialize)this.SideBar).BeginInit();
+      this.SideBar.SuspendLayout();
+      this.SuspendLayout();
+      this.ColumnHeaderIcons.ImageSize = new Size(0x10, 0x10);
+      this.ColumnHeaderIcons.ImageStream = (ImageListStreamer)(new ResourceManager(typeof(frmMain))).GetObject("ColumnHeaderIcons.ImageStream");
+      this.ColumnHeaderIcons.TransparentColor = System.Drawing.Color.Transparent;
+      this.ToolsIcons.ColorDepth = ColorDepth.Depth32Bit;
+      this.ToolsIcons.ImageSize = new Size(0x10, 0x10);
+      this.ToolsIcons.TransparentColor = System.Drawing.Color.Transparent;
+      this.GroupIcons.ColorDepth = ColorDepth.Depth32Bit;
+      this.GroupIcons.ImageSize = new Size(0x10, 0x10);
+      this.GroupIcons.ImageStream = (ImageListStreamer)(new ResourceManager(typeof(frmMain))).GetObject("GroupIcons.ImageStream");
+      this.GroupIcons.TransparentColor = System.Drawing.Color.Transparent;
+      this.Timer.Enabled = true;
+      this.Timer.Interval = 200;
+      this.DotNetBarManager.AllowUserBarCustomize = false;
+      this.DotNetBarManager.BottomDockSite = this.barBottomDockSite;
+      this.DotNetBarManager.DefinitionName = "ID3-TagIT.MenuBars.xml";
+      this.DotNetBarManager.LeftDockSite = this.barLeftDockSite;
+      this.DotNetBarManager.ParentForm = this;
+      this.DotNetBarManager.RightDockSite = this.barRightDockSite;
+      this.DotNetBarManager.ShowShortcutKeysInToolTips = true;
+      this.DotNetBarManager.Style = eDotNetBarStyle.Office2003;
+      this.DotNetBarManager.TopDockSite = this.barTopDockSite;
+      this.barBottomDockSite.AccessibleRole = AccessibleRole.Window;
+      this.barBottomDockSite.BackgroundImageAlpha = 0xff;
+      this.barBottomDockSite.Dock = DockStyle.Bottom;
+      this.barBottomDockSite.Location = new Point(0, 0x22e);
+      this.barBottomDockSite.Name = "barBottomDockSite";
+      this.barBottomDockSite.Size = new Size(960, 0x18);
+      this.barBottomDockSite.TabIndex = 20;
+      this.barBottomDockSite.TabStop = false;
+      this.barLeftDockSite.AccessibleRole = AccessibleRole.Window;
+      this.barLeftDockSite.BackgroundImageAlpha = 0xff;
+      this.barLeftDockSite.Dock = DockStyle.Left;
+      this.barLeftDockSite.Location = new Point(0, 0x4a);
+      this.barLeftDockSite.Name = "barLeftDockSite";
+      this.barLeftDockSite.Size = new Size(0, 0x1e4);
+      this.barLeftDockSite.TabIndex = 0x11;
+      this.barLeftDockSite.TabStop = false;
+      this.barRightDockSite.AccessibleRole = AccessibleRole.Window;
+      this.barRightDockSite.BackgroundImageAlpha = 0xff;
+      this.barRightDockSite.Dock = DockStyle.Right;
+      this.barRightDockSite.Location = new Point(960, 0x4a);
+      this.barRightDockSite.Name = "barRightDockSite";
+      this.barRightDockSite.Size = new Size(0, 0x1e4);
+      this.barRightDockSite.TabIndex = 0x12;
+      this.barRightDockSite.TabStop = false;
+      this.barTopDockSite.AccessibleRole = AccessibleRole.Window;
+      this.barTopDockSite.BackgroundImageAlpha = 0xff;
+      this.barTopDockSite.Dock = DockStyle.Top;
+      this.barTopDockSite.Location = new Point(0, 0);
+      this.barTopDockSite.Name = "barTopDockSite";
+      this.barTopDockSite.Size = new Size(960, 0x4a);
+      this.barTopDockSite.TabIndex = 0x13;
+      this.barTopDockSite.TabStop = false;
+      this.SplitterLeft.BackColor2 = System.Drawing.Color.FromArgb(0, 0x2d, 150);
+      this.SplitterLeft.BackColor2SchemePart = eColorSchemePart.PanelBorder;
+      this.SplitterLeft.BackColorSchemePart = eColorSchemePart.PanelBackground;
+      this.SplitterLeft.ExpandableControl = this.NavigationPan;
+      this.SplitterLeft.ExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
+      this.SplitterLeft.ExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
+      this.SplitterLeft.ExpandLineColor = SystemColors.ControlText;
+      this.SplitterLeft.ExpandLineColorSchemePart = eColorSchemePart.ItemText;
+      this.SplitterLeft.GripDarkColor = SystemColors.ControlText;
+      this.SplitterLeft.GripDarkColorSchemePart = eColorSchemePart.ItemText;
+      this.SplitterLeft.GripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
+      this.SplitterLeft.GripLightColorSchemePart = eColorSchemePart.BarBackground;
+      this.SplitterLeft.HotBackColor = System.Drawing.Color.FromArgb(0xfe, 0x8e, 0x4b);
+      this.SplitterLeft.HotBackColor2 = System.Drawing.Color.FromArgb(0xff, 0xcf, 0x8b);
+      this.SplitterLeft.HotBackColor2SchemePart = eColorSchemePart.ItemPressedBackground2;
+      this.SplitterLeft.HotBackColorSchemePart = eColorSchemePart.ItemPressedBackground;
+      this.SplitterLeft.HotExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
+      this.SplitterLeft.HotExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
+      this.SplitterLeft.HotExpandLineColor = SystemColors.ControlText;
+      this.SplitterLeft.HotExpandLineColorSchemePart = eColorSchemePart.ItemText;
+      this.SplitterLeft.HotGripDarkColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
+      this.SplitterLeft.HotGripDarkColorSchemePart = eColorSchemePart.PanelBorder;
+      this.SplitterLeft.HotGripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
+      this.SplitterLeft.HotGripLightColorSchemePart = eColorSchemePart.BarBackground;
+      this.SplitterLeft.Location = new Point(0xd8, 0x4a);
+      this.SplitterLeft.MinExtra = 5;
+      this.SplitterLeft.MinSize = 5;
+      this.SplitterLeft.Name = "SplitterLeft";
+      this.SplitterLeft.Size = new Size(8, 0x1e4);
+      this.SplitterLeft.TabIndex = 0x18;
+      this.SplitterLeft.TabStop = false;
+      this.NavigationPan.ConfigureAddRemoveVisible = false;
+      this.NavigationPan.Controls.Add(this.FoldersPanel);
+      this.NavigationPan.Controls.Add(this.FavouritesPanel);
+      this.NavigationPan.Controls.Add(this.NavigationPan.TitlePanel);
+      this.NavigationPan.Dock = DockStyle.Left;
+      this.NavigationPan.ItemPaddingBottom = 2;
+      this.NavigationPan.ItemPaddingTop = 2;
+      this.NavigationPan.Items.AddRange(new BaseItem[] { this.FoldersPan, this.FavouritesPan });
+      this.NavigationPan.Location = new Point(0, 0x4a);
+      this.NavigationPan.Name = "NavigationPan";
+      this.NavigationPan.NavigationBarHeight = 0x58;
+      this.NavigationPan.Size = new Size(0xd8, 0x1e4);
+      this.NavigationPan.TabIndex = 0x17;
+      this.NavigationPan.TitlePanel.AntiAlias = true;
+      this.NavigationPan.TitlePanel.Dock = DockStyle.Top;
+      this.NavigationPan.TitlePanel.Font = new Font("Tahoma", 12f, FontStyle.Bold, GraphicsUnit.Point, 0);
+      this.NavigationPan.TitlePanel.Location = new Point(0, 0);
+      this.NavigationPan.TitlePanel.Name = "panelEx1";
+      this.NavigationPan.TitlePanel.Size = new Size(0xd8, 0x18);
+      this.NavigationPan.TitlePanel.Style.BackColor1.ColorSchemePart = eColorSchemePart.PanelBackground;
+      this.NavigationPan.TitlePanel.Style.BackColor2.ColorSchemePart = eColorSchemePart.PanelBackground2;
+      this.NavigationPan.TitlePanel.Style.Border = eBorderType.SingleLine;
+      this.NavigationPan.TitlePanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
+      this.NavigationPan.TitlePanel.Style.ForeColor.ColorSchemePart = eColorSchemePart.PanelText;
+      this.NavigationPan.TitlePanel.Style.GradientAngle = 90;
+      this.NavigationPan.TitlePanel.Style.MarginLeft = 4;
+      this.NavigationPan.TitlePanel.TabIndex = 0;
+      this.NavigationPan.TitlePanel.Text = "Folders";
+      this.FoldersPanel.AntiAlias = true;
+      this.FoldersPanel.Controls.Add(this.FolderTree);
+      this.FoldersPanel.Dock = DockStyle.Fill;
+      this.FoldersPanel.DockPadding.Left = 1;
+      this.FoldersPanel.DockPadding.Right = 1;
+      this.FoldersPanel.DockPadding.Top = 1;
+      this.FoldersPanel.Location = new Point(0, 0x18);
+      this.FoldersPanel.Name = "FoldersPanel";
+      this.FoldersPanel.ParentItem = this.FoldersPan;
+      this.FoldersPanel.Size = new Size(0xd8, 0x174);
+      this.FoldersPanel.Style.Alignment = StringAlignment.Center;
+      this.FoldersPanel.Style.BackColor1.ColorSchemePart = eColorSchemePart.BarBackground;
+      this.FoldersPanel.Style.BackColor2.ColorSchemePart = eColorSchemePart.BarBackground2;
+      this.FoldersPanel.Style.BackgroundImagePosition = eBackgroundImagePosition.Tile;
+      this.FoldersPanel.Style.Border = eBorderType.SingleLine;
+      this.FoldersPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
+      this.FoldersPanel.Style.ForeColor.ColorSchemePart = eColorSchemePart.ItemText;
+      this.FoldersPanel.Style.GradientAngle = 90;
+      this.FoldersPanel.StyleMouseDown.Alignment = StringAlignment.Center;
+      this.FoldersPanel.StyleMouseOver.Alignment = StringAlignment.Center;
+      this.FoldersPanel.TabIndex = 2;
+      this.FolderTree.AllowDragDrop = false;
+      this.FolderTree.BorderStyle = BorderStyles.None;
+      this.FolderTree.Dock = DockStyle.Fill;
+      this.FolderTree.HasLines = false;
+      this.FolderTree.Location = new Point(1, 1);
+      this.FolderTree.Name = "FolderTree";
+      this.FolderTree.ShowContextMenus = false;
+      this.FolderTree.ShowHiddenObjects = false;
+      this.FolderTree.ShowSpecialFolders = false;
+      this.FolderTree.Size = new Size(0xd6, 0x173);
+      this.FolderTree.TabIndex = 1;
+      this.FolderTree.Text = "FolderTree";
+      this.FoldersPan.ButtonStyle = eButtonStyle.ImageAndText;
+      this.FoldersPan.Checked = true;
+      this.FoldersPan.Icon = (Icon)(new ResourceManager(typeof(frmMain))).GetObject("FoldersPan.Icon");
+      this.FoldersPan.ImageIndex = 0;
+      this.FoldersPan.Name = "FoldersPan";
+      this.FoldersPan.OptionGroup = "navBar";
+      this.FoldersPan.Style = eDotNetBarStyle.Office2003;
+      this.FoldersPan.Text = "Folders";
+      this.FavouritesPanel.AntiAlias = true;
+      this.FavouritesPanel.Controls.Add(this.FavTree);
+      this.FavouritesPanel.Dock = DockStyle.Fill;
+      this.FavouritesPanel.DockPadding.Left = 1;
+      this.FavouritesPanel.DockPadding.Right = 1;
+      this.FavouritesPanel.DockPadding.Top = 1;
+      this.FavouritesPanel.Location = new Point(0, 0x18);
+      this.FavouritesPanel.Name = "FavouritesPanel";
+      this.FavouritesPanel.ParentItem = this.FavouritesPan;
+      this.FavouritesPanel.Size = new Size(0xd8, 0x174);
+      this.FavouritesPanel.Style.Alignment = StringAlignment.Center;
+      this.FavouritesPanel.Style.BackColor1.ColorSchemePart = eColorSchemePart.BarBackground;
+      this.FavouritesPanel.Style.BackColor2.ColorSchemePart = eColorSchemePart.BarBackground2;
+      this.FavouritesPanel.Style.BackgroundImagePosition = eBackgroundImagePosition.Tile;
+      this.FavouritesPanel.Style.Border = eBorderType.SingleLine;
+      this.FavouritesPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
+      this.FavouritesPanel.Style.ForeColor.ColorSchemePart = eColorSchemePart.ItemText;
+      this.FavouritesPanel.Style.GradientAngle = 90;
+      this.FavouritesPanel.StyleMouseDown.Alignment = StringAlignment.Center;
+      this.FavouritesPanel.StyleMouseOver.Alignment = StringAlignment.Center;
+      this.FavouritesPanel.TabIndex = 3;
+      this.FavTree.Dock = DockStyle.Fill;
+      this.FavTree.HideSelection = false;
+      this.FavTree.ImageIndex = -1;
+      this.FavTree.Indent = 0x13;
+      this.FavTree.ItemHeight = 0x10;
+      this.FavTree.Location = new Point(1, 1);
+      this.FavTree.Name = "FavTree";
+      this.FavTree.SelectedImageIndex = -1;
+      this.FavTree.Size = new Size(0xd6, 0x173);
+      this.FavTree.TabIndex = 8;
+      this.FavouritesPan.ButtonStyle = eButtonStyle.ImageAndText;
+      this.FavouritesPan.Icon = (Icon)(new ResourceManager(typeof(frmMain))).GetObject("FavouritesPan.Icon");
+      this.FavouritesPan.Name = "FavouritesPan";
+      this.FavouritesPan.OptionGroup = "navBar";
+      this.FavouritesPan.Style = eDotNetBarStyle.Office2003;
+      this.FavouritesPan.Text = "Favourites";
+      this.SplitterBottom.BackColor2 = System.Drawing.Color.FromArgb(0, 0x2d, 150);
+      this.SplitterBottom.BackColor2SchemePart = eColorSchemePart.PanelBorder;
+      this.SplitterBottom.BackColorSchemePart = eColorSchemePart.PanelBackground;
+      this.SplitterBottom.Dock = DockStyle.Bottom;
+      this.SplitterBottom.ExpandableControl = this.ErrorMsg;
+      this.SplitterBottom.ExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
+      this.SplitterBottom.ExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
+      this.SplitterBottom.ExpandLineColor = SystemColors.ControlText;
+      this.SplitterBottom.ExpandLineColorSchemePart = eColorSchemePart.ItemText;
+      this.SplitterBottom.GripDarkColor = SystemColors.ControlText;
+      this.SplitterBottom.GripDarkColorSchemePart = eColorSchemePart.ItemText;
+      this.SplitterBottom.GripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
+      this.SplitterBottom.GripLightColorSchemePart = eColorSchemePart.BarBackground;
+      this.SplitterBottom.HotBackColor = System.Drawing.Color.FromArgb(0xfe, 0x8e, 0x4b);
+      this.SplitterBottom.HotBackColor2 = System.Drawing.Color.FromArgb(0xff, 0xcf, 0x8b);
+      this.SplitterBottom.HotBackColor2SchemePart = eColorSchemePart.ItemPressedBackground2;
+      this.SplitterBottom.HotBackColorSchemePart = eColorSchemePart.ItemPressedBackground;
+      this.SplitterBottom.HotExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
+      this.SplitterBottom.HotExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
+      this.SplitterBottom.HotExpandLineColor = SystemColors.ControlText;
+      this.SplitterBottom.HotExpandLineColorSchemePart = eColorSchemePart.ItemText;
+      this.SplitterBottom.HotGripDarkColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
+      this.SplitterBottom.HotGripDarkColorSchemePart = eColorSchemePart.PanelBorder;
+      this.SplitterBottom.HotGripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
+      this.SplitterBottom.HotGripLightColorSchemePart = eColorSchemePart.BarBackground;
+      this.SplitterBottom.Location = new Point(0xe0, 430);
+      this.SplitterBottom.MinExtra = 5;
+      this.SplitterBottom.MinSize = 5;
+      this.SplitterBottom.Name = "SplitterBottom";
+      this.SplitterBottom.Size = new Size(0x210, 8);
+      this.SplitterBottom.TabIndex = 0x19;
+      this.SplitterBottom.TabStop = false;
+      this.ErrorMsg.BackColor = SystemColors.Window;
+      this.ErrorMsg.Dock = DockStyle.Bottom;
+      this.ErrorMsg.FullRowSelect = true;
+      this.ErrorMsg.GridLines = true;
+      this.ErrorMsg.HideSelection = false;
+      this.ErrorMsg.Location = new Point(0xe0, 0x1b6);
+      this.ErrorMsg.Name = "ErrorMsg";
+      this.ErrorMsg.Size = new Size(0x210, 120);
+      this.ErrorMsg.TabIndex = 7;
+      this.ErrorMsg.View = View.Details;
+      this.SplitterRight.AnimationTime = 0;
+      this.SplitterRight.BackColor2 = System.Drawing.Color.FromArgb(0, 0x2d, 150);
+      this.SplitterRight.BackColor2SchemePart = eColorSchemePart.PanelBorder;
+      this.SplitterRight.BackColorSchemePart = eColorSchemePart.PanelBackground;
+      this.SplitterRight.Dock = DockStyle.Right;
+      this.SplitterRight.ExpandableControl = this.SideBar;
+      this.SplitterRight.ExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
+      this.SplitterRight.ExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
+      this.SplitterRight.ExpandLineColor = SystemColors.ControlText;
+      this.SplitterRight.ExpandLineColorSchemePart = eColorSchemePart.ItemText;
+      this.SplitterRight.GripDarkColor = SystemColors.ControlText;
+      this.SplitterRight.GripDarkColorSchemePart = eColorSchemePart.ItemText;
+      this.SplitterRight.GripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
+      this.SplitterRight.GripLightColorSchemePart = eColorSchemePart.BarBackground;
+      this.SplitterRight.HotBackColor = System.Drawing.Color.FromArgb(0xfe, 0x8e, 0x4b);
+      this.SplitterRight.HotBackColor2 = System.Drawing.Color.FromArgb(0xff, 0xcf, 0x8b);
+      this.SplitterRight.HotBackColor2SchemePart = eColorSchemePart.ItemPressedBackground2;
+      this.SplitterRight.HotBackColorSchemePart = eColorSchemePart.ItemPressedBackground;
+      this.SplitterRight.HotExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
+      this.SplitterRight.HotExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
+      this.SplitterRight.HotExpandLineColor = SystemColors.ControlText;
+      this.SplitterRight.HotExpandLineColorSchemePart = eColorSchemePart.ItemText;
+      this.SplitterRight.HotGripDarkColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
+      this.SplitterRight.HotGripDarkColorSchemePart = eColorSchemePart.PanelBorder;
+      this.SplitterRight.HotGripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
+      this.SplitterRight.HotGripLightColorSchemePart = eColorSchemePart.BarBackground;
+      this.SplitterRight.Location = new Point(0x2f0, 0x4a);
+      this.SplitterRight.MinExtra = 5;
+      this.SplitterRight.MinSize = 5;
+      this.SplitterRight.Name = "SplitterRight";
+      this.SplitterRight.Size = new Size(8, 0x1e4);
+      this.SplitterRight.TabIndex = 0x1b;
+      this.SplitterRight.TabStop = false;
+      this.SideBar.AccessibleRole = AccessibleRole.ToolBar;
+      this.SideBar.AntiAlias = true;
+      this.SideBar.BackColor = SystemColors.Control;
+      this.SideBar.BackgroundStyle.BackColor1.ColorSchemePart = eColorSchemePart.ExplorerBarBackground;
+      this.SideBar.BackgroundStyle.BackColor2.ColorSchemePart = eColorSchemePart.ExplorerBarBackground2;
+      this.SideBar.BackgroundStyle.GradientAngle = 90;
+      this.SideBar.Controls.Add(this.cmbArtist);
+      this.SideBar.Controls.Add(this.txtTitle);
+      this.SideBar.Controls.Add(this.txtAlbum);
+      this.SideBar.Controls.Add(this.btnQuickEdit);
+      this.SideBar.Controls.Add(this.btnQuickEditMore);
+      this.SideBar.Controls.Add(this.APICView);
+      this.SideBar.Controls.Add(this.txtInfo);
+      this.SideBar.Dock = DockStyle.Right;
+      this.SideBar.Font = new Font("Tahoma", 11f, FontStyle.Regular, GraphicsUnit.World);
+      this.SideBar.GroupImages = this.GroupIcons;
+      this.SideBar.Groups.AddRange(new BaseItem[] { this.BarGroupEdit, this.BarGroupPicture, this.BarGroupInfo, this.BarGroupTools });
+      this.SideBar.Images = this.ToolsIcons;
+      this.SideBar.Location = new Point(760, 0x4a);
+      this.SideBar.Name = "SideBar";
+      this.SideBar.Size = new Size(200, 0x1e4);
+      this.SideBar.TabIndex = 2;
+      this.SideBar.Text = "SideBar";
+      this.SideBar.ThemeAware = true;
+      this.cmbArtist.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
+      this.cmbArtist.Autocomplete = true;
+      this.cmbArtist.Location = new Point(10, 0x2b);
+      this.cmbArtist.Name = "cmbArtist";
+      this.cmbArtist.Size = new Size(180, 0x15);
+      this.cmbArtist.TabIndex = 2;
+      this.txtTitle.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
+      this.txtTitle.Location = new Point(10, 80);
+      this.txtTitle.Name = "txtTitle";
+      this.txtTitle.Size = new Size(180, 0x15);
+      this.txtTitle.TabIndex = 3;
+      this.txtTitle.Text = "";
+      this.txtAlbum.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
+      this.txtAlbum.Location = new Point(10, 0x75);
+      this.txtAlbum.Name = "txtAlbum";
+      this.txtAlbum.Size = new Size(180, 0x15);
+      this.txtAlbum.TabIndex = 4;
+      this.txtAlbum.Text = "";
+      this.btnQuickEdit.ImeMode = ImeMode.NoControl;
+      this.btnQuickEdit.Location = new Point(10, 0x9a);
+      this.btnQuickEdit.Name = "btnQuickEdit";
+      this.btnQuickEdit.Size = new Size(180, 0x18);
+      this.btnQuickEdit.TabIndex = 5;
+      this.btnQuickEdit.Text = "OK";
+      this.btnQuickEditMore.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+      this.btnQuickEditMore.ImeMode = ImeMode.NoControl;
+      this.btnQuickEditMore.Location = new Point(10, 180);
+      this.btnQuickEditMore.Name = "btnQuickEditMore";
+      this.btnQuickEditMore.Size = new Size(180, 0x18);
+      this.btnQuickEditMore.TabIndex = 6;
+      this.btnQuickEditMore.Text = "More ...";
+      this.APICView.Location = new Point(10, 0xfb);
+      this.APICView.Name = "APICView";
+      this.APICView.Size = new Size(160, 160);
+      this.APICView.SizeMode = PictureBoxSizeMode.StretchImage;
+      this.APICView.TabIndex = 0x1c;
+      this.APICView.TabStop = false;
+      this.txtInfo.AcceptsTab = true;
+      this.txtInfo.BorderStyle = BorderStyle.None;
+      this.txtInfo.Location = new Point(10, 0x11d);
+      this.txtInfo.Name = "txtInfo";
+      this.txtInfo.ReadOnly = true;
+      this.txtInfo.Size = new Size(180, 0x5c);
+      this.txtInfo.TabIndex = 0x1c;
+      this.txtInfo.TabStop = false;
+      this.txtInfo.Text = "";
+      this.BarGroupEdit.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(0xd6, 0xdf, 0xf7);
+      this.BarGroupEdit.BackgroundStyle.Border = eBorderType.SingleLine;
+      this.BarGroupEdit.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
+      this.BarGroupEdit.Expanded = true;
+      this.BarGroupEdit.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.BarGroupEdit.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
+      this.BarGroupEdit.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
+      this.BarGroupEdit.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x42, 0x8e, 0xff);
+      this.BarGroupEdit.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.BarGroupEdit.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
+      this.BarGroupEdit.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
+      this.BarGroupEdit.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.BarGroupEdit.ImageIndex = 0;
+      this.BarGroupEdit.Name = "BarGroupEdit";
+      this.BarGroupEdit.StockStyle = eExplorerBarStockStyle.Blue;
+      this.BarGroupEdit.SubItems.AddRange(new BaseItem[] { this.lblArtist, this.CContainerArtist, this.lblTitle, this.CContainerTitle, this.lblAlbum, this.CContainerAlbum, this.lblQuickSpacer1, this.CContainerbtnQuickEditOK, this.CContainerbtnQuickEditMore });
+      this.BarGroupEdit.Text = "Quick Edit";
+      this.BarGroupEdit.ThemeAware = true;
+      this.lblArtist.BackColor = System.Drawing.Color.Empty;
+      this.lblArtist.BorderType = eBorderType.None;
+      this.lblArtist.DividerStyle = false;
+      this.lblArtist.Font = new Font("Microsoft Sans Serif", 8.25f);
+      this.lblArtist.ForeColor = SystemColors.ControlText;
+      this.lblArtist.Name = "lblArtist";
+      this.lblArtist.PaddingBottom = 0;
+      this.lblArtist.PaddingLeft = 0;
+      this.lblArtist.PaddingRight = 0;
+      this.lblArtist.PaddingTop = 0;
+      this.lblArtist.SingleLineColor = SystemColors.ControlDark;
+      this.lblArtist.Text = "Artist";
+      this.lblArtist.TextAlignment = StringAlignment.Near;
+      this.lblArtist.TextLineAlignment = StringAlignment.Center;
+      this.lblArtist.ThemeAware = true;
+      this.CContainerArtist.AllowItemResize = true;
+      this.CContainerArtist.Control = this.cmbArtist;
+      this.CContainerArtist.MenuVisibility = eMenuVisibility.VisibleAlways;
+      this.CContainerArtist.Name = "CContainerArtist";
+      this.CContainerArtist.ThemeAware = true;
+      this.lblTitle.BackColor = System.Drawing.Color.Empty;
+      this.lblTitle.BorderType = eBorderType.None;
+      this.lblTitle.DividerStyle = false;
+      this.lblTitle.Font = new Font("Microsoft Sans Serif", 8.25f);
+      this.lblTitle.ForeColor = SystemColors.ControlText;
+      this.lblTitle.Name = "lblTitle";
+      this.lblTitle.PaddingBottom = 0;
+      this.lblTitle.PaddingLeft = 0;
+      this.lblTitle.PaddingRight = 0;
+      this.lblTitle.PaddingTop = 0;
+      this.lblTitle.SingleLineColor = SystemColors.ControlDark;
+      this.lblTitle.Text = "Title";
+      this.lblTitle.TextAlignment = StringAlignment.Near;
+      this.lblTitle.TextLineAlignment = StringAlignment.Center;
+      this.lblTitle.ThemeAware = true;
+      this.CContainerTitle.AllowItemResize = true;
+      this.CContainerTitle.Control = this.txtTitle;
+      this.CContainerTitle.MenuVisibility = eMenuVisibility.VisibleAlways;
+      this.CContainerTitle.Name = "CContainerTitle";
+      this.CContainerTitle.ThemeAware = true;
+      this.lblAlbum.BackColor = System.Drawing.Color.Empty;
+      this.lblAlbum.BorderType = eBorderType.None;
+      this.lblAlbum.DividerStyle = false;
+      this.lblAlbum.Font = new Font("Microsoft Sans Serif", 8.25f);
+      this.lblAlbum.ForeColor = SystemColors.ControlText;
+      this.lblAlbum.Name = "lblAlbum";
+      this.lblAlbum.PaddingBottom = 0;
+      this.lblAlbum.PaddingLeft = 0;
+      this.lblAlbum.PaddingRight = 0;
+      this.lblAlbum.PaddingTop = 0;
+      this.lblAlbum.SingleLineColor = SystemColors.ControlDark;
+      this.lblAlbum.Text = "Album";
+      this.lblAlbum.TextAlignment = StringAlignment.Near;
+      this.lblAlbum.TextLineAlignment = StringAlignment.Center;
+      this.lblAlbum.ThemeAware = true;
+      this.CContainerAlbum.AllowItemResize = true;
+      this.CContainerAlbum.Control = this.txtAlbum;
+      this.CContainerAlbum.MenuVisibility = eMenuVisibility.VisibleAlways;
+      this.CContainerAlbum.Name = "CContainerAlbum";
+      this.CContainerAlbum.ThemeAware = true;
+      this.lblQuickSpacer1.BackColor = System.Drawing.Color.Empty;
+      this.lblQuickSpacer1.BorderType = eBorderType.None;
+      this.lblQuickSpacer1.DividerStyle = true;
+      this.lblQuickSpacer1.Font = new Font("Microsoft Sans Serif", 8.25f);
+      this.lblQuickSpacer1.ForeColor = SystemColors.ControlText;
+      this.lblQuickSpacer1.Name = "lblQuickSpacer1";
+      this.lblQuickSpacer1.PaddingBottom = 0;
+      this.lblQuickSpacer1.PaddingLeft = 0;
+      this.lblQuickSpacer1.PaddingRight = 0;
+      this.lblQuickSpacer1.PaddingTop = 0;
+      this.lblQuickSpacer1.SingleLineColor = SystemColors.ControlDark;
+      this.lblQuickSpacer1.TextAlignment = StringAlignment.Near;
+      this.lblQuickSpacer1.TextLineAlignment = StringAlignment.Center;
+      this.lblQuickSpacer1.ThemeAware = true;
+      this.CContainerbtnQuickEditOK.AllowItemResize = true;
+      this.CContainerbtnQuickEditOK.Control = this.btnQuickEdit;
+      this.CContainerbtnQuickEditOK.MenuVisibility = eMenuVisibility.VisibleAlways;
+      this.CContainerbtnQuickEditOK.Name = "CContainerbtnQuickEditOK";
+      this.CContainerbtnQuickEditOK.ThemeAware = true;
+      this.CContainerbtnQuickEditMore.AllowItemResize = true;
+      this.CContainerbtnQuickEditMore.Control = this.btnQuickEditMore;
+      this.CContainerbtnQuickEditMore.MenuVisibility = eMenuVisibility.VisibleAlways;
+      this.CContainerbtnQuickEditMore.Name = "CContainerbtnQuickEditMore";
+      this.CContainerbtnQuickEditMore.ThemeAware = true;
+      this.BarGroupPicture.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(0xd6, 0xdf, 0xf7);
+      this.BarGroupPicture.BackgroundStyle.Border = eBorderType.SingleLine;
+      this.BarGroupPicture.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
+      this.BarGroupPicture.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.BarGroupPicture.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
+      this.BarGroupPicture.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
+      this.BarGroupPicture.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x42, 0x8e, 0xff);
+      this.BarGroupPicture.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.BarGroupPicture.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
+      this.BarGroupPicture.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
+      this.BarGroupPicture.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.BarGroupPicture.ImageIndex = 2;
+      this.BarGroupPicture.Name = "BarGroupPicture";
+      this.BarGroupPicture.StockStyle = eExplorerBarStockStyle.Blue;
+      this.BarGroupPicture.SubItems.AddRange(new BaseItem[] { this.CContainerAPICView });
+      this.BarGroupPicture.Text = "Picture";
+      this.BarGroupPicture.ThemeAware = true;
+      this.CContainerAPICView.AllowItemResize = false;
+      this.CContainerAPICView.Control = this.APICView;
+      this.CContainerAPICView.MenuVisibility = eMenuVisibility.VisibleAlways;
+      this.CContainerAPICView.Name = "CContainerAPICView";
+      this.CContainerAPICView.ThemeAware = true;
+      this.BarGroupInfo.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(0xd6, 0xdf, 0xf7);
+      this.BarGroupInfo.BackgroundStyle.Border = eBorderType.SingleLine;
+      this.BarGroupInfo.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
+      this.BarGroupInfo.Expanded = true;
+      this.BarGroupInfo.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.BarGroupInfo.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
+      this.BarGroupInfo.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
+      this.BarGroupInfo.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x42, 0x8e, 0xff);
+      this.BarGroupInfo.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.BarGroupInfo.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
+      this.BarGroupInfo.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
+      this.BarGroupInfo.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.BarGroupInfo.ImageIndex = 3;
+      this.BarGroupInfo.Name = "BarGroupInfo";
+      this.BarGroupInfo.StockStyle = eExplorerBarStockStyle.Blue;
+      this.BarGroupInfo.SubItems.AddRange(new BaseItem[] { this.CContainertxtInfo });
+      this.BarGroupInfo.Text = "Information";
+      this.BarGroupInfo.ThemeAware = true;
+      this.CContainertxtInfo.AllowItemResize = true;
+      this.CContainertxtInfo.Control = this.txtInfo;
+      this.CContainertxtInfo.MenuVisibility = eMenuVisibility.VisibleAlways;
+      this.CContainertxtInfo.Name = "CContainertxtInfo";
+      this.CContainertxtInfo.ThemeAware = true;
+      this.BarGroupTools.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(0xd6, 0xdf, 0xf7);
+      this.BarGroupTools.BackgroundStyle.Border = eBorderType.SingleLine;
+      this.BarGroupTools.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
+      this.BarGroupTools.Expanded = true;
+      this.BarGroupTools.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.BarGroupTools.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
+      this.BarGroupTools.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
+      this.BarGroupTools.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x42, 0x8e, 0xff);
+      this.BarGroupTools.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.BarGroupTools.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
+      this.BarGroupTools.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
+      this.BarGroupTools.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.BarGroupTools.ImageIndex = 1;
+      this.BarGroupTools.Name = "BarGroupTools";
+      this.BarGroupTools.StockStyle = eExplorerBarStockStyle.Blue;
+      this.BarGroupTools.Text = "Tools";
+      this.BarGroupTools.ThemeAware = true;
+      this.MP3View.AllowColumnReorder = true;
+      this.MP3View.Dock = DockStyle.Fill;
+      this.MP3View.FullRowSelect = true;
+      this.MP3View.HideSelection = false;
+      this.MP3View.Location = new Point(0xe0, 0x4a);
+      this.MP3View.Name = "MP3View";
+      this.MP3View.Size = new Size(0x210, 0x164);
+      this.MP3View.TabIndex = 0;
+      this.MP3View.View = View.Details;
+      this.EnumInfo.BackColor = SystemColors.Info;
+      this.EnumInfo.BorderStyle = BorderStyle.FixedSingle;
+      this.EnumInfo.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
+      this.EnumInfo.ForeColor = SystemColors.InfoText;
+      this.EnumInfo.ImeMode = ImeMode.NoControl;
+      this.EnumInfo.Location = new Point(600, 0x20);
+      this.EnumInfo.Name = "EnumInfo";
+      this.EnumInfo.Size = new Size(0x90, 0x10);
+      this.EnumInfo.TabIndex = 0x16;
+      this.EnumInfo.Text = "Enumeration mode";
+      this.EnumInfo.TextAlign = ContentAlignment.MiddleCenter;
+      this.EnumInfo.Visible = false;
+
+      this.btnQuickEdit.Click += new EventHandler(this.btnQuickEdit_Click);
+      this.btnQuickEditMore.Click += new EventHandler(this.btnQuickEditMore_Click);
+      this.cmbArtist.KeyUp += new KeyEventHandler(this.txtQuickEdit_KeyUp);
+      this.cmbArtist.Enter += new EventHandler(this.txtArtistTitleAlbum_Enter);
+      this.DotNetBarManager.ItemClick += new EventHandler(this.DotNetBarManager_ItemClick);
+      this.ErrorMsg.MouseUp += new MouseEventHandler(this.ErrorMsg_MouseUp);
+      this.FavTree.MouseUp += new MouseEventHandler(this.FavTree_MouseUp);
+      this.FavTree.AfterSelect += new TreeViewEventHandler(this.FavTree_AfterSelect);
+      this.FavTree.BeforeSelect += new TreeViewCancelEventHandler(this.FavTree_BeforeSelect);
+      this.MP3View.ItemDrag += new ItemDragEventHandler(this.MP3View_ItemDrag);
+      this.MP3View.AfterLabelEdit += new LabelEditEventHandler(this.MP3View_AfterLabelEdit);
+      this.MP3View.DoubleClick += new EventHandler(this.MP3View_DoubleClick);
+      this.MP3View.Click += new EventHandler(this.MP3View_Click);
+      this.MP3View.KeyDown += new KeyEventHandler(this.MP3View_KeyDown);
+      this.MP3View.MouseUp += new MouseEventHandler(this.MP3View_MouseUp);
+      this.MP3View.MouseLeave += new EventHandler(this.MP3View_MouseLeave);
+      this.MP3View.MouseEnter += new EventHandler(this.MP3View_MouseEnter);
+      this.MP3View.MouseMove += new MouseEventHandler(this.MP3View_MouseMove);
+      this.MP3View.SelectedIndexChanged += new EventHandler(this.MP3View_SelectedIndexChanged);
+      this.MP3View.ColumnClick += new ColumnClickEventHandler(this.MP3View_ColumnClick);
+      this.txtTitle.KeyUp += new KeyEventHandler(this.txtQuickEdit_KeyUp);
+      this.txtTitle.Enter += new EventHandler(this.txtArtistTitleAlbum_Enter);
+      this.txtAlbum.KeyUp += new KeyEventHandler(this.txtQuickEdit_KeyUp);
+      this.txtAlbum.EnabledChanged += new EventHandler(this.txtArtistTitleAlbum_Enter);
+      this.SideBar.ItemClick += new EventHandler(this.SideBar_ItemClick);
+      this.SideBar.ContainerLoadControl += new EventHandler(this.SideBar_ContainerLoadControl);
+
+      this.AutoScaleBaseSize = new Size(5, 13);
+      this.ClientSize = new Size(960, 0x246);
+      this.Controls.Add(this.EnumInfo);
+      this.Controls.Add(this.MP3View);
+      this.Controls.Add(this.SplitterBottom);
+      this.Controls.Add(this.ErrorMsg);
+      this.Controls.Add(this.SplitterRight);
+      this.Controls.Add(this.SideBar);
+      this.Controls.Add(this.SplitterLeft);
+      this.Controls.Add(this.NavigationPan);
+      this.Controls.Add(this.barLeftDockSite);
+      this.Controls.Add(this.barRightDockSite);
+      this.Controls.Add(this.barTopDockSite);
+      this.Controls.Add(this.barBottomDockSite);
+      this.Icon = (Icon)(new ResourceManager(typeof(frmMain))).GetObject("$this.Icon");
+      this.Name = "frmMain";
+      this.Text = "ID3-TagIT";
+      this.NavigationPan.ResumeLayout(false);
+      this.FoldersPanel.ResumeLayout(false);
+      this.FavouritesPanel.ResumeLayout(false);
+      ((ISupportInitialize)this.SideBar).EndInit();
+      this.SideBar.ResumeLayout(false);
+      this.ResumeLayout(false);
+    }
 
     public frmMain()
     {
@@ -2895,662 +3478,6 @@
           mp = null;
         }
       }
-    }
-
-    [DebuggerStepThrough]
-    private void InitializeComponent()
-    {
-      this.components = new Container();
-      ResourceManager manager = new ResourceManager(typeof(frmMain));
-      this.ColumnHeaderIcons = new ImageList(this.components);
-      this.ToolsIcons = new ImageList(this.components);
-      this.GroupIcons = new ImageList(this.components);
-      this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-      this.Timer = new System.Windows.Forms.Timer(this.components);
-      this.FolderRenameTimer = new System.Windows.Forms.Timer(this.components);
-      this.DotNetBarManager = new DevComponents.DotNetBar.DotNetBarManager(this.components);
-      this.barBottomDockSite = new DockSite();
-      this.barLeftDockSite = new DockSite();
-      this.barRightDockSite = new DockSite();
-      this.barTopDockSite = new DockSite();
-      this.SplitterLeft = new ExpandableSplitter();
-      this.NavigationPan = new NavigationPane();
-      this.FoldersPanel = new NavigationPanePanel();
-      this.FolderTree = new FolderView();
-      this.FoldersPan = new ButtonItem();
-      this.FavouritesPanel = new NavigationPanePanel();
-      this.FavTree = new TreeView();
-      this.FavouritesPan = new ButtonItem();
-      this.SplitterBottom = new ExpandableSplitter();
-      this.ErrorMsg = new ListView();
-      this.SplitterRight = new ExpandableSplitter();
-      this.SideBar = new ExplorerBar();
-      this.cmbArtist = new ComboBoxAutoComplete();
-      this.txtTitle = new TextBox();
-      this.txtAlbum = new TextBox();
-      this.btnQuickEdit = new Button();
-      this.btnQuickEditMore = new Button();
-      this.APICView = new PictureBox();
-      this.txtInfo = new RichTextBox();
-      this.BarGroupEdit = new ExplorerBarGroupItem();
-      this.lblArtist = new LabelItem();
-      this.CContainerArtist = new ControlContainerItem();
-      this.lblTitle = new LabelItem();
-      this.CContainerTitle = new ControlContainerItem();
-      this.lblAlbum = new LabelItem();
-      this.CContainerAlbum = new ControlContainerItem();
-      this.lblQuickSpacer1 = new LabelItem();
-      this.CContainerbtnQuickEditOK = new ControlContainerItem();
-      this.CContainerbtnQuickEditMore = new ControlContainerItem();
-      this.BarGroupPicture = new ExplorerBarGroupItem();
-      this.CContainerAPICView = new ControlContainerItem();
-      this.BarGroupInfo = new ExplorerBarGroupItem();
-      this.CContainertxtInfo = new ControlContainerItem();
-      this.BarGroupTools = new ExplorerBarGroupItem();
-      this.MP3View = new ListView();
-      this.EnumInfo = new Label();
-      this.NavigationPan.SuspendLayout();
-      this.FoldersPanel.SuspendLayout();
-      this.FavouritesPanel.SuspendLayout();
-      ((ISupportInitialize)this.SideBar).BeginInit();
-      this.SideBar.SuspendLayout();
-      this.SuspendLayout();
-      Size size = new Size(0x10, 0x10);
-      this.ColumnHeaderIcons.ImageSize = size;
-      this.ColumnHeaderIcons.ImageStream = (ImageListStreamer)manager.GetObject("ColumnHeaderIcons.ImageStream");
-      this.ColumnHeaderIcons.TransparentColor = System.Drawing.Color.Transparent;
-      this.ToolsIcons.ColorDepth = ColorDepth.Depth32Bit;
-      size = new Size(0x10, 0x10);
-      this.ToolsIcons.ImageSize = size;
-      this.ToolsIcons.TransparentColor = System.Drawing.Color.Transparent;
-      this.GroupIcons.ColorDepth = ColorDepth.Depth32Bit;
-      size = new Size(0x10, 0x10);
-      this.GroupIcons.ImageSize = size;
-      this.GroupIcons.ImageStream = (ImageListStreamer)manager.GetObject("GroupIcons.ImageStream");
-      this.GroupIcons.TransparentColor = System.Drawing.Color.Transparent;
-      this.Timer.Enabled = true;
-      this.Timer.Interval = 200;
-      this.DotNetBarManager.AllowUserBarCustomize = false;
-      this.DotNetBarManager.BottomDockSite = this.barBottomDockSite;
-      this.DotNetBarManager.DefinitionName = "ID3-TagIT.MenuBars.xml";
-      this.DotNetBarManager.LeftDockSite = this.barLeftDockSite;
-      this.DotNetBarManager.ParentForm = this;
-      this.DotNetBarManager.RightDockSite = this.barRightDockSite;
-      this.DotNetBarManager.ShowShortcutKeysInToolTips = true;
-      this.DotNetBarManager.Style = eDotNetBarStyle.Office2003;
-      this.DotNetBarManager.TopDockSite = this.barTopDockSite;
-      this.barBottomDockSite.AccessibleRole = AccessibleRole.Window;
-      this.barBottomDockSite.BackgroundImageAlpha = 0xff;
-      this.barBottomDockSite.Dock = DockStyle.Bottom;
-      Point point = new Point(0, 0x22e);
-      this.barBottomDockSite.Location = point;
-      this.barBottomDockSite.Name = "barBottomDockSite";
-      size = new Size(960, 0x18);
-      this.barBottomDockSite.Size = size;
-      this.barBottomDockSite.TabIndex = 20;
-      this.barBottomDockSite.TabStop = false;
-      this.barLeftDockSite.AccessibleRole = AccessibleRole.Window;
-      this.barLeftDockSite.BackgroundImageAlpha = 0xff;
-      this.barLeftDockSite.Dock = DockStyle.Left;
-      point = new Point(0, 0x4a);
-      this.barLeftDockSite.Location = point;
-      this.barLeftDockSite.Name = "barLeftDockSite";
-      size = new Size(0, 0x1e4);
-      this.barLeftDockSite.Size = size;
-      this.barLeftDockSite.TabIndex = 0x11;
-      this.barLeftDockSite.TabStop = false;
-      this.barRightDockSite.AccessibleRole = AccessibleRole.Window;
-      this.barRightDockSite.BackgroundImageAlpha = 0xff;
-      this.barRightDockSite.Dock = DockStyle.Right;
-      point = new Point(960, 0x4a);
-      this.barRightDockSite.Location = point;
-      this.barRightDockSite.Name = "barRightDockSite";
-      size = new Size(0, 0x1e4);
-      this.barRightDockSite.Size = size;
-      this.barRightDockSite.TabIndex = 0x12;
-      this.barRightDockSite.TabStop = false;
-      this.barTopDockSite.AccessibleRole = AccessibleRole.Window;
-      this.barTopDockSite.BackgroundImageAlpha = 0xff;
-      this.barTopDockSite.Dock = DockStyle.Top;
-      point = new Point(0, 0);
-      this.barTopDockSite.Location = point;
-      this.barTopDockSite.Name = "barTopDockSite";
-      size = new Size(960, 0x4a);
-      this.barTopDockSite.Size = size;
-      this.barTopDockSite.TabIndex = 0x13;
-      this.barTopDockSite.TabStop = false;
-      this.SplitterLeft.BackColor2 = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterLeft.BackColor2SchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterLeft.BackColorSchemePart = eColorSchemePart.PanelBackground;
-      this.SplitterLeft.ExpandableControl = this.NavigationPan;
-      this.SplitterLeft.ExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterLeft.ExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterLeft.ExpandLineColor = SystemColors.ControlText;
-      this.SplitterLeft.ExpandLineColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterLeft.GripDarkColor = SystemColors.ControlText;
-      this.SplitterLeft.GripDarkColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterLeft.GripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
-      this.SplitterLeft.GripLightColorSchemePart = eColorSchemePart.BarBackground;
-      this.SplitterLeft.HotBackColor = System.Drawing.Color.FromArgb(0xfe, 0x8e, 0x4b);
-      this.SplitterLeft.HotBackColor2 = System.Drawing.Color.FromArgb(0xff, 0xcf, 0x8b);
-      this.SplitterLeft.HotBackColor2SchemePart = eColorSchemePart.ItemPressedBackground2;
-      this.SplitterLeft.HotBackColorSchemePart = eColorSchemePart.ItemPressedBackground;
-      this.SplitterLeft.HotExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterLeft.HotExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterLeft.HotExpandLineColor = SystemColors.ControlText;
-      this.SplitterLeft.HotExpandLineColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterLeft.HotGripDarkColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterLeft.HotGripDarkColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterLeft.HotGripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
-      this.SplitterLeft.HotGripLightColorSchemePart = eColorSchemePart.BarBackground;
-      point = new Point(0xd8, 0x4a);
-      this.SplitterLeft.Location = point;
-      this.SplitterLeft.MinExtra = 5;
-      this.SplitterLeft.MinSize = 5;
-      this.SplitterLeft.Name = "SplitterLeft";
-      size = new Size(8, 0x1e4);
-      this.SplitterLeft.Size = size;
-      this.SplitterLeft.TabIndex = 0x18;
-      this.SplitterLeft.TabStop = false;
-      this.NavigationPan.ConfigureAddRemoveVisible = false;
-      this.NavigationPan.Controls.Add(this.FoldersPanel);
-      this.NavigationPan.Controls.Add(this.FavouritesPanel);
-      this.NavigationPan.Controls.Add(this.NavigationPan.TitlePanel);
-      this.NavigationPan.Dock = DockStyle.Left;
-      this.NavigationPan.ItemPaddingBottom = 2;
-      this.NavigationPan.ItemPaddingTop = 2;
-      this.NavigationPan.Items.AddRange(new BaseItem[] { this.FoldersPan, this.FavouritesPan });
-      point = new Point(0, 0x4a);
-      this.NavigationPan.Location = point;
-      this.NavigationPan.Name = "NavigationPan";
-      this.NavigationPan.NavigationBarHeight = 0x58;
-      size = new Size(0xd8, 0x1e4);
-      this.NavigationPan.Size = size;
-      this.NavigationPan.TabIndex = 0x17;
-      this.NavigationPan.TitlePanel.AntiAlias = true;
-      this.NavigationPan.TitlePanel.Dock = DockStyle.Top;
-      this.NavigationPan.TitlePanel.Font = new Font("Tahoma", 12f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      point = new Point(0, 0);
-      this.NavigationPan.TitlePanel.Location = point;
-      this.NavigationPan.TitlePanel.Name = "panelEx1";
-      size = new Size(0xd8, 0x18);
-      this.NavigationPan.TitlePanel.Size = size;
-      this.NavigationPan.TitlePanel.Style.BackColor1.ColorSchemePart = eColorSchemePart.PanelBackground;
-      this.NavigationPan.TitlePanel.Style.BackColor2.ColorSchemePart = eColorSchemePart.PanelBackground2;
-      this.NavigationPan.TitlePanel.Style.Border = eBorderType.SingleLine;
-      this.NavigationPan.TitlePanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this.NavigationPan.TitlePanel.Style.ForeColor.ColorSchemePart = eColorSchemePart.PanelText;
-      this.NavigationPan.TitlePanel.Style.GradientAngle = 90;
-      this.NavigationPan.TitlePanel.Style.MarginLeft = 4;
-      this.NavigationPan.TitlePanel.TabIndex = 0;
-      this.NavigationPan.TitlePanel.Text = "Folders";
-      this.FoldersPanel.AntiAlias = true;
-      this.FoldersPanel.Controls.Add(this.FolderTree);
-      this.FoldersPanel.Dock = DockStyle.Fill;
-      this.FoldersPanel.DockPadding.Left = 1;
-      this.FoldersPanel.DockPadding.Right = 1;
-      this.FoldersPanel.DockPadding.Top = 1;
-      point = new Point(0, 0x18);
-      this.FoldersPanel.Location = point;
-      this.FoldersPanel.Name = "FoldersPanel";
-      this.FoldersPanel.ParentItem = this.FoldersPan;
-      size = new Size(0xd8, 0x174);
-      this.FoldersPanel.Size = size;
-      this.FoldersPanel.Style.Alignment = StringAlignment.Center;
-      this.FoldersPanel.Style.BackColor1.ColorSchemePart = eColorSchemePart.BarBackground;
-      this.FoldersPanel.Style.BackColor2.ColorSchemePart = eColorSchemePart.BarBackground2;
-      this.FoldersPanel.Style.BackgroundImagePosition = eBackgroundImagePosition.Tile;
-      this.FoldersPanel.Style.Border = eBorderType.SingleLine;
-      this.FoldersPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this.FoldersPanel.Style.ForeColor.ColorSchemePart = eColorSchemePart.ItemText;
-      this.FoldersPanel.Style.GradientAngle = 90;
-      this.FoldersPanel.StyleMouseDown.Alignment = StringAlignment.Center;
-      this.FoldersPanel.StyleMouseOver.Alignment = StringAlignment.Center;
-      this.FoldersPanel.TabIndex = 2;
-      this.FolderTree.AllowDragDrop = false;
-      this.FolderTree.BorderStyle = BorderStyles.None;
-      this.FolderTree.Dock = DockStyle.Fill;
-      this.FolderTree.HasLines = false;
-      point = new Point(1, 1);
-      this.FolderTree.Location = point;
-      this.FolderTree.Name = "FolderTree";
-      this.FolderTree.ShowContextMenus = false;
-      this.FolderTree.ShowHiddenObjects = false;
-      this.FolderTree.ShowSpecialFolders = false;
-      size = new Size(0xd6, 0x173);
-      this.FolderTree.Size = size;
-      this.FolderTree.TabIndex = 1;
-      this.FolderTree.Text = "FolderTree";
-      this.FoldersPan.ButtonStyle = eButtonStyle.ImageAndText;
-      this.FoldersPan.Checked = true;
-      this.FoldersPan.Icon = (Icon)manager.GetObject("FoldersPan.Icon");
-      this.FoldersPan.ImageIndex = 0;
-      this.FoldersPan.Name = "FoldersPan";
-      this.FoldersPan.OptionGroup = "navBar";
-      this.FoldersPan.Style = eDotNetBarStyle.Office2003;
-      this.FoldersPan.Text = "Folders";
-      this.FavouritesPanel.AntiAlias = true;
-      this.FavouritesPanel.Controls.Add(this.FavTree);
-      this.FavouritesPanel.Dock = DockStyle.Fill;
-      this.FavouritesPanel.DockPadding.Left = 1;
-      this.FavouritesPanel.DockPadding.Right = 1;
-      this.FavouritesPanel.DockPadding.Top = 1;
-      point = new Point(0, 0x18);
-      this.FavouritesPanel.Location = point;
-      this.FavouritesPanel.Name = "FavouritesPanel";
-      this.FavouritesPanel.ParentItem = this.FavouritesPan;
-      size = new Size(0xd8, 0x174);
-      this.FavouritesPanel.Size = size;
-      this.FavouritesPanel.Style.Alignment = StringAlignment.Center;
-      this.FavouritesPanel.Style.BackColor1.ColorSchemePart = eColorSchemePart.BarBackground;
-      this.FavouritesPanel.Style.BackColor2.ColorSchemePart = eColorSchemePart.BarBackground2;
-      this.FavouritesPanel.Style.BackgroundImagePosition = eBackgroundImagePosition.Tile;
-      this.FavouritesPanel.Style.Border = eBorderType.SingleLine;
-      this.FavouritesPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this.FavouritesPanel.Style.ForeColor.ColorSchemePart = eColorSchemePart.ItemText;
-      this.FavouritesPanel.Style.GradientAngle = 90;
-      this.FavouritesPanel.StyleMouseDown.Alignment = StringAlignment.Center;
-      this.FavouritesPanel.StyleMouseOver.Alignment = StringAlignment.Center;
-      this.FavouritesPanel.TabIndex = 3;
-      this.FavTree.Dock = DockStyle.Fill;
-      this.FavTree.HideSelection = false;
-      this.FavTree.ImageIndex = -1;
-      this.FavTree.Indent = 0x13;
-      this.FavTree.ItemHeight = 0x10;
-      point = new Point(1, 1);
-      this.FavTree.Location = point;
-      this.FavTree.Name = "FavTree";
-      this.FavTree.SelectedImageIndex = -1;
-      size = new Size(0xd6, 0x173);
-      this.FavTree.Size = size;
-      this.FavTree.TabIndex = 8;
-      this.FavouritesPan.ButtonStyle = eButtonStyle.ImageAndText;
-      this.FavouritesPan.Icon = (Icon)manager.GetObject("FavouritesPan.Icon");
-      this.FavouritesPan.Name = "FavouritesPan";
-      this.FavouritesPan.OptionGroup = "navBar";
-      this.FavouritesPan.Style = eDotNetBarStyle.Office2003;
-      this.FavouritesPan.Text = "Favourites";
-      this.SplitterBottom.BackColor2 = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterBottom.BackColor2SchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterBottom.BackColorSchemePart = eColorSchemePart.PanelBackground;
-      this.SplitterBottom.Dock = DockStyle.Bottom;
-      this.SplitterBottom.ExpandableControl = this.ErrorMsg;
-      this.SplitterBottom.ExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterBottom.ExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterBottom.ExpandLineColor = SystemColors.ControlText;
-      this.SplitterBottom.ExpandLineColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterBottom.GripDarkColor = SystemColors.ControlText;
-      this.SplitterBottom.GripDarkColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterBottom.GripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
-      this.SplitterBottom.GripLightColorSchemePart = eColorSchemePart.BarBackground;
-      this.SplitterBottom.HotBackColor = System.Drawing.Color.FromArgb(0xfe, 0x8e, 0x4b);
-      this.SplitterBottom.HotBackColor2 = System.Drawing.Color.FromArgb(0xff, 0xcf, 0x8b);
-      this.SplitterBottom.HotBackColor2SchemePart = eColorSchemePart.ItemPressedBackground2;
-      this.SplitterBottom.HotBackColorSchemePart = eColorSchemePart.ItemPressedBackground;
-      this.SplitterBottom.HotExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterBottom.HotExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterBottom.HotExpandLineColor = SystemColors.ControlText;
-      this.SplitterBottom.HotExpandLineColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterBottom.HotGripDarkColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterBottom.HotGripDarkColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterBottom.HotGripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
-      this.SplitterBottom.HotGripLightColorSchemePart = eColorSchemePart.BarBackground;
-      point = new Point(0xe0, 430);
-      this.SplitterBottom.Location = point;
-      this.SplitterBottom.MinExtra = 5;
-      this.SplitterBottom.MinSize = 5;
-      this.SplitterBottom.Name = "SplitterBottom";
-      size = new Size(0x210, 8);
-      this.SplitterBottom.Size = size;
-      this.SplitterBottom.TabIndex = 0x19;
-      this.SplitterBottom.TabStop = false;
-      this.ErrorMsg.BackColor = SystemColors.Window;
-      this.ErrorMsg.Dock = DockStyle.Bottom;
-      this.ErrorMsg.FullRowSelect = true;
-      this.ErrorMsg.GridLines = true;
-      this.ErrorMsg.HideSelection = false;
-      point = new Point(0xe0, 0x1b6);
-      this.ErrorMsg.Location = point;
-      this.ErrorMsg.Name = "ErrorMsg";
-      size = new Size(0x210, 120);
-      this.ErrorMsg.Size = size;
-      this.ErrorMsg.TabIndex = 7;
-      this.ErrorMsg.View = View.Details;
-      this.SplitterRight.AnimationTime = 0;
-      this.SplitterRight.BackColor2 = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterRight.BackColor2SchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterRight.BackColorSchemePart = eColorSchemePart.PanelBackground;
-      this.SplitterRight.Dock = DockStyle.Right;
-      this.SplitterRight.ExpandableControl = this.SideBar;
-      this.SplitterRight.ExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterRight.ExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterRight.ExpandLineColor = SystemColors.ControlText;
-      this.SplitterRight.ExpandLineColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterRight.GripDarkColor = SystemColors.ControlText;
-      this.SplitterRight.GripDarkColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterRight.GripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
-      this.SplitterRight.GripLightColorSchemePart = eColorSchemePart.BarBackground;
-      this.SplitterRight.HotBackColor = System.Drawing.Color.FromArgb(0xfe, 0x8e, 0x4b);
-      this.SplitterRight.HotBackColor2 = System.Drawing.Color.FromArgb(0xff, 0xcf, 0x8b);
-      this.SplitterRight.HotBackColor2SchemePart = eColorSchemePart.ItemPressedBackground2;
-      this.SplitterRight.HotBackColorSchemePart = eColorSchemePart.ItemPressedBackground;
-      this.SplitterRight.HotExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterRight.HotExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterRight.HotExpandLineColor = SystemColors.ControlText;
-      this.SplitterRight.HotExpandLineColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterRight.HotGripDarkColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterRight.HotGripDarkColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterRight.HotGripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
-      this.SplitterRight.HotGripLightColorSchemePart = eColorSchemePart.BarBackground;
-      point = new Point(0x2f0, 0x4a);
-      this.SplitterRight.Location = point;
-      this.SplitterRight.MinExtra = 5;
-      this.SplitterRight.MinSize = 5;
-      this.SplitterRight.Name = "SplitterRight";
-      size = new Size(8, 0x1e4);
-      this.SplitterRight.Size = size;
-      this.SplitterRight.TabIndex = 0x1b;
-      this.SplitterRight.TabStop = false;
-      this.SideBar.AccessibleRole = AccessibleRole.ToolBar;
-      this.SideBar.AntiAlias = true;
-      this.SideBar.BackColor = SystemColors.Control;
-      this.SideBar.BackgroundStyle.BackColor1.ColorSchemePart = eColorSchemePart.ExplorerBarBackground;
-      this.SideBar.BackgroundStyle.BackColor2.ColorSchemePart = eColorSchemePart.ExplorerBarBackground2;
-      this.SideBar.BackgroundStyle.GradientAngle = 90;
-      this.SideBar.Controls.Add(this.cmbArtist);
-      this.SideBar.Controls.Add(this.txtTitle);
-      this.SideBar.Controls.Add(this.txtAlbum);
-      this.SideBar.Controls.Add(this.btnQuickEdit);
-      this.SideBar.Controls.Add(this.btnQuickEditMore);
-      this.SideBar.Controls.Add(this.APICView);
-      this.SideBar.Controls.Add(this.txtInfo);
-      this.SideBar.Dock = DockStyle.Right;
-      this.SideBar.Font = new Font("Tahoma", 11f, FontStyle.Regular, GraphicsUnit.World);
-      this.SideBar.GroupImages = this.GroupIcons;
-      this.SideBar.Groups.AddRange(new BaseItem[] { this.BarGroupEdit, this.BarGroupPicture, this.BarGroupInfo, this.BarGroupTools });
-      this.SideBar.Images = this.ToolsIcons;
-      point = new Point(760, 0x4a);
-      this.SideBar.Location = point;
-      this.SideBar.Name = "SideBar";
-      size = new Size(200, 0x1e4);
-      this.SideBar.Size = size;
-      this.SideBar.TabIndex = 2;
-      this.SideBar.Text = "SideBar";
-      this.SideBar.ThemeAware = true;
-      this.cmbArtist.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-      this.cmbArtist.Autocomplete = true;
-      point = new Point(10, 0x2b);
-      this.cmbArtist.Location = point;
-      this.cmbArtist.Name = "cmbArtist";
-      size = new Size(180, 0x15);
-      this.cmbArtist.Size = size;
-      this.cmbArtist.TabIndex = 2;
-      this.txtTitle.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-      point = new Point(10, 80);
-      this.txtTitle.Location = point;
-      this.txtTitle.Name = "txtTitle";
-      size = new Size(180, 0x15);
-      this.txtTitle.Size = size;
-      this.txtTitle.TabIndex = 3;
-      this.txtTitle.Text = "";
-      this.txtAlbum.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-      point = new Point(10, 0x75);
-      this.txtAlbum.Location = point;
-      this.txtAlbum.Name = "txtAlbum";
-      size = new Size(180, 0x15);
-      this.txtAlbum.Size = size;
-      this.txtAlbum.TabIndex = 4;
-      this.txtAlbum.Text = "";
-      this.btnQuickEdit.ImeMode = ImeMode.NoControl;
-      point = new Point(10, 0x9a);
-      this.btnQuickEdit.Location = point;
-      this.btnQuickEdit.Name = "btnQuickEdit";
-      size = new Size(180, 0x18);
-      this.btnQuickEdit.Size = size;
-      this.btnQuickEdit.TabIndex = 5;
-      this.btnQuickEdit.Text = "OK";
-      this.btnQuickEditMore.Anchor = AnchorStyles.Right | AnchorStyles.Top;
-      this.btnQuickEditMore.ImeMode = ImeMode.NoControl;
-      point = new Point(10, 180);
-      this.btnQuickEditMore.Location = point;
-      this.btnQuickEditMore.Name = "btnQuickEditMore";
-      size = new Size(180, 0x18);
-      this.btnQuickEditMore.Size = size;
-      this.btnQuickEditMore.TabIndex = 6;
-      this.btnQuickEditMore.Text = "More ...";
-      point = new Point(10, 0xfb);
-      this.APICView.Location = point;
-      this.APICView.Name = "APICView";
-      size = new Size(160, 160);
-      this.APICView.Size = size;
-      this.APICView.SizeMode = PictureBoxSizeMode.StretchImage;
-      this.APICView.TabIndex = 0x1c;
-      this.APICView.TabStop = false;
-      this.txtInfo.AcceptsTab = true;
-      this.txtInfo.BorderStyle = BorderStyle.None;
-      point = new Point(10, 0x11d);
-      this.txtInfo.Location = point;
-      this.txtInfo.Name = "txtInfo";
-      this.txtInfo.ReadOnly = true;
-      size = new Size(180, 0x5c);
-      this.txtInfo.Size = size;
-      this.txtInfo.TabIndex = 0x1c;
-      this.txtInfo.TabStop = false;
-      this.txtInfo.Text = "";
-      this.BarGroupEdit.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.BarGroupEdit.BackgroundStyle.Border = eBorderType.SingleLine;
-      this.BarGroupEdit.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
-      this.BarGroupEdit.Expanded = true;
-      this.BarGroupEdit.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupEdit.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupEdit.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupEdit.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x42, 0x8e, 0xff);
-      this.BarGroupEdit.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupEdit.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupEdit.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupEdit.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.BarGroupEdit.ImageIndex = 0;
-      this.BarGroupEdit.Name = "BarGroupEdit";
-      this.BarGroupEdit.StockStyle = eExplorerBarStockStyle.Blue;
-      this.BarGroupEdit.SubItems.AddRange(new BaseItem[] { this.lblArtist, this.CContainerArtist, this.lblTitle, this.CContainerTitle, this.lblAlbum, this.CContainerAlbum, this.lblQuickSpacer1, this.CContainerbtnQuickEditOK, this.CContainerbtnQuickEditMore });
-      this.BarGroupEdit.Text = "Quick Edit";
-      this.BarGroupEdit.ThemeAware = true;
-      this.lblArtist.BackColor = System.Drawing.Color.Empty;
-      this.lblArtist.BorderType = eBorderType.None;
-      this.lblArtist.DividerStyle = false;
-      this.lblArtist.Font = new Font("Microsoft Sans Serif", 8.25f);
-      this.lblArtist.ForeColor = SystemColors.ControlText;
-      this.lblArtist.Name = "lblArtist";
-      this.lblArtist.PaddingBottom = 0;
-      this.lblArtist.PaddingLeft = 0;
-      this.lblArtist.PaddingRight = 0;
-      this.lblArtist.PaddingTop = 0;
-      this.lblArtist.SingleLineColor = SystemColors.ControlDark;
-      this.lblArtist.Text = "Artist";
-      this.lblArtist.TextAlignment = StringAlignment.Near;
-      this.lblArtist.TextLineAlignment = StringAlignment.Center;
-      this.lblArtist.ThemeAware = true;
-      this.CContainerArtist.AllowItemResize = true;
-      this.CContainerArtist.Control = this.cmbArtist;
-      this.CContainerArtist.MenuVisibility = eMenuVisibility.VisibleAlways;
-      this.CContainerArtist.Name = "CContainerArtist";
-      this.CContainerArtist.ThemeAware = true;
-      this.lblTitle.BackColor = System.Drawing.Color.Empty;
-      this.lblTitle.BorderType = eBorderType.None;
-      this.lblTitle.DividerStyle = false;
-      this.lblTitle.Font = new Font("Microsoft Sans Serif", 8.25f);
-      this.lblTitle.ForeColor = SystemColors.ControlText;
-      this.lblTitle.Name = "lblTitle";
-      this.lblTitle.PaddingBottom = 0;
-      this.lblTitle.PaddingLeft = 0;
-      this.lblTitle.PaddingRight = 0;
-      this.lblTitle.PaddingTop = 0;
-      this.lblTitle.SingleLineColor = SystemColors.ControlDark;
-      this.lblTitle.Text = "Title";
-      this.lblTitle.TextAlignment = StringAlignment.Near;
-      this.lblTitle.TextLineAlignment = StringAlignment.Center;
-      this.lblTitle.ThemeAware = true;
-      this.CContainerTitle.AllowItemResize = true;
-      this.CContainerTitle.Control = this.txtTitle;
-      this.CContainerTitle.MenuVisibility = eMenuVisibility.VisibleAlways;
-      this.CContainerTitle.Name = "CContainerTitle";
-      this.CContainerTitle.ThemeAware = true;
-      this.lblAlbum.BackColor = System.Drawing.Color.Empty;
-      this.lblAlbum.BorderType = eBorderType.None;
-      this.lblAlbum.DividerStyle = false;
-      this.lblAlbum.Font = new Font("Microsoft Sans Serif", 8.25f);
-      this.lblAlbum.ForeColor = SystemColors.ControlText;
-      this.lblAlbum.Name = "lblAlbum";
-      this.lblAlbum.PaddingBottom = 0;
-      this.lblAlbum.PaddingLeft = 0;
-      this.lblAlbum.PaddingRight = 0;
-      this.lblAlbum.PaddingTop = 0;
-      this.lblAlbum.SingleLineColor = SystemColors.ControlDark;
-      this.lblAlbum.Text = "Album";
-      this.lblAlbum.TextAlignment = StringAlignment.Near;
-      this.lblAlbum.TextLineAlignment = StringAlignment.Center;
-      this.lblAlbum.ThemeAware = true;
-      this.CContainerAlbum.AllowItemResize = true;
-      this.CContainerAlbum.Control = this.txtAlbum;
-      this.CContainerAlbum.MenuVisibility = eMenuVisibility.VisibleAlways;
-      this.CContainerAlbum.Name = "CContainerAlbum";
-      this.CContainerAlbum.ThemeAware = true;
-      this.lblQuickSpacer1.BackColor = System.Drawing.Color.Empty;
-      this.lblQuickSpacer1.BorderType = eBorderType.None;
-      this.lblQuickSpacer1.DividerStyle = true;
-      this.lblQuickSpacer1.Font = new Font("Microsoft Sans Serif", 8.25f);
-      this.lblQuickSpacer1.ForeColor = SystemColors.ControlText;
-      this.lblQuickSpacer1.Name = "lblQuickSpacer1";
-      this.lblQuickSpacer1.PaddingBottom = 0;
-      this.lblQuickSpacer1.PaddingLeft = 0;
-      this.lblQuickSpacer1.PaddingRight = 0;
-      this.lblQuickSpacer1.PaddingTop = 0;
-      this.lblQuickSpacer1.SingleLineColor = SystemColors.ControlDark;
-      this.lblQuickSpacer1.TextAlignment = StringAlignment.Near;
-      this.lblQuickSpacer1.TextLineAlignment = StringAlignment.Center;
-      this.lblQuickSpacer1.ThemeAware = true;
-      this.CContainerbtnQuickEditOK.AllowItemResize = true;
-      this.CContainerbtnQuickEditOK.Control = this.btnQuickEdit;
-      this.CContainerbtnQuickEditOK.MenuVisibility = eMenuVisibility.VisibleAlways;
-      this.CContainerbtnQuickEditOK.Name = "CContainerbtnQuickEditOK";
-      this.CContainerbtnQuickEditOK.ThemeAware = true;
-      this.CContainerbtnQuickEditMore.AllowItemResize = true;
-      this.CContainerbtnQuickEditMore.Control = this.btnQuickEditMore;
-      this.CContainerbtnQuickEditMore.MenuVisibility = eMenuVisibility.VisibleAlways;
-      this.CContainerbtnQuickEditMore.Name = "CContainerbtnQuickEditMore";
-      this.CContainerbtnQuickEditMore.ThemeAware = true;
-      this.BarGroupPicture.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.BarGroupPicture.BackgroundStyle.Border = eBorderType.SingleLine;
-      this.BarGroupPicture.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
-      this.BarGroupPicture.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupPicture.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupPicture.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupPicture.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x42, 0x8e, 0xff);
-      this.BarGroupPicture.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupPicture.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupPicture.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupPicture.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.BarGroupPicture.ImageIndex = 2;
-      this.BarGroupPicture.Name = "BarGroupPicture";
-      this.BarGroupPicture.StockStyle = eExplorerBarStockStyle.Blue;
-      this.BarGroupPicture.SubItems.AddRange(new BaseItem[] { this.CContainerAPICView });
-      this.BarGroupPicture.Text = "Picture";
-      this.BarGroupPicture.ThemeAware = true;
-      this.CContainerAPICView.AllowItemResize = false;
-      this.CContainerAPICView.Control = this.APICView;
-      this.CContainerAPICView.MenuVisibility = eMenuVisibility.VisibleAlways;
-      this.CContainerAPICView.Name = "CContainerAPICView";
-      this.CContainerAPICView.ThemeAware = true;
-      this.BarGroupInfo.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.BarGroupInfo.BackgroundStyle.Border = eBorderType.SingleLine;
-      this.BarGroupInfo.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
-      this.BarGroupInfo.Expanded = true;
-      this.BarGroupInfo.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupInfo.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupInfo.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupInfo.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x42, 0x8e, 0xff);
-      this.BarGroupInfo.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupInfo.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupInfo.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupInfo.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.BarGroupInfo.ImageIndex = 3;
-      this.BarGroupInfo.Name = "BarGroupInfo";
-      this.BarGroupInfo.StockStyle = eExplorerBarStockStyle.Blue;
-      this.BarGroupInfo.SubItems.AddRange(new BaseItem[] { this.CContainertxtInfo });
-      this.BarGroupInfo.Text = "Information";
-      this.BarGroupInfo.ThemeAware = true;
-      this.CContainertxtInfo.AllowItemResize = true;
-      this.CContainertxtInfo.Control = this.txtInfo;
-      this.CContainertxtInfo.MenuVisibility = eMenuVisibility.VisibleAlways;
-      this.CContainertxtInfo.Name = "CContainertxtInfo";
-      this.CContainertxtInfo.ThemeAware = true;
-      this.BarGroupTools.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.BarGroupTools.BackgroundStyle.Border = eBorderType.SingleLine;
-      this.BarGroupTools.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
-      this.BarGroupTools.Expanded = true;
-      this.BarGroupTools.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupTools.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupTools.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupTools.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x42, 0x8e, 0xff);
-      this.BarGroupTools.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupTools.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupTools.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupTools.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.BarGroupTools.ImageIndex = 1;
-      this.BarGroupTools.Name = "BarGroupTools";
-      this.BarGroupTools.StockStyle = eExplorerBarStockStyle.Blue;
-      this.BarGroupTools.Text = "Tools";
-      this.BarGroupTools.ThemeAware = true;
-      this.MP3View.AllowColumnReorder = true;
-      this.MP3View.Dock = DockStyle.Fill;
-      this.MP3View.FullRowSelect = true;
-      this.MP3View.HideSelection = false;
-      point = new Point(0xe0, 0x4a);
-      this.MP3View.Location = point;
-      this.MP3View.Name = "MP3View";
-      size = new Size(0x210, 0x164);
-      this.MP3View.Size = size;
-      this.MP3View.TabIndex = 0;
-      this.MP3View.View = View.Details;
-      this.EnumInfo.BackColor = SystemColors.Info;
-      this.EnumInfo.BorderStyle = BorderStyle.FixedSingle;
-      this.EnumInfo.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
-      this.EnumInfo.ForeColor = SystemColors.InfoText;
-      this.EnumInfo.ImeMode = ImeMode.NoControl;
-      point = new Point(600, 0x20);
-      this.EnumInfo.Location = point;
-      this.EnumInfo.Name = "EnumInfo";
-      size = new Size(0x90, 0x10);
-      this.EnumInfo.Size = size;
-      this.EnumInfo.TabIndex = 0x16;
-      this.EnumInfo.Text = "Enumeration mode";
-      this.EnumInfo.TextAlign = ContentAlignment.MiddleCenter;
-      this.EnumInfo.Visible = false;
-      size = new Size(5, 13);
-      this.AutoScaleBaseSize = size;
-      size = new Size(960, 0x246);
-      this.ClientSize = size;
-      this.Controls.Add(this.EnumInfo);
-      this.Controls.Add(this.MP3View);
-      this.Controls.Add(this.SplitterBottom);
-      this.Controls.Add(this.ErrorMsg);
-      this.Controls.Add(this.SplitterRight);
-      this.Controls.Add(this.SideBar);
-      this.Controls.Add(this.SplitterLeft);
-      this.Controls.Add(this.NavigationPan);
-      this.Controls.Add(this.barLeftDockSite);
-      this.Controls.Add(this.barRightDockSite);
-      this.Controls.Add(this.barTopDockSite);
-      this.Controls.Add(this.barBottomDockSite);
-      this.Icon = (Icon)manager.GetObject("$this.Icon");
-      this.Name = "frmMain";
-      this.Text = "ID3-TagIT";
-      this.NavigationPan.ResumeLayout(false);
-      this.FoldersPanel.ResumeLayout(false);
-      this.FavouritesPanel.ResumeLayout(false);
-      ((ISupportInitialize)this.SideBar).EndInit();
-      this.SideBar.ResumeLayout(false);
-      this.ResumeLayout(false);
     }
 
     private void MoveFiles()
@@ -6596,9 +6523,7 @@
       finally
       {
         if (enumerator is IDisposable)
-        {
           ((IDisposable)enumerator).Dispose();
-        }
       }
     }
 
@@ -6912,956 +6837,14 @@
       }
     }
 
-    internal virtual PictureBox APICView
+    private void ffff()
     {
-      get
-      {
-        return this._APICView;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._APICView != null)
-        {
-        }
-        this._APICView = value;
-        if (this._APICView != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DockSite barBottomDockSite
-    {
-      get
-      {
-        return this._barBottomDockSite;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._barBottomDockSite != null)
-        {
-        }
-        this._barBottomDockSite = value;
-        if (this._barBottomDockSite != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ExplorerBarGroupItem BarGroupEdit
-    {
-      get
-      {
-        return this._BarGroupEdit;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._BarGroupEdit != null)
-        {
-        }
-        this._BarGroupEdit = value;
-        if (this._BarGroupEdit != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ExplorerBarGroupItem BarGroupInfo
-    {
-      get
-      {
-        return this._BarGroupInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._BarGroupInfo != null)
-        {
-        }
-        this._BarGroupInfo = value;
-        if (this._BarGroupInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ExplorerBarGroupItem BarGroupPicture
-    {
-      get
-      {
-        return this._BarGroupPicture;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._BarGroupPicture != null)
-        {
-        }
-        this._BarGroupPicture = value;
-        if (this._BarGroupPicture != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ExplorerBarGroupItem BarGroupTools
-    {
-      get
-      {
-        return this._BarGroupTools;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._BarGroupTools != null)
-        {
-        }
-        this._BarGroupTools = value;
-        if (this._BarGroupTools != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DockSite barLeftDockSite
-    {
-      get
-      {
-        return this._barLeftDockSite;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._barLeftDockSite != null)
-        {
-        }
-        this._barLeftDockSite = value;
-        if (this._barLeftDockSite != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DockSite barRightDockSite
-    {
-      get
-      {
-        return this._barRightDockSite;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._barRightDockSite != null)
-        {
-        }
-        this._barRightDockSite = value;
-        if (this._barRightDockSite != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DockSite barTopDockSite
-    {
-      get
-      {
-        return this._barTopDockSite;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._barTopDockSite != null)
-        {
-        }
-        this._barTopDockSite = value;
-        if (this._barTopDockSite != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Button btnQuickEdit
-    {
-      get
-      {
-        return this._btnQuickEdit;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnQuickEdit != null)
-        {
-          this._btnQuickEdit.Click -= new EventHandler(this.btnQuickEdit_Click);
-        }
-        this._btnQuickEdit = value;
-        if (this._btnQuickEdit != null)
-        {
-          this._btnQuickEdit.Click += new EventHandler(this.btnQuickEdit_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnQuickEditMore
-    {
-      get
-      {
-        return this._btnQuickEditMore;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnQuickEditMore != null)
-        {
-          this._btnQuickEditMore.Click -= new EventHandler(this.btnQuickEditMore_Click);
-        }
-        this._btnQuickEditMore = value;
-        if (this._btnQuickEditMore != null)
-        {
-          this._btnQuickEditMore.Click += new EventHandler(this.btnQuickEditMore_Click);
-        }
-      }
-    }
-
-    internal virtual ControlContainerItem CContainerAlbum
-    {
-      get
-      {
-        return this._CContainerAlbum;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._CContainerAlbum != null)
-        {
-        }
-        this._CContainerAlbum = value;
-        if (this._CContainerAlbum != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ControlContainerItem CContainerAPICView
-    {
-      get
-      {
-        return this._CContainerAPICView;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._CContainerAPICView != null)
-        {
-        }
-        this._CContainerAPICView = value;
-        if (this._CContainerAPICView != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ControlContainerItem CContainerArtist
-    {
-      get
-      {
-        return this._CContainerArtist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._CContainerArtist != null)
-        {
-        }
-        this._CContainerArtist = value;
-        if (this._CContainerArtist != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ControlContainerItem CContainerbtnQuickEditMore
-    {
-      get
-      {
-        return this._CContainerbtnQuickEditMore;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._CContainerbtnQuickEditMore != null)
-        {
-        }
-        this._CContainerbtnQuickEditMore = value;
-        if (this._CContainerbtnQuickEditMore != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ControlContainerItem CContainerbtnQuickEditOK
-    {
-      get
-      {
-        return this._CContainerbtnQuickEditOK;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._CContainerbtnQuickEditOK != null)
-        {
-        }
-        this._CContainerbtnQuickEditOK = value;
-        if (this._CContainerbtnQuickEditOK != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ControlContainerItem CContainerTitle
-    {
-      get
-      {
-        return this._CContainerTitle;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._CContainerTitle != null)
-        {
-        }
-        this._CContainerTitle = value;
-        if (this._CContainerTitle != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ControlContainerItem CContainertxtInfo
-    {
-      get
-      {
-        return this._CContainertxtInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._CContainertxtInfo != null)
-        {
-        }
-        this._CContainertxtInfo = value;
-        if (this._CContainertxtInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ComboBoxAutoComplete cmbArtist
-    {
-      get
-      {
-        return this._cmbArtist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbArtist != null)
-        {
-          this._cmbArtist.KeyUp -= new KeyEventHandler(this.txtQuickEdit_KeyUp);
-          this._cmbArtist.Enter -= new EventHandler(this.txtArtistTitleAlbum_Enter);
-        }
-        this._cmbArtist = value;
-        if (this._cmbArtist != null)
-        {
-          this._cmbArtist.KeyUp += new KeyEventHandler(this.txtQuickEdit_KeyUp);
-          this._cmbArtist.Enter += new EventHandler(this.txtArtistTitleAlbum_Enter);
-        }
-      }
-    }
-
-    internal virtual ImageList ColumnHeaderIcons
-    {
-      get
-      {
-        return this._ColumnHeaderIcons;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeaderIcons != null)
-        {
-        }
-        this._ColumnHeaderIcons = value;
-        if (this._ColumnHeaderIcons != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DevComponents.DotNetBar.DotNetBarManager DotNetBarManager
-    {
-      get
-      {
-        return this._DotNetBarManager;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._DotNetBarManager != null)
-        {
-          this._DotNetBarManager.ItemClick -= new EventHandler(this.DotNetBarManager_ItemClick);
-        }
-        this._DotNetBarManager = value;
-        if (this._DotNetBarManager != null)
-        {
-          this._DotNetBarManager.ItemClick += new EventHandler(this.DotNetBarManager_ItemClick);
-        }
-      }
-    }
-
-    internal virtual Label EnumInfo
-    {
-      get
-      {
-        return this._EnumInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._EnumInfo != null)
-        {
-        }
-        this._EnumInfo = value;
-        if (this._EnumInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ListView ErrorMsg
-    {
-      get
-      {
-        return this._ErrorMsg;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ErrorMsg != null)
-        {
-          this._ErrorMsg.MouseUp -= new MouseEventHandler(this.ErrorMsg_MouseUp);
-        }
-        this._ErrorMsg = value;
-        if (this._ErrorMsg != null)
-        {
-          this._ErrorMsg.MouseUp += new MouseEventHandler(this.ErrorMsg_MouseUp);
-        }
-      }
-    }
-
-    internal virtual ButtonItem FavouritesPan
-    {
-      get
-      {
-        return this._FavouritesPan;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._FavouritesPan != null)
-        {
-        }
-        this._FavouritesPan = value;
-        if (this._FavouritesPan != null)
-        {
-        }
-      }
-    }
-
-    internal virtual NavigationPanePanel FavouritesPanel
-    {
-      get
-      {
-        return this._FavouritesPanel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._FavouritesPanel != null)
-        {
-        }
-        this._FavouritesPanel = value;
-        if (this._FavouritesPanel != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TreeView FavTree
-    {
-      get
-      {
-        return this._FavTree;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._FavTree != null)
-        {
-          this._FavTree.MouseUp -= new MouseEventHandler(this.FavTree_MouseUp);
-          this._FavTree.AfterSelect -= new TreeViewEventHandler(this.FavTree_AfterSelect);
-          this._FavTree.BeforeSelect -= new TreeViewCancelEventHandler(this.FavTree_BeforeSelect);
-        }
-        this._FavTree = value;
-        if (this._FavTree != null)
-        {
-          this._FavTree.MouseUp += new MouseEventHandler(this.FavTree_MouseUp);
-          this._FavTree.AfterSelect += new TreeViewEventHandler(this.FavTree_AfterSelect);
-          this._FavTree.BeforeSelect += new TreeViewCancelEventHandler(this.FavTree_BeforeSelect);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog
-    {
-      get
-      {
-        return this._FolderBrowserDialog;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._FolderBrowserDialog != null)
-        {
-        }
-        this._FolderBrowserDialog = value;
-        if (this._FolderBrowserDialog != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.Timer FolderRenameTimer
-    {
-      get
-      {
-        return this._FolderRenameTimer;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._FolderRenameTimer != null)
-        {
-        }
-        this._FolderRenameTimer = value;
-        if (this._FolderRenameTimer != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ButtonItem FoldersPan
-    {
-      get
-      {
-        return this._FoldersPan;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._FoldersPan != null)
-        {
-        }
-        this._FoldersPan = value;
-        if (this._FoldersPan != null)
-        {
-        }
-      }
-    }
-
-    internal virtual NavigationPanePanel FoldersPanel
-    {
-      get
-      {
-        return this._FoldersPanel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._FoldersPanel != null)
-        {
-        }
-        this._FoldersPanel = value;
-        if (this._FoldersPanel != null)
-        {
-        }
-      }
-    }
-
-    internal virtual FolderView FolderTree
-    {
-      get
-      {
-        return this._FolderTree;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._FolderTree != null)
-        {
-          this._FolderTree.remove_AfterLabelEdit(new AfterLabelEditHandler(this.FolderTree_AfterLabelEdit));
-          this._FolderTree.remove_BeforeLabelEdit(new BeforeLabelEditHandler(this.FolderTree_BeforeLabelEdit));
-          this._FolderTree.remove_AfterSelect(new AfterSelectHandler(this.FolderTree_AfterSelect));
-          this._FolderTree.remove_BeforeSelect(new BeforeSelectHandler(this.FolderTree_BeforeSelect));
-        }
-        this._FolderTree = value;
-        if (this._FolderTree != null)
-        {
-          this._FolderTree.add_AfterLabelEdit(new AfterLabelEditHandler(this.FolderTree_AfterLabelEdit));
-          this._FolderTree.add_BeforeLabelEdit(new BeforeLabelEditHandler(this.FolderTree_BeforeLabelEdit));
-          this._FolderTree.add_AfterSelect(new AfterSelectHandler(this.FolderTree_AfterSelect));
-          this._FolderTree.add_BeforeSelect(new BeforeSelectHandler(this.FolderTree_BeforeSelect));
-        }
-      }
-    }
-
-    internal virtual ImageList GroupIcons
-    {
-      get
-      {
-        return this._GroupIcons;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._GroupIcons != null)
-        {
-        }
-        this._GroupIcons = value;
-        if (this._GroupIcons != null)
-        {
-        }
-      }
-    }
-
-    internal virtual LabelItem lblAlbum
-    {
-      get
-      {
-        return this._lblAlbum;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblAlbum != null)
-        {
-        }
-        this._lblAlbum = value;
-        if (this._lblAlbum != null)
-        {
-        }
-      }
-    }
-
-    internal virtual LabelItem lblArtist
-    {
-      get
-      {
-        return this._lblArtist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblArtist != null)
-        {
-        }
-        this._lblArtist = value;
-        if (this._lblArtist != null)
-        {
-        }
-      }
-    }
-
-    internal virtual LabelItem lblQuickSpacer1
-    {
-      get
-      {
-        return this._lblQuickSpacer1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblQuickSpacer1 != null)
-        {
-        }
-        this._lblQuickSpacer1 = value;
-        if (this._lblQuickSpacer1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual LabelItem lblTitle
-    {
-      get
-      {
-        return this._lblTitle;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblTitle != null)
-        {
-        }
-        this._lblTitle = value;
-        if (this._lblTitle != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ListView MP3View
-    {
-      get
-      {
-        return this._MP3View;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._MP3View != null)
-        {
-          this._MP3View.ItemDrag -= new ItemDragEventHandler(this.MP3View_ItemDrag);
-          this._MP3View.AfterLabelEdit -= new LabelEditEventHandler(this.MP3View_AfterLabelEdit);
-          this._MP3View.DoubleClick -= new EventHandler(this.MP3View_DoubleClick);
-          this._MP3View.Click -= new EventHandler(this.MP3View_Click);
-          this._MP3View.KeyDown -= new KeyEventHandler(this.MP3View_KeyDown);
-          this._MP3View.MouseUp -= new MouseEventHandler(this.MP3View_MouseUp);
-          this._MP3View.MouseLeave -= new EventHandler(this.MP3View_MouseLeave);
-          this._MP3View.MouseEnter -= new EventHandler(this.MP3View_MouseEnter);
-          this._MP3View.MouseMove -= new MouseEventHandler(this.MP3View_MouseMove);
-          this._MP3View.SelectedIndexChanged -= new EventHandler(this.MP3View_SelectedIndexChanged);
-          this._MP3View.ColumnClick -= new ColumnClickEventHandler(this.MP3View_ColumnClick);
-        }
-        this._MP3View = value;
-        if (this._MP3View != null)
-        {
-          this._MP3View.ItemDrag += new ItemDragEventHandler(this.MP3View_ItemDrag);
-          this._MP3View.AfterLabelEdit += new LabelEditEventHandler(this.MP3View_AfterLabelEdit);
-          this._MP3View.DoubleClick += new EventHandler(this.MP3View_DoubleClick);
-          this._MP3View.Click += new EventHandler(this.MP3View_Click);
-          this._MP3View.KeyDown += new KeyEventHandler(this.MP3View_KeyDown);
-          this._MP3View.MouseUp += new MouseEventHandler(this.MP3View_MouseUp);
-          this._MP3View.MouseLeave += new EventHandler(this.MP3View_MouseLeave);
-          this._MP3View.MouseEnter += new EventHandler(this.MP3View_MouseEnter);
-          this._MP3View.MouseMove += new MouseEventHandler(this.MP3View_MouseMove);
-          this._MP3View.SelectedIndexChanged += new EventHandler(this.MP3View_SelectedIndexChanged);
-          this._MP3View.ColumnClick += new ColumnClickEventHandler(this.MP3View_ColumnClick);
-        }
-      }
-    }
-
-    internal virtual NavigationPane NavigationPan
-    {
-      get
-      {
-        return this._NavigationPan;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._NavigationPan != null)
-        {
-        }
-        this._NavigationPan = value;
-        if (this._NavigationPan != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ExplorerBar SideBar
-    {
-      get
-      {
-        return this._SideBar;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._SideBar != null)
-        {
-          this._SideBar.ItemClick -= new EventHandler(this.SideBar_ItemClick);
-          this._SideBar.ContainerLoadControl -= new EventHandler(this.SideBar_ContainerLoadControl);
-        }
-        this._SideBar = value;
-        if (this._SideBar != null)
-        {
-          this._SideBar.ItemClick += new EventHandler(this.SideBar_ItemClick);
-          this._SideBar.ContainerLoadControl += new EventHandler(this.SideBar_ContainerLoadControl);
-        }
-      }
-    }
-
-    internal virtual ExpandableSplitter SplitterBottom
-    {
-      get
-      {
-        return this._SplitterBottom;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._SplitterBottom != null)
-        {
-        }
-        this._SplitterBottom = value;
-        if (this._SplitterBottom != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ExpandableSplitter SplitterLeft
-    {
-      get
-      {
-        return this._SplitterLeft;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._SplitterLeft != null)
-        {
-        }
-        this._SplitterLeft = value;
-        if (this._SplitterLeft != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ExpandableSplitter SplitterRight
-    {
-      get
-      {
-        return this._SplitterRight;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._SplitterRight != null)
-        {
-        }
-        this._SplitterRight = value;
-        if (this._SplitterRight != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.Timer Timer
-    {
-      get
-      {
-        return this._Timer;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Timer != null)
-        {
-        }
-        this._Timer = value;
-        if (this._Timer != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ImageList ToolsIcons
-    {
-      get
-      {
-        return this._ToolsIcons;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ToolsIcons != null)
-        {
-        }
-        this._ToolsIcons = value;
-        if (this._ToolsIcons != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TextBox txtAlbum
-    {
-      get
-      {
-        return this._txtAlbum;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtAlbum != null)
-        {
-          this._txtAlbum.KeyUp -= new KeyEventHandler(this.txtQuickEdit_KeyUp);
-          this._txtAlbum.EnabledChanged -= new EventHandler(this.txtArtistTitleAlbum_Enter);
-        }
-        this._txtAlbum = value;
-        if (this._txtAlbum != null)
-        {
-          this._txtAlbum.KeyUp += new KeyEventHandler(this.txtQuickEdit_KeyUp);
-          this._txtAlbum.EnabledChanged += new EventHandler(this.txtArtistTitleAlbum_Enter);
-        }
-      }
-    }
-
-    internal virtual RichTextBox txtInfo
-    {
-      get
-      {
-        return this._txtInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtInfo != null)
-        {
-        }
-        this._txtInfo = value;
-        if (this._txtInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TextBox txtTitle
-    {
-      get
-      {
-        return this._txtTitle;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtTitle != null)
-        {
-          this._txtTitle.KeyUp -= new KeyEventHandler(this.txtQuickEdit_KeyUp);
-          this._txtTitle.Enter -= new EventHandler(this.txtArtistTitleAlbum_Enter);
-        }
-        this._txtTitle = value;
-        if (this._txtTitle != null)
-        {
-          this._txtTitle.KeyUp += new KeyEventHandler(this.txtQuickEdit_KeyUp);
-          this._txtTitle.Enter += new EventHandler(this.txtArtistTitleAlbum_Enter);
-        }
+      if (false)
+      {
+        //this.FolderTree.add_AfterLabelEdit(new AfterLabelEditHandler(this.FolderTree_AfterLabelEdit));
+        //this.FolderTree.add_BeforeLabelEdit(new BeforeLabelEditHandler(this.FolderTree_BeforeLabelEdit));
+        //this.FolderTree.add_AfterSelect(new AfterSelectHandler(this.FolderTree_AfterSelect));
+        //this.FolderTree.add_BeforeSelect(new BeforeSelectHandler(this.FolderTree_BeforeSelect));
       }
     }
   }

@@ -1,255 +1,52 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.ComponentModel;
-  using System.Data;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.Runtime.CompilerServices;
-  using System.Windows.Forms;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class frmFilenameToTAG2 : Form
   {
-    [AccessedThroughProperty("btnAdd")]
-    private Button _btnAdd;
-    [AccessedThroughProperty("btnCancel")]
-    private Button _btnCancel;
-    [AccessedThroughProperty("btnOK")]
-    private Button _btnOK;
-    [AccessedThroughProperty("btnRemove")]
-    private Button _btnRemove;
-    [AccessedThroughProperty("chkSaveName")]
-    private CheckBox _chkSaveName;
-    [AccessedThroughProperty("cmbFormat")]
-    private ComboBox _cmbFormat;
-    [AccessedThroughProperty("framePara")]
-    private GroupBox _framePara;
-    [AccessedThroughProperty("L1")]
-    private Label _L1;
-    [AccessedThroughProperty("L10")]
-    private Label _L10;
-    [AccessedThroughProperty("L11")]
-    private Label _L11;
-    [AccessedThroughProperty("L12")]
-    private Label _L12;
-    [AccessedThroughProperty("L13")]
-    private Label _L13;
-    [AccessedThroughProperty("L14")]
-    private Label _L14;
-    [AccessedThroughProperty("L15")]
-    private Label _L15;
-    [AccessedThroughProperty("L16")]
-    private Label _L16;
-    [AccessedThroughProperty("L17")]
-    private Label _L17;
-    [AccessedThroughProperty("L18")]
-    private Label _L18;
-    [AccessedThroughProperty("L19")]
-    private Label _L19;
-    [AccessedThroughProperty("L2")]
-    private Label _L2;
-    [AccessedThroughProperty("L3")]
-    private Label _L3;
-    [AccessedThroughProperty("L4")]
-    private Label _L4;
-    [AccessedThroughProperty("L5")]
-    private Label _L5;
-    [AccessedThroughProperty("L6")]
-    private Label _L6;
-    [AccessedThroughProperty("L7")]
-    private Label _L7;
-    [AccessedThroughProperty("L8")]
-    private Label _L8;
-    [AccessedThroughProperty("L9")]
-    private Label _L9;
-    [AccessedThroughProperty("lblDigits")]
-    private Label _lblDigits;
-    [AccessedThroughProperty("lblFormat")]
-    private Label _lblFormat;
-    [AccessedThroughProperty("lblInfo")]
-    private Label _lblInfo;
-    [AccessedThroughProperty("ToolTip")]
-    private System.Windows.Forms.ToolTip _ToolTip;
-    [AccessedThroughProperty("txtDigits")]
-    private NumericUpDown _txtDigits;
+    private Button btnAdd;
+    private Button btnCancel;
+    private Button btnOK;
+    private Button btnRemove;
+    private CheckBox chkSaveName;
+    private ComboBox cmbFormat;
+    private GroupBox framePara;
+    private Label L1;
+    private Label L10;
+    private Label L11;
+    private Label L12;
+    private Label L13;
+    private Label L14;
+    private Label L15;
+    private Label L16;
+    private Label L17;
+    private Label L18;
+    private Label L19;
+    private Label L2;
+    private Label L3;
+    private Label L4;
+    private Label L5;
+    private Label L6;
+    private Label L7;
+    private Label L8;
+    private Label L9;
+    private Label lblDigits;
+    private Label lblFormat;
+    private Label lblInfo;
+    private System.Windows.Forms.ToolTip ToolTip;
+    private NumericUpDown txtDigits;
     private ArrayList alstFormat;
     private IContainer components;
     private frmMain MainForm;
-
-    public frmFilenameToTAG2(ref frmMain FormMain)
-    {
-      base.Load += new EventHandler(this.frmFilenameToTAG2_Load);
-      this.InitializeComponent();
-      this.MainForm = FormMain;
-    }
-
-    private void AddToolTips()
-    {
-      string vstrName = "frmFilenameToTAG2";
-      Control txtDigits = this.txtDigits;
-      this.txtDigits = (NumericUpDown)txtDigits;
-      this.ToolTip.SetToolTip(this.txtDigits, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmFilenameToTAG2";
-      txtDigits = this.btnRemove;
-      this.btnRemove = (Button)txtDigits;
-      this.ToolTip.SetToolTip(this.btnRemove, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmFilenameToTAG2";
-      txtDigits = this.btnAdd;
-      this.btnAdd = (Button)txtDigits;
-      this.ToolTip.SetToolTip(this.btnAdd, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmFilenameToTAG2";
-      txtDigits = this.cmbFormat;
-      this.cmbFormat = (ComboBox)txtDigits;
-      this.ToolTip.SetToolTip(this.cmbFormat, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmFilenameToTAG2";
-      txtDigits = this.chkSaveName;
-      this.chkSaveName = (CheckBox)txtDigits;
-      this.ToolTip.SetToolTip(this.chkSaveName, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-    }
-
-    private void btnAdd_Click(object sender, EventArgs e)
-    {
-      if (StringType.StrCmp(this.cmbFormat.Text, "", false) != 0)
-      {
-        this.cmbFormat.Items.Add(this.cmbFormat.Text);
-      }
-    }
-
-    private void btnOK_Click(object sender, EventArgs e)
-    {
-      FilenameToTAGFormat format = new FilenameToTAGFormat();
-      ArrayList list = new ArrayList();
-      string vstrFormat = this.cmbFormat.Text.TrimStart(new char[] { ' ' });
-      if (vstrFormat.IndexOf(":") >= 0)
-      {
-        vstrFormat = vstrFormat.Substring(vstrFormat.IndexOf(":") + 1).TrimStart(new char[] { ' ' });
-      }
-      if (vstrFormat.StartsWith(@"\"))
-      {
-        vstrFormat = vstrFormat.Substring(1);
-      }
-      switch (ID3Functions.FormatReplaceCheck(vstrFormat, Declarations.FormatReplace.FilenameToTAG | Declarations.FormatReplace.TAGVer2))
-      {
-        case Declarations.FormatReplaceFeedback.InvalidFormat:
-          this.DialogResult = System.Windows.Forms.DialogResult.None;
-          Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["InvalidFormat"]), MsgBoxStyle.Exclamation, null);
-          return;
-
-        case Declarations.FormatReplaceFeedback.InvalidCharFormat:
-          this.DialogResult = System.Windows.Forms.DialogResult.None;
-          Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["InvalidCharFormat"]), MsgBoxStyle.Exclamation, null);
-          return;
-      }
-      byte tracknumberDigitsTAG = Declarations.objSettings.TracknumberDigitsTAG;
-      Declarations.objSettings.FT2Formats.Rows.Clear();
-      Declarations.objSettings.FT2Format = this.cmbFormat.Text;
-      Declarations.objSettings.TracknumberDigitsTAG = Convert.ToByte(this.txtDigits.Value);
-      int num3 = this.cmbFormat.Items.Count - 1;
-      for (int i = 0; i <= num3; i++)
-      {
-        DataRow row = Declarations.objSettings.FT2Formats.NewRow();
-        row["Format"] = this.cmbFormat.Items[i].ToString();
-        Declarations.objSettings.FT2Formats.Rows.Add(row);
-      }
-      Declarations.objSettings.SaveOFilename = this.chkSaveName.Checked;
-      format.Create(vstrFormat, 2);
-      this.alstFormat = format.Parts;
-      this.MainForm.MP3View.BeginUpdate();
-      Form ownerForm = this;
-      frmProgress.Callback cB = new frmProgress.Callback(this.FilenameTAGV2CB);
-      frmProgress progress = new frmProgress(0, this.MainForm.MP3View.SelectedItems.Count, 1, ref ownerForm, ref cB);
-      progress.SetStateFilenameTAG();
-      progress.List = list;
-      progress.ShowDialog(this);
-      this.MainForm.MP3View.EndUpdate();
-      if (list.Count > 0)
-      {
-        Declarations.UNDOList.Add(list);
-        this.MainForm.UnDoEnable(true, true);
-      }
-      progress.Close();
-      Declarations.objSettings.TracknumberDigitsTAG = tracknumberDigitsTAG;
-      ownerForm = this;
-      Main.SaveFormSettings(ref ownerForm);
-      this.Close();
-    }
-
-    private void btnRemove_Click(object sender, EventArgs e)
-    {
-      this.cmbFormat.Items.Remove(this.cmbFormat.Text);
-    }
-
-    private void cmbFormat_KeyPress(object sender, KeyPressEventArgs e)
-    {
-      switch (e.KeyChar)
-      {
-        case '|':
-        case '"':
-        case '/':
-        case '*':
-        case '?':
-          e.Handled = true;
-          break;
-      }
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-      {
-        this.components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
-
-    private void FilenameTAGV2CB(ref frmProgress frmProg)
-    {
-      ListViewItem item = new ListViewItem();
-      foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
-      {
-        Application.DoEvents();
-        if (frmProg.Canceled)
-        {
-          break;
-        }
-        Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
-        frmProg.List.Add(@do);
-        frmProg.Infos.Text = StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null));
-        ListViewItem item2 = item;
-        MP3 tag = (MP3)item2.Tag;
-        ID3Functions.FilenameToTAG(ref tag, this.alstFormat, 2);
-        item2.Tag = tag;
-        if (this.chkSaveName.Checked)
-        {
-          MP3 mp = (MP3)item.Tag;
-          mp.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TOFN", mp.CurrentName));
-        }
-        this.MainForm.UpdateListItem(item, false);
-        frmProg.ProgressBar.PerformStep();
-      }
-    }
-
-    private void frmFilenameToTAG2_Load(object sender, EventArgs e)
-    {
-      Form objForm = this;
-      Declarations.objResources.ResourcesToForm(ref objForm);
-      objForm = this;
-      Main.RestoreFormSettings(ref objForm);
-      objForm = this;
-      Main.WindowsXPCheck(ref objForm);
-      int num2 = Declarations.objSettings.FT2Formats.Rows.Count - 1;
-      for (int i = 0; i <= num2; i++)
-      {
-        this.cmbFormat.Items.Add(RuntimeHelpers.GetObjectValue(Declarations.objSettings.FT2Formats.Rows[i]["Format"]));
-      }
-      this.cmbFormat.Text = Declarations.objSettings.FT2Format;
-      this.txtDigits.Value = new decimal(Declarations.objSettings.TracknumberDigitsFilename);
-      this.chkSaveName.Checked = Declarations.objSettings.SaveOFilename;
-      this.AddToolTips();
-    }
 
     [DebuggerStepThrough]
     private void InitializeComponent()
@@ -553,6 +350,29 @@
       this.chkSaveName.Size = size;
       this.chkSaveName.TabIndex = 0x17;
       this.chkSaveName.Text = "Save filename to original filename entry";
+      this.btnAdd.Click += new EventHandler(this.btnAdd_Click);
+      this.btnOK.Click += new EventHandler(this.btnOK_Click);
+      this.btnRemove.Click += new EventHandler(this.btnRemove_Click);
+      this.cmbFormat.KeyPress += new KeyPressEventHandler(this.cmbFormat_KeyPress);
+      this.L11.Click += new EventHandler(this.Label_Click);
+      this.L10.Click += new EventHandler(this.Label_Click);
+      this.L12.Click += new EventHandler(this.Label_Click);
+      this.L1.Click += new EventHandler(this.Label_Click);
+      this.L13.Click += new EventHandler(this.Label_Click);
+      this.L14.Click += new EventHandler(this.Label_Click);
+      this.L15.Click += new EventHandler(this.Label_Click);
+      this.L16.Click += new EventHandler(this.Label_Click);
+      this.L17.Click += new EventHandler(this.Label_Click);
+      this.L18.Click += new EventHandler(this.Label_Click);
+      this.L2.Click += new EventHandler(this.Label_Click);
+      this.L3.Click += new EventHandler(this.Label_Click);
+      this.L4.Click += new EventHandler(this.Label_Click);
+      this.L5.Click += new EventHandler(this.Label_Click);
+      this.L6.Click += new EventHandler(this.Label_Click);
+      this.L7.Click += new EventHandler(this.Label_Click);
+      this.L8.Click += new EventHandler(this.Label_Click);
+      this.L9.Click += new EventHandler(this.Label_Click);
+      this.txtDigits.Validated += new EventHandler(this.txtDigits_Validated);
       this.AcceptButton = this.btnOK;
       size = new Size(5, 13);
       this.AutoScaleBaseSize = size;
@@ -582,6 +402,178 @@
       this.ResumeLayout(false);
     }
 
+    public frmFilenameToTAG2(ref frmMain FormMain)
+    {
+      base.Load += new EventHandler(this.frmFilenameToTAG2_Load);
+      this.InitializeComponent();
+      this.MainForm = FormMain;
+    }
+
+    private void AddToolTips()
+    {
+      string vstrName = "frmFilenameToTAG2";
+      Control txtDigits = this.txtDigits;
+      this.txtDigits = (NumericUpDown)txtDigits;
+      this.ToolTip.SetToolTip(this.txtDigits, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+      vstrName = "frmFilenameToTAG2";
+      txtDigits = this.btnRemove;
+      this.btnRemove = (Button)txtDigits;
+      this.ToolTip.SetToolTip(this.btnRemove, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+      vstrName = "frmFilenameToTAG2";
+      txtDigits = this.btnAdd;
+      this.btnAdd = (Button)txtDigits;
+      this.ToolTip.SetToolTip(this.btnAdd, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+      vstrName = "frmFilenameToTAG2";
+      txtDigits = this.cmbFormat;
+      this.cmbFormat = (ComboBox)txtDigits;
+      this.ToolTip.SetToolTip(this.cmbFormat, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+      vstrName = "frmFilenameToTAG2";
+      txtDigits = this.chkSaveName;
+      this.chkSaveName = (CheckBox)txtDigits;
+      this.ToolTip.SetToolTip(this.chkSaveName, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+    }
+
+    private void btnAdd_Click(object sender, EventArgs e)
+    {
+      if (StringType.StrCmp(this.cmbFormat.Text, "", false) != 0)
+      {
+        this.cmbFormat.Items.Add(this.cmbFormat.Text);
+      }
+    }
+
+    private void btnOK_Click(object sender, EventArgs e)
+    {
+      FilenameToTAGFormat format = new FilenameToTAGFormat();
+      ArrayList list = new ArrayList();
+      string vstrFormat = this.cmbFormat.Text.TrimStart(new char[] { ' ' });
+      if (vstrFormat.IndexOf(":") >= 0)
+      {
+        vstrFormat = vstrFormat.Substring(vstrFormat.IndexOf(":") + 1).TrimStart(new char[] { ' ' });
+      }
+      if (vstrFormat.StartsWith(@"\"))
+      {
+        vstrFormat = vstrFormat.Substring(1);
+      }
+      switch (ID3Functions.FormatReplaceCheck(vstrFormat, Declarations.FormatReplace.FilenameToTAG | Declarations.FormatReplace.TAGVer2))
+      {
+        case Declarations.FormatReplaceFeedback.InvalidFormat:
+          this.DialogResult = System.Windows.Forms.DialogResult.None;
+          Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["InvalidFormat"]), MsgBoxStyle.Exclamation, null);
+          return;
+
+        case Declarations.FormatReplaceFeedback.InvalidCharFormat:
+          this.DialogResult = System.Windows.Forms.DialogResult.None;
+          Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["InvalidCharFormat"]), MsgBoxStyle.Exclamation, null);
+          return;
+      }
+      byte tracknumberDigitsTAG = Declarations.objSettings.TracknumberDigitsTAG;
+      Declarations.objSettings.FT2Formats.Rows.Clear();
+      Declarations.objSettings.FT2Format = this.cmbFormat.Text;
+      Declarations.objSettings.TracknumberDigitsTAG = Convert.ToByte(this.txtDigits.Value);
+      int num3 = this.cmbFormat.Items.Count - 1;
+      for (int i = 0; i <= num3; i++)
+      {
+        DataRow row = Declarations.objSettings.FT2Formats.NewRow();
+        row["Format"] = this.cmbFormat.Items[i].ToString();
+        Declarations.objSettings.FT2Formats.Rows.Add(row);
+      }
+      Declarations.objSettings.SaveOFilename = this.chkSaveName.Checked;
+      format.Create(vstrFormat, 2);
+      this.alstFormat = format.Parts;
+      this.MainForm.MP3View.BeginUpdate();
+      Form ownerForm = this;
+      frmProgress.Callback cB = new frmProgress.Callback(this.FilenameTAGV2CB);
+      frmProgress progress = new frmProgress(0, this.MainForm.MP3View.SelectedItems.Count, 1, ref ownerForm, ref cB);
+      progress.SetStateFilenameTAG();
+      progress.List = list;
+      progress.ShowDialog(this);
+      this.MainForm.MP3View.EndUpdate();
+      if (list.Count > 0)
+      {
+        Declarations.UNDOList.Add(list);
+        this.MainForm.UnDoEnable(true, true);
+      }
+      progress.Close();
+      Declarations.objSettings.TracknumberDigitsTAG = tracknumberDigitsTAG;
+      ownerForm = this;
+      Main.SaveFormSettings(ref ownerForm);
+      this.Close();
+    }
+
+    private void btnRemove_Click(object sender, EventArgs e)
+    {
+      this.cmbFormat.Items.Remove(this.cmbFormat.Text);
+    }
+
+    private void cmbFormat_KeyPress(object sender, KeyPressEventArgs e)
+    {
+      switch (e.KeyChar)
+      {
+        case '|':
+        case '"':
+        case '/':
+        case '*':
+        case '?':
+          e.Handled = true;
+          break;
+      }
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+      {
+        this.components.Dispose();
+      }
+      base.Dispose(disposing);
+    }
+
+    private void FilenameTAGV2CB(ref frmProgress frmProg)
+    {
+      ListViewItem item = new ListViewItem();
+      foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
+      {
+        Application.DoEvents();
+        if (frmProg.Canceled)
+        {
+          break;
+        }
+        Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
+        frmProg.List.Add(@do);
+        frmProg.Infos.Text = StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null));
+        ListViewItem item2 = item;
+        MP3 tag = (MP3)item2.Tag;
+        ID3Functions.FilenameToTAG(ref tag, this.alstFormat, 2);
+        item2.Tag = tag;
+        if (this.chkSaveName.Checked)
+        {
+          MP3 mp = (MP3)item.Tag;
+          mp.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TOFN", mp.CurrentName));
+        }
+        this.MainForm.UpdateListItem(item, false);
+        frmProg.ProgressBar.PerformStep();
+      }
+    }
+
+    private void frmFilenameToTAG2_Load(object sender, EventArgs e)
+    {
+      Form objForm = this;
+      Declarations.objResources.ResourcesToForm(ref objForm);
+      objForm = this;
+      Main.RestoreFormSettings(ref objForm);
+      objForm = this;
+      Main.WindowsXPCheck(ref objForm);
+      int num2 = Declarations.objSettings.FT2Formats.Rows.Count - 1;
+      for (int i = 0; i <= num2; i++)
+      {
+        this.cmbFormat.Items.Add(RuntimeHelpers.GetObjectValue(Declarations.objSettings.FT2Formats.Rows[i]["Format"]));
+      }
+      this.cmbFormat.Text = Declarations.objSettings.FT2Format;
+      this.txtDigits.Value = new decimal(Declarations.objSettings.TracknumberDigitsFilename);
+      this.chkSaveName.Checked = Declarations.objSettings.SaveOFilename;
+      this.AddToolTips();
+    }
+
     private void Label_Click(object sender, EventArgs e)
     {
       string selectedText = this.cmbFormat.SelectedText;
@@ -609,641 +601,6 @@
       if (decimal.Compare(this.txtDigits.Value, this.txtDigits.Maximum) > 0)
       {
         this.txtDigits.Value = this.txtDigits.Maximum;
-      }
-    }
-
-    internal virtual Button btnAdd
-    {
-      get
-      {
-        return this._btnAdd;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnAdd != null)
-        {
-          this._btnAdd.Click -= new EventHandler(this.btnAdd_Click);
-        }
-        this._btnAdd = value;
-        if (this._btnAdd != null)
-        {
-          this._btnAdd.Click += new EventHandler(this.btnAdd_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnCancel
-    {
-      get
-      {
-        return this._btnCancel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnCancel != null)
-        {
-        }
-        this._btnCancel = value;
-        if (this._btnCancel != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Button btnOK
-    {
-      get
-      {
-        return this._btnOK;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click -= new EventHandler(this.btnOK_Click);
-        }
-        this._btnOK = value;
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click += new EventHandler(this.btnOK_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnRemove
-    {
-      get
-      {
-        return this._btnRemove;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnRemove != null)
-        {
-          this._btnRemove.Click -= new EventHandler(this.btnRemove_Click);
-        }
-        this._btnRemove = value;
-        if (this._btnRemove != null)
-        {
-          this._btnRemove.Click += new EventHandler(this.btnRemove_Click);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkSaveName
-    {
-      get
-      {
-        return this._chkSaveName;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkSaveName != null)
-        {
-        }
-        this._chkSaveName = value;
-        if (this._chkSaveName != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ComboBox cmbFormat
-    {
-      get
-      {
-        return this._cmbFormat;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbFormat != null)
-        {
-          this._cmbFormat.KeyPress -= new KeyPressEventHandler(this.cmbFormat_KeyPress);
-        }
-        this._cmbFormat = value;
-        if (this._cmbFormat != null)
-        {
-          this._cmbFormat.KeyPress += new KeyPressEventHandler(this.cmbFormat_KeyPress);
-        }
-      }
-    }
-
-    internal virtual GroupBox framePara
-    {
-      get
-      {
-        return this._framePara;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._framePara != null)
-        {
-        }
-        this._framePara = value;
-        if (this._framePara != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label L1
-    {
-      get
-      {
-        return this._L1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L1 != null)
-        {
-          this._L1.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L1 = value;
-        if (this._L1 != null)
-        {
-          this._L1.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L10
-    {
-      get
-      {
-        return this._L10;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L10 != null)
-        {
-          this._L10.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L10 = value;
-        if (this._L10 != null)
-        {
-          this._L10.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L11
-    {
-      get
-      {
-        return this._L11;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L11 != null)
-        {
-          this._L11.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L11 = value;
-        if (this._L11 != null)
-        {
-          this._L11.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L12
-    {
-      get
-      {
-        return this._L12;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L12 != null)
-        {
-          this._L12.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L12 = value;
-        if (this._L12 != null)
-        {
-          this._L12.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L13
-    {
-      get
-      {
-        return this._L13;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L13 != null)
-        {
-          this._L13.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L13 = value;
-        if (this._L13 != null)
-        {
-          this._L13.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L14
-    {
-      get
-      {
-        return this._L14;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L14 != null)
-        {
-          this._L14.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L14 = value;
-        if (this._L14 != null)
-        {
-          this._L14.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L15
-    {
-      get
-      {
-        return this._L15;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L15 != null)
-        {
-          this._L15.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L15 = value;
-        if (this._L15 != null)
-        {
-          this._L15.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L16
-    {
-      get
-      {
-        return this._L16;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L16 != null)
-        {
-          this._L16.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L16 = value;
-        if (this._L16 != null)
-        {
-          this._L16.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L17
-    {
-      get
-      {
-        return this._L17;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L17 != null)
-        {
-          this._L17.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L17 = value;
-        if (this._L17 != null)
-        {
-          this._L17.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L18
-    {
-      get
-      {
-        return this._L18;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L18 != null)
-        {
-          this._L18.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L18 = value;
-        if (this._L18 != null)
-        {
-          this._L18.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L19
-    {
-      get
-      {
-        return this._L19;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L19 != null)
-        {
-        }
-        this._L19 = value;
-        if (this._L19 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label L2
-    {
-      get
-      {
-        return this._L2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L2 != null)
-        {
-          this._L2.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L2 = value;
-        if (this._L2 != null)
-        {
-          this._L2.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L3
-    {
-      get
-      {
-        return this._L3;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L3 != null)
-        {
-          this._L3.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L3 = value;
-        if (this._L3 != null)
-        {
-          this._L3.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L4
-    {
-      get
-      {
-        return this._L4;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L4 != null)
-        {
-          this._L4.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L4 = value;
-        if (this._L4 != null)
-        {
-          this._L4.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L5
-    {
-      get
-      {
-        return this._L5;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L5 != null)
-        {
-          this._L5.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L5 = value;
-        if (this._L5 != null)
-        {
-          this._L5.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L6
-    {
-      get
-      {
-        return this._L6;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L6 != null)
-        {
-          this._L6.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L6 = value;
-        if (this._L6 != null)
-        {
-          this._L6.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L7
-    {
-      get
-      {
-        return this._L7;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L7 != null)
-        {
-          this._L7.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L7 = value;
-        if (this._L7 != null)
-        {
-          this._L7.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L8
-    {
-      get
-      {
-        return this._L8;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L8 != null)
-        {
-          this._L8.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L8 = value;
-        if (this._L8 != null)
-        {
-          this._L8.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L9
-    {
-      get
-      {
-        return this._L9;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L9 != null)
-        {
-          this._L9.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L9 = value;
-        if (this._L9 != null)
-        {
-          this._L9.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label lblDigits
-    {
-      get
-      {
-        return this._lblDigits;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblDigits != null)
-        {
-        }
-        this._lblDigits = value;
-        if (this._lblDigits != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblFormat
-    {
-      get
-      {
-        return this._lblFormat;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblFormat != null)
-        {
-        }
-        this._lblFormat = value;
-        if (this._lblFormat != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblInfo
-    {
-      get
-      {
-        return this._lblInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblInfo != null)
-        {
-        }
-        this._lblInfo = value;
-        if (this._lblInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.ToolTip ToolTip
-    {
-      get
-      {
-        return this._ToolTip;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ToolTip != null)
-        {
-        }
-        this._ToolTip = value;
-        if (this._ToolTip != null)
-        {
-        }
-      }
-    }
-
-    internal virtual NumericUpDown txtDigits
-    {
-      get
-      {
-        return this._txtDigits;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtDigits != null)
-        {
-          this._txtDigits.Validated -= new EventHandler(this.txtDigits_Validated);
-        }
-        this._txtDigits = value;
-        if (this._txtDigits != null)
-        {
-          this._txtDigits.Validated += new EventHandler(this.txtDigits_Validated);
-        }
       }
     }
   }

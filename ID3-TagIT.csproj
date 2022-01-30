@@ -47,13 +47,32 @@
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <EmbeddedResource Include="ID3_TagIT\frmTransfer.resx">
-      <DependentUpon>frmTransfer.cs</DependentUpon>
-    </EmbeddedResource>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="SkySoftware.FolderView">
       <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\SkySoftware.FolderView.dll</HintPath>
     </Reference>
+    <EmbeddedResource Include="ID3_TagIT\frmCaseConv.resx">
+      <DependentUpon>frmCaseConv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmEncoding.resx">
+      <DependentUpon>frmEncoding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmFilenameToTAG1.resx">
+      <DependentUpon>frmFilenameToTAG1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmFreeDB.resx">
+      <DependentUpon>frmFreeDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmSearch.resx">
+      <DependentUpon>frmSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmTransfer.resx">
+      <DependentUpon>frmTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -221,7 +240,7 @@
     <EmbeddedResource Include="ID3_TagIT.frmLists.resources" />
     <EmbeddedResource Include="ID3_TagIT.frmFilenameToTAG2.resources" />
     <EmbeddedResource Include="ID3_TagIT.ComboBoxAutoComplete.resources" />
-    <EmbeddedResource Include="ID3_TagIT.ID3-TagIT.MenuBars.xml" />
+    <EmbeddedResource Include="ID3-TagIT.MenuBars.xml" />
     <EmbeddedResource Include="ID3_TagIT.frmSearch.resources" />
   </ItemGroup>
 </Project>

@@ -1,32 +1,131 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.ComponentModel;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.Runtime.CompilerServices;
-  using System.Windows.Forms;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class frmEncoding : Form
   {
-    [AccessedThroughProperty("btnCancel")]
-    private Button _btnCancel;
-    [AccessedThroughProperty("btnOK")]
-    private Button _btnOK;
-    [AccessedThroughProperty("cmbV23Enc")]
-    private ComboBox _cmbV23Enc;
-    [AccessedThroughProperty("cmbV24Enc")]
-    private ComboBox _cmbV24Enc;
-    [AccessedThroughProperty("lblTextEncInfo")]
-    private Label _lblTextEncInfo;
-    [AccessedThroughProperty("lblV23")]
-    private Label _lblV23;
-    [AccessedThroughProperty("lblV24")]
-    private Label _lblV24;
+    private Button btnCancel;
+    private Button btnOK;
+    private ComboBox cmbV23Enc;
+    private ComboBox cmbV24Enc;
+    private Label lblTextEncInfo;
+    private Label lblV23;
+    private Label lblV24;
     private IContainer components;
     private frmMain MainForm;
+
+    [DebuggerStepThrough]
+    private void InitializeComponent()
+    {
+      this.lblV24 = new System.Windows.Forms.Label();
+      this.lblV23 = new System.Windows.Forms.Label();
+      this.cmbV24Enc = new System.Windows.Forms.ComboBox();
+      this.btnCancel = new System.Windows.Forms.Button();
+      this.lblTextEncInfo = new System.Windows.Forms.Label();
+      this.cmbV23Enc = new System.Windows.Forms.ComboBox();
+      this.btnOK = new System.Windows.Forms.Button();
+      this.SuspendLayout();
+      // 
+      // lblV24
+      // 
+      this.lblV24.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblV24.Location = new System.Drawing.Point(8, 80);
+      this.lblV24.Name = "lblV24";
+      this.lblV24.Size = new System.Drawing.Size(168, 16);
+      this.lblV24.TabIndex = 104;
+      this.lblV24.Text = "Text encoding for TAG Ver. 2.4:";
+      // 
+      // lblV23
+      // 
+      this.lblV23.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblV23.Location = new System.Drawing.Point(8, 56);
+      this.lblV23.Name = "lblV23";
+      this.lblV23.Size = new System.Drawing.Size(168, 16);
+      this.lblV23.TabIndex = 102;
+      this.lblV23.Text = "Text encoding for TAG Ver. 2.3:";
+      // 
+      // cmbV24Enc
+      // 
+      this.cmbV24Enc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.cmbV24Enc.ItemHeight = 13;
+      this.cmbV24Enc.Items.AddRange(new object[] {
+            "ANSI-Encoding (Default)",
+            "UTF-16 (LE) Encoding with BOM (Default for Unicode Encoding)",
+            "UTF-16 (BE) Encoding without BOM",
+            "UTF-8 Encoding"});
+      this.cmbV24Enc.Location = new System.Drawing.Point(176, 80);
+      this.cmbV24Enc.Name = "cmbV24Enc";
+      this.cmbV24Enc.Size = new System.Drawing.Size(312, 21);
+      this.cmbV24Enc.TabIndex = 105;
+      // 
+      // btnCancel
+      // 
+      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+      this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCancel.Location = new System.Drawing.Point(368, 120);
+      this.btnCancel.Name = "btnCancel";
+      this.btnCancel.Size = new System.Drawing.Size(120, 24);
+      this.btnCancel.TabIndex = 108;
+      this.btnCancel.Text = "&Cancel";
+      // 
+      // lblTextEncInfo
+      // 
+      this.lblTextEncInfo.Location = new System.Drawing.Point(8, 8);
+      this.lblTextEncInfo.Name = "lblTextEncInfo";
+      this.lblTextEncInfo.Size = new System.Drawing.Size(480, 32);
+      this.lblTextEncInfo.TabIndex = 106;
+      this.lblTextEncInfo.Text = "This will change the text encoding of the TAG Ver. 2 frames of the selected files" +
+    " from ANSI to Unicode or vise versa.";
+      // 
+      // cmbV23Enc
+      // 
+      this.cmbV23Enc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.cmbV23Enc.ItemHeight = 13;
+      this.cmbV23Enc.Items.AddRange(new object[] {
+            "ANSI-Encoding (Default)",
+            "UTF-16 (LE) Encoding with BOM (Default for Unicode Encoding)"});
+      this.cmbV23Enc.Location = new System.Drawing.Point(176, 54);
+      this.cmbV23Enc.Name = "cmbV23Enc";
+      this.cmbV23Enc.Size = new System.Drawing.Size(312, 21);
+      this.cmbV23Enc.TabIndex = 103;
+      // 
+      // btnOK
+      // 
+      this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnOK.Location = new System.Drawing.Point(240, 120);
+      this.btnOK.Name = "btnOK";
+      this.btnOK.Size = new System.Drawing.Size(120, 24);
+      this.btnOK.TabIndex = 107;
+      this.btnOK.Text = "&OK";
+      this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+      // 
+      // frmEncoding
+      // 
+      this.AcceptButton = this.btnOK;
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+      this.CancelButton = this.btnCancel;
+      this.ClientSize = new System.Drawing.Size(496, 153);
+      this.ControlBox = false;
+      this.Controls.Add(this.lblV24);
+      this.Controls.Add(this.lblV23);
+      this.Controls.Add(this.cmbV24Enc);
+      this.Controls.Add(this.btnCancel);
+      this.Controls.Add(this.lblTextEncInfo);
+      this.Controls.Add(this.cmbV23Enc);
+      this.Controls.Add(this.btnOK);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
+      this.Name = "frmEncoding";
+      this.Text = "Change TAG Ver. 2 text encoding";
+      this.ResumeLayout(false);
+    }
 
     public frmEncoding(ref frmMain FormMain)
     {
@@ -133,9 +232,8 @@
     protected override void Dispose(bool disposing)
     {
       if (disposing && (this.components != null))
-      {
         this.components.Dispose();
-      }
+
       base.Dispose(disposing);
     }
 
@@ -149,232 +247,6 @@
       Main.WindowsXPCheck(ref objForm);
       this.cmbV23Enc.SelectedIndex = Declarations.objSettings.V23Encoding;
       this.cmbV24Enc.SelectedIndex = Declarations.objSettings.V24Encoding;
-    }
-
-    [DebuggerStepThrough]
-    private void InitializeComponent()
-    {
-      this.lblV24 = new Label();
-      this.lblV23 = new Label();
-      this.cmbV24Enc = new ComboBox();
-      this.btnCancel = new Button();
-      this.lblTextEncInfo = new Label();
-      this.cmbV23Enc = new ComboBox();
-      this.btnOK = new Button();
-      this.SuspendLayout();
-      this.lblV24.ImeMode = ImeMode.NoControl;
-      Point point = new Point(8, 80);
-      this.lblV24.Location = point;
-      this.lblV24.Name = "lblV24";
-      Size size = new Size(0xa8, 0x10);
-      this.lblV24.Size = size;
-      this.lblV24.TabIndex = 0x68;
-      this.lblV24.Text = "Text encoding for TAG Ver. 2.4:";
-      this.lblV23.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x38);
-      this.lblV23.Location = point;
-      this.lblV23.Name = "lblV23";
-      size = new Size(0xa8, 0x10);
-      this.lblV23.Size = size;
-      this.lblV23.TabIndex = 0x66;
-      this.lblV23.Text = "Text encoding for TAG Ver. 2.3:";
-      this.cmbV24Enc.DropDownStyle = ComboBoxStyle.DropDownList;
-      this.cmbV24Enc.ItemHeight = 13;
-      this.cmbV24Enc.Items.AddRange(new object[] { "ANSI-Encoding (Default)", "UTF-16 (LE) Encoding with BOM (Default for Unicode Encoding)", "UTF-16 (BE) Encoding without BOM", "UTF-8 Encoding" });
-      point = new Point(0xb0, 80);
-      this.cmbV24Enc.Location = point;
-      this.cmbV24Enc.Name = "cmbV24Enc";
-      size = new Size(0x138, 0x15);
-      this.cmbV24Enc.Size = size;
-      this.cmbV24Enc.TabIndex = 0x69;
-      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnCancel.ImeMode = ImeMode.NoControl;
-      point = new Point(0x170, 120);
-      this.btnCancel.Location = point;
-      this.btnCancel.Name = "btnCancel";
-      size = new Size(120, 0x18);
-      this.btnCancel.Size = size;
-      this.btnCancel.TabIndex = 0x6c;
-      this.btnCancel.Text = "&Cancel";
-      point = new Point(8, 8);
-      this.lblTextEncInfo.Location = point;
-      this.lblTextEncInfo.Name = "lblTextEncInfo";
-      size = new Size(480, 0x20);
-      this.lblTextEncInfo.Size = size;
-      this.lblTextEncInfo.TabIndex = 0x6a;
-      this.lblTextEncInfo.Text = "This will change the text encoding of the TAG Ver. 2 frames of the selected files from ANSI to Unicode or vise versa.";
-      this.cmbV23Enc.DropDownStyle = ComboBoxStyle.DropDownList;
-      this.cmbV23Enc.ItemHeight = 13;
-      this.cmbV23Enc.Items.AddRange(new object[] { "ANSI-Encoding (Default)", "UTF-16 (LE) Encoding with BOM (Default for Unicode Encoding)" });
-      point = new Point(0xb0, 0x36);
-      this.cmbV23Enc.Location = point;
-      this.cmbV23Enc.Name = "cmbV23Enc";
-      size = new Size(0x138, 0x15);
-      this.cmbV23Enc.Size = size;
-      this.cmbV23Enc.TabIndex = 0x67;
-      this.btnOK.ImeMode = ImeMode.NoControl;
-      point = new Point(240, 120);
-      this.btnOK.Location = point;
-      this.btnOK.Name = "btnOK";
-      size = new Size(120, 0x18);
-      this.btnOK.Size = size;
-      this.btnOK.TabIndex = 0x6b;
-      this.btnOK.Text = "&OK";
-      this.AcceptButton = this.btnOK;
-      size = new Size(5, 13);
-      this.AutoScaleBaseSize = size;
-      this.CancelButton = this.btnCancel;
-      size = new Size(0x1f0, 0x99);
-      this.ClientSize = size;
-      this.ControlBox = false;
-      this.Controls.Add(this.lblV24);
-      this.Controls.Add(this.lblV23);
-      this.Controls.Add(this.cmbV24Enc);
-      this.Controls.Add(this.btnCancel);
-      this.Controls.Add(this.lblTextEncInfo);
-      this.Controls.Add(this.cmbV23Enc);
-      this.Controls.Add(this.btnOK);
-      this.FormBorderStyle = FormBorderStyle.FixedDialog;
-      this.MaximizeBox = false;
-      this.MinimizeBox = false;
-      this.Name = "frmEncoding";
-      this.Text = "Change TAG Ver. 2 text encoding";
-      this.ResumeLayout(false);
-    }
-
-    internal virtual Button btnCancel
-    {
-      get
-      {
-        return this._btnCancel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnCancel != null)
-        {
-        }
-        this._btnCancel = value;
-        if (this._btnCancel != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Button btnOK
-    {
-      get
-      {
-        return this._btnOK;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click -= new EventHandler(this.btnOK_Click);
-        }
-        this._btnOK = value;
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click += new EventHandler(this.btnOK_Click);
-        }
-      }
-    }
-
-    internal virtual ComboBox cmbV23Enc
-    {
-      get
-      {
-        return this._cmbV23Enc;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbV23Enc != null)
-        {
-        }
-        this._cmbV23Enc = value;
-        if (this._cmbV23Enc != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ComboBox cmbV24Enc
-    {
-      get
-      {
-        return this._cmbV24Enc;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbV24Enc != null)
-        {
-        }
-        this._cmbV24Enc = value;
-        if (this._cmbV24Enc != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblTextEncInfo
-    {
-      get
-      {
-        return this._lblTextEncInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblTextEncInfo != null)
-        {
-        }
-        this._lblTextEncInfo = value;
-        if (this._lblTextEncInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblV23
-    {
-      get
-      {
-        return this._lblV23;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblV23 != null)
-        {
-        }
-        this._lblV23 = value;
-        if (this._lblV23 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblV24
-    {
-      get
-      {
-        return this._lblV24;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblV24 != null)
-        {
-        }
-        this._lblV24 = value;
-        if (this._lblV24 != null)
-        {
-        }
-      }
     }
   }
 }
