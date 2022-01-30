@@ -1,5 +1,4 @@
-﻿using AMS.TextBox;
-using DevComponents.DotNetBar;
+﻿using DevComponents.DotNetBar;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
@@ -9,7 +8,6 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
@@ -250,7 +248,7 @@ namespace ID3_TagIT
     private System.Windows.Forms.TextBox txtAudioFileURL;
     private System.Windows.Forms.TextBox txtAudioSRCURL;
     private System.Windows.Forms.TextBox txtBand;
-    private NumericTextBox txtBPM;
+    private MaskedTextBox txtBPM;
     private System.Windows.Forms.TextBox txtComment;
     private System.Windows.Forms.TextBox txtCOMMInfURL;
     private System.Windows.Forms.TextBox txtComposer;
@@ -277,8 +275,8 @@ namespace ID3_TagIT
     private System.Windows.Forms.TextBox txtPayURL;
     private System.Windows.Forms.TextBox txtPDescriptor;
     private System.Windows.Forms.TextBox txtPicPath;
-    private IntegerTextBox txtPOS1;
-    private IntegerTextBox txtPOS2;
+    private MaskedTextBox txtPOS1;
+    private MaskedTextBox txtPOS2;
     private System.Windows.Forms.TextBox txtPublisher;
     private System.Windows.Forms.TextBox txtPubURL;
     private NumericUpDown txtRatingCounter;
@@ -289,14 +287,14 @@ namespace ID3_TagIT
     private System.Windows.Forms.TextBox txtSortTitle;
     private System.Windows.Forms.TextBox txtSubTitle;
     private System.Windows.Forms.TextBox txtTitle;
-    private AMS.TextBox.MaskedTextBox txtTORY;
-    private IntegerTextBox txtTrack1;
-    private IntegerTextBox txtTrack2;
+    private MaskedTextBox txtTORY;
+    private MaskedTextBox txtTrack1;
+    private MaskedTextBox txtTrack2;
     private System.Windows.Forms.TextBox txtTXXXContent;
     private System.Windows.Forms.TextBox txtTXXXDesc;
     private System.Windows.Forms.TextBox txtWXXXContent;
     private System.Windows.Forms.TextBox txtWXXXDesc;
-    private AMS.TextBox.MaskedTextBox txtYear;
+    private MaskedTextBox txtYear;
     private ListView TXXXList;
     private ListView WXXXList;
     private HScrollBar YearFormat;
@@ -318,7 +316,7 @@ namespace ID3_TagIT
     {
       if (disposing && (this.components != null))
         this.components.Dispose();
-      
+
       base.Dispose(disposing);
     }
 
@@ -377,7 +375,7 @@ namespace ID3_TagIT
       this.lblLyWriter = new System.Windows.Forms.Label();
       this.panOriginal = new System.Windows.Forms.Panel();
       this.Panel6 = new System.Windows.Forms.Panel();
-      this.txtTORY = new AMS.TextBox.MaskedTextBox();
+      this.txtTORY = new System.Windows.Forms.MaskedTextBox();
       this.CheckBox39 = new System.Windows.Forms.CheckBox();
       this.lblOYearInfo = new System.Windows.Forms.Label();
       this.TORYFormat = new System.Windows.Forms.HScrollBar();
@@ -416,12 +414,12 @@ namespace ID3_TagIT
       this.colComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.colLanguage = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.Panel1 = new System.Windows.Forms.Panel();
-      this.txtPOS2 = new AMS.TextBox.IntegerTextBox();
-      this.txtPOS1 = new AMS.TextBox.IntegerTextBox();
-      this.txtTrack2 = new AMS.TextBox.IntegerTextBox();
-      this.txtTrack1 = new AMS.TextBox.IntegerTextBox();
-      this.txtYear = new AMS.TextBox.MaskedTextBox();
-      this.txtBPM = new AMS.TextBox.NumericTextBox();
+      this.txtPOS2 = new System.Windows.Forms.MaskedTextBox();
+      this.txtPOS1 = new System.Windows.Forms.MaskedTextBox();
+      this.txtTrack2 = new System.Windows.Forms.MaskedTextBox();
+      this.txtTrack1 = new System.Windows.Forms.MaskedTextBox();
+      this.txtYear = new System.Windows.Forms.MaskedTextBox();
+      this.txtBPM = new System.Windows.Forms.MaskedTextBox();
       this.cmbArtist = new ID3_TagIT.ComboBoxAutoComplete();
       this.CheckBox8 = new System.Windows.Forms.CheckBox();
       this.CheckBox7 = new System.Windows.Forms.CheckBox();
@@ -1178,7 +1176,6 @@ namespace ID3_TagIT
       // 
       // txtTORY
       // 
-      this.txtTORY.Flags = 0;
       this.txtTORY.Location = new System.Drawing.Point(168, 126);
       this.txtTORY.Mask = "####-##-##";
       this.txtTORY.Name = "txtTORY";
@@ -1582,83 +1579,54 @@ namespace ID3_TagIT
       // 
       // txtPOS2
       // 
-      this.txtPOS2.AllowNegative = false;
-      this.txtPOS2.DigitsInGroup = 0;
-      this.txtPOS2.Flags = 65536;
       this.txtPOS2.Location = new System.Drawing.Point(560, 102);
-      this.txtPOS2.MaxDecimalPlaces = 0;
-      this.txtPOS2.MaxLength = 6;
-      this.txtPOS2.MaxWholeDigits = 6;
+      this.txtPOS2.Mask = "00";
       this.txtPOS2.Name = "txtPOS2";
-      this.txtPOS2.Prefix = "";
-      this.txtPOS2.RangeMax = 999999D;
-      this.txtPOS2.RangeMin = 0D;
       this.txtPOS2.Size = new System.Drawing.Size(64, 20);
       this.txtPOS2.TabIndex = 26;
+      this.txtPOS2.ValidatingType = typeof(int);
       this.txtPOS2.TextChanged += new System.EventHandler(this.Select_TextChanged);
       this.txtPOS2.Enter += new System.EventHandler(this.Select_Enter);
       this.txtPOS2.Leave += new System.EventHandler(this.Select_Leave);
       // 
       // txtPOS1
       // 
-      this.txtPOS1.AllowNegative = false;
-      this.txtPOS1.DigitsInGroup = 0;
-      this.txtPOS1.Flags = 65536;
       this.txtPOS1.Location = new System.Drawing.Point(472, 102);
-      this.txtPOS1.MaxDecimalPlaces = 0;
-      this.txtPOS1.MaxLength = 6;
-      this.txtPOS1.MaxWholeDigits = 6;
+      this.txtPOS1.Mask = "00";
       this.txtPOS1.Name = "txtPOS1";
-      this.txtPOS1.Prefix = "";
-      this.txtPOS1.RangeMax = 999999D;
-      this.txtPOS1.RangeMin = 0D;
       this.txtPOS1.Size = new System.Drawing.Size(64, 20);
       this.txtPOS1.TabIndex = 25;
+      this.txtPOS1.ValidatingType = typeof(int);
       this.txtPOS1.TextChanged += new System.EventHandler(this.Select_TextChanged);
       this.txtPOS1.Enter += new System.EventHandler(this.Select_Enter);
       this.txtPOS1.Leave += new System.EventHandler(this.Select_Leave);
       // 
       // txtTrack2
       // 
-      this.txtTrack2.AllowNegative = false;
-      this.txtTrack2.DigitsInGroup = 0;
-      this.txtTrack2.Flags = 65536;
       this.txtTrack2.Location = new System.Drawing.Point(224, 102);
-      this.txtTrack2.MaxDecimalPlaces = 0;
-      this.txtTrack2.MaxLength = 6;
-      this.txtTrack2.MaxWholeDigits = 6;
+      this.txtTrack2.Mask = "00";
       this.txtTrack2.Name = "txtTrack2";
-      this.txtTrack2.Prefix = "";
-      this.txtTrack2.RangeMax = 999999D;
-      this.txtTrack2.RangeMin = 0D;
       this.txtTrack2.Size = new System.Drawing.Size(64, 20);
       this.txtTrack2.TabIndex = 23;
+      this.txtTrack2.ValidatingType = typeof(int);
       this.txtTrack2.TextChanged += new System.EventHandler(this.Select_TextChanged);
       this.txtTrack2.Enter += new System.EventHandler(this.Select_Enter);
       this.txtTrack2.Leave += new System.EventHandler(this.Select_Leave);
       // 
       // txtTrack1
       // 
-      this.txtTrack1.AllowNegative = false;
-      this.txtTrack1.DigitsInGroup = 0;
-      this.txtTrack1.Flags = 65536;
       this.txtTrack1.Location = new System.Drawing.Point(136, 102);
-      this.txtTrack1.MaxDecimalPlaces = 0;
-      this.txtTrack1.MaxLength = 6;
-      this.txtTrack1.MaxWholeDigits = 6;
+      this.txtTrack1.Mask = "00";
       this.txtTrack1.Name = "txtTrack1";
-      this.txtTrack1.Prefix = "";
-      this.txtTrack1.RangeMax = 999999D;
-      this.txtTrack1.RangeMin = 0D;
       this.txtTrack1.Size = new System.Drawing.Size(64, 20);
       this.txtTrack1.TabIndex = 22;
+      this.txtTrack1.ValidatingType = typeof(int);
       this.txtTrack1.TextChanged += new System.EventHandler(this.Select_TextChanged);
       this.txtTrack1.Enter += new System.EventHandler(this.Select_Enter);
       this.txtTrack1.Leave += new System.EventHandler(this.Select_Leave);
       // 
       // txtYear
       // 
-      this.txtYear.Flags = 0;
       this.txtYear.Location = new System.Drawing.Point(136, 78);
       this.txtYear.Mask = "####-##-##";
       this.txtYear.Name = "txtYear";
@@ -1670,19 +1638,12 @@ namespace ID3_TagIT
       // 
       // txtBPM
       // 
-      this.txtBPM.AllowNegative = false;
-      this.txtBPM.DigitsInGroup = 0;
-      this.txtBPM.Flags = 65536;
       this.txtBPM.Location = new System.Drawing.Point(472, 80);
-      this.txtBPM.MaxDecimalPlaces = 0;
-      this.txtBPM.MaxLength = 3;
-      this.txtBPM.MaxWholeDigits = 3;
+      this.txtBPM.Mask = "000";
       this.txtBPM.Name = "txtBPM";
-      this.txtBPM.Prefix = "";
-      this.txtBPM.RangeMax = 999999D;
-      this.txtBPM.RangeMin = 1D;
       this.txtBPM.Size = new System.Drawing.Size(152, 20);
       this.txtBPM.TabIndex = 19;
+      this.txtBPM.ValidatingType = typeof(int);
       this.txtBPM.TextChanged += new System.EventHandler(this.Select_TextChanged);
       this.txtBPM.Enter += new System.EventHandler(this.Select_Enter);
       this.txtBPM.Leave += new System.EventHandler(this.Select_Leave);
@@ -3652,13 +3613,13 @@ namespace ID3_TagIT
       this.ClientSize = new System.Drawing.Size(858, 576);
       this.ControlBox = false;
       this.Controls.Add(this.panMain);
+      this.Controls.Add(this.panOriginal);
       this.Controls.Add(this.panLyrics);
       this.Controls.Add(this.panPic);
       this.Controls.Add(this.panRating);
       this.Controls.Add(this.panInvolved);
       this.Controls.Add(this.panWeb);
       this.Controls.Add(this.panUser);
-      this.Controls.Add(this.panOriginal);
       this.Controls.Add(this.panDetail);
       this.Controls.Add(this.TopPanel);
       this.Controls.Add(this.ButtomPanel);
@@ -3717,6 +3678,26 @@ namespace ID3_TagIT
       this.ResumeLayout(false);
 
     }
+
+    //this.txtPOS2.AllowNegative = false;
+    //this.txtPOS2.DigitsInGroup = 0;
+    //this.txtPOS2.Flags = 65536;
+    //this.txtPOS2.MaxDecimalPlaces = 0;
+    //this.txtPOS2.MaxWholeDigits = 6;
+    //this.txtPOS2.Prefix = "";
+    //this.txtPOS2.RangeMax = 999999D;
+    //this.txtPOS2.RangeMin = 0D;
+    //this.txtPOS1.AllowNegative = false;
+    //this.txtPOS1.DigitsInGroup = 0;
+    //this.txtPOS1.Flags = 65536;
+    //this.txtPOS1.MaxDecimalPlaces = 0;
+    //this.txtPOS1.MaxWholeDigits = 6;
+    //this.txtPOS1.Prefix = "";
+    //this.txtPOS1.RangeMax = 999999D;
+    //this.txtPOS1.RangeMin = 0D;
+
+    //this.txtPOS1.ModifyFlags(0x10, true);
+    //this.txtPOS2.ModifyFlags(0x10, true);
 
     public frmTAG2Multi(ref frmMain FormMain)
     {
@@ -4565,11 +4546,6 @@ namespace ID3_TagIT
         this.CheckBox38.Visible = true;
       }
       this.FillForm();
-      this.txtBPM.ModifyFlags(0x10, true);
-      this.txtTrack1.ModifyFlags(0x10, true);
-      this.txtTrack2.ModifyFlags(0x10, true);
-      this.txtPOS1.ModifyFlags(0x10, true);
-      this.txtPOS2.ModifyFlags(0x10, true);
       this.AddSelectionBar();
       this.AddToolTips();
       this.AddColumnText();
@@ -5893,114 +5869,117 @@ namespace ID3_TagIT
 
     private void Select_Leave(object sender, EventArgs e)
     {
-      AMS.TextBox.MaskedTextBox txtYear;
-      if (((sender == this.txtRatingCounter) | (sender == this.txtRatingRating)) && (ObjectType.ObjTst(LateBinding.LateGet(sender, null, "Text", new object[0], null, null), "", false) == 0))
-      {
+      MaskedTextBox tmpYear;
+
+      if (((sender == this.txtRatingCounter) |
+        (sender == this.txtRatingRating)) &&
+        (ObjectType.ObjTst(LateBinding.LateGet(sender, null, "Text", new object[0], null, null), "", false) == 0))
         LateBinding.LateSet(sender, null, "Text", new object[] { "0" }, null);
-      }
+
       if (sender == this.txtYear)
       {
         switch (this.YearFormat.Value)
         {
           case 0:
-            this.txtYear.Mask = "####";
+            this.txtYear.Mask = "0000";
             break;
 
           case 1:
-            this.txtYear.Mask = "####-##";
+            this.txtYear.Mask = "0000-00";
+
             if (this.txtYear.Text.Length < 7)
             {
               string str = DateTime.Now.Year.ToString() + "-01";
-              txtYear = this.txtYear;
-              txtYear.Text = txtYear.Text + str.Substring(this.txtYear.Text.Length);
+              tmpYear = this.txtYear;
+              tmpYear.Text = tmpYear.Text + str.Substring(this.txtYear.Text.Length);
             }
+
             if ((Conversion.Val(this.txtYear.Text.Substring(5, 2)) > 12.0) | (Conversion.Val(this.txtYear.Text.Substring(5, 2)) < 1.0))
-            {
               this.txtYear.Text = this.txtYear.Text.Substring(0, 4) + "-01";
-            }
+
             break;
 
           case 2:
-            this.txtYear.Mask = "####-##-##";
+            this.txtYear.Mask = "0000-00-00";
+
             if (this.txtYear.Text.Length < 10)
             {
               string str2 = DateTime.Now.Year.ToString() + "-01-01";
-              txtYear = this.txtYear;
-              txtYear.Text = txtYear.Text + str2.Substring(this.txtYear.Text.Length);
+              tmpYear = this.txtYear;
+              tmpYear.Text = tmpYear.Text + str2.Substring(this.txtYear.Text.Length);
             }
+
             if ((Conversion.Val(this.txtYear.Text.Substring(5, 2)) > 12.0) | (Conversion.Val(this.txtYear.Text.Substring(5, 2)) < 1.0))
-            {
               this.txtYear.Text = this.txtYear.Text.Substring(0, 4) + "-01" + this.txtYear.Text.Substring(7);
-            }
+
             if ((Conversion.Val(this.txtYear.Text.Substring(8, 2)) > 31.0) | (Conversion.Val(this.txtYear.Text.Substring(8, 2)) < 1.0))
-            {
               this.txtYear.Text = this.txtYear.Text.Substring(0, 7) + "-01";
-            }
+
             break;
         }
+
         this.txtYear.Text.TrimStart(new char[] { '0' });
+
         if (this.txtYear.Text.Length < 4)
-        {
           this.txtYear.Text = this.txtYear.Text.PadLeft(4, '0');
-        }
+
         if (Conversion.Val(this.txtYear.Text.Substring(0, 4)) <= 0.0)
-        {
           this.txtYear.Text = "";
-        }
       }
+
       if (sender == this.txtTORY)
       {
         switch (this.TORYFormat.Value)
         {
           case 0:
             this.txtTORY.Mask = "####";
+
             if (this.txtTORY.Text.Length < 4)
-            {
               this.txtTORY.Text = this.txtTORY.Text.PadRight(4, '0');
-            }
+
             break;
 
           case 1:
             this.txtTORY.Mask = "####-##";
+
             if (this.txtTORY.Text.Length < 7)
             {
               string str3 = DateTime.Now.Year.ToString() + "-01";
-              txtYear = this.txtTORY;
-              txtYear.Text = txtYear.Text + str3.Substring(this.txtTORY.Text.Length);
+              tmpYear = this.txtTORY;
+              tmpYear.Text = tmpYear.Text + str3.Substring(this.txtTORY.Text.Length);
             }
+
             if ((Conversion.Val(this.txtTORY.Text.Substring(5, 2)) > 12.0) | (Conversion.Val(this.txtTORY.Text.Substring(5, 2)) < 1.0))
-            {
               this.txtTORY.Text = this.txtTORY.Text.Substring(0, 4) + "-01";
-            }
+
             break;
 
           case 2:
             this.txtTORY.Mask = "####-##-##";
+
             if (this.txtTORY.Text.Length < 10)
             {
               string str4 = DateTime.Now.Year.ToString() + "-01-01";
-              txtYear = this.txtTORY;
-              txtYear.Text = txtYear.Text + str4.Substring(this.txtTORY.Text.Length);
+              tmpYear = this.txtTORY;
+              tmpYear.Text = tmpYear.Text + str4.Substring(this.txtTORY.Text.Length);
             }
+
             if ((Conversion.Val(this.txtTORY.Text.Substring(5, 2)) > 12.0) | (Conversion.Val(this.txtTORY.Text.Substring(5, 2)) < 1.0))
-            {
               this.txtTORY.Text = this.txtTORY.Text.Substring(0, 4) + "-01" + this.txtTORY.Text.Substring(7);
-            }
+
             if ((Conversion.Val(this.txtTORY.Text.Substring(8, 2)) > 31.0) | (Conversion.Val(this.txtTORY.Text.Substring(8, 2)) < 1.0))
-            {
               this.txtTORY.Text = this.txtTORY.Text.Substring(0, 7) + "-01";
-            }
+
             break;
         }
+
         this.txtTORY.Text.TrimStart(new char[] { '0' });
+
         if (this.txtTORY.Text.Length < 4)
-        {
           this.txtTORY.Text = this.txtTORY.Text.PadLeft(4, '0');
-        }
+
         if (Conversion.Val(this.txtTORY.Text.Substring(0, 4)) <= 0.0)
-        {
           this.txtTORY.Text = "";
-        }
       }
     }
 
@@ -6185,31 +6164,36 @@ namespace ID3_TagIT
 
     private void TORYFormat_Scroll(object sender, ScrollEventArgs e)
     {
-      AMS.TextBox.MaskedTextBox txtTORY;
+      MaskedTextBox tmpTORY;
+
       switch (this.TORYFormat.Value)
       {
         case 0:
-          this.txtTORY.Mask = "####";
+          this.txtTORY.Mask = "0000";
           break;
 
         case 1:
-          this.txtTORY.Mask = "####-##";
+          this.txtTORY.Mask = "0000-00";
+
           if (this.txtTORY.Text.Length < 7)
           {
             string str = DateTime.Now.Year.ToString() + "-01";
-            txtTORY = this.txtTORY;
-            txtTORY.Text = txtTORY.Text + str.Substring(this.txtTORY.Text.Length);
+            tmpTORY = this.txtTORY;
+            tmpTORY.Text = tmpTORY.Text + str.Substring(this.txtTORY.Text.Length);
           }
+
           break;
 
         case 2:
-          this.txtTORY.Mask = "####-##-##";
+          this.txtTORY.Mask = "0000-00-00";
+
           if (this.txtTORY.Text.Length < 10)
           {
             string str2 = DateTime.Now.Year.ToString() + "-01-01";
-            txtTORY = this.txtTORY;
-            txtTORY.Text = txtTORY.Text + str2.Substring(this.txtTORY.Text.Length);
+            tmpTORY = this.txtTORY;
+            tmpTORY.Text = tmpTORY.Text + str2.Substring(this.txtTORY.Text.Length);
           }
+
           break;
       }
     }
@@ -6234,31 +6218,36 @@ namespace ID3_TagIT
 
     private void YearFormat_Scroll(object sender, ScrollEventArgs e)
     {
-      AMS.TextBox.MaskedTextBox txtYear;
+      MaskedTextBox tmpYear;
+
       switch (this.YearFormat.Value)
       {
         case 0:
-          this.txtYear.Mask = "####";
+          this.txtYear.Mask = "0000";
           break;
 
         case 1:
-          this.txtYear.Mask = "####-##";
+          this.txtYear.Mask = "0000-00";
+
           if (this.txtYear.Text.Length < 7)
           {
             string str = DateTime.Now.Year.ToString() + "-01";
-            txtYear = this.txtYear;
-            txtYear.Text = txtYear.Text + str.Substring(this.txtYear.Text.Length);
+            tmpYear = this.txtYear;
+            tmpYear.Text = tmpYear.Text + str.Substring(this.txtYear.Text.Length);
           }
+
           break;
 
         case 2:
-          this.txtYear.Mask = "####-##-##";
-          if (this.txtYear.Text.Length < 10)
+          this.txtYear.Mask = "0000-00-00";
+
+            if (this.txtYear.Text.Length < 10)
           {
             string str2 = DateTime.Now.Year.ToString() + "-01-01";
-            txtYear = this.txtYear;
-            txtYear.Text = txtYear.Text + str2.Substring(this.txtYear.Text.Length);
+            tmpYear = this.txtYear;
+            tmpYear.Text = tmpYear.Text + str2.Substring(this.txtYear.Text.Length);
           }
+
           break;
       }
     }
@@ -6399,27 +6388,27 @@ namespace ID3_TagIT
       this.ToolTip.SetToolTip(this.chkTLEN, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtPOS2;
-      this.txtPOS2 = (IntegerTextBox)cmbCDescriptor;
+      this.txtPOS2 = (MaskedTextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtPOS2, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtPOS1;
-      this.txtPOS1 = (IntegerTextBox)cmbCDescriptor;
+      this.txtPOS1 = (MaskedTextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtPOS1, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtTrack2;
-      this.txtTrack2 = (IntegerTextBox)cmbCDescriptor;
+      this.txtTrack2 = (MaskedTextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtTrack2, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtTrack1;
-      this.txtTrack1 = (IntegerTextBox)cmbCDescriptor;
+      this.txtTrack1 = (MaskedTextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtTrack1, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtYear;
-      this.txtYear = (AMS.TextBox.MaskedTextBox)cmbCDescriptor;
+      this.txtYear = (MaskedTextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtYear, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtBPM;
-      this.txtBPM = (NumericTextBox)cmbCDescriptor;
+      this.txtBPM = (MaskedTextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtBPM, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.cmbArtist;
@@ -6499,7 +6488,7 @@ namespace ID3_TagIT
       this.ToolTip.SetToolTip(this.txtSortAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtTORY;
-      this.txtTORY = (AMS.TextBox.MaskedTextBox)cmbCDescriptor;
+      this.txtTORY = (MaskedTextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtTORY, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox39;
