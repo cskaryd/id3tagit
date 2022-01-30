@@ -487,7 +487,7 @@ namespace ID3_TagIT
     private void btnOK_Click(object sender, EventArgs e)
     {
       Form form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
       this.SaveToTAG();
       this.Close();
     }
@@ -641,9 +641,9 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       foreach (DataRow row in Declarations.objSettings.Artists.Rows)
       {
         this.cmbArtist.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
@@ -668,7 +668,6 @@ namespace ID3_TagIT
 
     private void Multi1CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
       {
         object obj2;
@@ -867,7 +866,7 @@ namespace ID3_TagIT
         this.MainForm.UnDoEnable(true, true);
       }
       ownerForm = this;
-      Main.SaveFormSettings(ref ownerForm);
+      Id3TagIT_Main.SaveFormSettings(ref ownerForm);
       this.Close();
     }
 

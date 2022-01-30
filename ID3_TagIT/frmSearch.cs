@@ -450,7 +450,7 @@ namespace ID3_TagIT
     private void btnClose_Click(object sender, EventArgs e)
     {
       Form form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
       Declarations.objSettings.SearchSearchText = this.txtSearch.Text;
       Declarations.objSettings.SearchReplaceText = this.txtReplace.Text;
       Declarations.objSettings.SearchVer1 = this.chkVer1.Checked;
@@ -659,9 +659,9 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.txtSearch.Text = Declarations.objSettings.SearchSearchText;
       this.txtReplace.Text = Declarations.objSettings.SearchReplaceText;
       this.chkVer1.Checked = Declarations.objSettings.SearchVer1;

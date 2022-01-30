@@ -254,7 +254,7 @@
       int num = 0;
       this.ColumnsList.Columns.Add("Name", this.ColumnsList.Width - 0x19, HorizontalAlignment.Left);
 
-      foreach (int num3 in Main.GetColumnOrder(this.MainForm.MP3View))
+      foreach (int num3 in Id3TagIT_Main.GetColumnOrder(this.MainForm.MP3View))
       {
         ListViewItem item2 = new ListViewItem();
         ArrayList list = new ArrayList();
@@ -850,7 +850,7 @@
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.ColorChangedBack.FlatStyle = FlatStyle.Flat;
       this.ColorChangedText.FlatStyle = FlatStyle.Flat;
       this.ColorDoubleBack.FlatStyle = FlatStyle.Flat;

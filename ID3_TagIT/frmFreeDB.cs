@@ -457,10 +457,10 @@ namespace ID3_TagIT
         case ID3_TagIT.FreeDB.FreeDBQueryResult.FoundInexactMatches:
           foreach (ID3_TagIT.FreeDB.FreeDBQueryItem item in returnedMatches)
           {
-            string str;
-            string str2;
+            string str = null;
+            string str2 = null;
             string str5;
-            string str6;
+            string str6 = null;
             Application.DoEvents();
             if (this.vbooCancel)
             {
@@ -488,13 +488,11 @@ namespace ID3_TagIT
                   Text = str.Trim(new char[] { ' ' }),
                   Tag = result
                 };
-                using (IEnumerator enumerator2 = returnedTracks.GetEnumerator())
+                var enumerator2 = returnedTracks.GetEnumerator();
+                while (enumerator2.MoveNext())
                 {
-                  while (enumerator2.MoveNext())
-                  {
-                    str5 = StringType.FromObject(enumerator2.Current);
-                    node2.Nodes.Add(str5.Trim(new char[] { ' ' }));
-                  }
+                  str5 = StringType.FromObject(enumerator2.Current);
+                  node2.Nodes.Add(str5.Trim(new char[] { ' ' }));
                 }
                 if (returnedTracks.Count > 0)
                 {
@@ -505,9 +503,7 @@ namespace ID3_TagIT
                 node3.Expand();
               }
               if (flag2)
-              {
                 break;
-              }
             }
             if (!flag2)
             {
@@ -520,13 +516,11 @@ namespace ID3_TagIT
                 Text = str.Trim(new char[] { ' ' }),
                 Tag = result
               };
-              using (IEnumerator enumerator = returnedTracks.GetEnumerator())
+              var enumerator = returnedTracks.GetEnumerator();
+              while (enumerator.MoveNext())
               {
-                while (enumerator.MoveNext())
-                {
-                  str5 = StringType.FromObject(enumerator.Current);
-                  node4.Nodes.Add(str5.Trim(new char[] { ' ' }));
-                }
+                str5 = StringType.FromObject(enumerator.Current);
+                node4.Nodes.Add(str5.Trim(new char[] { ' ' }));
               }
               if (returnedTracks.Count > 0)
               {
@@ -620,120 +614,53 @@ namespace ID3_TagIT
       this.Status.Text = StringType.FromObject(Declarations.objResources.ResStrings["Querying"]);
       bool flag2 = false;
       this.ResultTree.Nodes.Clear();
-      using (IEnumerator enumerator6 = list.GetEnumerator())
+      var enumerator6 = list.GetEnumerator();
+      while (enumerator6.MoveNext())
       {
-        while (enumerator6.MoveNext())
+        string str2 = null;
+        string str3 = null;
+        string str8 = null;
+        string str4 = StringType.FromObject(enumerator6.Current);
+        Application.DoEvents();
+        if (this.vbooCancel)
         {
-          string str2;
-          string str3;
-          string str8;
-          string str4 = StringType.FromObject(enumerator6.Current);
-          Application.DoEvents();
-          if (this.vbooCancel)
+          this.vbooCancel = false;
+          goto Label_0903;
+        }
+        ArrayList returnedTracks = new ArrayList();
+        str5 = this.FreeDB.HTMLRead(str4.Substring(0, str4.IndexOf("&")), str4.Substring(str4.IndexOf("&") + 4), ref str3, ref str2, ref returnedTracks, ref str8) + "\r\n";
+        bool flag = false;
+        if ((((this.chkArtistExact.Checked & (StringType.StrCmp(str3.ToLower(), this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower(), false) == 0)) | this.chkArtist.Checked) | this.chkTitle.Checked) | this.chkTrack.Checked)
+        {
+          string str6;
+          Result result = new Result
           {
-            this.vbooCancel = false;
-            goto Label_0903;
-          }
-          ArrayList returnedTracks = new ArrayList();
-          str5 = this.FreeDB.HTMLRead(str4.Substring(0, str4.IndexOf("&")), str4.Substring(str4.IndexOf("&") + 4), ref str3, ref str2, ref returnedTracks, ref str8) + "\r\n";
-          bool flag = false;
-          if ((((this.chkArtistExact.Checked & (StringType.StrCmp(str3.ToLower(), this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower(), false) == 0)) | this.chkArtist.Checked) | this.chkTitle.Checked) | this.chkTrack.Checked)
+            Artist = str3,
+            Album = str2,
+            Tracks = (ArrayList)returnedTracks.Clone(),
+            Year = str8,
+            Genre = Strings.StrConv(str4.Substring(0, str4.IndexOf("&")), VbStrConv.ProperCase, 0)
+          };
+          bool flag3 = false;
+          foreach (TreeNode node2 in this.ResultTree.Nodes)
           {
-            string str6;
-            Result result = new Result
+            if (StringType.StrCmp(node2.Text, str3.Trim(new char[] { ' ' }), false) == 0)
             {
-              Artist = str3,
-              Album = str2,
-              Tracks = (ArrayList)returnedTracks.Clone(),
-              Year = str8,
-              Genre = Strings.StrConv(str4.Substring(0, str4.IndexOf("&")), VbStrConv.ProperCase, 0)
-            };
-            bool flag3 = false;
-            foreach (TreeNode node2 in this.ResultTree.Nodes)
-            {
-              if (StringType.StrCmp(node2.Text, str3.Trim(new char[] { ' ' }), false) == 0)
-              {
-                TreeNode node4 = node2;
-                TreeNode node3 = new TreeNode
-                {
-                  Text = str2.Trim(new char[] { ' ' }),
-                  Tag = result
-                };
-                using (IEnumerator enumerator4 = returnedTracks.GetEnumerator())
-                {
-                  while (enumerator4.MoveNext())
-                  {
-                    str6 = StringType.FromObject(enumerator4.Current);
-                    node3.Nodes.Add(str6.Trim(new char[] { ' ' }));
-                  }
-                }
-                if (returnedTracks.Count > 0)
-                {
-                  flag3 = true;
-                  if (this.chkComplete.Checked)
-                  {
-                    if (this.chkArtist.Checked & (str3.ToLower().Trim(new char[] { ' ' }).IndexOf(this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower()) >= 0))
-                    {
-                      flag = true;
-                    }
-                    if (this.chkTitle.Checked & (str2.ToLower().Trim(new char[] { ' ' }).IndexOf(this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower()) >= 0))
-                    {
-                      flag = true;
-                    }
-                    if (this.chkTrack.Checked)
-                    {
-                      foreach (TreeNode node in node3.Nodes)
-                      {
-                        if (flag)
-                        {
-                          break;
-                        }
-                        if (node.Text.ToLower().Trim(new char[] { ' ' }).IndexOf(this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower()) >= 0)
-                        {
-                          flag = true;
-                        }
-                      }
-                    }
-                    if (flag)
-                    {
-                      node4.Nodes.Add(node3);
-                      flag2 = true;
-                    }
-                  }
-                  else
-                  {
-                    node4.Nodes.Add(node3);
-                    flag2 = true;
-                  }
-                }
-                node4.Expand();
-              }
-              if (flag3)
-              {
-                break;
-              }
-            }
-            if (!flag3)
-            {
-              TreeNode node6 = new TreeNode
-              {
-                Text = str3.Trim(new char[] { ' ' })
-              };
-              TreeNode node5 = new TreeNode
+              TreeNode node4 = node2;
+              TreeNode node3 = new TreeNode
               {
                 Text = str2.Trim(new char[] { ' ' }),
                 Tag = result
               };
-              using (IEnumerator enumerator2 = returnedTracks.GetEnumerator())
+              var enumerator4 = returnedTracks.GetEnumerator();
+              while (enumerator4.MoveNext())
               {
-                while (enumerator2.MoveNext())
-                {
-                  str6 = StringType.FromObject(enumerator2.Current);
-                  node5.Nodes.Add(str6.Trim(new char[] { ' ' }));
-                }
+                str6 = StringType.FromObject(enumerator4.Current);
+                node3.Nodes.Add(str6.Trim(new char[] { ' ' }));
               }
               if (returnedTracks.Count > 0)
               {
+                flag3 = true;
                 if (this.chkComplete.Checked)
                 {
                   if (this.chkArtist.Checked & (str3.ToLower().Trim(new char[] { ' ' }).IndexOf(this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower()) >= 0))
@@ -746,7 +673,7 @@ namespace ID3_TagIT
                   }
                   if (this.chkTrack.Checked)
                   {
-                    foreach (TreeNode node in node5.Nodes)
+                    foreach (TreeNode node in node3.Nodes)
                     {
                       if (flag)
                       {
@@ -760,20 +687,81 @@ namespace ID3_TagIT
                   }
                   if (flag)
                   {
-                    node6.Nodes.Add(node5);
-                    this.ResultTree.Nodes.Add(node6);
+                    node4.Nodes.Add(node3);
                     flag2 = true;
                   }
                 }
                 else
+                {
+                  node4.Nodes.Add(node3);
+                  flag2 = true;
+                }
+              }
+              node4.Expand();
+            }
+            if (flag3)
+            {
+              break;
+            }
+          }
+          if (!flag3)
+          {
+            TreeNode node6 = new TreeNode
+            {
+              Text = str3.Trim(new char[] { ' ' })
+            };
+            TreeNode node5 = new TreeNode
+            {
+              Text = str2.Trim(new char[] { ' ' }),
+              Tag = result
+            };
+            var enumerator2 = returnedTracks.GetEnumerator();
+            while (enumerator2.MoveNext())
+            {
+              str6 = StringType.FromObject(enumerator2.Current);
+              node5.Nodes.Add(str6.Trim(new char[] { ' ' }));
+            }
+            if (returnedTracks.Count > 0)
+            {
+              if (this.chkComplete.Checked)
+              {
+                if (this.chkArtist.Checked & (str3.ToLower().Trim(new char[] { ' ' }).IndexOf(this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower()) >= 0))
+                {
+                  flag = true;
+                }
+                if (this.chkTitle.Checked & (str2.ToLower().Trim(new char[] { ' ' }).IndexOf(this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower()) >= 0))
+                {
+                  flag = true;
+                }
+                if (this.chkTrack.Checked)
+                {
+                  foreach (TreeNode node in node5.Nodes)
+                  {
+                    if (flag)
+                    {
+                      break;
+                    }
+                    if (node.Text.ToLower().Trim(new char[] { ' ' }).IndexOf(this.txtSearch.Text.Trim(new char[] { ' ' }).ToLower()) >= 0)
+                    {
+                      flag = true;
+                    }
+                  }
+                }
+                if (flag)
                 {
                   node6.Nodes.Add(node5);
                   this.ResultTree.Nodes.Add(node6);
                   flag2 = true;
                 }
               }
-              node6.Expand();
+              else
+              {
+                node6.Nodes.Add(node5);
+                this.ResultTree.Nodes.Add(node6);
+                flag2 = true;
+              }
             }
+            node6.Expand();
           }
         }
       }
@@ -798,7 +786,7 @@ namespace ID3_TagIT
     {
       ArrayList list = new ArrayList();
       Form form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
       Declarations.objSettings.FreeDBSingleArtist = this.optSingleArtist.Checked;
       Declarations.objSettings.FreeDBWrite1 = this.chkWrite1.Checked;
       Declarations.objSettings.FreeDBWrite2 = this.chkWrite2.Checked;
@@ -838,13 +826,11 @@ namespace ID3_TagIT
           {
             LateBinding.LateCall(associate.lvwFiles.Items, null, "Add", new object[] { RuntimeHelpers.GetObjectValue(item.Clone()) }, null, null);
           }
-          using (IEnumerator enumerator2 = ((IEnumerable)LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Tracks", new object[0], null, null)).GetEnumerator())
+          var enumerator2 = ((IEnumerable)LateBinding.LateGet(this.ResultTree.SelectedNode.Tag, null, "Tracks", new object[0], null, null)).GetEnumerator();
+          while (enumerator2.MoveNext())
           {
-            while (enumerator2.MoveNext())
-            {
-              string text = StringType.FromObject(enumerator2.Current);
-              associate.lvwFreeDB.Items.Add(text);
-            }
+            string text = StringType.FromObject(enumerator2.Current);
+            associate.lvwFreeDB.Items.Add(text);
           }
           if (associate.lvwFiles.Items.Count < associate.lvwFreeDB.Items.Count)
           {
@@ -1280,9 +1266,9 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.optSingleArtist.Checked = Declarations.objSettings.FreeDBSingleArtist;
       this.optVariousArtist.Checked = !Declarations.objSettings.FreeDBSingleArtist;
       this.chkWrite1.Checked = Declarations.objSettings.FreeDBWrite1;

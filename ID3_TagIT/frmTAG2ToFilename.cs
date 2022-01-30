@@ -1,90 +1,518 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.ComponentModel;
-  using System.Data;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.Runtime.CompilerServices;
-  using System.Windows.Forms;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class frmTAG2ToFilename : Form
   {
-    [AccessedThroughProperty("btnAdd")]
-    private Button _btnAdd;
-    [AccessedThroughProperty("btnCancel")]
-    private Button _btnCancel;
-    [AccessedThroughProperty("btnOK")]
-    private Button _btnOK;
-    [AccessedThroughProperty("btnRemove")]
-    private Button _btnRemove;
-    [AccessedThroughProperty("chkRebuildName")]
-    private CheckBox _chkRebuildName;
-    [AccessedThroughProperty("cmbFormat")]
-    private ComboBox _cmbFormat;
-    [AccessedThroughProperty("framePara")]
-    private GroupBox _framePara;
-    [AccessedThroughProperty("L1")]
-    private Label _L1;
-    [AccessedThroughProperty("L10")]
-    private Label _L10;
-    [AccessedThroughProperty("L11")]
-    private Label _L11;
-    [AccessedThroughProperty("L12")]
-    private Label _L12;
-    [AccessedThroughProperty("L13")]
-    private Label _L13;
-    [AccessedThroughProperty("L14")]
-    private Label _L14;
-    [AccessedThroughProperty("L15")]
-    private Label _L15;
-    [AccessedThroughProperty("L16")]
-    private Label _L16;
-    [AccessedThroughProperty("L17")]
-    private Label _L17;
-    [AccessedThroughProperty("L18")]
-    private Label _L18;
-    [AccessedThroughProperty("L19")]
-    private Label _L19;
-    [AccessedThroughProperty("L2")]
-    private Label _L2;
-    [AccessedThroughProperty("L3")]
-    private Label _L3;
-    [AccessedThroughProperty("L4")]
-    private Label _L4;
-    [AccessedThroughProperty("L5")]
-    private Label _L5;
-    [AccessedThroughProperty("L6")]
-    private Label _L6;
-    [AccessedThroughProperty("L7")]
-    private Label _L7;
-    [AccessedThroughProperty("L8")]
-    private Label _L8;
-    [AccessedThroughProperty("L9")]
-    private Label _L9;
-    [AccessedThroughProperty("lbl1")]
-    private Label _lbl1;
-    [AccessedThroughProperty("lbl2")]
-    private Label _lbl2;
-    [AccessedThroughProperty("lblDigits")]
-    private Label _lblDigits;
-    [AccessedThroughProperty("lblFormat")]
-    private Label _lblFormat;
-    [AccessedThroughProperty("lblInfo")]
-    private Label _lblInfo;
-    [AccessedThroughProperty("ToolTip")]
-    private System.Windows.Forms.ToolTip _ToolTip;
-    [AccessedThroughProperty("txtDigits")]
-    private NumericUpDown _txtDigits;
-    [AccessedThroughProperty("txtFDigits")]
-    private NumericUpDown _txtFDigits;
-    [AccessedThroughProperty("txtStartNr")]
-    private NumericUpDown _txtStartNr;
+    private Button btnAdd;
+    private Button btnCancel;
+    private Button btnOK;
+    private Button btnRemove;
+    private CheckBox chkRebuildName;
+    private ComboBox cmbFormat;
+    private GroupBox framePara;
+    private Label L1;
+    private Label L10;
+    private Label L11;
+    private Label L12;
+    private Label L13;
+    private Label L14;
+    private Label L15;
+    private Label L16;
+    private Label L17;
+    private Label L18;
+    private Label L19;
+    private Label L2;
+    private Label L3;
+    private Label L4;
+    private Label L5;
+    private Label L6;
+    private Label L7;
+    private Label L8;
+    private Label L9;
+    private Label lbl1;
+    private Label lbl2;
+    private Label lblDigits;
+    private Label lblFormat;
+    private Label lblInfo;
+    private System.Windows.Forms.ToolTip ToolTip;
+    private NumericUpDown txtDigits;
+    private NumericUpDown txtFDigits;
+    private NumericUpDown txtStartNr;
     private IContainer components;
     private frmMain MainForm;
+
+    [DebuggerStepThrough]
+    private void InitializeComponent()
+    {
+      this.components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTAG2ToFilename));
+      this.lblInfo = new System.Windows.Forms.Label();
+      this.lblDigits = new System.Windows.Forms.Label();
+      this.txtDigits = new System.Windows.Forms.NumericUpDown();
+      this.framePara = new System.Windows.Forms.GroupBox();
+      this.L13 = new System.Windows.Forms.Label();
+      this.lbl2 = new System.Windows.Forms.Label();
+      this.txtFDigits = new System.Windows.Forms.NumericUpDown();
+      this.lbl1 = new System.Windows.Forms.Label();
+      this.txtStartNr = new System.Windows.Forms.NumericUpDown();
+      this.L19 = new System.Windows.Forms.Label();
+      this.L18 = new System.Windows.Forms.Label();
+      this.L16 = new System.Windows.Forms.Label();
+      this.L15 = new System.Windows.Forms.Label();
+      this.L14 = new System.Windows.Forms.Label();
+      this.L17 = new System.Windows.Forms.Label();
+      this.L12 = new System.Windows.Forms.Label();
+      this.L11 = new System.Windows.Forms.Label();
+      this.L10 = new System.Windows.Forms.Label();
+      this.L9 = new System.Windows.Forms.Label();
+      this.L8 = new System.Windows.Forms.Label();
+      this.L7 = new System.Windows.Forms.Label();
+      this.L6 = new System.Windows.Forms.Label();
+      this.L5 = new System.Windows.Forms.Label();
+      this.L4 = new System.Windows.Forms.Label();
+      this.L3 = new System.Windows.Forms.Label();
+      this.L2 = new System.Windows.Forms.Label();
+      this.L1 = new System.Windows.Forms.Label();
+      this.btnRemove = new System.Windows.Forms.Button();
+      this.btnAdd = new System.Windows.Forms.Button();
+      this.cmbFormat = new System.Windows.Forms.ComboBox();
+      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new System.Windows.Forms.Button();
+      this.lblFormat = new System.Windows.Forms.Label();
+      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+      this.chkRebuildName = new System.Windows.Forms.CheckBox();
+      ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).BeginInit();
+      this.framePara.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.txtFDigits)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtStartNr)).BeginInit();
+      this.SuspendLayout();
+      // 
+      // lblInfo
+      // 
+      this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInfo.Location = new System.Drawing.Point(8, 304);
+      this.lblInfo.Name = "lblInfo";
+      this.lblInfo.Size = new System.Drawing.Size(496, 56);
+      this.lblInfo.TabIndex = 34;
+      this.lblInfo.Text = resources.GetString("lblInfo.Text");
+      this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // lblDigits
+      // 
+      this.lblDigits.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblDigits.Location = new System.Drawing.Point(105, 65);
+      this.lblDigits.Name = "lblDigits";
+      this.lblDigits.Size = new System.Drawing.Size(184, 16);
+      this.lblDigits.TabIndex = 31;
+      this.lblDigits.Text = "&Number of digits of track numbers:";
+      // 
+      // txtDigits
+      // 
+      this.txtDigits.Location = new System.Drawing.Point(313, 63);
+      this.txtDigits.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.txtDigits.Name = "txtDigits";
+      this.txtDigits.Size = new System.Drawing.Size(64, 20);
+      this.txtDigits.TabIndex = 32;
+      this.txtDigits.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.txtDigits.Validated += new System.EventHandler(this.txtDigits_Validated);
+      // 
+      // framePara
+      // 
+      this.framePara.Controls.Add(this.L13);
+      this.framePara.Controls.Add(this.lbl2);
+      this.framePara.Controls.Add(this.txtFDigits);
+      this.framePara.Controls.Add(this.lbl1);
+      this.framePara.Controls.Add(this.txtStartNr);
+      this.framePara.Controls.Add(this.L19);
+      this.framePara.Controls.Add(this.L18);
+      this.framePara.Controls.Add(this.L16);
+      this.framePara.Controls.Add(this.L15);
+      this.framePara.Controls.Add(this.L14);
+      this.framePara.Controls.Add(this.L17);
+      this.framePara.Controls.Add(this.L12);
+      this.framePara.Controls.Add(this.L11);
+      this.framePara.Controls.Add(this.L10);
+      this.framePara.Controls.Add(this.L9);
+      this.framePara.Controls.Add(this.L8);
+      this.framePara.Controls.Add(this.L7);
+      this.framePara.Controls.Add(this.L6);
+      this.framePara.Controls.Add(this.L5);
+      this.framePara.Controls.Add(this.L4);
+      this.framePara.Controls.Add(this.L3);
+      this.framePara.Controls.Add(this.L2);
+      this.framePara.Controls.Add(this.L1);
+      this.framePara.Location = new System.Drawing.Point(8, 112);
+      this.framePara.Name = "framePara";
+      this.framePara.Size = new System.Drawing.Size(496, 185);
+      this.framePara.TabIndex = 33;
+      this.framePara.TabStop = false;
+      this.framePara.Text = "Parameters (Tip: click the label to add the parameter to the format)";
+      // 
+      // L13
+      // 
+      this.L13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L13.Location = new System.Drawing.Point(8, 88);
+      this.L13.Name = "L13";
+      this.L13.Size = new System.Drawing.Size(152, 16);
+      this.L13.TabIndex = 37;
+      this.L13.Text = "<R> = Composer";
+      // 
+      // lbl2
+      // 
+      this.lbl2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lbl2.Location = new System.Drawing.Point(240, 154);
+      this.lbl2.Name = "lbl2";
+      this.lbl2.Size = new System.Drawing.Size(184, 16);
+      this.lbl2.TabIndex = 35;
+      this.lbl2.Text = "Number of digits";
+      // 
+      // txtFDigits
+      // 
+      this.txtFDigits.Location = new System.Drawing.Point(168, 152);
+      this.txtFDigits.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.txtFDigits.Name = "txtFDigits";
+      this.txtFDigits.Size = new System.Drawing.Size(64, 20);
+      this.txtFDigits.TabIndex = 36;
+      this.txtFDigits.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.txtFDigits.Validated += new System.EventHandler(this.txtDigits_Validated);
+      // 
+      // lbl1
+      // 
+      this.lbl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lbl1.Location = new System.Drawing.Point(240, 128);
+      this.lbl1.Name = "lbl1";
+      this.lbl1.Size = new System.Drawing.Size(184, 16);
+      this.lbl1.TabIndex = 33;
+      this.lbl1.Text = "Number to start with";
+      // 
+      // txtStartNr
+      // 
+      this.txtStartNr.Location = new System.Drawing.Point(168, 126);
+      this.txtStartNr.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+      this.txtStartNr.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.txtStartNr.Name = "txtStartNr";
+      this.txtStartNr.Size = new System.Drawing.Size(64, 20);
+      this.txtStartNr.TabIndex = 34;
+      this.txtStartNr.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.txtStartNr.Validated += new System.EventHandler(this.txtStartNr_ValueChanged);
+      // 
+      // L19
+      // 
+      this.L19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L19.Location = new System.Drawing.Point(8, 128);
+      this.L19.Name = "L19";
+      this.L19.Size = new System.Drawing.Size(152, 16);
+      this.L19.TabIndex = 18;
+      this.L19.Text = "<#> = Enumerate files:";
+      this.L19.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L18
+      // 
+      this.L18.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L18.Location = new System.Drawing.Point(328, 104);
+      this.L18.Name = "L18";
+      this.L18.Size = new System.Drawing.Size(152, 16);
+      this.L18.TabIndex = 17;
+      this.L18.Text = "<F> = Current Filename";
+      this.L18.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L16
+      // 
+      this.L16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L16.Location = new System.Drawing.Point(8, 104);
+      this.L16.Name = "L16";
+      this.L16.Size = new System.Drawing.Size(152, 16);
+      this.L16.TabIndex = 16;
+      this.L16.Text = "<E> = Beats/minute (BPM)";
+      this.L16.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L15
+      // 
+      this.L15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L15.Location = new System.Drawing.Point(328, 88);
+      this.L15.Name = "L15";
+      this.L15.Size = new System.Drawing.Size(160, 16);
+      this.L15.TabIndex = 14;
+      this.L15.Text = "<O> = Band / Orchestra";
+      this.L15.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L14
+      // 
+      this.L14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L14.Location = new System.Drawing.Point(168, 88);
+      this.L14.Name = "L14";
+      this.L14.Size = new System.Drawing.Size(160, 16);
+      this.L14.TabIndex = 13;
+      this.L14.Text = "<S> = Subtitle";
+      this.L14.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L17
+      // 
+      this.L17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L17.Location = new System.Drawing.Point(168, 104);
+      this.L17.Name = "L17";
+      this.L17.Size = new System.Drawing.Size(160, 16);
+      this.L17.TabIndex = 12;
+      this.L17.Text = "<M> = Modified / Remixed by";
+      this.L17.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L12
+      // 
+      this.L12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L12.Location = new System.Drawing.Point(328, 72);
+      this.L12.Name = "L12";
+      this.L12.Size = new System.Drawing.Size(160, 16);
+      this.L12.TabIndex = 11;
+      this.L12.Text = "<N> = Conductor";
+      this.L12.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L11
+      // 
+      this.L11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L11.Location = new System.Drawing.Point(168, 72);
+      this.L11.Name = "L11";
+      this.L11.Size = new System.Drawing.Size(160, 16);
+      this.L11.TabIndex = 10;
+      this.L11.Text = "<p> = Total number of medias";
+      this.L11.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L10
+      // 
+      this.L10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L10.Location = new System.Drawing.Point(8, 72);
+      this.L10.Name = "L10";
+      this.L10.Size = new System.Drawing.Size(160, 16);
+      this.L10.TabIndex = 9;
+      this.L10.Text = "<P> = Position in media set";
+      this.L10.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L9
+      // 
+      this.L9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L9.Location = new System.Drawing.Point(328, 56);
+      this.L9.Name = "L9";
+      this.L9.Size = new System.Drawing.Size(160, 16);
+      this.L9.TabIndex = 8;
+      this.L9.Text = "<U> = Content Group";
+      this.L9.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L8
+      // 
+      this.L8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L8.Location = new System.Drawing.Point(168, 56);
+      this.L8.Name = "L8";
+      this.L8.Size = new System.Drawing.Size(160, 16);
+      this.L8.TabIndex = 7;
+      this.L8.Text = "<k> = Total number of tracks";
+      this.L8.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L7
+      // 
+      this.L7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L7.Location = new System.Drawing.Point(8, 56);
+      this.L7.Name = "L7";
+      this.L7.Size = new System.Drawing.Size(160, 16);
+      this.L7.TabIndex = 6;
+      this.L7.Text = "<K> = Track number";
+      this.L7.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L6
+      // 
+      this.L6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L6.Location = new System.Drawing.Point(328, 40);
+      this.L6.Name = "L6";
+      this.L6.Size = new System.Drawing.Size(160, 16);
+      this.L6.TabIndex = 5;
+      this.L6.Text = "<G> = First Genre";
+      this.L6.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L5
+      // 
+      this.L5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L5.Location = new System.Drawing.Point(168, 40);
+      this.L5.Name = "L5";
+      this.L5.Size = new System.Drawing.Size(160, 16);
+      this.L5.TabIndex = 4;
+      this.L5.Text = "<Y> = Year";
+      this.L5.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L4
+      // 
+      this.L4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L4.Location = new System.Drawing.Point(8, 40);
+      this.L4.Name = "L4";
+      this.L4.Size = new System.Drawing.Size(160, 16);
+      this.L4.TabIndex = 3;
+      this.L4.Text = "<C> = Comment";
+      this.L4.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L3
+      // 
+      this.L3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L3.Location = new System.Drawing.Point(328, 24);
+      this.L3.Name = "L3";
+      this.L3.Size = new System.Drawing.Size(160, 16);
+      this.L3.TabIndex = 2;
+      this.L3.Text = "<B> = Album";
+      this.L3.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L2
+      // 
+      this.L2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L2.Location = new System.Drawing.Point(168, 24);
+      this.L2.Name = "L2";
+      this.L2.Size = new System.Drawing.Size(160, 16);
+      this.L2.TabIndex = 1;
+      this.L2.Text = "<T> = Title";
+      this.L2.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L1
+      // 
+      this.L1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L1.Location = new System.Drawing.Point(8, 24);
+      this.L1.Name = "L1";
+      this.L1.Size = new System.Drawing.Size(160, 16);
+      this.L1.TabIndex = 0;
+      this.L1.Text = "<A> = Artist";
+      this.L1.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // btnRemove
+      // 
+      this.btnRemove.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemove.Location = new System.Drawing.Point(313, 31);
+      this.btnRemove.Name = "btnRemove";
+      this.btnRemove.Size = new System.Drawing.Size(192, 24);
+      this.btnRemove.TabIndex = 30;
+      this.btnRemove.Text = "&Remove format from list";
+      this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+      // 
+      // btnAdd
+      // 
+      this.btnAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAdd.Location = new System.Drawing.Point(105, 31);
+      this.btnAdd.Name = "btnAdd";
+      this.btnAdd.Size = new System.Drawing.Size(192, 24);
+      this.btnAdd.TabIndex = 29;
+      this.btnAdd.Text = "&Add format to list";
+      this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+      // 
+      // cmbFormat
+      // 
+      this.cmbFormat.ItemHeight = 13;
+      this.cmbFormat.Location = new System.Drawing.Point(105, 7);
+      this.cmbFormat.Name = "cmbFormat";
+      this.cmbFormat.Size = new System.Drawing.Size(400, 21);
+      this.cmbFormat.TabIndex = 28;
+      this.cmbFormat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbFormat_KeyPress);
+      // 
+      // btnCancel
+      // 
+      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+      this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCancel.Location = new System.Drawing.Point(384, 368);
+      this.btnCancel.Name = "btnCancel";
+      this.btnCancel.Size = new System.Drawing.Size(120, 24);
+      this.btnCancel.TabIndex = 36;
+      this.btnCancel.Text = "&Cancel";
+      // 
+      // btnOK
+      // 
+      this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+      this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnOK.Location = new System.Drawing.Point(256, 368);
+      this.btnOK.Name = "btnOK";
+      this.btnOK.Size = new System.Drawing.Size(120, 24);
+      this.btnOK.TabIndex = 35;
+      this.btnOK.Text = "&OK";
+      this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+      // 
+      // lblFormat
+      // 
+      this.lblFormat.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblFormat.Location = new System.Drawing.Point(9, 7);
+      this.lblFormat.Name = "lblFormat";
+      this.lblFormat.Size = new System.Drawing.Size(96, 16);
+      this.lblFormat.TabIndex = 27;
+      this.lblFormat.Text = "&Format:";
+      // 
+      // chkRebuildName
+      // 
+      this.chkRebuildName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkRebuildName.Location = new System.Drawing.Point(104, 88);
+      this.chkRebuildName.Name = "chkRebuildName";
+      this.chkRebuildName.Size = new System.Drawing.Size(392, 16);
+      this.chkRebuildName.TabIndex = 33;
+      this.chkRebuildName.Text = "Rebuild filename from original filename entry if present (ignores format)";
+      // 
+      // frmTAG2ToFilename
+      // 
+      this.AcceptButton = this.btnOK;
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+      this.CancelButton = this.btnCancel;
+      this.ClientSize = new System.Drawing.Size(514, 397);
+      this.ControlBox = false;
+      this.Controls.Add(this.chkRebuildName);
+      this.Controls.Add(this.lblInfo);
+      this.Controls.Add(this.lblDigits);
+      this.Controls.Add(this.txtDigits);
+      this.Controls.Add(this.framePara);
+      this.Controls.Add(this.btnRemove);
+      this.Controls.Add(this.btnAdd);
+      this.Controls.Add(this.cmbFormat);
+      this.Controls.Add(this.btnCancel);
+      this.Controls.Add(this.btnOK);
+      this.Controls.Add(this.lblFormat);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
+      this.Name = "frmTAG2ToFilename";
+      this.ShowInTaskbar = false;
+      this.Text = "TAG Ver. 2 -> Filename";
+      ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).EndInit();
+      this.framePara.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.txtFDigits)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtStartNr)).EndInit();
+      this.ResumeLayout(false);
+    }
 
     public frmTAG2ToFilename(ref frmMain FormMain)
     {
@@ -128,9 +556,7 @@
     private void btnAdd_Click(object sender, EventArgs e)
     {
       if (StringType.StrCmp(this.cmbFormat.Text, "", false) != 0)
-      {
         this.cmbFormat.Items.Add(this.cmbFormat.Text);
-      }
     }
 
     private void btnOK_Click(object sender, EventArgs e)
@@ -158,7 +584,7 @@
       byte filenumberDigits = Declarations.objSettings.FilenumberDigits;
       byte filenumberStart = (byte)Declarations.objSettings.FilenumberStart;
       Form form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
       Declarations.objSettings.RebuildOFilename = this.chkRebuildName.Checked;
       Declarations.objSettings.T2FFormats.Rows.Clear();
       Declarations.objSettings.T2FFormat = this.cmbFormat.Text;
@@ -192,7 +618,7 @@
       Declarations.objSettings.FilenumberDigits = filenumberDigits;
       Declarations.objSettings.FilenumberStart = filenumberStart;
       form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
       this.Close();
     }
 
@@ -230,9 +656,9 @@
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       int num2 = Declarations.objSettings.T2FFormats.Rows.Count - 1;
       for (int i = 0; i <= num2; i++)
       {
@@ -244,388 +670,6 @@
       this.txtStartNr.Value = new decimal(Declarations.objSettings.FilenumberStart);
       this.chkRebuildName.Checked = Declarations.objSettings.RebuildOFilename;
       this.AddToolTips();
-    }
-
-    [DebuggerStepThrough]
-    private void InitializeComponent()
-    {
-      this.components = new Container();
-      this.lblInfo = new Label();
-      this.lblDigits = new Label();
-      this.txtDigits = new NumericUpDown();
-      this.framePara = new GroupBox();
-      this.L13 = new Label();
-      this.lbl2 = new Label();
-      this.txtFDigits = new NumericUpDown();
-      this.lbl1 = new Label();
-      this.txtStartNr = new NumericUpDown();
-      this.L19 = new Label();
-      this.L18 = new Label();
-      this.L16 = new Label();
-      this.L15 = new Label();
-      this.L14 = new Label();
-      this.L17 = new Label();
-      this.L12 = new Label();
-      this.L11 = new Label();
-      this.L10 = new Label();
-      this.L9 = new Label();
-      this.L8 = new Label();
-      this.L7 = new Label();
-      this.L6 = new Label();
-      this.L5 = new Label();
-      this.L4 = new Label();
-      this.L3 = new Label();
-      this.L2 = new Label();
-      this.L1 = new Label();
-      this.btnRemove = new Button();
-      this.btnAdd = new Button();
-      this.cmbFormat = new ComboBox();
-      this.btnCancel = new Button();
-      this.btnOK = new Button();
-      this.lblFormat = new Label();
-      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.chkRebuildName = new CheckBox();
-      this.txtDigits.BeginInit();
-      this.framePara.SuspendLayout();
-      this.txtFDigits.BeginInit();
-      this.txtStartNr.BeginInit();
-      this.SuspendLayout();
-      this.lblInfo.BorderStyle = BorderStyle.Fixed3D;
-      this.lblInfo.ImeMode = ImeMode.NoControl;
-      Point point = new Point(8, 0x130);
-      this.lblInfo.Location = point;
-      this.lblInfo.Name = "lblInfo";
-      Size size = new Size(0x1f0, 0x38);
-      this.lblInfo.Size = size;
-      this.lblInfo.TabIndex = 0x22;
-      this.lblInfo.Text = "This function offers you the possibilty to extract information from the TAG and write it into the filename.  Enter the format using the parameters above. To save the format give it a description (using the following syntax: \"Description: Format\") and add it to the list.";
-      this.lblInfo.TextAlign = ContentAlignment.MiddleCenter;
-      this.lblDigits.ImeMode = ImeMode.NoControl;
-      point = new Point(0x69, 0x41);
-      this.lblDigits.Location = point;
-      this.lblDigits.Name = "lblDigits";
-      size = new Size(0xb8, 0x10);
-      this.lblDigits.Size = size;
-      this.lblDigits.TabIndex = 0x1f;
-      this.lblDigits.Text = "&Number of digits of track numbers:";
-      point = new Point(0x139, 0x3f);
-      this.txtDigits.Location = point;
-      decimal num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtDigits.Minimum = num;
-      this.txtDigits.Name = "txtDigits";
-      size = new Size(0x40, 20);
-      this.txtDigits.Size = size;
-      this.txtDigits.TabIndex = 0x20;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtDigits.Value = num;
-      this.framePara.Controls.Add(this.L13);
-      this.framePara.Controls.Add(this.lbl2);
-      this.framePara.Controls.Add(this.txtFDigits);
-      this.framePara.Controls.Add(this.lbl1);
-      this.framePara.Controls.Add(this.txtStartNr);
-      this.framePara.Controls.Add(this.L19);
-      this.framePara.Controls.Add(this.L18);
-      this.framePara.Controls.Add(this.L16);
-      this.framePara.Controls.Add(this.L15);
-      this.framePara.Controls.Add(this.L14);
-      this.framePara.Controls.Add(this.L17);
-      this.framePara.Controls.Add(this.L12);
-      this.framePara.Controls.Add(this.L11);
-      this.framePara.Controls.Add(this.L10);
-      this.framePara.Controls.Add(this.L9);
-      this.framePara.Controls.Add(this.L8);
-      this.framePara.Controls.Add(this.L7);
-      this.framePara.Controls.Add(this.L6);
-      this.framePara.Controls.Add(this.L5);
-      this.framePara.Controls.Add(this.L4);
-      this.framePara.Controls.Add(this.L3);
-      this.framePara.Controls.Add(this.L2);
-      this.framePara.Controls.Add(this.L1);
-      point = new Point(8, 0x70);
-      this.framePara.Location = point;
-      this.framePara.Name = "framePara";
-      size = new Size(0x1f0, 0xb9);
-      this.framePara.Size = size;
-      this.framePara.TabIndex = 0x21;
-      this.framePara.TabStop = false;
-      this.framePara.Text = "Parameters (Tip: click the label to add the parameter to the format)";
-      this.L13.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x58);
-      this.L13.Location = point;
-      this.L13.Name = "L13";
-      size = new Size(0x98, 0x10);
-      this.L13.Size = size;
-      this.L13.TabIndex = 0x25;
-      this.L13.Text = "<R> = Composer";
-      this.lbl2.ImeMode = ImeMode.NoControl;
-      point = new Point(240, 0x9a);
-      this.lbl2.Location = point;
-      this.lbl2.Name = "lbl2";
-      size = new Size(0xb8, 0x10);
-      this.lbl2.Size = size;
-      this.lbl2.TabIndex = 0x23;
-      this.lbl2.Text = "Number of digits";
-      point = new Point(0xa8, 0x98);
-      this.txtFDigits.Location = point;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtFDigits.Minimum = num;
-      this.txtFDigits.Name = "txtFDigits";
-      size = new Size(0x40, 20);
-      this.txtFDigits.Size = size;
-      this.txtFDigits.TabIndex = 0x24;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtFDigits.Value = num;
-      this.lbl1.ImeMode = ImeMode.NoControl;
-      point = new Point(240, 0x80);
-      this.lbl1.Location = point;
-      this.lbl1.Name = "lbl1";
-      size = new Size(0xb8, 0x10);
-      this.lbl1.Size = size;
-      this.lbl1.TabIndex = 0x21;
-      this.lbl1.Text = "Number to start with";
-      point = new Point(0xa8, 0x7e);
-      this.txtStartNr.Location = point;
-      num = new decimal(new int[] { 0x989680, 0, 0, 0 });
-      this.txtStartNr.Maximum = num;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtStartNr.Minimum = num;
-      this.txtStartNr.Name = "txtStartNr";
-      size = new Size(0x40, 20);
-      this.txtStartNr.Size = size;
-      this.txtStartNr.TabIndex = 0x22;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtStartNr.Value = num;
-      this.L19.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x80);
-      this.L19.Location = point;
-      this.L19.Name = "L19";
-      size = new Size(0x98, 0x10);
-      this.L19.Size = size;
-      this.L19.TabIndex = 0x12;
-      this.L19.Text = "<#> = Enumerate files:";
-      this.L18.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x68);
-      this.L18.Location = point;
-      this.L18.Name = "L18";
-      size = new Size(0x98, 0x10);
-      this.L18.Size = size;
-      this.L18.TabIndex = 0x11;
-      this.L18.Text = "<F> = Current Filename";
-      this.L16.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x68);
-      this.L16.Location = point;
-      this.L16.Name = "L16";
-      size = new Size(0x98, 0x10);
-      this.L16.Size = size;
-      this.L16.TabIndex = 0x10;
-      this.L16.Text = "<E> = Beats/minute (BPM)";
-      this.L15.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x58);
-      this.L15.Location = point;
-      this.L15.Name = "L15";
-      size = new Size(160, 0x10);
-      this.L15.Size = size;
-      this.L15.TabIndex = 14;
-      this.L15.Text = "<O> = Band / Orchestra";
-      this.L14.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x58);
-      this.L14.Location = point;
-      this.L14.Name = "L14";
-      size = new Size(160, 0x10);
-      this.L14.Size = size;
-      this.L14.TabIndex = 13;
-      this.L14.Text = "<S> = Subtitle";
-      this.L17.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x68);
-      this.L17.Location = point;
-      this.L17.Name = "L17";
-      size = new Size(160, 0x10);
-      this.L17.Size = size;
-      this.L17.TabIndex = 12;
-      this.L17.Text = "<M> = Modified / Remixed by";
-      this.L12.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x48);
-      this.L12.Location = point;
-      this.L12.Name = "L12";
-      size = new Size(160, 0x10);
-      this.L12.Size = size;
-      this.L12.TabIndex = 11;
-      this.L12.Text = "<N> = Conductor";
-      this.L11.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x48);
-      this.L11.Location = point;
-      this.L11.Name = "L11";
-      size = new Size(160, 0x10);
-      this.L11.Size = size;
-      this.L11.TabIndex = 10;
-      this.L11.Text = "<p> = Total number of medias";
-      this.L10.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x48);
-      this.L10.Location = point;
-      this.L10.Name = "L10";
-      size = new Size(160, 0x10);
-      this.L10.Size = size;
-      this.L10.TabIndex = 9;
-      this.L10.Text = "<P> = Position in media set";
-      this.L9.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x38);
-      this.L9.Location = point;
-      this.L9.Name = "L9";
-      size = new Size(160, 0x10);
-      this.L9.Size = size;
-      this.L9.TabIndex = 8;
-      this.L9.Text = "<U> = Content Group";
-      this.L8.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x38);
-      this.L8.Location = point;
-      this.L8.Name = "L8";
-      size = new Size(160, 0x10);
-      this.L8.Size = size;
-      this.L8.TabIndex = 7;
-      this.L8.Text = "<k> = Total number of tracks";
-      this.L7.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x38);
-      this.L7.Location = point;
-      this.L7.Name = "L7";
-      size = new Size(160, 0x10);
-      this.L7.Size = size;
-      this.L7.TabIndex = 6;
-      this.L7.Text = "<K> = Track number";
-      this.L6.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 40);
-      this.L6.Location = point;
-      this.L6.Name = "L6";
-      size = new Size(160, 0x10);
-      this.L6.Size = size;
-      this.L6.TabIndex = 5;
-      this.L6.Text = "<G> = First Genre";
-      this.L5.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 40);
-      this.L5.Location = point;
-      this.L5.Name = "L5";
-      size = new Size(160, 0x10);
-      this.L5.Size = size;
-      this.L5.TabIndex = 4;
-      this.L5.Text = "<Y> = Year";
-      this.L4.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 40);
-      this.L4.Location = point;
-      this.L4.Name = "L4";
-      size = new Size(160, 0x10);
-      this.L4.Size = size;
-      this.L4.TabIndex = 3;
-      this.L4.Text = "<C> = Comment";
-      this.L3.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x18);
-      this.L3.Location = point;
-      this.L3.Name = "L3";
-      size = new Size(160, 0x10);
-      this.L3.Size = size;
-      this.L3.TabIndex = 2;
-      this.L3.Text = "<B> = Album";
-      this.L2.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x18);
-      this.L2.Location = point;
-      this.L2.Name = "L2";
-      size = new Size(160, 0x10);
-      this.L2.Size = size;
-      this.L2.TabIndex = 1;
-      this.L2.Text = "<T> = Title";
-      this.L1.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x18);
-      this.L1.Location = point;
-      this.L1.Name = "L1";
-      size = new Size(160, 0x10);
-      this.L1.Size = size;
-      this.L1.TabIndex = 0;
-      this.L1.Text = "<A> = Artist";
-      this.btnRemove.ImeMode = ImeMode.NoControl;
-      point = new Point(0x139, 0x1f);
-      this.btnRemove.Location = point;
-      this.btnRemove.Name = "btnRemove";
-      size = new Size(0xc0, 0x18);
-      this.btnRemove.Size = size;
-      this.btnRemove.TabIndex = 30;
-      this.btnRemove.Text = "&Remove format from list";
-      this.btnAdd.ImeMode = ImeMode.NoControl;
-      point = new Point(0x69, 0x1f);
-      this.btnAdd.Location = point;
-      this.btnAdd.Name = "btnAdd";
-      size = new Size(0xc0, 0x18);
-      this.btnAdd.Size = size;
-      this.btnAdd.TabIndex = 0x1d;
-      this.btnAdd.Text = "&Add format to list";
-      this.cmbFormat.ItemHeight = 13;
-      point = new Point(0x69, 7);
-      this.cmbFormat.Location = point;
-      this.cmbFormat.Name = "cmbFormat";
-      size = new Size(400, 0x15);
-      this.cmbFormat.Size = size;
-      this.cmbFormat.TabIndex = 0x1c;
-      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnCancel.ImeMode = ImeMode.NoControl;
-      point = new Point(0x180, 0x170);
-      this.btnCancel.Location = point;
-      this.btnCancel.Name = "btnCancel";
-      size = new Size(120, 0x18);
-      this.btnCancel.Size = size;
-      this.btnCancel.TabIndex = 0x24;
-      this.btnCancel.Text = "&Cancel";
-      this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-      this.btnOK.ImeMode = ImeMode.NoControl;
-      point = new Point(0x100, 0x170);
-      this.btnOK.Location = point;
-      this.btnOK.Name = "btnOK";
-      size = new Size(120, 0x18);
-      this.btnOK.Size = size;
-      this.btnOK.TabIndex = 0x23;
-      this.btnOK.Text = "&OK";
-      this.lblFormat.ImeMode = ImeMode.NoControl;
-      point = new Point(9, 7);
-      this.lblFormat.Location = point;
-      this.lblFormat.Name = "lblFormat";
-      size = new Size(0x60, 0x10);
-      this.lblFormat.Size = size;
-      this.lblFormat.TabIndex = 0x1b;
-      this.lblFormat.Text = "&Format:";
-      this.chkRebuildName.ImeMode = ImeMode.NoControl;
-      point = new Point(0x68, 0x58);
-      this.chkRebuildName.Location = point;
-      this.chkRebuildName.Name = "chkRebuildName";
-      size = new Size(0x188, 0x10);
-      this.chkRebuildName.Size = size;
-      this.chkRebuildName.TabIndex = 0x21;
-      this.chkRebuildName.Text = "Rebuild filename from original filename entry if present (ignores format)";
-      this.AcceptButton = this.btnOK;
-      size = new Size(5, 13);
-      this.AutoScaleBaseSize = size;
-      this.CancelButton = this.btnCancel;
-      size = new Size(0x202, 0x18d);
-      this.ClientSize = size;
-      this.ControlBox = false;
-      this.Controls.Add(this.chkRebuildName);
-      this.Controls.Add(this.lblInfo);
-      this.Controls.Add(this.lblDigits);
-      this.Controls.Add(this.txtDigits);
-      this.Controls.Add(this.framePara);
-      this.Controls.Add(this.btnRemove);
-      this.Controls.Add(this.btnAdd);
-      this.Controls.Add(this.cmbFormat);
-      this.Controls.Add(this.btnCancel);
-      this.Controls.Add(this.btnOK);
-      this.Controls.Add(this.lblFormat);
-      this.FormBorderStyle = FormBorderStyle.FixedDialog;
-      this.ImeMode = ImeMode.NoControl;
-      this.MaximizeBox = false;
-      this.MinimizeBox = false;
-      this.Name = "frmTAG2ToFilename";
-      this.ShowInTaskbar = false;
-      this.Text = "TAG Ver. 2 -> Filename";
-      this.txtDigits.EndInit();
-      this.framePara.ResumeLayout(false);
-      this.txtFDigits.EndInit();
-      this.txtStartNr.EndInit();
-      this.ResumeLayout(false);
     }
 
     private void Label_Click(object sender, EventArgs e)
@@ -769,721 +813,6 @@
       if (decimal.Compare(this.txtStartNr.Value, this.txtStartNr.Minimum) < 0)
       {
         this.txtStartNr.Value = this.txtStartNr.Minimum;
-      }
-    }
-
-    internal virtual Button btnAdd
-    {
-      get
-      {
-        return this._btnAdd;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnAdd != null)
-        {
-          this._btnAdd.Click -= new EventHandler(this.btnAdd_Click);
-        }
-        this._btnAdd = value;
-        if (this._btnAdd != null)
-        {
-          this._btnAdd.Click += new EventHandler(this.btnAdd_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnCancel
-    {
-      get
-      {
-        return this._btnCancel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnCancel != null)
-        {
-        }
-        this._btnCancel = value;
-        if (this._btnCancel != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Button btnOK
-    {
-      get
-      {
-        return this._btnOK;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click -= new EventHandler(this.btnOK_Click);
-        }
-        this._btnOK = value;
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click += new EventHandler(this.btnOK_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnRemove
-    {
-      get
-      {
-        return this._btnRemove;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnRemove != null)
-        {
-          this._btnRemove.Click -= new EventHandler(this.btnRemove_Click);
-        }
-        this._btnRemove = value;
-        if (this._btnRemove != null)
-        {
-          this._btnRemove.Click += new EventHandler(this.btnRemove_Click);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkRebuildName
-    {
-      get
-      {
-        return this._chkRebuildName;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkRebuildName != null)
-        {
-        }
-        this._chkRebuildName = value;
-        if (this._chkRebuildName != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ComboBox cmbFormat
-    {
-      get
-      {
-        return this._cmbFormat;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbFormat != null)
-        {
-          this._cmbFormat.KeyPress -= new KeyPressEventHandler(this.cmbFormat_KeyPress);
-        }
-        this._cmbFormat = value;
-        if (this._cmbFormat != null)
-        {
-          this._cmbFormat.KeyPress += new KeyPressEventHandler(this.cmbFormat_KeyPress);
-        }
-      }
-    }
-
-    internal virtual GroupBox framePara
-    {
-      get
-      {
-        return this._framePara;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._framePara != null)
-        {
-        }
-        this._framePara = value;
-        if (this._framePara != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label L1
-    {
-      get
-      {
-        return this._L1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L1 != null)
-        {
-          this._L1.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L1 = value;
-        if (this._L1 != null)
-        {
-          this._L1.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L10
-    {
-      get
-      {
-        return this._L10;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L10 != null)
-        {
-          this._L10.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L10 = value;
-        if (this._L10 != null)
-        {
-          this._L10.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L11
-    {
-      get
-      {
-        return this._L11;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L11 != null)
-        {
-          this._L11.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L11 = value;
-        if (this._L11 != null)
-        {
-          this._L11.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L12
-    {
-      get
-      {
-        return this._L12;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L12 != null)
-        {
-          this._L12.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L12 = value;
-        if (this._L12 != null)
-        {
-          this._L12.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L13
-    {
-      get
-      {
-        return this._L13;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L13 != null)
-        {
-        }
-        this._L13 = value;
-        if (this._L13 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label L14
-    {
-      get
-      {
-        return this._L14;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L14 != null)
-        {
-          this._L14.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L14 = value;
-        if (this._L14 != null)
-        {
-          this._L14.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L15
-    {
-      get
-      {
-        return this._L15;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L15 != null)
-        {
-          this._L15.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L15 = value;
-        if (this._L15 != null)
-        {
-          this._L15.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L16
-    {
-      get
-      {
-        return this._L16;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L16 != null)
-        {
-          this._L16.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L16 = value;
-        if (this._L16 != null)
-        {
-          this._L16.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L17
-    {
-      get
-      {
-        return this._L17;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L17 != null)
-        {
-          this._L17.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L17 = value;
-        if (this._L17 != null)
-        {
-          this._L17.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L18
-    {
-      get
-      {
-        return this._L18;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L18 != null)
-        {
-          this._L18.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L18 = value;
-        if (this._L18 != null)
-        {
-          this._L18.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L19
-    {
-      get
-      {
-        return this._L19;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L19 != null)
-        {
-          this._L19.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L19 = value;
-        if (this._L19 != null)
-        {
-          this._L19.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L2
-    {
-      get
-      {
-        return this._L2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L2 != null)
-        {
-          this._L2.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L2 = value;
-        if (this._L2 != null)
-        {
-          this._L2.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L3
-    {
-      get
-      {
-        return this._L3;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L3 != null)
-        {
-          this._L3.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L3 = value;
-        if (this._L3 != null)
-        {
-          this._L3.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L4
-    {
-      get
-      {
-        return this._L4;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L4 != null)
-        {
-          this._L4.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L4 = value;
-        if (this._L4 != null)
-        {
-          this._L4.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L5
-    {
-      get
-      {
-        return this._L5;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L5 != null)
-        {
-          this._L5.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L5 = value;
-        if (this._L5 != null)
-        {
-          this._L5.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L6
-    {
-      get
-      {
-        return this._L6;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L6 != null)
-        {
-          this._L6.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L6 = value;
-        if (this._L6 != null)
-        {
-          this._L6.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L7
-    {
-      get
-      {
-        return this._L7;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L7 != null)
-        {
-          this._L7.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L7 = value;
-        if (this._L7 != null)
-        {
-          this._L7.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L8
-    {
-      get
-      {
-        return this._L8;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L8 != null)
-        {
-          this._L8.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L8 = value;
-        if (this._L8 != null)
-        {
-          this._L8.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L9
-    {
-      get
-      {
-        return this._L9;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L9 != null)
-        {
-          this._L9.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L9 = value;
-        if (this._L9 != null)
-        {
-          this._L9.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label lbl1
-    {
-      get
-      {
-        return this._lbl1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lbl1 != null)
-        {
-        }
-        this._lbl1 = value;
-        if (this._lbl1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lbl2
-    {
-      get
-      {
-        return this._lbl2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lbl2 != null)
-        {
-        }
-        this._lbl2 = value;
-        if (this._lbl2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblDigits
-    {
-      get
-      {
-        return this._lblDigits;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblDigits != null)
-        {
-        }
-        this._lblDigits = value;
-        if (this._lblDigits != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblFormat
-    {
-      get
-      {
-        return this._lblFormat;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblFormat != null)
-        {
-        }
-        this._lblFormat = value;
-        if (this._lblFormat != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblInfo
-    {
-      get
-      {
-        return this._lblInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblInfo != null)
-        {
-        }
-        this._lblInfo = value;
-        if (this._lblInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.ToolTip ToolTip
-    {
-      get
-      {
-        return this._ToolTip;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ToolTip != null)
-        {
-        }
-        this._ToolTip = value;
-        if (this._ToolTip != null)
-        {
-        }
-      }
-    }
-
-    internal virtual NumericUpDown txtDigits
-    {
-      get
-      {
-        return this._txtDigits;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtDigits != null)
-        {
-          this._txtDigits.Validated -= new EventHandler(this.txtDigits_Validated);
-        }
-        this._txtDigits = value;
-        if (this._txtDigits != null)
-        {
-          this._txtDigits.Validated += new EventHandler(this.txtDigits_Validated);
-        }
-      }
-    }
-
-    internal virtual NumericUpDown txtFDigits
-    {
-      get
-      {
-        return this._txtFDigits;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtFDigits != null)
-        {
-          this._txtFDigits.Validated -= new EventHandler(this.txtDigits_Validated);
-        }
-        this._txtFDigits = value;
-        if (this._txtFDigits != null)
-        {
-          this._txtFDigits.Validated += new EventHandler(this.txtDigits_Validated);
-        }
-      }
-    }
-
-    internal virtual NumericUpDown txtStartNr
-    {
-      get
-      {
-        return this._txtStartNr;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtStartNr != null)
-        {
-          this._txtStartNr.Validated -= new EventHandler(this.txtStartNr_ValueChanged);
-        }
-        this._txtStartNr = value;
-        if (this._txtStartNr != null)
-        {
-          this._txtStartNr.Validated += new EventHandler(this.txtStartNr_ValueChanged);
-        }
       }
     }
   }

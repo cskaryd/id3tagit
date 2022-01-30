@@ -254,7 +254,7 @@
     private void btnClose_Click(object sender, EventArgs e)
     {
       Form form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
       string str = this.txtPath.Text.Trim(new char[] { ' ' });
       if ((str.LastIndexOf(".") > 0) & (str.LastIndexOf(".") > str.LastIndexOf(@"\")))
       {
@@ -379,141 +379,110 @@
         }
         this.Enabled = false;
         StreamWriter writer = new StreamWriter(str2);
-        using (IEnumerator enumerator4 = list2.GetEnumerator())
+        var enumerator4 = list2.GetEnumerator();
+        while (enumerator4.MoveNext())
         {
-          while (enumerator4.MoveNext())
-          {
-            str = StringType.FromObject(enumerator4.Current);
-            writer.WriteLine(str);
-          }
+          str = StringType.FromObject(enumerator4.Current);
+          writer.WriteLine(str);
         }
         foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
         {
-          using (IEnumerator enumerator2 = list3.GetEnumerator())
+          var enumerator2 = list3.GetEnumerator();
+          while (enumerator2.MoveNext())
           {
-            while (enumerator2.MoveNext())
-            {
-              str = StringType.FromObject(enumerator2.Current);
-              if (str.IndexOf("%Filename%") > -1)
-              {
-                str = str.Replace("%Filename%", this.GetTempData(item, "%Filename%", ""));
-              }
-              if (str.IndexOf("%Subdirectory%") > -1)
-              {
-                str = str.Replace("%Subdirectory%", this.GetTempData(item, "%Subdirectory%", ""));
-              }
-              if (str.IndexOf("%Ver1%") > -1)
-              {
-                str = str.Replace("%Ver1%", this.GetTempData(item, "%Ver1%", ""));
-              }
-              if (str.IndexOf("%Ver2%") > -1)
-              {
-                str = str.Replace("%Ver2%", this.GetTempData(item, "%Ver2%", ""));
-              }
-              if (str.IndexOf("%Artist%") > -1)
-              {
-                str = str.Replace("%Artist%", this.GetTempData(item, "%Artist%", ""));
-              }
-              if (str.IndexOf("%Title%") > -1)
-              {
-                str = str.Replace("%Title%", this.GetTempData(item, "%Title%", ""));
-              }
-              if (str.IndexOf("%Album%") > -1)
-              {
-                str = str.Replace("%Album%", this.GetTempData(item, "%Album%", ""));
-              }
-              if (str.IndexOf("%Track%") > -1)
-              {
-                str = str.Replace("%Track%", this.GetTempData(item, "%Track%", ""));
-              }
-              if (str.IndexOf("%Position%") > -1)
-              {
-                str = str.Replace("%Position%", this.GetTempData(item, "%Position%", ""));
-              }
-              if (str.IndexOf("%Comment%") > -1)
-              {
-                str = str.Replace("%Comment%", this.GetTempData(item, "%Comment%", ""));
-              }
-              if (str.IndexOf("%Genre%") > -1)
-              {
-                str = str.Replace("%Genre%", this.GetTempData(item, "%Genre%", ""));
-              }
-              if (str.IndexOf("%Year%") > -1)
-              {
-                str = str.Replace("%Year%", this.GetTempData(item, "%Year%", ""));
-              }
-              if (str.IndexOf("%Rating%") > -1)
-              {
-                str = str.Replace("%Rating%", this.GetTempData(item, "%Rating%", ""));
-              }
-              if (str.IndexOf("%Duration%") > -1)
-              {
-                str = str.Replace("%Duration%", this.GetTempData(item, "%DurationSec%", ""));
-              }
-              if (str.IndexOf("%DurationSec%") > -1)
-              {
-                str = str.Replace("%DurationSec%", this.GetTempData(item, "%Duration%", ""));
-              }
-              if (str.IndexOf("%Bitrate%") > -1)
-              {
-                str = str.Replace("%Bitrate%", this.GetTempData(item, "%Bitrate%", ""));
-              }
-              if (str.IndexOf("%CBRVBR%") > -1)
-              {
-                str = str.Replace("%CBRVBR%", this.GetTempData(item, "%CBRVBR%", ""));
-              }
-              if (str.IndexOf("%Samplerate%") > -1)
-              {
-                str = str.Replace("%Samplerate%", this.GetTempData(item, "%Samplerate%", ""));
-              }
-              if (str.IndexOf("%Channel%") > -1)
-              {
-                str = str.Replace("%Channel%", this.GetTempData(item, "%Channel%", ""));
-              }
-              if (str.IndexOf("%Version%") > -1)
-              {
-                str = str.Replace("%Version%", this.GetTempData(item, "%Version%", ""));
-              }
-              if (str.IndexOf("%LastChanged%") > -1)
-              {
-                str = str.Replace("%LastChanged%", this.GetTempData(item, "%LastChanged%", ""));
-              }
-              if (str.IndexOf("%Composer%") > -1)
-              {
-                str = str.Replace("%Composer%", this.GetTempData(item, "%Composer%", ""));
-              }
-              if (str.IndexOf("%FileSize%") > -1)
-              {
-                str = str.Replace("%FileSize%", this.GetTempData(item, "%FileSize%", ""));
-              }
-              if (str.IndexOf("%BPM%") > -1)
-              {
-                str = str.Replace("%BPM%", this.GetTempData(item, "%BPM%", ""));
-              }
-              if (str.IndexOf("%FullFilename%") > -1)
-              {
-                str = str.Replace("%FullFilename%", this.GetTempData(item, "%FullFilename%", str2));
-              }
-              if (str.IndexOf("%RelFilename%") > -1)
-              {
-                str = str.Replace("%RelFilename%", this.GetTempData(item, "%RelFilename%", str2));
-              }
-              if (str.IndexOf("%CRC%") > -1)
-              {
-                str = str.Replace("%CRC%", this.GetTempData(item, "%CRC%", ""));
-              }
-              writer.WriteLine(str);
-            }
-          }
-          this.ProgressBar.PerformStep();
-        }
-        using (IEnumerator enumerator = list.GetEnumerator())
-        {
-          while (enumerator.MoveNext())
-          {
-            str = StringType.FromObject(enumerator.Current);
+            str = StringType.FromObject(enumerator2.Current);
+
+            if (str.IndexOf("%Filename%") > -1)
+              str = str.Replace("%Filename%", this.GetTempData(item, "%Filename%", ""));
+
+            if (str.IndexOf("%Subdirectory%") > -1)
+              str = str.Replace("%Subdirectory%", this.GetTempData(item, "%Subdirectory%", ""));
+
+            if (str.IndexOf("%Ver1%") > -1)
+              str = str.Replace("%Ver1%", this.GetTempData(item, "%Ver1%", ""));
+
+            if (str.IndexOf("%Ver2%") > -1)
+              str = str.Replace("%Ver2%", this.GetTempData(item, "%Ver2%", ""));
+
+            if (str.IndexOf("%Artist%") > -1)
+              str = str.Replace("%Artist%", this.GetTempData(item, "%Artist%", ""));
+
+            if (str.IndexOf("%Title%") > -1)
+              str = str.Replace("%Title%", this.GetTempData(item, "%Title%", ""));
+
+            if (str.IndexOf("%Album%") > -1)
+              str = str.Replace("%Album%", this.GetTempData(item, "%Album%", ""));
+
+            if (str.IndexOf("%Track%") > -1)
+              str = str.Replace("%Track%", this.GetTempData(item, "%Track%", ""));
+
+            if (str.IndexOf("%Position%") > -1)
+              str = str.Replace("%Position%", this.GetTempData(item, "%Position%", ""));
+
+            if (str.IndexOf("%Comment%") > -1)
+              str = str.Replace("%Comment%", this.GetTempData(item, "%Comment%", ""));
+
+            if (str.IndexOf("%Genre%") > -1)
+              str = str.Replace("%Genre%", this.GetTempData(item, "%Genre%", ""));
+
+            if (str.IndexOf("%Year%") > -1)
+              str = str.Replace("%Year%", this.GetTempData(item, "%Year%", ""));
+
+            if (str.IndexOf("%Rating%") > -1)
+              str = str.Replace("%Rating%", this.GetTempData(item, "%Rating%", ""));
+
+            if (str.IndexOf("%Duration%") > -1)
+              str = str.Replace("%Duration%", this.GetTempData(item, "%DurationSec%", ""));
+
+            if (str.IndexOf("%DurationSec%") > -1)
+              str = str.Replace("%DurationSec%", this.GetTempData(item, "%Duration%", ""));
+
+            if (str.IndexOf("%Bitrate%") > -1)
+              str = str.Replace("%Bitrate%", this.GetTempData(item, "%Bitrate%", ""));
+
+            if (str.IndexOf("%CBRVBR%") > -1)
+              str = str.Replace("%CBRVBR%", this.GetTempData(item, "%CBRVBR%", ""));
+
+            if (str.IndexOf("%Samplerate%") > -1)
+              str = str.Replace("%Samplerate%", this.GetTempData(item, "%Samplerate%", ""));
+
+            if (str.IndexOf("%Channel%") > -1)
+              str = str.Replace("%Channel%", this.GetTempData(item, "%Channel%", ""));
+
+            if (str.IndexOf("%Version%") > -1)
+              str = str.Replace("%Version%", this.GetTempData(item, "%Version%", ""));
+
+            if (str.IndexOf("%LastChanged%") > -1)
+              str = str.Replace("%LastChanged%", this.GetTempData(item, "%LastChanged%", ""));
+
+            if (str.IndexOf("%Composer%") > -1)
+              str = str.Replace("%Composer%", this.GetTempData(item, "%Composer%", ""));
+
+            if (str.IndexOf("%FileSize%") > -1)
+              str = str.Replace("%FileSize%", this.GetTempData(item, "%FileSize%", ""));
+
+            if (str.IndexOf("%BPM%") > -1)
+              str = str.Replace("%BPM%", this.GetTempData(item, "%BPM%", ""));
+
+            if (str.IndexOf("%FullFilename%") > -1)
+              str = str.Replace("%FullFilename%", this.GetTempData(item, "%FullFilename%", str2));
+
+            if (str.IndexOf("%RelFilename%") > -1)
+              str = str.Replace("%RelFilename%", this.GetTempData(item, "%RelFilename%", str2));
+
+            if (str.IndexOf("%CRC%") > -1)
+              str = str.Replace("%CRC%", this.GetTempData(item, "%CRC%", ""));
+
             writer.WriteLine(str);
           }
+
+          this.ProgressBar.PerformStep();
+        }
+        var enumerator = list.GetEnumerator();
+        while (enumerator.MoveNext())
+        {
+          str = StringType.FromObject(enumerator.Current);
+          writer.WriteLine(str);
         }
         writer.Close();
         this.Enabled = true;
@@ -775,31 +744,19 @@
         MP3 tag = (MP3)item.Tag;
         string sLeft = "";
         if (tag.V2TAG.TAGHeaderPresent)
-        {
           sLeft = ID3Functions.FormatReplacedByTag(tag, this.txtExtInfo.Text.Trim(), 2);
-        }
         else if (tag.V1TAG.TAGPresent)
-        {
           sLeft = ID3Functions.FormatReplacedByTag(tag, this.txtExtInfo.Text.Trim(), 1);
-        }
         sLeft = sLeft.Trim();
         if (StringType.StrCmp(sLeft, "", false) != 0)
-        {
           str = "#EXTINF:" + StringType.FromInteger(tag.Duration) + "," + sLeft;
-        }
         else
-        {
           str = "#EXTINF:" + StringType.FromInteger(tag.Duration);
-        }
         writer.WriteLine(str);
         if (!this.chkRelativ.Checked)
-        {
           writer.WriteLine(tag.FI.FullName);
-        }
         else
-        {
-          writer.WriteLine(Main.GetRelativePath(vstrBaseDir, tag.FI.FullName));
-        }
+          writer.WriteLine(Id3TagIT_Main.GetRelativePath(vstrBaseDir, tag.FI.FullName));
         this.ProgressBar.PerformStep();
       }
       writer.Flush();
@@ -821,9 +778,9 @@
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.chkRelativ.Checked = Declarations.objSettings.PlaylistRelPath;
       this.txtExtInfo.Text = Declarations.objSettings.ListExtInfo;
       this.txtPath.Text = Declarations.objSettings.ListPath;
@@ -922,66 +879,44 @@
 
         case 7:
           if (!this.optID3V2.Checked)
-          {
             return tag.V1TAG.Album;
-          }
           if (!tag.V2TAG.FrameExists("TALB"))
-          {
             break;
-          }
           return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TALB")), null, "Content", new object[0], null, null));
 
         case 8:
           if (!this.optID3V2.Checked)
-          {
             return tag.V1TAG.Tracknumber.ToString();
-          }
           if (!tag.V2TAG.FrameExists("TRCK"))
-          {
             break;
-          }
           return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TRCK")), null, "Content", new object[0], null, null));
 
         case 9:
           if (!this.optID3V2.Checked || !tag.V2TAG.FrameExists("TPOS"))
-          {
             break;
-          }
           return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TPOS")), null, "Content", new object[0], null, null));
 
         case 10:
           if (!this.optID3V2.Checked)
-          {
             return tag.V1TAG.Comment;
-          }
           if (tag.V2TAG.FrameExists("COMM"))
           {
-            using (IEnumerator enumerator2 = tag.V2TAG.GetFrames("COMM").GetEnumerator())
-            {
-              while (enumerator2.MoveNext())
-              {
-                return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator2.Current), null, "Content", new object[0], null, null).ToString();
-              }
-            }
+            var enumerator2 = tag.V2TAG.GetFrames("COMM").GetEnumerator();
+            while (enumerator2.MoveNext())
+              return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator2.Current), null, "Content", new object[0], null, null).ToString();
           }
           break;
 
         case 11:
           if (!this.optID3V2.Checked)
-          {
             return tag.V1TAG.GenreText;
-          }
           if (!tag.V2TAG.FrameExists("TCON"))
-          {
             break;
-          }
           return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TCON")), null, "Content", new object[0], null, null));
 
         case 12:
           if (!this.optID3V2.Checked)
-          {
             return tag.V1TAG.Year.ToString();
-          }
           if (!tag.V2TAG.FrameExists("TYER"))
           {
             if (tag.V2TAG.FrameExists("TDRC"))
@@ -1004,13 +939,9 @@
         case 13:
           if (this.optID3V2.Checked && tag.V2TAG.FrameExists("POPM"))
           {
-            using (IEnumerator enumerator = tag.V2TAG.GetFrames("POPM").GetEnumerator())
-            {
-              while (enumerator.MoveNext())
-              {
-                return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator.Current), null, "Rating", new object[0], null, null).ToString();
-              }
-            }
+            var enumerator = tag.V2TAG.GetFrames("POPM").GetEnumerator();
+            while (enumerator.MoveNext())
+              return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator.Current), null, "Rating", new object[0], null, null).ToString();
           }
           break;
 
@@ -1125,36 +1056,24 @@
       else if (StringType.StrCmp(sLeft, "%Track%", false) == 0)
       {
         if (!this.optID3V2.Checked)
-        {
           return tag.V1TAG.Tracknumber.ToString();
-        }
         if (tag.V2TAG.FrameExists("TRCK"))
-        {
           return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TRCK")), null, "Content", new object[0], null, null));
-        }
       }
       else if (StringType.StrCmp(sLeft, "%Position%", false) == 0)
       {
         if (this.optID3V2.Checked && tag.V2TAG.FrameExists("TPOS"))
-        {
           return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TPOS")), null, "Content", new object[0], null, null));
-        }
       }
       else if (StringType.StrCmp(sLeft, "%Comment%", false) == 0)
       {
         if (!this.optID3V2.Checked)
-        {
           return tag.V1TAG.Comment;
-        }
         if (tag.V2TAG.FrameExists("COMM"))
         {
-          using (IEnumerator enumerator2 = tag.V2TAG.GetFrames("COMM").GetEnumerator())
-          {
-            while (enumerator2.MoveNext())
-            {
-              return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator2.Current), null, "Content", new object[0], null, null).ToString();
-            }
-          }
+          var enumerator2 = tag.V2TAG.GetFrames("COMM").GetEnumerator();
+          while (enumerator2.MoveNext())
+            return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator2.Current), null, "Content", new object[0], null, null).ToString();
         }
       }
       else if (StringType.StrCmp(sLeft, "%Genre%", false) == 0)
@@ -1171,13 +1090,9 @@
       else if (StringType.StrCmp(sLeft, "%Year%", false) == 0)
       {
         if (!this.optID3V2.Checked)
-        {
           return tag.V1TAG.Year.ToString();
-        }
         if (tag.V2TAG.FrameExists("TYER"))
-        {
           return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TYER")), null, "Content", new object[0], null, null));
-        }
         if (tag.V2TAG.FrameExists("TDRC"))
         {
           object objectValue = RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TDRC"));
@@ -1196,55 +1111,33 @@
       {
         if (this.optID3V2.Checked && tag.V2TAG.FrameExists("POPM"))
         {
-          using (IEnumerator enumerator = tag.V2TAG.GetFrames("POPM").GetEnumerator())
-          {
-            while (enumerator.MoveNext())
-            {
-              return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator.Current), null, "Rating", new object[0], null, null).ToString();
-            }
-          }
+          var enumerator = tag.V2TAG.GetFrames("POPM").GetEnumerator();
+          while (enumerator.MoveNext())
+            return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator.Current), null, "Rating", new object[0], null, null).ToString();
         }
       }
       else
       {
         if (StringType.StrCmp(sLeft, "%Duration%", false) == 0)
-        {
           return tag.DurationFormated;
-        }
         if (StringType.StrCmp(sLeft, "%DurationSec%", false) == 0)
-        {
           return tag.Duration.ToString();
-        }
         if (StringType.StrCmp(sLeft, "%Bitrate%", false) == 0)
-        {
           return tag.Bitrate.ToString();
-        }
         if (StringType.StrCmp(sLeft, "%CBRVBR%", false) == 0)
-        {
           return StringType.FromObject(Interaction.IIf(tag.VBR, "VBR", "CBR"));
-        }
         if (StringType.StrCmp(sLeft, "%Samplerate%", false) == 0)
-        {
           return tag.Samplerate.ToString();
-        }
         if (StringType.StrCmp(sLeft, "%Channel%", false) == 0)
-        {
           return tag.ChannelText;
-        }
         if (StringType.StrCmp(sLeft, "%Version%", false) == 0)
-        {
           return (tag.VersionText + " " + tag.LayerText);
-        }
         if (StringType.StrCmp(sLeft, "%LastChanged%", false) == 0)
-        {
           return tag.FI.LastWriteTime.ToString();
-        }
         if (StringType.StrCmp(sLeft, "%Composer%", false) == 0)
         {
           if (this.optID3V2.Checked && tag.V2TAG.FrameExists("TCOM"))
-          {
             return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TCOM")), null, "Content", new object[0], null, null));
-          }
         }
         else
         {
@@ -1270,7 +1163,7 @@
           {
             if (StringType.StrCmp(sLeft, "%RelFilename%", false) == 0)
             {
-              return Main.GetRelativePath(vstrPath.Substring(0, vstrPath.LastIndexOf(@"\")), tag.FI.FullName);
+              return Id3TagIT_Main.GetRelativePath(vstrPath.Substring(0, vstrPath.LastIndexOf(@"\")), tag.FI.FullName);
             }
             if (StringType.StrCmp(sLeft, "%CRC%", false) == 0)
             {

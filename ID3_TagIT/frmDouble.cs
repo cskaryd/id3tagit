@@ -264,7 +264,7 @@ namespace ID3_TagIT
         Declarations.objSettings.CompareTAGVersion = 2;
 
       Form form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
       this.vbooCancel = false;
 
       if (this.optAT.Checked)
@@ -537,9 +537,9 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.ProgressBar.Minimum = 0;
       this.ProgressBar.Maximum = this.MainForm.MP3View.Items.Count - 2;
       this.ProgressBar.Step = 1;

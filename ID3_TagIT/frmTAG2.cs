@@ -1,6 +1,4 @@
-﻿namespace ID3_TagIT
-{
-  using AMS.TextBox;
+﻿  using AMS.TextBox;
   using DevComponents.DotNetBar;
   using Microsoft.VisualBasic;
   using Microsoft.VisualBasic.CompilerServices;
@@ -15,516 +13,264 @@
   using System.Runtime.CompilerServices;
   using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class frmTAG2 : Form
   {
-    [AccessedThroughProperty("APICView")]
-    private PictureBox _APICView;
-    [AccessedThroughProperty("btnAddComment")]
-    private Button _btnAddComment;
-    [AccessedThroughProperty("btnAddGenre")]
-    private Button _btnAddGenre;
-    [AccessedThroughProperty("btnAddInv")]
-    private Button _btnAddInv;
-    [AccessedThroughProperty("btnAddLyrics")]
-    private Button _btnAddLyrics;
-    [AccessedThroughProperty("btnAddMusician")]
-    private Button _btnAddMusician;
-    [AccessedThroughProperty("btnAddPicture")]
-    private Button _btnAddPicture;
-    [AccessedThroughProperty("btnAddRating")]
-    private Button _btnAddRating;
-    [AccessedThroughProperty("btnAddTXXX")]
-    private Button _btnAddTXXX;
-    [AccessedThroughProperty("btnAddWXXX")]
-    private Button _btnAddWXXX;
-    [AccessedThroughProperty("btnCancel")]
-    private Button _btnCancel;
-    [AccessedThroughProperty("btnExPic")]
-    private Button _btnExPic;
-    [AccessedThroughProperty("btnExport")]
-    private ButtonItem _btnExport;
-    [AccessedThroughProperty("btnGet")]
-    private ButtonItem _btnGet;
-    [AccessedThroughProperty("btnGetPic")]
-    private Button _btnGetPic;
-    [AccessedThroughProperty("btnImport")]
-    private ButtonItem _btnImport;
-    [AccessedThroughProperty("btnLyricsFile")]
-    private Button _btnLyricsFile;
-    [AccessedThroughProperty("btnMoveComment")]
-    private Button _btnMoveComment;
-    [AccessedThroughProperty("btnMoveGenre")]
-    private Button _btnMoveGenre;
-    [AccessedThroughProperty("btnMoveLyrics")]
-    private Button _btnMoveLyrics;
-    [AccessedThroughProperty("btnMoveRating")]
-    private Button _btnMoveRating;
-    [AccessedThroughProperty("btnNext")]
-    private ButtonItem _btnNext;
-    [AccessedThroughProperty("btnOK")]
-    private Button _btnOK;
-    [AccessedThroughProperty("btnPrev")]
-    private ButtonItem _btnPrev;
-    [AccessedThroughProperty("btnRemoveComment")]
-    private Button _btnRemoveComment;
-    [AccessedThroughProperty("btnRemoveGenre")]
-    private Button _btnRemoveGenre;
-    [AccessedThroughProperty("btnRemoveInv")]
-    private Button _btnRemoveInv;
-    [AccessedThroughProperty("btnRemoveLyrics")]
-    private Button _btnRemoveLyrics;
-    [AccessedThroughProperty("btnRemoveMusician")]
-    private Button _btnRemoveMusician;
-    [AccessedThroughProperty("btnRemovePicture")]
-    private Button _btnRemovePicture;
-    [AccessedThroughProperty("btnRemoveRating")]
-    private Button _btnRemoveRating;
-    [AccessedThroughProperty("btnRemoveTXXX")]
-    private Button _btnRemoveTXXX;
-    [AccessedThroughProperty("btnRemoveWXXX")]
-    private Button _btnRemoveWXXX;
-    [AccessedThroughProperty("btnSwapAA")]
-    private ButtonItem _btnSwapAA;
-    [AccessedThroughProperty("btnSwapAT")]
-    private ButtonItem _btnSwapAT;
-    [AccessedThroughProperty("btnSwapTA")]
-    private ButtonItem _btnSwapTA;
-    [AccessedThroughProperty("btnTLEN")]
-    private Button _btnTLEN;
-    [AccessedThroughProperty("btnV1Album")]
-    private Button _btnV1Album;
-    [AccessedThroughProperty("btnV1Artist")]
-    private Button _btnV1Artist;
-    [AccessedThroughProperty("btnV1Comment")]
-    private Button _btnV1Comment;
-    [AccessedThroughProperty("btnV1Genre")]
-    private Button _btnV1Genre;
-    [AccessedThroughProperty("btnV1Title")]
-    private Button _btnV1Title;
-    [AccessedThroughProperty("btnV1Track")]
-    private Button _btnV1Track;
-    [AccessedThroughProperty("btnV1Year")]
-    private Button _btnV1Year;
-    [AccessedThroughProperty("ButtomPanel")]
-    private PanelEx _ButtomPanel;
-    [AccessedThroughProperty("chkPicInclude")]
-    private CheckBox _chkPicInclude;
-    [AccessedThroughProperty("chkPicRelativPath")]
-    private CheckBox _chkPicRelativPath;
-    [AccessedThroughProperty("cmbArtist")]
-    private ComboBoxAutoComplete _cmbArtist;
-    [AccessedThroughProperty("cmbCDescriptor")]
-    private ComboBoxAutoComplete _cmbCDescriptor;
-    [AccessedThroughProperty("cmbCLanguage")]
-    private ComboBox _cmbCLanguage;
-    [AccessedThroughProperty("cmbGenre")]
-    private ComboBoxAutoComplete _cmbGenre;
-    [AccessedThroughProperty("cmbLLanguage")]
-    private ComboBox _cmbLLanguage;
-    [AccessedThroughProperty("cmbMedia")]
-    private ComboBox _cmbMedia;
-    [AccessedThroughProperty("cmbPicType")]
-    private ComboBox _cmbPicType;
-    [AccessedThroughProperty("colComment")]
-    private ColumnHeader _colComment;
-    [AccessedThroughProperty("colDescriptor")]
-    private ColumnHeader _colDescriptor;
-    [AccessedThroughProperty("colLanguage")]
-    private ColumnHeader _colLanguage;
-    [AccessedThroughProperty("ColumnHeader1")]
-    private ColumnHeader _ColumnHeader1;
-    [AccessedThroughProperty("ColumnHeader10")]
-    private ColumnHeader _ColumnHeader10;
-    [AccessedThroughProperty("ColumnHeader11")]
-    private ColumnHeader _ColumnHeader11;
-    [AccessedThroughProperty("ColumnHeader12")]
-    private ColumnHeader _ColumnHeader12;
-    [AccessedThroughProperty("ColumnHeader13")]
-    private ColumnHeader _ColumnHeader13;
-    [AccessedThroughProperty("ColumnHeader14")]
-    private ColumnHeader _ColumnHeader14;
-    [AccessedThroughProperty("ColumnHeader15")]
-    private ColumnHeader _ColumnHeader15;
-    [AccessedThroughProperty("ColumnHeader16")]
-    private ColumnHeader _ColumnHeader16;
-    [AccessedThroughProperty("ColumnHeader17")]
-    private ColumnHeader _ColumnHeader17;
-    [AccessedThroughProperty("ColumnHeader18")]
-    private ColumnHeader _ColumnHeader18;
-    [AccessedThroughProperty("ColumnHeader2")]
-    private ColumnHeader _ColumnHeader2;
-    [AccessedThroughProperty("ColumnHeader3")]
-    private ColumnHeader _ColumnHeader3;
-    [AccessedThroughProperty("ColumnHeader4")]
-    private ColumnHeader _ColumnHeader4;
-    [AccessedThroughProperty("ColumnHeader5")]
-    private ColumnHeader _ColumnHeader5;
-    [AccessedThroughProperty("ColumnHeader6")]
-    private ColumnHeader _ColumnHeader6;
-    [AccessedThroughProperty("ColumnHeader7")]
-    private ColumnHeader _ColumnHeader7;
-    [AccessedThroughProperty("ColumnHeader8")]
-    private ColumnHeader _ColumnHeader8;
-    [AccessedThroughProperty("ColumnHeader9")]
-    private ColumnHeader _ColumnHeader9;
-    [AccessedThroughProperty("CommentList")]
-    private ListView _CommentList;
-    [AccessedThroughProperty("Content")]
-    private ColumnHeader _Content;
-    [AccessedThroughProperty("FrameID")]
-    private ColumnHeader _FrameID;
-    [AccessedThroughProperty("GenreList")]
-    private ListBox _GenreList;
-    [AccessedThroughProperty("lblAlbum")]
-    private Label _lblAlbum;
-    [AccessedThroughProperty("lblAlbumSort")]
-    private Label _lblAlbumSort;
-    [AccessedThroughProperty("lblArtist")]
-    private Label _lblArtist;
-    [AccessedThroughProperty("lblArtistSort")]
-    private Label _lblArtistSort;
-    [AccessedThroughProperty("lblArtistURL")]
-    private Label _lblArtistURL;
-    [AccessedThroughProperty("lblAudioFileURL")]
-    private Label _lblAudioFileURL;
-    [AccessedThroughProperty("lblAudioSRCURL")]
-    private Label _lblAudioSRCURL;
-    [AccessedThroughProperty("lblBand")]
-    private Label _lblBand;
-    [AccessedThroughProperty("lblBPM")]
-    private Label _lblBPM;
-    [AccessedThroughProperty("lblCOMM")]
-    private Label _lblCOMM;
-    [AccessedThroughProperty("lblCOMMDesc")]
-    private Label _lblCOMMDesc;
-    [AccessedThroughProperty("lblCommDescInfo")]
-    private Label _lblCommDescInfo;
-    [AccessedThroughProperty("lblCOMMInfURL")]
-    private Label _lblCOMMInfURL;
-    [AccessedThroughProperty("lblCOMMLan")]
-    private Label _lblCOMMLan;
-    [AccessedThroughProperty("lblComposer")]
-    private Label _lblComposer;
-    [AccessedThroughProperty("lblConductor")]
-    private Label _lblConductor;
-    [AccessedThroughProperty("lblContent")]
-    private Label _lblContent;
-    [AccessedThroughProperty("lblCopyInfURL")]
-    private Label _lblCopyInfURL;
-    [AccessedThroughProperty("lblCopyright")]
-    private Label _lblCopyright;
-    [AccessedThroughProperty("lblDigits")]
-    private Label _lblDigits;
-    [AccessedThroughProperty("lblEncoded")]
-    private Label _lblEncoded;
-    [AccessedThroughProperty("lblGenre")]
-    private Label _lblGenre;
-    [AccessedThroughProperty("lblGenreInfo")]
-    private Label _lblGenreInfo;
-    [AccessedThroughProperty("lblINetRadioURL")]
-    private Label _lblINetRadioURL;
-    [AccessedThroughProperty("lblInfo")]
-    private Label _lblInfo;
-    [AccessedThroughProperty("lblInvFunction")]
-    private Label _lblInvFunction;
-    [AccessedThroughProperty("lblInvPerson")]
-    private Label _lblInvPerson;
-    [AccessedThroughProperty("lblLyDesc")]
-    private Label _lblLyDesc;
-    [AccessedThroughProperty("lblLyLan")]
-    private Label _lblLyLan;
-    [AccessedThroughProperty("lblLyrics")]
-    private Label _lblLyrics;
-    [AccessedThroughProperty("lblLyWriter")]
-    private Label _lblLyWriter;
-    [AccessedThroughProperty("lblMediaTyp")]
-    private Label _lblMediaTyp;
-    [AccessedThroughProperty("lblModified")]
-    private Label _lblModified;
-    [AccessedThroughProperty("lblMusicianInfo")]
-    private Label _lblMusicianInfo;
-    [AccessedThroughProperty("lblMusicianInst")]
-    private Label _lblMusicianInst;
-    [AccessedThroughProperty("lblMusicianName")]
-    private Label _lblMusicianName;
-    [AccessedThroughProperty("lblNot")]
-    private Label _lblNot;
-    [AccessedThroughProperty("lblOAlbum")]
-    private Label _lblOAlbum;
-    [AccessedThroughProperty("lblOArtist")]
-    private Label _lblOArtist;
-    [AccessedThroughProperty("lblOf1")]
-    private Label _lblOf1;
-    [AccessedThroughProperty("lblOf2")]
-    private Label _lblOf2;
-    [AccessedThroughProperty("lblOFilename")]
-    private Label _lblOFilename;
-    [AccessedThroughProperty("lblOLyWriter")]
-    private Label _lblOLyWriter;
-    [AccessedThroughProperty("lblOOwner")]
-    private Label _lblOOwner;
-    [AccessedThroughProperty("lblOYear")]
-    private Label _lblOYear;
-    [AccessedThroughProperty("lblOYearInfo")]
-    private Label _lblOYearInfo;
-    [AccessedThroughProperty("lblPayURL")]
-    private Label _lblPayURL;
-    [AccessedThroughProperty("lblPicDesc")]
-    private Label _lblPicDesc;
-    [AccessedThroughProperty("lblPicPath")]
-    private Label _lblPicPath;
-    [AccessedThroughProperty("lblPicType")]
-    private Label _lblPicType;
-    [AccessedThroughProperty("lblPosMedia")]
-    private Label _lblPosMedia;
-    [AccessedThroughProperty("lblPublisher")]
-    private Label _lblPublisher;
-    [AccessedThroughProperty("lblPubURL")]
-    private Label _lblPubURL;
-    [AccessedThroughProperty("lblRatingCounter")]
-    private Label _lblRatingCounter;
-    [AccessedThroughProperty("lblRatingRating")]
-    private Label _lblRatingRating;
-    [AccessedThroughProperty("lblRatingUser")]
-    private Label _lblRatingUser;
-    [AccessedThroughProperty("lblSelected")]
-    private Label _lblSelected;
-    [AccessedThroughProperty("lblSubTitle")]
-    private Label _lblSubTitle;
-    [AccessedThroughProperty("lblTitle")]
-    private Label _lblTitle;
-    [AccessedThroughProperty("lblTitleSort")]
-    private Label _lblTitleSort;
-    [AccessedThroughProperty("lblTLEN")]
-    private Label _lblTLEN;
-    [AccessedThroughProperty("lblTrack")]
-    private Label _lblTrack;
-    [AccessedThroughProperty("lblTXXXContent")]
-    private Label _lblTXXXContent;
-    [AccessedThroughProperty("lblTXXXDesc")]
-    private Label _lblTXXXDesc;
-    [AccessedThroughProperty("lblWXXXContent")]
-    private Label _lblWXXXContent;
-    [AccessedThroughProperty("lblWXXXDesc")]
-    private Label _lblWXXXDesc;
-    [AccessedThroughProperty("lblYear")]
-    private Label _lblYear;
-    [AccessedThroughProperty("LyricsList")]
-    private ListView _LyricsList;
-    [AccessedThroughProperty("NotSupportList")]
-    private ListView _NotSupportList;
-    [AccessedThroughProperty("OpenFileDialog")]
-    private System.Windows.Forms.OpenFileDialog _OpenFileDialog;
-    [AccessedThroughProperty("panDetail")]
-    private Panel _panDetail;
-    [AccessedThroughProperty("Panel1")]
-    private Panel _Panel1;
-    [AccessedThroughProperty("Panel10")]
-    private Panel _Panel10;
-    [AccessedThroughProperty("Panel11")]
-    private Panel _Panel11;
-    [AccessedThroughProperty("Panel12")]
-    private Panel _Panel12;
-    [AccessedThroughProperty("Panel13")]
-    private Panel _Panel13;
-    [AccessedThroughProperty("Panel14")]
-    private Panel _Panel14;
-    [AccessedThroughProperty("Panel15")]
-    private Panel _Panel15;
-    [AccessedThroughProperty("Panel16")]
-    private Panel _Panel16;
-    [AccessedThroughProperty("Panel2")]
-    private Panel _Panel2;
-    [AccessedThroughProperty("Panel3")]
-    private Panel _Panel3;
-    [AccessedThroughProperty("Panel4")]
-    private Panel _Panel4;
-    [AccessedThroughProperty("Panel5")]
-    private Panel _Panel5;
-    [AccessedThroughProperty("Panel6")]
-    private Panel _Panel6;
-    [AccessedThroughProperty("Panel7")]
-    private Panel _Panel7;
-    [AccessedThroughProperty("Panel8")]
-    private Panel _Panel8;
-    [AccessedThroughProperty("Panel9")]
-    private Panel _Panel9;
-    [AccessedThroughProperty("panInvolved")]
-    private Panel _panInvolved;
-    [AccessedThroughProperty("panLyrics")]
-    private Panel _panLyrics;
-    [AccessedThroughProperty("panMain")]
-    private Panel _panMain;
-    [AccessedThroughProperty("panNot")]
-    private Panel _panNot;
-    [AccessedThroughProperty("panOriginal")]
-    private Panel _panOriginal;
-    [AccessedThroughProperty("panPic")]
-    private Panel _panPic;
-    [AccessedThroughProperty("panRating")]
-    private Panel _panRating;
-    [AccessedThroughProperty("panUser")]
-    private Panel _panUser;
-    [AccessedThroughProperty("panWeb")]
-    private Panel _panWeb;
-    [AccessedThroughProperty("PicList")]
-    private ListView _PicList;
-    [AccessedThroughProperty("RatingList")]
-    private ListView _RatingList;
-    [AccessedThroughProperty("SaveFileDialog")]
-    private System.Windows.Forms.SaveFileDialog _SaveFileDialog;
-    [AccessedThroughProperty("SelectionBar")]
-    private ExplorerBar _SelectionBar;
-    [AccessedThroughProperty("TAGV2ButtonItem1")]
-    private ButtonItem _TAGV2ButtonItem1;
-    [AccessedThroughProperty("TAGV2ButtonItem10")]
-    private ButtonItem _TAGV2ButtonItem10;
-    [AccessedThroughProperty("TAGV2ButtonItem2")]
-    private ButtonItem _TAGV2ButtonItem2;
-    [AccessedThroughProperty("TAGV2ButtonItem3")]
-    private ButtonItem _TAGV2ButtonItem3;
-    [AccessedThroughProperty("TAGV2ButtonItem4")]
-    private ButtonItem _TAGV2ButtonItem4;
-    [AccessedThroughProperty("TAGV2ButtonItem5")]
-    private ButtonItem _TAGV2ButtonItem5;
-    [AccessedThroughProperty("TAGV2ButtonItem6")]
-    private ButtonItem _TAGV2ButtonItem6;
-    [AccessedThroughProperty("TAGV2ButtonItem7")]
-    private ButtonItem _TAGV2ButtonItem7;
-    [AccessedThroughProperty("TAGV2ButtonItem8")]
-    private ButtonItem _TAGV2ButtonItem8;
-    [AccessedThroughProperty("TAGV2ButtonItem9")]
-    private ButtonItem _TAGV2ButtonItem9;
-    [AccessedThroughProperty("TAGV2grpCommands")]
-    private ExplorerBarGroupItem _TAGV2grpCommands;
-    [AccessedThroughProperty("TAGV2grpTAG")]
-    private ExplorerBarGroupItem _TAGV2grpTAG;
-    [AccessedThroughProperty("TAGV2grpTransfer")]
-    private ExplorerBarGroupItem _TAGV2grpTransfer;
-    [AccessedThroughProperty("TIPLList")]
-    private ListView _TIPLList;
-    [AccessedThroughProperty("TMCLList")]
-    private ListView _TMCLList;
-    [AccessedThroughProperty("ToolTip")]
-    private System.Windows.Forms.ToolTip _ToolTip;
-    [AccessedThroughProperty("TopPanel")]
-    private PanelEx _TopPanel;
-    [AccessedThroughProperty("TORYFormat")]
-    private HScrollBar _TORYFormat;
-    [AccessedThroughProperty("txtAlbum")]
-    private System.Windows.Forms.TextBox _txtAlbum;
-    [AccessedThroughProperty("txtArtistURL")]
-    private System.Windows.Forms.TextBox _txtArtistURL;
-    [AccessedThroughProperty("txtAudioFileURL")]
-    private System.Windows.Forms.TextBox _txtAudioFileURL;
-    [AccessedThroughProperty("txtAudioSRCURL")]
-    private System.Windows.Forms.TextBox _txtAudioSRCURL;
-    [AccessedThroughProperty("txtBand")]
-    private System.Windows.Forms.TextBox _txtBand;
-    [AccessedThroughProperty("txtBPM")]
-    private NumericTextBox _txtBPM;
-    [AccessedThroughProperty("txtComment")]
-    private System.Windows.Forms.TextBox _txtComment;
-    [AccessedThroughProperty("txtCOMMInfURL")]
-    private System.Windows.Forms.TextBox _txtCOMMInfURL;
-    [AccessedThroughProperty("txtComposer")]
-    private System.Windows.Forms.TextBox _txtComposer;
-    [AccessedThroughProperty("txtConductor")]
-    private System.Windows.Forms.TextBox _txtConductor;
-    [AccessedThroughProperty("txtContent")]
-    private System.Windows.Forms.TextBox _txtContent;
-    [AccessedThroughProperty("txtCopyInfURL")]
-    private System.Windows.Forms.TextBox _txtCopyInfURL;
-    [AccessedThroughProperty("txtCopyright")]
-    private System.Windows.Forms.TextBox _txtCopyright;
-    [AccessedThroughProperty("txtDigits")]
-    private NumericUpDown _txtDigits;
-    [AccessedThroughProperty("txtEncoded")]
-    private System.Windows.Forms.TextBox _txtEncoded;
-    [AccessedThroughProperty("txtINetRadioURL")]
-    private System.Windows.Forms.TextBox _txtINetRadioURL;
-    [AccessedThroughProperty("txtInvFunction")]
-    private System.Windows.Forms.TextBox _txtInvFunction;
-    [AccessedThroughProperty("txtInvPerson")]
-    private System.Windows.Forms.TextBox _txtInvPerson;
-    [AccessedThroughProperty("txtLDescriptor")]
-    private System.Windows.Forms.TextBox _txtLDescriptor;
-    [AccessedThroughProperty("txtLyrics")]
-    private RichTextBox _txtLyrics;
-    [AccessedThroughProperty("txtLyWriter")]
-    private System.Windows.Forms.TextBox _txtLyWriter;
-    [AccessedThroughProperty("txtModified")]
-    private System.Windows.Forms.TextBox _txtModified;
-    [AccessedThroughProperty("txtMusicianInst")]
-    private System.Windows.Forms.TextBox _txtMusicianInst;
-    [AccessedThroughProperty("txtMusicianName")]
-    private System.Windows.Forms.TextBox _txtMusicianName;
-    [AccessedThroughProperty("txtOAlbum")]
-    private System.Windows.Forms.TextBox _txtOAlbum;
-    [AccessedThroughProperty("txtOArtist")]
-    private System.Windows.Forms.TextBox _txtOArtist;
-    [AccessedThroughProperty("txtOFilename")]
-    private System.Windows.Forms.TextBox _txtOFilename;
-    [AccessedThroughProperty("txtOLyWriter")]
-    private System.Windows.Forms.TextBox _txtOLyWriter;
-    [AccessedThroughProperty("txtOOwner")]
-    private System.Windows.Forms.TextBox _txtOOwner;
-    [AccessedThroughProperty("txtPayURL")]
-    private System.Windows.Forms.TextBox _txtPayURL;
-    [AccessedThroughProperty("txtPDescriptor")]
-    private System.Windows.Forms.TextBox _txtPDescriptor;
-    [AccessedThroughProperty("txtPicPath")]
-    private System.Windows.Forms.TextBox _txtPicPath;
-    [AccessedThroughProperty("txtPOS1")]
-    private IntegerTextBox _txtPOS1;
-    [AccessedThroughProperty("txtPOS2")]
-    private IntegerTextBox _txtPOS2;
-    [AccessedThroughProperty("txtPublisher")]
-    private System.Windows.Forms.TextBox _txtPublisher;
-    [AccessedThroughProperty("txtPubURL")]
-    private System.Windows.Forms.TextBox _txtPubURL;
-    [AccessedThroughProperty("txtRatingCounter")]
-    private NumericUpDown _txtRatingCounter;
-    [AccessedThroughProperty("txtRatingRating")]
-    private NumericUpDown _txtRatingRating;
-    [AccessedThroughProperty("txtRatingUser")]
-    private System.Windows.Forms.TextBox _txtRatingUser;
-    [AccessedThroughProperty("txtSelected")]
-    private System.Windows.Forms.TextBox _txtSelected;
-    [AccessedThroughProperty("txtSortAlbum")]
-    private System.Windows.Forms.TextBox _txtSortAlbum;
-    [AccessedThroughProperty("txtSortArtist")]
-    private System.Windows.Forms.TextBox _txtSortArtist;
-    [AccessedThroughProperty("txtSortTitle")]
-    private System.Windows.Forms.TextBox _txtSortTitle;
-    [AccessedThroughProperty("txtSubTitle")]
-    private System.Windows.Forms.TextBox _txtSubTitle;
-    [AccessedThroughProperty("txtTitle")]
-    private System.Windows.Forms.TextBox _txtTitle;
-    [AccessedThroughProperty("txtTLEN")]
-    private IntegerTextBox _txtTLEN;
-    [AccessedThroughProperty("txtTORY")]
-    private AMS.TextBox.MaskedTextBox _txtTORY;
-    [AccessedThroughProperty("txtTrack1")]
-    private IntegerTextBox _txtTrack1;
-    [AccessedThroughProperty("txtTrack2")]
-    private IntegerTextBox _txtTrack2;
-    [AccessedThroughProperty("txtTXXXContent")]
-    private System.Windows.Forms.TextBox _txtTXXXContent;
-    [AccessedThroughProperty("txtTXXXDesc")]
-    private System.Windows.Forms.TextBox _txtTXXXDesc;
-    [AccessedThroughProperty("txtWXXXContent")]
-    private System.Windows.Forms.TextBox _txtWXXXContent;
-    [AccessedThroughProperty("txtWXXXDesc")]
-    private System.Windows.Forms.TextBox _txtWXXXDesc;
-    [AccessedThroughProperty("txtYear")]
-    private AMS.TextBox.MaskedTextBox _txtYear;
-    [AccessedThroughProperty("TXXXList")]
-    private ListView _TXXXList;
-    [AccessedThroughProperty("WXXXList")]
-    private ListView _WXXXList;
-    [AccessedThroughProperty("YearFormat")]
-    private HScrollBar _YearFormat;
+    private PictureBox APICView;
+    private Button btnAddComment;
+    private Button btnAddGenre;
+    private Button btnAddInv;
+    private Button btnAddLyrics;
+    private Button btnAddMusician;
+    private Button btnAddPicture;
+    private Button btnAddRating;
+    private Button btnAddTXXX;
+    private Button btnAddWXXX;
+    private Button btnCancel;
+    private Button btnExPic;
+    private ButtonItem btnExport;
+    private ButtonItem btnGet;
+    private Button btnGetPic;
+    private ButtonItem btnImport;
+    private Button btnLyricsFile;
+    private Button btnMoveComment;
+    private Button btnMoveGenre;
+    private Button btnMoveLyrics;
+    private Button btnMoveRating;
+    private ButtonItem btnNext;
+    private Button btnOK;
+    private ButtonItem btnPrev;
+    private Button btnRemoveComment;
+    private Button btnRemoveGenre;
+    private Button btnRemoveInv;
+    private Button btnRemoveLyrics;
+    private Button btnRemoveMusician;
+    private Button btnRemovePicture;
+    private Button btnRemoveRating;
+    private Button btnRemoveTXXX;
+    private Button btnRemoveWXXX;
+    private ButtonItem btnSwapAA;
+    private ButtonItem btnSwapAT;
+    private ButtonItem btnSwapTA;
+    private Button btnTLEN;
+    private Button btnV1Album;
+    private Button btnV1Artist;
+    private Button btnV1Comment;
+    private Button btnV1Genre;
+    private Button btnV1Title;
+    private Button btnV1Track;
+    private Button btnV1Year;
+    private PanelEx ButtomPanel;
+    private CheckBox chkPicInclude;
+    private CheckBox chkPicRelativPath;
+    private ComboBoxAutoComplete cmbArtist;
+    private ComboBoxAutoComplete cmbCDescriptor;
+    private ComboBox cmbCLanguage;
+    private ComboBoxAutoComplete cmbGenre;
+    private ComboBox cmbLLanguage;
+    private ComboBox cmbMedia;
+    private ComboBox cmbPicType;
+    private ColumnHeader colComment;
+    private ColumnHeader colDescriptor;
+    private ColumnHeader colLanguage;
+    private ColumnHeader ColumnHeader1;
+    private ColumnHeader ColumnHeader10;
+    private ColumnHeader ColumnHeader11;
+    private ColumnHeader ColumnHeader12;
+    private ColumnHeader ColumnHeader13;
+    private ColumnHeader ColumnHeader14;
+    private ColumnHeader ColumnHeader15;
+    private ColumnHeader ColumnHeader16;
+    private ColumnHeader ColumnHeader17;
+    private ColumnHeader ColumnHeader18;
+    private ColumnHeader ColumnHeader2;
+    private ColumnHeader ColumnHeader3;
+    private ColumnHeader ColumnHeader4;
+    private ColumnHeader ColumnHeader5;
+    private ColumnHeader ColumnHeader6;
+    private ColumnHeader ColumnHeader7;
+    private ColumnHeader ColumnHeader8;
+    private ColumnHeader ColumnHeader9;
+    private ListView CommentList;
+    private ColumnHeader Content;
+    private ColumnHeader FrameID;
+    private ListBox GenreList;
+    private Label lblAlbum;
+    private Label lblAlbumSort;
+    private Label lblArtist;
+    private Label lblArtistSort;
+    private Label lblArtistURL;
+    private Label lblAudioFileURL;
+    private Label lblAudioSRCURL;
+    private Label lblBand;
+    private Label lblBPM;
+    private Label lblCOMM;
+    private Label lblCOMMDesc;
+    private Label lblCommDescInfo;
+    private Label lblCOMMInfURL;
+    private Label lblCOMMLan;
+    private Label lblComposer;
+    private Label lblConductor;
+    private Label lblContent;
+    private Label lblCopyInfURL;
+    private Label lblCopyright;
+    private Label lblDigits;
+    private Label lblEncoded;
+    private Label lblGenre;
+    private Label lblGenreInfo;
+    private Label lblINetRadioURL;
+    private Label lblInfo;
+    private Label lblInvFunction;
+    private Label lblInvPerson;
+    private Label lblLyDesc;
+    private Label lblLyLan;
+    private Label lblLyrics;
+    private Label lblLyWriter;
+    private Label lblMediaTyp;
+    private Label lblModified;
+    private Label lblMusicianInfo;
+    private Label lblMusicianInst;
+    private Label lblMusicianName;
+    private Label lblNot;
+    private Label lblOAlbum;
+    private Label lblOArtist;
+    private Label lblOf1;
+    private Label lblOf2;
+    private Label lblOFilename;
+    private Label lblOLyWriter;
+    private Label lblOOwner;
+    private Label lblOYear;
+    private Label lblOYearInfo;
+    private Label lblPayURL;
+    private Label lblPicDesc;
+    private Label lblPicPath;
+    private Label lblPicType;
+    private Label lblPosMedia;
+    private Label lblPublisher;
+    private Label lblPubURL;
+    private Label lblRatingCounter;
+    private Label lblRatingRating;
+    private Label lblRatingUser;
+    private Label lblSelected;
+    private Label lblSubTitle;
+    private Label lblTitle;
+    private Label lblTitleSort;
+    private Label lblTLEN;
+    private Label lblTrack;
+    private Label lblTXXXContent;
+    private Label lblTXXXDesc;
+    private Label lblWXXXContent;
+    private Label lblWXXXDesc;
+    private Label lblYear;
+    private ListView LyricsList;
+    private ListView NotSupportList;
+    private System.Windows.Forms.OpenFileDialog OpenFileDialog;
+    private Panel panDetail;
+    private Panel Panel1;
+    private Panel Panel10;
+    private Panel Panel11;
+    private Panel Panel12;
+    private Panel Panel13;
+    private Panel Panel14;
+    private Panel Panel15;
+    private Panel Panel16;
+    private Panel Panel2;
+    private Panel Panel3;
+    private Panel Panel4;
+    private Panel Panel5;
+    private Panel Panel6;
+    private Panel Panel7;
+    private Panel Panel8;
+    private Panel Panel9;
+    private Panel panInvolved;
+    private Panel panLyrics;
+    private Panel panMain;
+    private Panel panNot;
+    private Panel panOriginal;
+    private Panel panPic;
+    private Panel panRating;
+    private Panel panUser;
+    private Panel panWeb;
+    private ListView PicList;
+    private ListView RatingList;
+    private System.Windows.Forms.SaveFileDialog SaveFileDialog;
+    private ExplorerBar SelectionBar;
+    private ButtonItem TAGV2ButtonItem1;
+    private ButtonItem TAGV2ButtonItem10;
+    private ButtonItem TAGV2ButtonItem2;
+    private ButtonItem TAGV2ButtonItem3;
+    private ButtonItem TAGV2ButtonItem4;
+    private ButtonItem TAGV2ButtonItem5;
+    private ButtonItem TAGV2ButtonItem6;
+    private ButtonItem TAGV2ButtonItem7;
+    private ButtonItem TAGV2ButtonItem8;
+    private ButtonItem TAGV2ButtonItem9;
+    private ExplorerBarGroupItem TAGV2grpCommands;
+    private ExplorerBarGroupItem TAGV2grpTAG;
+    private ExplorerBarGroupItem TAGV2grpTransfer;
+    private ListView TIPLList;
+    private ListView TMCLList;
+    private System.Windows.Forms.ToolTip ToolTip;
+    private PanelEx TopPanel;
+    private HScrollBar TORYFormat;
+    private System.Windows.Forms.TextBox txtAlbum;
+    private System.Windows.Forms.TextBox txtArtistURL;
+    private System.Windows.Forms.TextBox txtAudioFileURL;
+    private System.Windows.Forms.TextBox txtAudioSRCURL;
+    private System.Windows.Forms.TextBox txtBand;
+    private NumericTextBox txtBPM;
+    private System.Windows.Forms.TextBox txtComment;
+    private System.Windows.Forms.TextBox txtCOMMInfURL;
+    private System.Windows.Forms.TextBox txtComposer;
+    private System.Windows.Forms.TextBox txtConductor;
+    private System.Windows.Forms.TextBox txtContent;
+    private System.Windows.Forms.TextBox txtCopyInfURL;
+    private System.Windows.Forms.TextBox txtCopyright;
+    private NumericUpDown txtDigits;
+    private System.Windows.Forms.TextBox txtEncoded;
+    private System.Windows.Forms.TextBox txtINetRadioURL;
+    private System.Windows.Forms.TextBox txtInvFunction;
+    private System.Windows.Forms.TextBox txtInvPerson;
+    private System.Windows.Forms.TextBox txtLDescriptor;
+    private RichTextBox txtLyrics;
+    private System.Windows.Forms.TextBox txtLyWriter;
+    private System.Windows.Forms.TextBox txtModified;
+    private System.Windows.Forms.TextBox txtMusicianInst;
+    private System.Windows.Forms.TextBox txtMusicianName;
+    private System.Windows.Forms.TextBox txtOAlbum;
+    private System.Windows.Forms.TextBox txtOArtist;
+    private System.Windows.Forms.TextBox txtOFilename;
+    private System.Windows.Forms.TextBox txtOLyWriter;
+    private System.Windows.Forms.TextBox txtOOwner;
+    private System.Windows.Forms.TextBox txtPayURL;
+    private System.Windows.Forms.TextBox txtPDescriptor;
+    private System.Windows.Forms.TextBox txtPicPath;
+    private IntegerTextBox txtPOS1;
+    private IntegerTextBox txtPOS2;
+    private System.Windows.Forms.TextBox txtPublisher;
+    private System.Windows.Forms.TextBox txtPubURL;
+    private NumericUpDown txtRatingCounter;
+    private NumericUpDown txtRatingRating;
+    private System.Windows.Forms.TextBox txtRatingUser;
+    private System.Windows.Forms.TextBox txtSelected;
+    private System.Windows.Forms.TextBox txtSortAlbum;
+    private System.Windows.Forms.TextBox txtSortArtist;
+    private System.Windows.Forms.TextBox txtSortTitle;
+    private System.Windows.Forms.TextBox txtSubTitle;
+    private System.Windows.Forms.TextBox txtTitle;
+    private IntegerTextBox txtTLEN;
+    private AMS.TextBox.MaskedTextBox txtTORY;
+    private IntegerTextBox txtTrack1;
+    private IntegerTextBox txtTrack2;
+    private System.Windows.Forms.TextBox txtTXXXContent;
+    private System.Windows.Forms.TextBox txtTXXXDesc;
+    private System.Windows.Forms.TextBox txtWXXXContent;
+    private System.Windows.Forms.TextBox txtWXXXDesc;
+    private AMS.TextBox.MaskedTextBox txtYear;
+    private ListView TXXXList;
+    private ListView WXXXList;
+    private HScrollBar YearFormat;
     private ArrayList alstRemovedAPICFrames;
     private ArrayList alstRemovedLDCFrames;
     private ArrayList alstRemovedPOPMFrames;
@@ -540,6 +286,2284 @@
     private bool vbooCommentMoved;
     private bool vbooLyricsMoved;
     private bool vbooRatingMoved;
+
+    [DebuggerStepThrough]
+    private void InitializeComponent()
+    {
+      this.components = new Container();
+      ResourceManager manager = new ResourceManager(typeof(frmTAG2));
+      this.lblSelected = new Label();
+      this.txtSelected = new System.Windows.Forms.TextBox();
+      this.Panel3 = new Panel();
+      this.lblCommDescInfo = new Label();
+      this.cmbCDescriptor = new ComboBoxAutoComplete();
+      this.btnV1Comment = new Button();
+      this.btnMoveComment = new Button();
+      this.btnRemoveComment = new Button();
+      this.btnAddComment = new Button();
+      this.lblCOMM = new Label();
+      this.lblCOMMLan = new Label();
+      this.lblCOMMDesc = new Label();
+      this.cmbCLanguage = new ComboBox();
+      this.txtComment = new System.Windows.Forms.TextBox();
+      this.CommentList = new ListView();
+      this.colDescriptor = new ColumnHeader();
+      this.colComment = new ColumnHeader();
+      this.colLanguage = new ColumnHeader();
+      this.Panel2 = new Panel();
+      this.cmbGenre = new ComboBoxAutoComplete();
+      this.btnV1Genre = new Button();
+      this.lblGenreInfo = new Label();
+      this.btnMoveGenre = new Button();
+      this.btnRemoveGenre = new Button();
+      this.btnAddGenre = new Button();
+      this.lblGenre = new Label();
+      this.GenreList = new ListBox();
+      this.Panel1 = new Panel();
+      this.txtPOS2 = new IntegerTextBox();
+      this.txtPOS1 = new IntegerTextBox();
+      this.txtTrack2 = new IntegerTextBox();
+      this.txtTrack1 = new IntegerTextBox();
+      this.txtYear = new AMS.TextBox.MaskedTextBox();
+      this.txtBPM = new NumericTextBox();
+      this.cmbArtist = new ComboBoxAutoComplete();
+      this.lblBPM = new Label();
+      this.YearFormat = new HScrollBar();
+      this.btnV1Title = new Button();
+      this.btnV1Album = new Button();
+      this.btnV1Track = new Button();
+      this.btnV1Year = new Button();
+      this.btnV1Artist = new Button();
+      this.lblOf2 = new Label();
+      this.lblOf1 = new Label();
+      this.txtAlbum = new System.Windows.Forms.TextBox();
+      this.txtTitle = new System.Windows.Forms.TextBox();
+      this.lblTitle = new Label();
+      this.lblAlbum = new Label();
+      this.lblPosMedia = new Label();
+      this.lblYear = new Label();
+      this.lblTrack = new Label();
+      this.lblArtist = new Label();
+      this.btnTLEN = new Button();
+      this.txtTLEN = new IntegerTextBox();
+      this.lblTLEN = new Label();
+      this.cmbMedia = new ComboBox();
+      this.lblMediaTyp = new Label();
+      this.Panel9 = new Panel();
+      this.txtSortArtist = new System.Windows.Forms.TextBox();
+      this.txtSortTitle = new System.Windows.Forms.TextBox();
+      this.txtSortAlbum = new System.Windows.Forms.TextBox();
+      this.lblAlbumSort = new Label();
+      this.lblTitleSort = new Label();
+      this.lblArtistSort = new Label();
+      this.Panel6 = new Panel();
+      this.txtTORY = new AMS.TextBox.MaskedTextBox();
+      this.lblOYearInfo = new Label();
+      this.TORYFormat = new HScrollBar();
+      this.lblOYear = new Label();
+      this.txtOOwner = new System.Windows.Forms.TextBox();
+      this.lblOOwner = new Label();
+      this.txtOArtist = new System.Windows.Forms.TextBox();
+      this.lblOArtist = new Label();
+      this.txtOAlbum = new System.Windows.Forms.TextBox();
+      this.txtOLyWriter = new System.Windows.Forms.TextBox();
+      this.txtOFilename = new System.Windows.Forms.TextBox();
+      this.lblOFilename = new Label();
+      this.lblOLyWriter = new Label();
+      this.lblOAlbum = new Label();
+      this.Panel5 = new Panel();
+      this.txtContent = new System.Windows.Forms.TextBox();
+      this.txtSubTitle = new System.Windows.Forms.TextBox();
+      this.lblSubTitle = new Label();
+      this.lblContent = new Label();
+      this.Panel4 = new Panel();
+      this.txtComposer = new System.Windows.Forms.TextBox();
+      this.lblComposer = new Label();
+      this.txtBand = new System.Windows.Forms.TextBox();
+      this.txtModified = new System.Windows.Forms.TextBox();
+      this.txtConductor = new System.Windows.Forms.TextBox();
+      this.lblConductor = new Label();
+      this.lblModified = new Label();
+      this.lblBand = new Label();
+      this.txtCopyright = new System.Windows.Forms.TextBox();
+      this.lblCopyright = new Label();
+      this.txtLyWriter = new System.Windows.Forms.TextBox();
+      this.txtEncoded = new System.Windows.Forms.TextBox();
+      this.txtPublisher = new System.Windows.Forms.TextBox();
+      this.lblPublisher = new Label();
+      this.lblEncoded = new Label();
+      this.lblLyWriter = new Label();
+      this.Panel15 = new Panel();
+      this.lblMusicianInfo = new Label();
+      this.txtMusicianName = new System.Windows.Forms.TextBox();
+      this.btnRemoveMusician = new Button();
+      this.btnAddMusician = new Button();
+      this.lblMusicianName = new Label();
+      this.lblMusicianInst = new Label();
+      this.txtMusicianInst = new System.Windows.Forms.TextBox();
+      this.TMCLList = new ListView();
+      this.ColumnHeader15 = new ColumnHeader();
+      this.ColumnHeader16 = new ColumnHeader();
+      this.Panel16 = new Panel();
+      this.txtInvPerson = new System.Windows.Forms.TextBox();
+      this.btnRemoveInv = new Button();
+      this.btnAddInv = new Button();
+      this.lblInvPerson = new Label();
+      this.lblInvFunction = new Label();
+      this.txtInvFunction = new System.Windows.Forms.TextBox();
+      this.TIPLList = new ListView();
+      this.ColumnHeader17 = new ColumnHeader();
+      this.ColumnHeader18 = new ColumnHeader();
+      this.Panel14 = new Panel();
+      this.Panel7 = new Panel();
+      this.chkPicRelativPath = new CheckBox();
+      this.btnExPic = new Button();
+      this.btnRemovePicture = new Button();
+      this.btnAddPicture = new Button();
+      this.btnGetPic = new Button();
+      this.chkPicInclude = new CheckBox();
+      this.lblPicPath = new Label();
+      this.txtPicPath = new System.Windows.Forms.TextBox();
+      this.PicList = new ListView();
+      this.ColumnHeader4 = new ColumnHeader();
+      this.ColumnHeader5 = new ColumnHeader();
+      this.ColumnHeader6 = new ColumnHeader();
+      this.ColumnHeader7 = new ColumnHeader();
+      this.lblPicType = new Label();
+      this.lblPicDesc = new Label();
+      this.cmbPicType = new ComboBox();
+      this.txtPDescriptor = new System.Windows.Forms.TextBox();
+      this.APICView = new PictureBox();
+      this.Panel8 = new Panel();
+      this.txtLyrics = new RichTextBox();
+      this.btnLyricsFile = new Button();
+      this.btnMoveLyrics = new Button();
+      this.btnRemoveLyrics = new Button();
+      this.btnAddLyrics = new Button();
+      this.lblLyrics = new Label();
+      this.lblLyLan = new Label();
+      this.lblLyDesc = new Label();
+      this.cmbLLanguage = new ComboBox();
+      this.txtLDescriptor = new System.Windows.Forms.TextBox();
+      this.LyricsList = new ListView();
+      this.ColumnHeader1 = new ColumnHeader();
+      this.ColumnHeader2 = new ColumnHeader();
+      this.ColumnHeader3 = new ColumnHeader();
+      this.Panel11 = new Panel();
+      this.lblInfo = new Label();
+      this.btnMoveRating = new Button();
+      this.btnRemoveRating = new Button();
+      this.btnAddRating = new Button();
+      this.RatingList = new ListView();
+      this.ColumnHeader8 = new ColumnHeader();
+      this.ColumnHeader9 = new ColumnHeader();
+      this.ColumnHeader10 = new ColumnHeader();
+      this.txtRatingCounter = new NumericUpDown();
+      this.txtRatingRating = new NumericUpDown();
+      this.txtRatingUser = new System.Windows.Forms.TextBox();
+      this.lblRatingRating = new Label();
+      this.lblRatingCounter = new Label();
+      this.lblRatingUser = new Label();
+      this.Panel10 = new Panel();
+      this.txtCOMMInfURL = new System.Windows.Forms.TextBox();
+      this.lblCOMMInfURL = new Label();
+      this.txtPubURL = new System.Windows.Forms.TextBox();
+      this.lblPubURL = new Label();
+      this.txtPayURL = new System.Windows.Forms.TextBox();
+      this.lblPayURL = new Label();
+      this.txtINetRadioURL = new System.Windows.Forms.TextBox();
+      this.lblINetRadioURL = new Label();
+      this.txtAudioSRCURL = new System.Windows.Forms.TextBox();
+      this.lblAudioSRCURL = new Label();
+      this.txtCopyInfURL = new System.Windows.Forms.TextBox();
+      this.txtArtistURL = new System.Windows.Forms.TextBox();
+      this.txtAudioFileURL = new System.Windows.Forms.TextBox();
+      this.lblAudioFileURL = new Label();
+      this.lblArtistURL = new Label();
+      this.lblCopyInfURL = new Label();
+      this.Panel13 = new Panel();
+      this.txtWXXXContent = new System.Windows.Forms.TextBox();
+      this.btnRemoveWXXX = new Button();
+      this.btnAddWXXX = new Button();
+      this.lblWXXXContent = new Label();
+      this.lblWXXXDesc = new Label();
+      this.txtWXXXDesc = new System.Windows.Forms.TextBox();
+      this.WXXXList = new ListView();
+      this.ColumnHeader13 = new ColumnHeader();
+      this.ColumnHeader14 = new ColumnHeader();
+      this.Panel12 = new Panel();
+      this.txtTXXXContent = new System.Windows.Forms.TextBox();
+      this.btnRemoveTXXX = new Button();
+      this.btnAddTXXX = new Button();
+      this.lblTXXXContent = new Label();
+      this.lblTXXXDesc = new Label();
+      this.txtTXXXDesc = new System.Windows.Forms.TextBox();
+      this.TXXXList = new ListView();
+      this.ColumnHeader11 = new ColumnHeader();
+      this.ColumnHeader12 = new ColumnHeader();
+      this.lblNot = new Label();
+      this.NotSupportList = new ListView();
+      this.FrameID = new ColumnHeader();
+      this.Content = new ColumnHeader();
+      this.txtDigits = new NumericUpDown();
+      this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+      this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+      this.SelectionBar = new ExplorerBar();
+      this.TAGV2grpTAG = new ExplorerBarGroupItem();
+      this.TAGV2ButtonItem1 = new ButtonItem();
+      this.TAGV2ButtonItem2 = new ButtonItem();
+      this.TAGV2ButtonItem3 = new ButtonItem();
+      this.TAGV2ButtonItem4 = new ButtonItem();
+      this.TAGV2ButtonItem5 = new ButtonItem();
+      this.TAGV2ButtonItem6 = new ButtonItem();
+      this.TAGV2ButtonItem7 = new ButtonItem();
+      this.TAGV2ButtonItem8 = new ButtonItem();
+      this.TAGV2ButtonItem9 = new ButtonItem();
+      this.TAGV2ButtonItem10 = new ButtonItem();
+      this.TAGV2grpTransfer = new ExplorerBarGroupItem();
+      this.btnImport = new ButtonItem();
+      this.btnExport = new ButtonItem();
+      this.btnGet = new ButtonItem();
+      this.TAGV2grpCommands = new ExplorerBarGroupItem();
+      this.btnPrev = new ButtonItem();
+      this.btnNext = new ButtonItem();
+      this.btnSwapAT = new ButtonItem();
+      this.btnSwapAA = new ButtonItem();
+      this.btnSwapTA = new ButtonItem();
+      this.btnCancel = new Button();
+      this.btnOK = new Button();
+      this.lblDigits = new Label();
+      this.TopPanel = new PanelEx();
+      this.panDetail = new Panel();
+      this.panMain = new Panel();
+      this.panOriginal = new Panel();
+      this.panInvolved = new Panel();
+      this.panPic = new Panel();
+      this.panLyrics = new Panel();
+      this.panWeb = new Panel();
+      this.panRating = new Panel();
+      this.panUser = new Panel();
+      this.panNot = new Panel();
+      this.ButtomPanel = new PanelEx();
+      this.Panel3.SuspendLayout();
+      this.Panel2.SuspendLayout();
+      this.Panel1.SuspendLayout();
+      this.Panel9.SuspendLayout();
+      this.Panel6.SuspendLayout();
+      this.Panel5.SuspendLayout();
+      this.Panel4.SuspendLayout();
+      this.Panel15.SuspendLayout();
+      this.Panel16.SuspendLayout();
+      this.Panel14.SuspendLayout();
+      this.Panel7.SuspendLayout();
+      this.Panel8.SuspendLayout();
+      this.Panel11.SuspendLayout();
+      this.txtRatingCounter.BeginInit();
+      this.txtRatingRating.BeginInit();
+      this.Panel10.SuspendLayout();
+      this.Panel13.SuspendLayout();
+      this.Panel12.SuspendLayout();
+      this.txtDigits.BeginInit();
+      ((ISupportInitialize)this.SelectionBar).BeginInit();
+      this.TopPanel.SuspendLayout();
+      this.panDetail.SuspendLayout();
+      this.panMain.SuspendLayout();
+      this.panOriginal.SuspendLayout();
+      this.panInvolved.SuspendLayout();
+      this.panPic.SuspendLayout();
+      this.panLyrics.SuspendLayout();
+      this.panWeb.SuspendLayout();
+      this.panRating.SuspendLayout();
+      this.panUser.SuspendLayout();
+      this.panNot.SuspendLayout();
+      this.ButtomPanel.SuspendLayout();
+      this.SuspendLayout();
+      this.lblSelected.BackColor = Color.White;
+      this.lblSelected.ForeColor = Color.Black;
+      this.lblSelected.ImeMode = ImeMode.NoControl;
+      this.lblSelected.Location = new Point(8, 0x18);
+      this.lblSelected.Name = "lblSelected";
+      this.lblSelected.Size = new Size(0x68, 0x10);
+      this.lblSelected.TabIndex = 0x6b;
+      this.lblSelected.Text = "Selected file:";
+      this.txtSelected.BackColor = Color.White;
+      this.txtSelected.BorderStyle = BorderStyle.None;
+      this.txtSelected.ForeColor = Color.Black;
+      this.txtSelected.Location = new Point(0x70, 0x18);
+      this.txtSelected.Name = "txtSelected";
+      this.txtSelected.ReadOnly = true;
+      this.txtSelected.Size = new Size(0x220, 13);
+      this.txtSelected.TabIndex = 0x6c;
+      this.txtSelected.TabStop = false;
+      this.txtSelected.Text = "";
+      this.Panel3.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel3.Controls.Add(this.lblCommDescInfo);
+      this.Panel3.Controls.Add(this.cmbCDescriptor);
+      this.Panel3.Controls.Add(this.btnV1Comment);
+      this.Panel3.Controls.Add(this.btnMoveComment);
+      this.Panel3.Controls.Add(this.btnRemoveComment);
+      this.Panel3.Controls.Add(this.btnAddComment);
+      this.Panel3.Controls.Add(this.lblCOMM);
+      this.Panel3.Controls.Add(this.lblCOMMLan);
+      this.Panel3.Controls.Add(this.lblCOMMDesc);
+      this.Panel3.Controls.Add(this.cmbCLanguage);
+      this.Panel3.Controls.Add(this.txtComment);
+      this.Panel3.Controls.Add(this.CommentList);
+      this.Panel3.Location = new Point(8, 0x108);
+      this.Panel3.Name = "Panel3";
+      this.Panel3.Size = new Size(0x288, 0xb8);
+      this.Panel3.TabIndex = 2;
+      this.lblCommDescInfo.BorderStyle = BorderStyle.Fixed3D;
+      this.lblCommDescInfo.ImeMode = ImeMode.NoControl;
+      this.lblCommDescInfo.Location = new Point(8, 0x70);
+      this.lblCommDescInfo.Name = "lblCommDescInfo";
+      this.lblCommDescInfo.Size = new Size(120, 0x40);
+      this.lblCommDescInfo.TabIndex = 0x2f;
+      this.lblCommDescInfo.Text = "Predefined comment descriptors can be set under Edit Libraries (Options menu)";
+      this.lblCommDescInfo.TextAlign = ContentAlignment.MiddleCenter;
+      this.cmbCDescriptor.Autocomplete = true;
+      this.cmbCDescriptor.ItemHeight = 13;
+      this.cmbCDescriptor.Location = new Point(0x88, 6);
+      this.cmbCDescriptor.Name = "cmbCDescriptor";
+      this.cmbCDescriptor.Size = new Size(0x108, 0x15);
+      this.cmbCDescriptor.TabIndex = 0x24;
+      this.btnV1Comment.ImeMode = ImeMode.NoControl;
+      this.btnV1Comment.Location = new Point(0x198, 80);
+      this.btnV1Comment.Name = "btnV1Comment";
+      this.btnV1Comment.Size = new Size(0xe8, 20);
+      this.btnV1Comment.TabIndex = 0x2c;
+      this.btnV1Comment.Text = "<- Ver. 1";
+      this.btnMoveComment.ImeMode = ImeMode.NoControl;
+      this.btnMoveComment.Location = new Point(0x198, 0x38);
+      this.btnMoveComment.Name = "btnMoveComment";
+      this.btnMoveComment.Size = new Size(0xe8, 20);
+      this.btnMoveComment.TabIndex = 0x2b;
+      this.btnMoveComment.Text = "Move Comment to top";
+      this.btnRemoveComment.ImeMode = ImeMode.NoControl;
+      this.btnRemoveComment.Location = new Point(0x198, 0x20);
+      this.btnRemoveComment.Name = "btnRemoveComment";
+      this.btnRemoveComment.Size = new Size(0xe8, 20);
+      this.btnRemoveComment.TabIndex = 0x2a;
+      this.btnRemoveComment.Text = "Remove Comment";
+      this.btnAddComment.ImeMode = ImeMode.NoControl;
+      this.btnAddComment.Location = new Point(0x198, 8);
+      this.btnAddComment.Name = "btnAddComment";
+      this.btnAddComment.Size = new Size(0xe8, 20);
+      this.btnAddComment.TabIndex = 0x29;
+      this.btnAddComment.Text = "Add Comment";
+      this.lblCOMM.ImeMode = ImeMode.NoControl;
+      this.lblCOMM.Location = new Point(8, 0x38);
+      this.lblCOMM.Name = "lblCOMM";
+      this.lblCOMM.Size = new Size(0x80, 0x10);
+      this.lblCOMM.TabIndex = 0x27;
+      this.lblCOMM.Text = "&Comment:";
+      this.lblCOMMLan.ImeMode = ImeMode.NoControl;
+      this.lblCOMMLan.Location = new Point(8, 0x20);
+      this.lblCOMMLan.Name = "lblCOMMLan";
+      this.lblCOMMLan.Size = new Size(0x80, 0x10);
+      this.lblCOMMLan.TabIndex = 0x25;
+      this.lblCOMMLan.Text = "Comment &Language:";
+      this.lblCOMMDesc.ImeMode = ImeMode.NoControl;
+      this.lblCOMMDesc.Location = new Point(8, 8);
+      this.lblCOMMDesc.Name = "lblCOMMDesc";
+      this.lblCOMMDesc.Size = new Size(0x80, 0x10);
+      this.lblCOMMDesc.TabIndex = 0x23;
+      this.lblCOMMDesc.Text = "Comment &Descriptor:";
+      this.cmbCLanguage.DropDownStyle = ComboBoxStyle.DropDownList;
+      this.cmbCLanguage.ItemHeight = 13;
+      this.cmbCLanguage.Location = new Point(0x88, 30);
+      this.cmbCLanguage.Name = "cmbCLanguage";
+      this.cmbCLanguage.Size = new Size(0x108, 0x15);
+      this.cmbCLanguage.TabIndex = 0x26;
+      this.txtComment.AcceptsReturn = true;
+      this.txtComment.Location = new Point(0x88, 0x38);
+      this.txtComment.Multiline = true;
+      this.txtComment.Name = "txtComment";
+      this.txtComment.Size = new Size(0x108, 0x30);
+      this.txtComment.TabIndex = 40;
+      this.txtComment.Text = "";
+      this.CommentList.Columns.AddRange(new ColumnHeader[] { this.colDescriptor, this.colComment, this.colLanguage });
+      this.CommentList.FullRowSelect = true;
+      this.CommentList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+      this.CommentList.Location = new Point(0x88, 0x70);
+      this.CommentList.MultiSelect = false;
+      this.CommentList.Name = "CommentList";
+      this.CommentList.Size = new Size(0x1f8, 0x40);
+      this.CommentList.TabIndex = 0x2d;
+      this.CommentList.View = View.Details;
+      this.colDescriptor.Text = "Descriptor";
+      this.colDescriptor.Width = 0x7c;
+      this.colComment.Text = "Comment";
+      this.colComment.Width = 0x106;
+      this.colLanguage.Text = "Language";
+      this.colLanguage.Width = 0x5b;
+      this.Panel2.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel2.Controls.Add(this.cmbGenre);
+      this.Panel2.Controls.Add(this.btnV1Genre);
+      this.Panel2.Controls.Add(this.lblGenreInfo);
+      this.Panel2.Controls.Add(this.btnMoveGenre);
+      this.Panel2.Controls.Add(this.btnRemoveGenre);
+      this.Panel2.Controls.Add(this.btnAddGenre);
+      this.Panel2.Controls.Add(this.lblGenre);
+      this.Panel2.Controls.Add(this.GenreList);
+      this.Panel2.Location = new Point(8, 0x90);
+      this.Panel2.Name = "Panel2";
+      this.Panel2.Size = new Size(0x288, 0x70);
+      this.Panel2.TabIndex = 1;
+      this.cmbGenre.Autocomplete = true;
+      this.cmbGenre.ItemHeight = 13;
+      this.cmbGenre.Location = new Point(0x88, 6);
+      this.cmbGenre.Name = "cmbGenre";
+      this.cmbGenre.Size = new Size(0xe8, 0x15);
+      this.cmbGenre.TabIndex = 0x1d;
+      this.btnV1Genre.ImeMode = ImeMode.NoControl;
+      this.btnV1Genre.Location = new Point(0x200, 0x20);
+      this.btnV1Genre.Name = "btnV1Genre";
+      this.btnV1Genre.Size = new Size(0x80, 20);
+      this.btnV1Genre.TabIndex = 0x21;
+      this.btnV1Genre.Text = "<- Ver. 1";
+      this.lblGenreInfo.BorderStyle = BorderStyle.Fixed3D;
+      this.lblGenreInfo.ImeMode = ImeMode.NoControl;
+      this.lblGenreInfo.Location = new Point(0x178, 0x40);
+      this.lblGenreInfo.Name = "lblGenreInfo";
+      this.lblGenreInfo.Size = new Size(0x108, 40);
+      this.lblGenreInfo.TabIndex = 0x1d;
+      this.lblGenreInfo.Text = "Note: Many programs only show the first genre entered. So move the important genre to the top of the list.";
+      this.btnMoveGenre.ImeMode = ImeMode.NoControl;
+      this.btnMoveGenre.Location = new Point(0x178, 0x20);
+      this.btnMoveGenre.Name = "btnMoveGenre";
+      this.btnMoveGenre.Size = new Size(0x80, 20);
+      this.btnMoveGenre.TabIndex = 0x20;
+      this.btnMoveGenre.Text = "Move Genre to top";
+      this.btnRemoveGenre.ImeMode = ImeMode.NoControl;
+      this.btnRemoveGenre.Location = new Point(0x200, 8);
+      this.btnRemoveGenre.Name = "btnRemoveGenre";
+      this.btnRemoveGenre.Size = new Size(0x80, 20);
+      this.btnRemoveGenre.TabIndex = 0x1f;
+      this.btnRemoveGenre.Text = "Remove Genre";
+      this.btnAddGenre.ImeMode = ImeMode.NoControl;
+      this.btnAddGenre.Location = new Point(0x178, 8);
+      this.btnAddGenre.Name = "btnAddGenre";
+      this.btnAddGenre.Size = new Size(0x80, 20);
+      this.btnAddGenre.TabIndex = 30;
+      this.btnAddGenre.Text = "Add Genre";
+      this.lblGenre.ImeMode = ImeMode.NoControl;
+      this.lblGenre.Location = new Point(8, 8);
+      this.lblGenre.Name = "lblGenre";
+      this.lblGenre.Size = new Size(0x80, 0x10);
+      this.lblGenre.TabIndex = 0x1c;
+      this.lblGenre.Text = "&Genre:";
+      this.GenreList.Location = new Point(0x88, 0x20);
+      this.GenreList.Name = "GenreList";
+      this.GenreList.Size = new Size(0xe8, 0x45);
+      this.GenreList.TabIndex = 0x22;
+      this.Panel1.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel1.Controls.Add(this.txtPOS2);
+      this.Panel1.Controls.Add(this.txtPOS1);
+      this.Panel1.Controls.Add(this.txtTrack2);
+      this.Panel1.Controls.Add(this.txtTrack1);
+      this.Panel1.Controls.Add(this.txtYear);
+      this.Panel1.Controls.Add(this.txtBPM);
+      this.Panel1.Controls.Add(this.cmbArtist);
+      this.Panel1.Controls.Add(this.lblBPM);
+      this.Panel1.Controls.Add(this.YearFormat);
+      this.Panel1.Controls.Add(this.btnV1Title);
+      this.Panel1.Controls.Add(this.btnV1Album);
+      this.Panel1.Controls.Add(this.btnV1Track);
+      this.Panel1.Controls.Add(this.btnV1Year);
+      this.Panel1.Controls.Add(this.btnV1Artist);
+      this.Panel1.Controls.Add(this.lblOf2);
+      this.Panel1.Controls.Add(this.lblOf1);
+      this.Panel1.Controls.Add(this.txtAlbum);
+      this.Panel1.Controls.Add(this.txtTitle);
+      this.Panel1.Controls.Add(this.lblTitle);
+      this.Panel1.Controls.Add(this.lblAlbum);
+      this.Panel1.Controls.Add(this.lblPosMedia);
+      this.Panel1.Controls.Add(this.lblYear);
+      this.Panel1.Controls.Add(this.lblTrack);
+      this.Panel1.Controls.Add(this.lblArtist);
+      this.Panel1.Location = new Point(8, 8);
+      this.Panel1.Name = "Panel1";
+      this.Panel1.Size = new Size(0x288, 0x80);
+      this.Panel1.TabIndex = 0;
+      this.txtPOS2.AllowNegative = false;
+      this.txtPOS2.DigitsInGroup = 0;
+      this.txtPOS2.Flags = 0x10000;
+      this.txtPOS2.Location = new Point(0x240, 0x66);
+      this.txtPOS2.MaxDecimalPlaces = 0;
+      this.txtPOS2.MaxLength = 6;
+      this.txtPOS2.MaxWholeDigits = 6;
+      this.txtPOS2.Name = "txtPOS2";
+      this.txtPOS2.Prefix = "";
+      this.txtPOS2.RangeMax = 999999.0;
+      this.txtPOS2.RangeMin = 0.0;
+      this.txtPOS2.Size = new Size(0x40, 20);
+      this.txtPOS2.TabIndex = 0x19;
+      this.txtPOS1.AllowNegative = false;
+      this.txtPOS1.DigitsInGroup = 0;
+      this.txtPOS1.Flags = 0x10000;
+      this.txtPOS1.Location = new Point(0x1e8, 0x66);
+      this.txtPOS1.MaxDecimalPlaces = 0;
+      this.txtPOS1.MaxLength = 6;
+      this.txtPOS1.MaxWholeDigits = 6;
+      this.txtPOS1.Name = "txtPOS1";
+      this.txtPOS1.Prefix = "";
+      this.txtPOS1.RangeMax = 999999.0;
+      this.txtPOS1.RangeMin = 0.0;
+      this.txtPOS1.Size = new Size(0x40, 20);
+      this.txtPOS1.TabIndex = 0x18;
+      this.txtTrack2.AllowNegative = false;
+      this.txtTrack2.DigitsInGroup = 0;
+      this.txtTrack2.Flags = 0x10000;
+      this.txtTrack2.Location = new Point(0xe0, 0x66);
+      this.txtTrack2.MaxDecimalPlaces = 0;
+      this.txtTrack2.MaxLength = 6;
+      this.txtTrack2.MaxWholeDigits = 6;
+      this.txtTrack2.Name = "txtTrack2";
+      this.txtTrack2.Prefix = "";
+      this.txtTrack2.RangeMax = 999999.0;
+      this.txtTrack2.RangeMin = 0.0;
+      this.txtTrack2.Size = new Size(0x40, 20);
+      this.txtTrack2.TabIndex = 0x15;
+      this.txtTrack1.AllowNegative = false;
+      this.txtTrack1.DigitsInGroup = 0;
+      this.txtTrack1.Flags = 0x10000;
+      this.txtTrack1.Location = new Point(0x88, 0x66);
+      this.txtTrack1.MaxDecimalPlaces = 0;
+      this.txtTrack1.MaxLength = 6;
+      this.txtTrack1.MaxWholeDigits = 6;
+      this.txtTrack1.Name = "txtTrack1";
+      this.txtTrack1.Prefix = "";
+      this.txtTrack1.RangeMax = 999999.0;
+      this.txtTrack1.RangeMin = 0.0;
+      this.txtTrack1.Size = new Size(0x40, 20);
+      this.txtTrack1.TabIndex = 20;
+      this.txtYear.Flags = 0;
+      this.txtYear.Location = new Point(0x88, 0x4e);
+      this.txtYear.Mask = "####-##-##";
+      this.txtYear.Name = "txtYear";
+      this.txtYear.Size = new Size(0x70, 20);
+      this.txtYear.TabIndex = 13;
+      this.txtBPM.AllowNegative = false;
+      this.txtBPM.DigitsInGroup = 0;
+      this.txtBPM.Flags = 0x10000;
+      this.txtBPM.Location = new Point(0x1e8, 0x4e);
+      this.txtBPM.MaxDecimalPlaces = 0;
+      this.txtBPM.MaxLength = 3;
+      this.txtBPM.MaxWholeDigits = 3;
+      this.txtBPM.Name = "txtBPM";
+      this.txtBPM.Prefix = "";
+      this.txtBPM.RangeMax = 999999.0;
+      this.txtBPM.RangeMin = 1.0;
+      this.txtBPM.Size = new Size(0x98, 20);
+      this.txtBPM.TabIndex = 0x12;
+      this.cmbArtist.Autocomplete = true;
+      this.cmbArtist.ItemHeight = 13;
+      this.cmbArtist.Location = new Point(0x88, 6);
+      this.cmbArtist.Name = "cmbArtist";
+      this.cmbArtist.Size = new Size(440, 0x15);
+      this.cmbArtist.TabIndex = 4;
+      this.lblBPM.ImeMode = ImeMode.NoControl;
+      this.lblBPM.Location = new Point(0x170, 80);
+      this.lblBPM.Name = "lblBPM";
+      this.lblBPM.Size = new Size(0x80, 0x10);
+      this.lblBPM.TabIndex = 0x75;
+      this.lblBPM.Text = "BP&M:";
+      this.YearFormat.ImeMode = ImeMode.NoControl;
+      this.YearFormat.LargeChange = 1;
+      this.YearFormat.Location = new Point(0x100, 80);
+      this.YearFormat.Maximum = 2;
+      this.YearFormat.Name = "YearFormat";
+      this.YearFormat.Size = new Size(0x20, 0x10);
+      this.YearFormat.TabIndex = 14;
+      this.btnV1Title.ImeMode = ImeMode.NoControl;
+      this.btnV1Title.Location = new Point(0x248, 30);
+      this.btnV1Title.Name = "btnV1Title";
+      this.btnV1Title.Size = new Size(0x38, 20);
+      this.btnV1Title.TabIndex = 8;
+      this.btnV1Title.Text = "<- Ver. 1";
+      this.btnV1Album.ImeMode = ImeMode.NoControl;
+      this.btnV1Album.Location = new Point(0x248, 0x36);
+      this.btnV1Album.Name = "btnV1Album";
+      this.btnV1Album.Size = new Size(0x38, 20);
+      this.btnV1Album.TabIndex = 11;
+      this.btnV1Album.Text = "<- Ver. 1";
+      this.btnV1Track.ImeMode = ImeMode.NoControl;
+      this.btnV1Track.Location = new Point(0x128, 0x66);
+      this.btnV1Track.Name = "btnV1Track";
+      this.btnV1Track.Size = new Size(0x38, 20);
+      this.btnV1Track.TabIndex = 0x16;
+      this.btnV1Track.Text = "<- Ver. 1";
+      this.btnV1Year.ImeMode = ImeMode.NoControl;
+      this.btnV1Year.Location = new Point(0x128, 0x4e);
+      this.btnV1Year.Name = "btnV1Year";
+      this.btnV1Year.Size = new Size(0x38, 20);
+      this.btnV1Year.TabIndex = 0x10;
+      this.btnV1Year.Text = "<- Ver. 1";
+      this.btnV1Artist.ImeMode = ImeMode.NoControl;
+      this.btnV1Artist.Location = new Point(0x248, 6);
+      this.btnV1Artist.Name = "btnV1Artist";
+      this.btnV1Artist.Size = new Size(0x38, 20);
+      this.btnV1Artist.TabIndex = 5;
+      this.btnV1Artist.Text = "<- Ver. 1";
+      this.lblOf2.ImeMode = ImeMode.NoControl;
+      this.lblOf2.Location = new Point(560, 0x68);
+      this.lblOf2.Name = "lblOf2";
+      this.lblOf2.Size = new Size(0x10, 0x10);
+      this.lblOf2.TabIndex = 0x15;
+      this.lblOf2.Text = "/";
+      this.lblOf1.ImeMode = ImeMode.NoControl;
+      this.lblOf1.Location = new Point(0xd0, 0x68);
+      this.lblOf1.Name = "lblOf1";
+      this.lblOf1.Size = new Size(0x10, 0x10);
+      this.lblOf1.TabIndex = 0x10;
+      this.lblOf1.Text = "/";
+      this.txtAlbum.Location = new Point(0x88, 0x36);
+      this.txtAlbum.Name = "txtAlbum";
+      this.txtAlbum.Size = new Size(440, 20);
+      this.txtAlbum.TabIndex = 10;
+      this.txtAlbum.Text = "";
+      this.txtTitle.Location = new Point(0x88, 30);
+      this.txtTitle.Name = "txtTitle";
+      this.txtTitle.Size = new Size(440, 20);
+      this.txtTitle.TabIndex = 7;
+      this.txtTitle.Text = "";
+      this.lblTitle.ImeMode = ImeMode.NoControl;
+      this.lblTitle.Location = new Point(8, 0x20);
+      this.lblTitle.Name = "lblTitle";
+      this.lblTitle.Size = new Size(0x80, 0x10);
+      this.lblTitle.TabIndex = 6;
+      this.lblTitle.Text = "&Title:";
+      this.lblAlbum.ImeMode = ImeMode.NoControl;
+      this.lblAlbum.Location = new Point(8, 0x38);
+      this.lblAlbum.Name = "lblAlbum";
+      this.lblAlbum.Size = new Size(0x80, 0x10);
+      this.lblAlbum.TabIndex = 9;
+      this.lblAlbum.Text = "Al&bum:";
+      this.lblPosMedia.ImeMode = ImeMode.NoControl;
+      this.lblPosMedia.Location = new Point(0x170, 0x68);
+      this.lblPosMedia.Name = "lblPosMedia";
+      this.lblPosMedia.Size = new Size(120, 0x10);
+      this.lblPosMedia.TabIndex = 0x17;
+      this.lblPosMedia.Text = "Position in media &set:";
+      this.lblYear.ImeMode = ImeMode.NoControl;
+      this.lblYear.Location = new Point(8, 80);
+      this.lblYear.Name = "lblYear";
+      this.lblYear.Size = new Size(0x80, 0x10);
+      this.lblYear.TabIndex = 12;
+      this.lblYear.Text = "&Year (date) of recording:";
+      this.lblTrack.ImeMode = ImeMode.NoControl;
+      this.lblTrack.Location = new Point(8, 0x68);
+      this.lblTrack.Name = "lblTrack";
+      this.lblTrack.Size = new Size(0x80, 0x10);
+      this.lblTrack.TabIndex = 0x13;
+      this.lblTrack.Text = "Trac&k number:";
+      this.lblArtist.ImeMode = ImeMode.NoControl;
+      this.lblArtist.Location = new Point(8, 8);
+      this.lblArtist.Name = "lblArtist";
+      this.lblArtist.Size = new Size(0x80, 0x10);
+      this.lblArtist.TabIndex = 3;
+      this.lblArtist.Text = "Lead &Artist:";
+      this.btnTLEN.ImeMode = ImeMode.NoControl;
+      this.btnTLEN.Location = new Point(0x138, 0x20);
+      this.btnTLEN.Name = "btnTLEN";
+      this.btnTLEN.Size = new Size(0x70, 20);
+      this.btnTLEN.TabIndex = 30;
+      this.btnTLEN.Text = "Length from file";
+      this.txtTLEN.AllowNegative = false;
+      this.txtTLEN.DigitsInGroup = 0;
+      this.txtTLEN.Flags = 0x10000;
+      this.txtTLEN.Location = new Point(0xa8, 0x20);
+      this.txtTLEN.MaxDecimalPlaces = 0;
+      this.txtTLEN.MaxLength = 10;
+      this.txtTLEN.MaxWholeDigits = 10;
+      this.txtTLEN.Name = "txtTLEN";
+      this.txtTLEN.Prefix = "";
+      this.txtTLEN.RangeMax = 9999999999;
+      this.txtTLEN.RangeMin = 0.0;
+      this.txtTLEN.Size = new Size(0x88, 20);
+      this.txtTLEN.TabIndex = 0x1d;
+      this.lblTLEN.ImeMode = ImeMode.NoControl;
+      this.lblTLEN.Location = new Point(8, 0x20);
+      this.lblTLEN.Name = "lblTLEN";
+      this.lblTLEN.Size = new Size(0x98, 0x10);
+      this.lblTLEN.TabIndex = 0x1c;
+      this.lblTLEN.Text = "Track length (msec):";
+      this.cmbMedia.ItemHeight = 13;
+      this.cmbMedia.Items.AddRange(new object[] { "ANA (Other analogue media)", "CD (CD)", "DAT (DAT)", "DCC (DCC)", "DIG (Other digital media)", "DVD (DVD)", "LD (LaserDisc)", "MC (Music Cassette)", "MD (MiniDisc)", "RAD (Radio)", "REE (Reel)", "TEL (Telephone)", "TT (Turntable records)", "TV (Television)", "VID (Video)" });
+      this.cmbMedia.Location = new Point(0xa8, 6);
+      this.cmbMedia.Name = "cmbMedia";
+      this.cmbMedia.Size = new Size(0x100, 0x15);
+      this.cmbMedia.TabIndex = 0x12;
+      this.lblMediaTyp.ImeMode = ImeMode.NoControl;
+      this.lblMediaTyp.Location = new Point(8, 8);
+      this.lblMediaTyp.Name = "lblMediaTyp";
+      this.lblMediaTyp.Size = new Size(0x98, 0x10);
+      this.lblMediaTyp.TabIndex = 0x11;
+      this.lblMediaTyp.Text = "M&edia type:";
+      this.Panel9.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel9.Controls.Add(this.txtSortArtist);
+      this.Panel9.Controls.Add(this.txtSortTitle);
+      this.Panel9.Controls.Add(this.txtSortAlbum);
+      this.Panel9.Controls.Add(this.lblAlbumSort);
+      this.Panel9.Controls.Add(this.lblTitleSort);
+      this.Panel9.Controls.Add(this.lblArtistSort);
+      this.Panel9.Location = new Point(8, 280);
+      this.Panel9.Name = "Panel9";
+      this.Panel9.Size = new Size(0x288, 80);
+      this.Panel9.TabIndex = 2;
+      this.txtSortArtist.Location = new Point(0xa8, 6);
+      this.txtSortArtist.Name = "txtSortArtist";
+      this.txtSortArtist.Size = new Size(0x1d8, 20);
+      this.txtSortArtist.TabIndex = 0x11;
+      this.txtSortArtist.Text = "";
+      this.txtSortTitle.Location = new Point(0xa8, 0x36);
+      this.txtSortTitle.Name = "txtSortTitle";
+      this.txtSortTitle.Size = new Size(0x1d8, 20);
+      this.txtSortTitle.TabIndex = 0x15;
+      this.txtSortTitle.Text = "";
+      this.txtSortAlbum.Location = new Point(0xa8, 30);
+      this.txtSortAlbum.Name = "txtSortAlbum";
+      this.txtSortAlbum.Size = new Size(0x1d8, 20);
+      this.txtSortAlbum.TabIndex = 0x13;
+      this.txtSortAlbum.Text = "";
+      this.lblAlbumSort.ImeMode = ImeMode.NoControl;
+      this.lblAlbumSort.Location = new Point(8, 0x20);
+      this.lblAlbumSort.Name = "lblAlbumSort";
+      this.lblAlbumSort.Size = new Size(0xa8, 0x10);
+      this.lblAlbumSort.TabIndex = 0x12;
+      this.lblAlbumSort.Text = "Al&bum sort name (Ver. 2.4 only):";
+      this.lblTitleSort.ImeMode = ImeMode.NoControl;
+      this.lblTitleSort.Location = new Point(8, 0x38);
+      this.lblTitleSort.Name = "lblTitleSort";
+      this.lblTitleSort.Size = new Size(160, 0x10);
+      this.lblTitleSort.TabIndex = 20;
+      this.lblTitleSort.Text = "&Title sort name (Ver. 2.4 only):";
+      this.lblArtistSort.ImeMode = ImeMode.NoControl;
+      this.lblArtistSort.Location = new Point(8, 8);
+      this.lblArtistSort.Name = "lblArtistSort";
+      this.lblArtistSort.Size = new Size(0xa8, 0x10);
+      this.lblArtistSort.TabIndex = 0x10;
+      this.lblArtistSort.Text = "&Artist sort name (Ver. 2.4 only):";
+      this.Panel6.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel6.Controls.Add(this.txtTORY);
+      this.Panel6.Controls.Add(this.lblOYearInfo);
+      this.Panel6.Controls.Add(this.TORYFormat);
+      this.Panel6.Controls.Add(this.lblOYear);
+      this.Panel6.Controls.Add(this.txtOOwner);
+      this.Panel6.Controls.Add(this.lblOOwner);
+      this.Panel6.Controls.Add(this.txtOArtist);
+      this.Panel6.Controls.Add(this.lblOArtist);
+      this.Panel6.Controls.Add(this.txtOAlbum);
+      this.Panel6.Controls.Add(this.txtOLyWriter);
+      this.Panel6.Controls.Add(this.txtOFilename);
+      this.Panel6.Controls.Add(this.lblOFilename);
+      this.Panel6.Controls.Add(this.lblOLyWriter);
+      this.Panel6.Controls.Add(this.lblOAlbum);
+      this.Panel6.Location = new Point(8, 8);
+      this.Panel6.Name = "Panel6";
+      this.Panel6.Size = new Size(0x288, 0x98);
+      this.Panel6.TabIndex = 3;
+      this.txtTORY.Flags = 0;
+      this.txtTORY.Location = new Point(0xa8, 0x7e);
+      this.txtTORY.Mask = "####-##-##";
+      this.txtTORY.Name = "txtTORY";
+      this.txtTORY.Size = new Size(0x70, 20);
+      this.txtTORY.TabIndex = 0x21;
+      this.lblOYearInfo.ImeMode = ImeMode.NoControl;
+      this.lblOYearInfo.Location = new Point(0x150, 0x80);
+      this.lblOYearInfo.Name = "lblOYearInfo";
+      this.lblOYearInfo.Size = new Size(0x130, 0x10);
+      this.lblOYearInfo.TabIndex = 0x24;
+      this.lblOYearInfo.Text = "(In TAG Ver. 2.3 only the year entry will be saved)";
+      this.TORYFormat.ImeMode = ImeMode.NoControl;
+      this.TORYFormat.LargeChange = 1;
+      this.TORYFormat.Location = new Point(0x120, 0x80);
+      this.TORYFormat.Maximum = 2;
+      this.TORYFormat.Name = "TORYFormat";
+      this.TORYFormat.Size = new Size(0x20, 0x10);
+      this.TORYFormat.TabIndex = 0x22;
+      this.lblOYear.ImeMode = ImeMode.NoControl;
+      this.lblOYear.Location = new Point(8, 0x80);
+      this.lblOYear.Name = "lblOYear";
+      this.lblOYear.Size = new Size(0x90, 0x10);
+      this.lblOYear.TabIndex = 0x20;
+      this.lblOYear.Text = "Original release &year (date):";
+      this.txtOOwner.Location = new Point(0xa8, 0x66);
+      this.txtOOwner.Name = "txtOOwner";
+      this.txtOOwner.Size = new Size(0x1d8, 20);
+      this.txtOOwner.TabIndex = 0x1f;
+      this.txtOOwner.Text = "";
+      this.lblOOwner.ImeMode = ImeMode.NoControl;
+      this.lblOOwner.Location = new Point(8, 0x68);
+      this.lblOOwner.Name = "lblOOwner";
+      this.lblOOwner.Size = new Size(0x80, 0x10);
+      this.lblOOwner.TabIndex = 30;
+      this.lblOOwner.Text = "Original &owner:";
+      this.txtOArtist.Location = new Point(0xa8, 0x4e);
+      this.txtOArtist.Name = "txtOArtist";
+      this.txtOArtist.Size = new Size(0x1d8, 20);
+      this.txtOArtist.TabIndex = 0x1d;
+      this.txtOArtist.Text = "";
+      this.lblOArtist.ImeMode = ImeMode.NoControl;
+      this.lblOArtist.Location = new Point(8, 80);
+      this.lblOArtist.Name = "lblOArtist";
+      this.lblOArtist.Size = new Size(0x80, 0x10);
+      this.lblOArtist.TabIndex = 0x1c;
+      this.lblOArtist.Text = "Original &artist:";
+      this.txtOAlbum.Location = new Point(0xa8, 6);
+      this.txtOAlbum.Name = "txtOAlbum";
+      this.txtOAlbum.Size = new Size(0x1d8, 20);
+      this.txtOAlbum.TabIndex = 0x17;
+      this.txtOAlbum.Text = "";
+      this.txtOLyWriter.Location = new Point(0xa8, 0x36);
+      this.txtOLyWriter.Name = "txtOLyWriter";
+      this.txtOLyWriter.Size = new Size(0x1d8, 20);
+      this.txtOLyWriter.TabIndex = 0x1b;
+      this.txtOLyWriter.Text = "";
+      this.txtOFilename.Location = new Point(0xa8, 30);
+      this.txtOFilename.Name = "txtOFilename";
+      this.txtOFilename.Size = new Size(0x1d8, 20);
+      this.txtOFilename.TabIndex = 0x19;
+      this.txtOFilename.Text = "";
+      this.lblOFilename.ImeMode = ImeMode.NoControl;
+      this.lblOFilename.Location = new Point(8, 0x20);
+      this.lblOFilename.Name = "lblOFilename";
+      this.lblOFilename.Size = new Size(0x80, 0x10);
+      this.lblOFilename.TabIndex = 0x18;
+      this.lblOFilename.Text = "Original &filename:";
+      this.lblOLyWriter.ImeMode = ImeMode.NoControl;
+      this.lblOLyWriter.Location = new Point(8, 0x38);
+      this.lblOLyWriter.Name = "lblOLyWriter";
+      this.lblOLyWriter.Size = new Size(0x80, 0x10);
+      this.lblOLyWriter.TabIndex = 0x1a;
+      this.lblOLyWriter.Text = "Original lyrics &writer:";
+      this.lblOAlbum.ImeMode = ImeMode.NoControl;
+      this.lblOAlbum.Location = new Point(8, 8);
+      this.lblOAlbum.Name = "lblOAlbum";
+      this.lblOAlbum.Size = new Size(0x80, 0x10);
+      this.lblOAlbum.TabIndex = 0x16;
+      this.lblOAlbum.Text = "Original a&lbum title:";
+      this.Panel5.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel5.Controls.Add(this.txtContent);
+      this.Panel5.Controls.Add(this.txtSubTitle);
+      this.Panel5.Controls.Add(this.lblSubTitle);
+      this.Panel5.Controls.Add(this.lblContent);
+      this.Panel5.Location = new Point(8, 0xd8);
+      this.Panel5.Name = "Panel5";
+      this.Panel5.Size = new Size(0x288, 0x38);
+      this.Panel5.TabIndex = 1;
+      this.txtContent.Location = new Point(0xa8, 6);
+      this.txtContent.Name = "txtContent";
+      this.txtContent.Size = new Size(0x1d8, 20);
+      this.txtContent.TabIndex = 13;
+      this.txtContent.Text = "";
+      this.txtSubTitle.Location = new Point(0xa8, 30);
+      this.txtSubTitle.Name = "txtSubTitle";
+      this.txtSubTitle.Size = new Size(0x1d8, 20);
+      this.txtSubTitle.TabIndex = 15;
+      this.txtSubTitle.Text = "";
+      this.lblSubTitle.ImeMode = ImeMode.NoControl;
+      this.lblSubTitle.Location = new Point(8, 0x20);
+      this.lblSubTitle.Name = "lblSubTitle";
+      this.lblSubTitle.Size = new Size(0x80, 0x10);
+      this.lblSubTitle.TabIndex = 14;
+      this.lblSubTitle.Text = "&Sub Title:";
+      this.lblContent.ImeMode = ImeMode.NoControl;
+      this.lblContent.Location = new Point(8, 8);
+      this.lblContent.Name = "lblContent";
+      this.lblContent.Size = new Size(0x80, 0x10);
+      this.lblContent.TabIndex = 12;
+      this.lblContent.Text = "Con&tent Group:";
+      this.Panel4.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel4.Controls.Add(this.txtComposer);
+      this.Panel4.Controls.Add(this.lblComposer);
+      this.Panel4.Controls.Add(this.txtBand);
+      this.Panel4.Controls.Add(this.txtModified);
+      this.Panel4.Controls.Add(this.txtConductor);
+      this.Panel4.Controls.Add(this.lblConductor);
+      this.Panel4.Controls.Add(this.lblModified);
+      this.Panel4.Controls.Add(this.lblBand);
+      this.Panel4.Controls.Add(this.txtCopyright);
+      this.Panel4.Controls.Add(this.lblCopyright);
+      this.Panel4.Controls.Add(this.txtLyWriter);
+      this.Panel4.Controls.Add(this.txtEncoded);
+      this.Panel4.Controls.Add(this.txtPublisher);
+      this.Panel4.Controls.Add(this.lblPublisher);
+      this.Panel4.Controls.Add(this.lblEncoded);
+      this.Panel4.Controls.Add(this.lblLyWriter);
+      this.Panel4.Location = new Point(8, 8);
+      this.Panel4.Name = "Panel4";
+      this.Panel4.Size = new Size(0x288, 200);
+      this.Panel4.TabIndex = 0;
+      this.txtComposer.Location = new Point(0xa8, 0x4b);
+      this.txtComposer.Name = "txtComposer";
+      this.txtComposer.Size = new Size(0x1d8, 20);
+      this.txtComposer.TabIndex = 11;
+      this.txtComposer.Text = "";
+      this.lblComposer.ImeMode = ImeMode.NoControl;
+      this.lblComposer.Location = new Point(8, 0x4d);
+      this.lblComposer.Name = "lblComposer";
+      this.lblComposer.Size = new Size(0x80, 0x10);
+      this.lblComposer.TabIndex = 10;
+      this.lblComposer.Text = "Co&mposer:";
+      this.txtBand.Location = new Point(0xa8, 6);
+      this.txtBand.Name = "txtBand";
+      this.txtBand.Size = new Size(0x1d8, 20);
+      this.txtBand.TabIndex = 5;
+      this.txtBand.Text = "";
+      this.txtModified.Location = new Point(0xa8, 0x34);
+      this.txtModified.Name = "txtModified";
+      this.txtModified.Size = new Size(0x1d8, 20);
+      this.txtModified.TabIndex = 9;
+      this.txtModified.Text = "";
+      this.txtConductor.Location = new Point(0xa8, 0x1d);
+      this.txtConductor.Name = "txtConductor";
+      this.txtConductor.Size = new Size(0x1d8, 20);
+      this.txtConductor.TabIndex = 7;
+      this.txtConductor.Text = "";
+      this.lblConductor.ImeMode = ImeMode.NoControl;
+      this.lblConductor.Location = new Point(8, 0x1f);
+      this.lblConductor.Name = "lblConductor";
+      this.lblConductor.Size = new Size(0x80, 0x10);
+      this.lblConductor.TabIndex = 6;
+      this.lblConductor.Text = "&Conductor:";
+      this.lblModified.ImeMode = ImeMode.NoControl;
+      this.lblModified.Location = new Point(8, 0x36);
+      this.lblModified.Name = "lblModified";
+      this.lblModified.Size = new Size(0x80, 0x10);
+      this.lblModified.TabIndex = 8;
+      this.lblModified.Text = "Modified / Remixed b&y:";
+      this.lblBand.ImeMode = ImeMode.NoControl;
+      this.lblBand.Location = new Point(8, 8);
+      this.lblBand.Name = "lblBand";
+      this.lblBand.Size = new Size(0x80, 0x10);
+      this.lblBand.TabIndex = 4;
+      this.lblBand.Text = "&Band / Orchestra:";
+      this.txtCopyright.Location = new Point(0xa8, 0xa7);
+      this.txtCopyright.Name = "txtCopyright";
+      this.txtCopyright.Size = new Size(0x1d8, 20);
+      this.txtCopyright.TabIndex = 0x17;
+      this.txtCopyright.Text = "";
+      this.lblCopyright.ImeMode = ImeMode.NoControl;
+      this.lblCopyright.Location = new Point(8, 0xa9);
+      this.lblCopyright.Name = "lblCopyright";
+      this.lblCopyright.Size = new Size(0x80, 0x10);
+      this.lblCopyright.TabIndex = 0x16;
+      this.lblCopyright.Text = "Copyright:";
+      this.txtLyWriter.Location = new Point(0xa8, 0x62);
+      this.txtLyWriter.Name = "txtLyWriter";
+      this.txtLyWriter.Size = new Size(0x1d8, 20);
+      this.txtLyWriter.TabIndex = 0x11;
+      this.txtLyWriter.Text = "";
+      this.txtEncoded.Location = new Point(0xa8, 0x90);
+      this.txtEncoded.Name = "txtEncoded";
+      this.txtEncoded.Size = new Size(0x1d8, 20);
+      this.txtEncoded.TabIndex = 0x15;
+      this.txtEncoded.Text = "";
+      this.txtPublisher.Location = new Point(0xa8, 0x79);
+      this.txtPublisher.Name = "txtPublisher";
+      this.txtPublisher.Size = new Size(0x1d8, 20);
+      this.txtPublisher.TabIndex = 0x13;
+      this.txtPublisher.Text = "";
+      this.lblPublisher.ImeMode = ImeMode.NoControl;
+      this.lblPublisher.Location = new Point(8, 0x7b);
+      this.lblPublisher.Name = "lblPublisher";
+      this.lblPublisher.Size = new Size(0x80, 0x10);
+      this.lblPublisher.TabIndex = 0x12;
+      this.lblPublisher.Text = "Publis&her:";
+      this.lblEncoded.ImeMode = ImeMode.NoControl;
+      this.lblEncoded.Location = new Point(8, 0x92);
+      this.lblEncoded.Name = "lblEncoded";
+      this.lblEncoded.Size = new Size(0x80, 0x10);
+      this.lblEncoded.TabIndex = 20;
+      this.lblEncoded.Text = "&Encoded by:";
+      this.lblLyWriter.ImeMode = ImeMode.NoControl;
+      this.lblLyWriter.Location = new Point(8, 100);
+      this.lblLyWriter.Name = "lblLyWriter";
+      this.lblLyWriter.Size = new Size(0x80, 0x10);
+      this.lblLyWriter.TabIndex = 0x10;
+      this.lblLyWriter.Text = "Lyr&ics / Text Writer:";
+      this.Panel15.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel15.Controls.Add(this.lblMusicianInfo);
+      this.Panel15.Controls.Add(this.txtMusicianName);
+      this.Panel15.Controls.Add(this.btnRemoveMusician);
+      this.Panel15.Controls.Add(this.btnAddMusician);
+      this.Panel15.Controls.Add(this.lblMusicianName);
+      this.Panel15.Controls.Add(this.lblMusicianInst);
+      this.Panel15.Controls.Add(this.txtMusicianInst);
+      this.Panel15.Controls.Add(this.TMCLList);
+      this.Panel15.Location = new Point(8, 160);
+      this.Panel15.Name = "Panel15";
+      this.Panel15.Size = new Size(0x288, 0x90);
+      this.Panel15.TabIndex = 5;
+      this.lblMusicianInfo.ImeMode = ImeMode.NoControl;
+      this.lblMusicianInfo.Location = new Point(8, 120);
+      this.lblMusicianInfo.Name = "lblMusicianInfo";
+      this.lblMusicianInfo.Size = new Size(0x80, 0x10);
+      this.lblMusicianInfo.TabIndex = 0x10;
+      this.lblMusicianInfo.Text = "(TAG Ver. 2.4 only)";
+      this.txtMusicianName.Location = new Point(160, 30);
+      this.txtMusicianName.Name = "txtMusicianName";
+      this.txtMusicianName.Size = new Size(320, 20);
+      this.txtMusicianName.TabIndex = 12;
+      this.txtMusicianName.Text = "";
+      this.btnRemoveMusician.ImeMode = ImeMode.NoControl;
+      this.btnRemoveMusician.Location = new Point(0x1e8, 0x20);
+      this.btnRemoveMusician.Name = "btnRemoveMusician";
+      this.btnRemoveMusician.Size = new Size(0x98, 20);
+      this.btnRemoveMusician.TabIndex = 14;
+      this.btnRemoveMusician.Text = "Remove musician";
+      this.btnAddMusician.ImeMode = ImeMode.NoControl;
+      this.btnAddMusician.Location = new Point(0x1e8, 8);
+      this.btnAddMusician.Name = "btnAddMusician";
+      this.btnAddMusician.Size = new Size(0x98, 20);
+      this.btnAddMusician.TabIndex = 13;
+      this.btnAddMusician.Text = "Add musician";
+      this.lblMusicianName.ImeMode = ImeMode.NoControl;
+      this.lblMusicianName.Location = new Point(8, 0x20);
+      this.lblMusicianName.Name = "lblMusicianName";
+      this.lblMusicianName.Size = new Size(0x80, 0x10);
+      this.lblMusicianName.TabIndex = 11;
+      this.lblMusicianName.Text = "Musician name:";
+      this.lblMusicianInst.ImeMode = ImeMode.NoControl;
+      this.lblMusicianInst.Location = new Point(8, 8);
+      this.lblMusicianInst.Name = "lblMusicianInst";
+      this.lblMusicianInst.Size = new Size(0x80, 0x10);
+      this.lblMusicianInst.TabIndex = 9;
+      this.lblMusicianInst.Text = "Musician instrument:";
+      this.txtMusicianInst.Location = new Point(160, 6);
+      this.txtMusicianInst.Name = "txtMusicianInst";
+      this.txtMusicianInst.Size = new Size(320, 20);
+      this.txtMusicianInst.TabIndex = 10;
+      this.txtMusicianInst.Text = "";
+      this.TMCLList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader15, this.ColumnHeader16 });
+      this.TMCLList.FullRowSelect = true;
+      this.TMCLList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+      this.TMCLList.Location = new Point(160, 0x40);
+      this.TMCLList.MultiSelect = false;
+      this.TMCLList.Name = "TMCLList";
+      this.TMCLList.Size = new Size(480, 0x48);
+      this.TMCLList.TabIndex = 15;
+      this.TMCLList.View = View.Details;
+      this.ColumnHeader15.Text = "Instrument";
+      this.ColumnHeader15.Width = 200;
+      this.ColumnHeader16.Text = "Name";
+      this.ColumnHeader16.Width = 0xfe;
+      this.Panel16.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel16.Controls.Add(this.txtInvPerson);
+      this.Panel16.Controls.Add(this.btnRemoveInv);
+      this.Panel16.Controls.Add(this.btnAddInv);
+      this.Panel16.Controls.Add(this.lblInvPerson);
+      this.Panel16.Controls.Add(this.lblInvFunction);
+      this.Panel16.Controls.Add(this.txtInvFunction);
+      this.Panel16.Controls.Add(this.TIPLList);
+      this.Panel16.Location = new Point(8, 8);
+      this.Panel16.Name = "Panel16";
+      this.Panel16.Size = new Size(0x288, 0x90);
+      this.Panel16.TabIndex = 4;
+      this.txtInvPerson.Location = new Point(160, 30);
+      this.txtInvPerson.Name = "txtInvPerson";
+      this.txtInvPerson.Size = new Size(320, 20);
+      this.txtInvPerson.TabIndex = 5;
+      this.txtInvPerson.Text = "";
+      this.btnRemoveInv.ImeMode = ImeMode.NoControl;
+      this.btnRemoveInv.Location = new Point(0x1e8, 0x20);
+      this.btnRemoveInv.Name = "btnRemoveInv";
+      this.btnRemoveInv.Size = new Size(0x98, 20);
+      this.btnRemoveInv.TabIndex = 7;
+      this.btnRemoveInv.Text = "Remove involved person";
+      this.btnAddInv.ImeMode = ImeMode.NoControl;
+      this.btnAddInv.Location = new Point(0x1e8, 8);
+      this.btnAddInv.Name = "btnAddInv";
+      this.btnAddInv.Size = new Size(0x98, 20);
+      this.btnAddInv.TabIndex = 6;
+      this.btnAddInv.Text = "Add involved person";
+      this.lblInvPerson.ImeMode = ImeMode.NoControl;
+      this.lblInvPerson.Location = new Point(8, 0x20);
+      this.lblInvPerson.Name = "lblInvPerson";
+      this.lblInvPerson.Size = new Size(0x90, 0x10);
+      this.lblInvPerson.TabIndex = 4;
+      this.lblInvPerson.Text = "Involved person name:";
+      this.lblInvFunction.ImeMode = ImeMode.NoControl;
+      this.lblInvFunction.Location = new Point(8, 8);
+      this.lblInvFunction.Name = "lblInvFunction";
+      this.lblInvFunction.Size = new Size(0x90, 0x10);
+      this.lblInvFunction.TabIndex = 2;
+      this.lblInvFunction.Text = "Involved person function:";
+      this.txtInvFunction.Location = new Point(160, 6);
+      this.txtInvFunction.Name = "txtInvFunction";
+      this.txtInvFunction.Size = new Size(320, 20);
+      this.txtInvFunction.TabIndex = 3;
+      this.txtInvFunction.Text = "";
+      this.TIPLList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader17, this.ColumnHeader18 });
+      this.TIPLList.FullRowSelect = true;
+      this.TIPLList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+      this.TIPLList.Location = new Point(160, 0x40);
+      this.TIPLList.MultiSelect = false;
+      this.TIPLList.Name = "TIPLList";
+      this.TIPLList.Size = new Size(480, 0x48);
+      this.TIPLList.TabIndex = 8;
+      this.TIPLList.View = View.Details;
+      this.ColumnHeader17.Text = "Function";
+      this.ColumnHeader17.Width = 0xbf;
+      this.ColumnHeader18.Text = "Name";
+      this.ColumnHeader18.Width = 0x108;
+      this.Panel14.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel14.Controls.Add(this.btnTLEN);
+      this.Panel14.Controls.Add(this.txtTLEN);
+      this.Panel14.Controls.Add(this.lblTLEN);
+      this.Panel14.Controls.Add(this.cmbMedia);
+      this.Panel14.Controls.Add(this.lblMediaTyp);
+      this.Panel14.Location = new Point(8, 0x170);
+      this.Panel14.Name = "Panel14";
+      this.Panel14.Size = new Size(0x288, 0x40);
+      this.Panel14.TabIndex = 3;
+      this.Panel7.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel7.Controls.Add(this.chkPicRelativPath);
+      this.Panel7.Controls.Add(this.btnExPic);
+      this.Panel7.Controls.Add(this.btnRemovePicture);
+      this.Panel7.Controls.Add(this.btnAddPicture);
+      this.Panel7.Controls.Add(this.btnGetPic);
+      this.Panel7.Controls.Add(this.chkPicInclude);
+      this.Panel7.Controls.Add(this.lblPicPath);
+      this.Panel7.Controls.Add(this.txtPicPath);
+      this.Panel7.Controls.Add(this.PicList);
+      this.Panel7.Controls.Add(this.lblPicType);
+      this.Panel7.Controls.Add(this.lblPicDesc);
+      this.Panel7.Controls.Add(this.cmbPicType);
+      this.Panel7.Controls.Add(this.txtPDescriptor);
+      this.Panel7.Controls.Add(this.APICView);
+      this.Panel7.Location = new Point(8, 8);
+      this.Panel7.Name = "Panel7";
+      this.Panel7.Size = new Size(0x288, 0x120);
+      this.Panel7.TabIndex = 0;
+      this.chkPicRelativPath.Location = new Point(8, 0x68);
+      this.chkPicRelativPath.Name = "chkPicRelativPath";
+      this.chkPicRelativPath.Size = new Size(0x1c0, 0x10);
+      this.chkPicRelativPath.TabIndex = 9;
+      this.chkPicRelativPath.Text = "Use relativ path if picture is not included";
+      this.btnExPic.Enabled = false;
+      this.btnExPic.Location = new Point(0x138, 160);
+      this.btnExPic.Name = "btnExPic";
+      this.btnExPic.Size = new Size(0x90, 0x18);
+      this.btnExPic.TabIndex = 13;
+      this.btnExPic.Text = "Extract picture";
+      this.btnRemovePicture.ImeMode = ImeMode.NoControl;
+      this.btnRemovePicture.Location = new Point(160, 0x80);
+      this.btnRemovePicture.Name = "btnRemovePicture";
+      this.btnRemovePicture.Size = new Size(0x90, 0x18);
+      this.btnRemovePicture.TabIndex = 11;
+      this.btnRemovePicture.Text = "Remove Picture";
+      this.btnAddPicture.Enabled = false;
+      this.btnAddPicture.ImeMode = ImeMode.NoControl;
+      this.btnAddPicture.Location = new Point(8, 0x80);
+      this.btnAddPicture.Name = "btnAddPicture";
+      this.btnAddPicture.Size = new Size(0x90, 0x18);
+      this.btnAddPicture.TabIndex = 10;
+      this.btnAddPicture.Text = "Add Picture";
+      this.btnGetPic.ImeMode = ImeMode.NoControl;
+      this.btnGetPic.Location = new Point(0x138, 0x80);
+      this.btnGetPic.Name = "btnGetPic";
+      this.btnGetPic.Size = new Size(0x90, 0x18);
+      this.btnGetPic.TabIndex = 12;
+      this.btnGetPic.Text = "Get new picture";
+      this.chkPicInclude.ImeMode = ImeMode.NoControl;
+      this.chkPicInclude.Location = new Point(8, 0x54);
+      this.chkPicInclude.Name = "chkPicInclude";
+      this.chkPicInclude.Size = new Size(0x1c0, 0x10);
+      this.chkPicInclude.TabIndex = 8;
+      this.chkPicInclude.Text = "Include picture within the MP3 file when saving";
+      this.lblPicPath.ImeMode = ImeMode.NoControl;
+      this.lblPicPath.Location = new Point(8, 0x38);
+      this.lblPicPath.Name = "lblPicPath";
+      this.lblPicPath.Size = new Size(0x88, 0x10);
+      this.lblPicPath.TabIndex = 6;
+      this.lblPicPath.Text = "P&ath containing pic. data:";
+      this.txtPicPath.Location = new Point(0x98, 0x36);
+      this.txtPicPath.Name = "txtPicPath";
+      this.txtPicPath.ReadOnly = true;
+      this.txtPicPath.Size = new Size(0x130, 20);
+      this.txtPicPath.TabIndex = 7;
+      this.txtPicPath.Text = "";
+      this.PicList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader4, this.ColumnHeader5, this.ColumnHeader6, this.ColumnHeader7 });
+      this.PicList.FullRowSelect = true;
+      this.PicList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+      this.PicList.Location = new Point(8, 200);
+      this.PicList.MultiSelect = false;
+      this.PicList.Name = "PicList";
+      this.PicList.Size = new Size(0x278, 80);
+      this.PicList.TabIndex = 14;
+      this.PicList.View = View.Details;
+      this.ColumnHeader4.Text = "Descriptor";
+      this.ColumnHeader4.Width = 160;
+      this.ColumnHeader5.Text = "Picture Type";
+      this.ColumnHeader5.Width = 0x63;
+      this.ColumnHeader6.Text = "Path";
+      this.ColumnHeader6.Width = 0x120;
+      this.ColumnHeader7.Text = "Include";
+      this.lblPicType.ImeMode = ImeMode.NoControl;
+      this.lblPicType.Location = new Point(8, 0x20);
+      this.lblPicType.Name = "lblPicType";
+      this.lblPicType.Size = new Size(0x88, 0x10);
+      this.lblPicType.TabIndex = 4;
+      this.lblPicType.Text = "Picture &Type:";
+      this.lblPicDesc.ImeMode = ImeMode.NoControl;
+      this.lblPicDesc.Location = new Point(8, 8);
+      this.lblPicDesc.Name = "lblPicDesc";
+      this.lblPicDesc.Size = new Size(0x88, 0x10);
+      this.lblPicDesc.TabIndex = 2;
+      this.lblPicDesc.Text = "&Picture Descriptor:";
+      this.cmbPicType.DropDownStyle = ComboBoxStyle.DropDownList;
+      this.cmbPicType.ItemHeight = 13;
+      this.cmbPicType.Items.AddRange(new object[] {
+                "00 - Other", "01 - 32x32 pixels 'file icon' (PNG only)", "02 - Other file icon", "03 - Cover (front)", "04 - Cover (back)", "05 - Leaflet page", "06 - Media (e.g. label side of CD)", "07 - Lead artist/lead performer/soloist", "08 - Artist/performer", "09 - Conductor", "10 - Band/Orchestra", "11 - Composer", "12 - Lyricist/text writer", "13 - Recording Location", "14 - During recording", "15 - During performance",
+                "16 - Movie/video screen capture", "17 - A bright coloured fish", "18 - Illustration", "19 - Band/artist logotype", "20 - Publisher/Studio logotype"
+            });
+      this.cmbPicType.Location = new Point(0x98, 30);
+      this.cmbPicType.Name = "cmbPicType";
+      this.cmbPicType.Size = new Size(0x130, 0x15);
+      this.cmbPicType.TabIndex = 5;
+      this.txtPDescriptor.Location = new Point(0x98, 6);
+      this.txtPDescriptor.Name = "txtPDescriptor";
+      this.txtPDescriptor.Size = new Size(0x130, 20);
+      this.txtPDescriptor.TabIndex = 3;
+      this.txtPDescriptor.Text = "";
+      this.APICView.BorderStyle = BorderStyle.FixedSingle;
+      this.APICView.ImeMode = ImeMode.NoControl;
+      this.APICView.Location = new Point(0x1d0, 8);
+      this.APICView.Name = "APICView";
+      this.APICView.Size = new Size(0xb0, 0xb0);
+      this.APICView.SizeMode = PictureBoxSizeMode.StretchImage;
+      this.APICView.TabIndex = 1;
+      this.APICView.TabStop = false;
+      this.Panel8.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel8.Controls.Add(this.txtLyrics);
+      this.Panel8.Controls.Add(this.btnLyricsFile);
+      this.Panel8.Controls.Add(this.btnMoveLyrics);
+      this.Panel8.Controls.Add(this.btnRemoveLyrics);
+      this.Panel8.Controls.Add(this.btnAddLyrics);
+      this.Panel8.Controls.Add(this.lblLyrics);
+      this.Panel8.Controls.Add(this.lblLyLan);
+      this.Panel8.Controls.Add(this.lblLyDesc);
+      this.Panel8.Controls.Add(this.cmbLLanguage);
+      this.Panel8.Controls.Add(this.txtLDescriptor);
+      this.Panel8.Controls.Add(this.LyricsList);
+      this.Panel8.Location = new Point(8, 8);
+      this.Panel8.Name = "Panel8";
+      this.Panel8.Size = new Size(0x288, 440);
+      this.Panel8.TabIndex = 1;
+      this.txtLyrics.BorderStyle = BorderStyle.FixedSingle;
+      this.txtLyrics.Location = new Point(0x88, 0x38);
+      this.txtLyrics.Name = "txtLyrics";
+      this.txtLyrics.Size = new Size(0x1f8, 0xc0);
+      this.txtLyrics.TabIndex = 0x12;
+      this.txtLyrics.Text = "";
+      this.btnLyricsFile.Location = new Point(0x88, 0x100);
+      this.btnLyricsFile.Name = "btnLyricsFile";
+      this.btnLyricsFile.Size = new Size(0x1f8, 0x18);
+      this.btnLyricsFile.TabIndex = 0x13;
+      this.btnLyricsFile.Text = "Get lyrics from text file";
+      this.btnMoveLyrics.ImeMode = ImeMode.NoControl;
+      this.btnMoveLyrics.Location = new Point(0x1e8, 0x120);
+      this.btnMoveLyrics.Name = "btnMoveLyrics";
+      this.btnMoveLyrics.Size = new Size(0x98, 0x18);
+      this.btnMoveLyrics.TabIndex = 0x16;
+      this.btnMoveLyrics.Text = "Move Lyrics to top";
+      this.btnRemoveLyrics.ImeMode = ImeMode.NoControl;
+      this.btnRemoveLyrics.Location = new Point(0x138, 0x120);
+      this.btnRemoveLyrics.Name = "btnRemoveLyrics";
+      this.btnRemoveLyrics.Size = new Size(0x98, 0x18);
+      this.btnRemoveLyrics.TabIndex = 0x15;
+      this.btnRemoveLyrics.Text = "Remove Lyrics";
+      this.btnAddLyrics.ImeMode = ImeMode.NoControl;
+      this.btnAddLyrics.Location = new Point(0x88, 0x120);
+      this.btnAddLyrics.Name = "btnAddLyrics";
+      this.btnAddLyrics.Size = new Size(0x98, 0x18);
+      this.btnAddLyrics.TabIndex = 20;
+      this.btnAddLyrics.Text = "Add Lyrics";
+      this.lblLyrics.ImeMode = ImeMode.NoControl;
+      this.lblLyrics.Location = new Point(8, 0x38);
+      this.lblLyrics.Name = "lblLyrics";
+      this.lblLyrics.Size = new Size(0x80, 0x10);
+      this.lblLyrics.TabIndex = 0x11;
+      this.lblLyrics.Text = "&Lyrics Text:";
+      this.lblLyLan.ImeMode = ImeMode.NoControl;
+      this.lblLyLan.Location = new Point(8, 0x20);
+      this.lblLyLan.Name = "lblLyLan";
+      this.lblLyLan.Size = new Size(0x80, 0x10);
+      this.lblLyLan.TabIndex = 15;
+      this.lblLyLan.Text = "Lyrics &Language:";
+      this.lblLyDesc.ImeMode = ImeMode.NoControl;
+      this.lblLyDesc.Location = new Point(8, 8);
+      this.lblLyDesc.Name = "lblLyDesc";
+      this.lblLyDesc.Size = new Size(0x80, 0x10);
+      this.lblLyDesc.TabIndex = 13;
+      this.lblLyDesc.Text = "Lyrics &Descriptor:";
+      this.cmbLLanguage.DropDownStyle = ComboBoxStyle.DropDownList;
+      this.cmbLLanguage.ItemHeight = 13;
+      this.cmbLLanguage.Location = new Point(0x88, 30);
+      this.cmbLLanguage.Name = "cmbLLanguage";
+      this.cmbLLanguage.Size = new Size(0xd0, 0x15);
+      this.cmbLLanguage.TabIndex = 0x10;
+      this.txtLDescriptor.Location = new Point(0x88, 6);
+      this.txtLDescriptor.Name = "txtLDescriptor";
+      this.txtLDescriptor.Size = new Size(0xd0, 20);
+      this.txtLDescriptor.TabIndex = 14;
+      this.txtLDescriptor.Text = "";
+      this.LyricsList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader1, this.ColumnHeader2, this.ColumnHeader3 });
+      this.LyricsList.FullRowSelect = true;
+      this.LyricsList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+      this.LyricsList.Location = new Point(8, 320);
+      this.LyricsList.MultiSelect = false;
+      this.LyricsList.Name = "LyricsList";
+      this.LyricsList.Size = new Size(0x278, 0x70);
+      this.LyricsList.TabIndex = 0x17;
+      this.LyricsList.View = View.Details;
+      this.ColumnHeader1.Text = "Descriptor";
+      this.ColumnHeader1.Width = 0x84;
+      this.ColumnHeader2.Text = "Text";
+      this.ColumnHeader2.Width = 0x164;
+      this.ColumnHeader3.Text = "Language";
+      this.ColumnHeader3.Width = 0x67;
+      this.Panel11.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel11.Controls.Add(this.lblInfo);
+      this.Panel11.Controls.Add(this.btnMoveRating);
+      this.Panel11.Controls.Add(this.btnRemoveRating);
+      this.Panel11.Controls.Add(this.btnAddRating);
+      this.Panel11.Controls.Add(this.RatingList);
+      this.Panel11.Controls.Add(this.txtRatingCounter);
+      this.Panel11.Controls.Add(this.txtRatingRating);
+      this.Panel11.Controls.Add(this.txtRatingUser);
+      this.Panel11.Controls.Add(this.lblRatingRating);
+      this.Panel11.Controls.Add(this.lblRatingCounter);
+      this.Panel11.Controls.Add(this.lblRatingUser);
+      this.Panel11.Location = new Point(8, 8);
+      this.Panel11.Name = "Panel11";
+      this.Panel11.Size = new Size(0x288, 280);
+      this.Panel11.TabIndex = 5;
+      this.lblInfo.BorderStyle = BorderStyle.Fixed3D;
+      this.lblInfo.ImeMode = ImeMode.NoControl;
+      this.lblInfo.Location = new Point(0x88, 0xd0);
+      this.lblInfo.Name = "lblInfo";
+      this.lblInfo.Size = new Size(0x1f0, 0x38);
+      this.lblInfo.TabIndex = 0x2b;
+      this.lblInfo.Text = "The rating is 1-255 where 1 is worst and 255 is best. Note that many programs have their own rating scale. The scale 1-255 is given by the ID3 standard and the other programs rescale it.";
+      this.lblInfo.TextAlign = ContentAlignment.MiddleCenter;
+      this.btnMoveRating.ImeMode = ImeMode.NoControl;
+      this.btnMoveRating.Location = new Point(0x1d8, 80);
+      this.btnMoveRating.Name = "btnMoveRating";
+      this.btnMoveRating.Size = new Size(160, 0x18);
+      this.btnMoveRating.TabIndex = 0x1a;
+      this.btnMoveRating.Text = "Move Rating to top";
+      this.btnRemoveRating.ImeMode = ImeMode.NoControl;
+      this.btnRemoveRating.Location = new Point(0x130, 80);
+      this.btnRemoveRating.Name = "btnRemoveRating";
+      this.btnRemoveRating.Size = new Size(160, 0x18);
+      this.btnRemoveRating.TabIndex = 0x19;
+      this.btnRemoveRating.Text = "Remove Rating";
+      this.btnAddRating.ImeMode = ImeMode.NoControl;
+      this.btnAddRating.Location = new Point(0x88, 80);
+      this.btnAddRating.Name = "btnAddRating";
+      this.btnAddRating.Size = new Size(160, 0x18);
+      this.btnAddRating.TabIndex = 0x18;
+      this.btnAddRating.Text = "Add Rating";
+      this.RatingList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader8, this.ColumnHeader9, this.ColumnHeader10 });
+      this.RatingList.FullRowSelect = true;
+      this.RatingList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+      this.RatingList.Location = new Point(0x88, 0x70);
+      this.RatingList.MultiSelect = false;
+      this.RatingList.Name = "RatingList";
+      this.RatingList.Size = new Size(0x1f0, 0x58);
+      this.RatingList.TabIndex = 0x1b;
+      this.RatingList.View = View.Details;
+      this.ColumnHeader8.Text = "User";
+      this.ColumnHeader8.Width = 0xee;
+      this.ColumnHeader9.Text = "Rating";
+      this.ColumnHeader9.Width = 100;
+      this.ColumnHeader10.Text = "Play Counter";
+      this.ColumnHeader10.Width = 80;
+      this.txtRatingCounter.Location = new Point(0x88, 0x36);
+      this.txtRatingCounter.Maximum = new decimal(new int[] { 0xf4240, 0, 0, 0 });
+      this.txtRatingCounter.Name = "txtRatingCounter";
+      this.txtRatingCounter.Size = new Size(80, 20);
+      this.txtRatingCounter.TabIndex = 0x17;
+      this.txtRatingRating.Location = new Point(0x88, 30);
+      this.txtRatingRating.Maximum = new decimal(new int[] { 0xff, 0, 0, 0 });
+      this.txtRatingRating.Name = "txtRatingRating";
+      this.txtRatingRating.Size = new Size(80, 20);
+      this.txtRatingRating.TabIndex = 0x15;
+      this.txtRatingUser.Location = new Point(0x88, 6);
+      this.txtRatingUser.Name = "txtRatingUser";
+      this.txtRatingUser.Size = new Size(0xe0, 20);
+      this.txtRatingUser.TabIndex = 0x13;
+      this.txtRatingUser.Text = "";
+      this.lblRatingRating.ImeMode = ImeMode.NoControl;
+      this.lblRatingRating.Location = new Point(8, 0x20);
+      this.lblRatingRating.Name = "lblRatingRating";
+      this.lblRatingRating.Size = new Size(120, 0x10);
+      this.lblRatingRating.TabIndex = 20;
+      this.lblRatingRating.Text = "Rating:";
+      this.lblRatingCounter.ImeMode = ImeMode.NoControl;
+      this.lblRatingCounter.Location = new Point(8, 0x38);
+      this.lblRatingCounter.Name = "lblRatingCounter";
+      this.lblRatingCounter.Size = new Size(120, 0x10);
+      this.lblRatingCounter.TabIndex = 0x16;
+      this.lblRatingCounter.Text = "Play counter:";
+      this.lblRatingUser.ImeMode = ImeMode.NoControl;
+      this.lblRatingUser.Location = new Point(8, 8);
+      this.lblRatingUser.Name = "lblRatingUser";
+      this.lblRatingUser.Size = new Size(120, 0x10);
+      this.lblRatingUser.TabIndex = 0x12;
+      this.lblRatingUser.Text = "User (email):";
+      this.Panel10.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel10.Controls.Add(this.txtCOMMInfURL);
+      this.Panel10.Controls.Add(this.lblCOMMInfURL);
+      this.Panel10.Controls.Add(this.txtPubURL);
+      this.Panel10.Controls.Add(this.lblPubURL);
+      this.Panel10.Controls.Add(this.txtPayURL);
+      this.Panel10.Controls.Add(this.lblPayURL);
+      this.Panel10.Controls.Add(this.txtINetRadioURL);
+      this.Panel10.Controls.Add(this.lblINetRadioURL);
+      this.Panel10.Controls.Add(this.txtAudioSRCURL);
+      this.Panel10.Controls.Add(this.lblAudioSRCURL);
+      this.Panel10.Controls.Add(this.txtCopyInfURL);
+      this.Panel10.Controls.Add(this.txtArtistURL);
+      this.Panel10.Controls.Add(this.txtAudioFileURL);
+      this.Panel10.Controls.Add(this.lblAudioFileURL);
+      this.Panel10.Controls.Add(this.lblArtistURL);
+      this.Panel10.Controls.Add(this.lblCopyInfURL);
+      this.Panel10.Location = new Point(8, 8);
+      this.Panel10.Name = "Panel10";
+      this.Panel10.Size = new Size(0x288, 200);
+      this.Panel10.TabIndex = 4;
+      this.txtCOMMInfURL.Location = new Point(200, 0xae);
+      this.txtCOMMInfURL.Name = "txtCOMMInfURL";
+      this.txtCOMMInfURL.Size = new Size(440, 20);
+      this.txtCOMMInfURL.TabIndex = 0x11;
+      this.txtCOMMInfURL.Text = "";
+      this.lblCOMMInfURL.ImeMode = ImeMode.NoControl;
+      this.lblCOMMInfURL.Location = new Point(8, 0xb0);
+      this.lblCOMMInfURL.Name = "lblCOMMInfURL";
+      this.lblCOMMInfURL.Size = new Size(0xb8, 0x10);
+      this.lblCOMMInfURL.TabIndex = 0x10;
+      this.lblCOMMInfURL.Text = "Commercial information URL:";
+      this.txtPubURL.Location = new Point(200, 150);
+      this.txtPubURL.Name = "txtPubURL";
+      this.txtPubURL.Size = new Size(440, 20);
+      this.txtPubURL.TabIndex = 15;
+      this.txtPubURL.Text = "";
+      this.lblPubURL.ImeMode = ImeMode.NoControl;
+      this.lblPubURL.Location = new Point(8, 0x98);
+      this.lblPubURL.Name = "lblPubURL";
+      this.lblPubURL.Size = new Size(0xb8, 0x10);
+      this.lblPubURL.TabIndex = 14;
+      this.lblPubURL.Text = "Offical publisher URL:";
+      this.txtPayURL.Location = new Point(200, 0x7e);
+      this.txtPayURL.Name = "txtPayURL";
+      this.txtPayURL.Size = new Size(440, 20);
+      this.txtPayURL.TabIndex = 13;
+      this.txtPayURL.Text = "";
+      this.lblPayURL.ImeMode = ImeMode.NoControl;
+      this.lblPayURL.Location = new Point(8, 0x80);
+      this.lblPayURL.Name = "lblPayURL";
+      this.lblPayURL.Size = new Size(0xb8, 0x10);
+      this.lblPayURL.TabIndex = 12;
+      this.lblPayURL.Text = "Offical payment URL:";
+      this.txtINetRadioURL.Location = new Point(200, 0x66);
+      this.txtINetRadioURL.Name = "txtINetRadioURL";
+      this.txtINetRadioURL.Size = new Size(440, 20);
+      this.txtINetRadioURL.TabIndex = 11;
+      this.txtINetRadioURL.Text = "";
+      this.lblINetRadioURL.ImeMode = ImeMode.NoControl;
+      this.lblINetRadioURL.Location = new Point(8, 0x68);
+      this.lblINetRadioURL.Name = "lblINetRadioURL";
+      this.lblINetRadioURL.Size = new Size(0xb8, 0x10);
+      this.lblINetRadioURL.TabIndex = 10;
+      this.lblINetRadioURL.Text = "Offical internet radio station URL:";
+      this.txtAudioSRCURL.Location = new Point(200, 0x4e);
+      this.txtAudioSRCURL.Name = "txtAudioSRCURL";
+      this.txtAudioSRCURL.Size = new Size(440, 20);
+      this.txtAudioSRCURL.TabIndex = 9;
+      this.txtAudioSRCURL.Text = "";
+      this.lblAudioSRCURL.ImeMode = ImeMode.NoControl;
+      this.lblAudioSRCURL.Location = new Point(8, 80);
+      this.lblAudioSRCURL.Name = "lblAudioSRCURL";
+      this.lblAudioSRCURL.Size = new Size(0xb8, 0x10);
+      this.lblAudioSRCURL.TabIndex = 8;
+      this.lblAudioSRCURL.Text = "Offical audio source URL:";
+      this.txtCopyInfURL.Location = new Point(200, 6);
+      this.txtCopyInfURL.Name = "txtCopyInfURL";
+      this.txtCopyInfURL.Size = new Size(440, 20);
+      this.txtCopyInfURL.TabIndex = 3;
+      this.txtCopyInfURL.Text = "";
+      this.txtArtistURL.Location = new Point(200, 0x36);
+      this.txtArtistURL.Name = "txtArtistURL";
+      this.txtArtistURL.Size = new Size(440, 20);
+      this.txtArtistURL.TabIndex = 7;
+      this.txtArtistURL.Text = "";
+      this.txtAudioFileURL.Location = new Point(200, 30);
+      this.txtAudioFileURL.Name = "txtAudioFileURL";
+      this.txtAudioFileURL.Size = new Size(440, 20);
+      this.txtAudioFileURL.TabIndex = 5;
+      this.txtAudioFileURL.Text = "";
+      this.lblAudioFileURL.ImeMode = ImeMode.NoControl;
+      this.lblAudioFileURL.Location = new Point(8, 0x20);
+      this.lblAudioFileURL.Name = "lblAudioFileURL";
+      this.lblAudioFileURL.Size = new Size(0xb8, 0x10);
+      this.lblAudioFileURL.TabIndex = 4;
+      this.lblAudioFileURL.Text = "Offical audio file URL:";
+      this.lblArtistURL.ImeMode = ImeMode.NoControl;
+      this.lblArtistURL.Location = new Point(8, 0x38);
+      this.lblArtistURL.Name = "lblArtistURL";
+      this.lblArtistURL.Size = new Size(0xb8, 0x10);
+      this.lblArtistURL.TabIndex = 6;
+      this.lblArtistURL.Text = "Offical artist URL:";
+      this.lblCopyInfURL.ImeMode = ImeMode.NoControl;
+      this.lblCopyInfURL.Location = new Point(8, 8);
+      this.lblCopyInfURL.Name = "lblCopyInfURL";
+      this.lblCopyInfURL.Size = new Size(0xb8, 0x10);
+      this.lblCopyInfURL.TabIndex = 2;
+      this.lblCopyInfURL.Text = "Copyright information URL:";
+      this.Panel13.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel13.Controls.Add(this.txtWXXXContent);
+      this.Panel13.Controls.Add(this.btnRemoveWXXX);
+      this.Panel13.Controls.Add(this.btnAddWXXX);
+      this.Panel13.Controls.Add(this.lblWXXXContent);
+      this.Panel13.Controls.Add(this.lblWXXXDesc);
+      this.Panel13.Controls.Add(this.txtWXXXDesc);
+      this.Panel13.Controls.Add(this.WXXXList);
+      this.Panel13.Location = new Point(8, 0xc0);
+      this.Panel13.Name = "Panel13";
+      this.Panel13.Size = new Size(0x288, 0xb0);
+      this.Panel13.TabIndex = 1;
+      this.txtWXXXContent.Location = new Point(0x88, 30);
+      this.txtWXXXContent.Name = "txtWXXXContent";
+      this.txtWXXXContent.Size = new Size(0x158, 20);
+      this.txtWXXXContent.TabIndex = 12;
+      this.txtWXXXContent.Text = "";
+      this.btnRemoveWXXX.ImeMode = ImeMode.NoControl;
+      this.btnRemoveWXXX.Location = new Point(0x1e8, 0x20);
+      this.btnRemoveWXXX.Name = "btnRemoveWXXX";
+      this.btnRemoveWXXX.Size = new Size(0x98, 20);
+      this.btnRemoveWXXX.TabIndex = 14;
+      this.btnRemoveWXXX.Text = "Remove user web frame";
+      this.btnAddWXXX.ImeMode = ImeMode.NoControl;
+      this.btnAddWXXX.Location = new Point(0x1e8, 8);
+      this.btnAddWXXX.Name = "btnAddWXXX";
+      this.btnAddWXXX.Size = new Size(0x98, 20);
+      this.btnAddWXXX.TabIndex = 13;
+      this.btnAddWXXX.Text = "Add user web frame";
+      this.lblWXXXContent.ImeMode = ImeMode.NoControl;
+      this.lblWXXXContent.Location = new Point(8, 0x20);
+      this.lblWXXXContent.Name = "lblWXXXContent";
+      this.lblWXXXContent.Size = new Size(0x80, 0x10);
+      this.lblWXXXContent.TabIndex = 11;
+      this.lblWXXXContent.Text = "Web frame &Content:";
+      this.lblWXXXDesc.ImeMode = ImeMode.NoControl;
+      this.lblWXXXDesc.Location = new Point(8, 8);
+      this.lblWXXXDesc.Name = "lblWXXXDesc";
+      this.lblWXXXDesc.Size = new Size(0x80, 0x10);
+      this.lblWXXXDesc.TabIndex = 9;
+      this.lblWXXXDesc.Text = "Web frame &Descriptor:";
+      this.txtWXXXDesc.Location = new Point(0x88, 6);
+      this.txtWXXXDesc.Name = "txtWXXXDesc";
+      this.txtWXXXDesc.Size = new Size(0x158, 20);
+      this.txtWXXXDesc.TabIndex = 10;
+      this.txtWXXXDesc.Text = "";
+      this.WXXXList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader13, this.ColumnHeader14 });
+      this.WXXXList.FullRowSelect = true;
+      this.WXXXList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+      this.WXXXList.Location = new Point(0x88, 0x40);
+      this.WXXXList.MultiSelect = false;
+      this.WXXXList.Name = "WXXXList";
+      this.WXXXList.Size = new Size(0x1f8, 0x68);
+      this.WXXXList.TabIndex = 15;
+      this.WXXXList.View = View.Details;
+      this.ColumnHeader13.Text = "Descriptor";
+      this.ColumnHeader13.Width = 200;
+      this.ColumnHeader14.Text = "Content";
+      this.ColumnHeader14.Width = 260;
+      this.Panel12.BorderStyle = BorderStyle.FixedSingle;
+      this.Panel12.Controls.Add(this.txtTXXXContent);
+      this.Panel12.Controls.Add(this.btnRemoveTXXX);
+      this.Panel12.Controls.Add(this.btnAddTXXX);
+      this.Panel12.Controls.Add(this.lblTXXXContent);
+      this.Panel12.Controls.Add(this.lblTXXXDesc);
+      this.Panel12.Controls.Add(this.txtTXXXDesc);
+      this.Panel12.Controls.Add(this.TXXXList);
+      this.Panel12.Location = new Point(8, 8);
+      this.Panel12.Name = "Panel12";
+      this.Panel12.Size = new Size(0x288, 0xb0);
+      this.Panel12.TabIndex = 0;
+      this.txtTXXXContent.Location = new Point(0x88, 30);
+      this.txtTXXXContent.Name = "txtTXXXContent";
+      this.txtTXXXContent.Size = new Size(0x158, 20);
+      this.txtTXXXContent.TabIndex = 5;
+      this.txtTXXXContent.Text = "";
+      this.btnRemoveTXXX.ImeMode = ImeMode.NoControl;
+      this.btnRemoveTXXX.Location = new Point(0x1e8, 0x20);
+      this.btnRemoveTXXX.Name = "btnRemoveTXXX";
+      this.btnRemoveTXXX.Size = new Size(0x98, 20);
+      this.btnRemoveTXXX.TabIndex = 7;
+      this.btnRemoveTXXX.Text = "Remove user text frame";
+      this.btnAddTXXX.ImeMode = ImeMode.NoControl;
+      this.btnAddTXXX.Location = new Point(0x1e8, 8);
+      this.btnAddTXXX.Name = "btnAddTXXX";
+      this.btnAddTXXX.Size = new Size(0x98, 20);
+      this.btnAddTXXX.TabIndex = 6;
+      this.btnAddTXXX.Text = "Add user text frame";
+      this.lblTXXXContent.ImeMode = ImeMode.NoControl;
+      this.lblTXXXContent.Location = new Point(8, 0x20);
+      this.lblTXXXContent.Name = "lblTXXXContent";
+      this.lblTXXXContent.Size = new Size(0x80, 0x10);
+      this.lblTXXXContent.TabIndex = 4;
+      this.lblTXXXContent.Text = "Text frame &Content:";
+      this.lblTXXXDesc.ImeMode = ImeMode.NoControl;
+      this.lblTXXXDesc.Location = new Point(8, 8);
+      this.lblTXXXDesc.Name = "lblTXXXDesc";
+      this.lblTXXXDesc.Size = new Size(0x80, 0x10);
+      this.lblTXXXDesc.TabIndex = 2;
+      this.lblTXXXDesc.Text = "Text frame &Descriptor:";
+      this.txtTXXXDesc.Location = new Point(0x88, 6);
+      this.txtTXXXDesc.Name = "txtTXXXDesc";
+      this.txtTXXXDesc.Size = new Size(0x158, 20);
+      this.txtTXXXDesc.TabIndex = 3;
+      this.txtTXXXDesc.Text = "";
+      this.TXXXList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader11, this.ColumnHeader12 });
+      this.TXXXList.FullRowSelect = true;
+      this.TXXXList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+      this.TXXXList.Location = new Point(0x88, 0x40);
+      this.TXXXList.MultiSelect = false;
+      this.TXXXList.Name = "TXXXList";
+      this.TXXXList.Size = new Size(0x1f8, 0x68);
+      this.TXXXList.TabIndex = 8;
+      this.TXXXList.View = View.Details;
+      this.ColumnHeader11.Text = "Descriptor";
+      this.ColumnHeader11.Width = 200;
+      this.ColumnHeader12.Text = "Content";
+      this.ColumnHeader12.Width = 0x102;
+      this.lblNot.BorderStyle = BorderStyle.Fixed3D;
+      this.lblNot.ImeMode = ImeMode.NoControl;
+      this.lblNot.Location = new Point(8, 0x198);
+      this.lblNot.Name = "lblNot";
+      this.lblNot.Size = new Size(0x288, 40);
+      this.lblNot.TabIndex = 0x2c;
+      this.lblNot.Text = "All frames which are not supported by ID3-TagIT. You cannot edit them but you can remove them by unchecking the checkbox.";
+      this.lblNot.TextAlign = ContentAlignment.MiddleCenter;
+      this.NotSupportList.CheckBoxes = true;
+      this.NotSupportList.Columns.AddRange(new ColumnHeader[] { this.FrameID, this.Content });
+      this.NotSupportList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+      this.NotSupportList.Location = new Point(8, 8);
+      this.NotSupportList.Name = "NotSupportList";
+      this.NotSupportList.Size = new Size(0x288, 0x188);
+      this.NotSupportList.TabIndex = 0;
+      this.NotSupportList.View = View.Details;
+      this.FrameID.Text = "Frame ID";
+      this.FrameID.Width = 150;
+      this.Content.Text = "Content";
+      this.Content.Width = 0x1d3;
+      this.txtDigits.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+      this.txtDigits.Location = new Point(200, 10);
+      this.txtDigits.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+      this.txtDigits.Name = "txtDigits";
+      this.txtDigits.Size = new Size(0x40, 20);
+      this.txtDigits.TabIndex = 0x66;
+      this.txtDigits.Value = new decimal(new int[] { 1, 0, 0, 0 });
+      this.OpenFileDialog.RestoreDirectory = true;
+      this.SelectionBar.AccessibleRole = AccessibleRole.ToolBar;
+      this.SelectionBar.AllowUserCustomize = false;
+      this.SelectionBar.AntiAlias = true;
+      this.SelectionBar.BackColor = SystemColors.Control;
+      this.SelectionBar.BackgroundStyle.BackColor1.ColorSchemePart = eColorSchemePart.ExplorerBarBackground;
+      this.SelectionBar.BackgroundStyle.BackColor2.ColorSchemePart = eColorSchemePart.ExplorerBarBackground2;
+      this.SelectionBar.BackgroundStyle.GradientAngle = 90;
+      this.SelectionBar.Dock = DockStyle.Left;
+      this.SelectionBar.Font = new Font("Tahoma", 11f, FontStyle.Regular, GraphicsUnit.World);
+      this.SelectionBar.GroupImages = null;
+      this.SelectionBar.Groups.AddRange(new BaseItem[] { this.TAGV2grpTAG, this.TAGV2grpTransfer, this.TAGV2grpCommands });
+      this.SelectionBar.Images = null;
+      this.SelectionBar.Location = new Point(0, 0);
+      this.SelectionBar.Name = "SelectionBar";
+      this.SelectionBar.Size = new Size(0xa8, 0x220);
+      this.SelectionBar.StockStyle = eExplorerBarStockStyle.Silver;
+      this.SelectionBar.TabIndex = 0x69;
+      this.SelectionBar.Text = "Select TAG section";
+      this.TAGV2grpTAG.BackgroundStyle.BackColor1.Color = Color.FromArgb(0xd6, 0xdf, 0xf7);
+      this.TAGV2grpTAG.BackgroundStyle.Border = eBorderType.SingleLine;
+      this.TAGV2grpTAG.BackgroundStyle.BorderColor.Color = Color.White;
+      this.TAGV2grpTAG.CanCustomize = false;
+      this.TAGV2grpTAG.HeaderHotStyle.BackColor1.Color = Color.White;
+      this.TAGV2grpTAG.HeaderHotStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
+      this.TAGV2grpTAG.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
+      this.TAGV2grpTAG.HeaderHotStyle.ForeColor.Color = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.TAGV2grpTAG.HeaderStyle.BackColor1.Color = Color.White;
+      this.TAGV2grpTAG.HeaderStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
+      this.TAGV2grpTAG.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
+      this.TAGV2grpTAG.HeaderStyle.ForeColor.Color = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2grpTAG.Name = "TAGV2grpTAG";
+      this.TAGV2grpTAG.StockStyle = eExplorerBarStockStyle.Blue;
+      this.TAGV2grpTAG.SubItems.AddRange(new BaseItem[] { this.TAGV2ButtonItem1, this.TAGV2ButtonItem2, this.TAGV2ButtonItem3, this.TAGV2ButtonItem4, this.TAGV2ButtonItem5, this.TAGV2ButtonItem6, this.TAGV2ButtonItem7, this.TAGV2ButtonItem8, this.TAGV2ButtonItem9, this.TAGV2ButtonItem10 });
+      this.TAGV2grpTAG.Text = "TAG information";
+      this.TAGV2ButtonItem1.ButtonStyle = eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem1.Cursor = Cursors.Hand;
+      this.TAGV2ButtonItem1.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem1.HotFontUnderline = true;
+      this.TAGV2ButtonItem1.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.TAGV2ButtonItem1.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem1.Icon = (Icon)manager.GetObject("TAGV2ButtonItem1.Icon");
+      this.TAGV2ButtonItem1.Name = "TAGV2ButtonItem1";
+      this.TAGV2ButtonItem1.Text = "Main Entries";
+      this.TAGV2ButtonItem2.ButtonStyle = eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem2.Cursor = Cursors.Hand;
+      this.TAGV2ButtonItem2.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem2.HotFontUnderline = true;
+      this.TAGV2ButtonItem2.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.TAGV2ButtonItem2.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem2.Icon = (Icon)manager.GetObject("TAGV2ButtonItem2.Icon");
+      this.TAGV2ButtonItem2.Name = "TAGV2ButtonItem2";
+      this.TAGV2ButtonItem2.Text = "Detailed information";
+      this.TAGV2ButtonItem3.ButtonStyle = eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem3.Cursor = Cursors.Hand;
+      this.TAGV2ButtonItem3.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem3.HotFontUnderline = true;
+      this.TAGV2ButtonItem3.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.TAGV2ButtonItem3.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem3.Icon = (Icon)manager.GetObject("TAGV2ButtonItem3.Icon");
+      this.TAGV2ButtonItem3.Name = "TAGV2ButtonItem3";
+      this.TAGV2ButtonItem3.Text = "Original information";
+      this.TAGV2ButtonItem4.ButtonStyle = eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem4.Cursor = Cursors.Hand;
+      this.TAGV2ButtonItem4.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem4.HotFontUnderline = true;
+      this.TAGV2ButtonItem4.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.TAGV2ButtonItem4.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem4.Icon = (Icon)manager.GetObject("TAGV2ButtonItem4.Icon");
+      this.TAGV2ButtonItem4.Name = "TAGV2ButtonItem4";
+      this.TAGV2ButtonItem4.Text = "Involved people";
+      this.TAGV2ButtonItem5.ButtonStyle = eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem5.Cursor = Cursors.Hand;
+      this.TAGV2ButtonItem5.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem5.HotFontUnderline = true;
+      this.TAGV2ButtonItem5.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.TAGV2ButtonItem5.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem5.Icon = (Icon)manager.GetObject("TAGV2ButtonItem5.Icon");
+      this.TAGV2ButtonItem5.Name = "TAGV2ButtonItem5";
+      this.TAGV2ButtonItem5.Text = "Web information";
+      this.TAGV2ButtonItem6.ButtonStyle = eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem6.Cursor = Cursors.Hand;
+      this.TAGV2ButtonItem6.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem6.HotFontUnderline = true;
+      this.TAGV2ButtonItem6.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.TAGV2ButtonItem6.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem6.Icon = (Icon)manager.GetObject("TAGV2ButtonItem6.Icon");
+      this.TAGV2ButtonItem6.Name = "TAGV2ButtonItem6";
+      this.TAGV2ButtonItem6.Text = "Pictures";
+      this.TAGV2ButtonItem7.ButtonStyle = eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem7.Cursor = Cursors.Hand;
+      this.TAGV2ButtonItem7.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem7.HotFontUnderline = true;
+      this.TAGV2ButtonItem7.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.TAGV2ButtonItem7.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem7.Icon = (Icon)manager.GetObject("TAGV2ButtonItem7.Icon");
+      this.TAGV2ButtonItem7.Name = "TAGV2ButtonItem7";
+      this.TAGV2ButtonItem7.Text = "Lyrics";
+      this.TAGV2ButtonItem8.ButtonStyle = eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem8.Cursor = Cursors.Hand;
+      this.TAGV2ButtonItem8.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem8.HotFontUnderline = true;
+      this.TAGV2ButtonItem8.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.TAGV2ButtonItem8.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem8.Icon = (Icon)manager.GetObject("TAGV2ButtonItem8.Icon");
+      this.TAGV2ButtonItem8.Name = "TAGV2ButtonItem8";
+      this.TAGV2ButtonItem8.Text = "Rating";
+      this.TAGV2ButtonItem9.ButtonStyle = eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem9.Cursor = Cursors.Hand;
+      this.TAGV2ButtonItem9.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem9.HotFontUnderline = true;
+      this.TAGV2ButtonItem9.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.TAGV2ButtonItem9.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem9.Icon = (Icon)manager.GetObject("TAGV2ButtonItem9.Icon");
+      this.TAGV2ButtonItem9.Name = "TAGV2ButtonItem9";
+      this.TAGV2ButtonItem9.Text = "User defined information";
+      this.TAGV2ButtonItem10.ButtonStyle = eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem10.Cursor = Cursors.Hand;
+      this.TAGV2ButtonItem10.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem10.HotFontUnderline = true;
+      this.TAGV2ButtonItem10.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.TAGV2ButtonItem10.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem10.Icon = (Icon)manager.GetObject("TAGV2ButtonItem10.Icon");
+      this.TAGV2ButtonItem10.Name = "TAGV2ButtonItem10";
+      this.TAGV2ButtonItem10.Text = "Not supported frames";
+      this.TAGV2grpTransfer.BackgroundStyle.BackColor1.Color = Color.FromArgb(0xd6, 0xdf, 0xf7);
+      this.TAGV2grpTransfer.BackgroundStyle.Border = eBorderType.SingleLine;
+      this.TAGV2grpTransfer.BackgroundStyle.BorderColor.Color = Color.White;
+      this.TAGV2grpTransfer.CanCustomize = false;
+      this.TAGV2grpTransfer.HeaderHotStyle.BackColor1.Color = Color.White;
+      this.TAGV2grpTransfer.HeaderHotStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
+      this.TAGV2grpTransfer.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
+      this.TAGV2grpTransfer.HeaderHotStyle.ForeColor.Color = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.TAGV2grpTransfer.HeaderStyle.BackColor1.Color = Color.White;
+      this.TAGV2grpTransfer.HeaderStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
+      this.TAGV2grpTransfer.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
+      this.TAGV2grpTransfer.HeaderStyle.ForeColor.Color = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2grpTransfer.Name = "TAGV2grpTransfer";
+      this.TAGV2grpTransfer.StockStyle = eExplorerBarStockStyle.Blue;
+      this.TAGV2grpTransfer.SubItems.AddRange(new BaseItem[] { this.btnImport, this.btnExport, this.btnGet });
+      this.TAGV2grpTransfer.Text = "Transfer and Import";
+      this.btnImport.ButtonStyle = eButtonStyle.ImageAndText;
+      this.btnImport.Cursor = Cursors.Hand;
+      this.btnImport.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnImport.HotFontUnderline = true;
+      this.btnImport.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.btnImport.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnImport.Name = "btnImport";
+      this.btnImport.Text = "Transfer from Ver. 1";
+      this.btnExport.ButtonStyle = eButtonStyle.ImageAndText;
+      this.btnExport.Cursor = Cursors.Hand;
+      this.btnExport.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnExport.HotFontUnderline = true;
+      this.btnExport.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.btnExport.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnExport.Name = "btnExport";
+      this.btnExport.Text = "Transfer to Ver. 1";
+      this.btnGet.ButtonStyle = eButtonStyle.ImageAndText;
+      this.btnGet.Cursor = Cursors.Hand;
+      this.btnGet.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnGet.HotFontUnderline = true;
+      this.btnGet.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.btnGet.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnGet.Name = "btnGet";
+      this.btnGet.Text = "Get from filename";
+      this.TAGV2grpCommands.BackgroundStyle.BackColor1.Color = Color.FromArgb(0xd6, 0xdf, 0xf7);
+      this.TAGV2grpCommands.BackgroundStyle.Border = eBorderType.SingleLine;
+      this.TAGV2grpCommands.BackgroundStyle.BorderColor.Color = Color.White;
+      this.TAGV2grpCommands.CanCustomize = false;
+      this.TAGV2grpCommands.HeaderHotStyle.BackColor1.Color = Color.White;
+      this.TAGV2grpCommands.HeaderHotStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
+      this.TAGV2grpCommands.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
+      this.TAGV2grpCommands.HeaderHotStyle.ForeColor.Color = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.TAGV2grpCommands.HeaderStyle.BackColor1.Color = Color.White;
+      this.TAGV2grpCommands.HeaderStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
+      this.TAGV2grpCommands.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
+      this.TAGV2grpCommands.HeaderStyle.ForeColor.Color = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2grpCommands.Name = "TAGV2grpCommands";
+      this.TAGV2grpCommands.StockStyle = eExplorerBarStockStyle.Blue;
+      this.TAGV2grpCommands.SubItems.AddRange(new BaseItem[] { this.btnPrev, this.btnNext, this.btnSwapAT, this.btnSwapAA, this.btnSwapTA });
+      this.TAGV2grpCommands.Text = "Commands";
+      this.btnPrev.ButtonStyle = eButtonStyle.ImageAndText;
+      this.btnPrev.Cursor = Cursors.Hand;
+      this.btnPrev.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnPrev.HotFontUnderline = true;
+      this.btnPrev.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.btnPrev.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnPrev.Icon = (Icon)manager.GetObject("btnPrev.Icon");
+      this.btnPrev.Name = "btnPrev";
+      this.btnPrev.Shortcuts.Add(eShortcut.CtrlB);
+      this.btnPrev.Text = "Previous File";
+      this.btnNext.ButtonStyle = eButtonStyle.ImageAndText;
+      this.btnNext.Cursor = Cursors.Hand;
+      this.btnNext.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnNext.HotFontUnderline = true;
+      this.btnNext.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.btnNext.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnNext.Icon = (Icon)manager.GetObject("btnNext.Icon");
+      this.btnNext.Name = "btnNext";
+      this.btnNext.Shortcuts.Add(eShortcut.CtrlN);
+      this.btnNext.Text = "Next File";
+      this.btnSwapAT.ButtonStyle = eButtonStyle.ImageAndText;
+      this.btnSwapAT.Cursor = Cursors.Hand;
+      this.btnSwapAT.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnSwapAT.HotFontUnderline = true;
+      this.btnSwapAT.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.btnSwapAT.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnSwapAT.Name = "btnSwapAT";
+      this.btnSwapAT.Text = "Swap Artist-Title";
+      this.btnSwapAA.ButtonStyle = eButtonStyle.ImageAndText;
+      this.btnSwapAA.Cursor = Cursors.Hand;
+      this.btnSwapAA.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnSwapAA.HotFontUnderline = true;
+      this.btnSwapAA.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.btnSwapAA.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnSwapAA.Name = "btnSwapAA";
+      this.btnSwapAA.Text = "Swap Artist-Album";
+      this.btnSwapTA.ButtonStyle = eButtonStyle.ImageAndText;
+      this.btnSwapTA.Cursor = Cursors.Hand;
+      this.btnSwapTA.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnSwapTA.HotFontUnderline = true;
+      this.btnSwapTA.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
+      this.btnSwapTA.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnSwapTA.Name = "btnSwapTA";
+      this.btnSwapTA.Text = "Swap Title-Album";
+      this.btnCancel.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
+      this.btnCancel.BackColor = SystemColors.Control;
+      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+      this.btnCancel.ImeMode = ImeMode.NoControl;
+      this.btnCancel.Location = new Point(560, 8);
+      this.btnCancel.Name = "btnCancel";
+      this.btnCancel.Size = new Size(0x60, 0x18);
+      this.btnCancel.TabIndex = 0x68;
+      this.btnCancel.Text = "&Cancel";
+      this.btnOK.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
+      this.btnOK.BackColor = SystemColors.Control;
+      this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+      this.btnOK.ImeMode = ImeMode.NoControl;
+      this.btnOK.Location = new Point(0x1c8, 8);
+      this.btnOK.Name = "btnOK";
+      this.btnOK.Size = new Size(0x60, 0x18);
+      this.btnOK.TabIndex = 0x67;
+      this.btnOK.Text = "&OK";
+      this.lblDigits.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+      this.lblDigits.BackColor = Color.White;
+      this.lblDigits.ForeColor = Color.Black;
+      this.lblDigits.ImeMode = ImeMode.NoControl;
+      this.lblDigits.Location = new Point(8, 12);
+      this.lblDigits.Name = "lblDigits";
+      this.lblDigits.Size = new Size(0xb8, 0x10);
+      this.lblDigits.TabIndex = 0x65;
+      this.lblDigits.Text = "Number of digits of track numbers:";
+      this.TopPanel.AntiAlias = true;
+      this.TopPanel.Controls.Add(this.txtSelected);
+      this.TopPanel.Controls.Add(this.lblSelected);
+      this.TopPanel.Dock = DockStyle.Top;
+      this.TopPanel.Location = new Point(0xa8, 0);
+      this.TopPanel.Name = "TopPanel";
+      this.TopPanel.Size = new Size(0x29a, 0x30);
+      this.TopPanel.Style.BackColor1.Color = Color.White;
+      this.TopPanel.Style.BackColor2.Color = Color.White;
+      this.TopPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
+      this.TopPanel.Style.BorderWidth = 0;
+      this.TopPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
+      this.TopPanel.Style.ForeColor.Color = Color.Black;
+      this.TopPanel.Style.GradientAngle = 90;
+      this.TopPanel.Style.LineAlignment = StringAlignment.Near;
+      this.TopPanel.Style.MarginBottom = 2;
+      this.TopPanel.Style.MarginLeft = 7;
+      this.TopPanel.Style.MarginRight = 2;
+      this.TopPanel.Style.MarginTop = 2;
+      this.TopPanel.TabIndex = 0x6a;
+      this.TopPanel.Text = "TopPanel";
+      this.panDetail.BackColor = SystemColors.Control;
+      this.panDetail.Controls.Add(this.Panel4);
+      this.panDetail.Controls.Add(this.Panel5);
+      this.panDetail.Controls.Add(this.Panel9);
+      this.panDetail.Controls.Add(this.Panel14);
+      this.panDetail.Location = new Point(0xa8, 0x30);
+      this.panDetail.Name = "panDetail";
+      this.panDetail.Size = new Size(0x298, 0x1b0);
+      this.panDetail.TabIndex = 0x75;
+      this.panMain.Controls.Add(this.Panel3);
+      this.panMain.Controls.Add(this.Panel1);
+      this.panMain.Controls.Add(this.Panel2);
+      this.panMain.Location = new Point(0xa8, 0x30);
+      this.panMain.Name = "panMain";
+      this.panMain.Size = new Size(0x298, 0x1c8);
+      this.panMain.TabIndex = 0x74;
+      this.panOriginal.Controls.Add(this.Panel6);
+      this.panOriginal.Location = new Point(0xa8, 0x30);
+      this.panOriginal.Name = "panOriginal";
+      this.panOriginal.Size = new Size(0x298, 0x1a8);
+      this.panOriginal.TabIndex = 0x76;
+      this.panInvolved.Controls.Add(this.Panel16);
+      this.panInvolved.Controls.Add(this.Panel15);
+      this.panInvolved.Location = new Point(0xa8, 0x30);
+      this.panInvolved.Name = "panInvolved";
+      this.panInvolved.Size = new Size(0x298, 320);
+      this.panInvolved.TabIndex = 0x77;
+      this.panPic.Controls.Add(this.Panel7);
+      this.panPic.Location = new Point(0xa8, 0x38);
+      this.panPic.Name = "panPic";
+      this.panPic.Size = new Size(0x298, 0x130);
+      this.panPic.TabIndex = 120;
+      this.panLyrics.Controls.Add(this.Panel8);
+      this.panLyrics.Location = new Point(0xa8, 0x30);
+      this.panLyrics.Name = "panLyrics";
+      this.panLyrics.Size = new Size(0x298, 0x1b0);
+      this.panLyrics.TabIndex = 0x79;
+      this.panWeb.Controls.Add(this.Panel10);
+      this.panWeb.Location = new Point(0xa8, 0x30);
+      this.panWeb.Name = "panWeb";
+      this.panWeb.Size = new Size(0x298, 360);
+      this.panWeb.TabIndex = 0x7a;
+      this.panRating.Controls.Add(this.Panel11);
+      this.panRating.Location = new Point(0xa8, 0x30);
+      this.panRating.Name = "panRating";
+      this.panRating.Size = new Size(0x298, 0x1b0);
+      this.panRating.TabIndex = 0x7b;
+      this.panUser.Controls.Add(this.Panel13);
+      this.panUser.Controls.Add(this.Panel12);
+      this.panUser.Location = new Point(0xa8, 0x38);
+      this.panUser.Name = "panUser";
+      this.panUser.Size = new Size(0x298, 0x1a0);
+      this.panUser.TabIndex = 0x7c;
+      this.panNot.Controls.Add(this.lblNot);
+      this.panNot.Controls.Add(this.NotSupportList);
+      this.panNot.Location = new Point(0xa8, 0x30);
+      this.panNot.Name = "panNot";
+      this.panNot.Size = new Size(0x298, 440);
+      this.panNot.TabIndex = 0x7d;
+      this.ButtomPanel.AntiAlias = true;
+      this.ButtomPanel.Controls.Add(this.btnOK);
+      this.ButtomPanel.Controls.Add(this.btnCancel);
+      this.ButtomPanel.Controls.Add(this.lblDigits);
+      this.ButtomPanel.Controls.Add(this.txtDigits);
+      this.ButtomPanel.Dock = DockStyle.Bottom;
+      this.ButtomPanel.Location = new Point(0xa8, 0x1f8);
+      this.ButtomPanel.Name = "ButtomPanel";
+      this.ButtomPanel.Size = new Size(0x29a, 40);
+      this.ButtomPanel.Style.BackColor1.Color = Color.White;
+      this.ButtomPanel.Style.BackColor2.Color = Color.White;
+      this.ButtomPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
+      this.ButtomPanel.Style.BorderWidth = 0;
+      this.ButtomPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
+      this.ButtomPanel.Style.ForeColor.Color = Color.Black;
+      this.ButtomPanel.Style.GradientAngle = 90;
+      this.ButtomPanel.Style.LineAlignment = StringAlignment.Near;
+      this.ButtomPanel.Style.MarginBottom = 2;
+      this.ButtomPanel.Style.MarginLeft = 7;
+      this.ButtomPanel.Style.MarginRight = 2;
+      this.ButtomPanel.Style.MarginTop = 2;
+      this.ButtomPanel.TabIndex = 100;
+      this.btnAddComment.Click += new EventHandler(this.btnAddComment_Click);
+      this.btnAddGenre.Click += new EventHandler(this.btnAddGenre_Click);
+      this.btnAddInv.Click += new EventHandler(this.btnAddInv_Click);
+      this.btnAddLyrics.Click += new EventHandler(this.btnAddLyrics_Click);
+      this.btnAddMusician.Click += new EventHandler(this.btnAddMusican_Click);
+      this.btnAddPicture.Click += new EventHandler(this.btnAddPicture_Click);
+      this.btnAddRating.Click += new EventHandler(this.btnAddRating_Click);
+      this.btnAddTXXX.Click += new EventHandler(this.btnAddTXXX_Click);
+      this.btnAddWXXX.Click += new EventHandler(this.btnAddWXXX_Click);
+      this.btnCancel.Click += new EventHandler(this.btnCancel_Click);
+      this.btnExPic.Click += new EventHandler(this.btnExPic_Click);
+      this.btnExport.Click += new EventHandler(this.btnExport_Click);
+      this.btnGet.Click += new EventHandler(this.btnGet_Click);
+      this.btnGetPic.Click += new EventHandler(this.btnGetPic_Click);
+      this.btnImport.Click += new EventHandler(this.btnImport_Click);
+      this.btnLyricsFile.Click += new EventHandler(this.btnLyricsFile_Click);
+      this.btnMoveComment.Click += new EventHandler(this.btnMoveComment_Click);
+      this.btnMoveGenre.Click += new EventHandler(this.btnMoveGenre_Click);
+      this.btnMoveLyrics.Click += new EventHandler(this.btnMoveLyrics_Click);
+      this.btnMoveRating.Click += new EventHandler(this.btnMoveRating_Click);
+      this.btnNext.Click += new EventHandler(this.btnNext_Click);
+      this.btnOK.Click += new EventHandler(this.btnOK_Click);
+      this.btnPrev.Click += new EventHandler(this.btnPrev_Click);
+      this.btnRemoveComment.Click += new EventHandler(this.btnRemoveComment_Click);
+      this.btnRemoveGenre.Click += new EventHandler(this.btnRemoveGenre_Click);
+      this.btnRemoveInv.Click += new EventHandler(this.btnRemoveInv_Click);
+      this.btnRemoveLyrics.Click += new EventHandler(this.btnRemoveLyrics_Click);
+      this.btnRemoveMusician.Click += new EventHandler(this.btnRemoveMusican_Click);
+      this.btnRemovePicture.Click += new EventHandler(this.btnRemovePicture_Click);
+      this.btnRemoveRating.Click += new EventHandler(this.btnRemoveRating_Click);
+      this.btnRemoveTXXX.Click += new EventHandler(this.btnRemoveTXXX_Click);
+      this.btnRemoveWXXX.Click += new EventHandler(this.btnRemoveWXXX_Click);
+      this.btnSwapAA.Click += new EventHandler(this.btnSwapAA_Click);
+      this.btnSwapAT.Click += new EventHandler(this.btnSwapAT_Click);
+      this.btnSwapTA.Click += new EventHandler(this.btnSwapTA_Click);
+      this.btnTLEN.Click += new EventHandler(this.btnTLEN_Click);
+      this.btnV1Album.Click += new EventHandler(this.btnV1Album_Click);
+      this.btnV1Artist.Click += new EventHandler(this.btnV1Artist_Click);
+      this.btnV1Comment.Click += new EventHandler(this.btnV1Comment_Click);
+      this.btnV1Genre.Click += new EventHandler(this.btnV1Genre_Click);
+      this.btnV1Title.Click += new EventHandler(this.btnV1Title_Click);
+      this.btnV1Track.Click += new EventHandler(this.btnV1Track_Click);
+      this.btnV1Year.Click += new EventHandler(this.btnV1Year_Click);
+      this.chkPicInclude.CheckedChanged += new EventHandler(this.chkPicInclude_CheckedChanged);
+      this.chkPicRelativPath.CheckedChanged += new EventHandler(this.chkPicRelativPath_CheckedChanged);
+      this.cmbArtist.Leave += new EventHandler(this.Select_Leave);
+      this.cmbArtist.Enter += new EventHandler(this.Select_Enter);
+      this.cmbCDescriptor.Leave += new EventHandler(this.Select_Leave);
+      this.cmbCDescriptor.Enter += new EventHandler(this.Select_Enter);
+      this.cmbCLanguage.Leave += new EventHandler(this.Select_Leave);
+      this.cmbCLanguage.Enter += new EventHandler(this.Select_Enter);
+      this.cmbGenre.Leave += new EventHandler(this.Select_Leave);
+      this.cmbGenre.Enter += new EventHandler(this.Select_Enter);
+      this.cmbLLanguage.Leave += new EventHandler(this.Select_Leave);
+      this.cmbLLanguage.Enter += new EventHandler(this.Select_Enter);
+      this.cmbMedia.Leave += new EventHandler(this.Select_Leave);
+      this.cmbMedia.Enter += new EventHandler(this.Select_Enter);
+      this.cmbPicType.Leave += new EventHandler(this.Select_Leave);
+      this.cmbPicType.Enter += new EventHandler(this.Select_Enter);
+      this.CommentList.Leave += new EventHandler(this.Select_Leave);
+      this.CommentList.Click += new EventHandler(this.CommentList_Click);
+      this.GenreList.Leave += new EventHandler(this.Select_Leave);
+      this.LyricsList.Leave += new EventHandler(this.Select_Leave);
+      this.LyricsList.Click += new EventHandler(this.LyricsList_Click);
+      this.NotSupportList.Leave += new EventHandler(this.Select_Leave);
+      this.PicList.Leave += new EventHandler(this.Select_Leave);
+      this.PicList.Click += new EventHandler(this.PicList_Click);
+      this.RatingList.Click += new EventHandler(this.RatingList_Click);
+      this.TAGV2ButtonItem1.Click += new EventHandler(this.btnItem_Click);
+      this.TAGV2ButtonItem10.Click += new EventHandler(this.btnItem_Click);
+      this.TAGV2ButtonItem2.Click += new EventHandler(this.btnItem_Click);
+      this.TAGV2ButtonItem3.Click += new EventHandler(this.btnItem_Click);
+      this.TAGV2ButtonItem4.Click += new EventHandler(this.btnItem_Click);
+      this.TAGV2ButtonItem5.Click += new EventHandler(this.btnItem_Click);
+      this.TAGV2ButtonItem6.Click += new EventHandler(this.btnItem_Click);
+      this.TAGV2ButtonItem7.Click += new EventHandler(this.btnItem_Click);
+      this.TAGV2ButtonItem8.Click += new EventHandler(this.btnItem_Click);
+      this.TAGV2ButtonItem9.Click += new EventHandler(this.btnItem_Click);
+      this.TIPLList.Click += new EventHandler(this.TIPLList_Click);
+      this.TMCLList.Click += new EventHandler(this.TMCLList_Click);
+      this.TORYFormat.Scroll += new ScrollEventHandler(this.TORYFormat_Scroll);
+      this.txtAlbum.Leave += new EventHandler(this.Select_Leave);
+      this.txtAlbum.Enter += new EventHandler(this.Select_Enter);
+      this.txtArtistURL.Leave += new EventHandler(this.Select_Leave);
+      this.txtArtistURL.Enter += new EventHandler(this.Select_Enter);
+      this.txtAudioFileURL.Leave += new EventHandler(this.Select_Leave);
+      this.txtAudioFileURL.Enter += new EventHandler(this.Select_Enter);
+      this.txtAudioSRCURL.Leave += new EventHandler(this.Select_Leave);
+      this.txtAudioSRCURL.Enter += new EventHandler(this.Select_Enter);
+      this.txtBand.Leave += new EventHandler(this.Select_Leave);
+      this.txtBand.Enter += new EventHandler(this.Select_Enter);
+      this.txtBPM.Leave += new EventHandler(this.Select_Leave);
+      this.txtBPM.Enter += new EventHandler(this.Select_Enter);
+      this.txtComment.Leave += new EventHandler(this.Select_Leave);
+      this.txtComment.Enter += new EventHandler(this.Select_Enter);
+      this.txtCOMMInfURL.Leave += new EventHandler(this.Select_Leave);
+      this.txtCOMMInfURL.Enter += new EventHandler(this.Select_Enter);
+      this.txtComposer.Leave += new EventHandler(this.Select_Leave);
+      this.txtComposer.Enter += new EventHandler(this.Select_Enter);
+      this.txtConductor.Leave += new EventHandler(this.Select_Leave);
+      this.txtConductor.Enter += new EventHandler(this.Select_Enter);
+      this.txtContent.Leave += new EventHandler(this.Select_Leave);
+      this.txtContent.Enter += new EventHandler(this.Select_Enter);
+      this.txtCopyInfURL.Leave += new EventHandler(this.Select_Leave);
+      this.txtCopyInfURL.Enter += new EventHandler(this.Select_Enter);
+      this.txtCopyright.Leave += new EventHandler(this.Select_Leave);
+      this.txtCopyright.Enter += new EventHandler(this.Select_Enter);
+      this.txtEncoded.Leave += new EventHandler(this.Select_Leave);
+      this.txtEncoded.Enter += new EventHandler(this.Select_Enter);
+      this.txtINetRadioURL.Leave += new EventHandler(this.Select_Leave);
+      this.txtINetRadioURL.Enter += new EventHandler(this.Select_Enter);
+      this.txtInvFunction.Leave += new EventHandler(this.Select_Leave);
+      this.txtInvFunction.Enter += new EventHandler(this.Select_Enter);
+      this.txtInvPerson.Leave += new EventHandler(this.Select_Leave);
+      this.txtInvPerson.Enter += new EventHandler(this.Select_Enter);
+      this.txtLDescriptor.Leave += new EventHandler(this.Select_Leave);
+      this.txtLDescriptor.Enter += new EventHandler(this.Select_Enter);
+      this.txtLyWriter.Leave += new EventHandler(this.Select_Leave);
+      this.txtLyWriter.Enter += new EventHandler(this.Select_Enter);
+      this.txtModified.Leave += new EventHandler(this.Select_Leave);
+      this.txtModified.Enter += new EventHandler(this.Select_Enter);
+      this.txtMusicianInst.Leave += new EventHandler(this.Select_Leave);
+      this.txtMusicianInst.Enter += new EventHandler(this.Select_Enter);
+      this.txtMusicianName.Leave += new EventHandler(this.Select_Leave);
+      this.txtMusicianName.Enter += new EventHandler(this.Select_Enter);
+      this.txtOAlbum.Leave += new EventHandler(this.Select_Leave);
+      this.txtOAlbum.Enter += new EventHandler(this.Select_Enter);
+      this.txtOArtist.Leave += new EventHandler(this.Select_Leave);
+      this.txtOArtist.Enter += new EventHandler(this.Select_Enter);
+      this.txtOFilename.Leave += new EventHandler(this.Select_Leave);
+      this.txtOFilename.Enter += new EventHandler(this.Select_Enter);
+      this.txtOLyWriter.Leave += new EventHandler(this.Select_Leave);
+      this.txtOLyWriter.Enter += new EventHandler(this.Select_Enter);
+      this.txtOOwner.Leave += new EventHandler(this.Select_Leave);
+      this.txtOOwner.Enter += new EventHandler(this.Select_Enter);
+      this.txtPayURL.Leave += new EventHandler(this.Select_Leave);
+      this.txtPayURL.Enter += new EventHandler(this.Select_Enter);
+      this.txtPDescriptor.Leave += new EventHandler(this.Select_Leave);
+      this.txtPDescriptor.Enter += new EventHandler(this.Select_Enter);
+      this.txtPicPath.Leave += new EventHandler(this.Select_Leave);
+      this.txtPicPath.Enter += new EventHandler(this.Select_Enter);
+      this.txtPublisher.Leave += new EventHandler(this.Select_Leave);
+      this.txtPublisher.Enter += new EventHandler(this.Select_Enter);
+      this.txtPubURL.Leave += new EventHandler(this.Select_Leave);
+      this.txtPubURL.Enter += new EventHandler(this.Select_Enter);
+      this.txtRatingCounter.Leave += new EventHandler(this.Select_Leave);
+      this.txtRatingCounter.Enter += new EventHandler(this.Select_Enter);
+      this.txtRatingRating.Leave += new EventHandler(this.Select_Leave);
+      this.txtRatingRating.Enter += new EventHandler(this.Select_Enter);
+      this.txtRatingUser.Leave += new EventHandler(this.Select_Leave);
+      this.txtRatingUser.Enter += new EventHandler(this.Select_Enter);
+      this.txtSelected.Leave += new EventHandler(this.Select_Leave);
+      this.txtSelected.Enter += new EventHandler(this.Select_Enter);
+      this.txtSortAlbum.Leave += new EventHandler(this.Select_Leave);
+      this.txtSortAlbum.Enter += new EventHandler(this.Select_Enter);
+      this.txtSortArtist.Leave += new EventHandler(this.Select_Leave);
+      this.txtSortArtist.Enter += new EventHandler(this.Select_Enter);
+      this.txtSortTitle.Leave += new EventHandler(this.Select_Leave);
+      this.txtSortTitle.Enter += new EventHandler(this.Select_Enter);
+      this.txtSubTitle.Leave += new EventHandler(this.Select_Leave);
+      this.txtSubTitle.Enter += new EventHandler(this.Select_Enter);
+      this.txtTitle.Leave += new EventHandler(this.Select_Leave);
+      this.txtTitle.Enter += new EventHandler(this.Select_Enter);
+      this.txtTORY.Leave += new EventHandler(this.Select_Leave);
+      this.txtTORY.Enter += new EventHandler(this.Select_Enter);
+      this.txtTXXXContent.Leave += new EventHandler(this.Select_Leave);
+      this.txtTXXXContent.Enter += new EventHandler(this.Select_Enter);
+      this.txtTXXXDesc.Leave += new EventHandler(this.Select_Leave);
+      this.txtTXXXDesc.Enter += new EventHandler(this.Select_Enter);
+      this.txtWXXXContent.Leave += new EventHandler(this.Select_Leave);
+      this.txtWXXXContent.Enter += new EventHandler(this.Select_Enter);
+      this.txtWXXXDesc.Leave += new EventHandler(this.Select_Leave);
+      this.txtWXXXDesc.Enter += new EventHandler(this.Select_Enter);
+      this.txtYear.Leave += new EventHandler(this.Select_Leave);
+      this.txtYear.Enter += new EventHandler(this.Select_Enter);
+      this.TXXXList.Leave += new EventHandler(this.Select_Leave);
+      this.TXXXList.Click += new EventHandler(this.TXXXList_Click);
+      this.WXXXList.Leave += new EventHandler(this.Select_Leave);
+      this.WXXXList.Click += new EventHandler(this.WXXXList_Click);
+      this.YearFormat.Scroll += new ScrollEventHandler(this.YearFormat_Scroll);
+      this.AcceptButton = this.btnOK;
+      this.AutoScaleBaseSize = new Size(5, 13);
+      this.CancelButton = this.btnCancel;
+      this.ClientSize = new Size(0x342, 0x220);
+      this.ControlBox = false;
+      this.Controls.Add(this.panMain);
+      this.Controls.Add(this.panLyrics);
+      this.Controls.Add(this.panPic);
+      this.Controls.Add(this.panNot);
+      this.Controls.Add(this.panUser);
+      this.Controls.Add(this.panInvolved);
+      this.Controls.Add(this.panDetail);
+      this.Controls.Add(this.panRating);
+      this.Controls.Add(this.panWeb);
+      this.Controls.Add(this.panOriginal);
+      this.Controls.Add(this.TopPanel);
+      this.Controls.Add(this.ButtomPanel);
+      this.Controls.Add(this.SelectionBar);
+      this.FormBorderStyle = FormBorderStyle.FixedDialog;
+      this.KeyPreview = true;
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
+      this.Name = "frmTAG2";
+      this.ShowInTaskbar = false;
+      this.Text = "Edit TAG Ver. 2";
+      this.Panel3.ResumeLayout(false);
+      this.Panel2.ResumeLayout(false);
+      this.Panel1.ResumeLayout(false);
+      this.Panel9.ResumeLayout(false);
+      this.Panel6.ResumeLayout(false);
+      this.Panel5.ResumeLayout(false);
+      this.Panel4.ResumeLayout(false);
+      this.Panel15.ResumeLayout(false);
+      this.Panel16.ResumeLayout(false);
+      this.Panel14.ResumeLayout(false);
+      this.Panel7.ResumeLayout(false);
+      this.Panel8.ResumeLayout(false);
+      this.Panel11.ResumeLayout(false);
+      this.txtRatingCounter.EndInit();
+      this.txtRatingRating.EndInit();
+      this.Panel10.ResumeLayout(false);
+      this.Panel13.ResumeLayout(false);
+      this.Panel12.ResumeLayout(false);
+      this.txtDigits.EndInit();
+      ((ISupportInitialize)this.SelectionBar).EndInit();
+      this.TopPanel.ResumeLayout(false);
+      this.panDetail.ResumeLayout(false);
+      this.panMain.ResumeLayout(false);
+      this.panOriginal.ResumeLayout(false);
+      this.panInvolved.ResumeLayout(false);
+      this.panPic.ResumeLayout(false);
+      this.panLyrics.ResumeLayout(false);
+      this.panWeb.ResumeLayout(false);
+      this.panRating.ResumeLayout(false);
+      this.panUser.ResumeLayout(false);
+      this.panNot.ResumeLayout(false);
+      this.ButtomPanel.ResumeLayout(false);
+      this.ResumeLayout(false);
+    }
 
     public frmTAG2(ref frmMain FormMain)
     {
@@ -586,7 +2610,7 @@
 
     private void AddSelectionBar()
     {
-      IEnumerator enumerator;
+      IEnumerator enumerator = null;
       try
       {
         enumerator = this.SelectionBar.Groups.GetEnumerator();
@@ -986,7 +3010,6 @@
     private void btnAddComment_Click(object sender, EventArgs e)
     {
       ListViewItem item = new ListViewItem();
-      ListViewItem item2 = new ListViewItem();
       V2LDCFrame frame = new V2LDCFrame
       {
         FID = "COMM"
@@ -1030,12 +3053,12 @@
     {
       if (!((StringType.StrCmp(this.txtInvFunction.Text.TrimEnd(new char[] { ' ' }), "", false) == 0) | (StringType.StrCmp(this.txtInvPerson.Text.TrimEnd(new char[] { ' ' }), "", false) == 0)))
       {
-        foreach (ListViewItem item in this.TIPLList.Items)
+        foreach (ListViewItem item2 in this.TIPLList.Items)
         {
-          if (StringType.StrCmp(item.Text.ToLower(), this.txtInvFunction.Text.TrimEnd(new char[] { ' ' }).ToLower(), false) == 0)
+          if (StringType.StrCmp(item2.Text.ToLower(), this.txtInvFunction.Text.TrimEnd(new char[] { ' ' }).ToLower(), false) == 0)
           {
-            item.Text = this.txtInvFunction.Text.TrimEnd(new char[] { ' ' });
-            item.SubItems[1].Text = this.txtInvPerson.Text.TrimEnd(new char[] { ' ' });
+            item2.Text = this.txtInvFunction.Text.TrimEnd(new char[] { ' ' });
+            item2.SubItems[1].Text = this.txtInvPerson.Text.TrimEnd(new char[] { ' ' });
             return;
           }
         }
@@ -1053,7 +3076,6 @@
     private void btnAddLyrics_Click(object sender, EventArgs e)
     {
       ListViewItem item = new ListViewItem();
-      ListViewItem item2 = new ListViewItem();
       V2LDCFrame frame = new V2LDCFrame
       {
         FID = "USLT"
@@ -1094,12 +3116,12 @@
     {
       if (!((StringType.StrCmp(this.txtMusicianInst.Text.TrimEnd(new char[] { ' ' }), "", false) == 0) | (StringType.StrCmp(this.txtMusicianName.Text.TrimEnd(new char[] { ' ' }), "", false) == 0)))
       {
-        foreach (ListViewItem item in this.TMCLList.Items)
+        foreach (ListViewItem item2 in this.TMCLList.Items)
         {
-          if (StringType.StrCmp(item.Text.ToLower(), this.txtMusicianInst.Text.TrimEnd(new char[] { ' ' }).ToLower(), false) == 0)
+          if (StringType.StrCmp(item2.Text.ToLower(), this.txtMusicianInst.Text.TrimEnd(new char[] { ' ' }).ToLower(), false) == 0)
           {
-            item.Text = this.txtMusicianInst.Text.TrimEnd(new char[] { ' ' });
-            item.SubItems[1].Text = this.txtMusicianName.Text.TrimEnd(new char[] { ' ' });
+            item2.Text = this.txtMusicianInst.Text.TrimEnd(new char[] { ' ' });
+            item2.SubItems[1].Text = this.txtMusicianName.Text.TrimEnd(new char[] { ' ' });
             return;
           }
         }
@@ -1117,26 +3139,29 @@
     private void btnAddPicture_Click(object sender, EventArgs e)
     {
       int index = 0;
-      ListViewItem item = new ListViewItem();
-      ListViewItem item2 = new ListViewItem();
       V2APICFrame frame = new V2APICFrame();
+      ListViewItem item = new ListViewItem();
+
       if (!((StringType.StrCmp(this.txtPicPath.Text, "", false) == 0) | this.txtPicPath.Text.ToLower().EndsWith("mp3")))
       {
         frame.FID = "APIC";
         foreach (ListViewItem item2 in this.PicList.Items)
         {
-          if ((((long)-((StringType.StrCmp(item2.Text.ToLower(), this.txtPDescriptor.Text.ToLower(), false) == 0) > false)) & ((long)Math.Round(Conversion.Val(DoubleType.FromString(item2.SubItems[1].Text.Substring(0, 2)) == Conversion.Val(this.cmbPicType.Text.Substring(0, 2)))))) > 0L)
+          //if ((((long)-((StringType.StrCmp(item2.Text.ToLower(), this.txtPDescriptor.Text.ToLower(), false) == 0) > false)) &
+          //     ((long)Math.Round(Conversion.Val(DoubleType.FromString(item2.SubItems[1].Text.Substring(0, 2)) == Conversion.Val(this.cmbPicType.Text.Substring(0, 2)))))) > 0L)
+          if (((ulong)-(StringType.StrCmp(item2.Text.ToLower(), this.txtPDescriptor.Text.ToLower(), false) == 0 ? 1 : 0) &
+               (ulong)checked((long)Math.Round(Conversion.Val((object)unchecked(DoubleType.FromString(item2.SubItems[1].Text.Substring(0, 2)) == Conversion.Val(this.cmbPicType.Text.Substring(0, 2))))))) > 0UL)
           {
             if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.BitAndObj(ObjectType.BitAndObj(ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Descriptor", new object[0], null, null), this.txtPDescriptor.Text, false) == 0, ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "PicType", new object[0], null, null), Conversion.Val(this.cmbPicType.Text.Substring(0, 2)), false) == 0), ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Path", new object[0], null, null), this.txtPicPath.Text, false) == 0), ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Include", new object[0], null, null), this.chkPicInclude.Checked, false) == 0)))
-            {
               return;
-            }
+
             this.alstRemovedAPICFrames.Add(RuntimeHelpers.GetObjectValue(item2.Tag));
             item2.Remove();
             break;
           }
           index++;
         }
+
         item.Text = this.txtPDescriptor.Text;
         frame.Descriptor = this.txtPDescriptor.Text;
         item.SubItems.Add(this.cmbPicType.Text);
@@ -1145,46 +3170,31 @@
         frame.Path = this.txtPicPath.Text;
         item.SubItems.Add(this.chkPicInclude.Checked.ToString());
         frame.Include = this.chkPicInclude.Checked;
+
         if (frame.Include)
         {
           string sLeft = frame.Path.Substring(frame.Path.LastIndexOf(".") + 1).ToLower();
           if (StringType.StrCmp(sLeft, "jpg", false) == 0)
-          {
             frame.MIMEType = "image/jpeg";
-          }
           else if (StringType.StrCmp(sLeft, "bmp", false) == 0)
-          {
             frame.MIMEType = "image/bmp";
-          }
           else if (StringType.StrCmp(sLeft, "gif", false) == 0)
-          {
             frame.MIMEType = "image/gif";
-          }
           else if (StringType.StrCmp(sLeft, "png", false) == 0)
-          {
             frame.MIMEType = "image/png";
-          }
           else if (StringType.StrCmp(sLeft, "ico", false) == 0)
-          {
             frame.MIMEType = "image/ico";
-          }
           else
-          {
             frame.MIMEType = "image/" + frame.Path.Substring(frame.Path.LastIndexOf(".") + 1).ToLower();
-          }
         }
         else
-        {
           frame.MIMEType = "-->";
-        }
+
         if (this.chkPicRelativPath.Checked)
-        {
           item.Font = new Font(item.Font, FontStyle.Bold);
-        }
         else
-        {
           item.Font = new Font(item.Font, FontStyle.Regular);
-        }
+
         item.Tag = frame;
         this.PicList.Items.Insert(index, item);
         this.txtPDescriptor.Text = "";
@@ -1202,11 +3212,7 @@
     private void btnAddRating_Click(object sender, EventArgs e)
     {
       ListViewItem item = new ListViewItem();
-      ListViewItem item2 = new ListViewItem();
-      V2POPMFrame frame = new V2POPMFrame
-      {
-        FID = "POPM"
-      };
+      V2POPMFrame frame = new V2POPMFrame { FID = "POPM" };
       if (decimal.Compare(this.txtRatingRating.Value, decimal.Zero) != 0)
       {
         foreach (ListViewItem item2 in this.RatingList.Items)
@@ -1239,7 +3245,6 @@
     private void btnAddTXXX_Click(object sender, EventArgs e)
     {
       ListViewItem item = new ListViewItem();
-      ListViewItem item2 = new ListViewItem();
       V2TXXXFrame frame = new V2TXXXFrame
       {
         FID = "TXXX"
@@ -1271,7 +3276,6 @@
     private void btnAddWXXX_Click(object sender, EventArgs e)
     {
       ListViewItem item = new ListViewItem();
-      ListViewItem item2 = new ListViewItem();
       V2WXXXFrame frame = new V2WXXXFrame
       {
         FID = "WXXX"
@@ -1333,7 +3337,7 @@
       if (StringType.StrCmp(this.PicList.FocusedItem.SubItems[2].Text, this.MP3.FI.FullName, false) == 0)
       {
         FileStream stream;
-        MemoryStream stream2;
+        MemoryStream stream2 = null;
         if (StringType.StrCmp(tag.TempPath, "", false) == 0)
         {
           stream = new FileStream(this.MP3.FI.FullName, FileMode.Open);
@@ -1533,7 +3537,7 @@
           {
             if (this.chkPicRelativPath.Checked)
             {
-              this.txtPicPath.Text = Main.GetRelativePath(Path.GetDirectoryName(this.MP3.FI.FullName), this.txtPicPath.Text);
+              this.txtPicPath.Text = Id3TagIT_Main.GetRelativePath(Path.GetDirectoryName(this.MP3.FI.FullName), this.txtPicPath.Text);
             }
             else
             {
@@ -1586,16 +3590,12 @@
       if (StringType.StrCmp(this.MP3.V1TAG.Comment, "", false) != 0)
       {
         ListViewItem item = new ListViewItem();
-        ListViewItem item2 = new ListViewItem();
         V2LDCFrame frame = new V2LDCFrame
         {
           FID = "COMM",
           Descriptor = "TAG Ver. 1 Comment",
           Content = this.MP3.V1TAG.Comment,
-          Language = StringType.FromObject(LateBinding.LateGet(this.cmbCLanguage.Items[Declarations.objSettings.V2Language], null, "Substring", new object[] {
-                        0,
-                        3
-                    }, null, null))
+          Language = StringType.FromObject(LateBinding.LateGet(this.cmbCLanguage.Items[Declarations.objSettings.V2Language], null, "Substring", new object[] { 0, 3 }, null, null))
         };
         foreach (ListViewItem item2 in this.CommentList.Items)
         {
@@ -1790,15 +3790,14 @@
         this.MP3 = (ID3_TagIT.MP3)this.MainForm.MP3View.FocusedItem.Tag;
         this.ClearForm();
         this.FillForm();
-        if (this.ActiveControl == this.btnNext)
-        {
-          this.FocusControl.Focus();
-        }
+        // FIXME
+        //if (this.ActiveControl == this.btnNext)
+        //  this.FocusControl.Focus();
       }
-      else if (this.ActiveControl == this.btnNext)
-      {
-        this.FocusControl.Focus();
-      }
+      // FIXME
+      //else if (this.ActiveControl == this.btnNext)
+      //  this.FocusControl.Focus();
+
       if (this.ActiveControl is System.Windows.Forms.TextBox)
       {
         System.Windows.Forms.TextBox activeControl = (System.Windows.Forms.TextBox)this.ActiveControl;
@@ -1836,7 +3835,7 @@
         ProjectData.ClearProjectError();
       }
       Form form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
       Declarations.objSettings.FT2Format = this.cmbFormat.Text;
       Declarations.objSettings.V2Language = this.cmbCLanguage.SelectedIndex;
       this.SaveToTAG();
@@ -1852,15 +3851,14 @@
         this.MP3 = (ID3_TagIT.MP3)this.MainForm.MP3View.FocusedItem.Tag;
         this.ClearForm();
         this.FillForm();
-        if (this.ActiveControl == this.btnPrev)
-        {
-          this.FocusControl.Focus();
-        }
+        // FIXME
+        //if (this.ActiveControl == this.btnPrev)
+        //  this.FocusControl.Focus();
       }
-      else if (this.ActiveControl == this.btnPrev)
-      {
-        this.FocusControl.Focus();
-      }
+      // FIXME
+      //else if (this.ActiveControl == this.btnPrev)
+      //  this.FocusControl.Focus();
+
       if (this.ActiveControl is System.Windows.Forms.TextBox)
       {
         System.Windows.Forms.TextBox activeControl = (System.Windows.Forms.TextBox)this.ActiveControl;
@@ -2054,7 +4052,6 @@
         if (StringType.StrCmp(this.MP3.V1TAG.Comment, "", false) != 0)
         {
           ListViewItem item = new ListViewItem();
-          ListViewItem item2 = new ListViewItem();
           V2LDCFrame frame = new V2LDCFrame
           {
             FID = "COMM",
@@ -2165,7 +4162,7 @@
         if (this.chkPicRelativPath.Checked)
         {
           this.chkPicInclude.Checked = false;
-          this.txtPicPath.Text = Main.GetRelativePath(Path.GetDirectoryName(this.MP3.FI.FullName), this.txtPicPath.Text);
+          this.txtPicPath.Text = Id3TagIT_Main.GetRelativePath(Path.GetDirectoryName(this.MP3.FI.FullName), this.txtPicPath.Text);
         }
         else
         {
@@ -2255,16 +4252,14 @@
     private void CommentList_Click(object sender, EventArgs e)
     {
       this.cmbCDescriptor.Text = this.CommentList.FocusedItem.Text;
-      using (IEnumerator enumerator = this.cmbCLanguage.Items.GetEnumerator())
+      var enumerator = this.cmbCLanguage.Items.GetEnumerator();
+      while (enumerator.MoveNext())
       {
-        while (enumerator.MoveNext())
+        string str = StringType.FromObject(enumerator.Current);
+        if (str.StartsWith(this.CommentList.FocusedItem.SubItems[2].Text))
         {
-          string str = StringType.FromObject(enumerator.Current);
-          if (str.StartsWith(this.CommentList.FocusedItem.SubItems[2].Text))
-          {
-            this.cmbCLanguage.SelectedItem = str;
-            goto Label_0089;
-          }
+          this.cmbCLanguage.SelectedItem = str;
+          goto Label_0089;
         }
       }
       Label_0089:
@@ -2444,16 +4439,18 @@
       {
         foreach (string str2 in Strings.Split(this.MP3.V2TAG.GetTextWebFrameContent("TCON"), "\0", -1, CompareMethod.Binary))
         {
-          if (StringType.StrCmp(str2, "", false) != 0)
+          var ss22 = str2;
+
+          if (StringType.StrCmp(ss22, "", false) != 0)
           {
-            if ((str2.Length > 2) && Information.IsNumeric(str2.Replace("(", "").Replace(")", "")))
+            if ((ss22.Length > 2) && Information.IsNumeric(ss22.Replace("(", "").Replace(")", "")))
             {
-              if ((Conversion.Val(str2.Replace("(", "").Replace(")", "")) >= 0.0) & (Conversion.Val(str2.Replace("(", "").Replace(")", "")) < 148.0))
-                str2 = Declarations.astrGenreLookup[(int)Math.Round(Conversion.Val(str2.Replace("(", "").Replace(")", "")))];
+              if ((Conversion.Val(ss22.Replace("(", "").Replace(")", "")) >= 0.0) & (Conversion.Val(ss22.Replace("(", "").Replace(")", "")) < 148.0))
+                ss22 = Declarations.astrGenreLookup[(int)Math.Round(Conversion.Val(ss22.Replace("(", "").Replace(")", "")))];
               else
-                str2 = "< undefined >";
+                ss22 = "< undefined >";
             }
-            this.GenreList.Items.Add(str2);
+            this.GenreList.Items.Add(ss22);
           }
         }
       }
@@ -2941,9 +4938,9 @@
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.panDetail.Enabled = false;
       this.panOriginal.Enabled = false;
       this.panWeb.Enabled = false;
@@ -3089,145 +5086,143 @@
         }
         int num3 = -1;
         int num4 = 1;
-        using (IEnumerator enumerator = list.GetEnumerator())
+        var enumerator = list.GetEnumerator();
+        while (enumerator.MoveNext())
         {
-          while (enumerator.MoveNext())
+          string str = StringType.FromObject(enumerator.Current);
+          num3++;
+          if ((num3 != list2.Count) && (ObjectType.ObjTst(list2[num3], "", false) != 0))
           {
-            string str = StringType.FromObject(enumerator.Current);
-            num3++;
-            if ((num3 != list2.Count) && (ObjectType.ObjTst(list2[num3], "", false) != 0))
+            string sLeft = str;
+            if ((StringType.StrCmp(sLeft, "<A>", false) == 0) || (StringType.StrCmp(sLeft, "<a>", false) == 0))
             {
-              string sLeft = str;
-              if ((StringType.StrCmp(sLeft, "<A>", false) == 0) || (StringType.StrCmp(sLeft, "<a>", false) == 0))
+              this.cmbArtist.Text = StringType.FromObject(list2[num3]);
+            }
+            else
+            {
+              if ((StringType.StrCmp(sLeft, "<T>", false) == 0) || (StringType.StrCmp(sLeft, "<t>", false) == 0))
               {
-                this.cmbArtist.Text = StringType.FromObject(list2[num3]);
+                this.txtTitle.Text = StringType.FromObject(list2[num3]);
+                continue;
               }
-              else
+              if ((StringType.StrCmp(sLeft, "<B>", false) == 0) || (StringType.StrCmp(sLeft, "<b>", false) == 0))
               {
-                if ((StringType.StrCmp(sLeft, "<T>", false) == 0) || (StringType.StrCmp(sLeft, "<t>", false) == 0))
+                this.txtAlbum.Text = StringType.FromObject(list2[num3]);
+                continue;
+              }
+              if (((StringType.StrCmp(sLeft, "<K>", false) == 0) || (StringType.StrCmp(sLeft, "<k>", false) == 0)) || ((StringType.StrCmp(sLeft, "<P>", false) == 0) || (StringType.StrCmp(sLeft, "<p>", false) == 0)))
+              {
+                if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
                 {
-                  this.txtTitle.Text = StringType.FromObject(list2[num3]);
-                  continue;
-                }
-                if ((StringType.StrCmp(sLeft, "<B>", false) == 0) || (StringType.StrCmp(sLeft, "<b>", false) == 0))
-                {
-                  this.txtAlbum.Text = StringType.FromObject(list2[num3]);
-                  continue;
-                }
-                if (((StringType.StrCmp(sLeft, "<K>", false) == 0) || (StringType.StrCmp(sLeft, "<k>", false) == 0)) || ((StringType.StrCmp(sLeft, "<P>", false) == 0) || (StringType.StrCmp(sLeft, "<p>", false) == 0)))
-                {
-                  if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
+                  string str3 = str;
+                  if (StringType.StrCmp(str3, "<k>", false) == 0)
                   {
-                    string str3 = str;
-                    if (StringType.StrCmp(str3, "<k>", false) == 0)
-                    {
-                      this.txtTrack2.Text = StringType.FromObject(list2[num3]);
-                    }
-                    else if (StringType.StrCmp(str3, "<K>", false) == 0)
-                    {
-                      this.txtTrack1.Text = StringType.FromObject(list2[num3]);
-                    }
-                    else if (StringType.StrCmp(str3, "<p>", false) == 0)
-                    {
-                      this.txtPOS2.Text = StringType.FromObject(list2[num3]);
-                    }
-                    else if (StringType.StrCmp(str3, "<P>", false) == 0)
-                    {
-                      this.txtPOS1.Text = StringType.FromObject(list2[num3]);
-                    }
+                    this.txtTrack2.Text = StringType.FromObject(list2[num3]);
                   }
-                  continue;
-                }
-                if ((StringType.StrCmp(sLeft, "<Y>", false) == 0) || (StringType.StrCmp(sLeft, "<y>", false) == 0))
-                {
-                  if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
+                  else if (StringType.StrCmp(str3, "<K>", false) == 0)
                   {
-                    this.txtYear.Text = list2[num3].ToString().Trim(new char[] { ' ' }).PadLeft(4, '0') + "-01-01";
+                    this.txtTrack1.Text = StringType.FromObject(list2[num3]);
                   }
-                  continue;
-                }
-                if ((StringType.StrCmp(sLeft, "<G>", false) == 0) || (StringType.StrCmp(sLeft, "<g>", false) == 0))
-                {
-                  this.GenreList.Items.Add(RuntimeHelpers.GetObjectValue(list2[num3]));
-                  continue;
-                }
-                if ((StringType.StrCmp(sLeft, "<C>", false) == 0) || (StringType.StrCmp(sLeft, "<c>", false) == 0))
-                {
-                  object o = new V2LDCFrame();
-                  LateBinding.LateSet(o, null, "FID", new object[] { "COMM" }, null);
-                  LateBinding.LateSet(o, null, "Descriptor", new object[] { "ID3-TagIT FT " + num4.ToString().Trim(new char[] { ' ' }) }, null);
-                  num4++;
-                  LateBinding.LateSet(o, null, "Language", new object[] { Declarations.astrLanLookup[Declarations.objSettings.V2Language].Substring(0, 3) }, null);
-                  LateBinding.LateSet(o, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(list2[num3]) }, null);
-                  ListViewItem item = new ListViewItem
+                  else if (StringType.StrCmp(str3, "<p>", false) == 0)
                   {
-                    Text = StringType.FromObject(LateBinding.LateGet(o, null, "Descriptor", new object[0], null, null))
-                  };
-                  object[] objArray3 = new object[1];
-                  object obj4 = o;
-                  objArray3[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj4, null, "Content", new object[0], null, null));
-                  object[] args = objArray3;
-                  bool[] copyBack = new bool[] { true };
-                  LateBinding.LateCall(item.SubItems, null, "Add", args, null, copyBack);
-                  if (copyBack[0])
-                  {
-                    LateBinding.LateSetComplex(obj4, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(args[0]) }, null, true, false);
+                    this.txtPOS2.Text = StringType.FromObject(list2[num3]);
                   }
-                  object[] objArray = new object[1];
-                  obj4 = o;
-                  objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj4, null, "Language", new object[0], null, null));
-                  args = objArray;
-                  copyBack = new bool[] { true };
-                  LateBinding.LateCall(item.SubItems, null, "Add", args, null, copyBack);
-                  if (copyBack[0])
+                  else if (StringType.StrCmp(str3, "<P>", false) == 0)
                   {
-                    LateBinding.LateSetComplex(obj4, null, "Language", new object[] { RuntimeHelpers.GetObjectValue(args[0]) }, null, true, false);
+                    this.txtPOS1.Text = StringType.FromObject(list2[num3]);
                   }
-                  item.Tag = RuntimeHelpers.GetObjectValue(o);
-                  this.CommentList.Items.Add(item);
-                  continue;
                 }
-                if ((StringType.StrCmp(sLeft, "<O>", false) == 0) || (StringType.StrCmp(sLeft, "<o>", false) == 0))
+                continue;
+              }
+              if ((StringType.StrCmp(sLeft, "<Y>", false) == 0) || (StringType.StrCmp(sLeft, "<y>", false) == 0))
+              {
+                if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
                 {
-                  this.txtBand.Text = StringType.FromObject(list2[num3]);
-                  continue;
+                  this.txtYear.Text = list2[num3].ToString().Trim(new char[] { ' ' }).PadLeft(4, '0') + "-01-01";
                 }
-                if ((StringType.StrCmp(sLeft, "<N>", false) == 0) || (StringType.StrCmp(sLeft, "<n>", false) == 0))
+                continue;
+              }
+              if ((StringType.StrCmp(sLeft, "<G>", false) == 0) || (StringType.StrCmp(sLeft, "<g>", false) == 0))
+              {
+                this.GenreList.Items.Add(RuntimeHelpers.GetObjectValue(list2[num3]));
+                continue;
+              }
+              if ((StringType.StrCmp(sLeft, "<C>", false) == 0) || (StringType.StrCmp(sLeft, "<c>", false) == 0))
+              {
+                object o = new V2LDCFrame();
+                LateBinding.LateSet(o, null, "FID", new object[] { "COMM" }, null);
+                LateBinding.LateSet(o, null, "Descriptor", new object[] { "ID3-TagIT FT " + num4.ToString().Trim(new char[] { ' ' }) }, null);
+                num4++;
+                LateBinding.LateSet(o, null, "Language", new object[] { Declarations.astrLanLookup[Declarations.objSettings.V2Language].Substring(0, 3) }, null);
+                LateBinding.LateSet(o, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(list2[num3]) }, null);
+                ListViewItem item = new ListViewItem
                 {
-                  this.txtConductor.Text = StringType.FromObject(list2[num3]);
-                  continue;
-                }
-                if ((StringType.StrCmp(sLeft, "<M>", false) == 0) || (StringType.StrCmp(sLeft, "<m>", false) == 0))
+                  Text = StringType.FromObject(LateBinding.LateGet(o, null, "Descriptor", new object[0], null, null))
+                };
+                object[] objArray3 = new object[1];
+                object obj4 = o;
+                objArray3[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj4, null, "Content", new object[0], null, null));
+                object[] args = objArray3;
+                bool[] copyBack = new bool[] { true };
+                LateBinding.LateCall(item.SubItems, null, "Add", args, null, copyBack);
+                if (copyBack[0])
                 {
-                  this.txtModified.Text = StringType.FromObject(list2[num3]);
-                  continue;
+                  LateBinding.LateSetComplex(obj4, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(args[0]) }, null, true, false);
                 }
-                if ((StringType.StrCmp(sLeft, "<U>", false) == 0) || (StringType.StrCmp(sLeft, "<u>", false) == 0))
+                object[] objArray = new object[1];
+                obj4 = o;
+                objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj4, null, "Language", new object[0], null, null));
+                args = objArray;
+                copyBack = new bool[] { true };
+                LateBinding.LateCall(item.SubItems, null, "Add", args, null, copyBack);
+                if (copyBack[0])
                 {
-                  this.txtContent.Text = StringType.FromObject(list2[num3]);
-                  continue;
+                  LateBinding.LateSetComplex(obj4, null, "Language", new object[] { RuntimeHelpers.GetObjectValue(args[0]) }, null, true, false);
                 }
-                if ((StringType.StrCmp(sLeft, "<S>", false) == 0) || (StringType.StrCmp(sLeft, "<s>", false) == 0))
+                item.Tag = RuntimeHelpers.GetObjectValue(o);
+                this.CommentList.Items.Add(item);
+                continue;
+              }
+              if ((StringType.StrCmp(sLeft, "<O>", false) == 0) || (StringType.StrCmp(sLeft, "<o>", false) == 0))
+              {
+                this.txtBand.Text = StringType.FromObject(list2[num3]);
+                continue;
+              }
+              if ((StringType.StrCmp(sLeft, "<N>", false) == 0) || (StringType.StrCmp(sLeft, "<n>", false) == 0))
+              {
+                this.txtConductor.Text = StringType.FromObject(list2[num3]);
+                continue;
+              }
+              if ((StringType.StrCmp(sLeft, "<M>", false) == 0) || (StringType.StrCmp(sLeft, "<m>", false) == 0))
+              {
+                this.txtModified.Text = StringType.FromObject(list2[num3]);
+                continue;
+              }
+              if ((StringType.StrCmp(sLeft, "<U>", false) == 0) || (StringType.StrCmp(sLeft, "<u>", false) == 0))
+              {
+                this.txtContent.Text = StringType.FromObject(list2[num3]);
+                continue;
+              }
+              if ((StringType.StrCmp(sLeft, "<S>", false) == 0) || (StringType.StrCmp(sLeft, "<s>", false) == 0))
+              {
+                this.txtSubTitle.Text = StringType.FromObject(list2[num3]);
+                continue;
+              }
+              if ((StringType.StrCmp(sLeft, "<R>", false) == 0) || (StringType.StrCmp(sLeft, "<r>", false) == 0))
+              {
+                this.txtComposer.Text = StringType.FromObject(list2[num3]);
+                continue;
+              }
+              if ((StringType.StrCmp(sLeft, "<E>", false) == 0) || (StringType.StrCmp(sLeft, "<e>", false) == 0))
+              {
+                if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
                 {
-                  this.txtSubTitle.Text = StringType.FromObject(list2[num3]);
-                  continue;
+                  this.txtBPM.Text = StringType.FromObject(list2[num3]);
                 }
-                if ((StringType.StrCmp(sLeft, "<R>", false) == 0) || (StringType.StrCmp(sLeft, "<r>", false) == 0))
-                {
-                  this.txtComposer.Text = StringType.FromObject(list2[num3]);
-                  continue;
-                }
-                if ((StringType.StrCmp(sLeft, "<E>", false) == 0) || (StringType.StrCmp(sLeft, "<e>", false) == 0))
-                {
-                  if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
-                  {
-                    this.txtBPM.Text = StringType.FromObject(list2[num3]);
-                  }
-                  continue;
-                }
-                if ((StringType.StrCmp(sLeft, "<X>", false) != 0) && (StringType.StrCmp(sLeft, "<x>", false) == 0))
-                {
-                }
+                continue;
+              }
+              if ((StringType.StrCmp(sLeft, "<X>", false) != 0) && (StringType.StrCmp(sLeft, "<x>", false) == 0))
+              {
               }
             }
           }
@@ -3235,2537 +5230,17 @@
       }
     }
 
-    [DebuggerStepThrough]
-    private void InitializeComponent()
-    {
-      this.components = new Container();
-      ResourceManager manager = new ResourceManager(typeof(frmTAG2));
-      this.lblSelected = new Label();
-      this.txtSelected = new System.Windows.Forms.TextBox();
-      this.Panel3 = new Panel();
-      this.lblCommDescInfo = new Label();
-      this.cmbCDescriptor = new ComboBoxAutoComplete();
-      this.btnV1Comment = new Button();
-      this.btnMoveComment = new Button();
-      this.btnRemoveComment = new Button();
-      this.btnAddComment = new Button();
-      this.lblCOMM = new Label();
-      this.lblCOMMLan = new Label();
-      this.lblCOMMDesc = new Label();
-      this.cmbCLanguage = new ComboBox();
-      this.txtComment = new System.Windows.Forms.TextBox();
-      this.CommentList = new ListView();
-      this.colDescriptor = new ColumnHeader();
-      this.colComment = new ColumnHeader();
-      this.colLanguage = new ColumnHeader();
-      this.Panel2 = new Panel();
-      this.cmbGenre = new ComboBoxAutoComplete();
-      this.btnV1Genre = new Button();
-      this.lblGenreInfo = new Label();
-      this.btnMoveGenre = new Button();
-      this.btnRemoveGenre = new Button();
-      this.btnAddGenre = new Button();
-      this.lblGenre = new Label();
-      this.GenreList = new ListBox();
-      this.Panel1 = new Panel();
-      this.txtPOS2 = new IntegerTextBox();
-      this.txtPOS1 = new IntegerTextBox();
-      this.txtTrack2 = new IntegerTextBox();
-      this.txtTrack1 = new IntegerTextBox();
-      this.txtYear = new AMS.TextBox.MaskedTextBox();
-      this.txtBPM = new NumericTextBox();
-      this.cmbArtist = new ComboBoxAutoComplete();
-      this.lblBPM = new Label();
-      this.YearFormat = new HScrollBar();
-      this.btnV1Title = new Button();
-      this.btnV1Album = new Button();
-      this.btnV1Track = new Button();
-      this.btnV1Year = new Button();
-      this.btnV1Artist = new Button();
-      this.lblOf2 = new Label();
-      this.lblOf1 = new Label();
-      this.txtAlbum = new System.Windows.Forms.TextBox();
-      this.txtTitle = new System.Windows.Forms.TextBox();
-      this.lblTitle = new Label();
-      this.lblAlbum = new Label();
-      this.lblPosMedia = new Label();
-      this.lblYear = new Label();
-      this.lblTrack = new Label();
-      this.lblArtist = new Label();
-      this.btnTLEN = new Button();
-      this.txtTLEN = new IntegerTextBox();
-      this.lblTLEN = new Label();
-      this.cmbMedia = new ComboBox();
-      this.lblMediaTyp = new Label();
-      this.Panel9 = new Panel();
-      this.txtSortArtist = new System.Windows.Forms.TextBox();
-      this.txtSortTitle = new System.Windows.Forms.TextBox();
-      this.txtSortAlbum = new System.Windows.Forms.TextBox();
-      this.lblAlbumSort = new Label();
-      this.lblTitleSort = new Label();
-      this.lblArtistSort = new Label();
-      this.Panel6 = new Panel();
-      this.txtTORY = new AMS.TextBox.MaskedTextBox();
-      this.lblOYearInfo = new Label();
-      this.TORYFormat = new HScrollBar();
-      this.lblOYear = new Label();
-      this.txtOOwner = new System.Windows.Forms.TextBox();
-      this.lblOOwner = new Label();
-      this.txtOArtist = new System.Windows.Forms.TextBox();
-      this.lblOArtist = new Label();
-      this.txtOAlbum = new System.Windows.Forms.TextBox();
-      this.txtOLyWriter = new System.Windows.Forms.TextBox();
-      this.txtOFilename = new System.Windows.Forms.TextBox();
-      this.lblOFilename = new Label();
-      this.lblOLyWriter = new Label();
-      this.lblOAlbum = new Label();
-      this.Panel5 = new Panel();
-      this.txtContent = new System.Windows.Forms.TextBox();
-      this.txtSubTitle = new System.Windows.Forms.TextBox();
-      this.lblSubTitle = new Label();
-      this.lblContent = new Label();
-      this.Panel4 = new Panel();
-      this.txtComposer = new System.Windows.Forms.TextBox();
-      this.lblComposer = new Label();
-      this.txtBand = new System.Windows.Forms.TextBox();
-      this.txtModified = new System.Windows.Forms.TextBox();
-      this.txtConductor = new System.Windows.Forms.TextBox();
-      this.lblConductor = new Label();
-      this.lblModified = new Label();
-      this.lblBand = new Label();
-      this.txtCopyright = new System.Windows.Forms.TextBox();
-      this.lblCopyright = new Label();
-      this.txtLyWriter = new System.Windows.Forms.TextBox();
-      this.txtEncoded = new System.Windows.Forms.TextBox();
-      this.txtPublisher = new System.Windows.Forms.TextBox();
-      this.lblPublisher = new Label();
-      this.lblEncoded = new Label();
-      this.lblLyWriter = new Label();
-      this.Panel15 = new Panel();
-      this.lblMusicianInfo = new Label();
-      this.txtMusicianName = new System.Windows.Forms.TextBox();
-      this.btnRemoveMusician = new Button();
-      this.btnAddMusician = new Button();
-      this.lblMusicianName = new Label();
-      this.lblMusicianInst = new Label();
-      this.txtMusicianInst = new System.Windows.Forms.TextBox();
-      this.TMCLList = new ListView();
-      this.ColumnHeader15 = new ColumnHeader();
-      this.ColumnHeader16 = new ColumnHeader();
-      this.Panel16 = new Panel();
-      this.txtInvPerson = new System.Windows.Forms.TextBox();
-      this.btnRemoveInv = new Button();
-      this.btnAddInv = new Button();
-      this.lblInvPerson = new Label();
-      this.lblInvFunction = new Label();
-      this.txtInvFunction = new System.Windows.Forms.TextBox();
-      this.TIPLList = new ListView();
-      this.ColumnHeader17 = new ColumnHeader();
-      this.ColumnHeader18 = new ColumnHeader();
-      this.Panel14 = new Panel();
-      this.Panel7 = new Panel();
-      this.chkPicRelativPath = new CheckBox();
-      this.btnExPic = new Button();
-      this.btnRemovePicture = new Button();
-      this.btnAddPicture = new Button();
-      this.btnGetPic = new Button();
-      this.chkPicInclude = new CheckBox();
-      this.lblPicPath = new Label();
-      this.txtPicPath = new System.Windows.Forms.TextBox();
-      this.PicList = new ListView();
-      this.ColumnHeader4 = new ColumnHeader();
-      this.ColumnHeader5 = new ColumnHeader();
-      this.ColumnHeader6 = new ColumnHeader();
-      this.ColumnHeader7 = new ColumnHeader();
-      this.lblPicType = new Label();
-      this.lblPicDesc = new Label();
-      this.cmbPicType = new ComboBox();
-      this.txtPDescriptor = new System.Windows.Forms.TextBox();
-      this.APICView = new PictureBox();
-      this.Panel8 = new Panel();
-      this.txtLyrics = new RichTextBox();
-      this.btnLyricsFile = new Button();
-      this.btnMoveLyrics = new Button();
-      this.btnRemoveLyrics = new Button();
-      this.btnAddLyrics = new Button();
-      this.lblLyrics = new Label();
-      this.lblLyLan = new Label();
-      this.lblLyDesc = new Label();
-      this.cmbLLanguage = new ComboBox();
-      this.txtLDescriptor = new System.Windows.Forms.TextBox();
-      this.LyricsList = new ListView();
-      this.ColumnHeader1 = new ColumnHeader();
-      this.ColumnHeader2 = new ColumnHeader();
-      this.ColumnHeader3 = new ColumnHeader();
-      this.Panel11 = new Panel();
-      this.lblInfo = new Label();
-      this.btnMoveRating = new Button();
-      this.btnRemoveRating = new Button();
-      this.btnAddRating = new Button();
-      this.RatingList = new ListView();
-      this.ColumnHeader8 = new ColumnHeader();
-      this.ColumnHeader9 = new ColumnHeader();
-      this.ColumnHeader10 = new ColumnHeader();
-      this.txtRatingCounter = new NumericUpDown();
-      this.txtRatingRating = new NumericUpDown();
-      this.txtRatingUser = new System.Windows.Forms.TextBox();
-      this.lblRatingRating = new Label();
-      this.lblRatingCounter = new Label();
-      this.lblRatingUser = new Label();
-      this.Panel10 = new Panel();
-      this.txtCOMMInfURL = new System.Windows.Forms.TextBox();
-      this.lblCOMMInfURL = new Label();
-      this.txtPubURL = new System.Windows.Forms.TextBox();
-      this.lblPubURL = new Label();
-      this.txtPayURL = new System.Windows.Forms.TextBox();
-      this.lblPayURL = new Label();
-      this.txtINetRadioURL = new System.Windows.Forms.TextBox();
-      this.lblINetRadioURL = new Label();
-      this.txtAudioSRCURL = new System.Windows.Forms.TextBox();
-      this.lblAudioSRCURL = new Label();
-      this.txtCopyInfURL = new System.Windows.Forms.TextBox();
-      this.txtArtistURL = new System.Windows.Forms.TextBox();
-      this.txtAudioFileURL = new System.Windows.Forms.TextBox();
-      this.lblAudioFileURL = new Label();
-      this.lblArtistURL = new Label();
-      this.lblCopyInfURL = new Label();
-      this.Panel13 = new Panel();
-      this.txtWXXXContent = new System.Windows.Forms.TextBox();
-      this.btnRemoveWXXX = new Button();
-      this.btnAddWXXX = new Button();
-      this.lblWXXXContent = new Label();
-      this.lblWXXXDesc = new Label();
-      this.txtWXXXDesc = new System.Windows.Forms.TextBox();
-      this.WXXXList = new ListView();
-      this.ColumnHeader13 = new ColumnHeader();
-      this.ColumnHeader14 = new ColumnHeader();
-      this.Panel12 = new Panel();
-      this.txtTXXXContent = new System.Windows.Forms.TextBox();
-      this.btnRemoveTXXX = new Button();
-      this.btnAddTXXX = new Button();
-      this.lblTXXXContent = new Label();
-      this.lblTXXXDesc = new Label();
-      this.txtTXXXDesc = new System.Windows.Forms.TextBox();
-      this.TXXXList = new ListView();
-      this.ColumnHeader11 = new ColumnHeader();
-      this.ColumnHeader12 = new ColumnHeader();
-      this.lblNot = new Label();
-      this.NotSupportList = new ListView();
-      this.FrameID = new ColumnHeader();
-      this.Content = new ColumnHeader();
-      this.txtDigits = new NumericUpDown();
-      this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
-      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
-      this.SelectionBar = new ExplorerBar();
-      this.TAGV2grpTAG = new ExplorerBarGroupItem();
-      this.TAGV2ButtonItem1 = new ButtonItem();
-      this.TAGV2ButtonItem2 = new ButtonItem();
-      this.TAGV2ButtonItem3 = new ButtonItem();
-      this.TAGV2ButtonItem4 = new ButtonItem();
-      this.TAGV2ButtonItem5 = new ButtonItem();
-      this.TAGV2ButtonItem6 = new ButtonItem();
-      this.TAGV2ButtonItem7 = new ButtonItem();
-      this.TAGV2ButtonItem8 = new ButtonItem();
-      this.TAGV2ButtonItem9 = new ButtonItem();
-      this.TAGV2ButtonItem10 = new ButtonItem();
-      this.TAGV2grpTransfer = new ExplorerBarGroupItem();
-      this.btnImport = new ButtonItem();
-      this.btnExport = new ButtonItem();
-      this.btnGet = new ButtonItem();
-      this.TAGV2grpCommands = new ExplorerBarGroupItem();
-      this.btnPrev = new ButtonItem();
-      this.btnNext = new ButtonItem();
-      this.btnSwapAT = new ButtonItem();
-      this.btnSwapAA = new ButtonItem();
-      this.btnSwapTA = new ButtonItem();
-      this.btnCancel = new Button();
-      this.btnOK = new Button();
-      this.lblDigits = new Label();
-      this.TopPanel = new PanelEx();
-      this.panDetail = new Panel();
-      this.panMain = new Panel();
-      this.panOriginal = new Panel();
-      this.panInvolved = new Panel();
-      this.panPic = new Panel();
-      this.panLyrics = new Panel();
-      this.panWeb = new Panel();
-      this.panRating = new Panel();
-      this.panUser = new Panel();
-      this.panNot = new Panel();
-      this.ButtomPanel = new PanelEx();
-      this.Panel3.SuspendLayout();
-      this.Panel2.SuspendLayout();
-      this.Panel1.SuspendLayout();
-      this.Panel9.SuspendLayout();
-      this.Panel6.SuspendLayout();
-      this.Panel5.SuspendLayout();
-      this.Panel4.SuspendLayout();
-      this.Panel15.SuspendLayout();
-      this.Panel16.SuspendLayout();
-      this.Panel14.SuspendLayout();
-      this.Panel7.SuspendLayout();
-      this.Panel8.SuspendLayout();
-      this.Panel11.SuspendLayout();
-      this.txtRatingCounter.BeginInit();
-      this.txtRatingRating.BeginInit();
-      this.Panel10.SuspendLayout();
-      this.Panel13.SuspendLayout();
-      this.Panel12.SuspendLayout();
-      this.txtDigits.BeginInit();
-      ((ISupportInitialize)this.SelectionBar).BeginInit();
-      this.TopPanel.SuspendLayout();
-      this.panDetail.SuspendLayout();
-      this.panMain.SuspendLayout();
-      this.panOriginal.SuspendLayout();
-      this.panInvolved.SuspendLayout();
-      this.panPic.SuspendLayout();
-      this.panLyrics.SuspendLayout();
-      this.panWeb.SuspendLayout();
-      this.panRating.SuspendLayout();
-      this.panUser.SuspendLayout();
-      this.panNot.SuspendLayout();
-      this.ButtomPanel.SuspendLayout();
-      this.SuspendLayout();
-      this.lblSelected.BackColor = Color.White;
-      this.lblSelected.ForeColor = Color.Black;
-      this.lblSelected.ImeMode = ImeMode.NoControl;
-      Point point = new Point(8, 0x18);
-      this.lblSelected.Location = point;
-      this.lblSelected.Name = "lblSelected";
-      Size size = new Size(0x68, 0x10);
-      this.lblSelected.Size = size;
-      this.lblSelected.TabIndex = 0x6b;
-      this.lblSelected.Text = "Selected file:";
-      this.txtSelected.BackColor = Color.White;
-      this.txtSelected.BorderStyle = BorderStyle.None;
-      this.txtSelected.ForeColor = Color.Black;
-      point = new Point(0x70, 0x18);
-      this.txtSelected.Location = point;
-      this.txtSelected.Name = "txtSelected";
-      this.txtSelected.ReadOnly = true;
-      size = new Size(0x220, 13);
-      this.txtSelected.Size = size;
-      this.txtSelected.TabIndex = 0x6c;
-      this.txtSelected.TabStop = false;
-      this.txtSelected.Text = "";
-      this.Panel3.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel3.Controls.Add(this.lblCommDescInfo);
-      this.Panel3.Controls.Add(this.cmbCDescriptor);
-      this.Panel3.Controls.Add(this.btnV1Comment);
-      this.Panel3.Controls.Add(this.btnMoveComment);
-      this.Panel3.Controls.Add(this.btnRemoveComment);
-      this.Panel3.Controls.Add(this.btnAddComment);
-      this.Panel3.Controls.Add(this.lblCOMM);
-      this.Panel3.Controls.Add(this.lblCOMMLan);
-      this.Panel3.Controls.Add(this.lblCOMMDesc);
-      this.Panel3.Controls.Add(this.cmbCLanguage);
-      this.Panel3.Controls.Add(this.txtComment);
-      this.Panel3.Controls.Add(this.CommentList);
-      point = new Point(8, 0x108);
-      this.Panel3.Location = point;
-      this.Panel3.Name = "Panel3";
-      size = new Size(0x288, 0xb8);
-      this.Panel3.Size = size;
-      this.Panel3.TabIndex = 2;
-      this.lblCommDescInfo.BorderStyle = BorderStyle.Fixed3D;
-      this.lblCommDescInfo.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x70);
-      this.lblCommDescInfo.Location = point;
-      this.lblCommDescInfo.Name = "lblCommDescInfo";
-      size = new Size(120, 0x40);
-      this.lblCommDescInfo.Size = size;
-      this.lblCommDescInfo.TabIndex = 0x2f;
-      this.lblCommDescInfo.Text = "Predefined comment descriptors can be set under Edit Libraries (Options menu)";
-      this.lblCommDescInfo.TextAlign = ContentAlignment.MiddleCenter;
-      this.cmbCDescriptor.Autocomplete = true;
-      this.cmbCDescriptor.ItemHeight = 13;
-      point = new Point(0x88, 6);
-      this.cmbCDescriptor.Location = point;
-      this.cmbCDescriptor.Name = "cmbCDescriptor";
-      size = new Size(0x108, 0x15);
-      this.cmbCDescriptor.Size = size;
-      this.cmbCDescriptor.TabIndex = 0x24;
-      this.btnV1Comment.ImeMode = ImeMode.NoControl;
-      point = new Point(0x198, 80);
-      this.btnV1Comment.Location = point;
-      this.btnV1Comment.Name = "btnV1Comment";
-      size = new Size(0xe8, 20);
-      this.btnV1Comment.Size = size;
-      this.btnV1Comment.TabIndex = 0x2c;
-      this.btnV1Comment.Text = "<- Ver. 1";
-      this.btnMoveComment.ImeMode = ImeMode.NoControl;
-      point = new Point(0x198, 0x38);
-      this.btnMoveComment.Location = point;
-      this.btnMoveComment.Name = "btnMoveComment";
-      size = new Size(0xe8, 20);
-      this.btnMoveComment.Size = size;
-      this.btnMoveComment.TabIndex = 0x2b;
-      this.btnMoveComment.Text = "Move Comment to top";
-      this.btnRemoveComment.ImeMode = ImeMode.NoControl;
-      point = new Point(0x198, 0x20);
-      this.btnRemoveComment.Location = point;
-      this.btnRemoveComment.Name = "btnRemoveComment";
-      size = new Size(0xe8, 20);
-      this.btnRemoveComment.Size = size;
-      this.btnRemoveComment.TabIndex = 0x2a;
-      this.btnRemoveComment.Text = "Remove Comment";
-      this.btnAddComment.ImeMode = ImeMode.NoControl;
-      point = new Point(0x198, 8);
-      this.btnAddComment.Location = point;
-      this.btnAddComment.Name = "btnAddComment";
-      size = new Size(0xe8, 20);
-      this.btnAddComment.Size = size;
-      this.btnAddComment.TabIndex = 0x29;
-      this.btnAddComment.Text = "Add Comment";
-      this.lblCOMM.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x38);
-      this.lblCOMM.Location = point;
-      this.lblCOMM.Name = "lblCOMM";
-      size = new Size(0x80, 0x10);
-      this.lblCOMM.Size = size;
-      this.lblCOMM.TabIndex = 0x27;
-      this.lblCOMM.Text = "&Comment:";
-      this.lblCOMMLan.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.lblCOMMLan.Location = point;
-      this.lblCOMMLan.Name = "lblCOMMLan";
-      size = new Size(0x80, 0x10);
-      this.lblCOMMLan.Size = size;
-      this.lblCOMMLan.TabIndex = 0x25;
-      this.lblCOMMLan.Text = "Comment &Language:";
-      this.lblCOMMDesc.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblCOMMDesc.Location = point;
-      this.lblCOMMDesc.Name = "lblCOMMDesc";
-      size = new Size(0x80, 0x10);
-      this.lblCOMMDesc.Size = size;
-      this.lblCOMMDesc.TabIndex = 0x23;
-      this.lblCOMMDesc.Text = "Comment &Descriptor:";
-      this.cmbCLanguage.DropDownStyle = ComboBoxStyle.DropDownList;
-      this.cmbCLanguage.ItemHeight = 13;
-      point = new Point(0x88, 30);
-      this.cmbCLanguage.Location = point;
-      this.cmbCLanguage.Name = "cmbCLanguage";
-      size = new Size(0x108, 0x15);
-      this.cmbCLanguage.Size = size;
-      this.cmbCLanguage.TabIndex = 0x26;
-      this.txtComment.AcceptsReturn = true;
-      point = new Point(0x88, 0x38);
-      this.txtComment.Location = point;
-      this.txtComment.Multiline = true;
-      this.txtComment.Name = "txtComment";
-      size = new Size(0x108, 0x30);
-      this.txtComment.Size = size;
-      this.txtComment.TabIndex = 40;
-      this.txtComment.Text = "";
-      this.CommentList.Columns.AddRange(new ColumnHeader[] { this.colDescriptor, this.colComment, this.colLanguage });
-      this.CommentList.FullRowSelect = true;
-      this.CommentList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      point = new Point(0x88, 0x70);
-      this.CommentList.Location = point;
-      this.CommentList.MultiSelect = false;
-      this.CommentList.Name = "CommentList";
-      size = new Size(0x1f8, 0x40);
-      this.CommentList.Size = size;
-      this.CommentList.TabIndex = 0x2d;
-      this.CommentList.View = View.Details;
-      this.colDescriptor.Text = "Descriptor";
-      this.colDescriptor.Width = 0x7c;
-      this.colComment.Text = "Comment";
-      this.colComment.Width = 0x106;
-      this.colLanguage.Text = "Language";
-      this.colLanguage.Width = 0x5b;
-      this.Panel2.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel2.Controls.Add(this.cmbGenre);
-      this.Panel2.Controls.Add(this.btnV1Genre);
-      this.Panel2.Controls.Add(this.lblGenreInfo);
-      this.Panel2.Controls.Add(this.btnMoveGenre);
-      this.Panel2.Controls.Add(this.btnRemoveGenre);
-      this.Panel2.Controls.Add(this.btnAddGenre);
-      this.Panel2.Controls.Add(this.lblGenre);
-      this.Panel2.Controls.Add(this.GenreList);
-      point = new Point(8, 0x90);
-      this.Panel2.Location = point;
-      this.Panel2.Name = "Panel2";
-      size = new Size(0x288, 0x70);
-      this.Panel2.Size = size;
-      this.Panel2.TabIndex = 1;
-      this.cmbGenre.Autocomplete = true;
-      this.cmbGenre.ItemHeight = 13;
-      point = new Point(0x88, 6);
-      this.cmbGenre.Location = point;
-      this.cmbGenre.Name = "cmbGenre";
-      size = new Size(0xe8, 0x15);
-      this.cmbGenre.Size = size;
-      this.cmbGenre.TabIndex = 0x1d;
-      this.btnV1Genre.ImeMode = ImeMode.NoControl;
-      point = new Point(0x200, 0x20);
-      this.btnV1Genre.Location = point;
-      this.btnV1Genre.Name = "btnV1Genre";
-      size = new Size(0x80, 20);
-      this.btnV1Genre.Size = size;
-      this.btnV1Genre.TabIndex = 0x21;
-      this.btnV1Genre.Text = "<- Ver. 1";
-      this.lblGenreInfo.BorderStyle = BorderStyle.Fixed3D;
-      this.lblGenreInfo.ImeMode = ImeMode.NoControl;
-      point = new Point(0x178, 0x40);
-      this.lblGenreInfo.Location = point;
-      this.lblGenreInfo.Name = "lblGenreInfo";
-      size = new Size(0x108, 40);
-      this.lblGenreInfo.Size = size;
-      this.lblGenreInfo.TabIndex = 0x1d;
-      this.lblGenreInfo.Text = "Note: Many programs only show the first genre entered. So move the important genre to the top of the list.";
-      this.btnMoveGenre.ImeMode = ImeMode.NoControl;
-      point = new Point(0x178, 0x20);
-      this.btnMoveGenre.Location = point;
-      this.btnMoveGenre.Name = "btnMoveGenre";
-      size = new Size(0x80, 20);
-      this.btnMoveGenre.Size = size;
-      this.btnMoveGenre.TabIndex = 0x20;
-      this.btnMoveGenre.Text = "Move Genre to top";
-      this.btnRemoveGenre.ImeMode = ImeMode.NoControl;
-      point = new Point(0x200, 8);
-      this.btnRemoveGenre.Location = point;
-      this.btnRemoveGenre.Name = "btnRemoveGenre";
-      size = new Size(0x80, 20);
-      this.btnRemoveGenre.Size = size;
-      this.btnRemoveGenre.TabIndex = 0x1f;
-      this.btnRemoveGenre.Text = "Remove Genre";
-      this.btnAddGenre.ImeMode = ImeMode.NoControl;
-      point = new Point(0x178, 8);
-      this.btnAddGenre.Location = point;
-      this.btnAddGenre.Name = "btnAddGenre";
-      size = new Size(0x80, 20);
-      this.btnAddGenre.Size = size;
-      this.btnAddGenre.TabIndex = 30;
-      this.btnAddGenre.Text = "Add Genre";
-      this.lblGenre.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblGenre.Location = point;
-      this.lblGenre.Name = "lblGenre";
-      size = new Size(0x80, 0x10);
-      this.lblGenre.Size = size;
-      this.lblGenre.TabIndex = 0x1c;
-      this.lblGenre.Text = "&Genre:";
-      point = new Point(0x88, 0x20);
-      this.GenreList.Location = point;
-      this.GenreList.Name = "GenreList";
-      size = new Size(0xe8, 0x45);
-      this.GenreList.Size = size;
-      this.GenreList.TabIndex = 0x22;
-      this.Panel1.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel1.Controls.Add(this.txtPOS2);
-      this.Panel1.Controls.Add(this.txtPOS1);
-      this.Panel1.Controls.Add(this.txtTrack2);
-      this.Panel1.Controls.Add(this.txtTrack1);
-      this.Panel1.Controls.Add(this.txtYear);
-      this.Panel1.Controls.Add(this.txtBPM);
-      this.Panel1.Controls.Add(this.cmbArtist);
-      this.Panel1.Controls.Add(this.lblBPM);
-      this.Panel1.Controls.Add(this.YearFormat);
-      this.Panel1.Controls.Add(this.btnV1Title);
-      this.Panel1.Controls.Add(this.btnV1Album);
-      this.Panel1.Controls.Add(this.btnV1Track);
-      this.Panel1.Controls.Add(this.btnV1Year);
-      this.Panel1.Controls.Add(this.btnV1Artist);
-      this.Panel1.Controls.Add(this.lblOf2);
-      this.Panel1.Controls.Add(this.lblOf1);
-      this.Panel1.Controls.Add(this.txtAlbum);
-      this.Panel1.Controls.Add(this.txtTitle);
-      this.Panel1.Controls.Add(this.lblTitle);
-      this.Panel1.Controls.Add(this.lblAlbum);
-      this.Panel1.Controls.Add(this.lblPosMedia);
-      this.Panel1.Controls.Add(this.lblYear);
-      this.Panel1.Controls.Add(this.lblTrack);
-      this.Panel1.Controls.Add(this.lblArtist);
-      point = new Point(8, 8);
-      this.Panel1.Location = point;
-      this.Panel1.Name = "Panel1";
-      size = new Size(0x288, 0x80);
-      this.Panel1.Size = size;
-      this.Panel1.TabIndex = 0;
-      this.txtPOS2.AllowNegative = false;
-      this.txtPOS2.DigitsInGroup = 0;
-      this.txtPOS2.Flags = 0x10000;
-      point = new Point(0x240, 0x66);
-      this.txtPOS2.Location = point;
-      this.txtPOS2.MaxDecimalPlaces = 0;
-      this.txtPOS2.MaxLength = 6;
-      this.txtPOS2.MaxWholeDigits = 6;
-      this.txtPOS2.Name = "txtPOS2";
-      this.txtPOS2.Prefix = "";
-      this.txtPOS2.RangeMax = 999999.0;
-      this.txtPOS2.RangeMin = 0.0;
-      size = new Size(0x40, 20);
-      this.txtPOS2.Size = size;
-      this.txtPOS2.TabIndex = 0x19;
-      this.txtPOS1.AllowNegative = false;
-      this.txtPOS1.DigitsInGroup = 0;
-      this.txtPOS1.Flags = 0x10000;
-      point = new Point(0x1e8, 0x66);
-      this.txtPOS1.Location = point;
-      this.txtPOS1.MaxDecimalPlaces = 0;
-      this.txtPOS1.MaxLength = 6;
-      this.txtPOS1.MaxWholeDigits = 6;
-      this.txtPOS1.Name = "txtPOS1";
-      this.txtPOS1.Prefix = "";
-      this.txtPOS1.RangeMax = 999999.0;
-      this.txtPOS1.RangeMin = 0.0;
-      size = new Size(0x40, 20);
-      this.txtPOS1.Size = size;
-      this.txtPOS1.TabIndex = 0x18;
-      this.txtTrack2.AllowNegative = false;
-      this.txtTrack2.DigitsInGroup = 0;
-      this.txtTrack2.Flags = 0x10000;
-      point = new Point(0xe0, 0x66);
-      this.txtTrack2.Location = point;
-      this.txtTrack2.MaxDecimalPlaces = 0;
-      this.txtTrack2.MaxLength = 6;
-      this.txtTrack2.MaxWholeDigits = 6;
-      this.txtTrack2.Name = "txtTrack2";
-      this.txtTrack2.Prefix = "";
-      this.txtTrack2.RangeMax = 999999.0;
-      this.txtTrack2.RangeMin = 0.0;
-      size = new Size(0x40, 20);
-      this.txtTrack2.Size = size;
-      this.txtTrack2.TabIndex = 0x15;
-      this.txtTrack1.AllowNegative = false;
-      this.txtTrack1.DigitsInGroup = 0;
-      this.txtTrack1.Flags = 0x10000;
-      point = new Point(0x88, 0x66);
-      this.txtTrack1.Location = point;
-      this.txtTrack1.MaxDecimalPlaces = 0;
-      this.txtTrack1.MaxLength = 6;
-      this.txtTrack1.MaxWholeDigits = 6;
-      this.txtTrack1.Name = "txtTrack1";
-      this.txtTrack1.Prefix = "";
-      this.txtTrack1.RangeMax = 999999.0;
-      this.txtTrack1.RangeMin = 0.0;
-      size = new Size(0x40, 20);
-      this.txtTrack1.Size = size;
-      this.txtTrack1.TabIndex = 20;
-      this.txtYear.Flags = 0;
-      point = new Point(0x88, 0x4e);
-      this.txtYear.Location = point;
-      this.txtYear.Mask = "####-##-##";
-      this.txtYear.Name = "txtYear";
-      size = new Size(0x70, 20);
-      this.txtYear.Size = size;
-      this.txtYear.TabIndex = 13;
-      this.txtBPM.AllowNegative = false;
-      this.txtBPM.DigitsInGroup = 0;
-      this.txtBPM.Flags = 0x10000;
-      point = new Point(0x1e8, 0x4e);
-      this.txtBPM.Location = point;
-      this.txtBPM.MaxDecimalPlaces = 0;
-      this.txtBPM.MaxLength = 3;
-      this.txtBPM.MaxWholeDigits = 3;
-      this.txtBPM.Name = "txtBPM";
-      this.txtBPM.Prefix = "";
-      this.txtBPM.RangeMax = 999999.0;
-      this.txtBPM.RangeMin = 1.0;
-      size = new Size(0x98, 20);
-      this.txtBPM.Size = size;
-      this.txtBPM.TabIndex = 0x12;
-      this.cmbArtist.Autocomplete = true;
-      this.cmbArtist.ItemHeight = 13;
-      point = new Point(0x88, 6);
-      this.cmbArtist.Location = point;
-      this.cmbArtist.Name = "cmbArtist";
-      size = new Size(440, 0x15);
-      this.cmbArtist.Size = size;
-      this.cmbArtist.TabIndex = 4;
-      this.lblBPM.ImeMode = ImeMode.NoControl;
-      point = new Point(0x170, 80);
-      this.lblBPM.Location = point;
-      this.lblBPM.Name = "lblBPM";
-      size = new Size(0x80, 0x10);
-      this.lblBPM.Size = size;
-      this.lblBPM.TabIndex = 0x75;
-      this.lblBPM.Text = "BP&M:";
-      this.YearFormat.ImeMode = ImeMode.NoControl;
-      this.YearFormat.LargeChange = 1;
-      point = new Point(0x100, 80);
-      this.YearFormat.Location = point;
-      this.YearFormat.Maximum = 2;
-      this.YearFormat.Name = "YearFormat";
-      size = new Size(0x20, 0x10);
-      this.YearFormat.Size = size;
-      this.YearFormat.TabIndex = 14;
-      this.btnV1Title.ImeMode = ImeMode.NoControl;
-      point = new Point(0x248, 30);
-      this.btnV1Title.Location = point;
-      this.btnV1Title.Name = "btnV1Title";
-      size = new Size(0x38, 20);
-      this.btnV1Title.Size = size;
-      this.btnV1Title.TabIndex = 8;
-      this.btnV1Title.Text = "<- Ver. 1";
-      this.btnV1Album.ImeMode = ImeMode.NoControl;
-      point = new Point(0x248, 0x36);
-      this.btnV1Album.Location = point;
-      this.btnV1Album.Name = "btnV1Album";
-      size = new Size(0x38, 20);
-      this.btnV1Album.Size = size;
-      this.btnV1Album.TabIndex = 11;
-      this.btnV1Album.Text = "<- Ver. 1";
-      this.btnV1Track.ImeMode = ImeMode.NoControl;
-      point = new Point(0x128, 0x66);
-      this.btnV1Track.Location = point;
-      this.btnV1Track.Name = "btnV1Track";
-      size = new Size(0x38, 20);
-      this.btnV1Track.Size = size;
-      this.btnV1Track.TabIndex = 0x16;
-      this.btnV1Track.Text = "<- Ver. 1";
-      this.btnV1Year.ImeMode = ImeMode.NoControl;
-      point = new Point(0x128, 0x4e);
-      this.btnV1Year.Location = point;
-      this.btnV1Year.Name = "btnV1Year";
-      size = new Size(0x38, 20);
-      this.btnV1Year.Size = size;
-      this.btnV1Year.TabIndex = 0x10;
-      this.btnV1Year.Text = "<- Ver. 1";
-      this.btnV1Artist.ImeMode = ImeMode.NoControl;
-      point = new Point(0x248, 6);
-      this.btnV1Artist.Location = point;
-      this.btnV1Artist.Name = "btnV1Artist";
-      size = new Size(0x38, 20);
-      this.btnV1Artist.Size = size;
-      this.btnV1Artist.TabIndex = 5;
-      this.btnV1Artist.Text = "<- Ver. 1";
-      this.lblOf2.ImeMode = ImeMode.NoControl;
-      point = new Point(560, 0x68);
-      this.lblOf2.Location = point;
-      this.lblOf2.Name = "lblOf2";
-      size = new Size(0x10, 0x10);
-      this.lblOf2.Size = size;
-      this.lblOf2.TabIndex = 0x15;
-      this.lblOf2.Text = "/";
-      this.lblOf1.ImeMode = ImeMode.NoControl;
-      point = new Point(0xd0, 0x68);
-      this.lblOf1.Location = point;
-      this.lblOf1.Name = "lblOf1";
-      size = new Size(0x10, 0x10);
-      this.lblOf1.Size = size;
-      this.lblOf1.TabIndex = 0x10;
-      this.lblOf1.Text = "/";
-      point = new Point(0x88, 0x36);
-      this.txtAlbum.Location = point;
-      this.txtAlbum.Name = "txtAlbum";
-      size = new Size(440, 20);
-      this.txtAlbum.Size = size;
-      this.txtAlbum.TabIndex = 10;
-      this.txtAlbum.Text = "";
-      point = new Point(0x88, 30);
-      this.txtTitle.Location = point;
-      this.txtTitle.Name = "txtTitle";
-      size = new Size(440, 20);
-      this.txtTitle.Size = size;
-      this.txtTitle.TabIndex = 7;
-      this.txtTitle.Text = "";
-      this.lblTitle.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.lblTitle.Location = point;
-      this.lblTitle.Name = "lblTitle";
-      size = new Size(0x80, 0x10);
-      this.lblTitle.Size = size;
-      this.lblTitle.TabIndex = 6;
-      this.lblTitle.Text = "&Title:";
-      this.lblAlbum.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x38);
-      this.lblAlbum.Location = point;
-      this.lblAlbum.Name = "lblAlbum";
-      size = new Size(0x80, 0x10);
-      this.lblAlbum.Size = size;
-      this.lblAlbum.TabIndex = 9;
-      this.lblAlbum.Text = "Al&bum:";
-      this.lblPosMedia.ImeMode = ImeMode.NoControl;
-      point = new Point(0x170, 0x68);
-      this.lblPosMedia.Location = point;
-      this.lblPosMedia.Name = "lblPosMedia";
-      size = new Size(120, 0x10);
-      this.lblPosMedia.Size = size;
-      this.lblPosMedia.TabIndex = 0x17;
-      this.lblPosMedia.Text = "Position in media &set:";
-      this.lblYear.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 80);
-      this.lblYear.Location = point;
-      this.lblYear.Name = "lblYear";
-      size = new Size(0x80, 0x10);
-      this.lblYear.Size = size;
-      this.lblYear.TabIndex = 12;
-      this.lblYear.Text = "&Year (date) of recording:";
-      this.lblTrack.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x68);
-      this.lblTrack.Location = point;
-      this.lblTrack.Name = "lblTrack";
-      size = new Size(0x80, 0x10);
-      this.lblTrack.Size = size;
-      this.lblTrack.TabIndex = 0x13;
-      this.lblTrack.Text = "Trac&k number:";
-      this.lblArtist.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblArtist.Location = point;
-      this.lblArtist.Name = "lblArtist";
-      size = new Size(0x80, 0x10);
-      this.lblArtist.Size = size;
-      this.lblArtist.TabIndex = 3;
-      this.lblArtist.Text = "Lead &Artist:";
-      this.btnTLEN.ImeMode = ImeMode.NoControl;
-      point = new Point(0x138, 0x20);
-      this.btnTLEN.Location = point;
-      this.btnTLEN.Name = "btnTLEN";
-      size = new Size(0x70, 20);
-      this.btnTLEN.Size = size;
-      this.btnTLEN.TabIndex = 30;
-      this.btnTLEN.Text = "Length from file";
-      this.txtTLEN.AllowNegative = false;
-      this.txtTLEN.DigitsInGroup = 0;
-      this.txtTLEN.Flags = 0x10000;
-      point = new Point(0xa8, 0x20);
-      this.txtTLEN.Location = point;
-      this.txtTLEN.MaxDecimalPlaces = 0;
-      this.txtTLEN.MaxLength = 10;
-      this.txtTLEN.MaxWholeDigits = 10;
-      this.txtTLEN.Name = "txtTLEN";
-      this.txtTLEN.Prefix = "";
-      this.txtTLEN.RangeMax = 9999999999;
-      this.txtTLEN.RangeMin = 0.0;
-      size = new Size(0x88, 20);
-      this.txtTLEN.Size = size;
-      this.txtTLEN.TabIndex = 0x1d;
-      this.lblTLEN.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.lblTLEN.Location = point;
-      this.lblTLEN.Name = "lblTLEN";
-      size = new Size(0x98, 0x10);
-      this.lblTLEN.Size = size;
-      this.lblTLEN.TabIndex = 0x1c;
-      this.lblTLEN.Text = "Track length (msec):";
-      this.cmbMedia.ItemHeight = 13;
-      this.cmbMedia.Items.AddRange(new object[] { "ANA (Other analogue media)", "CD (CD)", "DAT (DAT)", "DCC (DCC)", "DIG (Other digital media)", "DVD (DVD)", "LD (LaserDisc)", "MC (Music Cassette)", "MD (MiniDisc)", "RAD (Radio)", "REE (Reel)", "TEL (Telephone)", "TT (Turntable records)", "TV (Television)", "VID (Video)" });
-      point = new Point(0xa8, 6);
-      this.cmbMedia.Location = point;
-      this.cmbMedia.Name = "cmbMedia";
-      size = new Size(0x100, 0x15);
-      this.cmbMedia.Size = size;
-      this.cmbMedia.TabIndex = 0x12;
-      this.lblMediaTyp.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblMediaTyp.Location = point;
-      this.lblMediaTyp.Name = "lblMediaTyp";
-      size = new Size(0x98, 0x10);
-      this.lblMediaTyp.Size = size;
-      this.lblMediaTyp.TabIndex = 0x11;
-      this.lblMediaTyp.Text = "M&edia type:";
-      this.Panel9.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel9.Controls.Add(this.txtSortArtist);
-      this.Panel9.Controls.Add(this.txtSortTitle);
-      this.Panel9.Controls.Add(this.txtSortAlbum);
-      this.Panel9.Controls.Add(this.lblAlbumSort);
-      this.Panel9.Controls.Add(this.lblTitleSort);
-      this.Panel9.Controls.Add(this.lblArtistSort);
-      point = new Point(8, 280);
-      this.Panel9.Location = point;
-      this.Panel9.Name = "Panel9";
-      size = new Size(0x288, 80);
-      this.Panel9.Size = size;
-      this.Panel9.TabIndex = 2;
-      point = new Point(0xa8, 6);
-      this.txtSortArtist.Location = point;
-      this.txtSortArtist.Name = "txtSortArtist";
-      size = new Size(0x1d8, 20);
-      this.txtSortArtist.Size = size;
-      this.txtSortArtist.TabIndex = 0x11;
-      this.txtSortArtist.Text = "";
-      point = new Point(0xa8, 0x36);
-      this.txtSortTitle.Location = point;
-      this.txtSortTitle.Name = "txtSortTitle";
-      size = new Size(0x1d8, 20);
-      this.txtSortTitle.Size = size;
-      this.txtSortTitle.TabIndex = 0x15;
-      this.txtSortTitle.Text = "";
-      point = new Point(0xa8, 30);
-      this.txtSortAlbum.Location = point;
-      this.txtSortAlbum.Name = "txtSortAlbum";
-      size = new Size(0x1d8, 20);
-      this.txtSortAlbum.Size = size;
-      this.txtSortAlbum.TabIndex = 0x13;
-      this.txtSortAlbum.Text = "";
-      this.lblAlbumSort.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.lblAlbumSort.Location = point;
-      this.lblAlbumSort.Name = "lblAlbumSort";
-      size = new Size(0xa8, 0x10);
-      this.lblAlbumSort.Size = size;
-      this.lblAlbumSort.TabIndex = 0x12;
-      this.lblAlbumSort.Text = "Al&bum sort name (Ver. 2.4 only):";
-      this.lblTitleSort.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x38);
-      this.lblTitleSort.Location = point;
-      this.lblTitleSort.Name = "lblTitleSort";
-      size = new Size(160, 0x10);
-      this.lblTitleSort.Size = size;
-      this.lblTitleSort.TabIndex = 20;
-      this.lblTitleSort.Text = "&Title sort name (Ver. 2.4 only):";
-      this.lblArtistSort.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblArtistSort.Location = point;
-      this.lblArtistSort.Name = "lblArtistSort";
-      size = new Size(0xa8, 0x10);
-      this.lblArtistSort.Size = size;
-      this.lblArtistSort.TabIndex = 0x10;
-      this.lblArtistSort.Text = "&Artist sort name (Ver. 2.4 only):";
-      this.Panel6.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel6.Controls.Add(this.txtTORY);
-      this.Panel6.Controls.Add(this.lblOYearInfo);
-      this.Panel6.Controls.Add(this.TORYFormat);
-      this.Panel6.Controls.Add(this.lblOYear);
-      this.Panel6.Controls.Add(this.txtOOwner);
-      this.Panel6.Controls.Add(this.lblOOwner);
-      this.Panel6.Controls.Add(this.txtOArtist);
-      this.Panel6.Controls.Add(this.lblOArtist);
-      this.Panel6.Controls.Add(this.txtOAlbum);
-      this.Panel6.Controls.Add(this.txtOLyWriter);
-      this.Panel6.Controls.Add(this.txtOFilename);
-      this.Panel6.Controls.Add(this.lblOFilename);
-      this.Panel6.Controls.Add(this.lblOLyWriter);
-      this.Panel6.Controls.Add(this.lblOAlbum);
-      point = new Point(8, 8);
-      this.Panel6.Location = point;
-      this.Panel6.Name = "Panel6";
-      size = new Size(0x288, 0x98);
-      this.Panel6.Size = size;
-      this.Panel6.TabIndex = 3;
-      this.txtTORY.Flags = 0;
-      point = new Point(0xa8, 0x7e);
-      this.txtTORY.Location = point;
-      this.txtTORY.Mask = "####-##-##";
-      this.txtTORY.Name = "txtTORY";
-      size = new Size(0x70, 20);
-      this.txtTORY.Size = size;
-      this.txtTORY.TabIndex = 0x21;
-      this.lblOYearInfo.ImeMode = ImeMode.NoControl;
-      point = new Point(0x150, 0x80);
-      this.lblOYearInfo.Location = point;
-      this.lblOYearInfo.Name = "lblOYearInfo";
-      size = new Size(0x130, 0x10);
-      this.lblOYearInfo.Size = size;
-      this.lblOYearInfo.TabIndex = 0x24;
-      this.lblOYearInfo.Text = "(In TAG Ver. 2.3 only the year entry will be saved)";
-      this.TORYFormat.ImeMode = ImeMode.NoControl;
-      this.TORYFormat.LargeChange = 1;
-      point = new Point(0x120, 0x80);
-      this.TORYFormat.Location = point;
-      this.TORYFormat.Maximum = 2;
-      this.TORYFormat.Name = "TORYFormat";
-      size = new Size(0x20, 0x10);
-      this.TORYFormat.Size = size;
-      this.TORYFormat.TabIndex = 0x22;
-      this.lblOYear.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x80);
-      this.lblOYear.Location = point;
-      this.lblOYear.Name = "lblOYear";
-      size = new Size(0x90, 0x10);
-      this.lblOYear.Size = size;
-      this.lblOYear.TabIndex = 0x20;
-      this.lblOYear.Text = "Original release &year (date):";
-      point = new Point(0xa8, 0x66);
-      this.txtOOwner.Location = point;
-      this.txtOOwner.Name = "txtOOwner";
-      size = new Size(0x1d8, 20);
-      this.txtOOwner.Size = size;
-      this.txtOOwner.TabIndex = 0x1f;
-      this.txtOOwner.Text = "";
-      this.lblOOwner.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x68);
-      this.lblOOwner.Location = point;
-      this.lblOOwner.Name = "lblOOwner";
-      size = new Size(0x80, 0x10);
-      this.lblOOwner.Size = size;
-      this.lblOOwner.TabIndex = 30;
-      this.lblOOwner.Text = "Original &owner:";
-      point = new Point(0xa8, 0x4e);
-      this.txtOArtist.Location = point;
-      this.txtOArtist.Name = "txtOArtist";
-      size = new Size(0x1d8, 20);
-      this.txtOArtist.Size = size;
-      this.txtOArtist.TabIndex = 0x1d;
-      this.txtOArtist.Text = "";
-      this.lblOArtist.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 80);
-      this.lblOArtist.Location = point;
-      this.lblOArtist.Name = "lblOArtist";
-      size = new Size(0x80, 0x10);
-      this.lblOArtist.Size = size;
-      this.lblOArtist.TabIndex = 0x1c;
-      this.lblOArtist.Text = "Original &artist:";
-      point = new Point(0xa8, 6);
-      this.txtOAlbum.Location = point;
-      this.txtOAlbum.Name = "txtOAlbum";
-      size = new Size(0x1d8, 20);
-      this.txtOAlbum.Size = size;
-      this.txtOAlbum.TabIndex = 0x17;
-      this.txtOAlbum.Text = "";
-      point = new Point(0xa8, 0x36);
-      this.txtOLyWriter.Location = point;
-      this.txtOLyWriter.Name = "txtOLyWriter";
-      size = new Size(0x1d8, 20);
-      this.txtOLyWriter.Size = size;
-      this.txtOLyWriter.TabIndex = 0x1b;
-      this.txtOLyWriter.Text = "";
-      point = new Point(0xa8, 30);
-      this.txtOFilename.Location = point;
-      this.txtOFilename.Name = "txtOFilename";
-      size = new Size(0x1d8, 20);
-      this.txtOFilename.Size = size;
-      this.txtOFilename.TabIndex = 0x19;
-      this.txtOFilename.Text = "";
-      this.lblOFilename.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.lblOFilename.Location = point;
-      this.lblOFilename.Name = "lblOFilename";
-      size = new Size(0x80, 0x10);
-      this.lblOFilename.Size = size;
-      this.lblOFilename.TabIndex = 0x18;
-      this.lblOFilename.Text = "Original &filename:";
-      this.lblOLyWriter.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x38);
-      this.lblOLyWriter.Location = point;
-      this.lblOLyWriter.Name = "lblOLyWriter";
-      size = new Size(0x80, 0x10);
-      this.lblOLyWriter.Size = size;
-      this.lblOLyWriter.TabIndex = 0x1a;
-      this.lblOLyWriter.Text = "Original lyrics &writer:";
-      this.lblOAlbum.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblOAlbum.Location = point;
-      this.lblOAlbum.Name = "lblOAlbum";
-      size = new Size(0x80, 0x10);
-      this.lblOAlbum.Size = size;
-      this.lblOAlbum.TabIndex = 0x16;
-      this.lblOAlbum.Text = "Original a&lbum title:";
-      this.Panel5.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel5.Controls.Add(this.txtContent);
-      this.Panel5.Controls.Add(this.txtSubTitle);
-      this.Panel5.Controls.Add(this.lblSubTitle);
-      this.Panel5.Controls.Add(this.lblContent);
-      point = new Point(8, 0xd8);
-      this.Panel5.Location = point;
-      this.Panel5.Name = "Panel5";
-      size = new Size(0x288, 0x38);
-      this.Panel5.Size = size;
-      this.Panel5.TabIndex = 1;
-      point = new Point(0xa8, 6);
-      this.txtContent.Location = point;
-      this.txtContent.Name = "txtContent";
-      size = new Size(0x1d8, 20);
-      this.txtContent.Size = size;
-      this.txtContent.TabIndex = 13;
-      this.txtContent.Text = "";
-      point = new Point(0xa8, 30);
-      this.txtSubTitle.Location = point;
-      this.txtSubTitle.Name = "txtSubTitle";
-      size = new Size(0x1d8, 20);
-      this.txtSubTitle.Size = size;
-      this.txtSubTitle.TabIndex = 15;
-      this.txtSubTitle.Text = "";
-      this.lblSubTitle.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.lblSubTitle.Location = point;
-      this.lblSubTitle.Name = "lblSubTitle";
-      size = new Size(0x80, 0x10);
-      this.lblSubTitle.Size = size;
-      this.lblSubTitle.TabIndex = 14;
-      this.lblSubTitle.Text = "&Sub Title:";
-      this.lblContent.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblContent.Location = point;
-      this.lblContent.Name = "lblContent";
-      size = new Size(0x80, 0x10);
-      this.lblContent.Size = size;
-      this.lblContent.TabIndex = 12;
-      this.lblContent.Text = "Con&tent Group:";
-      this.Panel4.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel4.Controls.Add(this.txtComposer);
-      this.Panel4.Controls.Add(this.lblComposer);
-      this.Panel4.Controls.Add(this.txtBand);
-      this.Panel4.Controls.Add(this.txtModified);
-      this.Panel4.Controls.Add(this.txtConductor);
-      this.Panel4.Controls.Add(this.lblConductor);
-      this.Panel4.Controls.Add(this.lblModified);
-      this.Panel4.Controls.Add(this.lblBand);
-      this.Panel4.Controls.Add(this.txtCopyright);
-      this.Panel4.Controls.Add(this.lblCopyright);
-      this.Panel4.Controls.Add(this.txtLyWriter);
-      this.Panel4.Controls.Add(this.txtEncoded);
-      this.Panel4.Controls.Add(this.txtPublisher);
-      this.Panel4.Controls.Add(this.lblPublisher);
-      this.Panel4.Controls.Add(this.lblEncoded);
-      this.Panel4.Controls.Add(this.lblLyWriter);
-      point = new Point(8, 8);
-      this.Panel4.Location = point;
-      this.Panel4.Name = "Panel4";
-      size = new Size(0x288, 200);
-      this.Panel4.Size = size;
-      this.Panel4.TabIndex = 0;
-      point = new Point(0xa8, 0x4b);
-      this.txtComposer.Location = point;
-      this.txtComposer.Name = "txtComposer";
-      size = new Size(0x1d8, 20);
-      this.txtComposer.Size = size;
-      this.txtComposer.TabIndex = 11;
-      this.txtComposer.Text = "";
-      this.lblComposer.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x4d);
-      this.lblComposer.Location = point;
-      this.lblComposer.Name = "lblComposer";
-      size = new Size(0x80, 0x10);
-      this.lblComposer.Size = size;
-      this.lblComposer.TabIndex = 10;
-      this.lblComposer.Text = "Co&mposer:";
-      point = new Point(0xa8, 6);
-      this.txtBand.Location = point;
-      this.txtBand.Name = "txtBand";
-      size = new Size(0x1d8, 20);
-      this.txtBand.Size = size;
-      this.txtBand.TabIndex = 5;
-      this.txtBand.Text = "";
-      point = new Point(0xa8, 0x34);
-      this.txtModified.Location = point;
-      this.txtModified.Name = "txtModified";
-      size = new Size(0x1d8, 20);
-      this.txtModified.Size = size;
-      this.txtModified.TabIndex = 9;
-      this.txtModified.Text = "";
-      point = new Point(0xa8, 0x1d);
-      this.txtConductor.Location = point;
-      this.txtConductor.Name = "txtConductor";
-      size = new Size(0x1d8, 20);
-      this.txtConductor.Size = size;
-      this.txtConductor.TabIndex = 7;
-      this.txtConductor.Text = "";
-      this.lblConductor.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x1f);
-      this.lblConductor.Location = point;
-      this.lblConductor.Name = "lblConductor";
-      size = new Size(0x80, 0x10);
-      this.lblConductor.Size = size;
-      this.lblConductor.TabIndex = 6;
-      this.lblConductor.Text = "&Conductor:";
-      this.lblModified.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x36);
-      this.lblModified.Location = point;
-      this.lblModified.Name = "lblModified";
-      size = new Size(0x80, 0x10);
-      this.lblModified.Size = size;
-      this.lblModified.TabIndex = 8;
-      this.lblModified.Text = "Modified / Remixed b&y:";
-      this.lblBand.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblBand.Location = point;
-      this.lblBand.Name = "lblBand";
-      size = new Size(0x80, 0x10);
-      this.lblBand.Size = size;
-      this.lblBand.TabIndex = 4;
-      this.lblBand.Text = "&Band / Orchestra:";
-      point = new Point(0xa8, 0xa7);
-      this.txtCopyright.Location = point;
-      this.txtCopyright.Name = "txtCopyright";
-      size = new Size(0x1d8, 20);
-      this.txtCopyright.Size = size;
-      this.txtCopyright.TabIndex = 0x17;
-      this.txtCopyright.Text = "";
-      this.lblCopyright.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0xa9);
-      this.lblCopyright.Location = point;
-      this.lblCopyright.Name = "lblCopyright";
-      size = new Size(0x80, 0x10);
-      this.lblCopyright.Size = size;
-      this.lblCopyright.TabIndex = 0x16;
-      this.lblCopyright.Text = "Copyright:";
-      point = new Point(0xa8, 0x62);
-      this.txtLyWriter.Location = point;
-      this.txtLyWriter.Name = "txtLyWriter";
-      size = new Size(0x1d8, 20);
-      this.txtLyWriter.Size = size;
-      this.txtLyWriter.TabIndex = 0x11;
-      this.txtLyWriter.Text = "";
-      point = new Point(0xa8, 0x90);
-      this.txtEncoded.Location = point;
-      this.txtEncoded.Name = "txtEncoded";
-      size = new Size(0x1d8, 20);
-      this.txtEncoded.Size = size;
-      this.txtEncoded.TabIndex = 0x15;
-      this.txtEncoded.Text = "";
-      point = new Point(0xa8, 0x79);
-      this.txtPublisher.Location = point;
-      this.txtPublisher.Name = "txtPublisher";
-      size = new Size(0x1d8, 20);
-      this.txtPublisher.Size = size;
-      this.txtPublisher.TabIndex = 0x13;
-      this.txtPublisher.Text = "";
-      this.lblPublisher.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x7b);
-      this.lblPublisher.Location = point;
-      this.lblPublisher.Name = "lblPublisher";
-      size = new Size(0x80, 0x10);
-      this.lblPublisher.Size = size;
-      this.lblPublisher.TabIndex = 0x12;
-      this.lblPublisher.Text = "Publis&her:";
-      this.lblEncoded.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x92);
-      this.lblEncoded.Location = point;
-      this.lblEncoded.Name = "lblEncoded";
-      size = new Size(0x80, 0x10);
-      this.lblEncoded.Size = size;
-      this.lblEncoded.TabIndex = 20;
-      this.lblEncoded.Text = "&Encoded by:";
-      this.lblLyWriter.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 100);
-      this.lblLyWriter.Location = point;
-      this.lblLyWriter.Name = "lblLyWriter";
-      size = new Size(0x80, 0x10);
-      this.lblLyWriter.Size = size;
-      this.lblLyWriter.TabIndex = 0x10;
-      this.lblLyWriter.Text = "Lyr&ics / Text Writer:";
-      this.Panel15.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel15.Controls.Add(this.lblMusicianInfo);
-      this.Panel15.Controls.Add(this.txtMusicianName);
-      this.Panel15.Controls.Add(this.btnRemoveMusician);
-      this.Panel15.Controls.Add(this.btnAddMusician);
-      this.Panel15.Controls.Add(this.lblMusicianName);
-      this.Panel15.Controls.Add(this.lblMusicianInst);
-      this.Panel15.Controls.Add(this.txtMusicianInst);
-      this.Panel15.Controls.Add(this.TMCLList);
-      point = new Point(8, 160);
-      this.Panel15.Location = point;
-      this.Panel15.Name = "Panel15";
-      size = new Size(0x288, 0x90);
-      this.Panel15.Size = size;
-      this.Panel15.TabIndex = 5;
-      this.lblMusicianInfo.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 120);
-      this.lblMusicianInfo.Location = point;
-      this.lblMusicianInfo.Name = "lblMusicianInfo";
-      size = new Size(0x80, 0x10);
-      this.lblMusicianInfo.Size = size;
-      this.lblMusicianInfo.TabIndex = 0x10;
-      this.lblMusicianInfo.Text = "(TAG Ver. 2.4 only)";
-      point = new Point(160, 30);
-      this.txtMusicianName.Location = point;
-      this.txtMusicianName.Name = "txtMusicianName";
-      size = new Size(320, 20);
-      this.txtMusicianName.Size = size;
-      this.txtMusicianName.TabIndex = 12;
-      this.txtMusicianName.Text = "";
-      this.btnRemoveMusician.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1e8, 0x20);
-      this.btnRemoveMusician.Location = point;
-      this.btnRemoveMusician.Name = "btnRemoveMusician";
-      size = new Size(0x98, 20);
-      this.btnRemoveMusician.Size = size;
-      this.btnRemoveMusician.TabIndex = 14;
-      this.btnRemoveMusician.Text = "Remove musician";
-      this.btnAddMusician.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1e8, 8);
-      this.btnAddMusician.Location = point;
-      this.btnAddMusician.Name = "btnAddMusician";
-      size = new Size(0x98, 20);
-      this.btnAddMusician.Size = size;
-      this.btnAddMusician.TabIndex = 13;
-      this.btnAddMusician.Text = "Add musician";
-      this.lblMusicianName.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.lblMusicianName.Location = point;
-      this.lblMusicianName.Name = "lblMusicianName";
-      size = new Size(0x80, 0x10);
-      this.lblMusicianName.Size = size;
-      this.lblMusicianName.TabIndex = 11;
-      this.lblMusicianName.Text = "Musician name:";
-      this.lblMusicianInst.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblMusicianInst.Location = point;
-      this.lblMusicianInst.Name = "lblMusicianInst";
-      size = new Size(0x80, 0x10);
-      this.lblMusicianInst.Size = size;
-      this.lblMusicianInst.TabIndex = 9;
-      this.lblMusicianInst.Text = "Musician instrument:";
-      point = new Point(160, 6);
-      this.txtMusicianInst.Location = point;
-      this.txtMusicianInst.Name = "txtMusicianInst";
-      size = new Size(320, 20);
-      this.txtMusicianInst.Size = size;
-      this.txtMusicianInst.TabIndex = 10;
-      this.txtMusicianInst.Text = "";
-      this.TMCLList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader15, this.ColumnHeader16 });
-      this.TMCLList.FullRowSelect = true;
-      this.TMCLList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      point = new Point(160, 0x40);
-      this.TMCLList.Location = point;
-      this.TMCLList.MultiSelect = false;
-      this.TMCLList.Name = "TMCLList";
-      size = new Size(480, 0x48);
-      this.TMCLList.Size = size;
-      this.TMCLList.TabIndex = 15;
-      this.TMCLList.View = View.Details;
-      this.ColumnHeader15.Text = "Instrument";
-      this.ColumnHeader15.Width = 200;
-      this.ColumnHeader16.Text = "Name";
-      this.ColumnHeader16.Width = 0xfe;
-      this.Panel16.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel16.Controls.Add(this.txtInvPerson);
-      this.Panel16.Controls.Add(this.btnRemoveInv);
-      this.Panel16.Controls.Add(this.btnAddInv);
-      this.Panel16.Controls.Add(this.lblInvPerson);
-      this.Panel16.Controls.Add(this.lblInvFunction);
-      this.Panel16.Controls.Add(this.txtInvFunction);
-      this.Panel16.Controls.Add(this.TIPLList);
-      point = new Point(8, 8);
-      this.Panel16.Location = point;
-      this.Panel16.Name = "Panel16";
-      size = new Size(0x288, 0x90);
-      this.Panel16.Size = size;
-      this.Panel16.TabIndex = 4;
-      point = new Point(160, 30);
-      this.txtInvPerson.Location = point;
-      this.txtInvPerson.Name = "txtInvPerson";
-      size = new Size(320, 20);
-      this.txtInvPerson.Size = size;
-      this.txtInvPerson.TabIndex = 5;
-      this.txtInvPerson.Text = "";
-      this.btnRemoveInv.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1e8, 0x20);
-      this.btnRemoveInv.Location = point;
-      this.btnRemoveInv.Name = "btnRemoveInv";
-      size = new Size(0x98, 20);
-      this.btnRemoveInv.Size = size;
-      this.btnRemoveInv.TabIndex = 7;
-      this.btnRemoveInv.Text = "Remove involved person";
-      this.btnAddInv.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1e8, 8);
-      this.btnAddInv.Location = point;
-      this.btnAddInv.Name = "btnAddInv";
-      size = new Size(0x98, 20);
-      this.btnAddInv.Size = size;
-      this.btnAddInv.TabIndex = 6;
-      this.btnAddInv.Text = "Add involved person";
-      this.lblInvPerson.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.lblInvPerson.Location = point;
-      this.lblInvPerson.Name = "lblInvPerson";
-      size = new Size(0x90, 0x10);
-      this.lblInvPerson.Size = size;
-      this.lblInvPerson.TabIndex = 4;
-      this.lblInvPerson.Text = "Involved person name:";
-      this.lblInvFunction.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblInvFunction.Location = point;
-      this.lblInvFunction.Name = "lblInvFunction";
-      size = new Size(0x90, 0x10);
-      this.lblInvFunction.Size = size;
-      this.lblInvFunction.TabIndex = 2;
-      this.lblInvFunction.Text = "Involved person function:";
-      point = new Point(160, 6);
-      this.txtInvFunction.Location = point;
-      this.txtInvFunction.Name = "txtInvFunction";
-      size = new Size(320, 20);
-      this.txtInvFunction.Size = size;
-      this.txtInvFunction.TabIndex = 3;
-      this.txtInvFunction.Text = "";
-      this.TIPLList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader17, this.ColumnHeader18 });
-      this.TIPLList.FullRowSelect = true;
-      this.TIPLList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      point = new Point(160, 0x40);
-      this.TIPLList.Location = point;
-      this.TIPLList.MultiSelect = false;
-      this.TIPLList.Name = "TIPLList";
-      size = new Size(480, 0x48);
-      this.TIPLList.Size = size;
-      this.TIPLList.TabIndex = 8;
-      this.TIPLList.View = View.Details;
-      this.ColumnHeader17.Text = "Function";
-      this.ColumnHeader17.Width = 0xbf;
-      this.ColumnHeader18.Text = "Name";
-      this.ColumnHeader18.Width = 0x108;
-      this.Panel14.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel14.Controls.Add(this.btnTLEN);
-      this.Panel14.Controls.Add(this.txtTLEN);
-      this.Panel14.Controls.Add(this.lblTLEN);
-      this.Panel14.Controls.Add(this.cmbMedia);
-      this.Panel14.Controls.Add(this.lblMediaTyp);
-      point = new Point(8, 0x170);
-      this.Panel14.Location = point;
-      this.Panel14.Name = "Panel14";
-      size = new Size(0x288, 0x40);
-      this.Panel14.Size = size;
-      this.Panel14.TabIndex = 3;
-      this.Panel7.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel7.Controls.Add(this.chkPicRelativPath);
-      this.Panel7.Controls.Add(this.btnExPic);
-      this.Panel7.Controls.Add(this.btnRemovePicture);
-      this.Panel7.Controls.Add(this.btnAddPicture);
-      this.Panel7.Controls.Add(this.btnGetPic);
-      this.Panel7.Controls.Add(this.chkPicInclude);
-      this.Panel7.Controls.Add(this.lblPicPath);
-      this.Panel7.Controls.Add(this.txtPicPath);
-      this.Panel7.Controls.Add(this.PicList);
-      this.Panel7.Controls.Add(this.lblPicType);
-      this.Panel7.Controls.Add(this.lblPicDesc);
-      this.Panel7.Controls.Add(this.cmbPicType);
-      this.Panel7.Controls.Add(this.txtPDescriptor);
-      this.Panel7.Controls.Add(this.APICView);
-      point = new Point(8, 8);
-      this.Panel7.Location = point;
-      this.Panel7.Name = "Panel7";
-      size = new Size(0x288, 0x120);
-      this.Panel7.Size = size;
-      this.Panel7.TabIndex = 0;
-      point = new Point(8, 0x68);
-      this.chkPicRelativPath.Location = point;
-      this.chkPicRelativPath.Name = "chkPicRelativPath";
-      size = new Size(0x1c0, 0x10);
-      this.chkPicRelativPath.Size = size;
-      this.chkPicRelativPath.TabIndex = 9;
-      this.chkPicRelativPath.Text = "Use relativ path if picture is not included";
-      this.btnExPic.Enabled = false;
-      point = new Point(0x138, 160);
-      this.btnExPic.Location = point;
-      this.btnExPic.Name = "btnExPic";
-      size = new Size(0x90, 0x18);
-      this.btnExPic.Size = size;
-      this.btnExPic.TabIndex = 13;
-      this.btnExPic.Text = "Extract picture";
-      this.btnRemovePicture.ImeMode = ImeMode.NoControl;
-      point = new Point(160, 0x80);
-      this.btnRemovePicture.Location = point;
-      this.btnRemovePicture.Name = "btnRemovePicture";
-      size = new Size(0x90, 0x18);
-      this.btnRemovePicture.Size = size;
-      this.btnRemovePicture.TabIndex = 11;
-      this.btnRemovePicture.Text = "Remove Picture";
-      this.btnAddPicture.Enabled = false;
-      this.btnAddPicture.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x80);
-      this.btnAddPicture.Location = point;
-      this.btnAddPicture.Name = "btnAddPicture";
-      size = new Size(0x90, 0x18);
-      this.btnAddPicture.Size = size;
-      this.btnAddPicture.TabIndex = 10;
-      this.btnAddPicture.Text = "Add Picture";
-      this.btnGetPic.ImeMode = ImeMode.NoControl;
-      point = new Point(0x138, 0x80);
-      this.btnGetPic.Location = point;
-      this.btnGetPic.Name = "btnGetPic";
-      size = new Size(0x90, 0x18);
-      this.btnGetPic.Size = size;
-      this.btnGetPic.TabIndex = 12;
-      this.btnGetPic.Text = "Get new picture";
-      this.chkPicInclude.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x54);
-      this.chkPicInclude.Location = point;
-      this.chkPicInclude.Name = "chkPicInclude";
-      size = new Size(0x1c0, 0x10);
-      this.chkPicInclude.Size = size;
-      this.chkPicInclude.TabIndex = 8;
-      this.chkPicInclude.Text = "Include picture within the MP3 file when saving";
-      this.lblPicPath.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x38);
-      this.lblPicPath.Location = point;
-      this.lblPicPath.Name = "lblPicPath";
-      size = new Size(0x88, 0x10);
-      this.lblPicPath.Size = size;
-      this.lblPicPath.TabIndex = 6;
-      this.lblPicPath.Text = "P&ath containing pic. data:";
-      point = new Point(0x98, 0x36);
-      this.txtPicPath.Location = point;
-      this.txtPicPath.Name = "txtPicPath";
-      this.txtPicPath.ReadOnly = true;
-      size = new Size(0x130, 20);
-      this.txtPicPath.Size = size;
-      this.txtPicPath.TabIndex = 7;
-      this.txtPicPath.Text = "";
-      this.PicList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader4, this.ColumnHeader5, this.ColumnHeader6, this.ColumnHeader7 });
-      this.PicList.FullRowSelect = true;
-      this.PicList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      point = new Point(8, 200);
-      this.PicList.Location = point;
-      this.PicList.MultiSelect = false;
-      this.PicList.Name = "PicList";
-      size = new Size(0x278, 80);
-      this.PicList.Size = size;
-      this.PicList.TabIndex = 14;
-      this.PicList.View = View.Details;
-      this.ColumnHeader4.Text = "Descriptor";
-      this.ColumnHeader4.Width = 160;
-      this.ColumnHeader5.Text = "Picture Type";
-      this.ColumnHeader5.Width = 0x63;
-      this.ColumnHeader6.Text = "Path";
-      this.ColumnHeader6.Width = 0x120;
-      this.ColumnHeader7.Text = "Include";
-      this.lblPicType.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.lblPicType.Location = point;
-      this.lblPicType.Name = "lblPicType";
-      size = new Size(0x88, 0x10);
-      this.lblPicType.Size = size;
-      this.lblPicType.TabIndex = 4;
-      this.lblPicType.Text = "Picture &Type:";
-      this.lblPicDesc.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblPicDesc.Location = point;
-      this.lblPicDesc.Name = "lblPicDesc";
-      size = new Size(0x88, 0x10);
-      this.lblPicDesc.Size = size;
-      this.lblPicDesc.TabIndex = 2;
-      this.lblPicDesc.Text = "&Picture Descriptor:";
-      this.cmbPicType.DropDownStyle = ComboBoxStyle.DropDownList;
-      this.cmbPicType.ItemHeight = 13;
-      this.cmbPicType.Items.AddRange(new object[] {
-                "00 - Other", "01 - 32x32 pixels 'file icon' (PNG only)", "02 - Other file icon", "03 - Cover (front)", "04 - Cover (back)", "05 - Leaflet page", "06 - Media (e.g. label side of CD)", "07 - Lead artist/lead performer/soloist", "08 - Artist/performer", "09 - Conductor", "10 - Band/Orchestra", "11 - Composer", "12 - Lyricist/text writer", "13 - Recording Location", "14 - During recording", "15 - During performance",
-                "16 - Movie/video screen capture", "17 - A bright coloured fish", "18 - Illustration", "19 - Band/artist logotype", "20 - Publisher/Studio logotype"
-            });
-      point = new Point(0x98, 30);
-      this.cmbPicType.Location = point;
-      this.cmbPicType.Name = "cmbPicType";
-      size = new Size(0x130, 0x15);
-      this.cmbPicType.Size = size;
-      this.cmbPicType.TabIndex = 5;
-      point = new Point(0x98, 6);
-      this.txtPDescriptor.Location = point;
-      this.txtPDescriptor.Name = "txtPDescriptor";
-      size = new Size(0x130, 20);
-      this.txtPDescriptor.Size = size;
-      this.txtPDescriptor.TabIndex = 3;
-      this.txtPDescriptor.Text = "";
-      this.APICView.BorderStyle = BorderStyle.FixedSingle;
-      this.APICView.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1d0, 8);
-      this.APICView.Location = point;
-      this.APICView.Name = "APICView";
-      size = new Size(0xb0, 0xb0);
-      this.APICView.Size = size;
-      this.APICView.SizeMode = PictureBoxSizeMode.StretchImage;
-      this.APICView.TabIndex = 1;
-      this.APICView.TabStop = false;
-      this.Panel8.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel8.Controls.Add(this.txtLyrics);
-      this.Panel8.Controls.Add(this.btnLyricsFile);
-      this.Panel8.Controls.Add(this.btnMoveLyrics);
-      this.Panel8.Controls.Add(this.btnRemoveLyrics);
-      this.Panel8.Controls.Add(this.btnAddLyrics);
-      this.Panel8.Controls.Add(this.lblLyrics);
-      this.Panel8.Controls.Add(this.lblLyLan);
-      this.Panel8.Controls.Add(this.lblLyDesc);
-      this.Panel8.Controls.Add(this.cmbLLanguage);
-      this.Panel8.Controls.Add(this.txtLDescriptor);
-      this.Panel8.Controls.Add(this.LyricsList);
-      point = new Point(8, 8);
-      this.Panel8.Location = point;
-      this.Panel8.Name = "Panel8";
-      size = new Size(0x288, 440);
-      this.Panel8.Size = size;
-      this.Panel8.TabIndex = 1;
-      this.txtLyrics.BorderStyle = BorderStyle.FixedSingle;
-      point = new Point(0x88, 0x38);
-      this.txtLyrics.Location = point;
-      this.txtLyrics.Name = "txtLyrics";
-      size = new Size(0x1f8, 0xc0);
-      this.txtLyrics.Size = size;
-      this.txtLyrics.TabIndex = 0x12;
-      this.txtLyrics.Text = "";
-      point = new Point(0x88, 0x100);
-      this.btnLyricsFile.Location = point;
-      this.btnLyricsFile.Name = "btnLyricsFile";
-      size = new Size(0x1f8, 0x18);
-      this.btnLyricsFile.Size = size;
-      this.btnLyricsFile.TabIndex = 0x13;
-      this.btnLyricsFile.Text = "Get lyrics from text file";
-      this.btnMoveLyrics.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1e8, 0x120);
-      this.btnMoveLyrics.Location = point;
-      this.btnMoveLyrics.Name = "btnMoveLyrics";
-      size = new Size(0x98, 0x18);
-      this.btnMoveLyrics.Size = size;
-      this.btnMoveLyrics.TabIndex = 0x16;
-      this.btnMoveLyrics.Text = "Move Lyrics to top";
-      this.btnRemoveLyrics.ImeMode = ImeMode.NoControl;
-      point = new Point(0x138, 0x120);
-      this.btnRemoveLyrics.Location = point;
-      this.btnRemoveLyrics.Name = "btnRemoveLyrics";
-      size = new Size(0x98, 0x18);
-      this.btnRemoveLyrics.Size = size;
-      this.btnRemoveLyrics.TabIndex = 0x15;
-      this.btnRemoveLyrics.Text = "Remove Lyrics";
-      this.btnAddLyrics.ImeMode = ImeMode.NoControl;
-      point = new Point(0x88, 0x120);
-      this.btnAddLyrics.Location = point;
-      this.btnAddLyrics.Name = "btnAddLyrics";
-      size = new Size(0x98, 0x18);
-      this.btnAddLyrics.Size = size;
-      this.btnAddLyrics.TabIndex = 20;
-      this.btnAddLyrics.Text = "Add Lyrics";
-      this.lblLyrics.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x38);
-      this.lblLyrics.Location = point;
-      this.lblLyrics.Name = "lblLyrics";
-      size = new Size(0x80, 0x10);
-      this.lblLyrics.Size = size;
-      this.lblLyrics.TabIndex = 0x11;
-      this.lblLyrics.Text = "&Lyrics Text:";
-      this.lblLyLan.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.lblLyLan.Location = point;
-      this.lblLyLan.Name = "lblLyLan";
-      size = new Size(0x80, 0x10);
-      this.lblLyLan.Size = size;
-      this.lblLyLan.TabIndex = 15;
-      this.lblLyLan.Text = "Lyrics &Language:";
-      this.lblLyDesc.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblLyDesc.Location = point;
-      this.lblLyDesc.Name = "lblLyDesc";
-      size = new Size(0x80, 0x10);
-      this.lblLyDesc.Size = size;
-      this.lblLyDesc.TabIndex = 13;
-      this.lblLyDesc.Text = "Lyrics &Descriptor:";
-      this.cmbLLanguage.DropDownStyle = ComboBoxStyle.DropDownList;
-      this.cmbLLanguage.ItemHeight = 13;
-      point = new Point(0x88, 30);
-      this.cmbLLanguage.Location = point;
-      this.cmbLLanguage.Name = "cmbLLanguage";
-      size = new Size(0xd0, 0x15);
-      this.cmbLLanguage.Size = size;
-      this.cmbLLanguage.TabIndex = 0x10;
-      point = new Point(0x88, 6);
-      this.txtLDescriptor.Location = point;
-      this.txtLDescriptor.Name = "txtLDescriptor";
-      size = new Size(0xd0, 20);
-      this.txtLDescriptor.Size = size;
-      this.txtLDescriptor.TabIndex = 14;
-      this.txtLDescriptor.Text = "";
-      this.LyricsList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader1, this.ColumnHeader2, this.ColumnHeader3 });
-      this.LyricsList.FullRowSelect = true;
-      this.LyricsList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      point = new Point(8, 320);
-      this.LyricsList.Location = point;
-      this.LyricsList.MultiSelect = false;
-      this.LyricsList.Name = "LyricsList";
-      size = new Size(0x278, 0x70);
-      this.LyricsList.Size = size;
-      this.LyricsList.TabIndex = 0x17;
-      this.LyricsList.View = View.Details;
-      this.ColumnHeader1.Text = "Descriptor";
-      this.ColumnHeader1.Width = 0x84;
-      this.ColumnHeader2.Text = "Text";
-      this.ColumnHeader2.Width = 0x164;
-      this.ColumnHeader3.Text = "Language";
-      this.ColumnHeader3.Width = 0x67;
-      this.Panel11.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel11.Controls.Add(this.lblInfo);
-      this.Panel11.Controls.Add(this.btnMoveRating);
-      this.Panel11.Controls.Add(this.btnRemoveRating);
-      this.Panel11.Controls.Add(this.btnAddRating);
-      this.Panel11.Controls.Add(this.RatingList);
-      this.Panel11.Controls.Add(this.txtRatingCounter);
-      this.Panel11.Controls.Add(this.txtRatingRating);
-      this.Panel11.Controls.Add(this.txtRatingUser);
-      this.Panel11.Controls.Add(this.lblRatingRating);
-      this.Panel11.Controls.Add(this.lblRatingCounter);
-      this.Panel11.Controls.Add(this.lblRatingUser);
-      point = new Point(8, 8);
-      this.Panel11.Location = point;
-      this.Panel11.Name = "Panel11";
-      size = new Size(0x288, 280);
-      this.Panel11.Size = size;
-      this.Panel11.TabIndex = 5;
-      this.lblInfo.BorderStyle = BorderStyle.Fixed3D;
-      this.lblInfo.ImeMode = ImeMode.NoControl;
-      point = new Point(0x88, 0xd0);
-      this.lblInfo.Location = point;
-      this.lblInfo.Name = "lblInfo";
-      size = new Size(0x1f0, 0x38);
-      this.lblInfo.Size = size;
-      this.lblInfo.TabIndex = 0x2b;
-      this.lblInfo.Text = "The rating is 1-255 where 1 is worst and 255 is best. Note that many programs have their own rating scale. The scale 1-255 is given by the ID3 standard and the other programs rescale it.";
-      this.lblInfo.TextAlign = ContentAlignment.MiddleCenter;
-      this.btnMoveRating.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1d8, 80);
-      this.btnMoveRating.Location = point;
-      this.btnMoveRating.Name = "btnMoveRating";
-      size = new Size(160, 0x18);
-      this.btnMoveRating.Size = size;
-      this.btnMoveRating.TabIndex = 0x1a;
-      this.btnMoveRating.Text = "Move Rating to top";
-      this.btnRemoveRating.ImeMode = ImeMode.NoControl;
-      point = new Point(0x130, 80);
-      this.btnRemoveRating.Location = point;
-      this.btnRemoveRating.Name = "btnRemoveRating";
-      size = new Size(160, 0x18);
-      this.btnRemoveRating.Size = size;
-      this.btnRemoveRating.TabIndex = 0x19;
-      this.btnRemoveRating.Text = "Remove Rating";
-      this.btnAddRating.ImeMode = ImeMode.NoControl;
-      point = new Point(0x88, 80);
-      this.btnAddRating.Location = point;
-      this.btnAddRating.Name = "btnAddRating";
-      size = new Size(160, 0x18);
-      this.btnAddRating.Size = size;
-      this.btnAddRating.TabIndex = 0x18;
-      this.btnAddRating.Text = "Add Rating";
-      this.RatingList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader8, this.ColumnHeader9, this.ColumnHeader10 });
-      this.RatingList.FullRowSelect = true;
-      this.RatingList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      point = new Point(0x88, 0x70);
-      this.RatingList.Location = point;
-      this.RatingList.MultiSelect = false;
-      this.RatingList.Name = "RatingList";
-      size = new Size(0x1f0, 0x58);
-      this.RatingList.Size = size;
-      this.RatingList.TabIndex = 0x1b;
-      this.RatingList.View = View.Details;
-      this.ColumnHeader8.Text = "User";
-      this.ColumnHeader8.Width = 0xee;
-      this.ColumnHeader9.Text = "Rating";
-      this.ColumnHeader9.Width = 100;
-      this.ColumnHeader10.Text = "Play Counter";
-      this.ColumnHeader10.Width = 80;
-      point = new Point(0x88, 0x36);
-      this.txtRatingCounter.Location = point;
-      decimal num = new decimal(new int[] { 0xf4240, 0, 0, 0 });
-      this.txtRatingCounter.Maximum = num;
-      this.txtRatingCounter.Name = "txtRatingCounter";
-      size = new Size(80, 20);
-      this.txtRatingCounter.Size = size;
-      this.txtRatingCounter.TabIndex = 0x17;
-      point = new Point(0x88, 30);
-      this.txtRatingRating.Location = point;
-      num = new decimal(new int[] { 0xff, 0, 0, 0 });
-      this.txtRatingRating.Maximum = num;
-      this.txtRatingRating.Name = "txtRatingRating";
-      size = new Size(80, 20);
-      this.txtRatingRating.Size = size;
-      this.txtRatingRating.TabIndex = 0x15;
-      point = new Point(0x88, 6);
-      this.txtRatingUser.Location = point;
-      this.txtRatingUser.Name = "txtRatingUser";
-      size = new Size(0xe0, 20);
-      this.txtRatingUser.Size = size;
-      this.txtRatingUser.TabIndex = 0x13;
-      this.txtRatingUser.Text = "";
-      this.lblRatingRating.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.lblRatingRating.Location = point;
-      this.lblRatingRating.Name = "lblRatingRating";
-      size = new Size(120, 0x10);
-      this.lblRatingRating.Size = size;
-      this.lblRatingRating.TabIndex = 20;
-      this.lblRatingRating.Text = "Rating:";
-      this.lblRatingCounter.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x38);
-      this.lblRatingCounter.Location = point;
-      this.lblRatingCounter.Name = "lblRatingCounter";
-      size = new Size(120, 0x10);
-      this.lblRatingCounter.Size = size;
-      this.lblRatingCounter.TabIndex = 0x16;
-      this.lblRatingCounter.Text = "Play counter:";
-      this.lblRatingUser.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblRatingUser.Location = point;
-      this.lblRatingUser.Name = "lblRatingUser";
-      size = new Size(120, 0x10);
-      this.lblRatingUser.Size = size;
-      this.lblRatingUser.TabIndex = 0x12;
-      this.lblRatingUser.Text = "User (email):";
-      this.Panel10.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel10.Controls.Add(this.txtCOMMInfURL);
-      this.Panel10.Controls.Add(this.lblCOMMInfURL);
-      this.Panel10.Controls.Add(this.txtPubURL);
-      this.Panel10.Controls.Add(this.lblPubURL);
-      this.Panel10.Controls.Add(this.txtPayURL);
-      this.Panel10.Controls.Add(this.lblPayURL);
-      this.Panel10.Controls.Add(this.txtINetRadioURL);
-      this.Panel10.Controls.Add(this.lblINetRadioURL);
-      this.Panel10.Controls.Add(this.txtAudioSRCURL);
-      this.Panel10.Controls.Add(this.lblAudioSRCURL);
-      this.Panel10.Controls.Add(this.txtCopyInfURL);
-      this.Panel10.Controls.Add(this.txtArtistURL);
-      this.Panel10.Controls.Add(this.txtAudioFileURL);
-      this.Panel10.Controls.Add(this.lblAudioFileURL);
-      this.Panel10.Controls.Add(this.lblArtistURL);
-      this.Panel10.Controls.Add(this.lblCopyInfURL);
-      point = new Point(8, 8);
-      this.Panel10.Location = point;
-      this.Panel10.Name = "Panel10";
-      size = new Size(0x288, 200);
-      this.Panel10.Size = size;
-      this.Panel10.TabIndex = 4;
-      point = new Point(200, 0xae);
-      this.txtCOMMInfURL.Location = point;
-      this.txtCOMMInfURL.Name = "txtCOMMInfURL";
-      size = new Size(440, 20);
-      this.txtCOMMInfURL.Size = size;
-      this.txtCOMMInfURL.TabIndex = 0x11;
-      this.txtCOMMInfURL.Text = "";
-      this.lblCOMMInfURL.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0xb0);
-      this.lblCOMMInfURL.Location = point;
-      this.lblCOMMInfURL.Name = "lblCOMMInfURL";
-      size = new Size(0xb8, 0x10);
-      this.lblCOMMInfURL.Size = size;
-      this.lblCOMMInfURL.TabIndex = 0x10;
-      this.lblCOMMInfURL.Text = "Commercial information URL:";
-      point = new Point(200, 150);
-      this.txtPubURL.Location = point;
-      this.txtPubURL.Name = "txtPubURL";
-      size = new Size(440, 20);
-      this.txtPubURL.Size = size;
-      this.txtPubURL.TabIndex = 15;
-      this.txtPubURL.Text = "";
-      this.lblPubURL.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x98);
-      this.lblPubURL.Location = point;
-      this.lblPubURL.Name = "lblPubURL";
-      size = new Size(0xb8, 0x10);
-      this.lblPubURL.Size = size;
-      this.lblPubURL.TabIndex = 14;
-      this.lblPubURL.Text = "Offical publisher URL:";
-      point = new Point(200, 0x7e);
-      this.txtPayURL.Location = point;
-      this.txtPayURL.Name = "txtPayURL";
-      size = new Size(440, 20);
-      this.txtPayURL.Size = size;
-      this.txtPayURL.TabIndex = 13;
-      this.txtPayURL.Text = "";
-      this.lblPayURL.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x80);
-      this.lblPayURL.Location = point;
-      this.lblPayURL.Name = "lblPayURL";
-      size = new Size(0xb8, 0x10);
-      this.lblPayURL.Size = size;
-      this.lblPayURL.TabIndex = 12;
-      this.lblPayURL.Text = "Offical payment URL:";
-      point = new Point(200, 0x66);
-      this.txtINetRadioURL.Location = point;
-      this.txtINetRadioURL.Name = "txtINetRadioURL";
-      size = new Size(440, 20);
-      this.txtINetRadioURL.Size = size;
-      this.txtINetRadioURL.TabIndex = 11;
-      this.txtINetRadioURL.Text = "";
-      this.lblINetRadioURL.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x68);
-      this.lblINetRadioURL.Location = point;
-      this.lblINetRadioURL.Name = "lblINetRadioURL";
-      size = new Size(0xb8, 0x10);
-      this.lblINetRadioURL.Size = size;
-      this.lblINetRadioURL.TabIndex = 10;
-      this.lblINetRadioURL.Text = "Offical internet radio station URL:";
-      point = new Point(200, 0x4e);
-      this.txtAudioSRCURL.Location = point;
-      this.txtAudioSRCURL.Name = "txtAudioSRCURL";
-      size = new Size(440, 20);
-      this.txtAudioSRCURL.Size = size;
-      this.txtAudioSRCURL.TabIndex = 9;
-      this.txtAudioSRCURL.Text = "";
-      this.lblAudioSRCURL.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 80);
-      this.lblAudioSRCURL.Location = point;
-      this.lblAudioSRCURL.Name = "lblAudioSRCURL";
-      size = new Size(0xb8, 0x10);
-      this.lblAudioSRCURL.Size = size;
-      this.lblAudioSRCURL.TabIndex = 8;
-      this.lblAudioSRCURL.Text = "Offical audio source URL:";
-      point = new Point(200, 6);
-      this.txtCopyInfURL.Location = point;
-      this.txtCopyInfURL.Name = "txtCopyInfURL";
-      size = new Size(440, 20);
-      this.txtCopyInfURL.Size = size;
-      this.txtCopyInfURL.TabIndex = 3;
-      this.txtCopyInfURL.Text = "";
-      point = new Point(200, 0x36);
-      this.txtArtistURL.Location = point;
-      this.txtArtistURL.Name = "txtArtistURL";
-      size = new Size(440, 20);
-      this.txtArtistURL.Size = size;
-      this.txtArtistURL.TabIndex = 7;
-      this.txtArtistURL.Text = "";
-      point = new Point(200, 30);
-      this.txtAudioFileURL.Location = point;
-      this.txtAudioFileURL.Name = "txtAudioFileURL";
-      size = new Size(440, 20);
-      this.txtAudioFileURL.Size = size;
-      this.txtAudioFileURL.TabIndex = 5;
-      this.txtAudioFileURL.Text = "";
-      this.lblAudioFileURL.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.lblAudioFileURL.Location = point;
-      this.lblAudioFileURL.Name = "lblAudioFileURL";
-      size = new Size(0xb8, 0x10);
-      this.lblAudioFileURL.Size = size;
-      this.lblAudioFileURL.TabIndex = 4;
-      this.lblAudioFileURL.Text = "Offical audio file URL:";
-      this.lblArtistURL.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x38);
-      this.lblArtistURL.Location = point;
-      this.lblArtistURL.Name = "lblArtistURL";
-      size = new Size(0xb8, 0x10);
-      this.lblArtistURL.Size = size;
-      this.lblArtistURL.TabIndex = 6;
-      this.lblArtistURL.Text = "Offical artist URL:";
-      this.lblCopyInfURL.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblCopyInfURL.Location = point;
-      this.lblCopyInfURL.Name = "lblCopyInfURL";
-      size = new Size(0xb8, 0x10);
-      this.lblCopyInfURL.Size = size;
-      this.lblCopyInfURL.TabIndex = 2;
-      this.lblCopyInfURL.Text = "Copyright information URL:";
-      this.Panel13.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel13.Controls.Add(this.txtWXXXContent);
-      this.Panel13.Controls.Add(this.btnRemoveWXXX);
-      this.Panel13.Controls.Add(this.btnAddWXXX);
-      this.Panel13.Controls.Add(this.lblWXXXContent);
-      this.Panel13.Controls.Add(this.lblWXXXDesc);
-      this.Panel13.Controls.Add(this.txtWXXXDesc);
-      this.Panel13.Controls.Add(this.WXXXList);
-      point = new Point(8, 0xc0);
-      this.Panel13.Location = point;
-      this.Panel13.Name = "Panel13";
-      size = new Size(0x288, 0xb0);
-      this.Panel13.Size = size;
-      this.Panel13.TabIndex = 1;
-      point = new Point(0x88, 30);
-      this.txtWXXXContent.Location = point;
-      this.txtWXXXContent.Name = "txtWXXXContent";
-      size = new Size(0x158, 20);
-      this.txtWXXXContent.Size = size;
-      this.txtWXXXContent.TabIndex = 12;
-      this.txtWXXXContent.Text = "";
-      this.btnRemoveWXXX.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1e8, 0x20);
-      this.btnRemoveWXXX.Location = point;
-      this.btnRemoveWXXX.Name = "btnRemoveWXXX";
-      size = new Size(0x98, 20);
-      this.btnRemoveWXXX.Size = size;
-      this.btnRemoveWXXX.TabIndex = 14;
-      this.btnRemoveWXXX.Text = "Remove user web frame";
-      this.btnAddWXXX.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1e8, 8);
-      this.btnAddWXXX.Location = point;
-      this.btnAddWXXX.Name = "btnAddWXXX";
-      size = new Size(0x98, 20);
-      this.btnAddWXXX.Size = size;
-      this.btnAddWXXX.TabIndex = 13;
-      this.btnAddWXXX.Text = "Add user web frame";
-      this.lblWXXXContent.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.lblWXXXContent.Location = point;
-      this.lblWXXXContent.Name = "lblWXXXContent";
-      size = new Size(0x80, 0x10);
-      this.lblWXXXContent.Size = size;
-      this.lblWXXXContent.TabIndex = 11;
-      this.lblWXXXContent.Text = "Web frame &Content:";
-      this.lblWXXXDesc.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblWXXXDesc.Location = point;
-      this.lblWXXXDesc.Name = "lblWXXXDesc";
-      size = new Size(0x80, 0x10);
-      this.lblWXXXDesc.Size = size;
-      this.lblWXXXDesc.TabIndex = 9;
-      this.lblWXXXDesc.Text = "Web frame &Descriptor:";
-      point = new Point(0x88, 6);
-      this.txtWXXXDesc.Location = point;
-      this.txtWXXXDesc.Name = "txtWXXXDesc";
-      size = new Size(0x158, 20);
-      this.txtWXXXDesc.Size = size;
-      this.txtWXXXDesc.TabIndex = 10;
-      this.txtWXXXDesc.Text = "";
-      this.WXXXList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader13, this.ColumnHeader14 });
-      this.WXXXList.FullRowSelect = true;
-      this.WXXXList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      point = new Point(0x88, 0x40);
-      this.WXXXList.Location = point;
-      this.WXXXList.MultiSelect = false;
-      this.WXXXList.Name = "WXXXList";
-      size = new Size(0x1f8, 0x68);
-      this.WXXXList.Size = size;
-      this.WXXXList.TabIndex = 15;
-      this.WXXXList.View = View.Details;
-      this.ColumnHeader13.Text = "Descriptor";
-      this.ColumnHeader13.Width = 200;
-      this.ColumnHeader14.Text = "Content";
-      this.ColumnHeader14.Width = 260;
-      this.Panel12.BorderStyle = BorderStyle.FixedSingle;
-      this.Panel12.Controls.Add(this.txtTXXXContent);
-      this.Panel12.Controls.Add(this.btnRemoveTXXX);
-      this.Panel12.Controls.Add(this.btnAddTXXX);
-      this.Panel12.Controls.Add(this.lblTXXXContent);
-      this.Panel12.Controls.Add(this.lblTXXXDesc);
-      this.Panel12.Controls.Add(this.txtTXXXDesc);
-      this.Panel12.Controls.Add(this.TXXXList);
-      point = new Point(8, 8);
-      this.Panel12.Location = point;
-      this.Panel12.Name = "Panel12";
-      size = new Size(0x288, 0xb0);
-      this.Panel12.Size = size;
-      this.Panel12.TabIndex = 0;
-      point = new Point(0x88, 30);
-      this.txtTXXXContent.Location = point;
-      this.txtTXXXContent.Name = "txtTXXXContent";
-      size = new Size(0x158, 20);
-      this.txtTXXXContent.Size = size;
-      this.txtTXXXContent.TabIndex = 5;
-      this.txtTXXXContent.Text = "";
-      this.btnRemoveTXXX.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1e8, 0x20);
-      this.btnRemoveTXXX.Location = point;
-      this.btnRemoveTXXX.Name = "btnRemoveTXXX";
-      size = new Size(0x98, 20);
-      this.btnRemoveTXXX.Size = size;
-      this.btnRemoveTXXX.TabIndex = 7;
-      this.btnRemoveTXXX.Text = "Remove user text frame";
-      this.btnAddTXXX.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1e8, 8);
-      this.btnAddTXXX.Location = point;
-      this.btnAddTXXX.Name = "btnAddTXXX";
-      size = new Size(0x98, 20);
-      this.btnAddTXXX.Size = size;
-      this.btnAddTXXX.TabIndex = 6;
-      this.btnAddTXXX.Text = "Add user text frame";
-      this.lblTXXXContent.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.lblTXXXContent.Location = point;
-      this.lblTXXXContent.Name = "lblTXXXContent";
-      size = new Size(0x80, 0x10);
-      this.lblTXXXContent.Size = size;
-      this.lblTXXXContent.TabIndex = 4;
-      this.lblTXXXContent.Text = "Text frame &Content:";
-      this.lblTXXXDesc.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblTXXXDesc.Location = point;
-      this.lblTXXXDesc.Name = "lblTXXXDesc";
-      size = new Size(0x80, 0x10);
-      this.lblTXXXDesc.Size = size;
-      this.lblTXXXDesc.TabIndex = 2;
-      this.lblTXXXDesc.Text = "Text frame &Descriptor:";
-      point = new Point(0x88, 6);
-      this.txtTXXXDesc.Location = point;
-      this.txtTXXXDesc.Name = "txtTXXXDesc";
-      size = new Size(0x158, 20);
-      this.txtTXXXDesc.Size = size;
-      this.txtTXXXDesc.TabIndex = 3;
-      this.txtTXXXDesc.Text = "";
-      this.TXXXList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader11, this.ColumnHeader12 });
-      this.TXXXList.FullRowSelect = true;
-      this.TXXXList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      point = new Point(0x88, 0x40);
-      this.TXXXList.Location = point;
-      this.TXXXList.MultiSelect = false;
-      this.TXXXList.Name = "TXXXList";
-      size = new Size(0x1f8, 0x68);
-      this.TXXXList.Size = size;
-      this.TXXXList.TabIndex = 8;
-      this.TXXXList.View = View.Details;
-      this.ColumnHeader11.Text = "Descriptor";
-      this.ColumnHeader11.Width = 200;
-      this.ColumnHeader12.Text = "Content";
-      this.ColumnHeader12.Width = 0x102;
-      this.lblNot.BorderStyle = BorderStyle.Fixed3D;
-      this.lblNot.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x198);
-      this.lblNot.Location = point;
-      this.lblNot.Name = "lblNot";
-      size = new Size(0x288, 40);
-      this.lblNot.Size = size;
-      this.lblNot.TabIndex = 0x2c;
-      this.lblNot.Text = "All frames which are not supported by ID3-TagIT. You cannot edit them but you can remove them by unchecking the checkbox.";
-      this.lblNot.TextAlign = ContentAlignment.MiddleCenter;
-      this.NotSupportList.CheckBoxes = true;
-      this.NotSupportList.Columns.AddRange(new ColumnHeader[] { this.FrameID, this.Content });
-      this.NotSupportList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      point = new Point(8, 8);
-      this.NotSupportList.Location = point;
-      this.NotSupportList.Name = "NotSupportList";
-      size = new Size(0x288, 0x188);
-      this.NotSupportList.Size = size;
-      this.NotSupportList.TabIndex = 0;
-      this.NotSupportList.View = View.Details;
-      this.FrameID.Text = "Frame ID";
-      this.FrameID.Width = 150;
-      this.Content.Text = "Content";
-      this.Content.Width = 0x1d3;
-      this.txtDigits.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
-      point = new Point(200, 10);
-      this.txtDigits.Location = point;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtDigits.Minimum = num;
-      this.txtDigits.Name = "txtDigits";
-      size = new Size(0x40, 20);
-      this.txtDigits.Size = size;
-      this.txtDigits.TabIndex = 0x66;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtDigits.Value = num;
-      this.OpenFileDialog.RestoreDirectory = true;
-      this.SelectionBar.AccessibleRole = AccessibleRole.ToolBar;
-      this.SelectionBar.AllowUserCustomize = false;
-      this.SelectionBar.AntiAlias = true;
-      this.SelectionBar.BackColor = SystemColors.Control;
-      this.SelectionBar.BackgroundStyle.BackColor1.ColorSchemePart = eColorSchemePart.ExplorerBarBackground;
-      this.SelectionBar.BackgroundStyle.BackColor2.ColorSchemePart = eColorSchemePart.ExplorerBarBackground2;
-      this.SelectionBar.BackgroundStyle.GradientAngle = 90;
-      this.SelectionBar.Dock = DockStyle.Left;
-      this.SelectionBar.Font = new Font("Tahoma", 11f, FontStyle.Regular, GraphicsUnit.World);
-      this.SelectionBar.GroupImages = null;
-      this.SelectionBar.Groups.AddRange(new BaseItem[] { this.TAGV2grpTAG, this.TAGV2grpTransfer, this.TAGV2grpCommands });
-      this.SelectionBar.Images = null;
-      point = new Point(0, 0);
-      this.SelectionBar.Location = point;
-      this.SelectionBar.Name = "SelectionBar";
-      size = new Size(0xa8, 0x220);
-      this.SelectionBar.Size = size;
-      this.SelectionBar.StockStyle = eExplorerBarStockStyle.Silver;
-      this.SelectionBar.TabIndex = 0x69;
-      this.SelectionBar.Text = "Select TAG section";
-      this.TAGV2grpTAG.BackgroundStyle.BackColor1.Color = Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.TAGV2grpTAG.BackgroundStyle.Border = eBorderType.SingleLine;
-      this.TAGV2grpTAG.BackgroundStyle.BorderColor.Color = Color.White;
-      this.TAGV2grpTAG.CanCustomize = false;
-      this.TAGV2grpTAG.HeaderHotStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpTAG.HeaderHotStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpTAG.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpTAG.HeaderHotStyle.ForeColor.Color = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2grpTAG.HeaderStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpTAG.HeaderStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpTAG.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpTAG.HeaderStyle.ForeColor.Color = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.TAGV2grpTAG.Name = "TAGV2grpTAG";
-      this.TAGV2grpTAG.StockStyle = eExplorerBarStockStyle.Blue;
-      this.TAGV2grpTAG.SubItems.AddRange(new BaseItem[] { this.TAGV2ButtonItem1, this.TAGV2ButtonItem2, this.TAGV2ButtonItem3, this.TAGV2ButtonItem4, this.TAGV2ButtonItem5, this.TAGV2ButtonItem6, this.TAGV2ButtonItem7, this.TAGV2ButtonItem8, this.TAGV2ButtonItem9, this.TAGV2ButtonItem10 });
-      this.TAGV2grpTAG.Text = "TAG information";
-      this.TAGV2ButtonItem1.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem1.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem1.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.TAGV2ButtonItem1.HotFontUnderline = true;
-      this.TAGV2ButtonItem1.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem1.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem1.Icon = (Icon)manager.GetObject("TAGV2ButtonItem1.Icon");
-      this.TAGV2ButtonItem1.Name = "TAGV2ButtonItem1";
-      this.TAGV2ButtonItem1.Text = "Main Entries";
-      this.TAGV2ButtonItem2.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem2.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem2.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.TAGV2ButtonItem2.HotFontUnderline = true;
-      this.TAGV2ButtonItem2.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem2.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem2.Icon = (Icon)manager.GetObject("TAGV2ButtonItem2.Icon");
-      this.TAGV2ButtonItem2.Name = "TAGV2ButtonItem2";
-      this.TAGV2ButtonItem2.Text = "Detailed information";
-      this.TAGV2ButtonItem3.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem3.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem3.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.TAGV2ButtonItem3.HotFontUnderline = true;
-      this.TAGV2ButtonItem3.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem3.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem3.Icon = (Icon)manager.GetObject("TAGV2ButtonItem3.Icon");
-      this.TAGV2ButtonItem3.Name = "TAGV2ButtonItem3";
-      this.TAGV2ButtonItem3.Text = "Original information";
-      this.TAGV2ButtonItem4.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem4.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem4.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.TAGV2ButtonItem4.HotFontUnderline = true;
-      this.TAGV2ButtonItem4.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem4.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem4.Icon = (Icon)manager.GetObject("TAGV2ButtonItem4.Icon");
-      this.TAGV2ButtonItem4.Name = "TAGV2ButtonItem4";
-      this.TAGV2ButtonItem4.Text = "Involved people";
-      this.TAGV2ButtonItem5.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem5.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem5.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.TAGV2ButtonItem5.HotFontUnderline = true;
-      this.TAGV2ButtonItem5.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem5.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem5.Icon = (Icon)manager.GetObject("TAGV2ButtonItem5.Icon");
-      this.TAGV2ButtonItem5.Name = "TAGV2ButtonItem5";
-      this.TAGV2ButtonItem5.Text = "Web information";
-      this.TAGV2ButtonItem6.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem6.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem6.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.TAGV2ButtonItem6.HotFontUnderline = true;
-      this.TAGV2ButtonItem6.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem6.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem6.Icon = (Icon)manager.GetObject("TAGV2ButtonItem6.Icon");
-      this.TAGV2ButtonItem6.Name = "TAGV2ButtonItem6";
-      this.TAGV2ButtonItem6.Text = "Pictures";
-      this.TAGV2ButtonItem7.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem7.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem7.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.TAGV2ButtonItem7.HotFontUnderline = true;
-      this.TAGV2ButtonItem7.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem7.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem7.Icon = (Icon)manager.GetObject("TAGV2ButtonItem7.Icon");
-      this.TAGV2ButtonItem7.Name = "TAGV2ButtonItem7";
-      this.TAGV2ButtonItem7.Text = "Lyrics";
-      this.TAGV2ButtonItem8.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem8.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem8.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.TAGV2ButtonItem8.HotFontUnderline = true;
-      this.TAGV2ButtonItem8.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem8.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem8.Icon = (Icon)manager.GetObject("TAGV2ButtonItem8.Icon");
-      this.TAGV2ButtonItem8.Name = "TAGV2ButtonItem8";
-      this.TAGV2ButtonItem8.Text = "Rating";
-      this.TAGV2ButtonItem9.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem9.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem9.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.TAGV2ButtonItem9.HotFontUnderline = true;
-      this.TAGV2ButtonItem9.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem9.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem9.Icon = (Icon)manager.GetObject("TAGV2ButtonItem9.Icon");
-      this.TAGV2ButtonItem9.Name = "TAGV2ButtonItem9";
-      this.TAGV2ButtonItem9.Text = "User defined information";
-      this.TAGV2ButtonItem10.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem10.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem10.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.TAGV2ButtonItem10.HotFontUnderline = true;
-      this.TAGV2ButtonItem10.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem10.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem10.Icon = (Icon)manager.GetObject("TAGV2ButtonItem10.Icon");
-      this.TAGV2ButtonItem10.Name = "TAGV2ButtonItem10";
-      this.TAGV2ButtonItem10.Text = "Not supported frames";
-      this.TAGV2grpTransfer.BackgroundStyle.BackColor1.Color = Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.TAGV2grpTransfer.BackgroundStyle.Border = eBorderType.SingleLine;
-      this.TAGV2grpTransfer.BackgroundStyle.BorderColor.Color = Color.White;
-      this.TAGV2grpTransfer.CanCustomize = false;
-      this.TAGV2grpTransfer.HeaderHotStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpTransfer.HeaderHotStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpTransfer.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpTransfer.HeaderHotStyle.ForeColor.Color = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2grpTransfer.HeaderStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpTransfer.HeaderStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpTransfer.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpTransfer.HeaderStyle.ForeColor.Color = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.TAGV2grpTransfer.Name = "TAGV2grpTransfer";
-      this.TAGV2grpTransfer.StockStyle = eExplorerBarStockStyle.Blue;
-      this.TAGV2grpTransfer.SubItems.AddRange(new BaseItem[] { this.btnImport, this.btnExport, this.btnGet });
-      this.TAGV2grpTransfer.Text = "Transfer and Import";
-      this.btnImport.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnImport.Cursor = Cursors.Hand;
-      this.btnImport.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.btnImport.HotFontUnderline = true;
-      this.btnImport.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnImport.HotTrackingStyle = eHotTrackingStyle.None;
-      this.btnImport.Name = "btnImport";
-      this.btnImport.Text = "Transfer from Ver. 1";
-      this.btnExport.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnExport.Cursor = Cursors.Hand;
-      this.btnExport.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.btnExport.HotFontUnderline = true;
-      this.btnExport.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnExport.HotTrackingStyle = eHotTrackingStyle.None;
-      this.btnExport.Name = "btnExport";
-      this.btnExport.Text = "Transfer to Ver. 1";
-      this.btnGet.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnGet.Cursor = Cursors.Hand;
-      this.btnGet.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.btnGet.HotFontUnderline = true;
-      this.btnGet.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnGet.HotTrackingStyle = eHotTrackingStyle.None;
-      this.btnGet.Name = "btnGet";
-      this.btnGet.Text = "Get from filename";
-      this.TAGV2grpCommands.BackgroundStyle.BackColor1.Color = Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.TAGV2grpCommands.BackgroundStyle.Border = eBorderType.SingleLine;
-      this.TAGV2grpCommands.BackgroundStyle.BorderColor.Color = Color.White;
-      this.TAGV2grpCommands.CanCustomize = false;
-      this.TAGV2grpCommands.HeaderHotStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpCommands.HeaderHotStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpCommands.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpCommands.HeaderHotStyle.ForeColor.Color = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2grpCommands.HeaderStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpCommands.HeaderStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpCommands.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpCommands.HeaderStyle.ForeColor.Color = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.TAGV2grpCommands.Name = "TAGV2grpCommands";
-      this.TAGV2grpCommands.StockStyle = eExplorerBarStockStyle.Blue;
-      this.TAGV2grpCommands.SubItems.AddRange(new BaseItem[] { this.btnPrev, this.btnNext, this.btnSwapAT, this.btnSwapAA, this.btnSwapTA });
-      this.TAGV2grpCommands.Text = "Commands";
-      this.btnPrev.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnPrev.Cursor = Cursors.Hand;
-      this.btnPrev.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.btnPrev.HotFontUnderline = true;
-      this.btnPrev.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnPrev.HotTrackingStyle = eHotTrackingStyle.None;
-      this.btnPrev.Icon = (Icon)manager.GetObject("btnPrev.Icon");
-      this.btnPrev.Name = "btnPrev";
-      this.btnPrev.Shortcuts.Add(eShortcut.CtrlB);
-      this.btnPrev.Text = "Previous File";
-      this.btnNext.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnNext.Cursor = Cursors.Hand;
-      this.btnNext.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.btnNext.HotFontUnderline = true;
-      this.btnNext.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnNext.HotTrackingStyle = eHotTrackingStyle.None;
-      this.btnNext.Icon = (Icon)manager.GetObject("btnNext.Icon");
-      this.btnNext.Name = "btnNext";
-      this.btnNext.Shortcuts.Add(eShortcut.CtrlN);
-      this.btnNext.Text = "Next File";
-      this.btnSwapAT.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnSwapAT.Cursor = Cursors.Hand;
-      this.btnSwapAT.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.btnSwapAT.HotFontUnderline = true;
-      this.btnSwapAT.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnSwapAT.HotTrackingStyle = eHotTrackingStyle.None;
-      this.btnSwapAT.Name = "btnSwapAT";
-      this.btnSwapAT.Text = "Swap Artist-Title";
-      this.btnSwapAA.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnSwapAA.Cursor = Cursors.Hand;
-      this.btnSwapAA.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.btnSwapAA.HotFontUnderline = true;
-      this.btnSwapAA.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnSwapAA.HotTrackingStyle = eHotTrackingStyle.None;
-      this.btnSwapAA.Name = "btnSwapAA";
-      this.btnSwapAA.Text = "Swap Artist-Album";
-      this.btnSwapTA.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnSwapTA.Cursor = Cursors.Hand;
-      this.btnSwapTA.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
-      this.btnSwapTA.HotFontUnderline = true;
-      this.btnSwapTA.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnSwapTA.HotTrackingStyle = eHotTrackingStyle.None;
-      this.btnSwapTA.Name = "btnSwapTA";
-      this.btnSwapTA.Text = "Swap Title-Album";
-      this.btnCancel.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
-      this.btnCancel.BackColor = SystemColors.Control;
-      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnCancel.ImeMode = ImeMode.NoControl;
-      point = new Point(560, 8);
-      this.btnCancel.Location = point;
-      this.btnCancel.Name = "btnCancel";
-      size = new Size(0x60, 0x18);
-      this.btnCancel.Size = size;
-      this.btnCancel.TabIndex = 0x68;
-      this.btnCancel.Text = "&Cancel";
-      this.btnOK.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
-      this.btnOK.BackColor = SystemColors.Control;
-      this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-      this.btnOK.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1c8, 8);
-      this.btnOK.Location = point;
-      this.btnOK.Name = "btnOK";
-      size = new Size(0x60, 0x18);
-      this.btnOK.Size = size;
-      this.btnOK.TabIndex = 0x67;
-      this.btnOK.Text = "&OK";
-      this.lblDigits.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
-      this.lblDigits.BackColor = Color.White;
-      this.lblDigits.ForeColor = Color.Black;
-      this.lblDigits.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 12);
-      this.lblDigits.Location = point;
-      this.lblDigits.Name = "lblDigits";
-      size = new Size(0xb8, 0x10);
-      this.lblDigits.Size = size;
-      this.lblDigits.TabIndex = 0x65;
-      this.lblDigits.Text = "Number of digits of track numbers:";
-      this.TopPanel.AntiAlias = true;
-      this.TopPanel.Controls.Add(this.txtSelected);
-      this.TopPanel.Controls.Add(this.lblSelected);
-      this.TopPanel.Dock = DockStyle.Top;
-      point = new Point(0xa8, 0);
-      this.TopPanel.Location = point;
-      this.TopPanel.Name = "TopPanel";
-      size = new Size(0x29a, 0x30);
-      this.TopPanel.Size = size;
-      this.TopPanel.Style.BackColor1.Color = Color.White;
-      this.TopPanel.Style.BackColor2.Color = Color.White;
-      this.TopPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this.TopPanel.Style.BorderWidth = 0;
-      this.TopPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.TopPanel.Style.ForeColor.Color = Color.Black;
-      this.TopPanel.Style.GradientAngle = 90;
-      this.TopPanel.Style.LineAlignment = StringAlignment.Near;
-      this.TopPanel.Style.MarginBottom = 2;
-      this.TopPanel.Style.MarginLeft = 7;
-      this.TopPanel.Style.MarginRight = 2;
-      this.TopPanel.Style.MarginTop = 2;
-      this.TopPanel.TabIndex = 0x6a;
-      this.TopPanel.Text = "TopPanel";
-      this.panDetail.BackColor = SystemColors.Control;
-      this.panDetail.Controls.Add(this.Panel4);
-      this.panDetail.Controls.Add(this.Panel5);
-      this.panDetail.Controls.Add(this.Panel9);
-      this.panDetail.Controls.Add(this.Panel14);
-      point = new Point(0xa8, 0x30);
-      this.panDetail.Location = point;
-      this.panDetail.Name = "panDetail";
-      size = new Size(0x298, 0x1b0);
-      this.panDetail.Size = size;
-      this.panDetail.TabIndex = 0x75;
-      this.panMain.Controls.Add(this.Panel3);
-      this.panMain.Controls.Add(this.Panel1);
-      this.panMain.Controls.Add(this.Panel2);
-      point = new Point(0xa8, 0x30);
-      this.panMain.Location = point;
-      this.panMain.Name = "panMain";
-      size = new Size(0x298, 0x1c8);
-      this.panMain.Size = size;
-      this.panMain.TabIndex = 0x74;
-      this.panOriginal.Controls.Add(this.Panel6);
-      point = new Point(0xa8, 0x30);
-      this.panOriginal.Location = point;
-      this.panOriginal.Name = "panOriginal";
-      size = new Size(0x298, 0x1a8);
-      this.panOriginal.Size = size;
-      this.panOriginal.TabIndex = 0x76;
-      this.panInvolved.Controls.Add(this.Panel16);
-      this.panInvolved.Controls.Add(this.Panel15);
-      point = new Point(0xa8, 0x30);
-      this.panInvolved.Location = point;
-      this.panInvolved.Name = "panInvolved";
-      size = new Size(0x298, 320);
-      this.panInvolved.Size = size;
-      this.panInvolved.TabIndex = 0x77;
-      this.panPic.Controls.Add(this.Panel7);
-      point = new Point(0xa8, 0x38);
-      this.panPic.Location = point;
-      this.panPic.Name = "panPic";
-      size = new Size(0x298, 0x130);
-      this.panPic.Size = size;
-      this.panPic.TabIndex = 120;
-      this.panLyrics.Controls.Add(this.Panel8);
-      point = new Point(0xa8, 0x30);
-      this.panLyrics.Location = point;
-      this.panLyrics.Name = "panLyrics";
-      size = new Size(0x298, 0x1b0);
-      this.panLyrics.Size = size;
-      this.panLyrics.TabIndex = 0x79;
-      this.panWeb.Controls.Add(this.Panel10);
-      point = new Point(0xa8, 0x30);
-      this.panWeb.Location = point;
-      this.panWeb.Name = "panWeb";
-      size = new Size(0x298, 360);
-      this.panWeb.Size = size;
-      this.panWeb.TabIndex = 0x7a;
-      this.panRating.Controls.Add(this.Panel11);
-      point = new Point(0xa8, 0x30);
-      this.panRating.Location = point;
-      this.panRating.Name = "panRating";
-      size = new Size(0x298, 0x1b0);
-      this.panRating.Size = size;
-      this.panRating.TabIndex = 0x7b;
-      this.panUser.Controls.Add(this.Panel13);
-      this.panUser.Controls.Add(this.Panel12);
-      point = new Point(0xa8, 0x38);
-      this.panUser.Location = point;
-      this.panUser.Name = "panUser";
-      size = new Size(0x298, 0x1a0);
-      this.panUser.Size = size;
-      this.panUser.TabIndex = 0x7c;
-      this.panNot.Controls.Add(this.lblNot);
-      this.panNot.Controls.Add(this.NotSupportList);
-      point = new Point(0xa8, 0x30);
-      this.panNot.Location = point;
-      this.panNot.Name = "panNot";
-      size = new Size(0x298, 440);
-      this.panNot.Size = size;
-      this.panNot.TabIndex = 0x7d;
-      this.ButtomPanel.AntiAlias = true;
-      this.ButtomPanel.Controls.Add(this.btnOK);
-      this.ButtomPanel.Controls.Add(this.btnCancel);
-      this.ButtomPanel.Controls.Add(this.lblDigits);
-      this.ButtomPanel.Controls.Add(this.txtDigits);
-      this.ButtomPanel.Dock = DockStyle.Bottom;
-      point = new Point(0xa8, 0x1f8);
-      this.ButtomPanel.Location = point;
-      this.ButtomPanel.Name = "ButtomPanel";
-      size = new Size(0x29a, 40);
-      this.ButtomPanel.Size = size;
-      this.ButtomPanel.Style.BackColor1.Color = Color.White;
-      this.ButtomPanel.Style.BackColor2.Color = Color.White;
-      this.ButtomPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this.ButtomPanel.Style.BorderWidth = 0;
-      this.ButtomPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.ButtomPanel.Style.ForeColor.Color = Color.Black;
-      this.ButtomPanel.Style.GradientAngle = 90;
-      this.ButtomPanel.Style.LineAlignment = StringAlignment.Near;
-      this.ButtomPanel.Style.MarginBottom = 2;
-      this.ButtomPanel.Style.MarginLeft = 7;
-      this.ButtomPanel.Style.MarginRight = 2;
-      this.ButtomPanel.Style.MarginTop = 2;
-      this.ButtomPanel.TabIndex = 100;
-      this.AcceptButton = this.btnOK;
-      size = new Size(5, 13);
-      this.AutoScaleBaseSize = size;
-      this.CancelButton = this.btnCancel;
-      size = new Size(0x342, 0x220);
-      this.ClientSize = size;
-      this.ControlBox = false;
-      this.Controls.Add(this.panMain);
-      this.Controls.Add(this.panLyrics);
-      this.Controls.Add(this.panPic);
-      this.Controls.Add(this.panNot);
-      this.Controls.Add(this.panUser);
-      this.Controls.Add(this.panInvolved);
-      this.Controls.Add(this.panDetail);
-      this.Controls.Add(this.panRating);
-      this.Controls.Add(this.panWeb);
-      this.Controls.Add(this.panOriginal);
-      this.Controls.Add(this.TopPanel);
-      this.Controls.Add(this.ButtomPanel);
-      this.Controls.Add(this.SelectionBar);
-      this.FormBorderStyle = FormBorderStyle.FixedDialog;
-      this.KeyPreview = true;
-      this.MaximizeBox = false;
-      this.MinimizeBox = false;
-      this.Name = "frmTAG2";
-      this.ShowInTaskbar = false;
-      this.Text = "Edit TAG Ver. 2";
-      this.Panel3.ResumeLayout(false);
-      this.Panel2.ResumeLayout(false);
-      this.Panel1.ResumeLayout(false);
-      this.Panel9.ResumeLayout(false);
-      this.Panel6.ResumeLayout(false);
-      this.Panel5.ResumeLayout(false);
-      this.Panel4.ResumeLayout(false);
-      this.Panel15.ResumeLayout(false);
-      this.Panel16.ResumeLayout(false);
-      this.Panel14.ResumeLayout(false);
-      this.Panel7.ResumeLayout(false);
-      this.Panel8.ResumeLayout(false);
-      this.Panel11.ResumeLayout(false);
-      this.txtRatingCounter.EndInit();
-      this.txtRatingRating.EndInit();
-      this.Panel10.ResumeLayout(false);
-      this.Panel13.ResumeLayout(false);
-      this.Panel12.ResumeLayout(false);
-      this.txtDigits.EndInit();
-      ((ISupportInitialize)this.SelectionBar).EndInit();
-      this.TopPanel.ResumeLayout(false);
-      this.panDetail.ResumeLayout(false);
-      this.panMain.ResumeLayout(false);
-      this.panOriginal.ResumeLayout(false);
-      this.panInvolved.ResumeLayout(false);
-      this.panPic.ResumeLayout(false);
-      this.panLyrics.ResumeLayout(false);
-      this.panWeb.ResumeLayout(false);
-      this.panRating.ResumeLayout(false);
-      this.panUser.ResumeLayout(false);
-      this.panNot.ResumeLayout(false);
-      this.ButtomPanel.ResumeLayout(false);
-      this.ResumeLayout(false);
-    }
-
     private void LyricsList_Click(object sender, EventArgs e)
     {
       this.txtLDescriptor.Text = this.LyricsList.FocusedItem.Text;
-      using (IEnumerator enumerator = this.cmbLLanguage.Items.GetEnumerator())
+      var enumerator = this.cmbLLanguage.Items.GetEnumerator();
+      while (enumerator.MoveNext())
       {
-        while (enumerator.MoveNext())
+        string str = StringType.FromObject(enumerator.Current);
+        if (str.StartsWith(this.LyricsList.FocusedItem.SubItems[2].Text))
         {
-          string str = StringType.FromObject(enumerator.Current);
-          if (str.StartsWith(this.LyricsList.FocusedItem.SubItems[2].Text))
-          {
-            this.cmbLLanguage.SelectedItem = str;
-            goto Label_0089;
-          }
+          this.cmbLLanguage.SelectedItem = str;
+          goto Label_0089;
         }
       }
       Label_0089:
@@ -5868,7 +5343,6 @@
     private void SaveToTAG()
     {
       string text;
-      ListViewItem item = new ListViewItem();
       ArrayList list = new ArrayList();
       Declarations.UnDoReDo @do = new Declarations.UnDoReDo(this.MP3, this.MP3.V1TAG.Clone(), this.MP3.V2TAG.Clone(), this.MP3.CurrentFullName, this.MP3.Changed);
       list.Add(@do);
@@ -6258,14 +5732,12 @@
         o = ID3Functions.CreateTextFrame("TBPM", this.txtBPM.Text);
       }
       this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
-      using (IEnumerator enumerator18 = this.alstRemovedTXXXFrames.GetEnumerator())
+      var enumerator18 = this.alstRemovedTXXXFrames.GetEnumerator();
+      while (enumerator18.MoveNext())
       {
-        while (enumerator18.MoveNext())
-        {
-          o = RuntimeHelpers.GetObjectValue(enumerator18.Current);
-          LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
-          this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
-        }
+        o = RuntimeHelpers.GetObjectValue(enumerator18.Current);
+        LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
+        this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
       }
       foreach (ListViewItem item in this.TXXXList.Items)
       {
@@ -6277,14 +5749,12 @@
         }
         this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(item.Tag));
       }
-      using (IEnumerator enumerator16 = this.alstRemovedWXXXFrames.GetEnumerator())
+      var enumerator16 = this.alstRemovedWXXXFrames.GetEnumerator();
+      while (enumerator16.MoveNext())
       {
-        while (enumerator16.MoveNext())
-        {
-          o = RuntimeHelpers.GetObjectValue(enumerator16.Current);
-          LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
-          this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
-        }
+        o = RuntimeHelpers.GetObjectValue(enumerator16.Current);
+        LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
+        this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
       }
       foreach (ListViewItem item in this.WXXXList.Items)
       {
@@ -6299,23 +5769,17 @@
       if (!Declarations.objSettings.SingleGC)
       {
         text = "";
-        using (IEnumerator enumerator14 = this.GenreList.Items.GetEnumerator())
+        var enumerator14 = this.GenreList.Items.GetEnumerator();
+        while (enumerator14.MoveNext())
         {
-          while (enumerator14.MoveNext())
-          {
-            string str2 = StringType.FromObject(enumerator14.Current);
-            text = text + str2 + "\0";
-          }
+          string str2 = StringType.FromObject(enumerator14.Current);
+          text = text + str2 + "\0";
         }
         if (text.EndsWith("\0"))
-        {
           text = text.Substring(0, text.Length - 1);
-        }
         o = ID3Functions.CreateTextFrame("TCON", text);
         if (StringType.StrCmp(text, "", false) == 0)
-        {
           LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
-        }
         this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
       }
       else
@@ -6323,9 +5787,7 @@
         text = this.cmbGenre.Text;
         o = ID3Functions.CreateTextFrame("TCON", text);
         if (StringType.StrCmp(text, "", false) == 0)
-        {
           LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
-        }
         this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
       }
       if (this.vbooLyricsMoved)
@@ -6348,16 +5810,14 @@
         this.MP3.V2TAG.RemoveFrames("POPM");
         this.MP3.V2TAG.AddFrames(list3);
       }
-      using (IEnumerator enumerator11 = this.alstRemovedLDCFrames.GetEnumerator())
+      var enumerator11 = this.alstRemovedLDCFrames.GetEnumerator();
+      while (enumerator11.MoveNext())
       {
-        while (enumerator11.MoveNext())
+        o = RuntimeHelpers.GetObjectValue(enumerator11.Current);
+        if (ObjectType.ObjTst(LateBinding.LateGet(o, null, "FID", new object[0], null, null), "USLT", false) == 0)
         {
-          o = RuntimeHelpers.GetObjectValue(enumerator11.Current);
-          if (ObjectType.ObjTst(LateBinding.LateGet(o, null, "FID", new object[0], null, null), "USLT", false) == 0)
-          {
-            LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
-            this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
-          }
+          LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
+          this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
         }
       }
       foreach (ListViewItem item in this.LyricsList.Items)
@@ -6370,16 +5830,14 @@
         }
         this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(item.Tag));
       }
-      using (IEnumerator enumerator9 = this.alstRemovedPOPMFrames.GetEnumerator())
+      var enumerator9 = this.alstRemovedPOPMFrames.GetEnumerator();
+      while (enumerator9.MoveNext())
       {
-        while (enumerator9.MoveNext())
+        o = RuntimeHelpers.GetObjectValue(enumerator9.Current);
+        if (ObjectType.ObjTst(LateBinding.LateGet(o, null, "FID", new object[0], null, null), "POPM", false) == 0)
         {
-          o = RuntimeHelpers.GetObjectValue(enumerator9.Current);
-          if (ObjectType.ObjTst(LateBinding.LateGet(o, null, "FID", new object[0], null, null), "POPM", false) == 0)
-          {
-            LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
-            this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
-          }
+          LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
+          this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
         }
       }
       foreach (ListViewItem item in this.RatingList.Items)
@@ -6393,14 +5851,12 @@
         }
         this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(item.Tag));
       }
-      using (IEnumerator enumerator7 = this.alstRemovedAPICFrames.GetEnumerator())
+      var enumerator7 = this.alstRemovedAPICFrames.GetEnumerator();
+      while (enumerator7.MoveNext())
       {
-        while (enumerator7.MoveNext())
-        {
-          o = RuntimeHelpers.GetObjectValue(enumerator7.Current);
-          LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
-          this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
-        }
+        o = RuntimeHelpers.GetObjectValue(enumerator7.Current);
+        LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
+        this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
       }
       foreach (ListViewItem item in this.PicList.Items)
       {
@@ -6418,16 +5874,14 @@
           this.MP3.V2TAG.RemoveFrames("COMM");
           this.MP3.V2TAG.AddFrames(list4);
         }
-        using (IEnumerator enumerator4 = this.alstRemovedLDCFrames.GetEnumerator())
+        var enumerator4 = this.alstRemovedLDCFrames.GetEnumerator();
+        while (enumerator4.MoveNext())
         {
-          while (enumerator4.MoveNext())
+          o = RuntimeHelpers.GetObjectValue(enumerator4.Current);
+          if (ObjectType.ObjTst(LateBinding.LateGet(o, null, "FID", new object[0], null, null), "COMM", false) == 0)
           {
-            o = RuntimeHelpers.GetObjectValue(enumerator4.Current);
-            if (ObjectType.ObjTst(LateBinding.LateGet(o, null, "FID", new object[0], null, null), "COMM", false) == 0)
-            {
-              LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
-              this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
-            }
+            LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
+            this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
           }
         }
         foreach (ListViewItem item in this.CommentList.Items)
@@ -6834,6 +6288,7 @@
       }
     }
 
+/*
     internal virtual PictureBox APICView
     {
       get
@@ -12019,5 +11474,6 @@
         }
       }
     }
+*/
   }
 }

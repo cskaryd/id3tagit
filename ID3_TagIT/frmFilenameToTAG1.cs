@@ -343,7 +343,7 @@ namespace ID3_TagIT
         this.MainForm.UnDoEnable(true, true);
       }
       ownerForm = this;
-      Main.SaveFormSettings(ref ownerForm);
+      Id3TagIT_Main.SaveFormSettings(ref ownerForm);
       this.Close();
     }
 
@@ -376,7 +376,6 @@ namespace ID3_TagIT
 
     private void FilenameTAGV1CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
       {
         Application.DoEvents();
@@ -399,9 +398,9 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       int num2 = Declarations.objSettings.FT1Formats.Rows.Count - 1;
       for (int i = 0; i <= num2; i++)
       {

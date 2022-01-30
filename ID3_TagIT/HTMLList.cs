@@ -18,7 +18,7 @@
       this.objHTMLFile.WriteLine(Strings.Space(10) + "<font color=" + this.GetFontColor(FC) + ">" + this.GetFontOpen(FF));
       if (StringType.StrCmp(vstrEntry, "", false) != 0)
       {
-        string str;
+        string str = null;
         int num2 = Strings.Len(vstrEntry);
         for (int i = 1; i <= num2; i++)
         {

@@ -55,27 +55,25 @@
       int length = 0;
       CRC32 crc = new CRC32();
       this.vintAudioCheckSum = 0;
+
       if (this.OpenFileStreamR())
       {
         this.OpenBinaryReader();
         length = (int)this.FI.Length;
         vintStart = 0;
+
         if (this.V1TAG.TAGPresent)
-        {
           length -= 0x80;
-        }
+
         if (this.V2TAG.TAGHeaderPresent)
-        {
           vintStart = IntegerType.FromObject(Interaction.IIf(this.V2TAG.FooterPresent, this.V2TAG.TAGSize + 20, this.V2TAG.TAGSize + 10));
-        }
-        this.vintAudioCheckSum = crc.CRC_32(0, ref this.FStream, vintStart, length - vintStart);
+
+        this.vintAudioCheckSum = crc.CRC_32(0, ref objFileStream, vintStart, length - vintStart);
         this.CloseBinaryReader();
         this.CloseFileStream();
       }
       else
-      {
         this.vintAudioCheckSum = 0;
-      }
     }
 
     public MP3 Clone()
@@ -119,32 +117,33 @@
     public void GetMP3Header(int vintStartPos)
     {
       MP3Frame frame = null;
-      byte samplerateValue = null;
+      byte samplerateValue = 255; // FIXME - this is random value that will fail below if a sample rate is not found
+
       if (vintStartPos >= (this.FI.Length - 4L))
-      {
         return;
-      }
+
       bool flag = false;
       byte[] array = new byte[4];
       this.FStream.Seek((long)vintStartPos, SeekOrigin.Begin);
+
       if (this.FStream.Read(array, 0, 4) < 4)
-      {
         return;
-      }
+
       int index = 1;
+
       Label_0046:
       if ((array[0] == 0xff) & (array[1] >= 240))
       {
         frame = new MP3Frame();
-        if (!frame.GetFrame(ref this.FStream, ref array, true))
+        if (!frame.GetFrame(ref objFileStream, ref array, true))
         {
           this.FStream.Seek(-3L, SeekOrigin.Current);
           if (this.FStream.Read(array, 0, 4) < 4)
-          {
             return;
-          }
+
           goto Label_010C;
         }
+
         flag = true;
         this.vbytVersion = frame.Version;
         this.vbytLayer = frame.Layer;
@@ -174,14 +173,12 @@
       {
         this.vbooVBR = true;
         this.vintNumberOfFrames = frame.NumberOfFrames;
+
         if (this.vintNumberOfFrames != 0)
-        {
           this.vintBitrate = Convert.ToInt32(ObjectType.MulObj(ObjectType.DivObj(((double)(this.FI.Length - this.FStream.Position)) / ((double)this.vintNumberOfFrames), Interaction.IIf(this.vbytLayer == 3, 12, 0x90)), this.vintSamplerate));
-        }
         else
-        {
           this.vintBitrate = frame.Bitrate;
-        }
+
         if ((((this.vintBitrate != 0xf3e58) & (this.vintBitrate != 0)) & (this.vintSamplerate != 0x1869f)) & (this.vintSamplerate != 0))
         {
           if ((this.vbytLayer == 1) | (this.vbytLayer == 2))
@@ -215,15 +212,13 @@
           }
           if ((array[0] == 0xff) & (array[1] >= 240))
           {
-            if (frame2.GetFrame(ref this.FStream, ref array, false))
+            if (frame2.GetFrame(ref this.objFileStream, ref array, false))
             {
               num4++;
               num5 = 0;
               numArray[num4] = frame2.Bitrate;
               if (numArray[num4] != numArray[num4 - 1])
-              {
                 num3++;
-              }
               this.FStream.Seek((long)(frame2.FrameLength - 4), SeekOrigin.Current);
             }
             else
@@ -241,24 +236,18 @@
         while (((num4 != 80) || (num3 != 0)) && ((num5 <= 0x1000) && (num4 != 0x1c1)));
         this.vbooVBR = num3 >= 7;
         if (!this.vbooVBR)
-        {
           this.vintBitrate = Declarations.aintBitrateLookup[((this.vbytVersion & 1) * 4) | this.vbytLayer, frame.BitrateValue] * 0x3e8;
-        }
         else
         {
           int num8 = num4;
           for (index = 0; index <= num8; index++)
-          {
             num6 += numArray[index];
-          }
           Array.Sort(numArray);
           byte num7 = 0;
           for (index = num4; index >= 1; index += -1)
           {
             if (numArray[index] != numArray[index - 1])
-            {
               num7 = (byte)(num7 + 1);
-            }
             if (num7 == 2)
             {
               num6 += numArray[index - 1] * (num4 / 2);

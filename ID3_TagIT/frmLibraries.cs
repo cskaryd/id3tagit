@@ -619,7 +619,7 @@ namespace ID3_TagIT
       this.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
       this.TabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.TabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+      this.TabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
             | DevComponents.DotNetBar.eBorderSide.Bottom)));
       this.TabControlPanel1.Style.GradientAngle = 90;
       this.TabControlPanel1.TabIndex = 1;
@@ -649,7 +649,7 @@ namespace ID3_TagIT
       this.TabControlPanel4.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
       this.TabControlPanel4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.TabControlPanel4.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel4.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+      this.TabControlPanel4.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
             | DevComponents.DotNetBar.eBorderSide.Bottom)));
       this.TabControlPanel4.Style.GradientAngle = 90;
       this.TabControlPanel4.TabIndex = 4;
@@ -682,7 +682,7 @@ namespace ID3_TagIT
       this.TabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
       this.TabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.TabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+      this.TabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
             | DevComponents.DotNetBar.eBorderSide.Bottom)));
       this.TabControlPanel2.Style.GradientAngle = 90;
       this.TabControlPanel2.TabIndex = 2;
@@ -714,7 +714,7 @@ namespace ID3_TagIT
       this.TabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
       this.TabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.TabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel3.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+      this.TabControlPanel3.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
             | DevComponents.DotNetBar.eBorderSide.Bottom)));
       this.TabControlPanel3.Style.GradientAngle = 90;
       this.TabControlPanel3.TabIndex = 3;
@@ -877,7 +877,7 @@ namespace ID3_TagIT
 
     private void ArtistCB(ref frmProgress frmProg)
     {
-      IEnumerator enumerator;
+      IEnumerator enumerator = null;
       try
       {
         enumerator = frmProg.List.GetEnumerator();
@@ -912,16 +912,14 @@ namespace ID3_TagIT
       if (StringType.StrCmp(this.txtArtistName.Text.Trim(), "", false) != 0)
       {
         DataRow current;
-        using (IEnumerator enumerator2 = Declarations.objSettings.Artists.Rows.GetEnumerator())
+        var enumerator2 = Declarations.objSettings.Artists.Rows.GetEnumerator();
+        while (enumerator2.MoveNext())
         {
-          while (enumerator2.MoveNext())
+          current = (DataRow)enumerator2.Current;
+          if (ObjectType.ObjTst(current["Name"], this.txtArtistName.Text.Trim(), false) == 0)
           {
-            current = (DataRow)enumerator2.Current;
-            if (ObjectType.ObjTst(current["Name"], this.txtArtistName.Text.Trim(), false) == 0)
-            {
-              Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["DoubleArtist"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Exclamation, null);
-              return;
-            }
+            Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["DoubleArtist"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Exclamation, null);
+            return;
           }
         }
         current = Declarations.objSettings.Artists.NewRow();
@@ -944,16 +942,14 @@ namespace ID3_TagIT
       if (StringType.StrCmp(this.txtNewCommD.Text.Trim(), "", false) != 0)
       {
         DataRow current;
-        using (IEnumerator enumerator2 = Declarations.objSettings.CommDescriptors.Rows.GetEnumerator())
+        var enumerator2 = Declarations.objSettings.CommDescriptors.Rows.GetEnumerator();
+        while (enumerator2.MoveNext())
         {
-          while (enumerator2.MoveNext())
+          current = (DataRow)enumerator2.Current;
+          if (ObjectType.ObjTst(current["Name"], this.txtNewCommD.Text.Trim(), false) == 0)
           {
-            current = (DataRow)enumerator2.Current;
-            if (ObjectType.ObjTst(current["Name"], this.txtNewCommD.Text.Trim(), false) == 0)
-            {
-              Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["DoubleCommD"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Exclamation, null);
-              return;
-            }
+            Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["DoubleCommD"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Exclamation, null);
+            return;
           }
         }
         current = Declarations.objSettings.CommDescriptors.NewRow();
@@ -1170,7 +1166,7 @@ namespace ID3_TagIT
     private void btnOK_Click(object sender, EventArgs e)
     {
       Form form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
       Declarations.objSettings.FavNodes.Clear();
       foreach (TreeNode node in this.FavTree.Nodes)
       {
@@ -1262,7 +1258,7 @@ namespace ID3_TagIT
 
     private void CommDCB(ref frmProgress frmProg)
     {
-      IEnumerator enumerator;
+      IEnumerator enumerator = null;
       try
       {
         enumerator = frmProg.List.GetEnumerator();
@@ -1306,9 +1302,9 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       foreach (TreeNode node in Declarations.objSettings.FavNodes)
       {
         LateBinding.LateCall(this.FavTree.Nodes, null, "Add", new object[] { RuntimeHelpers.GetObjectValue(node.Clone()) }, null, null);
@@ -1361,7 +1357,7 @@ namespace ID3_TagIT
 
     private void GenreCB(ref frmProgress frmProg)
     {
-      IEnumerator enumerator;
+      IEnumerator enumerator = null;
       try
       {
         enumerator = this.GenreList.Items.GetEnumerator();
@@ -1394,38 +1390,36 @@ namespace ID3_TagIT
 
     private void LibCB(ref frmProgress frmProg)
     {
-      using (IEnumerator enumerator = frmProg.List.GetEnumerator())
+      var enumerator = frmProg.List.GetEnumerator();
+      while (enumerator.MoveNext())
       {
-        while (enumerator.MoveNext())
+        string sLeft = StringType.FromObject(enumerator.Current);
+        Application.DoEvents();
+        if (frmProg.Canceled)
         {
-          string sLeft = StringType.FromObject(enumerator.Current);
-          Application.DoEvents();
-          if (frmProg.Canceled)
-          {
-            return;
-          }
-          if (StringType.StrCmp(sLeft, "", false) != 0)
-          {
-            DataRow row = Declarations.objSettings.Artists.NewRow();
-            row["Name"] = sLeft;
-            try
-            {
-              Declarations.objSettings.Artists.Rows.Add(row);
-            }
-            catch (Exception exception1)
-            {
-              ProjectData.SetProjectError(exception1);
-              ProjectData.ClearProjectError();
-            }
-          }
-          frmProg.ProgressBar.PerformStep();
+          return;
         }
+        if (StringType.StrCmp(sLeft, "", false) != 0)
+        {
+          DataRow row = Declarations.objSettings.Artists.NewRow();
+          row["Name"] = sLeft;
+          try
+          {
+            Declarations.objSettings.Artists.Rows.Add(row);
+          }
+          catch (Exception exception1)
+          {
+            ProjectData.SetProjectError(exception1);
+            ProjectData.ClearProjectError();
+          }
+        }
+        frmProg.ProgressBar.PerformStep();
       }
     }
 
     private void V1CB(ref frmProgress frmProg)
     {
-      IEnumerator enumerator;
+      IEnumerator enumerator = null;
       try
       {
         enumerator = Declarations.MP3s.GetEnumerator();
@@ -1450,7 +1444,7 @@ namespace ID3_TagIT
 
     private void V2CB(ref frmProgress frmProg)
     {
-      IEnumerator enumerator;
+      IEnumerator enumerator = null;
       try
       {
         enumerator = Declarations.MP3s.GetEnumerator();

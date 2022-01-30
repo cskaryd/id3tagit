@@ -358,7 +358,7 @@ namespace ID3_TagIT
       ArrayList list = new ArrayList();
 
       Form form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
 
       if (this.optConvert34.Checked)
         Declarations.objSettings.TransferMethod = 3;
@@ -867,16 +867,14 @@ namespace ID3_TagIT
 
         if (!tag.V2TAG.FrameExists("TSIZ") && !tag.V2TAG.FrameExists("TRDA"))
         {
-          using (IEnumerator enumerator = tag.V2TAG.GetAllNotSupportedFrames().GetEnumerator())
+          var enumerator = tag.V2TAG.GetAllNotSupportedFrames().GetEnumerator();
+          while (enumerator.MoveNext())
           {
-            while (enumerator.MoveNext())
+            object objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
+            if ((ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "EQUA", false) == 0) || (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "RVAD", false) == 0))
             {
-              object objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
-              if ((ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "EQUA", false) == 0) || (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "RVAD", false) == 0))
-              {
-                flag2 = true;
-                goto Label_01FE;
-              }
+              flag2 = true;
+              goto Label_01FE;
             }
           }
         }
@@ -1003,16 +1001,14 @@ namespace ID3_TagIT
 
         if ((((!tag.V2TAG.FrameExists("TDEN") && !tag.V2TAG.FrameExists("TDRL")) && (!tag.V2TAG.FrameExists("TDTG") && !tag.V2TAG.FrameExists("TSST"))) && ((!tag.V2TAG.FrameExists("TMCL") && !tag.V2TAG.FrameExists("TMOO")) && (!tag.V2TAG.FrameExists("TPRO") && !tag.V2TAG.FrameExists("TSOA")))) && (!tag.V2TAG.FrameExists("TSOP") && !tag.V2TAG.FrameExists("TSOT")))
         {
-          using (IEnumerator enumerator2 = tag.V2TAG.GetAllNotSupportedFrames().GetEnumerator())
+          var enumerator2 = tag.V2TAG.GetAllNotSupportedFrames().GetEnumerator();
+          while (enumerator2.MoveNext())
           {
-            while (enumerator2.MoveNext())
+            objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
+            if (((ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "ASPI", false) == 0) || (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "EQU2", false) == 0)) || (((ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "RVA2", false) == 0) || (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "SEEK", false) == 0)) || (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "SIGN", false) == 0)))
             {
-              objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
-              if (((ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "ASPI", false) == 0) || (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "EQU2", false) == 0)) || (((ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "RVA2", false) == 0) || (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "SEEK", false) == 0)) || (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "SIGN", false) == 0)))
-              {
-                flag2 = true;
-                goto Label_0315;
-              }
+              flag2 = true;
+              goto Label_0315;
             }
           }
         }
@@ -1096,28 +1092,27 @@ namespace ID3_TagIT
         tag.V2TAG.RemoveFrames("EQU2");
         tag.V2TAG.RemoveFrames("SEEK");
 
-        using (var enumerator = tag.V2TAG.GetAllSupportedFrames().GetEnumerator())
+        var enumerator = tag.V2TAG.GetAllSupportedFrames().GetEnumerator();
+
+        while (enumerator.MoveNext())
         {
-          while (enumerator.MoveNext())
+          objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
+          try
           {
-            objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
-            try
-            {
-              if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "EncodingByte", new object[0], null, null), 0xff, false) != 0, ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "EncodingByte", new object[0], null, null), 1, false) > 0)))
-              {
-                LateBinding.LateSet(objectValue, null, "EncodingByte", new object[] { 1 }, null);
-              }
-              continue;
-            }
-            catch (Exception exception1)
-            {
-              ProjectData.SetProjectError(exception1);
-              Exception exception = exception1;
-              ProjectData.ClearProjectError();
-              continue;
-            }
+            if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "EncodingByte", new object[0], null, null), 0xff, false) != 0, ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "EncodingByte", new object[0], null, null), 1, false) > 0)))
+              LateBinding.LateSet(objectValue, null, "EncodingByte", new object[] { 1 }, null);
+
+            continue;
+          }
+          catch (Exception exception1)
+          {
+            ProjectData.SetProjectError(exception1);
+            Exception exception = exception1;
+            ProjectData.ClearProjectError();
+            continue;
           }
         }
+
         Label_0889:
         this.MainForm.UpdateListItem(item, false);
         frmProg.ProgressBar.PerformStep();
@@ -1137,9 +1132,9 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       switch (Declarations.objSettings.TransferMethod)
       {
         case 1:

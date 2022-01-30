@@ -138,7 +138,7 @@ namespace ID3_TagIT
     {
       ArrayList list = new ArrayList();
       Form form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
       this.MainForm.MP3View.BeginUpdate();
       form = this;
       frmProgress.Callback cB = new frmProgress.Callback(this.CBTextEnc);
@@ -176,33 +176,30 @@ namespace ID3_TagIT
           {
             @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
             frmProg.List.Add(@do);
-            using (IEnumerator enumerator2 = tag.V2TAG.GetAllSupportedFrames().GetEnumerator())
+            var enumerator2 = tag.V2TAG.GetAllSupportedFrames().GetEnumerator();
+            while (enumerator2.MoveNext())
             {
-              while (enumerator2.MoveNext())
+              objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
+              try
               {
-                objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
-                try
-                {
-                  LateBinding.LateSet(objectValue, null, "EncodingByte", new object[] { selectedIndex }, null);
-                  continue;
-                }
-                catch (Exception exception1)
-                {
-                  ProjectData.SetProjectError(exception1);
-                  Exception exception = exception1;
-                  ProjectData.ClearProjectError();
-                  continue;
-                }
+                LateBinding.LateSet(objectValue, null, "EncodingByte", new object[] { selectedIndex }, null);
+                continue;
               }
-              goto Label_0320;
+              catch (Exception exception1)
+              {
+                ProjectData.SetProjectError(exception1);
+                Exception exception = exception1;
+                ProjectData.ClearProjectError();
+                continue;
+              }
             }
+            goto Label_0320;
           }
           if (tag.V2TAG.TAGVersion == 4)
           {
             @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
             frmProg.List.Add(@do);
-            using (IEnumerator enumerator = tag.V2TAG.GetAllSupportedFrames().GetEnumerator())
-            {
+            var enumerator = tag.V2TAG.GetAllSupportedFrames().GetEnumerator();
               while (enumerator.MoveNext())
               {
                 objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
@@ -219,7 +216,6 @@ namespace ID3_TagIT
                   continue;
                 }
               }
-            }
           }
         }
         Label_0320:
@@ -242,9 +238,9 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.cmbV23Enc.SelectedIndex = Declarations.objSettings.V23Encoding;
       this.cmbV24Enc.SelectedIndex = Declarations.objSettings.V24Encoding;
     }

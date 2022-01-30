@@ -7,7 +7,7 @@ namespace ID3_TagIT
 {
   public class frmSplash : Form
   {
-    private Label lblState;
+    public Label lblState;
     private Label lblVersion;
     private System.Windows.Forms.PictureBox PictureBox;
     private IContainer components;
@@ -91,8 +91,14 @@ namespace ID3_TagIT
       this.ShowInTaskbar = false;
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "ID3-TagIT";
+      this.Load += new System.EventHandler(this.frmSplash_Load_1);
       ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
       this.ResumeLayout(false);
+
+    }
+
+    private void frmSplash_Load_1(object sender, EventArgs e)
+    {
 
     }
   }

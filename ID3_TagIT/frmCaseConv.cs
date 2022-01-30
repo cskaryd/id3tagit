@@ -427,7 +427,7 @@ namespace ID3_TagIT
       this.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
       this.TabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.TabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+      this.TabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
             | DevComponents.DotNetBar.eBorderSide.Bottom)));
       this.TabControlPanel1.Style.GradientAngle = 90;
       this.TabControlPanel1.TabIndex = 1;
@@ -455,7 +455,7 @@ namespace ID3_TagIT
       this.TabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
       this.TabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.TabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+      this.TabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
             | DevComponents.DotNetBar.eBorderSide.Bottom)));
       this.TabControlPanel2.Style.GradientAngle = 90;
       this.TabControlPanel2.TabIndex = 2;
@@ -640,7 +640,7 @@ namespace ID3_TagIT
     {
       ArrayList list = new ArrayList();
       Form form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
       Declarations.objSettings.ConvertFilename = this.chkFilename.Checked;
       Declarations.objSettings.ConvertVer1 = this.chkVer1.Checked;
       Declarations.objSettings.ConvertVer2 = this.chkVer2.Checked;
@@ -821,17 +821,15 @@ namespace ID3_TagIT
           }
           if (this.chkComment.Checked)
           {
-            using (IEnumerator enumerator = tag.V2TAG.GetFrames("COMM").GetEnumerator())
+            var enumerator = tag.V2TAG.GetFrames("COMM").GetEnumerator();
+            while (enumerator.MoveNext())
             {
-              while (enumerator.MoveNext())
+              object objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
+              string str10 = this.ConvertCase(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)));
+              if (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), str10, false) != 0)
               {
-                object objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
-                string str10 = this.ConvertCase(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)));
-                if (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), str10, false) != 0)
-                {
-                  LateBinding.LateSet(objectValue, null, "Content", new object[] { str10 }, null);
-                  tag.Changed = true;
-                }
+                LateBinding.LateSet(objectValue, null, "Content", new object[] { str10 }, null);
+                tag.Changed = true;
               }
             }
           }
@@ -933,34 +931,27 @@ namespace ID3_TagIT
           vstrText = "";
           foreach (string str2 in strArray)
           {
-            if (StringType.StrCmp(str2, "", false) == 0)
-            {
+            var ss22 = str2;
+            if (StringType.StrCmp(ss22, "", false) == 0)
               continue;
-            }
-            str2 = str2.ToLower();
-            int num3 = str2.Length - 1;
+            ss22 = ss22.ToLower();
+            int num3 = ss22.Length - 1;
             num = 0;
             while (num <= num3)
             {
-              if (StringType.StrCmp(str2.Substring(num, 1).ToUpper(), str2.Substring(num, 1), false) != 0)
+              if (StringType.StrCmp(ss22.Substring(num, 1).ToUpper(), ss22.Substring(num, 1), false) != 0)
               {
                 if (num == 0)
-                {
-                  str2 = str2.Substring(0, 1).ToUpper() + str2.Substring(1);
-                }
-                else if (num == (str2.Length - 1))
-                {
-                  str2 = str2.Substring(0, num) + str2.Substring(num).ToUpper();
-                }
+                  ss22 = ss22.Substring(0, 1).ToUpper() + ss22.Substring(1);
+                else if (num == (ss22.Length - 1))
+                  ss22 = ss22.Substring(0, num) + ss22.Substring(num).ToUpper();
                 else
-                {
-                  str2 = str2.Substring(0, num) + str2.Substring(num, 1).ToUpper() + str2.Substring(num + 1);
-                }
+                  ss22 = ss22.Substring(0, num) + ss22.Substring(num, 1).ToUpper() + ss22.Substring(num + 1);
                 break;
               }
               num++;
             }
-            vstrText = vstrText + str2 + "\x0001";
+            vstrText = vstrText + ss22 + "\x0001";
           }
           vstrText = vstrText.TrimEnd(new char[] { '\x0001' });
           vstrText = vstrText.Replace("\x0001", this.txtSeparator.Text);
@@ -1028,9 +1019,9 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.lstExceptions.DataSource = Declarations.objSettings.Exceptions;
       this.lstExceptions.DisplayMember = "Name";
       this.lstExceptions.ValueMember = "Name";

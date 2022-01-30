@@ -204,7 +204,7 @@ namespace ID3_TagIT
       if (Directory.Exists(this.txtPath.Text))
       {
         Form form = this;
-        Main.SaveFormSettings(ref form);
+        Id3TagIT_Main.SaveFormSettings(ref form);
         alstFolders.Add(this.txtPath.Text);
         this.ScanFolders(alstFolders, "*.MP3", this.txtPath.Text);
       }
@@ -224,9 +224,9 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.txtPath.Text = Declarations.objSettings.CurrentPath;
       this.AddToolTips();
     }

@@ -11,23 +11,18 @@
 namespace ID3_TagIT
 {
   [StandardModule]
-  internal sealed class Main
+  internal sealed class Id3TagIT_Main
   {
     public static MemoryStream objDebugStream = new MemoryStream();
 
     public static bool CheckFilename(string vstrName, [Optional, DefaultParameterValue(false)] bool vbooCompletePath)
     {
       if (vbooCompletePath)
-      {
         if (((((((vstrName.IndexOf("<") >= 0) | (vstrName.IndexOf(">") >= 0)) | (vstrName.IndexOf('"') >= 0)) | (vstrName.IndexOf("/") >= 0)) | (vstrName.IndexOf("*") >= 0)) | (vstrName.IndexOf("|") >= 0)) | (vstrName.IndexOf("?") >= 0))
-        {
           return false;
-        }
-      }
       else if ((((((((vstrName.IndexOf(@"\") >= 0) | (vstrName.IndexOf("<") >= 0)) | (vstrName.IndexOf(">") >= 0)) | (vstrName.IndexOf('"') >= 0)) | (vstrName.IndexOf("/") >= 0)) | (vstrName.IndexOf("*") >= 0)) | (vstrName.IndexOf("|") >= 0)) | (vstrName.IndexOf("?") >= 0))
-      {
         return false;
-      }
+
       return true;
     }
 
@@ -38,9 +33,7 @@ namespace ID3_TagIT
       {
         string path = tempFileName.Substring(0, tempFileName.LastIndexOf(".") + 1) + vstrExt;
         if (File.Exists(path))
-        {
           File.Delete(path);
-        }
         File.Move(tempFileName, path);
         tempFileName = path;
         Application.DoEvents();
@@ -60,13 +53,9 @@ namespace ID3_TagIT
       Declarations.SHFILEINFO structure = new Declarations.SHFILEINFO(true);
       int cbFileInfo = Marshal.SizeOf(structure);
       if (vbooSmallIcon)
-      {
         shgfi = Declarations.SHGFI.ATTRIBUTES | Declarations.SHGFI.ICON | Declarations.SHGFI.ADDOVERLAYS | Declarations.SHGFI.SMALLICON;
-      }
       else
-      {
         shgfi = Declarations.SHGFI.ATTRIBUTES | Declarations.SHGFI.ICON | Declarations.SHGFI.ADDOVERLAYS;
-      }
       Declarations.SHGetFileInfo(ref vstrPath, 0x100, ref structure, cbFileInfo, shgfi);
       Icon icon2 = (Icon)Icon.FromHandle(structure.hIcon).Clone();
       Declarations.DestroyIcon(structure.hIcon);
@@ -75,8 +64,8 @@ namespace ID3_TagIT
 
     public static int[] GetColumnOrder(ListView ListView)
     {
-      int[] numArray;
       int msg = 0x103b;
+      int[] numArray = new int[0];
       int[] numArray2 = new int[(ListView.Columns.Count - 1) + 1];
 
       if (!Declarations.ListViewColumnOrder(ListView.Handle.ToInt32(), msg, numArray2.Length, ref numArray2[0]).Equals(0))
@@ -91,9 +80,7 @@ namespace ID3_TagIT
       string str2 = "";
       int index = 0;
       if (StringType.StrCmp(vstrBaseDir.Substring(0, 2), vstrFilePath.Substring(0, 2), false) != 0)
-      {
         return vstrFilePath;
-      }
       string[] strArray = vstrBaseDir.Split(new char[] { '\\' });
       string[] strArray2 = vstrFilePath.Split(new char[] { '\\' });
       if (strArray.Length <= strArray2.Length)
@@ -102,9 +89,7 @@ namespace ID3_TagIT
         for (num = 0; num <= upperBound; num++)
         {
           if (StringType.StrCmp(strArray[num], strArray2[num], false) != 0)
-          {
             break;
-          }
           index = num;
         }
       }
@@ -114,9 +99,7 @@ namespace ID3_TagIT
         for (num = 0; num <= num4; num++)
         {
           if (StringType.StrCmp(strArray[num], strArray2[num], false) != 0)
-          {
             break;
-          }
           index = num;
         }
       }
@@ -147,12 +130,15 @@ namespace ID3_TagIT
     [STAThread]
     public static void Main()
     {
-      Debug.get_Listeners().Add(new TextWriterTraceListener(objDebugStream));
-      Debug.set_AutoFlush(true);
+      Debug.Listeners.Add(new TextWriterTraceListener(objDebugStream));
+      Debug.AutoFlush = true;
+
+      Declarations.Declaration();
       CommandLine line = new CommandLine();
+
       string sLeft = "";
       string sRight = Application.ProductVersion.ToString().Substring(0, Application.ProductVersion.ToString().LastIndexOf("."));
-      Declarations.Declaration();
+
       try
       {
         if (!Directory.Exists(Declarations.vstrUserAppData))
@@ -161,14 +147,12 @@ namespace ID3_TagIT
           Directory.CreateDirectory(Path.Combine(Declarations.vstrUserAppData, "Libraries"));
           DirectoryInfo info = new DirectoryInfo(Declarations.vstrCommonAppData);
           DirectoryInfo info2 = new DirectoryInfo(Path.Combine(Declarations.vstrCommonAppData, "Libraries"));
+
           foreach (FileInfo info3 in info.GetFiles())
-          {
             info3.CopyTo(Path.Combine(Declarations.vstrUserAppData, info3.Name), true);
-          }
+
           foreach (FileInfo info3 in info2.GetFiles())
-          {
             info3.CopyTo(Path.Combine(Path.Combine(Declarations.vstrUserAppData, "Libraries"), info3.Name), true);
-          }
         }
         else
         {
@@ -178,45 +162,46 @@ namespace ID3_TagIT
             Directory.CreateDirectory(Path.Combine(Declarations.vstrUserAppData, "Libraries"));
             DirectoryInfo info4 = new DirectoryInfo(Declarations.vstrCommonAppData);
             DirectoryInfo info5 = new DirectoryInfo(Path.Combine(Declarations.vstrCommonAppData, "Libraries"));
+
             foreach (FileInfo info6 in info4.GetFiles())
-            {
               info6.CopyTo(Path.Combine(Declarations.vstrUserAppData, info6.Name), true);
-            }
+
             foreach (FileInfo info6 in info5.GetFiles())
-            {
               info6.CopyTo(Path.Combine(Path.Combine(Declarations.vstrUserAppData, "Libraries"), info6.Name), true);
-            }
           }
           else
           {
             FileStream stream = new FileStream(Path.Combine(Declarations.vstrUserAppData, "VersionInfo.txt"), FileMode.Open);
             StreamReader reader = new StreamReader(stream);
+
             sLeft = reader.ReadLine();
             stream.Close();
             reader.Close();
+
             if (StringType.StrCmp(sLeft, sRight, false) < 0)
             {
               Directory.CreateDirectory(Declarations.vstrUserAppData);
               Directory.CreateDirectory(Path.Combine(Declarations.vstrUserAppData, "Libraries"));
               DirectoryInfo info7 = new DirectoryInfo(Declarations.vstrCommonAppData);
               DirectoryInfo info8 = new DirectoryInfo(Path.Combine(Declarations.vstrCommonAppData, "Libraries"));
+
               if (StringType.StrCmp(sLeft, "3.0.7", false) < 0)
               {
                 foreach (FileInfo info9 in info7.GetFiles())
-                {
                   info9.CopyTo(Path.Combine(Declarations.vstrUserAppData, info9.Name), true);
-                }
+
                 File.Copy(Path.Combine(Declarations.vstrCommonAppData, @"Libraries\Library-Columns.xml"), Path.Combine(Declarations.vstrUserAppData, @"Libraries\Library-Columns.xml"), true);
               }
+
               if (StringType.StrCmp(sLeft, "3.1.3", false) < 0)
               {
                 File.Copy(Path.Combine(Declarations.vstrCommonAppData, @"Libraries\Library-CommDescriptors.xml"), Path.Combine(Declarations.vstrUserAppData, @"Libraries\Library-CommDescriptors.xml"), true);
                 File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Interface.xml"), Path.Combine(Declarations.vstrUserAppData, "Interface.xml"), true);
               }
+
               if (StringType.StrCmp(sLeft, "3.1.8", false) < 0)
-              {
                 File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Toolbar.xml"), Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml"), true);
-              }
+
               if (StringType.StrCmp(sLeft, "3.2.1", false) < 0)
               {
                 File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Toolbar.xml"), Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml"), true);
@@ -224,6 +209,7 @@ namespace ID3_TagIT
                 File.Copy(Path.Combine(Declarations.vstrCommonAppData, "ExtToolbar.xml"), Path.Combine(Declarations.vstrUserAppData, "ExtToolbar.xml"), true);
                 File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Navpanel.xml"), Path.Combine(Declarations.vstrUserAppData, "Navpanel.xml"), true);
               }
+
               if (StringType.StrCmp(sLeft, "3.3.0", false) < 0)
               {
                 File.Copy(Path.Combine(Declarations.vstrCommonAppData, "Toolbar.xml"), Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml"), true);
@@ -234,6 +220,7 @@ namespace ID3_TagIT
               }
             }
           }
+
           File.Copy(Path.Combine(Declarations.vstrCommonAppData, "VersionInfo.txt"), Path.Combine(Declarations.vstrUserAppData, "VersionInfo.txt"), true);
         }
       }
@@ -243,10 +230,13 @@ namespace ID3_TagIT
         Exception exception = exception1;
         ProjectData.ClearProjectError();
       }
+
       Declarations.objSettings.ReadSettings();
+
       if (StringType.StrCmp(sLeft, "", false) != 0)
       {
         DataColumn column;
+
         try
         {
           Declarations.objSettings.SettingsTable.Columns.Remove("PlaylistPath");
@@ -256,6 +246,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception2);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           Declarations.objSettings.SettingsTable.Columns.Remove("SearchPlaceholders");
@@ -265,6 +256,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception3);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           Declarations.objSettings.SettingsTable.Columns.Remove("FilterIndex");
@@ -274,6 +266,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception4);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("FreeDBLastSearch", System.Type.GetType("System.String"));
@@ -285,6 +278,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception5);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("FreeDBSearchOptions", System.Type.GetType("System.Byte"));
@@ -296,6 +290,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception6);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("RebuildOFilename", System.Type.GetType("System.Boolean"));
@@ -307,6 +302,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception7);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("SaveOFilename", System.Type.GetType("System.Boolean"));
@@ -318,6 +314,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception8);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("SearchRegExpression", System.Type.GetType("System.Boolean"));
@@ -329,6 +326,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception9);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("ListExtInfo", System.Type.GetType("System.String"));
@@ -340,6 +338,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception10);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("SplitSeparator", System.Type.GetType("System.String"));
@@ -351,6 +350,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception11);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("Language", System.Type.GetType("System.Byte"));
@@ -362,6 +362,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception12);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("OrganizeCopy", System.Type.GetType("System.Boolean"));
@@ -373,6 +374,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception13);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("NavPanWidth", System.Type.GetType("System.Int32"));
@@ -384,6 +386,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception14);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("SideBarWidth", System.Type.GetType("System.Int32"));
@@ -395,6 +398,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception15);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("ErrorHeight", System.Type.GetType("System.Int32"));
@@ -406,6 +410,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception16);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("NavPanExpanded", System.Type.GetType("System.Boolean"));
@@ -417,6 +422,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception17);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("SideBarExpanded", System.Type.GetType("System.Boolean"));
@@ -428,6 +434,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception18);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("ErrorExpanded", System.Type.GetType("System.Boolean"));
@@ -439,6 +446,7 @@ namespace ID3_TagIT
           ProjectData.SetProjectError(exception19);
           ProjectData.ClearProjectError();
         }
+
         try
         {
           column = new DataColumn("AudioChecksumCalc", System.Type.GetType("System.Boolean"));
@@ -451,17 +459,19 @@ namespace ID3_TagIT
           ProjectData.ClearProjectError();
         }
       }
+
       Declarations.objResources.ReadResources();
       line.Resolve();
+
       if ((StringType.StrCmp(line.Path, "", false) != 0) & Directory.Exists(line.Path))
-      {
         Declarations.objSettings.CurrentPath = line.Path;
-      }
+
       if (StringType.StrCmp(line.DataFilePath, "", false) == 0)
       {
         frmMain mainForm = new frmMain();
         Application.Run(mainForm);
       }
+
       Application.Exit();
     }
 
@@ -483,6 +493,7 @@ namespace ID3_TagIT
     public static void RestoreFormSettings(ref Form Form)
     {
       int num2 = Declarations.objSettings.Forms.Rows.Count - 1;
+
       for (int i = 0; i <= num2; i++)
       {
         if (ObjectType.ObjTst(Form.Name, Declarations.objSettings.Forms.Rows[i]["Name"], false) == 0)
@@ -499,13 +510,10 @@ namespace ID3_TagIT
             }
           }
           else if (ObjectType.ObjTst(row["State"], "Maximized", false) == 0)
-          {
             Form.WindowState = FormWindowState.Maximized;
-          }
           else
-          {
             Form.WindowState = FormWindowState.Minimized;
-          }
+
           break;
         }
       }
@@ -591,10 +599,9 @@ namespace ID3_TagIT
       if ((SortOrder.Length >= 1) && (SortOrder.Length <= ListView.Columns.Count))
       {
         int msg = 0x103a;
+
         if (!Declarations.ListViewColumnOrder(ListView.Handle.ToInt32(), msg, SortOrder.Length, ref SortOrder[0]).Equals(0))
-        {
           ListView.Refresh();
-        }
       }
     }
 
@@ -621,9 +628,8 @@ namespace ID3_TagIT
         for (int i = 0; i <= num2; i++)
         {
           if (FormToCheck.Controls[i].GetType() == typeof(Button))
-          {
             ((ButtonBase)FormToCheck.Controls[i]).FlatStyle = FlatStyle.System;
-          }
+
           RecursivelyFormatForWinXP(FormToCheck.Controls[i]);
         }
       }

@@ -10,11 +10,11 @@ namespace ID3_TagIT
 {
   public class frmProgress : Form
   {
-    private Button btnCancel;
+    public Button btnCancel;
     private PanelEx ButtomPanel;
-    private Label Infos;
-    private System.Windows.Forms.ProgressBar ProgressBar;
-    private Label State;
+    public Label Infos;
+    public System.Windows.Forms.ProgressBar ProgressBar;
+    public Label State;
     private System.Windows.Forms.Timer Timer;
     private PanelEx TopPanel;
     private Callback CBack;
@@ -85,7 +85,7 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       this.Text = StringType.FromObject(Declarations.objResources.ResStrings["Name"]);
     }
 

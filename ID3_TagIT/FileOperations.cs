@@ -9,7 +9,7 @@
     private BinaryReader objBinaryReader;
     private BinaryWriter objBinaryWriter;
     private FileInfo objFileInfo;
-    private FileStream objFileStream;
+    protected FileStream objFileStream;
     private string vstrCurrentFullName = "";
     private string vstrCurrentName = "";
 

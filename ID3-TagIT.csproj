@@ -34,10 +34,11 @@
     <ApplicationIcon>ID3_TagIT.Logo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ID3_TagIT.Main</StartupObject>
+    <StartupObject>ID3_TagIT.Id3TagIT_Main</StartupObject>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <EmbeddedResource Include="ID3_TagIT.ComboBoxAutoComplete.resources" />
     <Reference Include="AMS.TextBox">
       <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\AMS.TextBox.dll</HintPath>
     </Reference>
@@ -78,6 +79,15 @@
     <EmbeddedResource Include="ID3_TagIT\frmSearch.resx">
       <DependentUpon>frmSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmSelectFormat.resx">
+      <DependentUpon>frmSelectFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmTAG1.resx">
+      <DependentUpon>frmTAG1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmTAG2ToFilename.resx">
+      <DependentUpon>frmTAG2ToFilename.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ID3_TagIT\frmTransfer.resx">
       <DependentUpon>frmTransfer.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +104,9 @@
     <Reference Include="Microsoft.VisualC" />
     <Reference Include="System.Drawing.Design" />
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="ID3_TagIT\ComboBoxAutoComplete.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ID3_TagIT\Settings.cs" />
     <Compile Include="ID3_TagIT\Resources.cs" />
     <Compile Include="ID3_TagIT\Main.cs" />
@@ -213,46 +226,17 @@
     <Compile Include="ID3_TagIT\frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ID3_TagIT\ComboBoxAutoComplete.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <EmbeddedResource Include="ID3_TagIT.Resources-Pol.xml" />
-    <EmbeddedResource Include="ID3_TagIT.frmTAG2ToFilename.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmMain.resources" />
     <EmbeddedResource Include="ID3_TagIT.Tooltips-Ger.xml" />
-    <EmbeddedResource Include="ID3_TagIT.frmLibraries.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmFilenameToTAG1.resources" />
     <EmbeddedResource Include="ID3_TagIT.Logo.ico" />
     <EmbeddedResource Include="ID3_TagIT.Resources.xml" />
     <EmbeddedResource Include="ID3_TagIT.MenuResources-Ger.xml" />
-    <EmbeddedResource Include="ID3_TagIT.frmTAG1Multi.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmRemoveFolders.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmPreferences.resources" />
     <EmbeddedResource Include="ID3_TagIT.MenuResources.xml" />
-    <EmbeddedResource Include="ID3_TagIT.frmTAG1ToFilename.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmCaseConv.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmTAG2.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmCompareFileTAG.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmTAG2Multi.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmFreeDB.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmTransfer.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmOrganize.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmEncoding.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmDouble.resources" />
     <EmbeddedResource Include="ID3_TagIT.Tooltips-Pol.xml" />
     <EmbeddedResource Include="ID3_TagIT.Resources-Ger.xml" />
     <EmbeddedResource Include="ID3_TagIT.MenuResources-Pol.xml" />
     <EmbeddedResource Include="ID3_TagIT.MenuResources-Fre.xml" />
-    <EmbeddedResource Include="ID3_TagIT.frmTAG1.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmFreeDBAssociate.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmAbout.resources" />
-    <EmbeddedResource Include="ID3-TagIT.exe.licenses" />
     <EmbeddedResource Include="ID3_TagIT.Tooltips.xml" />
-    <EmbeddedResource Include="ID3_TagIT.frmSelectFormat.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmLists.resources" />
-    <EmbeddedResource Include="ID3_TagIT.frmFilenameToTAG2.resources" />
-    <EmbeddedResource Include="ID3_TagIT.ComboBoxAutoComplete.resources" />
     <EmbeddedResource Include="ID3-TagIT.MenuBars.xml" />
-    <EmbeddedResource Include="ID3_TagIT.frmSearch.resources" />
   </ItemGroup>
 </Project>

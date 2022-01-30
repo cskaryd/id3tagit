@@ -523,7 +523,7 @@
           Label_0318:
           buffer3 = new byte[((buffer.GetUpperBound(0) - num) - 1) + 1];
           Array.Copy(buffer, num + 1, buffer3, 0, buffer3.Length);
-          this.vstrTempPath = Main.CreateTempFile(buffer3, "");
+          this.vstrTempPath = Id3TagIT_Main.CreateTempFile(buffer3, "");
           this.vstrPath = MP3.FI.FullName;
           this.vbooInclude = true;
           goto Label_0A1A;
@@ -556,7 +556,7 @@
               {
                 buffer3 = new byte[((buffer.GetUpperBound(0) - num) - 2) + 1];
                 Array.Copy(buffer, num + 2, buffer3, 0, buffer3.Length);
-                this.vstrTempPath = Main.CreateTempFile(buffer3, "");
+                this.vstrTempPath = Id3TagIT_Main.CreateTempFile(buffer3, "");
                 this.vstrPath = MP3.FI.FullName;
                 this.vbooInclude = true;
               }
@@ -591,7 +591,7 @@
               {
                 buffer3 = new byte[((buffer.GetUpperBound(0) - num) - 2) + 1];
                 Array.Copy(buffer, num + 2, buffer3, 0, buffer3.Length);
-                this.vstrTempPath = Main.CreateTempFile(buffer3, "");
+                this.vstrTempPath = Id3TagIT_Main.CreateTempFile(buffer3, "");
                 this.vstrPath = MP3.FI.FullName;
                 this.vbooInclude = true;
               }
@@ -612,7 +612,7 @@
           Label_07D7:
           buffer3 = new byte[((buffer.GetUpperBound(0) - num) - 2) + 1];
           Array.Copy(buffer, num + 2, buffer3, 0, buffer3.Length);
-          this.vstrTempPath = Main.CreateTempFile(buffer3, "");
+          this.vstrTempPath = Id3TagIT_Main.CreateTempFile(buffer3, "");
           this.vstrPath = MP3.FI.FullName;
           this.vbooInclude = true;
           goto Label_0A1A;
@@ -629,7 +629,7 @@
           Label_0965:
           buffer3 = new byte[((buffer.GetUpperBound(0) - num) - 1) + 1];
           Array.Copy(buffer, num + 1, buffer3, 0, buffer3.Length);
-          this.vstrTempPath = Main.CreateTempFile(buffer3, "");
+          this.vstrTempPath = Id3TagIT_Main.CreateTempFile(buffer3, "");
           this.vstrPath = MP3.FI.FullName;
           this.vbooInclude = true;
           goto Label_0A1A;

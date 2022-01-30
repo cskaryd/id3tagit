@@ -169,7 +169,7 @@ namespace ID3_TagIT
       if (vstrFormat.StartsWith(@"\"))
         vstrFormat = vstrFormat.Substring(1);
 
-      if (!Main.CheckFilename(vstrName, true))
+      if (!Id3TagIT_Main.CheckFilename(vstrName, true))
       {
         this.DialogResult = System.Windows.Forms.DialogResult.None;
         Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["InvalidCharPath"]), MsgBoxStyle.Exclamation, null);
@@ -196,7 +196,7 @@ namespace ID3_TagIT
         else
         {
           Form form = this;
-          Main.SaveFormSettings(ref form);
+          Id3TagIT_Main.SaveFormSettings(ref form);
           byte tracknumberDigitsFilename = Declarations.objSettings.TracknumberDigitsFilename;
           Declarations.objSettings.OrganizeFormats.Rows.Clear();
           Declarations.objSettings.OrganizePath = vstrName;
@@ -260,9 +260,9 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       int num2 = Declarations.objSettings.OrganizeFormats.Rows.Count - 1;
       for (int i = 0; i <= num2; i++)
         this.cmbFormat.Items.Add(RuntimeHelpers.GetObjectValue(Declarations.objSettings.OrganizeFormats.Rows[i]["Format"]));

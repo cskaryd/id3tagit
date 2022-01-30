@@ -105,65 +105,429 @@
         {
           goto Label_19D2;
         }
-        using (IEnumerator enumerator2 = list.GetEnumerator())
+        var enumerator2 = list.GetEnumerator();
+        while (enumerator2.MoveNext())
         {
-          while (enumerator2.MoveNext())
+          str = StringType.FromObject(enumerator2.Current);
+          num3++;
+          if (num3 == list2.Count)
           {
-            str = StringType.FromObject(enumerator2.Current);
-            num3++;
-            if (num3 == list2.Count)
+            goto Label_1999;
+          }
+          if (ObjectType.ObjTst(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null), "", false) != 0)
+          {
+            string sLeft = str;
+            if ((StringType.StrCmp(sLeft, "<A>", false) == 0) || (StringType.StrCmp(sLeft, "<a>", false) == 0))
             {
-              goto Label_1999;
-            }
-            if (ObjectType.ObjTst(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null), "", false) != 0)
-            {
-              string sLeft = str;
-              if ((StringType.StrCmp(sLeft, "<A>", false) == 0) || (StringType.StrCmp(sLeft, "<a>", false) == 0))
+              MP3.V2TAG.AddFrame(CreateTextFrame("TPE1", StringType.FromObject(list2[num3])));
+              if (Declarations.objSettings.SynchronizeTAGs)
               {
-                MP3.V2TAG.AddFrame(CreateTextFrame("TPE1", StringType.FromObject(list2[num3])));
+                if (StringType.StrCmp(MP3.V1TAG.Artist, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
+                {
+                  MP3.Changed = true;
+                  MP3.V1TAG.TAGPresent = true;
+                }
+                MP3.V1TAG.Artist = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
+              }
+            }
+            else
+            {
+              if ((StringType.StrCmp(sLeft, "<T>", false) == 0) || (StringType.StrCmp(sLeft, "<t>", false) == 0))
+              {
+                MP3.V2TAG.AddFrame(CreateTextFrame("TIT2", StringType.FromObject(list2[num3])));
                 if (Declarations.objSettings.SynchronizeTAGs)
                 {
-                  if (StringType.StrCmp(MP3.V1TAG.Artist, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
+                  if (StringType.StrCmp(MP3.V1TAG.Title, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
                   {
                     MP3.Changed = true;
                     MP3.V1TAG.TAGPresent = true;
                   }
-                  MP3.V1TAG.Artist = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
+                  MP3.V1TAG.Title = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
+                }
+                continue;
+              }
+              if ((StringType.StrCmp(sLeft, "<B>", false) == 0) || (StringType.StrCmp(sLeft, "<b>", false) == 0))
+              {
+                MP3.V2TAG.AddFrame(CreateTextFrame("TALB", StringType.FromObject(list2[num3])));
+                if (Declarations.objSettings.SynchronizeTAGs)
+                {
+                  if (StringType.StrCmp(MP3.V1TAG.Album, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
+                  {
+                    MP3.Changed = true;
+                    MP3.V1TAG.TAGPresent = true;
+                  }
+                  MP3.V1TAG.Album = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
+                }
+                continue;
+              }
+              if ((StringType.StrCmp(sLeft, "<K>", false) == 0) || (StringType.StrCmp(sLeft, "<k>", false) == 0))
+              {
+                if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
+                {
+                  if (MP3.V2TAG.FrameExists("TRCK"))
+                  {
+                    objectValue = RuntimeHelpers.GetObjectValue(MP3.V2TAG.GetFrame("TRCK"));
+                    if (StringType.StrCmp(str, "<K>", false) == 0)
+                    {
+                      obj3 = new V2TextFrame();
+                      LateBinding.LateSet(obj3, null, "FID", new object[] { "TRCK" }, null);
+                      if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 0, false) < 0)
+                      {
+                        LateBinding.LateSet(obj3, null, "Content", new object[] { Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') }, null);
+                      }
+                      else
+                      {
+                        objArray = new object[1];
+                        objArray4 = new object[1];
+                        obj4 = objectValue;
+                        object[] args = new object[0];
+                        strArray3 = null;
+                        objArray6 = new object[1];
+                        str4 = "/";
+                        objArray6[0] = str4;
+                        objArray4[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", args, strArray3, null), null, "IndexOf", objArray6, null, null));
+                        objArray3 = objArray4;
+                        flagArray = new bool[] { true };
+                        if (flagArray[0])
+                        {
+                          LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", args, strArray3, null), null, "IndexOf", new object[] { str4, RuntimeHelpers.GetObjectValue(objArray3[0]) }, null, true, true);
+                        }
+                        objArray[0] = ObjectType.StrCatObj(Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'), LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray3, null, flagArray));
+                        LateBinding.LateSet(obj3, null, "Content", objArray, null);
+                      }
+                      MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
+                    }
+                    else
+                    {
+                      obj3 = new V2TextFrame();
+                      LateBinding.LateSet(obj3, null, "FID", new object[] { "TRCK" }, null);
+                      if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 0, false) < 0)
+                      {
+                        LateBinding.LateSet(obj3, null, "Content", new object[] { ObjectType.StrCatObj(ObjectType.StrCatObj(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), "/"), Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0')) }, null);
+                      }
+                      else
+                      {
+                        objArray6 = new object[1];
+                        objArray3 = new object[2];
+                        objArray3[0] = 0;
+                        obj4 = objectValue;
+                        objArray = new object[0];
+                        strArray3 = null;
+                        objArray2 = new object[1];
+                        str4 = "/";
+                        objArray2[0] = str4;
+                        objArray3[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", objArray2, null, null));
+                        objArray4 = objArray3;
+                        flagArray = new bool[] { false, true };
+                        if (flagArray[1])
+                        {
+                          LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", new object[] { str4, RuntimeHelpers.GetObjectValue(objArray4[1]) }, null, true, true);
+                        }
+                        objArray6[0] = ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray4, null, flagArray), Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'));
+                        LateBinding.LateSet(obj3, null, "Content", objArray6, null);
+                      }
+                      MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
+                    }
+                  }
+                  else if (StringType.StrCmp(str, "<K>", false) == 0)
+                  {
+                    obj3 = new V2TextFrame();
+                    LateBinding.LateSet(obj3, null, "FID", new object[] { "TRCK" }, null);
+                    LateBinding.LateSet(obj3, null, "Content", new object[] { Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') }, null);
+                    MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
+                  }
+                  else
+                  {
+                    obj3 = new V2TextFrame();
+                    LateBinding.LateSet(obj3, null, "FID", new object[] { "TRCK" }, null);
+                    LateBinding.LateSet(obj3, null, "Content", new object[] { "/" + Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') }, null);
+                    MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
+                  }
+                  if (Declarations.objSettings.SynchronizeTAGs && ((Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))) >= 0.0) & (Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))) <= 255.0)))
+                  {
+                    if (MP3.V1TAG.Tracknumber != Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))))
+                    {
+                      MP3.Changed = true;
+                      MP3.V1TAG.TAGPresent = true;
+                    }
+                    MP3.V1TAG.Tracknumber = (byte)Math.Round(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))));
+                  }
+                }
+                continue;
+              }
+              if ((StringType.StrCmp(sLeft, "<P>", false) == 0) || (StringType.StrCmp(sLeft, "<p>", false) == 0))
+              {
+                if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
+                {
+                  if (MP3.V2TAG.FrameExists("TPOS"))
+                  {
+                    objectValue = RuntimeHelpers.GetObjectValue(MP3.V2TAG.GetFrame("TPOS"));
+                    if (StringType.StrCmp(str, "<P>", false) == 0)
+                    {
+                      obj3 = new V2TextFrame();
+                      LateBinding.LateSet(obj3, null, "FID", new object[] { "TPOS" }, null);
+                      if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 0, false) < 0)
+                      {
+                        LateBinding.LateSet(obj3, null, "Content", new object[] { Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') }, null);
+                      }
+                      else
+                      {
+                        objArray6 = new object[1];
+                        objArray3 = new object[1];
+                        obj4 = objectValue;
+                        objArray = new object[0];
+                        strArray3 = null;
+                        objArray2 = new object[1];
+                        str4 = "/";
+                        objArray2[0] = str4;
+                        objArray3[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", objArray2, null, null));
+                        objArray4 = objArray3;
+                        flagArray = new bool[] { true };
+                        if (flagArray[0])
+                        {
+                          LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", new object[] { str4, RuntimeHelpers.GetObjectValue(objArray4[0]) }, null, true, true);
+                        }
+                        objArray6[0] = ObjectType.StrCatObj(Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'), LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray4, null, flagArray));
+                        LateBinding.LateSet(obj3, null, "Content", objArray6, null);
+                      }
+                      MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
+                    }
+                    else
+                    {
+                      obj3 = new V2TextFrame();
+                      LateBinding.LateSet(obj3, null, "FID", new object[] { "TPOS" }, null);
+                      if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 0, false) < 0)
+                      {
+                        LateBinding.LateSet(obj3, null, "Content", new object[] { ObjectType.StrCatObj(ObjectType.StrCatObj(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), "/"), Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0')) }, null);
+                      }
+                      else
+                      {
+                        objArray6 = new object[1];
+                        objArray3 = new object[2];
+                        objArray3[0] = 0;
+                        obj4 = objectValue;
+                        objArray = new object[0];
+                        strArray3 = null;
+                        objArray2 = new object[1];
+                        str4 = "/";
+                        objArray2[0] = str4;
+                        objArray3[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", objArray2, null, null));
+                        objArray4 = objArray3;
+                        flagArray = new bool[] { false, true };
+                        if (flagArray[1])
+                        {
+                          LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", new object[] { str4, RuntimeHelpers.GetObjectValue(objArray4[1]) }, null, true, true);
+                        }
+                        objArray6[0] = ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray4, null, flagArray), Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'));
+                        LateBinding.LateSet(obj3, null, "Content", objArray6, null);
+                      }
+                      MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
+                    }
+                  }
+                  else if (StringType.StrCmp(str, "<P>", false) == 0)
+                  {
+                    obj3 = new V2TextFrame();
+                    LateBinding.LateSet(obj3, null, "FID", new object[] { "TPOS" }, null);
+                    LateBinding.LateSet(obj3, null, "Content", new object[] { Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') }, null);
+                    MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
+                  }
+                  else
+                  {
+                    obj3 = new V2TextFrame();
+                    LateBinding.LateSet(obj3, null, "FID", new object[] { "TPOS" }, null);
+                    LateBinding.LateSet(obj3, null, "Content", new object[] { "/" + Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') }, null);
+                    MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
+                  }
+                }
+              }
+              else if ((StringType.StrCmp(sLeft, "<Y>", false) == 0) || (StringType.StrCmp(sLeft, "<y>", false) == 0))
+              {
+                if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
+                {
+                  objectValue = new V2TextFrame();
+                  LateBinding.LateSet(objectValue, null, "FID", new object[] { RuntimeHelpers.GetObjectValue(Interaction.IIf(ObjectType.ObjTst(Interaction.IIf(MP3.V2TAG.TAGVersion != 0, MP3.V2TAG.TAGVersion, Declarations.objSettings.NewV2Version), 3, false) == 0, "TYER", "TDRC")) }, null);
+                  LateBinding.LateSet(objectValue, null, "Content", new object[] { Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(4, '0') }, null);
+                  MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
+                  if (Declarations.objSettings.SynchronizeTAGs)
+                  {
+                    if (MP3.V1TAG.Year != Conversion.Val(Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 4)))
+                    {
+                      MP3.Changed = true;
+                      MP3.V1TAG.TAGPresent = true;
+                    }
+                    MP3.V1TAG.Year = (int)Math.Round(Conversion.Val(Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 4)));
+                  }
                 }
               }
               else
               {
-                if ((StringType.StrCmp(sLeft, "<T>", false) == 0) || (StringType.StrCmp(sLeft, "<t>", false) == 0))
+                if ((StringType.StrCmp(sLeft, "<G>", false) == 0) || (StringType.StrCmp(sLeft, "<g>", false) == 0))
+                {
+                  MP3.V2TAG.AddFrame(CreateTextFrame("TCON", StringType.FromObject(list2[num3])));
+                  if (Declarations.objSettings.SynchronizeTAGs)
+                  {
+                    if (ObjectType.ObjTst(MP3.V1TAG.GenreText, LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null), false) != 0)
+                    {
+                      MP3.Changed = true;
+                      MP3.V1TAG.TAGPresent = true;
+                    }
+                    MP3.V1TAG.GenreText = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
+                  }
+                  continue;
+                }
+                if ((StringType.StrCmp(sLeft, "<C>", false) == 0) || (StringType.StrCmp(sLeft, "<c>", false) == 0))
+                {
+                  objectValue = new V2LDCFrame();
+                  LateBinding.LateSet(objectValue, null, "FID", new object[] { "COMM" }, null);
+                  LateBinding.LateSet(objectValue, null, "Descriptor", new object[] { "ID3-TagIT FT " + num4.ToString().Trim(new char[] { ' ' }) }, null);
+                  num4++;
+                  LateBinding.LateSet(objectValue, null, "Language", new object[] { Declarations.astrLanLookup[Declarations.objSettings.V2Language].Substring(0, 3) }, null);
+                  LateBinding.LateSet(objectValue, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(list2[num3]) }, null);
+                  MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
+                  if (Declarations.objSettings.SynchronizeTAGs)
+                  {
+                    if (MP3.V1TAG.TAGVersion <= 10)
+                    {
+                      if (StringType.StrCmp(MP3.V1TAG.Comment, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
+                      {
+                        MP3.Changed = true;
+                        MP3.V1TAG.TAGPresent = true;
+                      }
+                    }
+                    else if (StringType.StrCmp(MP3.V1TAG.Comment, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 0x1c), false) != 0)
+                    {
+                      MP3.Changed = true;
+                      MP3.V1TAG.TAGPresent = true;
+                    }
+                    MP3.V1TAG.Comment = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
+                  }
+                  continue;
+                }
+                if ((StringType.StrCmp(sLeft, "<O>", false) == 0) || (StringType.StrCmp(sLeft, "<o>", false) == 0))
+                {
+                  MP3.V2TAG.AddFrame(CreateTextFrame("TPE2", StringType.FromObject(list2[num3])));
+                }
+                else
+                {
+                  if ((StringType.StrCmp(sLeft, "<N>", false) == 0) || (StringType.StrCmp(sLeft, "<n>", false) == 0))
+                  {
+                    MP3.V2TAG.AddFrame(CreateTextFrame("TPE3", StringType.FromObject(list2[num3])));
+                    continue;
+                  }
+                  if ((StringType.StrCmp(sLeft, "<M>", false) == 0) || (StringType.StrCmp(sLeft, "<m>", false) == 0))
+                  {
+                    MP3.V2TAG.AddFrame(CreateTextFrame("TPE4", StringType.FromObject(list2[num3])));
+                    continue;
+                  }
+                  if ((StringType.StrCmp(sLeft, "<U>", false) == 0) || (StringType.StrCmp(sLeft, "<u>", false) == 0))
+                  {
+                    MP3.V2TAG.AddFrame(CreateTextFrame("TIT1", StringType.FromObject(list2[num3])));
+                    continue;
+                  }
+                  if ((StringType.StrCmp(sLeft, "<R>", false) == 0) || (StringType.StrCmp(sLeft, "<r>", false) == 0))
+                  {
+                    MP3.V2TAG.AddFrame(CreateTextFrame("TCOM", StringType.FromObject(list2[num3])));
+                    continue;
+                  }
+                  if ((StringType.StrCmp(sLeft, "<S>", false) == 0) || (StringType.StrCmp(sLeft, "<s>", false) == 0))
+                  {
+                    MP3.V2TAG.AddFrame(CreateTextFrame("TIT3", StringType.FromObject(list2[num3])));
+                    continue;
+                  }
+                  if ((StringType.StrCmp(sLeft, "<E>", false) == 0) || (StringType.StrCmp(sLeft, "<e>", false) == 0))
+                  {
+                    int num6 = (int)Math.Round(Conversion.Fix(Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3]))));
+                    MP3.V2TAG.AddFrame(CreateTextFrame("TBPM", num6.ToString()));
+                    continue;
+                  }
+                  if ((StringType.StrCmp(sLeft, "<X>", false) != 0) && (StringType.StrCmp(sLeft, "<x>", false) == 0))
+                  {
+                  }
+                }
+              }
+            }
+          }
+        }
+        Label_1999:
+        if (MP3.V2TAG.Changed)
+        {
+          if (!MP3.V2TAG.TAGHeaderPresent)
+          {
+            MP3.V2TAG.TAGHeaderPresent = true;
+          }
+          MP3.Changed = true;
+        }
+        continue;
+        Label_19D2:
+        var enumerator = list.GetEnumerator();
+        while (enumerator.MoveNext())
+        {
+          str = StringType.FromObject(enumerator.Current);
+          num3++;
+          if (num3 == list2.Count)
+          {
+            goto Label_29B2;
+          }
+          if (ObjectType.ObjTst(list2[num3], "", false) != 0)
+          {
+            string str3 = str;
+            if ((StringType.StrCmp(str3, "<A>", false) == 0) || (StringType.StrCmp(str3, "<a>", false) == 0))
+            {
+              if (StringType.StrCmp(MP3.V1TAG.Artist, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
+              {
+                MP3.Changed = true;
+                MP3.V1TAG.TAGPresent = true;
+              }
+              MP3.V1TAG.Artist = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
+              if (Declarations.objSettings.SynchronizeTAGs)
+              {
+                MP3.V2TAG.AddFrame(CreateTextFrame("TPE1", StringType.FromObject(list2[num3])));
+              }
+            }
+            else
+            {
+              if ((StringType.StrCmp(str3, "<T>", false) == 0) || (StringType.StrCmp(str3, "<t>", false) == 0))
+              {
+                if (StringType.StrCmp(MP3.V1TAG.Title, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
+                {
+                  MP3.Changed = true;
+                  MP3.V1TAG.TAGPresent = true;
+                }
+                MP3.V1TAG.Title = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
+                if (Declarations.objSettings.SynchronizeTAGs)
                 {
                   MP3.V2TAG.AddFrame(CreateTextFrame("TIT2", StringType.FromObject(list2[num3])));
-                  if (Declarations.objSettings.SynchronizeTAGs)
-                  {
-                    if (StringType.StrCmp(MP3.V1TAG.Title, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
-                    {
-                      MP3.Changed = true;
-                      MP3.V1TAG.TAGPresent = true;
-                    }
-                    MP3.V1TAG.Title = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
-                  }
-                  continue;
                 }
-                if ((StringType.StrCmp(sLeft, "<B>", false) == 0) || (StringType.StrCmp(sLeft, "<b>", false) == 0))
+                continue;
+              }
+              if ((StringType.StrCmp(str3, "<B>", false) == 0) || (StringType.StrCmp(str3, "<b>", false) == 0))
+              {
+                if (StringType.StrCmp(MP3.V1TAG.Album, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
+                {
+                  MP3.Changed = true;
+                  MP3.V1TAG.TAGPresent = true;
+                }
+                MP3.V1TAG.Album = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
+                if (Declarations.objSettings.SynchronizeTAGs)
                 {
                   MP3.V2TAG.AddFrame(CreateTextFrame("TALB", StringType.FromObject(list2[num3])));
-                  if (Declarations.objSettings.SynchronizeTAGs)
+                }
+                continue;
+              }
+              if ((StringType.StrCmp(str3, "<K>", false) == 0) || (StringType.StrCmp(str3, "<k>", false) == 0))
+              {
+                if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))))
+                {
+                  if ((Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))) >= 0.0) & (Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))) <= 255.0))
                   {
-                    if (StringType.StrCmp(MP3.V1TAG.Album, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
+                    if (MP3.V1TAG.Tracknumber != Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))))
                     {
                       MP3.Changed = true;
                       MP3.V1TAG.TAGPresent = true;
                     }
-                    MP3.V1TAG.Album = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
+                    MP3.V1TAG.Tracknumber = (byte)Math.Round(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))));
                   }
-                  continue;
-                }
-                if ((StringType.StrCmp(sLeft, "<K>", false) == 0) || (StringType.StrCmp(sLeft, "<k>", false) == 0))
-                {
-                  if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
+                  if (Declarations.objSettings.SynchronizeTAGs)
                   {
                     if (MP3.V2TAG.FrameExists("TRCK"))
                     {
@@ -178,23 +542,23 @@
                         }
                         else
                         {
-                          objArray = new object[1];
-                          objArray4 = new object[1];
-                          obj4 = objectValue;
-                          object[] args = new object[0];
-                          strArray3 = null;
                           objArray6 = new object[1];
+                          objArray3 = new object[1];
+                          obj4 = objectValue;
+                          objArray = new object[0];
+                          strArray3 = null;
+                          objArray2 = new object[1];
                           str4 = "/";
-                          objArray6[0] = str4;
-                          objArray4[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", args, strArray3, null), null, "IndexOf", objArray6, null, null));
-                          objArray3 = objArray4;
+                          objArray2[0] = str4;
+                          objArray3[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", objArray2, null, null));
+                          objArray4 = objArray3;
                           flagArray = new bool[] { true };
                           if (flagArray[0])
                           {
-                            LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", args, strArray3, null), null, "IndexOf", new object[] { str4, RuntimeHelpers.GetObjectValue(objArray3[0]) }, null, true, true);
+                            LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", new object[] { str4, RuntimeHelpers.GetObjectValue(objArray4[0]) }, null, true, true);
                           }
-                          objArray[0] = ObjectType.StrCatObj(Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'), LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray3, null, flagArray));
-                          LateBinding.LateSet(obj3, null, "Content", objArray, null);
+                          objArray6[0] = ObjectType.StrCatObj(Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'), LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray4, null, flagArray));
+                          LateBinding.LateSet(obj3, null, "Content", objArray6, null);
                         }
                         MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
                       }
@@ -244,139 +608,62 @@
                       LateBinding.LateSet(obj3, null, "Content", new object[] { "/" + Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') }, null);
                       MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
                     }
-                    if (Declarations.objSettings.SynchronizeTAGs && ((Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))) >= 0.0) & (Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))) <= 255.0)))
-                    {
-                      if (MP3.V1TAG.Tracknumber != Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))))
-                      {
-                        MP3.Changed = true;
-                        MP3.V1TAG.TAGPresent = true;
-                      }
-                      MP3.V1TAG.Tracknumber = (byte)Math.Round(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))));
-                    }
                   }
-                  continue;
                 }
-                if ((StringType.StrCmp(sLeft, "<P>", false) == 0) || (StringType.StrCmp(sLeft, "<p>", false) == 0))
+                continue;
+              }
+              if ((StringType.StrCmp(str3, "<Y>", false) == 0) || (StringType.StrCmp(str3, "<y>", false) == 0))
+              {
+                if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))))
                 {
-                  if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
+                  if (MP3.V1TAG.Year != Conversion.Val(Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 4)))
                   {
-                    if (MP3.V2TAG.FrameExists("TPOS"))
-                    {
-                      objectValue = RuntimeHelpers.GetObjectValue(MP3.V2TAG.GetFrame("TPOS"));
-                      if (StringType.StrCmp(str, "<P>", false) == 0)
-                      {
-                        obj3 = new V2TextFrame();
-                        LateBinding.LateSet(obj3, null, "FID", new object[] { "TPOS" }, null);
-                        if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 0, false) < 0)
-                        {
-                          LateBinding.LateSet(obj3, null, "Content", new object[] { Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') }, null);
-                        }
-                        else
-                        {
-                          objArray6 = new object[1];
-                          objArray3 = new object[1];
-                          obj4 = objectValue;
-                          objArray = new object[0];
-                          strArray3 = null;
-                          objArray2 = new object[1];
-                          str4 = "/";
-                          objArray2[0] = str4;
-                          objArray3[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", objArray2, null, null));
-                          objArray4 = objArray3;
-                          flagArray = new bool[] { true };
-                          if (flagArray[0])
-                          {
-                            LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", new object[] { str4, RuntimeHelpers.GetObjectValue(objArray4[0]) }, null, true, true);
-                          }
-                          objArray6[0] = ObjectType.StrCatObj(Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'), LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray4, null, flagArray));
-                          LateBinding.LateSet(obj3, null, "Content", objArray6, null);
-                        }
-                        MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
-                      }
-                      else
-                      {
-                        obj3 = new V2TextFrame();
-                        LateBinding.LateSet(obj3, null, "FID", new object[] { "TPOS" }, null);
-                        if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 0, false) < 0)
-                        {
-                          LateBinding.LateSet(obj3, null, "Content", new object[] { ObjectType.StrCatObj(ObjectType.StrCatObj(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), "/"), Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0')) }, null);
-                        }
-                        else
-                        {
-                          objArray6 = new object[1];
-                          objArray3 = new object[2];
-                          objArray3[0] = 0;
-                          obj4 = objectValue;
-                          objArray = new object[0];
-                          strArray3 = null;
-                          objArray2 = new object[1];
-                          str4 = "/";
-                          objArray2[0] = str4;
-                          objArray3[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", objArray2, null, null));
-                          objArray4 = objArray3;
-                          flagArray = new bool[] { false, true };
-                          if (flagArray[1])
-                          {
-                            LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", new object[] { str4, RuntimeHelpers.GetObjectValue(objArray4[1]) }, null, true, true);
-                          }
-                          objArray6[0] = ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray4, null, flagArray), Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'));
-                          LateBinding.LateSet(obj3, null, "Content", objArray6, null);
-                        }
-                        MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
-                      }
-                    }
-                    else if (StringType.StrCmp(str, "<P>", false) == 0)
-                    {
-                      obj3 = new V2TextFrame();
-                      LateBinding.LateSet(obj3, null, "FID", new object[] { "TPOS" }, null);
-                      LateBinding.LateSet(obj3, null, "Content", new object[] { Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') }, null);
-                      MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
-                    }
-                    else
-                    {
-                      obj3 = new V2TextFrame();
-                      LateBinding.LateSet(obj3, null, "FID", new object[] { "TPOS" }, null);
-                      LateBinding.LateSet(obj3, null, "Content", new object[] { "/" + Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') }, null);
-                      MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
-                    }
+                    MP3.Changed = true;
+                    MP3.V1TAG.TAGPresent = true;
                   }
-                }
-                else if ((StringType.StrCmp(sLeft, "<Y>", false) == 0) || (StringType.StrCmp(sLeft, "<y>", false) == 0))
-                {
-                  if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
+                  MP3.V1TAG.Year = (int)Math.Round(Conversion.Val(Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 4)));
+                  if (Declarations.objSettings.SynchronizeTAGs)
                   {
                     objectValue = new V2TextFrame();
                     LateBinding.LateSet(objectValue, null, "FID", new object[] { RuntimeHelpers.GetObjectValue(Interaction.IIf(ObjectType.ObjTst(Interaction.IIf(MP3.V2TAG.TAGVersion != 0, MP3.V2TAG.TAGVersion, Declarations.objSettings.NewV2Version), 3, false) == 0, "TYER", "TDRC")) }, null);
                     LateBinding.LateSet(objectValue, null, "Content", new object[] { Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(4, '0') }, null);
                     MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
-                    if (Declarations.objSettings.SynchronizeTAGs)
-                    {
-                      if (MP3.V1TAG.Year != Conversion.Val(Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 4)))
-                      {
-                        MP3.Changed = true;
-                        MP3.V1TAG.TAGPresent = true;
-                      }
-                      MP3.V1TAG.Year = (int)Math.Round(Conversion.Val(Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 4)));
-                    }
                   }
                 }
-                else
+              }
+              else
+              {
+                if ((StringType.StrCmp(str3, "<G>", false) == 0) || (StringType.StrCmp(str3, "<g>", false) == 0))
                 {
-                  if ((StringType.StrCmp(sLeft, "<G>", false) == 0) || (StringType.StrCmp(sLeft, "<g>", false) == 0))
+                  if (ObjectType.ObjTst(MP3.V1TAG.GenreText, LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null), false) != 0)
+                  {
+                    MP3.Changed = true;
+                    MP3.V1TAG.TAGPresent = true;
+                  }
+                  MP3.V1TAG.GenreText = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
+                  if (Declarations.objSettings.SynchronizeTAGs)
                   {
                     MP3.V2TAG.AddFrame(CreateTextFrame("TCON", StringType.FromObject(list2[num3])));
-                    if (Declarations.objSettings.SynchronizeTAGs)
-                    {
-                      if (ObjectType.ObjTst(MP3.V1TAG.GenreText, LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null), false) != 0)
-                      {
-                        MP3.Changed = true;
-                        MP3.V1TAG.TAGPresent = true;
-                      }
-                      MP3.V1TAG.GenreText = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
-                    }
-                    continue;
                   }
-                  if ((StringType.StrCmp(sLeft, "<C>", false) == 0) || (StringType.StrCmp(sLeft, "<c>", false) == 0))
+                  continue;
+                }
+                if ((StringType.StrCmp(str3, "<C>", false) == 0) || (StringType.StrCmp(str3, "<c>", false) == 0))
+                {
+                  if (MP3.V1TAG.TAGVersion <= 10)
+                  {
+                    if (StringType.StrCmp(MP3.V1TAG.Comment, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
+                    {
+                      MP3.Changed = true;
+                      MP3.V1TAG.TAGPresent = true;
+                    }
+                  }
+                  else if (StringType.StrCmp(MP3.V1TAG.Comment, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 0x1c), false) != 0)
+                  {
+                    MP3.Changed = true;
+                    MP3.V1TAG.TAGPresent = true;
+                  }
+                  MP3.V1TAG.Comment = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
+                  if (Declarations.objSettings.SynchronizeTAGs)
                   {
                     objectValue = new V2LDCFrame();
                     LateBinding.LateSet(objectValue, null, "FID", new object[] { "COMM" }, null);
@@ -385,302 +672,11 @@
                     LateBinding.LateSet(objectValue, null, "Language", new object[] { Declarations.astrLanLookup[Declarations.objSettings.V2Language].Substring(0, 3) }, null);
                     LateBinding.LateSet(objectValue, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(list2[num3]) }, null);
                     MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
-                    if (Declarations.objSettings.SynchronizeTAGs)
-                    {
-                      if (MP3.V1TAG.TAGVersion <= 10)
-                      {
-                        if (StringType.StrCmp(MP3.V1TAG.Comment, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
-                        {
-                          MP3.Changed = true;
-                          MP3.V1TAG.TAGPresent = true;
-                        }
-                      }
-                      else if (StringType.StrCmp(MP3.V1TAG.Comment, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 0x1c), false) != 0)
-                      {
-                        MP3.Changed = true;
-                        MP3.V1TAG.TAGPresent = true;
-                      }
-                      MP3.V1TAG.Comment = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
-                    }
-                    continue;
-                  }
-                  if ((StringType.StrCmp(sLeft, "<O>", false) == 0) || (StringType.StrCmp(sLeft, "<o>", false) == 0))
-                  {
-                    MP3.V2TAG.AddFrame(CreateTextFrame("TPE2", StringType.FromObject(list2[num3])));
-                  }
-                  else
-                  {
-                    if ((StringType.StrCmp(sLeft, "<N>", false) == 0) || (StringType.StrCmp(sLeft, "<n>", false) == 0))
-                    {
-                      MP3.V2TAG.AddFrame(CreateTextFrame("TPE3", StringType.FromObject(list2[num3])));
-                      continue;
-                    }
-                    if ((StringType.StrCmp(sLeft, "<M>", false) == 0) || (StringType.StrCmp(sLeft, "<m>", false) == 0))
-                    {
-                      MP3.V2TAG.AddFrame(CreateTextFrame("TPE4", StringType.FromObject(list2[num3])));
-                      continue;
-                    }
-                    if ((StringType.StrCmp(sLeft, "<U>", false) == 0) || (StringType.StrCmp(sLeft, "<u>", false) == 0))
-                    {
-                      MP3.V2TAG.AddFrame(CreateTextFrame("TIT1", StringType.FromObject(list2[num3])));
-                      continue;
-                    }
-                    if ((StringType.StrCmp(sLeft, "<R>", false) == 0) || (StringType.StrCmp(sLeft, "<r>", false) == 0))
-                    {
-                      MP3.V2TAG.AddFrame(CreateTextFrame("TCOM", StringType.FromObject(list2[num3])));
-                      continue;
-                    }
-                    if ((StringType.StrCmp(sLeft, "<S>", false) == 0) || (StringType.StrCmp(sLeft, "<s>", false) == 0))
-                    {
-                      MP3.V2TAG.AddFrame(CreateTextFrame("TIT3", StringType.FromObject(list2[num3])));
-                      continue;
-                    }
-                    if ((StringType.StrCmp(sLeft, "<E>", false) == 0) || (StringType.StrCmp(sLeft, "<e>", false) == 0))
-                    {
-                      int num6 = (int)Math.Round(Conversion.Fix(Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3]))));
-                      MP3.V2TAG.AddFrame(CreateTextFrame("TBPM", num6.ToString()));
-                      continue;
-                    }
-                    if ((StringType.StrCmp(sLeft, "<X>", false) != 0) && (StringType.StrCmp(sLeft, "<x>", false) == 0))
-                    {
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-        Label_1999:
-        if (MP3.V2TAG.Changed)
-        {
-          if (!MP3.V2TAG.TAGHeaderPresent)
-          {
-            MP3.V2TAG.TAGHeaderPresent = true;
-          }
-          MP3.Changed = true;
-        }
-        continue;
-        Label_19D2:
-        using (IEnumerator enumerator = list.GetEnumerator())
-        {
-          while (enumerator.MoveNext())
-          {
-            str = StringType.FromObject(enumerator.Current);
-            num3++;
-            if (num3 == list2.Count)
-            {
-              goto Label_29B2;
-            }
-            if (ObjectType.ObjTst(list2[num3], "", false) != 0)
-            {
-              string str3 = str;
-              if ((StringType.StrCmp(str3, "<A>", false) == 0) || (StringType.StrCmp(str3, "<a>", false) == 0))
-              {
-                if (StringType.StrCmp(MP3.V1TAG.Artist, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
-                {
-                  MP3.Changed = true;
-                  MP3.V1TAG.TAGPresent = true;
-                }
-                MP3.V1TAG.Artist = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
-                if (Declarations.objSettings.SynchronizeTAGs)
-                {
-                  MP3.V2TAG.AddFrame(CreateTextFrame("TPE1", StringType.FromObject(list2[num3])));
-                }
-              }
-              else
-              {
-                if ((StringType.StrCmp(str3, "<T>", false) == 0) || (StringType.StrCmp(str3, "<t>", false) == 0))
-                {
-                  if (StringType.StrCmp(MP3.V1TAG.Title, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
-                  {
-                    MP3.Changed = true;
-                    MP3.V1TAG.TAGPresent = true;
-                  }
-                  MP3.V1TAG.Title = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
-                  if (Declarations.objSettings.SynchronizeTAGs)
-                  {
-                    MP3.V2TAG.AddFrame(CreateTextFrame("TIT2", StringType.FromObject(list2[num3])));
                   }
                   continue;
                 }
-                if ((StringType.StrCmp(str3, "<B>", false) == 0) || (StringType.StrCmp(str3, "<b>", false) == 0))
+                if ((StringType.StrCmp(str3, "<X>", false) != 0) && (StringType.StrCmp(str3, "<x>", false) == 0))
                 {
-                  if (StringType.StrCmp(MP3.V1TAG.Album, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
-                  {
-                    MP3.Changed = true;
-                    MP3.V1TAG.TAGPresent = true;
-                  }
-                  MP3.V1TAG.Album = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
-                  if (Declarations.objSettings.SynchronizeTAGs)
-                  {
-                    MP3.V2TAG.AddFrame(CreateTextFrame("TALB", StringType.FromObject(list2[num3])));
-                  }
-                  continue;
-                }
-                if ((StringType.StrCmp(str3, "<K>", false) == 0) || (StringType.StrCmp(str3, "<k>", false) == 0))
-                {
-                  if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))))
-                  {
-                    if ((Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))) >= 0.0) & (Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))) <= 255.0))
-                    {
-                      if (MP3.V1TAG.Tracknumber != Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))))
-                      {
-                        MP3.Changed = true;
-                        MP3.V1TAG.TAGPresent = true;
-                      }
-                      MP3.V1TAG.Tracknumber = (byte)Math.Round(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))));
-                    }
-                    if (Declarations.objSettings.SynchronizeTAGs)
-                    {
-                      if (MP3.V2TAG.FrameExists("TRCK"))
-                      {
-                        objectValue = RuntimeHelpers.GetObjectValue(MP3.V2TAG.GetFrame("TRCK"));
-                        if (StringType.StrCmp(str, "<K>", false) == 0)
-                        {
-                          obj3 = new V2TextFrame();
-                          LateBinding.LateSet(obj3, null, "FID", new object[] { "TRCK" }, null);
-                          if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 0, false) < 0)
-                          {
-                            LateBinding.LateSet(obj3, null, "Content", new object[] { Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') }, null);
-                          }
-                          else
-                          {
-                            objArray6 = new object[1];
-                            objArray3 = new object[1];
-                            obj4 = objectValue;
-                            objArray = new object[0];
-                            strArray3 = null;
-                            objArray2 = new object[1];
-                            str4 = "/";
-                            objArray2[0] = str4;
-                            objArray3[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", objArray2, null, null));
-                            objArray4 = objArray3;
-                            flagArray = new bool[] { true };
-                            if (flagArray[0])
-                            {
-                              LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", new object[] { str4, RuntimeHelpers.GetObjectValue(objArray4[0]) }, null, true, true);
-                            }
-                            objArray6[0] = ObjectType.StrCatObj(Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'), LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray4, null, flagArray));
-                            LateBinding.LateSet(obj3, null, "Content", objArray6, null);
-                          }
-                          MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
-                        }
-                        else
-                        {
-                          obj3 = new V2TextFrame();
-                          LateBinding.LateSet(obj3, null, "FID", new object[] { "TRCK" }, null);
-                          if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 0, false) < 0)
-                          {
-                            LateBinding.LateSet(obj3, null, "Content", new object[] { ObjectType.StrCatObj(ObjectType.StrCatObj(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), "/"), Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0')) }, null);
-                          }
-                          else
-                          {
-                            objArray6 = new object[1];
-                            objArray3 = new object[2];
-                            objArray3[0] = 0;
-                            obj4 = objectValue;
-                            objArray = new object[0];
-                            strArray3 = null;
-                            objArray2 = new object[1];
-                            str4 = "/";
-                            objArray2[0] = str4;
-                            objArray3[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", objArray2, null, null));
-                            objArray4 = objArray3;
-                            flagArray = new bool[] { false, true };
-                            if (flagArray[1])
-                            {
-                              LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", objArray, strArray3, null), null, "IndexOf", new object[] { str4, RuntimeHelpers.GetObjectValue(objArray4[1]) }, null, true, true);
-                            }
-                            objArray6[0] = ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray4, null, flagArray), Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'));
-                            LateBinding.LateSet(obj3, null, "Content", objArray6, null);
-                          }
-                          MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
-                        }
-                      }
-                      else if (StringType.StrCmp(str, "<K>", false) == 0)
-                      {
-                        obj3 = new V2TextFrame();
-                        LateBinding.LateSet(obj3, null, "FID", new object[] { "TRCK" }, null);
-                        LateBinding.LateSet(obj3, null, "Content", new object[] { Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') }, null);
-                        MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
-                      }
-                      else
-                      {
-                        obj3 = new V2TextFrame();
-                        LateBinding.LateSet(obj3, null, "FID", new object[] { "TRCK" }, null);
-                        LateBinding.LateSet(obj3, null, "Content", new object[] { "/" + Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') }, null);
-                        MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj3));
-                      }
-                    }
-                  }
-                  continue;
-                }
-                if ((StringType.StrCmp(str3, "<Y>", false) == 0) || (StringType.StrCmp(str3, "<y>", false) == 0))
-                {
-                  if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null))))
-                  {
-                    if (MP3.V1TAG.Year != Conversion.Val(Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 4)))
-                    {
-                      MP3.Changed = true;
-                      MP3.V1TAG.TAGPresent = true;
-                    }
-                    MP3.V1TAG.Year = (int)Math.Round(Conversion.Val(Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 4)));
-                    if (Declarations.objSettings.SynchronizeTAGs)
-                    {
-                      objectValue = new V2TextFrame();
-                      LateBinding.LateSet(objectValue, null, "FID", new object[] { RuntimeHelpers.GetObjectValue(Interaction.IIf(ObjectType.ObjTst(Interaction.IIf(MP3.V2TAG.TAGVersion != 0, MP3.V2TAG.TAGVersion, Declarations.objSettings.NewV2Version), 3, false) == 0, "TYER", "TDRC")) }, null);
-                      LateBinding.LateSet(objectValue, null, "Content", new object[] { Conversion.Val(RuntimeHelpers.GetObjectValue(list2[num3])).ToString().Trim(new char[] { ' ' }).PadLeft(4, '0') }, null);
-                      MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
-                    }
-                  }
-                }
-                else
-                {
-                  if ((StringType.StrCmp(str3, "<G>", false) == 0) || (StringType.StrCmp(str3, "<g>", false) == 0))
-                  {
-                    if (ObjectType.ObjTst(MP3.V1TAG.GenreText, LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null), false) != 0)
-                    {
-                      MP3.Changed = true;
-                      MP3.V1TAG.TAGPresent = true;
-                    }
-                    MP3.V1TAG.GenreText = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
-                    if (Declarations.objSettings.SynchronizeTAGs)
-                    {
-                      MP3.V2TAG.AddFrame(CreateTextFrame("TCON", StringType.FromObject(list2[num3])));
-                    }
-                    continue;
-                  }
-                  if ((StringType.StrCmp(str3, "<C>", false) == 0) || (StringType.StrCmp(str3, "<c>", false) == 0))
-                  {
-                    if (MP3.V1TAG.TAGVersion <= 10)
-                    {
-                      if (StringType.StrCmp(MP3.V1TAG.Comment, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 30), false) != 0)
-                      {
-                        MP3.Changed = true;
-                        MP3.V1TAG.TAGPresent = true;
-                      }
-                    }
-                    else if (StringType.StrCmp(MP3.V1TAG.Comment, Strings.Left(StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null)), 0x1c), false) != 0)
-                    {
-                      MP3.Changed = true;
-                      MP3.V1TAG.TAGPresent = true;
-                    }
-                    MP3.V1TAG.Comment = StringType.FromObject(LateBinding.LateGet(list2[num3], null, "trim", new object[] { " " }, null, null));
-                    if (Declarations.objSettings.SynchronizeTAGs)
-                    {
-                      objectValue = new V2LDCFrame();
-                      LateBinding.LateSet(objectValue, null, "FID", new object[] { "COMM" }, null);
-                      LateBinding.LateSet(objectValue, null, "Descriptor", new object[] { "ID3-TagIT FT " + num4.ToString().Trim(new char[] { ' ' }) }, null);
-                      num4++;
-                      LateBinding.LateSet(objectValue, null, "Language", new object[] { Declarations.astrLanLookup[Declarations.objSettings.V2Language].Substring(0, 3) }, null);
-                      LateBinding.LateSet(objectValue, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(list2[num3]) }, null);
-                      MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
-                    }
-                    continue;
-                  }
-                  if ((StringType.StrCmp(str3, "<X>", false) != 0) && (StringType.StrCmp(str3, "<x>", false) == 0))
-                  {
-                  }
                 }
               }
             }
@@ -1104,31 +1100,12 @@
       int num3 = -1;
       if (vstrFormat.StartsWith(StringType.FromObject(list[0])))
       {
-        using (IEnumerator enumerator2 = list.GetEnumerator())
+        var enumerator2 = list.GetEnumerator();
+        while (enumerator2.MoveNext())
         {
-          while (enumerator2.MoveNext())
-          {
-            str2 = StringType.FromObject(enumerator2.Current);
-            num3++;
-            sRight = sRight + str2;
-            if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
-            {
-              sRight = sRight + "<123>";
-            }
-            else
-            {
-              sRight = sRight + "<ABC>";
-            }
-          }
-          goto Label_04DF;
-        }
-      }
-      using (IEnumerator enumerator = list.GetEnumerator())
-      {
-        while (enumerator.MoveNext())
-        {
-          str2 = StringType.FromObject(enumerator.Current);
+          str2 = StringType.FromObject(enumerator2.Current);
           num3++;
+          sRight = sRight + str2;
           if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
           {
             sRight = sRight + "<123>";
@@ -1137,8 +1114,23 @@
           {
             sRight = sRight + "<ABC>";
           }
-          sRight = sRight + str2;
         }
+        goto Label_04DF;
+      }
+      var enumerator = list.GetEnumerator();
+      while (enumerator.MoveNext())
+      {
+        str2 = StringType.FromObject(enumerator.Current);
+        num3++;
+        if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(list2[num3])))
+        {
+          sRight = sRight + "<123>";
+        }
+        else
+        {
+          sRight = sRight + "<ABC>";
+        }
+        sRight = sRight + str2;
       }
       Label_04DF:
       if (StringType.StrCmp(sLeft, sRight, false) == 0)
@@ -1173,7 +1165,7 @@
       InflaterInputStream stream = new InflaterInputStream(new MemoryStream(abytBuffer));
       try
       {
-        byte[] buffer;
+        byte[] buffer = null;
         int num3;
         int num2 = 0;
         for (int i = 0; 1 != 0; i += num3)

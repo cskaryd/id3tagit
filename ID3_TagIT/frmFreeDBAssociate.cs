@@ -18,11 +18,11 @@ namespace ID3_TagIT
     private ColumnHeader FreeDB;
     private Label Label1;
     private Label Label2;
-    private Label lblGenre;
+    public Label lblGenre;
     private Label lblInfo;
-    private Label lblYear;
-    private ListView lvwFiles;
-    private ListView lvwFreeDB;
+    public Label lblYear;
+    public ListView lvwFiles;
+    public ListView lvwFreeDB;
     private IContainer components;
     private frmMain MainForm;
 
@@ -193,7 +193,7 @@ namespace ID3_TagIT
     {
       frmFreeDB owner = (frmFreeDB)this.Owner;
       Form form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
       int num2 = this.lvwFreeDB.Items.Count - 1;
       for (int i = 0; i <= num2; i++)
       {
@@ -248,9 +248,9 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       try
       {
         enumerator = this.lvwFiles.Items.GetEnumerator();

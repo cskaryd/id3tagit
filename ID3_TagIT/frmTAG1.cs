@@ -12,6 +12,12 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
+//FIXME
+//this.btnNext.Icon = (Icon)manager.GetObject("btnNext.Icon");
+//this.btnNext.Icon = (Icon)(new ResourceManager("Icons", this.GetType().Assembly).GetObject("btnNext.Icon"));
+//this.btnPrev.Icon = (Icon)manager.GetObject("btnPrev.Icon");
+//this.btnPrev.Icon = (Icon)(new ResourceManager("Icons", this.GetType().Assembly).GetObject("btnPrev.Icon"));
+
 namespace ID3_TagIT
 {
   public class frmTAG1 : Form
@@ -65,432 +71,559 @@ namespace ID3_TagIT
     [DebuggerStepThrough]
     private void InitializeComponent()
     {
-      this.components = new Container();
-      ResourceManager manager = new ResourceManager(typeof(frmTAG1));
-      this.lblSelected = new Label();
+      this.components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTAG1));
+      this.lblSelected = new System.Windows.Forms.Label();
       this.txtSelected = new System.Windows.Forms.TextBox();
-      this.btnCancel = new Button();
-      this.btnOK = new Button();
-      this.lblGenre = new Label();
+      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new System.Windows.Forms.Button();
+      this.lblGenre = new System.Windows.Forms.Label();
       this.txtAlbum = new System.Windows.Forms.TextBox();
-      this.lblComment = new Label();
-      this.lblTitle = new Label();
-      this.lblAlbum = new Label();
-      this.lblYear = new Label();
-      this.lblTrack = new Label();
-      this.lblArtist = new Label();
+      this.lblComment = new System.Windows.Forms.Label();
+      this.lblTitle = new System.Windows.Forms.Label();
+      this.lblAlbum = new System.Windows.Forms.Label();
+      this.lblYear = new System.Windows.Forms.Label();
+      this.lblTrack = new System.Windows.Forms.Label();
+      this.lblArtist = new System.Windows.Forms.Label();
       this.txtComment = new System.Windows.Forms.TextBox();
       this.txtTitle = new System.Windows.Forms.TextBox();
       this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.cmbArtist = new ComboBoxAutoComplete();
-      this.cmbGenre = new ComboBoxAutoComplete();
-      this.txtTrack = new NumericTextBox();
-      this.txtYear = new NumericTextBox();
-      this.SelectionBar = new ExplorerBar();
-      this.TAGV2grpCommands = new ExplorerBarGroupItem();
-      this.btnPrev = new ButtonItem();
-      this.btnNext = new ButtonItem();
-      this.btnSwapAT = new ButtonItem();
-      this.btnSwapAA = new ButtonItem();
-      this.btnSwapTA = new ButtonItem();
-      this.TAGV2ButtonItem1 = new ButtonItem();
-      this.TAGV2ButtonItem2 = new ButtonItem();
-      this.TAGV2ButtonItem3 = new ButtonItem();
-      this.TAGV2ButtonItem4 = new ButtonItem();
-      this.TAGV2ButtonItem5 = new ButtonItem();
-      this.TAGV2ButtonItem6 = new ButtonItem();
-      this.TAGV2ButtonItem7 = new ButtonItem();
-      this.TAGV2ButtonItem8 = new ButtonItem();
-      this.TAGV2ButtonItem9 = new ButtonItem();
-      this.TAGV2ButtonItem10 = new ButtonItem();
-      this.btnImport = new ButtonItem();
-      this.btnExport = new ButtonItem();
-      this.btnGet = new ButtonItem();
-      this.ButtomPanel = new PanelEx();
-      this.TopPanel = new PanelEx();
-      ((ISupportInitialize)this.SelectionBar).BeginInit();
+      this.cmbArtist = new ID3_TagIT.ComboBoxAutoComplete();
+      this.cmbGenre = new ID3_TagIT.ComboBoxAutoComplete();
+      this.txtTrack = new AMS.TextBox.NumericTextBox();
+      this.txtYear = new AMS.TextBox.NumericTextBox();
+      this.SelectionBar = new DevComponents.DotNetBar.ExplorerBar();
+      this.TAGV2grpCommands = new DevComponents.DotNetBar.ExplorerBarGroupItem();
+      this.btnPrev = new DevComponents.DotNetBar.ButtonItem();
+      this.btnNext = new DevComponents.DotNetBar.ButtonItem();
+      this.btnSwapAT = new DevComponents.DotNetBar.ButtonItem();
+      this.btnSwapAA = new DevComponents.DotNetBar.ButtonItem();
+      this.btnSwapTA = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem1 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem2 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem3 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem4 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem5 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem6 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem7 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem8 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem9 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem10 = new DevComponents.DotNetBar.ButtonItem();
+      this.btnImport = new DevComponents.DotNetBar.ButtonItem();
+      this.btnExport = new DevComponents.DotNetBar.ButtonItem();
+      this.btnGet = new DevComponents.DotNetBar.ButtonItem();
+      this.ButtomPanel = new DevComponents.DotNetBar.PanelEx();
+      this.TopPanel = new DevComponents.DotNetBar.PanelEx();
+      ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).BeginInit();
       this.ButtomPanel.SuspendLayout();
       this.TopPanel.SuspendLayout();
       this.SuspendLayout();
-      this.lblSelected.BackColor = Color.White;
-      this.lblSelected.ForeColor = Color.Black;
-      this.lblSelected.ImeMode = ImeMode.NoControl;
-      this.lblSelected.Location = new Point(8, 8);
+      // 
+      // lblSelected
+      // 
+      this.lblSelected.BackColor = System.Drawing.Color.White;
+      this.lblSelected.ForeColor = System.Drawing.Color.Black;
+      this.lblSelected.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblSelected.Location = new System.Drawing.Point(8, 8);
       this.lblSelected.Name = "lblSelected";
-      this.lblSelected.Size = new Size(0x98, 0x10);
-      this.lblSelected.TabIndex = 0x13;
+      this.lblSelected.Size = new System.Drawing.Size(152, 16);
+      this.lblSelected.TabIndex = 19;
       this.lblSelected.Text = "Selected file:";
-      this.txtSelected.BackColor = Color.White;
-      this.txtSelected.BorderStyle = BorderStyle.None;
-      this.txtSelected.ForeColor = Color.Black;
-      this.txtSelected.Location = new Point(8, 0x18);
+      // 
+      // txtSelected
+      // 
+      this.txtSelected.BackColor = System.Drawing.Color.White;
+      this.txtSelected.BorderStyle = System.Windows.Forms.BorderStyle.None;
+      this.txtSelected.ForeColor = System.Drawing.Color.Black;
+      this.txtSelected.Location = new System.Drawing.Point(8, 24);
       this.txtSelected.Name = "txtSelected";
       this.txtSelected.ReadOnly = true;
-      this.txtSelected.Size = new Size(440, 13);
+      this.txtSelected.Size = new System.Drawing.Size(440, 13);
       this.txtSelected.TabIndex = 20;
-      this.txtSelected.Text = "";
-      this.btnCancel.BackColor = SystemColors.Control;
+      // 
+      // btnCancel
+      // 
+      this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
       this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnCancel.ImeMode = ImeMode.NoControl;
-      this.btnCancel.Location = new Point(0x150, 8);
+      this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCancel.Location = new System.Drawing.Point(336, 8);
       this.btnCancel.Name = "btnCancel";
-      this.btnCancel.Size = new Size(0x70, 0x18);
-      this.btnCancel.TabIndex = 0x10;
+      this.btnCancel.Size = new System.Drawing.Size(112, 24);
+      this.btnCancel.TabIndex = 16;
       this.btnCancel.Text = "&Cancel";
-      this.btnOK.BackColor = SystemColors.Control;
+      this.btnCancel.UseVisualStyleBackColor = false;
+      // 
+      // btnOK
+      // 
+      this.btnOK.BackColor = System.Drawing.SystemColors.Control;
       this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-      this.btnOK.ImeMode = ImeMode.NoControl;
-      this.btnOK.Location = new Point(0xd8, 8);
+      this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnOK.Location = new System.Drawing.Point(216, 8);
       this.btnOK.Name = "btnOK";
-      this.btnOK.Size = new Size(0x70, 0x18);
+      this.btnOK.Size = new System.Drawing.Size(112, 24);
       this.btnOK.TabIndex = 15;
       this.btnOK.Text = "&OK";
-      this.lblGenre.ImeMode = ImeMode.NoControl;
-      this.lblGenre.Location = new Point(0xb0, 0xb0);
+      this.btnOK.UseVisualStyleBackColor = false;
+      this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+      // 
+      // lblGenre
+      // 
+      this.lblGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblGenre.Location = new System.Drawing.Point(176, 176);
       this.lblGenre.Name = "lblGenre";
-      this.lblGenre.Size = new Size(0x90, 0x10);
+      this.lblGenre.Size = new System.Drawing.Size(144, 16);
       this.lblGenre.TabIndex = 10;
       this.lblGenre.Text = "&Genres:";
-      this.txtAlbum.Location = new Point(0x148, 0x66);
+      // 
+      // txtAlbum
+      // 
+      this.txtAlbum.Location = new System.Drawing.Point(328, 102);
       this.txtAlbum.MaxLength = 30;
       this.txtAlbum.Name = "txtAlbum";
-      this.txtAlbum.Size = new Size(0x120, 20);
+      this.txtAlbum.Size = new System.Drawing.Size(288, 20);
       this.txtAlbum.TabIndex = 5;
-      this.txtAlbum.Text = "";
-      this.lblComment.ImeMode = ImeMode.NoControl;
-      this.lblComment.Location = new Point(0xb0, 200);
+      this.txtAlbum.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtAlbum.Leave += new System.EventHandler(this.Focus_Leave);
+      // 
+      // lblComment
+      // 
+      this.lblComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblComment.Location = new System.Drawing.Point(176, 200);
       this.lblComment.Name = "lblComment";
-      this.lblComment.Size = new Size(0x90, 0x10);
+      this.lblComment.Size = new System.Drawing.Size(144, 16);
       this.lblComment.TabIndex = 12;
       this.lblComment.Text = "&Comment:";
-      this.lblTitle.ImeMode = ImeMode.NoControl;
-      this.lblTitle.Location = new Point(0xb0, 80);
+      // 
+      // lblTitle
+      // 
+      this.lblTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTitle.Location = new System.Drawing.Point(176, 80);
       this.lblTitle.Name = "lblTitle";
-      this.lblTitle.Size = new Size(0x90, 0x10);
+      this.lblTitle.Size = new System.Drawing.Size(144, 16);
       this.lblTitle.TabIndex = 2;
       this.lblTitle.Text = "&Title:";
-      this.lblAlbum.ImeMode = ImeMode.NoControl;
-      this.lblAlbum.Location = new Point(0xb0, 0x68);
+      // 
+      // lblAlbum
+      // 
+      this.lblAlbum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblAlbum.Location = new System.Drawing.Point(176, 104);
       this.lblAlbum.Name = "lblAlbum";
-      this.lblAlbum.Size = new Size(0x90, 0x10);
+      this.lblAlbum.Size = new System.Drawing.Size(144, 16);
       this.lblAlbum.TabIndex = 4;
       this.lblAlbum.Text = "Al&bum:";
-      this.lblYear.ImeMode = ImeMode.NoControl;
-      this.lblYear.Location = new Point(0xb0, 0x80);
+      // 
+      // lblYear
+      // 
+      this.lblYear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblYear.Location = new System.Drawing.Point(176, 128);
       this.lblYear.Name = "lblYear";
-      this.lblYear.Size = new Size(0x90, 0x10);
+      this.lblYear.Size = new System.Drawing.Size(144, 16);
       this.lblYear.TabIndex = 6;
       this.lblYear.Text = "&Year:";
-      this.lblTrack.ImeMode = ImeMode.NoControl;
-      this.lblTrack.Location = new Point(0xb0, 0x98);
+      // 
+      // lblTrack
+      // 
+      this.lblTrack.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTrack.Location = new System.Drawing.Point(176, 152);
       this.lblTrack.Name = "lblTrack";
-      this.lblTrack.Size = new Size(0x90, 0x10);
+      this.lblTrack.Size = new System.Drawing.Size(144, 16);
       this.lblTrack.TabIndex = 8;
       this.lblTrack.Text = "&Track number:";
-      this.lblArtist.ImeMode = ImeMode.NoControl;
-      this.lblArtist.Location = new Point(0xb0, 0x38);
+      // 
+      // lblArtist
+      // 
+      this.lblArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblArtist.Location = new System.Drawing.Point(176, 56);
       this.lblArtist.Name = "lblArtist";
-      this.lblArtist.Size = new Size(0x90, 0x10);
+      this.lblArtist.Size = new System.Drawing.Size(144, 16);
       this.lblArtist.TabIndex = 0;
       this.lblArtist.Text = "Lead &Artist:";
-      this.txtComment.Location = new Point(0x148, 0xc6);
+      // 
+      // txtComment
+      // 
+      this.txtComment.Location = new System.Drawing.Point(328, 198);
       this.txtComment.MaxLength = 30;
       this.txtComment.Name = "txtComment";
-      this.txtComment.Size = new Size(0x120, 20);
+      this.txtComment.Size = new System.Drawing.Size(288, 20);
       this.txtComment.TabIndex = 13;
-      this.txtComment.Text = "";
-      this.txtTitle.Location = new Point(0x148, 0x4e);
+      this.txtComment.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtComment.Leave += new System.EventHandler(this.Focus_Leave);
+      // 
+      // txtTitle
+      // 
+      this.txtTitle.Location = new System.Drawing.Point(328, 78);
       this.txtTitle.MaxLength = 30;
       this.txtTitle.Name = "txtTitle";
-      this.txtTitle.Size = new Size(0x120, 20);
+      this.txtTitle.Size = new System.Drawing.Size(288, 20);
       this.txtTitle.TabIndex = 3;
-      this.txtTitle.Text = "";
+      this.txtTitle.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTitle.Leave += new System.EventHandler(this.Focus_Leave);
+      // 
+      // cmbArtist
+      // 
       this.cmbArtist.Autocomplete = true;
       this.cmbArtist.ItemHeight = 13;
-      this.cmbArtist.Location = new Point(0x148, 0x36);
+      this.cmbArtist.Location = new System.Drawing.Point(328, 54);
       this.cmbArtist.MaxLength = 30;
       this.cmbArtist.Name = "cmbArtist";
-      this.cmbArtist.Size = new Size(0x120, 0x15);
+      this.cmbArtist.Size = new System.Drawing.Size(288, 21);
       this.cmbArtist.TabIndex = 1;
+      this.cmbArtist.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbArtist.Leave += new System.EventHandler(this.Focus_Leave);
+      // 
+      // cmbGenre
+      // 
       this.cmbGenre.Autocomplete = true;
       this.cmbGenre.ItemHeight = 13;
       this.cmbGenre.ListItemsOnly = true;
-      this.cmbGenre.Location = new Point(0x148, 0xae);
+      this.cmbGenre.Location = new System.Drawing.Point(328, 174);
       this.cmbGenre.Name = "cmbGenre";
-      this.cmbGenre.Size = new Size(0x120, 0x15);
+      this.cmbGenre.Size = new System.Drawing.Size(288, 21);
       this.cmbGenre.TabIndex = 11;
+      this.cmbGenre.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbGenre.Leave += new System.EventHandler(this.Focus_Leave);
+      // 
+      // txtTrack
+      // 
       this.txtTrack.AllowNegative = true;
       this.txtTrack.DigitsInGroup = 0;
-      this.txtTrack.Flags = 0x10;
-      this.txtTrack.Location = new Point(0x148, 150);
+      this.txtTrack.Flags = 16;
+      this.txtTrack.Location = new System.Drawing.Point(328, 150);
       this.txtTrack.MaxDecimalPlaces = 0;
       this.txtTrack.MaxLength = 3;
       this.txtTrack.MaxWholeDigits = 3;
       this.txtTrack.Name = "txtTrack";
       this.txtTrack.Prefix = "";
-      this.txtTrack.RangeMax = 255.0;
-      this.txtTrack.RangeMin = 1.0;
-      this.txtTrack.Size = new Size(0x40, 20);
+      this.txtTrack.RangeMax = 255D;
+      this.txtTrack.RangeMin = 1D;
+      this.txtTrack.Size = new System.Drawing.Size(64, 20);
       this.txtTrack.TabIndex = 9;
+      this.txtTrack.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTrack.Leave += new System.EventHandler(this.Focus_Leave);
+      // 
+      // txtYear
+      // 
       this.txtYear.AllowNegative = true;
       this.txtYear.DigitsInGroup = 0;
-      this.txtYear.Flags = 0x10;
-      this.txtYear.Location = new Point(0x148, 0x7e);
+      this.txtYear.Flags = 16;
+      this.txtYear.Location = new System.Drawing.Point(328, 126);
       this.txtYear.MaxDecimalPlaces = 0;
       this.txtYear.MaxLength = 4;
       this.txtYear.MaxWholeDigits = 4;
       this.txtYear.Name = "txtYear";
       this.txtYear.Prefix = "";
-      this.txtYear.RangeMax = 9999.0;
-      this.txtYear.RangeMin = 1800.0;
-      this.txtYear.Size = new Size(0x40, 20);
+      this.txtYear.RangeMax = 9999D;
+      this.txtYear.RangeMin = 1800D;
+      this.txtYear.Size = new System.Drawing.Size(64, 20);
       this.txtYear.TabIndex = 7;
-      this.SelectionBar.AccessibleRole = AccessibleRole.ToolBar;
+      this.txtYear.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtYear.Leave += new System.EventHandler(this.Focus_Leave);
+      // 
+      // SelectionBar
+      // 
+      this.SelectionBar.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
       this.SelectionBar.AllowUserCustomize = false;
       this.SelectionBar.AntiAlias = true;
-      this.SelectionBar.BackColor = SystemColors.Control;
-      this.SelectionBar.BackgroundStyle.BackColor1.ColorSchemePart = eColorSchemePart.ExplorerBarBackground;
-      this.SelectionBar.BackgroundStyle.BackColor2.ColorSchemePart = eColorSchemePart.ExplorerBarBackground2;
+      this.SelectionBar.BackColor = System.Drawing.SystemColors.Control;
+      this.SelectionBar.BackgroundStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground;
+      this.SelectionBar.BackgroundStyle.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground2;
       this.SelectionBar.BackgroundStyle.GradientAngle = 90;
-      this.SelectionBar.Dock = DockStyle.Left;
-      this.SelectionBar.Font = new Font("Tahoma", 11f, FontStyle.Regular, GraphicsUnit.World);
+      this.SelectionBar.Dock = System.Windows.Forms.DockStyle.Left;
+      this.SelectionBar.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
       this.SelectionBar.GroupImages = null;
-      this.SelectionBar.Groups.AddRange(new BaseItem[] { this.TAGV2grpCommands });
+      this.SelectionBar.Groups.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.TAGV2grpCommands});
       this.SelectionBar.Images = null;
-      this.SelectionBar.Location = new Point(0, 0);
+      this.SelectionBar.Location = new System.Drawing.Point(0, 0);
       this.SelectionBar.Name = "SelectionBar";
-      this.SelectionBar.Size = new Size(0xa8, 0x110);
-      this.SelectionBar.TabIndex = 0x11;
+      this.SelectionBar.Size = new System.Drawing.Size(168, 272);
+      this.SelectionBar.TabIndex = 17;
       this.SelectionBar.Text = "Select TAG section";
-      this.TAGV2grpCommands.BackgroundStyle.BackColor1.Color = Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.TAGV2grpCommands.BackgroundStyle.Border = eBorderType.SingleLine;
-      this.TAGV2grpCommands.BackgroundStyle.BorderColor.Color = Color.White;
+      // 
+      // TAGV2grpCommands
+      // 
+      this.TAGV2grpCommands.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
+      this.TAGV2grpCommands.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TAGV2grpCommands.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
       this.TAGV2grpCommands.CanCustomize = false;
       this.TAGV2grpCommands.Expanded = true;
-      this.TAGV2grpCommands.HeaderHotStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpCommands.HeaderHotStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpCommands.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpCommands.HeaderHotStyle.ForeColor.Color = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2grpCommands.HeaderStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpCommands.HeaderStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpCommands.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpCommands.HeaderStyle.ForeColor.Color = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2grpCommands.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.TAGV2grpCommands.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.TAGV2grpCommands.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.TAGV2grpCommands.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2grpCommands.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.TAGV2grpCommands.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.TAGV2grpCommands.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.TAGV2grpCommands.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2grpCommands.Name = "TAGV2grpCommands";
-      this.TAGV2grpCommands.StockStyle = eExplorerBarStockStyle.Blue;
-      this.TAGV2grpCommands.SubItems.AddRange(new BaseItem[] { this.btnPrev, this.btnNext, this.btnSwapAT, this.btnSwapAA, this.btnSwapTA });
+      this.TAGV2grpCommands.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
+      this.TAGV2grpCommands.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnPrev,
+            this.btnNext,
+            this.btnSwapAT,
+            this.btnSwapAA,
+            this.btnSwapTA});
       this.TAGV2grpCommands.Text = "Commands";
-      this.btnPrev.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnPrev.Cursor = Cursors.Hand;
-      this.btnPrev.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // btnPrev
+      // 
+      this.btnPrev.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnPrev.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnPrev.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnPrev.HotFontUnderline = true;
-      this.btnPrev.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnPrev.HotTrackingStyle = eHotTrackingStyle.None;
-      this.btnPrev.Icon = (Icon)manager.GetObject("btnPrev.Icon");
+      this.btnPrev.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnPrev.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
+      this.btnPrev.Icon = ((System.Drawing.Icon)(resources.GetObject("btnPrev.Icon")));
       this.btnPrev.Name = "btnPrev";
-      this.btnPrev.Shortcuts.Add(eShortcut.CtrlB);
+      this.btnPrev.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlB);
       this.btnPrev.Text = "Previous File";
-      this.btnNext.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnNext.Cursor = Cursors.Hand;
-      this.btnNext.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+      // 
+      // btnNext
+      // 
+      this.btnNext.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnNext.HotFontUnderline = true;
-      this.btnNext.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnNext.HotTrackingStyle = eHotTrackingStyle.None;
-      this.btnNext.Icon = (Icon)manager.GetObject("btnNext.Icon");
+      this.btnNext.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnNext.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
+      this.btnNext.Icon = ((System.Drawing.Icon)(resources.GetObject("btnNext.Icon")));
       this.btnNext.Name = "btnNext";
-      this.btnNext.Shortcuts.Add(eShortcut.CtrlN);
+      this.btnNext.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlN);
       this.btnNext.Text = "Next File";
-      this.btnSwapAT.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnSwapAT.Cursor = Cursors.Hand;
-      this.btnSwapAT.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+      // 
+      // btnSwapAT
+      // 
+      this.btnSwapAT.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnSwapAT.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnSwapAT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnSwapAT.HotFontUnderline = true;
-      this.btnSwapAT.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnSwapAT.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnSwapAT.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnSwapAT.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnSwapAT.Name = "btnSwapAT";
       this.btnSwapAT.Text = "Swap Artist-Title";
-      this.btnSwapAA.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnSwapAA.Cursor = Cursors.Hand;
-      this.btnSwapAA.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnSwapAT.Click += new System.EventHandler(this.btnSwapAT_Click);
+      // 
+      // btnSwapAA
+      // 
+      this.btnSwapAA.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnSwapAA.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnSwapAA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnSwapAA.HotFontUnderline = true;
-      this.btnSwapAA.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnSwapAA.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnSwapAA.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnSwapAA.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnSwapAA.Name = "btnSwapAA";
       this.btnSwapAA.Text = "Swap Artist-Album";
-      this.btnSwapTA.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnSwapTA.Cursor = Cursors.Hand;
-      this.btnSwapTA.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnSwapAA.Click += new System.EventHandler(this.btnSwapAA_Click);
+      // 
+      // btnSwapTA
+      // 
+      this.btnSwapTA.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnSwapTA.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnSwapTA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnSwapTA.HotFontUnderline = true;
-      this.btnSwapTA.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnSwapTA.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnSwapTA.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnSwapTA.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnSwapTA.Name = "btnSwapTA";
       this.btnSwapTA.Text = "Swap Title-Album";
-      this.TAGV2ButtonItem1.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem1.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem1.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnSwapTA.Click += new System.EventHandler(this.btnSwapTA_Click);
+      // 
+      // TAGV2ButtonItem1
+      // 
+      this.TAGV2ButtonItem1.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem1.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem1.HotFontUnderline = true;
-      this.TAGV2ButtonItem1.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem1.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem1.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem1.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem1.Name = "TAGV2ButtonItem1";
       this.TAGV2ButtonItem1.Text = "Main Entries";
-      this.TAGV2ButtonItem2.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem2.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem2.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // TAGV2ButtonItem2
+      // 
+      this.TAGV2ButtonItem2.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem2.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem2.HotFontUnderline = true;
-      this.TAGV2ButtonItem2.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem2.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem2.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem2.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem2.Name = "TAGV2ButtonItem2";
       this.TAGV2ButtonItem2.Text = "Detailed information";
-      this.TAGV2ButtonItem3.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem3.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem3.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // TAGV2ButtonItem3
+      // 
+      this.TAGV2ButtonItem3.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem3.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem3.HotFontUnderline = true;
-      this.TAGV2ButtonItem3.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem3.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem3.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem3.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem3.Name = "TAGV2ButtonItem3";
       this.TAGV2ButtonItem3.Text = "Original information";
-      this.TAGV2ButtonItem4.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem4.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem4.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // TAGV2ButtonItem4
+      // 
+      this.TAGV2ButtonItem4.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem4.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem4.HotFontUnderline = true;
-      this.TAGV2ButtonItem4.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem4.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem4.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem4.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem4.Name = "TAGV2ButtonItem4";
       this.TAGV2ButtonItem4.Text = "Involved people";
-      this.TAGV2ButtonItem5.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem5.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem5.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // TAGV2ButtonItem5
+      // 
+      this.TAGV2ButtonItem5.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem5.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem5.HotFontUnderline = true;
-      this.TAGV2ButtonItem5.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem5.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem5.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem5.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem5.Name = "TAGV2ButtonItem5";
       this.TAGV2ButtonItem5.Text = "Web information";
-      this.TAGV2ButtonItem6.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem6.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem6.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // TAGV2ButtonItem6
+      // 
+      this.TAGV2ButtonItem6.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem6.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem6.HotFontUnderline = true;
-      this.TAGV2ButtonItem6.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem6.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem6.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem6.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem6.Name = "TAGV2ButtonItem6";
       this.TAGV2ButtonItem6.Text = "Pictures";
-      this.TAGV2ButtonItem7.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem7.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem7.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // TAGV2ButtonItem7
+      // 
+      this.TAGV2ButtonItem7.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem7.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem7.HotFontUnderline = true;
-      this.TAGV2ButtonItem7.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem7.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem7.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem7.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem7.Name = "TAGV2ButtonItem7";
       this.TAGV2ButtonItem7.Text = "Lyrics";
-      this.TAGV2ButtonItem8.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem8.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem8.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // TAGV2ButtonItem8
+      // 
+      this.TAGV2ButtonItem8.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem8.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem8.HotFontUnderline = true;
-      this.TAGV2ButtonItem8.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem8.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem8.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem8.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem8.Name = "TAGV2ButtonItem8";
       this.TAGV2ButtonItem8.Text = "Rating";
-      this.TAGV2ButtonItem9.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem9.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem9.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // TAGV2ButtonItem9
+      // 
+      this.TAGV2ButtonItem9.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem9.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem9.HotFontUnderline = true;
-      this.TAGV2ButtonItem9.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem9.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem9.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem9.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem9.Name = "TAGV2ButtonItem9";
       this.TAGV2ButtonItem9.Text = "User defined information";
-      this.TAGV2ButtonItem10.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem10.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem10.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // TAGV2ButtonItem10
+      // 
+      this.TAGV2ButtonItem10.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem10.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem10.HotFontUnderline = true;
-      this.TAGV2ButtonItem10.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem10.HotTrackingStyle = eHotTrackingStyle.None;
+      this.TAGV2ButtonItem10.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem10.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem10.Name = "TAGV2ButtonItem10";
       this.TAGV2ButtonItem10.Text = "Not supported frames";
-      this.btnImport.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnImport.Cursor = Cursors.Hand;
-      this.btnImport.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // btnImport
+      // 
+      this.btnImport.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnImport.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnImport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnImport.HotFontUnderline = true;
-      this.btnImport.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnImport.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnImport.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnImport.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnImport.Name = "btnImport";
       this.btnImport.Text = "Transfer from Ver. 1";
-      this.btnExport.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnExport.Cursor = Cursors.Hand;
-      this.btnExport.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // btnExport
+      // 
+      this.btnExport.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnExport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnExport.HotFontUnderline = true;
-      this.btnExport.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnExport.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnExport.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnExport.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnExport.Name = "btnExport";
       this.btnExport.Text = "Transfer to Ver. 1";
-      this.btnGet.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnGet.Cursor = Cursors.Hand;
-      this.btnGet.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // btnGet
+      // 
+      this.btnGet.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnGet.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnGet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnGet.HotFontUnderline = true;
-      this.btnGet.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnGet.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnGet.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnGet.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnGet.Name = "btnGet";
       this.btnGet.Text = "Get from filename";
+      // 
+      // ButtomPanel
+      // 
       this.ButtomPanel.AntiAlias = true;
       this.ButtomPanel.Controls.Add(this.btnOK);
       this.ButtomPanel.Controls.Add(this.btnCancel);
-      this.ButtomPanel.Dock = DockStyle.Bottom;
-      this.ButtomPanel.Location = new Point(0xa8, 0xe8);
+      this.ButtomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.ButtomPanel.Location = new System.Drawing.Point(168, 232);
       this.ButtomPanel.Name = "ButtomPanel";
-      this.ButtomPanel.Size = new Size(0x1ca, 40);
-      this.ButtomPanel.Style.BackColor1.Color = Color.White;
-      this.ButtomPanel.Style.BackColor2.Color = Color.White;
-      this.ButtomPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
+      this.ButtomPanel.Size = new System.Drawing.Size(458, 40);
+      this.ButtomPanel.Style.BackColor1.Color = System.Drawing.Color.White;
+      this.ButtomPanel.Style.BackColor2.Color = System.Drawing.Color.White;
+      this.ButtomPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
       this.ButtomPanel.Style.BorderWidth = 0;
-      this.ButtomPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.ButtomPanel.Style.ForeColor.Color = Color.Black;
+      this.ButtomPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ButtomPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
       this.ButtomPanel.Style.GradientAngle = 90;
-      this.ButtomPanel.Style.LineAlignment = StringAlignment.Near;
+      this.ButtomPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
       this.ButtomPanel.Style.MarginBottom = 2;
       this.ButtomPanel.Style.MarginLeft = 7;
       this.ButtomPanel.Style.MarginRight = 2;
       this.ButtomPanel.Style.MarginTop = 2;
       this.ButtomPanel.TabIndex = 14;
+      // 
+      // TopPanel
+      // 
       this.TopPanel.AntiAlias = true;
       this.TopPanel.Controls.Add(this.txtSelected);
       this.TopPanel.Controls.Add(this.lblSelected);
-      this.TopPanel.Dock = DockStyle.Top;
-      this.TopPanel.Location = new Point(0xa8, 0);
+      this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
+      this.TopPanel.Location = new System.Drawing.Point(168, 0);
       this.TopPanel.Name = "TopPanel";
-      this.TopPanel.Size = new Size(0x1ca, 0x30);
-      this.TopPanel.Style.BackColor1.Color = Color.White;
-      this.TopPanel.Style.BackColor2.Color = Color.White;
-      this.TopPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
+      this.TopPanel.Size = new System.Drawing.Size(458, 48);
+      this.TopPanel.Style.BackColor1.Color = System.Drawing.Color.White;
+      this.TopPanel.Style.BackColor2.Color = System.Drawing.Color.White;
+      this.TopPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
       this.TopPanel.Style.BorderWidth = 0;
-      this.TopPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.TopPanel.Style.ForeColor.Color = Color.Black;
+      this.TopPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.TopPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
       this.TopPanel.Style.GradientAngle = 90;
-      this.TopPanel.Style.LineAlignment = StringAlignment.Near;
+      this.TopPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
       this.TopPanel.Style.MarginBottom = 2;
       this.TopPanel.Style.MarginLeft = 7;
       this.TopPanel.Style.MarginRight = 2;
       this.TopPanel.Style.MarginTop = 2;
-      this.TopPanel.TabIndex = 0x12;
-      this.btnNext.Click += new EventHandler(this.btnNext_Click);
-      this.btnOK.Click += new EventHandler(this.btnOK_Click);
-      this.btnPrev.Click += new EventHandler(this.btnPrev_Click);
-      this.btnSwapAA.Click += new EventHandler(this.btnSwapAA_Click);
-      this.btnSwapAT.Click += new EventHandler(this.btnSwapAT_Click);
-      this.btnSwapTA.Click += new EventHandler(this.btnSwapTA_Click);
-      this.cmbArtist.Enter += new EventHandler(this.Select_Enter);
-      this.cmbArtist.Leave += new EventHandler(this.Focus_Leave);
-      this.cmbGenre.Enter += new EventHandler(this.Select_Enter);
-      this.cmbGenre.Leave += new EventHandler(this.Focus_Leave);
-      this.txtAlbum.Enter += new EventHandler(this.Select_Enter);
-      this.txtAlbum.Leave += new EventHandler(this.Focus_Leave);
-      this.txtComment.Enter += new EventHandler(this.Select_Enter);
-      this.txtComment.Leave += new EventHandler(this.Focus_Leave);
-      this.txtTrack.Enter += new EventHandler(this.Select_Enter);
-      this.txtTitle.Enter += new EventHandler(this.Select_Enter);
-      this.txtTitle.Leave += new EventHandler(this.Focus_Leave);
-      this.txtTrack.Leave += new EventHandler(this.Focus_Leave);
-      this.txtYear.Enter += new EventHandler(this.Select_Enter);
-      this.txtYear.Leave += new EventHandler(this.Focus_Leave);
+      this.TopPanel.TabIndex = 18;
+      // 
+      // frmTAG1
+      // 
       this.AcceptButton = this.btnOK;
-      this.AutoScaleBaseSize = new Size(5, 13);
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
       this.CancelButton = this.btnCancel;
-      this.ClientSize = new Size(0x272, 0x110);
+      this.ClientSize = new System.Drawing.Size(626, 272);
       this.ControlBox = false;
       this.Controls.Add(this.ButtomPanel);
       this.Controls.Add(this.txtYear);
@@ -509,17 +642,20 @@ namespace ID3_TagIT
       this.Controls.Add(this.txtTitle);
       this.Controls.Add(this.TopPanel);
       this.Controls.Add(this.SelectionBar);
-      this.FormBorderStyle = FormBorderStyle.FixedDialog;
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.KeyPreview = true;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
       this.Name = "frmTAG1";
       this.ShowInTaskbar = false;
       this.Text = "Edit TAG Ver. 1";
-      ((ISupportInitialize)this.SelectionBar).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).EndInit();
       this.ButtomPanel.ResumeLayout(false);
       this.TopPanel.ResumeLayout(false);
+      this.TopPanel.PerformLayout();
       this.ResumeLayout(false);
+      this.PerformLayout();
+
     }
 
     public frmTAG1(ref frmMain FormMain)
@@ -605,17 +741,19 @@ namespace ID3_TagIT
         this.MP3 = (ID3_TagIT.MP3)this.MainForm.MP3View.FocusedItem.Tag;
         this.ClearForm();
         this.FillForm();
-        if (this.ActiveControl == this.btnNext)
-          this.FocusedControl.Focus();
+        // FIXME
+        //if (this.ActiveControl == this.btnNext)
+        //  this.FocusedControl.Focus();
       }
-      else if (this.ActiveControl == this.btnNext)
-        this.FocusedControl.Focus();
+      // FIXME
+      //else if (this.ActiveControl == this.btnNext)
+      //  this.FocusedControl.Focus();
     }
 
     private void btnOK_Click(object sender, EventArgs e)
     {
       Form form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
       this.SaveToTAG();
       this.Close();
     }
@@ -629,15 +767,13 @@ namespace ID3_TagIT
         this.MP3 = (ID3_TagIT.MP3)this.MainForm.MP3View.FocusedItem.Tag;
         this.ClearForm();
         this.FillForm();
-        if (this.ActiveControl == this.btnPrev)
-        {
-          this.FocusedControl.Focus();
-        }
+        // FIXME
+        //if (this.ActiveControl == this.btnPrev)
+        //  this.FocusedControl.Focus();
       }
-      else if (this.ActiveControl == this.btnPrev)
-      {
-        this.FocusedControl.Focus();
-      }
+      // FIXME
+      //else if (this.ActiveControl == this.btnPrev)
+      //  this.FocusedControl.Focus();
     }
 
     private void btnSwapAA_Click(object sender, EventArgs e)
@@ -729,9 +865,9 @@ namespace ID3_TagIT
       Form objForm = this;
       Declarations.objResources.ResourcesToForm(ref objForm);
       objForm = this;
-      Main.RestoreFormSettings(ref objForm);
+      Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
-      Main.WindowsXPCheck(ref objForm);
+      Id3TagIT_Main.WindowsXPCheck(ref objForm);
       if (this.MainForm.MP3View.FocusedItem == null)
       {
         this.MainForm.MP3View.Items[this.MainForm.MP3View.SelectedItems[0].Index].Focused = true;

@@ -39,14 +39,14 @@ namespace ID3_TagIT
     private ControlContainerItem CContainerbtnQuickEditOK;
     private ControlContainerItem CContainerTitle;
     private ControlContainerItem CContainertxtInfo;
-    private ComboBoxAutoComplete cmbArtist;
+    public ComboBoxAutoComplete cmbArtist;
     private ImageList ColumnHeaderIcons;
-    private DevComponents.DotNetBar.DotNetBarManager DotNetBarManager;
+    public DevComponents.DotNetBar.DotNetBarManager DotNetBarManager;
     private Label EnumInfo;
-    private ListView ErrorMsg;
+    public ListView ErrorMsg;
     private ButtonItem FavouritesPan;
     private NavigationPanePanel FavouritesPanel;
-    private TreeView FavTree;
+    public TreeView FavTree;
     private System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog;
     private System.Windows.Forms.Timer FolderRenameTimer;
     private ButtonItem FoldersPan;
@@ -57,10 +57,10 @@ namespace ID3_TagIT
     private LabelItem lblArtist;
     private LabelItem lblQuickSpacer1;
     private LabelItem lblTitle;
-    private ListView MP3View;
+    public ListView MP3View;
     private NavigationPane NavigationPan;
     private ExplorerBar SideBar;
-    private ExpandableSplitter SplitterBottom;
+    public ExpandableSplitter SplitterBottom;
     private ExpandableSplitter SplitterLeft;
     private ExpandableSplitter SplitterRight;
     private System.Windows.Forms.Timer Timer;
@@ -761,7 +761,7 @@ namespace ID3_TagIT
     public frmMain()
     {
       base.Load += new EventHandler(this.frmMain_Load);
-      base.Closing += new CancelEventHandler(this, (IntPtr)this.frmMain_Closing);
+      base.Closing += new CancelEventHandler(this.frmMain_Closing);
       this.colHFilename = new ColumnHeader();
       this.colHSubDir = new ColumnHeader();
       this.colHTAGVer1 = new ColumnHeader();
@@ -932,7 +932,7 @@ namespace ID3_TagIT
 
     private void CalcAudioCheckSum()
     {
-      MP3 tag;
+      MP3 tag = null;
       try
       {
         int num3 = this.MP3View.Items.Count - 1;
@@ -1060,7 +1060,7 @@ namespace ID3_TagIT
           {
             vLeft = StringType.FromObject(ObjectType.StrCatObj(vLeft, ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null), "\0")));
           }
-          Main.ShellFileOp(vLeft, path, Declarations.ShellOperation.CopyOp, Declarations.ShellOperationFlags.FilesOnly | Declarations.ShellOperationFlags.AllowUndo, this);
+          Id3TagIT_Main.ShellFileOp(vLeft, path, Declarations.ShellOperation.CopyOp, Declarations.ShellOperationFlags.FilesOnly | Declarations.ShellOperationFlags.AllowUndo, this);
           if (path.StartsWith(Declarations.objSettings.CurrentPath) & Declarations.objSettings.ScanSubDirs)
           {
             this.GetFiles(null, true, true);
@@ -1081,7 +1081,7 @@ namespace ID3_TagIT
       string vLeft = "";
       if (MessageBox.Show(StringType.FromObject(Declarations.objResources.ResStrings["FileDelete"]), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
       {
-        IEnumerator enumerator;
+        IEnumerator enumerator = null;
         try
         {
           enumerator = this.MP3View.SelectedItems.GetEnumerator();
@@ -1109,7 +1109,7 @@ namespace ID3_TagIT
           Exception exception = exception1;
           ProjectData.ClearProjectError();
         }
-        if (Main.ShellFileOp(vLeft, vstrDestFolder, Declarations.ShellOperation.DeleteOp, Declarations.ShellOperationFlags.FilesOnly | Declarations.ShellOperationFlags.AllowUndo, this))
+        if (Id3TagIT_Main.ShellFileOp(vLeft, vstrDestFolder, Declarations.ShellOperation.DeleteOp, Declarations.ShellOperationFlags.FilesOnly | Declarations.ShellOperationFlags.AllowUndo, this))
         {
           this.MP3View.BeginUpdate();
           foreach (ListViewItem item in this.MP3View.SelectedItems)
@@ -1193,7 +1193,7 @@ namespace ID3_TagIT
         }
         if (StringType.StrCmp(name, "mnubtnOrganizeFiles", false) != 0)
         {
-          ButtonItem item23;
+          ButtonItem item23 = null;
           Declarations.CopyTAG ytag2;
           frmProgress.Callback callback;
           Form form;
@@ -1217,7 +1217,6 @@ namespace ID3_TagIT
           }
           if (StringType.StrCmp(name, "mnubtnPlay", false) == 0)
           {
-            ListViewItem item3 = new ListViewItem();
             Process process2 = new Process();
             string vLeft = "";
             foreach (ListViewItem item3 in this.MP3View.SelectedItems)
@@ -1226,7 +1225,7 @@ namespace ID3_TagIT
             }
             if (StringType.StrCmp(vLeft, "", false) != 0)
             {
-              string str3 = Main.CreateTempFile(Encoding.Default.GetBytes(vLeft), "m3u");
+              string str3 = Id3TagIT_Main.CreateTempFile(Encoding.Default.GetBytes(vLeft), "m3u");
               process2.StartInfo.UseShellExecute = true;
               process2.StartInfo.FileName = str3;
               try
@@ -1334,7 +1333,6 @@ namespace ID3_TagIT
           }
           if (StringType.StrCmp(name, "mnubtnCopyV1", false) == 0)
           {
-            ListViewItem item4 = new ListViewItem();
             foreach (ListViewItem item4 in this.MP3View.SelectedItems)
             {
               ytag2 = new Declarations.CopyTAG((V1TAG)LateBinding.LateGet(LateBinding.LateGet(item4.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), null);
@@ -1344,7 +1342,6 @@ namespace ID3_TagIT
           }
           if (StringType.StrCmp(name, "mnubtnCopyV2", false) == 0)
           {
-            ListViewItem item5 = new ListViewItem();
             this.alstCopyPaste.Clear();
             foreach (ListViewItem item5 in this.MP3View.SelectedItems)
             {
@@ -1355,7 +1352,6 @@ namespace ID3_TagIT
           }
           if (StringType.StrCmp(name, "mnubtnCopyV1V2", false) == 0)
           {
-            ListViewItem item6 = new ListViewItem();
             this.alstCopyPaste.Clear();
             foreach (ListViewItem item6 in this.MP3View.SelectedItems)
             {
@@ -2185,7 +2181,7 @@ namespace ID3_TagIT
                 {
                   if (StringType.StrCmp(str9, "", false) != 0)
                   {
-                    this.ToolsIcons.Images.Add(Main.GetAppIcon(str9, true));
+                    this.ToolsIcons.Images.Add(Id3TagIT_Main.GetAppIcon(str9, true));
                   }
                   ButtonItem item20 = new ButtonItem("ToolItem" + num4.ToString(), row["ToolDescription"].ToString())
                   {
@@ -2197,7 +2193,7 @@ namespace ID3_TagIT
                 }
                 else
                 {
-                  this.ToolsIcons.Images.Add(Main.GetAppIcon(StringType.FromObject(row["ToolPath"]), true));
+                  this.ToolsIcons.Images.Add(Id3TagIT_Main.GetAppIcon(StringType.FromObject(row["ToolPath"]), true));
                   ButtonItem item21 = new ButtonItem("ToolItem" + num4.ToString(), row["ToolDescription"].ToString())
                   {
                     ImageIndex = num4,
@@ -2253,7 +2249,7 @@ namespace ID3_TagIT
           }
           if ((((((StringType.StrCmp(name, "mnubtnFilterA", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterB", false) != 0)) && ((StringType.StrCmp(name, "mnubtnFilterC", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterD", false) != 0))) && (((StringType.StrCmp(name, "mnubtnFilterE", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterF", false) != 0)) && ((StringType.StrCmp(name, "mnubtnFilterG", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterH", false) != 0)))) && ((((StringType.StrCmp(name, "mnubtnFilterI", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterJ", false) != 0)) && ((StringType.StrCmp(name, "mnubtnFilterK", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterL", false) != 0))) && (((StringType.StrCmp(name, "mnubtnFilterM", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterN", false) != 0)) && ((StringType.StrCmp(name, "mnubtnFilterO", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterP", false) != 0))))) && (((((StringType.StrCmp(name, "mnubtnFilterQ", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterR", false) != 0)) && ((StringType.StrCmp(name, "mnubtnFilterS", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterT", false) != 0))) && (((StringType.StrCmp(name, "mnubtnFilterU", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterV", false) != 0)) && ((StringType.StrCmp(name, "mnubtnFilterW", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterX", false) != 0)))) && (((StringType.StrCmp(name, "mnubtnFilterY", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterZ", false) != 0)) && (((StringType.StrCmp(name, "mnubtnFilterOther", false) != 0) && (StringType.StrCmp(name, "mnubtnFilterEmpty", false) != 0)) && (StringType.StrCmp(name, "mnubtnFilterNumber", false) != 0)))))
           {
-            ButtonItem item25;
+            ButtonItem item25 = null;
             if (StringType.StrCmp(name, "mnubtnRemoveFilter", false) != 0)
             {
               if ((StringType.StrCmp(name, "mnucmbLanguage", false) == 0) && !this.vbooStartUp)
@@ -2454,7 +2450,6 @@ namespace ID3_TagIT
     {
       if (((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2) & (this.MP3View.FocusedItem != null))
       {
-        ListViewItem item = new ListViewItem();
         ArrayList list = new ArrayList();
         this.MP3View.BeginUpdate();
         foreach (ListViewItem item in this.MP3View.SelectedItems)
@@ -2551,7 +2546,7 @@ namespace ID3_TagIT
     private void FavTree_AfterSelect(object sender, TreeViewEventArgs e)
     {
       int num;
-      ButtonItem item2;
+      ButtonItem item2 = null;
       bool flag = false;
       if (((e.Action == TreeViewAction.Expand) | (e.Action == TreeViewAction.Collapse)) | (e.Action == TreeViewAction.Unknown))
       {
@@ -2577,9 +2572,7 @@ namespace ID3_TagIT
       }
       item2.Checked = false;
       foreach (ButtonItem item3 in item2.SubItems)
-      {
         item3.Checked = false;
-      }
       this.vbytFilterIndex = 0xff;
       Label_010A:
       this.MP3View.Items.Clear();
@@ -2701,7 +2694,7 @@ namespace ID3_TagIT
 
     private void FolderRenameCB(ref frmProgress frmProg)
     {
-      IEnumerator enumerator;
+      IEnumerator enumerator = null;
       string oldValue = frmProg.String01;
       string newValue = frmProg.String02;
       frmProg.btnCancel.Enabled = false;
@@ -2793,7 +2786,7 @@ namespace ID3_TagIT
 
     private void FolderTree_AfterSelect(object sender, FolderViewEventArgs e)
     {
-      ButtonItem item2;
+      ButtonItem item2 = null;
       if (this.vbooClosing | this.vbooStartUp)
       {
         return;
@@ -2925,16 +2918,16 @@ namespace ID3_TagIT
       this.vbooClosing = true;
       try
       {
-        Main.objDebugStream.Seek(0L, SeekOrigin.Begin);
-        if (Main.objDebugStream.ReadByte() == 0x20)
+        Id3TagIT_Main.objDebugStream.Seek(0L, SeekOrigin.Begin);
+        if (Id3TagIT_Main.objDebugStream.ReadByte() == 0x20)
         {
           FileStream stream = new FileStream(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\ID3-TagIT-Log.txt", FileMode.OpenOrCreate);
-          Main.objDebugStream.Flush();
-          stream.Write(Main.objDebugStream.ToArray(), 0, Main.objDebugStream.ToArray().Length);
+          Id3TagIT_Main.objDebugStream.Flush();
+          stream.Write(Id3TagIT_Main.objDebugStream.ToArray(), 0, Id3TagIT_Main.objDebugStream.ToArray().Length);
           stream.Flush();
           stream.Close();
         }
-        Main.objDebugStream.Close();
+        Id3TagIT_Main.objDebugStream.Close();
       }
       catch (Exception exception1)
       {
@@ -3025,25 +3018,23 @@ namespace ID3_TagIT
       Declarations.objSettings.SideBarExpanded = this.SplitterRight.Expanded;
       Declarations.objSettings.ErrorExpanded = this.SplitterBottom.Expanded;
       Form form = this;
-      Main.SaveFormSettings(ref form);
+      Id3TagIT_Main.SaveFormSettings(ref form);
       this.MP3View_SaveColumns();
       Declarations.objSettings.WriteSettings();
-      using (IEnumerator enumerator = Declarations.TempFiles.GetEnumerator())
+      var enumerator = Declarations.TempFiles.GetEnumerator();
+      while (enumerator.MoveNext())
       {
-        while (enumerator.MoveNext())
+        string path = StringType.FromObject(enumerator.Current);
+        try
         {
-          string path = StringType.FromObject(enumerator.Current);
-          try
-          {
-            File.Delete(path);
-            continue;
-          }
-          catch (Exception exception9)
-          {
-            ProjectData.SetProjectError(exception9);
-            ProjectData.ClearProjectError();
-            continue;
-          }
+          File.Delete(path);
+          continue;
+        }
+        catch (Exception exception9)
+        {
+          ProjectData.SetProjectError(exception9);
+          ProjectData.ClearProjectError();
+          continue;
         }
       }
       Declarations.UNDOList.Clear();
@@ -3090,7 +3081,7 @@ namespace ID3_TagIT
       splash.lblState.Text = "Restoring interface";
       Application.DoEvents();
       Form form = this;
-      Main.RestoreFormSettings(ref form);
+      Id3TagIT_Main.RestoreFormSettings(ref form);
       try
       {
         if (File.Exists(Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml")))
@@ -3186,7 +3177,6 @@ namespace ID3_TagIT
       {
         this.DotNetBarManager.GetItem("lblSubDirs").Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsNo"]);
       }
-      Bar bar = new Bar();
       if (Declarations.objSettings.UseThemes)
       {
         foreach (Bar bar in this.DotNetBarManager.Bars)
@@ -3239,7 +3229,7 @@ namespace ID3_TagIT
           {
             if (StringType.StrCmp(sLeft, "", false) != 0)
             {
-              this.ToolsIcons.Images.Add(Main.GetAppIcon(sLeft, true));
+              this.ToolsIcons.Images.Add(Id3TagIT_Main.GetAppIcon(sLeft, true));
             }
             ButtonItem item2 = new ButtonItem("ToolItem" + num.ToString(), row["ToolDescription"].ToString())
             {
@@ -3251,7 +3241,7 @@ namespace ID3_TagIT
           }
           else
           {
-            this.ToolsIcons.Images.Add(Main.GetAppIcon(StringType.FromObject(row["ToolPath"]), true));
+            this.ToolsIcons.Images.Add(Id3TagIT_Main.GetAppIcon(StringType.FromObject(row["ToolPath"]), true));
             ButtonItem item3 = new ButtonItem("ToolItem" + num.ToString(), row["ToolDescription"].ToString())
             {
               ImageIndex = num,
@@ -3304,7 +3294,7 @@ namespace ID3_TagIT
       splash.Close();
       Application.DoEvents();
       form = this;
-      Main.WindowsXPCheck(ref form);
+      Id3TagIT_Main.WindowsXPCheck(ref form);
       this.MP3View.Focus();
       Application.DoEvents();
       this.Visible = true;
@@ -3437,46 +3427,44 @@ namespace ID3_TagIT
       int num3 = 0;
       int count = frmProg.List.Count;
       int vintHelpCount = 0;
-      using (IEnumerator enumerator = frmProg.List.GetEnumerator())
+      var enumerator = frmProg.List.GetEnumerator();
+      while (enumerator.MoveNext())
       {
-        while (enumerator.MoveNext())
+        string vstrFullFilename = StringType.FromObject(enumerator.Current);
+        Application.DoEvents();
+        if (frmProg.Canceled)
         {
-          string vstrFullFilename = StringType.FromObject(enumerator.Current);
-          Application.DoEvents();
-          if (frmProg.Canceled)
-          {
-            return;
-          }
-          frmProg.Infos.Text = vstrFullFilename;
-          MP3 mp = new MP3(vstrFullFilename);
-          if (mp.ExploreMP3())
-          {
-            Declarations.MP3s.Add(mp);
-          }
-          if (vintHelpCount != this.vintHelpCount)
-          {
-            vintHelpCount = this.vintHelpCount;
-            try
-            {
-              if (Declarations.MP3s.Count > 0)
-              {
-                num3 = (count - Declarations.MP3s.Count) / (Declarations.MP3s.Count / vintHelpCount);
-              }
-            }
-            catch (Exception exception1)
-            {
-              ProjectData.SetProjectError(exception1);
-              Exception exception = exception1;
-              ProjectData.ClearProjectError();
-            }
-            int num6 = num3 / 0xe10;
-            int num5 = (num3 / 60) % 60;
-            int num4 = num3 % 60;
-            frmProg.State.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["Read"], " ("), num6.ToString().PadLeft(2, '0')), ":"), num5.ToString().PadLeft(2, '0')), ":"), num4.ToString().PadLeft(2, '0')), ")"));
-          }
-          frmProg.ProgressBar.PerformStep();
-          mp = null;
+          return;
         }
+        frmProg.Infos.Text = vstrFullFilename;
+        MP3 mp = new MP3(vstrFullFilename);
+        if (mp.ExploreMP3())
+        {
+          Declarations.MP3s.Add(mp);
+        }
+        if (vintHelpCount != this.vintHelpCount)
+        {
+          vintHelpCount = this.vintHelpCount;
+          try
+          {
+            if (Declarations.MP3s.Count > 0)
+            {
+              num3 = (count - Declarations.MP3s.Count) / (Declarations.MP3s.Count / vintHelpCount);
+            }
+          }
+          catch (Exception exception1)
+          {
+            ProjectData.SetProjectError(exception1);
+            Exception exception = exception1;
+            ProjectData.ClearProjectError();
+          }
+          int num6 = num3 / 0xe10;
+          int num5 = (num3 / 60) % 60;
+          int num4 = num3 % 60;
+          frmProg.State.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["Read"], " ("), num6.ToString().PadLeft(2, '0')), ":"), num5.ToString().PadLeft(2, '0')), ":"), num4.ToString().PadLeft(2, '0')), ")"));
+        }
+        frmProg.ProgressBar.PerformStep();
+        mp = null;
       }
     }
 
@@ -3535,7 +3523,7 @@ namespace ID3_TagIT
           {
             vLeft = StringType.FromObject(ObjectType.StrCatObj(vLeft, ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null), "\0")));
           }
-          if (Main.ShellFileOp(vLeft, path, Declarations.ShellOperation.MoveOp, Declarations.ShellOperationFlags.FilesOnly | Declarations.ShellOperationFlags.AllowUndo, this))
+          if (Id3TagIT_Main.ShellFileOp(vLeft, path, Declarations.ShellOperation.MoveOp, Declarations.ShellOperationFlags.FilesOnly | Declarations.ShellOperationFlags.AllowUndo, this))
           {
             if (!path.StartsWith(Declarations.objSettings.CurrentPath))
             {
@@ -3701,7 +3689,7 @@ namespace ID3_TagIT
             num2++;
           }
         }
-        Main.SetColumnOrder(this.MP3View, sortOrder);
+        Id3TagIT_Main.SetColumnOrder(this.MP3View, sortOrder);
       }
       this.MP3View.EndUpdate();
     }
@@ -3952,73 +3940,51 @@ namespace ID3_TagIT
       foreach (MP3 mp in list)
       {
         object objectValue;
-        int num2;
+        int num2 = 0;
         num2++;
         Application.DoEvents();
         if (frmProg.Canceled)
-        {
           break;
-        }
         bool flag = false;
         if (StringType.StrCmp(this.vstrFilter, "*", false) == 0)
-        {
           goto Label_11EA;
-        }
         switch (this.vbytFilterIndex)
         {
           case 0:
             if (Declarations.objSettings.VersionToShow != 2)
-            {
               goto Label_053C;
-            }
             if (!mp.V2TAG.FrameExists("TPE1"))
-            {
               goto Label_051D;
-            }
             if (ObjectType.ObjTst(LateBinding.LateGet(mp.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), "", false) != 0)
             {
               if (!(Information.IsNumeric(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null))) & (StringType.StrCmp(this.vstrFilter, "#", false) == 0)))
-              {
                 break;
-              }
               flag = true;
             }
             goto Label_11ED;
 
           case 1:
             if (Declarations.objSettings.VersionToShow != 2)
-            {
               goto Label_0AFE;
-            }
             if (!mp.V2TAG.FrameExists("TIT2"))
-            {
               goto Label_0ADF;
-            }
             if (ObjectType.ObjTst(LateBinding.LateGet(mp.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), "", false) != 0)
             {
               if (!(Information.IsNumeric(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null))) & (StringType.StrCmp(this.vstrFilter, "#", false) == 0)))
-              {
                 goto Label_0739;
-              }
               flag = true;
             }
             goto Label_11ED;
 
           case 2:
             if (Declarations.objSettings.VersionToShow != 2)
-            {
               goto Label_10C0;
-            }
             if (!mp.V2TAG.FrameExists("TALB"))
-            {
               goto Label_10A1;
-            }
             if (ObjectType.ObjTst(LateBinding.LateGet(mp.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), "", false) != 0)
             {
               if (!(Information.IsNumeric(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null))) & (StringType.StrCmp(this.vstrFilter, "#", false) == 0)))
-              {
                 goto Label_0CFB;
-              }
               flag = true;
             }
             goto Label_11ED;
@@ -4536,57 +4502,43 @@ namespace ID3_TagIT
         {
           if (mp.V2TAG.FrameExists("COMM"))
           {
-            using (IEnumerator enumerator2 = mp.V2TAG.GetFrames("COMM").GetEnumerator())
+            var enumerator2 = mp.V2TAG.GetFrames("COMM").GetEnumerator();
+            while (enumerator2.MoveNext())
             {
-              while (enumerator2.MoveNext())
-              {
-                objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
-                item.SubItems[this.colHComment.Index].Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null));
-                goto Label_1FBE;
-              }
+              objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
+              item.SubItems[this.colHComment.Index].Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null));
+              goto Label_1FBE;
             }
           }
           else
-          {
             item.SubItems[this.colHComment.Index].Text = "";
-          }
         }
         Label_1FBE:
         if (this.MP3View.Columns.Contains(this.colHRating))
         {
           if (mp.V2TAG.FrameExists("POPM"))
           {
-            using (IEnumerator enumerator = mp.V2TAG.GetFrames("POPM").GetEnumerator())
+            var enumerator = mp.V2TAG.GetFrames("POPM").GetEnumerator();
+            while (enumerator.MoveNext())
             {
-              while (enumerator.MoveNext())
-              {
-                objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
-                item.SubItems[this.colHRating.Index].Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Rating", new object[0], null, null));
-                goto Label_208F;
-              }
+              objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
+              item.SubItems[this.colHRating.Index].Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Rating", new object[0], null, null));
+              goto Label_208F;
             }
           }
           else
-          {
             item.SubItems[this.colHRating.Index].Text = "";
-          }
         }
         Label_208F:
         if (this.MP3View.Columns.Contains(this.colHComposer))
         {
           if (mp.V2TAG.FrameExists("TCOM"))
-          {
             item.SubItems[this.colHComposer.Index].Text = StringType.FromObject(LateBinding.LateGet(mp.V2TAG.GetFrame("TCOM"), null, "Content", new object[0], null, null));
-          }
           else
-          {
             item.SubItems[this.colHComposer.Index].Text = "";
-          }
         }
         if (this.MP3View.Columns.Contains(this.colHPicCount))
-        {
           item.SubItems[this.colHPicCount.Index].Text = StringType.FromInteger(mp.V2TAG.GetFrames("APIC").Count);
-        }
         Label_216E:
         if (mp.V1TAG.TAGPresent && (this.vbytVersionToShow == 1))
         {
@@ -4738,116 +4690,91 @@ namespace ID3_TagIT
     private void MP3View_SaveColumns()
     {
       Declarations.objSettings.Columns.Rows.Clear();
-      int[] columnOrder = Main.GetColumnOrder(this.MP3View);
-      num = 0;
+      int[] columnOrder = Id3TagIT_Main.GetColumnOrder(this.MP3View);
+
       foreach (int num in columnOrder)
       {
         ColumnHeader header = this.MP3View.Columns[num];
         DataRow row = Declarations.objSettings.Columns.NewRow();
+
         if (header == this.colHFilename)
-        {
           row["ID"] = 1;
-        }
+
         if (header == this.colHSubDir)
-        {
           row["ID"] = 2;
-        }
+
         if (header == this.colHTAGVer1)
-        {
           row["ID"] = 3;
-        }
+
         if (header == this.colHTAGVer2)
-        {
           row["ID"] = 4;
-        }
+
         if (header == this.colHArtist)
-        {
           row["ID"] = 5;
-        }
+
         if (header == this.colHTitle)
-        {
           row["ID"] = 6;
-        }
+
         if (header == this.colHAlbum)
-        {
           row["ID"] = 7;
-        }
+
         if (header == this.colHTrack)
-        {
           row["ID"] = 8;
-        }
+
         if (header == this.colHPosMedia)
-        {
           row["ID"] = 9;
-        }
+
         if (header == this.colHComment)
-        {
           row["ID"] = 10;
-        }
+
         if (header == this.colHGenre)
-        {
           row["ID"] = 11;
-        }
+
         if (header == this.colHYear)
-        {
           row["ID"] = 12;
-        }
+
         if (header == this.colHRating)
-        {
           row["ID"] = 13;
-        }
+
         if (header == this.colHDuration)
-        {
           row["ID"] = 14;
-        }
+
         if (header == this.colHBitrate)
-        {
           row["ID"] = 15;
-        }
+
         if (header == this.colHVBR)
-        {
           row["ID"] = 0x10;
-        }
+
         if (header == this.colHSamplerate)
-        {
           row["ID"] = 0x11;
-        }
+
         if (header == this.colHChannel)
-        {
           row["ID"] = 0x12;
-        }
+
         if (header == this.colHVersion)
-        {
           row["ID"] = 0x13;
-        }
+
         if (header == this.colHDate)
-        {
           row["ID"] = 20;
-        }
+
         if (header == this.colHComposer)
-        {
           row["ID"] = 0x15;
-        }
+
         if (header == this.colHFileSize)
-        {
           row["ID"] = 0x16;
-        }
+
         if (header == this.colHBPM)
-        {
           row["ID"] = 0x17;
-        }
+
         if (header == this.colHPicCount)
-        {
           row["ID"] = 0x18;
-        }
+
         if (header == this.colHAudioCheckSum)
-        {
           row["ID"] = 0x19;
-        }
+
         if (header == this.colHCreateDate)
-        {
           row["ID"] = 0x1a;
-        }
+
         row["Width"] = header.Width;
         row["Alignment"] = header.TextAlign.ToString();
         Declarations.objSettings.Columns.Rows.Add(row);
@@ -4861,7 +4788,6 @@ namespace ID3_TagIT
 
     private void Multi1CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
         Application.DoEvents();
@@ -4973,7 +4899,6 @@ namespace ID3_TagIT
 
     private void Multi2CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       ListViewItem item2 = new ListViewItem();
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
@@ -5087,7 +5012,6 @@ namespace ID3_TagIT
 
     private void Paste1CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
         Application.DoEvents();
@@ -5115,7 +5039,7 @@ namespace ID3_TagIT
                 stream.Seek((long)frame.DataStart, SeekOrigin.Begin);
                 byte[] array = new byte[(frame.DataLength - 1) + 1];
                 stream.Read(array, 0, frame.DataLength);
-                frame.TempPath = Main.CreateTempFile(array, "");
+                frame.TempPath = Id3TagIT_Main.CreateTempFile(array, "");
                 frame.Path = tag.FI.FullName;
                 frame.DataLength = 0;
                 frame.DataStart = 0;
@@ -5136,7 +5060,6 @@ namespace ID3_TagIT
 
     private void Paste2CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       int num = 0;
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
@@ -5165,7 +5088,7 @@ namespace ID3_TagIT
                 stream.Seek((long)frame.DataStart, SeekOrigin.Begin);
                 byte[] array = new byte[(frame.DataLength - 1) + 1];
                 stream.Read(array, 0, frame.DataLength);
-                frame.TempPath = Main.CreateTempFile(array, "");
+                frame.TempPath = Id3TagIT_Main.CreateTempFile(array, "");
                 frame.Path = tag.FI.FullName;
                 frame.DataLength = 0;
                 frame.DataStart = 0;
@@ -5187,7 +5110,6 @@ namespace ID3_TagIT
 
     private void Paste3CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       int num = 0;
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
@@ -5216,7 +5138,7 @@ namespace ID3_TagIT
                 stream.Seek((long)frame.DataStart, SeekOrigin.Begin);
                 byte[] array = new byte[(frame.DataLength - 1) + 1];
                 stream.Read(array, 0, frame.DataLength);
-                frame.TempPath = Main.CreateTempFile(array, "");
+                frame.TempPath = Id3TagIT_Main.CreateTempFile(array, "");
                 frame.Path = tag.FI.FullName;
                 frame.DataLength = 0;
                 frame.DataStart = 0;
@@ -5242,7 +5164,7 @@ namespace ID3_TagIT
 
     private void ReDoCB(ref frmProgress frmProg)
     {
-      IEnumerator enumerator;
+      IEnumerator enumerator = null;
       int num = 0;
       try
       {
@@ -5276,7 +5198,6 @@ namespace ID3_TagIT
 
     private void Remove1CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
         Application.DoEvents();
@@ -5305,7 +5226,6 @@ namespace ID3_TagIT
 
     private void Remove2CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
         Application.DoEvents();
@@ -5421,7 +5341,7 @@ namespace ID3_TagIT
     {
       frmProgress progress = frmProg;
       ArrayList alstFile = progress.List;
-      Main.ScanForFiles(frmProg.ListHelp, "*.mp3", Declarations.objSettings.ScanSubDirs, ref alstFile, ref frmProg);
+      Id3TagIT_Main.ScanForFiles(frmProg.ListHelp, "*.mp3", Declarations.objSettings.ScanSubDirs, ref alstFile, ref frmProg);
       progress.List = alstFile;
     }
 
@@ -5429,37 +5349,35 @@ namespace ID3_TagIT
     {
       foreach (DataColumn column in Declarations.objResources.MenuTable.Columns)
       {
-        using (IEnumerator enumerator = this.DotNetBarManager.GetItems(column.ColumnName).GetEnumerator())
+        var enumerator = this.DotNetBarManager.GetItems(column.ColumnName).GetEnumerator();
+        while (enumerator.MoveNext())
         {
-          while (enumerator.MoveNext())
+          object objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
+          try
           {
-            object objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
-            try
-            {
-              LateBinding.LateSet(objectValue, null, "Text", new object[] { Declarations.objResources.GetMenuText(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Name", new object[0], null, null))) }, null);
-            }
-            catch (Exception exception1)
-            {
-              ProjectData.SetProjectError(exception1);
-              Exception exception = exception1;
-              ProjectData.ClearProjectError();
-            }
-            try
-            {
-              LateBinding.LateSet(objectValue, null, "Tooltip", new object[] { Declarations.objResources.GetMenuToolTip(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Name", new object[0], null, null))) }, null);
-              continue;
-            }
-            catch (Exception exception4)
-            {
-              ProjectData.SetProjectError(exception4);
-              Exception exception2 = exception4;
-              ProjectData.ClearProjectError();
-              continue;
-            }
+            LateBinding.LateSet(objectValue, null, "Text", new object[] { Declarations.objResources.GetMenuText(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Name", new object[0], null, null))) }, null);
+          }
+          catch (Exception exception1)
+          {
+            ProjectData.SetProjectError(exception1);
+            Exception exception = exception1;
+            ProjectData.ClearProjectError();
+          }
+          try
+          {
+            LateBinding.LateSet(objectValue, null, "Tooltip", new object[] { Declarations.objResources.GetMenuToolTip(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Name", new object[0], null, null))) }, null);
+            continue;
+          }
+          catch (Exception exception4)
+          {
+            ProjectData.SetProjectError(exception4);
+            Exception exception2 = exception4;
+            ProjectData.ClearProjectError();
+            continue;
           }
         }
       }
-        ((ButtonItem)this.DotNetBarManager.ContextMenus["MP3ViewMenu"]).SubItems["TAGV1"].Text = Declarations.objResources.GetMenuText("TAGV1");
+      ((ButtonItem)this.DotNetBarManager.ContextMenus["MP3ViewMenu"]).SubItems["TAGV1"].Text = Declarations.objResources.GetMenuText("TAGV1");
       ((ButtonItem)this.DotNetBarManager.ContextMenus["MP3ViewMenu"]).SubItems["TAGV2"].Text = Declarations.objResources.GetMenuText("TAGV2");
       try
       {
@@ -5583,20 +5501,18 @@ namespace ID3_TagIT
         try
         {
           ListViewItem current;
-          IEnumerator enumerator;
+          IEnumerator enumerator = null;
           if (BooleanType.FromObject(row["DefaultPlayer"]))
           {
-            using (IEnumerator enumerator2 = this.MP3View.SelectedItems.GetEnumerator())
+            var enumerator2 = this.MP3View.SelectedItems.GetEnumerator();
+            while (enumerator2.MoveNext())
             {
-              while (enumerator2.MoveNext())
-              {
-                current = (ListViewItem)enumerator2.Current;
-                process.StartInfo.FileName = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj('"', LateBinding.LateGet(LateBinding.LateGet(current.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null)), '"'));
-                process.StartInfo.Verb = StringType.FromObject(row["ShellCommand"]);
-                process.Start();
-              }
-              return;
+              current = (ListViewItem)enumerator2.Current;
+              process.StartInfo.FileName = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj('"', LateBinding.LateGet(LateBinding.LateGet(current.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null)), '"'));
+              process.StartInfo.Verb = StringType.FromObject(row["ShellCommand"]);
+              process.Start();
             }
+            return;
           }
           try
           {
@@ -5627,7 +5543,6 @@ namespace ID3_TagIT
 
     private void SplitArtist1CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       string str2 = frmProg.String01;
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
@@ -5649,7 +5564,7 @@ namespace ID3_TagIT
         {
           if (tag.V2TAG.TAGHeaderPresent)
           {
-            string str;
+            string str = null;
             if (tag.V2TAG.FrameExists("TPE1"))
             {
               str = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
@@ -5674,7 +5589,6 @@ namespace ID3_TagIT
 
     private void SplitArtist2CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       string str2 = frmProg.String01;
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
@@ -5688,7 +5602,7 @@ namespace ID3_TagIT
         frmProg.List.Add(@do);
         if (tag.V2TAG.TAGHeaderPresent)
         {
-          string str;
+          string str = null;
           if (tag.V2TAG.FrameExists("TPE1"))
           {
             str = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
@@ -5718,7 +5632,6 @@ namespace ID3_TagIT
 
     private void SwapArtistAlbum1CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
         MP3 tag = (MP3)item.Tag;
@@ -5791,7 +5704,6 @@ namespace ID3_TagIT
 
     private void SwapArtistAlbum2CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
         MP3 tag = (MP3)item.Tag;
@@ -5864,7 +5776,6 @@ namespace ID3_TagIT
 
     private void SwapArtistTitle1CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
         MP3 tag = (MP3)item.Tag;
@@ -5937,7 +5848,6 @@ namespace ID3_TagIT
 
     private void SwapArtistTitle2CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
         MP3 tag = (MP3)item.Tag;
@@ -6010,15 +5920,14 @@ namespace ID3_TagIT
 
     private void SwapTitleAlbum1CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
         MP3 tag = (MP3)item.Tag;
         Application.DoEvents();
+
         if (frmProg.Canceled)
-        {
           break;
-        }
+
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo(tag, tag.V1TAG.Clone(), tag.V2TAG.Clone(), tag.CurrentFullName, tag.Changed);
         frmProg.List.Add(@do);
         if (tag.V1TAG.TAGPresent)
@@ -6083,7 +5992,6 @@ namespace ID3_TagIT
 
     private void SwapTitleAlbum2CB(ref frmProgress frmProg)
     {
-      ListViewItem item = new ListViewItem();
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
         MP3 tag = (MP3)item.Tag;
@@ -6394,7 +6302,6 @@ namespace ID3_TagIT
       if (this.BarGroupPicture.Expanded & (this.MP3View.SelectedItems.Count == 1))
       {
         MP3 mp6 = (MP3)this.MP3View.SelectedItems[0].Tag;
-        V2APICFrame frame3 = new V2APICFrame();
         foreach (V2APICFrame frame3 in mp6.V2TAG.GetFrames("APIC"))
         {
           if (StringType.StrCmp(frame3.Path, mp6.FI.FullName, false) == 0)
@@ -6497,7 +6404,7 @@ namespace ID3_TagIT
 
     private void UnDoCB(ref frmProgress frmProg)
     {
-      IEnumerator enumerator;
+      IEnumerator enumerator = null;
       int num = 0;
       try
       {
@@ -6752,34 +6659,28 @@ namespace ID3_TagIT
       {
         if (tag.V2TAG.FrameExists("COMM"))
         {
-          using (IEnumerator enumerator2 = tag.V2TAG.GetFrames("COMM").GetEnumerator())
+          var enumerator2 = tag.V2TAG.GetFrames("COMM").GetEnumerator();
+          while (enumerator2.MoveNext())
           {
-            while (enumerator2.MoveNext())
-            {
-              objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
-              lstItem.SubItems[this.colHComment.Index].Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null));
-              goto Label_0BFB;
-            }
+            objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
+            lstItem.SubItems[this.colHComment.Index].Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null));
+            goto Label_0BFB;
           }
         }
         else
-        {
           lstItem.SubItems[this.colHComment.Index].Text = "";
-        }
       }
       Label_0BFB:
       if (this.MP3View.Columns.Contains(this.colHRating))
       {
         if (tag.V2TAG.FrameExists("POPM"))
         {
-          using (IEnumerator enumerator = tag.V2TAG.GetFrames("POPM").GetEnumerator())
+          var enumerator = tag.V2TAG.GetFrames("POPM").GetEnumerator();
+          while (enumerator.MoveNext())
           {
-            while (enumerator.MoveNext())
-            {
-              objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
-              lstItem.SubItems[this.colHRating.Index].Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Rating", new object[0], null, null));
-              goto Label_0CC7;
-            }
+            objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
+            lstItem.SubItems[this.colHRating.Index].Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Rating", new object[0], null, null));
+            goto Label_0CC7;
           }
         }
         else
