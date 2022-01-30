@@ -354,6 +354,7 @@ namespace ID3_TagIT
             this.colHV2V1});
       this.GenreList.FullRowSelect = true;
       this.GenreList.GridLines = true;
+      this.GenreList.HideSelection = false;
       this.GenreList.Location = new System.Drawing.Point(3, 6);
       this.GenreList.Name = "GenreList";
       this.GenreList.Size = new System.Drawing.Size(584, 176);
@@ -599,7 +600,7 @@ namespace ID3_TagIT
       this.tabPage1.Location = new System.Drawing.Point(4, 22);
       this.tabPage1.Name = "tabPage1";
       this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage1.Size = new System.Drawing.Size(679, 456);
+      this.tabPage1.Size = new System.Drawing.Size(598, 456);
       this.tabPage1.TabIndex = 0;
       this.tabPage1.Text = "Favorites Library";
       this.tabPage1.UseVisualStyleBackColor = true;
@@ -619,7 +620,7 @@ namespace ID3_TagIT
       this.tabPage2.Location = new System.Drawing.Point(4, 22);
       this.tabPage2.Name = "tabPage2";
       this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage2.Size = new System.Drawing.Size(679, 456);
+      this.tabPage2.Size = new System.Drawing.Size(598, 456);
       this.tabPage2.TabIndex = 1;
       this.tabPage2.Text = "Genre Library";
       this.tabPage2.UseVisualStyleBackColor = true;
@@ -638,7 +639,7 @@ namespace ID3_TagIT
       this.tabPage3.Location = new System.Drawing.Point(4, 22);
       this.tabPage3.Name = "tabPage3";
       this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage3.Size = new System.Drawing.Size(679, 456);
+      this.tabPage3.Size = new System.Drawing.Size(598, 456);
       this.tabPage3.TabIndex = 2;
       this.tabPage3.Text = "Artist Library";
       this.tabPage3.UseVisualStyleBackColor = true;

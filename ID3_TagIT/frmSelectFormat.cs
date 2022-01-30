@@ -178,6 +178,7 @@ namespace ID3_TagIT
       this.Text = "Select files by format";
       this.framePara.ResumeLayout(false);
       this.ResumeLayout(false);
+
     }
 
     public frmSelectFormat(frmMain FormMain)

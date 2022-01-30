@@ -522,6 +522,7 @@ namespace ID3_TagIT
       ((System.ComponentModel.ISupportInitialize)(this.txtFDigits)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.txtStartNr)).EndInit();
       this.ResumeLayout(false);
+
     }
 
     public frmTAG2ToFilename(ref frmMain FormMain)

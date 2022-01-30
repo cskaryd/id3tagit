@@ -369,6 +369,7 @@ namespace ID3_TagIT
       this.frameTAGOptions.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
+
     }
 
     public frmSearch()

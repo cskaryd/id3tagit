@@ -174,6 +174,7 @@ namespace ID3_TagIT
       this.GroupBox.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
+
     }
 
     public frmRemoveFolders(frmMain Main)
