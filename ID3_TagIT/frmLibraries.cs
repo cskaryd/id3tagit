@@ -1,5 +1,4 @@
-﻿using DevComponents.DotNetBar;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections;
@@ -16,7 +15,6 @@ namespace ID3_TagIT
   {
     #region Designer
 
-    private TabItem Artist;
     private ListBox ArtistList;
     private Button btnAdd;
     private Button btnAddCommD;
@@ -42,11 +40,8 @@ namespace ID3_TagIT
     private ColumnHeader colHV1V2;
     private ColumnHeader colHV2V1;
     private ListBox CommDList;
-    private TabItem Comment;
-    private TabItem Favourites;
     private TreeView FavTree;
     private System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog;
-    private TabItem Genre;
     private ListView GenreList;
     private Label Label1;
     private Label Label2;
@@ -58,11 +53,6 @@ namespace ID3_TagIT
     private Label lblGenreName;
     private Label lblInfo1;
     private Label lblInfo2;
-    private DevComponents.DotNetBar.TabControl Libraries;
-    private TabControlPanel TabControlPanel1;
-    private TabControlPanel TabControlPanel2;
-    private TabControlPanel TabControlPanel3;
-    private TabControlPanel TabControlPanel4;
     private System.Windows.Forms.ToolTip ToolTip;
     private TextBox txtArtistName;
     private TextBox txtDir;
@@ -70,6 +60,11 @@ namespace ID3_TagIT
     private TextBox txtName;
     private TextBox txtNewCommD;
     private IContainer components;
+    private System.Windows.Forms.TabControl tabControl1;
+    private TabPage tabPage1;
+    private TabPage tabPage2;
+    private TabPage tabPage3;
+    private TabPage tabPage4;
     private frmMain MainForm;
 
     protected override void Dispose(bool disposing)
@@ -129,21 +124,16 @@ namespace ID3_TagIT
       this.btnOK = new System.Windows.Forms.Button();
       this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
       this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-      this.Libraries = new DevComponents.DotNetBar.TabControl();
-      this.TabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
-      this.Favourites = new DevComponents.DotNetBar.TabItem(this.components);
-      this.TabControlPanel4 = new DevComponents.DotNetBar.TabControlPanel();
-      this.Comment = new DevComponents.DotNetBar.TabItem(this.components);
-      this.TabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
-      this.Genre = new DevComponents.DotNetBar.TabItem(this.components);
-      this.TabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
-      this.Artist = new DevComponents.DotNetBar.TabItem(this.components);
-      ((System.ComponentModel.ISupportInitialize)(this.Libraries)).BeginInit();
-      this.Libraries.SuspendLayout();
-      this.TabControlPanel1.SuspendLayout();
-      this.TabControlPanel4.SuspendLayout();
-      this.TabControlPanel2.SuspendLayout();
-      this.TabControlPanel3.SuspendLayout();
+      this.tabControl1 = new System.Windows.Forms.TabControl();
+      this.tabPage1 = new System.Windows.Forms.TabPage();
+      this.tabPage2 = new System.Windows.Forms.TabPage();
+      this.tabPage3 = new System.Windows.Forms.TabPage();
+      this.tabPage4 = new System.Windows.Forms.TabPage();
+      this.tabControl1.SuspendLayout();
+      this.tabPage1.SuspendLayout();
+      this.tabPage2.SuspendLayout();
+      this.tabPage3.SuspendLayout();
+      this.tabPage4.SuspendLayout();
       this.SuspendLayout();
       // 
       // lblInfo1
@@ -151,7 +141,7 @@ namespace ID3_TagIT
       this.lblInfo1.BackColor = System.Drawing.Color.Transparent;
       this.lblInfo1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.lblInfo1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblInfo1.Location = new System.Drawing.Point(8, 352);
+      this.lblInfo1.Location = new System.Drawing.Point(3, 347);
       this.lblInfo1.Name = "lblInfo1";
       this.lblInfo1.Size = new System.Drawing.Size(288, 48);
       this.lblInfo1.TabIndex = 20;
@@ -163,7 +153,7 @@ namespace ID3_TagIT
       // 
       this.btnFavBrowse.BackColor = System.Drawing.SystemColors.Control;
       this.btnFavBrowse.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnFavBrowse.Location = new System.Drawing.Point(163, 177);
+      this.btnFavBrowse.Location = new System.Drawing.Point(158, 172);
       this.btnFavBrowse.Name = "btnFavBrowse";
       this.btnFavBrowse.Size = new System.Drawing.Size(136, 24);
       this.btnFavBrowse.TabIndex = 9;
@@ -175,7 +165,7 @@ namespace ID3_TagIT
       // 
       this.btnRemoveFavDir.BackColor = System.Drawing.SystemColors.Control;
       this.btnRemoveFavDir.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnRemoveFavDir.Location = new System.Drawing.Point(163, 145);
+      this.btnRemoveFavDir.Location = new System.Drawing.Point(158, 140);
       this.btnRemoveFavDir.Name = "btnRemoveFavDir";
       this.btnRemoveFavDir.Size = new System.Drawing.Size(136, 24);
       this.btnRemoveFavDir.TabIndex = 8;
@@ -187,7 +177,7 @@ namespace ID3_TagIT
       // 
       this.btnAddFavDir.BackColor = System.Drawing.SystemColors.Control;
       this.btnAddFavDir.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnAddFavDir.Location = new System.Drawing.Point(11, 145);
+      this.btnAddFavDir.Location = new System.Drawing.Point(6, 140);
       this.btnAddFavDir.Name = "btnAddFavDir";
       this.btnAddFavDir.Size = new System.Drawing.Size(136, 24);
       this.btnAddFavDir.TabIndex = 7;
@@ -197,7 +187,7 @@ namespace ID3_TagIT
       // 
       // txtDir
       // 
-      this.txtDir.Location = new System.Drawing.Point(11, 119);
+      this.txtDir.Location = new System.Drawing.Point(6, 114);
       this.txtDir.Name = "txtDir";
       this.txtDir.Size = new System.Drawing.Size(288, 20);
       this.txtDir.TabIndex = 6;
@@ -206,7 +196,7 @@ namespace ID3_TagIT
       // 
       this.Label2.BackColor = System.Drawing.Color.Transparent;
       this.Label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.Label2.Location = new System.Drawing.Point(11, 97);
+      this.Label2.Location = new System.Drawing.Point(6, 92);
       this.Label2.Name = "Label2";
       this.Label2.Size = new System.Drawing.Size(184, 16);
       this.Label2.TabIndex = 5;
@@ -216,7 +206,7 @@ namespace ID3_TagIT
       // 
       this.btnRemoveFav.BackColor = System.Drawing.SystemColors.Control;
       this.btnRemoveFav.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnRemoveFav.Location = new System.Drawing.Point(163, 57);
+      this.btnRemoveFav.Location = new System.Drawing.Point(158, 52);
       this.btnRemoveFav.Name = "btnRemoveFav";
       this.btnRemoveFav.Size = new System.Drawing.Size(136, 24);
       this.btnRemoveFav.TabIndex = 4;
@@ -228,7 +218,7 @@ namespace ID3_TagIT
       // 
       this.btnAddFav.BackColor = System.Drawing.SystemColors.Control;
       this.btnAddFav.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnAddFav.Location = new System.Drawing.Point(11, 57);
+      this.btnAddFav.Location = new System.Drawing.Point(6, 52);
       this.btnAddFav.Name = "btnAddFav";
       this.btnAddFav.Size = new System.Drawing.Size(136, 24);
       this.btnAddFav.TabIndex = 3;
@@ -238,7 +228,7 @@ namespace ID3_TagIT
       // 
       // txtName
       // 
-      this.txtName.Location = new System.Drawing.Point(11, 31);
+      this.txtName.Location = new System.Drawing.Point(6, 26);
       this.txtName.Name = "txtName";
       this.txtName.Size = new System.Drawing.Size(288, 20);
       this.txtName.TabIndex = 2;
@@ -247,7 +237,7 @@ namespace ID3_TagIT
       // 
       this.Label1.BackColor = System.Drawing.Color.Transparent;
       this.Label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.Label1.Location = new System.Drawing.Point(11, 9);
+      this.Label1.Location = new System.Drawing.Point(6, 4);
       this.Label1.Name = "Label1";
       this.Label1.Size = new System.Drawing.Size(184, 16);
       this.Label1.TabIndex = 1;
@@ -257,7 +247,7 @@ namespace ID3_TagIT
       // 
       this.FavTree.Indent = 19;
       this.FavTree.ItemHeight = 16;
-      this.FavTree.Location = new System.Drawing.Point(315, 9);
+      this.FavTree.Location = new System.Drawing.Point(310, 4);
       this.FavTree.Name = "FavTree";
       this.FavTree.ShowLines = false;
       this.FavTree.Size = new System.Drawing.Size(277, 391);
@@ -267,7 +257,7 @@ namespace ID3_TagIT
       // 
       this.chkOnlyOwn.BackColor = System.Drawing.Color.Transparent;
       this.chkOnlyOwn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.chkOnlyOwn.Location = new System.Drawing.Point(8, 312);
+      this.chkOnlyOwn.Location = new System.Drawing.Point(3, 310);
       this.chkOnlyOwn.Name = "chkOnlyOwn";
       this.chkOnlyOwn.Size = new System.Drawing.Size(584, 16);
       this.chkOnlyOwn.TabIndex = 17;
@@ -279,7 +269,7 @@ namespace ID3_TagIT
       this.lblDescGenre.BackColor = System.Drawing.Color.Transparent;
       this.lblDescGenre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.lblDescGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblDescGenre.Location = new System.Drawing.Point(8, 336);
+      this.lblDescGenre.Location = new System.Drawing.Point(3, 334);
       this.lblDescGenre.Name = "lblDescGenre";
       this.lblDescGenre.Size = new System.Drawing.Size(584, 64);
       this.lblDescGenre.TabIndex = 19;
@@ -290,7 +280,7 @@ namespace ID3_TagIT
       // 
       this.cmbV2V1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cmbV2V1.ItemHeight = 13;
-      this.cmbV2V1.Location = new System.Drawing.Point(304, 248);
+      this.cmbV2V1.Location = new System.Drawing.Point(299, 246);
       this.cmbV2V1.Name = "cmbV2V1";
       this.cmbV2V1.Size = new System.Drawing.Size(288, 21);
       this.cmbV2V1.TabIndex = 14;
@@ -299,7 +289,7 @@ namespace ID3_TagIT
       // 
       this.cmbV1V2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cmbV1V2.ItemHeight = 13;
-      this.cmbV1V2.Location = new System.Drawing.Point(8, 248);
+      this.cmbV1V2.Location = new System.Drawing.Point(3, 246);
       this.cmbV1V2.Name = "cmbV1V2";
       this.cmbV1V2.Size = new System.Drawing.Size(288, 21);
       this.cmbV1V2.TabIndex = 13;
@@ -308,7 +298,7 @@ namespace ID3_TagIT
       // 
       this.lblCorres.BackColor = System.Drawing.Color.Transparent;
       this.lblCorres.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblCorres.Location = new System.Drawing.Point(8, 232);
+      this.lblCorres.Location = new System.Drawing.Point(3, 230);
       this.lblCorres.Name = "lblCorres";
       this.lblCorres.Size = new System.Drawing.Size(584, 16);
       this.lblCorres.TabIndex = 12;
@@ -319,7 +309,7 @@ namespace ID3_TagIT
       // 
       this.btnDeleteG.BackColor = System.Drawing.SystemColors.Control;
       this.btnDeleteG.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnDeleteG.Location = new System.Drawing.Point(304, 280);
+      this.btnDeleteG.Location = new System.Drawing.Point(299, 278);
       this.btnDeleteG.Name = "btnDeleteG";
       this.btnDeleteG.Size = new System.Drawing.Size(288, 24);
       this.btnDeleteG.TabIndex = 16;
@@ -331,7 +321,7 @@ namespace ID3_TagIT
       // 
       this.btnAddG.BackColor = System.Drawing.SystemColors.Control;
       this.btnAddG.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnAddG.Location = new System.Drawing.Point(8, 280);
+      this.btnAddG.Location = new System.Drawing.Point(3, 278);
       this.btnAddG.Name = "btnAddG";
       this.btnAddG.Size = new System.Drawing.Size(288, 24);
       this.btnAddG.TabIndex = 15;
@@ -343,7 +333,7 @@ namespace ID3_TagIT
       // 
       this.lblGenreName.BackColor = System.Drawing.Color.Transparent;
       this.lblGenreName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblGenreName.Location = new System.Drawing.Point(8, 192);
+      this.lblGenreName.Location = new System.Drawing.Point(3, 190);
       this.lblGenreName.Name = "lblGenreName";
       this.lblGenreName.Size = new System.Drawing.Size(584, 16);
       this.lblGenreName.TabIndex = 10;
@@ -351,7 +341,7 @@ namespace ID3_TagIT
       // 
       // txtGenreName
       // 
-      this.txtGenreName.Location = new System.Drawing.Point(8, 208);
+      this.txtGenreName.Location = new System.Drawing.Point(3, 206);
       this.txtGenreName.Name = "txtGenreName";
       this.txtGenreName.Size = new System.Drawing.Size(584, 20);
       this.txtGenreName.TabIndex = 11;
@@ -364,7 +354,7 @@ namespace ID3_TagIT
             this.colHV2V1});
       this.GenreList.FullRowSelect = true;
       this.GenreList.GridLines = true;
-      this.GenreList.Location = new System.Drawing.Point(8, 8);
+      this.GenreList.Location = new System.Drawing.Point(3, 6);
       this.GenreList.Name = "GenreList";
       this.GenreList.Size = new System.Drawing.Size(584, 176);
       this.GenreList.Sorting = System.Windows.Forms.SortOrder.Ascending;
@@ -393,7 +383,7 @@ namespace ID3_TagIT
       this.lblDescArtist.BackColor = System.Drawing.Color.Transparent;
       this.lblDescArtist.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.lblDescArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblDescArtist.Location = new System.Drawing.Point(9, 336);
+      this.lblDescArtist.Location = new System.Drawing.Point(7, 334);
       this.lblDescArtist.Name = "lblDescArtist";
       this.lblDescArtist.Size = new System.Drawing.Size(583, 64);
       this.lblDescArtist.TabIndex = 9;
@@ -404,7 +394,7 @@ namespace ID3_TagIT
       // 
       this.btnClearA.BackColor = System.Drawing.SystemColors.Control;
       this.btnClearA.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnClearA.Location = new System.Drawing.Point(209, 272);
+      this.btnClearA.Location = new System.Drawing.Point(207, 270);
       this.btnClearA.Name = "btnClearA";
       this.btnClearA.Size = new System.Drawing.Size(184, 24);
       this.btnClearA.TabIndex = 5;
@@ -416,7 +406,7 @@ namespace ID3_TagIT
       // 
       this.btnDeleteA.BackColor = System.Drawing.SystemColors.Control;
       this.btnDeleteA.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnDeleteA.Location = new System.Drawing.Point(209, 240);
+      this.btnDeleteA.Location = new System.Drawing.Point(207, 238);
       this.btnDeleteA.Name = "btnDeleteA";
       this.btnDeleteA.Size = new System.Drawing.Size(184, 24);
       this.btnDeleteA.TabIndex = 4;
@@ -428,7 +418,7 @@ namespace ID3_TagIT
       // 
       this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
       this.btnAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnAdd.Location = new System.Drawing.Point(9, 240);
+      this.btnAdd.Location = new System.Drawing.Point(7, 238);
       this.btnAdd.Name = "btnAdd";
       this.btnAdd.Size = new System.Drawing.Size(184, 24);
       this.btnAdd.TabIndex = 3;
@@ -440,7 +430,7 @@ namespace ID3_TagIT
       // 
       this.lblArtistName.BackColor = System.Drawing.Color.Transparent;
       this.lblArtistName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblArtistName.Location = new System.Drawing.Point(9, 192);
+      this.lblArtistName.Location = new System.Drawing.Point(7, 190);
       this.lblArtistName.Name = "lblArtistName";
       this.lblArtistName.Size = new System.Drawing.Size(583, 16);
       this.lblArtistName.TabIndex = 1;
@@ -448,7 +438,7 @@ namespace ID3_TagIT
       // 
       // txtArtistName
       // 
-      this.txtArtistName.Location = new System.Drawing.Point(8, 208);
+      this.txtArtistName.Location = new System.Drawing.Point(6, 206);
       this.txtArtistName.Name = "txtArtistName";
       this.txtArtistName.Size = new System.Drawing.Size(584, 20);
       this.txtArtistName.TabIndex = 2;
@@ -457,7 +447,7 @@ namespace ID3_TagIT
       // 
       this.btnGetArtistV1.BackColor = System.Drawing.SystemColors.Control;
       this.btnGetArtistV1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnGetArtistV1.Location = new System.Drawing.Point(409, 240);
+      this.btnGetArtistV1.Location = new System.Drawing.Point(407, 238);
       this.btnGetArtistV1.Name = "btnGetArtistV1";
       this.btnGetArtistV1.Size = new System.Drawing.Size(184, 24);
       this.btnGetArtistV1.TabIndex = 6;
@@ -467,7 +457,7 @@ namespace ID3_TagIT
       // 
       // ArtistList
       // 
-      this.ArtistList.Location = new System.Drawing.Point(8, 8);
+      this.ArtistList.Location = new System.Drawing.Point(6, 6);
       this.ArtistList.Name = "ArtistList";
       this.ArtistList.Size = new System.Drawing.Size(584, 173);
       this.ArtistList.TabIndex = 8;
@@ -476,7 +466,7 @@ namespace ID3_TagIT
       // 
       this.btnGetArtistV2.BackColor = System.Drawing.SystemColors.Control;
       this.btnGetArtistV2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnGetArtistV2.Location = new System.Drawing.Point(409, 272);
+      this.btnGetArtistV2.Location = new System.Drawing.Point(407, 270);
       this.btnGetArtistV2.Name = "btnGetArtistV2";
       this.btnGetArtistV2.Size = new System.Drawing.Size(184, 24);
       this.btnGetArtistV2.TabIndex = 7;
@@ -488,7 +478,7 @@ namespace ID3_TagIT
       // 
       this.btnClearCommD.BackColor = System.Drawing.SystemColors.Control;
       this.btnClearCommD.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnClearCommD.Location = new System.Drawing.Point(408, 237);
+      this.btnClearCommD.Location = new System.Drawing.Point(406, 235);
       this.btnClearCommD.Name = "btnClearCommD";
       this.btnClearCommD.Size = new System.Drawing.Size(184, 24);
       this.btnClearCommD.TabIndex = 26;
@@ -500,7 +490,7 @@ namespace ID3_TagIT
       // 
       this.btnRemoveCommD.BackColor = System.Drawing.SystemColors.Control;
       this.btnRemoveCommD.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnRemoveCommD.Location = new System.Drawing.Point(208, 237);
+      this.btnRemoveCommD.Location = new System.Drawing.Point(206, 235);
       this.btnRemoveCommD.Name = "btnRemoveCommD";
       this.btnRemoveCommD.Size = new System.Drawing.Size(184, 24);
       this.btnRemoveCommD.TabIndex = 25;
@@ -512,7 +502,7 @@ namespace ID3_TagIT
       // 
       this.btnAddCommD.BackColor = System.Drawing.SystemColors.Control;
       this.btnAddCommD.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnAddCommD.Location = new System.Drawing.Point(8, 237);
+      this.btnAddCommD.Location = new System.Drawing.Point(6, 235);
       this.btnAddCommD.Name = "btnAddCommD";
       this.btnAddCommD.Size = new System.Drawing.Size(184, 24);
       this.btnAddCommD.TabIndex = 24;
@@ -524,7 +514,7 @@ namespace ID3_TagIT
       // 
       this.Label3.BackColor = System.Drawing.Color.Transparent;
       this.Label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.Label3.Location = new System.Drawing.Point(8, 192);
+      this.Label3.Location = new System.Drawing.Point(6, 190);
       this.Label3.Name = "Label3";
       this.Label3.Size = new System.Drawing.Size(584, 16);
       this.Label3.TabIndex = 22;
@@ -532,14 +522,14 @@ namespace ID3_TagIT
       // 
       // txtNewCommD
       // 
-      this.txtNewCommD.Location = new System.Drawing.Point(8, 208);
+      this.txtNewCommD.Location = new System.Drawing.Point(6, 206);
       this.txtNewCommD.Name = "txtNewCommD";
       this.txtNewCommD.Size = new System.Drawing.Size(584, 20);
       this.txtNewCommD.TabIndex = 23;
       // 
       // CommDList
       // 
-      this.CommDList.Location = new System.Drawing.Point(8, 8);
+      this.CommDList.Location = new System.Drawing.Point(6, 6);
       this.CommDList.Name = "CommDList";
       this.CommDList.Size = new System.Drawing.Size(584, 173);
       this.CommDList.TabIndex = 27;
@@ -549,7 +539,7 @@ namespace ID3_TagIT
       this.lblInfo2.BackColor = System.Drawing.Color.Transparent;
       this.lblInfo2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.lblInfo2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblInfo2.Location = new System.Drawing.Point(7, 368);
+      this.lblInfo2.Location = new System.Drawing.Point(5, 366);
       this.lblInfo2.Name = "lblInfo2";
       this.lblInfo2.Size = new System.Drawing.Size(585, 32);
       this.lblInfo2.TabIndex = 21;
@@ -562,7 +552,7 @@ namespace ID3_TagIT
       this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
       this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
       this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnCancel.Location = new System.Drawing.Point(472, 412);
+      this.btnCancel.Location = new System.Drawing.Point(488, 494);
       this.btnCancel.Name = "btnCancel";
       this.btnCancel.Size = new System.Drawing.Size(120, 24);
       this.btnCancel.TabIndex = 21;
@@ -573,7 +563,7 @@ namespace ID3_TagIT
       // 
       this.btnOK.BackColor = System.Drawing.SystemColors.Control;
       this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnOK.Location = new System.Drawing.Point(335, 412);
+      this.btnOK.Location = new System.Drawing.Point(351, 494);
       this.btnOK.Name = "btnOK";
       this.btnOK.Size = new System.Drawing.Size(120, 24);
       this.btnOK.TabIndex = 20;
@@ -581,166 +571,105 @@ namespace ID3_TagIT
       this.btnOK.UseVisualStyleBackColor = false;
       this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
       // 
-      // Libraries
+      // tabControl1
       // 
-      this.Libraries.CanReorderTabs = true;
-      this.Libraries.Controls.Add(this.TabControlPanel1);
-      this.Libraries.Controls.Add(this.TabControlPanel4);
-      this.Libraries.Controls.Add(this.TabControlPanel2);
-      this.Libraries.Controls.Add(this.TabControlPanel3);
-      this.Libraries.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.Libraries.Location = new System.Drawing.Point(0, 0);
-      this.Libraries.Name = "Libraries";
-      this.Libraries.SelectedTabFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-      this.Libraries.SelectedTabIndex = 0;
-      this.Libraries.Size = new System.Drawing.Size(606, 478);
-      this.Libraries.Style = DevComponents.DotNetBar.eTabStripStyle.VS2005Document;
-      this.Libraries.TabIndex = 22;
-      this.Libraries.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
-      this.Libraries.Tabs.Add(this.Favourites);
-      this.Libraries.Tabs.Add(this.Genre);
-      this.Libraries.Tabs.Add(this.Artist);
-      this.Libraries.Tabs.Add(this.Comment);
+      this.tabControl1.Controls.Add(this.tabPage1);
+      this.tabControl1.Controls.Add(this.tabPage2);
+      this.tabControl1.Controls.Add(this.tabPage3);
+      this.tabControl1.Controls.Add(this.tabPage4);
+      this.tabControl1.Location = new System.Drawing.Point(6, 6);
+      this.tabControl1.Name = "tabControl1";
+      this.tabControl1.SelectedIndex = 0;
+      this.tabControl1.Size = new System.Drawing.Size(606, 482);
+      this.tabControl1.TabIndex = 23;
       // 
-      // TabControlPanel1
+      // tabPage1
       // 
-      this.TabControlPanel1.AntiAlias = true;
-      this.TabControlPanel1.Controls.Add(this.btnCancel);
-      this.TabControlPanel1.Controls.Add(this.btnAddFavDir);
-      this.TabControlPanel1.Controls.Add(this.btnOK);
-      this.TabControlPanel1.Controls.Add(this.lblInfo1);
-      this.TabControlPanel1.Controls.Add(this.btnFavBrowse);
-      this.TabControlPanel1.Controls.Add(this.FavTree);
-      this.TabControlPanel1.Controls.Add(this.Label1);
-      this.TabControlPanel1.Controls.Add(this.txtName);
-      this.TabControlPanel1.Controls.Add(this.btnAddFav);
-      this.TabControlPanel1.Controls.Add(this.btnRemoveFav);
-      this.TabControlPanel1.Controls.Add(this.Label2);
-      this.TabControlPanel1.Controls.Add(this.txtDir);
-      this.TabControlPanel1.Controls.Add(this.btnRemoveFavDir);
-      this.TabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.TabControlPanel1.Location = new System.Drawing.Point(0, 26);
-      this.TabControlPanel1.Name = "TabControlPanel1";
-      this.TabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
-      this.TabControlPanel1.Size = new System.Drawing.Size(606, 452);
-      this.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-      this.TabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.TabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-      this.TabControlPanel1.Style.GradientAngle = 90;
-      this.TabControlPanel1.TabIndex = 1;
-      this.TabControlPanel1.TabItem = this.Favourites;
+      this.tabPage1.Controls.Add(this.FavTree);
+      this.tabPage1.Controls.Add(this.btnAddFavDir);
+      this.tabPage1.Controls.Add(this.btnRemoveFavDir);
+      this.tabPage1.Controls.Add(this.txtDir);
+      this.tabPage1.Controls.Add(this.lblInfo1);
+      this.tabPage1.Controls.Add(this.Label2);
+      this.tabPage1.Controls.Add(this.btnFavBrowse);
+      this.tabPage1.Controls.Add(this.btnRemoveFav);
+      this.tabPage1.Controls.Add(this.btnAddFav);
+      this.tabPage1.Controls.Add(this.Label1);
+      this.tabPage1.Controls.Add(this.txtName);
+      this.tabPage1.Location = new System.Drawing.Point(4, 22);
+      this.tabPage1.Name = "tabPage1";
+      this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage1.Size = new System.Drawing.Size(679, 456);
+      this.tabPage1.TabIndex = 0;
+      this.tabPage1.Text = "Favorites Library";
+      this.tabPage1.UseVisualStyleBackColor = true;
       // 
-      // Favourites
+      // tabPage2
       // 
-      this.Favourites.AttachedControl = this.TabControlPanel1;
-      this.Favourites.Name = "Favourites";
-      this.Favourites.Text = "Favourites Library";
+      this.tabPage2.Controls.Add(this.txtGenreName);
+      this.tabPage2.Controls.Add(this.GenreList);
+      this.tabPage2.Controls.Add(this.lblCorres);
+      this.tabPage2.Controls.Add(this.lblGenreName);
+      this.tabPage2.Controls.Add(this.chkOnlyOwn);
+      this.tabPage2.Controls.Add(this.btnAddG);
+      this.tabPage2.Controls.Add(this.lblDescGenre);
+      this.tabPage2.Controls.Add(this.btnDeleteG);
+      this.tabPage2.Controls.Add(this.cmbV2V1);
+      this.tabPage2.Controls.Add(this.cmbV1V2);
+      this.tabPage2.Location = new System.Drawing.Point(4, 22);
+      this.tabPage2.Name = "tabPage2";
+      this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage2.Size = new System.Drawing.Size(679, 456);
+      this.tabPage2.TabIndex = 1;
+      this.tabPage2.Text = "Genre Library";
+      this.tabPage2.UseVisualStyleBackColor = true;
       // 
-      // TabControlPanel4
+      // tabPage3
       // 
-      this.TabControlPanel4.AntiAlias = true;
-      this.TabControlPanel4.Controls.Add(this.btnClearCommD);
-      this.TabControlPanel4.Controls.Add(this.btnAddCommD);
-      this.TabControlPanel4.Controls.Add(this.Label3);
-      this.TabControlPanel4.Controls.Add(this.txtNewCommD);
-      this.TabControlPanel4.Controls.Add(this.btnRemoveCommD);
-      this.TabControlPanel4.Controls.Add(this.CommDList);
-      this.TabControlPanel4.Controls.Add(this.lblInfo2);
-      this.TabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.TabControlPanel4.Location = new System.Drawing.Point(0, 26);
-      this.TabControlPanel4.Name = "TabControlPanel4";
-      this.TabControlPanel4.Padding = new System.Windows.Forms.Padding(1);
-      this.TabControlPanel4.Size = new System.Drawing.Size(606, 452);
-      this.TabControlPanel4.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-      this.TabControlPanel4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.TabControlPanel4.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel4.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-      this.TabControlPanel4.Style.GradientAngle = 90;
-      this.TabControlPanel4.TabIndex = 4;
-      this.TabControlPanel4.TabItem = this.Comment;
+      this.tabPage3.Controls.Add(this.btnGetArtistV1);
+      this.tabPage3.Controls.Add(this.ArtistList);
+      this.tabPage3.Controls.Add(this.btnClearA);
+      this.tabPage3.Controls.Add(this.btnGetArtistV2);
+      this.tabPage3.Controls.Add(this.btnDeleteA);
+      this.tabPage3.Controls.Add(this.lblDescArtist);
+      this.tabPage3.Controls.Add(this.btnAdd);
+      this.tabPage3.Controls.Add(this.lblArtistName);
+      this.tabPage3.Controls.Add(this.txtArtistName);
+      this.tabPage3.Location = new System.Drawing.Point(4, 22);
+      this.tabPage3.Name = "tabPage3";
+      this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage3.Size = new System.Drawing.Size(679, 456);
+      this.tabPage3.TabIndex = 2;
+      this.tabPage3.Text = "Artist Library";
+      this.tabPage3.UseVisualStyleBackColor = true;
       // 
-      // Comment
+      // tabPage4
       // 
-      this.Comment.AttachedControl = this.TabControlPanel4;
-      this.Comment.Name = "Comment";
-      this.Comment.Text = "Comment descriptor Library";
-      // 
-      // TabControlPanel2
-      // 
-      this.TabControlPanel2.AntiAlias = true;
-      this.TabControlPanel2.Controls.Add(this.txtGenreName);
-      this.TabControlPanel2.Controls.Add(this.lblCorres);
-      this.TabControlPanel2.Controls.Add(this.chkOnlyOwn);
-      this.TabControlPanel2.Controls.Add(this.lblDescGenre);
-      this.TabControlPanel2.Controls.Add(this.cmbV2V1);
-      this.TabControlPanel2.Controls.Add(this.cmbV1V2);
-      this.TabControlPanel2.Controls.Add(this.btnDeleteG);
-      this.TabControlPanel2.Controls.Add(this.btnAddG);
-      this.TabControlPanel2.Controls.Add(this.lblGenreName);
-      this.TabControlPanel2.Controls.Add(this.GenreList);
-      this.TabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.TabControlPanel2.Location = new System.Drawing.Point(0, 26);
-      this.TabControlPanel2.Name = "TabControlPanel2";
-      this.TabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
-      this.TabControlPanel2.Size = new System.Drawing.Size(606, 452);
-      this.TabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-      this.TabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.TabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-      this.TabControlPanel2.Style.GradientAngle = 90;
-      this.TabControlPanel2.TabIndex = 2;
-      this.TabControlPanel2.TabItem = this.Genre;
-      // 
-      // Genre
-      // 
-      this.Genre.AttachedControl = this.TabControlPanel2;
-      this.Genre.Name = "Genre";
-      this.Genre.Text = "Genre Library";
-      // 
-      // TabControlPanel3
-      // 
-      this.TabControlPanel3.AntiAlias = true;
-      this.TabControlPanel3.Controls.Add(this.btnGetArtistV1);
-      this.TabControlPanel3.Controls.Add(this.btnClearA);
-      this.TabControlPanel3.Controls.Add(this.btnDeleteA);
-      this.TabControlPanel3.Controls.Add(this.btnAdd);
-      this.TabControlPanel3.Controls.Add(this.ArtistList);
-      this.TabControlPanel3.Controls.Add(this.txtArtistName);
-      this.TabControlPanel3.Controls.Add(this.lblArtistName);
-      this.TabControlPanel3.Controls.Add(this.lblDescArtist);
-      this.TabControlPanel3.Controls.Add(this.btnGetArtistV2);
-      this.TabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.TabControlPanel3.Location = new System.Drawing.Point(0, 26);
-      this.TabControlPanel3.Name = "TabControlPanel3";
-      this.TabControlPanel3.Padding = new System.Windows.Forms.Padding(1);
-      this.TabControlPanel3.Size = new System.Drawing.Size(606, 452);
-      this.TabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-      this.TabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.TabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel3.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-      this.TabControlPanel3.Style.GradientAngle = 90;
-      this.TabControlPanel3.TabIndex = 3;
-      this.TabControlPanel3.TabItem = this.Artist;
-      // 
-      // Artist
-      // 
-      this.Artist.AttachedControl = this.TabControlPanel3;
-      this.Artist.Name = "Artist";
-      this.Artist.Text = "Artist Library";
+      this.tabPage4.Controls.Add(this.btnClearCommD);
+      this.tabPage4.Controls.Add(this.CommDList);
+      this.tabPage4.Controls.Add(this.btnAddCommD);
+      this.tabPage4.Controls.Add(this.lblInfo2);
+      this.tabPage4.Controls.Add(this.Label3);
+      this.tabPage4.Controls.Add(this.btnRemoveCommD);
+      this.tabPage4.Controls.Add(this.txtNewCommD);
+      this.tabPage4.Location = new System.Drawing.Point(4, 22);
+      this.tabPage4.Name = "tabPage4";
+      this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage4.Size = new System.Drawing.Size(598, 456);
+      this.tabPage4.TabIndex = 3;
+      this.tabPage4.Text = "Comment descriptor Library";
+      this.tabPage4.UseVisualStyleBackColor = true;
       // 
       // frmLibraries
       // 
       this.AcceptButton = this.btnOK;
       this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
       this.CancelButton = this.btnCancel;
-      this.ClientSize = new System.Drawing.Size(606, 478);
+      this.ClientSize = new System.Drawing.Size(617, 527);
       this.ControlBox = false;
-      this.Controls.Add(this.Libraries);
+      this.Controls.Add(this.btnCancel);
+      this.Controls.Add(this.btnOK);
+      this.Controls.Add(this.tabControl1);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
@@ -748,16 +677,15 @@ namespace ID3_TagIT
       this.ShowInTaskbar = false;
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
       this.Text = "Libraries";
-      ((System.ComponentModel.ISupportInitialize)(this.Libraries)).EndInit();
-      this.Libraries.ResumeLayout(false);
-      this.TabControlPanel1.ResumeLayout(false);
-      this.TabControlPanel1.PerformLayout();
-      this.TabControlPanel4.ResumeLayout(false);
-      this.TabControlPanel4.PerformLayout();
-      this.TabControlPanel2.ResumeLayout(false);
-      this.TabControlPanel2.PerformLayout();
-      this.TabControlPanel3.ResumeLayout(false);
-      this.TabControlPanel3.PerformLayout();
+      this.tabControl1.ResumeLayout(false);
+      this.tabPage1.ResumeLayout(false);
+      this.tabPage1.PerformLayout();
+      this.tabPage2.ResumeLayout(false);
+      this.tabPage2.PerformLayout();
+      this.tabPage3.ResumeLayout(false);
+      this.tabPage3.PerformLayout();
+      this.tabPage4.ResumeLayout(false);
+      this.tabPage4.PerformLayout();
       this.ResumeLayout(false);
 
     }
