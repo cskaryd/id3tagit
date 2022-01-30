@@ -11,6 +11,8 @@ namespace ID3_TagIT
 {
   public class frmSelectFormat : Form
   {
+    #region Designer
+
     private Button btnAdd;
     private Button btnCancel;
     private Button btnOK;
@@ -24,6 +26,14 @@ namespace ID3_TagIT
     private System.Windows.Forms.ToolTip ToolTip;
     private IContainer components;
     private frmMain MainForm;
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+        this.components.Dispose();
+      
+      base.Dispose(disposing);
+    }
 
     [DebuggerStepThrough]
     private void InitializeComponent()
@@ -177,21 +187,9 @@ namespace ID3_TagIT
       this.MainForm = FormMain;
     }
 
-    private void AddToolTips()
-    {
-      string vstrName = "frmSelectFormat";
-      Control btnRemove = this.btnRemove;
-      this.btnRemove = (Button)btnRemove;
-      this.ToolTip.SetToolTip(this.btnRemove, Declarations.objResources.GetToolTip(ref vstrName, ref btnRemove));
-      vstrName = "frmSelectFormat";
-      btnRemove = this.btnAdd;
-      this.btnAdd = (Button)btnRemove;
-      this.ToolTip.SetToolTip(this.btnAdd, Declarations.objResources.GetToolTip(ref vstrName, ref btnRemove));
-      vstrName = "frmSelectFormat";
-      btnRemove = this.cmbFormat;
-      this.cmbFormat = (ComboBox)btnRemove;
-      this.ToolTip.SetToolTip(this.cmbFormat, Declarations.objResources.GetToolTip(ref vstrName, ref btnRemove));
-    }
+    #endregion
+
+    #region Events
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
@@ -202,11 +200,12 @@ namespace ID3_TagIT
     private void btnOK_Click(object sender, EventArgs e)
     {
       string vstrFormat = this.cmbFormat.Text.TrimStart(new char[] { ' ' });
+
       if (vstrFormat.IndexOf(":") >= 0)
-      {
         vstrFormat = vstrFormat.Substring(vstrFormat.IndexOf(":") + 1).TrimStart(new char[] { ' ' });
-      }
+
       vstrFormat = vstrFormat.Replace("<abc>", "<ABC>");
+
       if (((((((vstrFormat.IndexOf(@"\") >= 0) | (vstrFormat.IndexOf(":") >= 0)) | (vstrFormat.IndexOf('"') >= 0)) | (vstrFormat.IndexOf("/") >= 0)) | (vstrFormat.IndexOf("*") >= 0)) | (vstrFormat.IndexOf("|") >= 0)) | (vstrFormat.IndexOf("?") >= 0))
       {
         this.DialogResult = System.Windows.Forms.DialogResult.None;
@@ -215,6 +214,7 @@ namespace ID3_TagIT
       else
       {
         string str2 = vstrFormat.Replace("<abc>", "\x0001").Replace("<ABC>", "\x0001").Replace("<123>", "\x0001");
+
         if (((str2.IndexOf("<") >= 0) | (str2.IndexOf(">") >= 0)) | (str2.IndexOf("\x0001\x0001") >= 0))
         {
           this.DialogResult = System.Windows.Forms.DialogResult.None;
@@ -227,24 +227,24 @@ namespace ID3_TagIT
           Declarations.objSettings.SelectFormats.Rows.Clear();
           Declarations.objSettings.SelectFormat = this.cmbFormat.Text;
           int num2 = this.cmbFormat.Items.Count - 1;
+
           for (int i = 0; i <= num2; i++)
           {
             DataRow row = Declarations.objSettings.SelectFormats.NewRow();
             row["Format"] = this.cmbFormat.Items[i].ToString();
             Declarations.objSettings.SelectFormats.Rows.Add(row);
           }
+
           this.MainForm.MP3View.BeginUpdate();
+
           foreach (ListViewItem item in this.MainForm.MP3View.Items)
           {
             if (ID3Functions.MatchFilenameFormat(StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentName", new object[0], null, null)), vstrFormat, false))
-            {
               item.Selected = true;
-            }
             else if (Declarations.objSettings.SelectionMode == 1)
-            {
               item.Selected = false;
-            }
           }
+
           this.MainForm.MP3View.EndUpdate();
           form = this;
           Id3TagIT_Main.SaveFormSettings(ref form);
@@ -274,15 +274,6 @@ namespace ID3_TagIT
       }
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-      {
-        this.components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
-
     private void frmSelectFormat_Load(object sender, EventArgs e)
     {
       Form objForm = this;
@@ -292,10 +283,10 @@ namespace ID3_TagIT
       objForm = this;
       Id3TagIT_Main.WindowsXPCheck(ref objForm);
       int num2 = Declarations.objSettings.SelectFormats.Rows.Count - 1;
+
       for (int i = 0; i <= num2; i++)
-      {
         this.cmbFormat.Items.Add(RuntimeHelpers.GetObjectValue(Declarations.objSettings.SelectFormats.Rows[i]["Format"]));
-      }
+
       this.cmbFormat.Text = Declarations.objSettings.SelectFormat;
       this.AddToolTips();
     }
@@ -305,5 +296,29 @@ namespace ID3_TagIT
       this.cmbFormat.Text = StringType.FromObject(ObjectType.StrCatObj(this.cmbFormat.Text, LateBinding.LateGet(LateBinding.LateGet(sender, null, "Text", new object[0], null, null), null, "Substring", new object[] { 0, 5 }, null, null)));
       this.cmbFormat.Select(this.cmbFormat.Text.Length, 0);
     }
+
+    #endregion
+
+    #region Class logic
+
+    private void AddToolTips()
+    {
+      string vstrName = "frmSelectFormat";
+      Control btnRemove = this.btnRemove;
+      this.btnRemove = (Button)btnRemove;
+      this.ToolTip.SetToolTip(this.btnRemove, Declarations.objResources.GetToolTip(ref vstrName, ref btnRemove));
+
+      vstrName = "frmSelectFormat";
+      btnRemove = this.btnAdd;
+      this.btnAdd = (Button)btnRemove;
+      this.ToolTip.SetToolTip(this.btnAdd, Declarations.objResources.GetToolTip(ref vstrName, ref btnRemove));
+
+      vstrName = "frmSelectFormat";
+      btnRemove = this.cmbFormat;
+      this.cmbFormat = (ComboBox)btnRemove;
+      this.ToolTip.SetToolTip(this.cmbFormat, Declarations.objResources.GetToolTip(ref vstrName, ref btnRemove));
+    }
+
+    #endregion
   }
 }

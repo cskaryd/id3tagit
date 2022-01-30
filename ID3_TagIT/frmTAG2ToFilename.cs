@@ -13,6 +13,8 @@ namespace ID3_TagIT
 {
   public class frmTAG2ToFilename : Form
   {
+    #region Designer
+
     private Button btnAdd;
     private Button btnCancel;
     private Button btnOK;
@@ -50,6 +52,14 @@ namespace ID3_TagIT
     private NumericUpDown txtStartNr;
     private IContainer components;
     private frmMain MainForm;
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+        this.components.Dispose();
+
+      base.Dispose(disposing);
+    }
 
     [DebuggerStepThrough]
     private void InitializeComponent()
@@ -521,37 +531,9 @@ namespace ID3_TagIT
       this.MainForm = FormMain;
     }
 
-    private void AddToolTips()
-    {
-      string vstrName = "frmTAG2ToFilename";
-      Control txtDigits = this.txtDigits;
-      this.txtDigits = (NumericUpDown)txtDigits;
-      this.ToolTip.SetToolTip(this.txtDigits, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmTAG2ToFilename";
-      txtDigits = this.txtFDigits;
-      this.txtFDigits = (NumericUpDown)txtDigits;
-      this.ToolTip.SetToolTip(this.txtFDigits, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmTAG2ToFilename";
-      txtDigits = this.txtStartNr;
-      this.txtStartNr = (NumericUpDown)txtDigits;
-      this.ToolTip.SetToolTip(this.txtStartNr, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmTAG2ToFilename";
-      txtDigits = this.btnRemove;
-      this.btnRemove = (Button)txtDigits;
-      this.ToolTip.SetToolTip(this.btnRemove, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmTAG2ToFilename";
-      txtDigits = this.btnAdd;
-      this.btnAdd = (Button)txtDigits;
-      this.ToolTip.SetToolTip(this.btnAdd, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmTAG2ToFilename";
-      txtDigits = this.cmbFormat;
-      this.cmbFormat = (ComboBox)txtDigits;
-      this.ToolTip.SetToolTip(this.cmbFormat, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-      vstrName = "frmTAG2ToFilename";
-      txtDigits = this.chkRebuildName;
-      this.chkRebuildName = (CheckBox)txtDigits;
-      this.ToolTip.SetToolTip(this.chkRebuildName, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
-    }
+    #endregion
+
+    #region Events
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
@@ -564,10 +546,10 @@ namespace ID3_TagIT
       string vstrFormat = "";
       ArrayList list = new ArrayList();
       vstrFormat = this.cmbFormat.Text.TrimStart(new char[] { ' ' });
+
       if (vstrFormat.IndexOf(":") >= 0)
-      {
         vstrFormat = vstrFormat.Substring(vstrFormat.IndexOf(":") + 1).TrimStart(new char[] { ' ' });
-      }
+
       switch (ID3Functions.FormatReplaceCheck(vstrFormat, Declarations.FormatReplace.TAGToFilename | Declarations.FormatReplace.TAGVer2))
       {
         case Declarations.FormatReplaceFeedback.InvalidFormat:
@@ -580,6 +562,7 @@ namespace ID3_TagIT
           Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["InvalidCharFormat"]), MsgBoxStyle.Exclamation, null);
           return;
       }
+
       byte tracknumberDigitsFilename = Declarations.objSettings.TracknumberDigitsFilename;
       byte filenumberDigits = Declarations.objSettings.FilenumberDigits;
       byte filenumberStart = (byte)Declarations.objSettings.FilenumberStart;
@@ -592,12 +575,14 @@ namespace ID3_TagIT
       Declarations.objSettings.FilenumberDigits = Convert.ToByte(this.txtFDigits.Value);
       Declarations.objSettings.FilenumberStart = Convert.ToInt32(this.txtStartNr.Value);
       int num6 = this.cmbFormat.Items.Count - 1;
+
       for (int i = 0; i <= num6; i++)
       {
         DataRow row = Declarations.objSettings.T2FFormats.NewRow();
         row["Format"] = this.cmbFormat.Items[i].ToString();
         Declarations.objSettings.T2FFormats.Rows.Add(row);
       }
+
       int num4 = Convert.ToInt32(decimal.Subtract(this.txtStartNr.Value, decimal.One));
       this.MainForm.MP3View.BeginUpdate();
       form = this;
@@ -609,11 +594,13 @@ namespace ID3_TagIT
       progress.Integer01 = num4;
       progress.ShowDialog(this);
       this.MainForm.MP3View.EndUpdate();
+
       if (list.Count > 0)
       {
         Declarations.UNDOList.Add(list);
         this.MainForm.UnDoEnable(true, true);
       }
+
       Declarations.objSettings.TracknumberDigitsFilename = tracknumberDigitsFilename;
       Declarations.objSettings.FilenumberDigits = filenumberDigits;
       Declarations.objSettings.FilenumberStart = filenumberStart;
@@ -642,15 +629,6 @@ namespace ID3_TagIT
       }
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-      {
-        this.components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
-
     private void frmTAG2ToFilename_Load(object sender, EventArgs e)
     {
       Form objForm = this;
@@ -660,10 +638,10 @@ namespace ID3_TagIT
       objForm = this;
       Id3TagIT_Main.WindowsXPCheck(ref objForm);
       int num2 = Declarations.objSettings.T2FFormats.Rows.Count - 1;
+
       for (int i = 0; i <= num2; i++)
-      {
         this.cmbFormat.Items.Add(RuntimeHelpers.GetObjectValue(Declarations.objSettings.T2FFormats.Rows[i]["Format"]));
-      }
+
       this.cmbFormat.Text = Declarations.objSettings.T2FFormat;
       this.txtDigits.Value = new decimal(Declarations.objSettings.TracknumberDigitsFilename);
       this.txtFDigits.Value = new decimal(Declarations.objSettings.FilenumberDigits);
@@ -676,6 +654,7 @@ namespace ID3_TagIT
     {
       string selectedText = this.cmbFormat.SelectedText;
       int selectionStart = this.cmbFormat.SelectionStart;
+
       if (this.cmbFormat.SelectionLength == 0)
       {
         this.cmbFormat.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(this.cmbFormat.Text.Substring(0, this.cmbFormat.SelectionStart), LateBinding.LateGet(LateBinding.LateGet(sender, null, "Text", new object[0], null, null), null, "Substring", new object[] { 0, 3 }, null, null)), this.cmbFormat.Text.Substring(this.cmbFormat.SelectionStart)));
@@ -690,35 +669,90 @@ namespace ID3_TagIT
       }
     }
 
+    private void txtDigits_Validated(object sender, EventArgs e)
+    {
+      if (decimal.Compare(this.txtDigits.Value, this.txtDigits.Minimum) < 0)
+        this.txtDigits.Value = this.txtDigits.Minimum;
+
+      if (decimal.Compare(this.txtDigits.Value, this.txtDigits.Maximum) > 0)
+        this.txtDigits.Value = this.txtDigits.Maximum;
+    }
+
+    private void txtStartNr_ValueChanged(object sender, EventArgs e)
+    {
+      if (decimal.Compare(this.txtStartNr.Value, this.txtStartNr.Minimum) < 0)
+        this.txtStartNr.Value = this.txtStartNr.Minimum;
+    }
+
+    #endregion
+
+    #region Class logic
+
+    private void AddToolTips()
+    {
+      string vstrName = "frmTAG2ToFilename";
+      Control txtDigits = this.txtDigits;
+      this.txtDigits = (NumericUpDown)txtDigits;
+      this.ToolTip.SetToolTip(this.txtDigits, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+
+      vstrName = "frmTAG2ToFilename";
+      txtDigits = this.txtFDigits;
+      this.txtFDigits = (NumericUpDown)txtDigits;
+      this.ToolTip.SetToolTip(this.txtFDigits, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+
+      vstrName = "frmTAG2ToFilename";
+      txtDigits = this.txtStartNr;
+      this.txtStartNr = (NumericUpDown)txtDigits;
+      this.ToolTip.SetToolTip(this.txtStartNr, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+
+      vstrName = "frmTAG2ToFilename";
+      txtDigits = this.btnRemove;
+      this.btnRemove = (Button)txtDigits;
+      this.ToolTip.SetToolTip(this.btnRemove, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+
+      vstrName = "frmTAG2ToFilename";
+      txtDigits = this.btnAdd;
+      this.btnAdd = (Button)txtDigits;
+      this.ToolTip.SetToolTip(this.btnAdd, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+
+      vstrName = "frmTAG2ToFilename";
+      txtDigits = this.cmbFormat;
+      this.cmbFormat = (ComboBox)txtDigits;
+      this.ToolTip.SetToolTip(this.cmbFormat, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+
+      vstrName = "frmTAG2ToFilename";
+      txtDigits = this.chkRebuildName;
+      this.chkRebuildName = (CheckBox)txtDigits;
+      this.ToolTip.SetToolTip(this.chkRebuildName, Declarations.objResources.GetToolTip(ref vstrName, ref txtDigits));
+    }
+
     private void TAG2ToFilenameCB(ref frmProgress frmProg)
     {
       bool flag = false;
+
       foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
       {
         string str3;
         Application.DoEvents();
+
         if (frmProg.Canceled)
-        {
           break;
-        }
+
         MP3 tag = (MP3)item.Tag;
         frmProg.Infos.Text = tag.CurrentFullName;
         flag = false;
         frmProgress progress = frmProg;
         progress.Integer01++;
+
         if (!this.chkRebuildName.Checked)
-        {
           str3 = ID3Functions.FormatReplacedByTag(tag, frmProg.String01, 2).Replace("<#>", frmProg.Integer01.ToString().PadLeft(Convert.ToInt32(this.txtFDigits.Value), '0')).Replace("<F>", tag.CurrentName);
-        }
         else if (tag.V2TAG.FrameExists("TOFN"))
-        {
           str3 = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TOFN"), null, "Content", new object[0], null, null));
-        }
         else
-        {
           str3 = "";
-        }
+
         str3 = str3.Replace("<", "_").Replace(">", "_").Replace("|", "_").Replace("\"", "_").Replace(@"\", "_").Replace("/", "_").Replace("*", "_").Replace("?", "_").Replace(":", "_").Trim(new char[] { ' ' });
+
         if (StringType.StrCmp(str3, "", false) != 0)
         {
           bool[] flagArray;
@@ -727,6 +761,7 @@ namespace ID3_TagIT
           string str4;
           DataRow resStrings;
           string str = tag.CurrentFullName.Substring(0, tag.CurrentFullName.LastIndexOf(@"\") + 1) + str3 + tag.FI.Extension;
+
           if (str.Length <= 0xff)
           {
             foreach (MP3 mp2 in Declarations.MP3s)
@@ -737,6 +772,7 @@ namespace ID3_TagIT
                 break;
               }
             }
+
             if (!flag)
             {
               if (StringType.StrCmp(str3, tag.CurrentName, false) != 0)
@@ -752,10 +788,7 @@ namespace ID3_TagIT
             }
             else
             {
-              ListViewItem item3 = new ListViewItem
-              {
-                Text = tag.CurrentFullName
-              };
+              ListViewItem item3 = new ListViewItem              {                Text = tag.CurrentFullName              };
               objArray2 = new object[1];
               resStrings = Declarations.objResources.ResStrings;
               str4 = "ErrorTFExists";
@@ -763,20 +796,17 @@ namespace ID3_TagIT
               objArray = objArray2;
               flagArray = new bool[] { true };
               LateBinding.LateCall(item3.SubItems, null, "Add", objArray, null, flagArray);
+
               if (flagArray[0])
-              {
                 resStrings[str4] = RuntimeHelpers.GetObjectValue(objArray[0]);
-              }
+
               this.MainForm.ErrorMsg.Items.Insert(0, item3);
               this.MainForm.SplitterBottom.Expanded = true;
             }
           }
           else
           {
-            ListViewItem item4 = new ListViewItem
-            {
-              Text = tag.CurrentFullName
-            };
+            ListViewItem item4 = new ListViewItem            {              Text = tag.CurrentFullName            };
             objArray = new object[1];
             resStrings = Declarations.objResources.ResStrings;
             str4 = "InvalidPathLength";
@@ -784,36 +814,19 @@ namespace ID3_TagIT
             objArray2 = objArray;
             flagArray = new bool[] { true };
             LateBinding.LateCall(item4.SubItems, null, "Add", objArray2, null, flagArray);
+
             if (flagArray[0])
-            {
               resStrings[str4] = RuntimeHelpers.GetObjectValue(objArray2[0]);
-            }
+
             this.MainForm.ErrorMsg.Items.Insert(0, item4);
             this.MainForm.SplitterBottom.Expanded = true;
           }
         }
+
         frmProg.ProgressBar.PerformStep();
       }
     }
 
-    private void txtDigits_Validated(object sender, EventArgs e)
-    {
-      if (decimal.Compare(this.txtDigits.Value, this.txtDigits.Minimum) < 0)
-      {
-        this.txtDigits.Value = this.txtDigits.Minimum;
-      }
-      if (decimal.Compare(this.txtDigits.Value, this.txtDigits.Maximum) > 0)
-      {
-        this.txtDigits.Value = this.txtDigits.Maximum;
-      }
-    }
-
-    private void txtStartNr_ValueChanged(object sender, EventArgs e)
-    {
-      if (decimal.Compare(this.txtStartNr.Value, this.txtStartNr.Minimum) < 0)
-      {
-        this.txtStartNr.Value = this.txtStartNr.Minimum;
-      }
-    }
+    #endregion
   }
 }

@@ -52,6 +52,7 @@ namespace ID3_TagIT
     public string GetToolTip(ref string vstrName, ref Control objControl)
     {
       string str;
+
       try
       {
         str = StringType.FromObject(this.ID3TagITToolTips.Tables[vstrName].Rows[0][objControl.Name]);
@@ -62,6 +63,7 @@ namespace ID3_TagIT
         str = "";
         ProjectData.ClearProjectError();
       }
+
       return str;
     }
 

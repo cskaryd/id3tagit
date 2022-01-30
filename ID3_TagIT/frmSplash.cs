@@ -6,26 +6,17 @@ namespace ID3_TagIT
 {
   public class frmSplash : Form
   {
+    #region Designer
+
     public Label lblState;
     private Label lblVersion;
     private System.Windows.Forms.PictureBox picLogo;
     private Label lblUpdate;
     private Label lblCopyright;
 
-    public frmSplash()
-    {
-      base.Load += new EventHandler(this.frmSplash_Load);
-      this.InitializeComponent();
-    }
-
     protected override void Dispose(bool disposing)
     {
       base.Dispose(disposing);
-    }
-
-    private void frmSplash_Load(object sender, EventArgs e)
-    {
-      this.lblVersion.Text = "Version: " + Application.ProductVersion.ToString().Substring(0, Application.ProductVersion.ToString().LastIndexOf("."));
     }
 
     [DebuggerStepThrough]
@@ -120,5 +111,22 @@ namespace ID3_TagIT
       ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
       this.ResumeLayout(false);
     }
+
+    public frmSplash()
+    {
+      base.Load += new EventHandler(this.frmSplash_Load);
+      this.InitializeComponent();
+    }
+
+    #endregion
+
+    #region Events
+
+    private void frmSplash_Load(object sender, EventArgs e)
+    {
+      this.lblVersion.Text = "Version: " + Application.ProductVersion.ToString().Substring(0, Application.ProductVersion.ToString().LastIndexOf("."));
+    }
+
+    #endregion
   }
 }

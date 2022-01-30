@@ -17,6 +17,8 @@ namespace ID3_TagIT
 {
   public class frmTAG2Multi : Form
   {
+    #region Designer
+
     private PictureBox APICView;
     private Button btnAddComment;
     private Button btnAddGenre;
@@ -300,11 +302,6 @@ namespace ID3_TagIT
     private HScrollBar YearFormat;
     private IContainer components;
     private frmMain MainForm;
-    private FileStream PicFStream;
-    private MemoryStream PicMStream;
-    private bool vbooCommentMoved;
-    private bool vbooLyricsMoved;
-    private bool vbooRatingMoved;
 
     //ResourceManager manager = new ResourceManager(typeof(frmTAG2Multi));
     //this.TAGV2ButtonItem1.Icon = (Icon)manager.GetObject("TAGV2ButtonItem1.Icon");
@@ -316,6 +313,14 @@ namespace ID3_TagIT
     //this.TAGV2ButtonItem7.Icon = (Icon)manager.GetObject("TAGV2ButtonItem7.Icon");
     //this.TAGV2ButtonItem9.Icon = (Icon)manager.GetObject("TAGV2ButtonItem9.Icon");
     //this.TAGV2ButtonItem8.Icon = (Icon)manager.GetObject("TAGV2ButtonItem8.Icon");
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+        this.components.Dispose();
+      
+      base.Dispose(disposing);
+    }
 
     [DebuggerStepThrough]
     private void InitializeComponent()
@@ -3710,6 +3715,7 @@ namespace ID3_TagIT
       ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).EndInit();
       this.ButtomPanel.ResumeLayout(false);
       this.ResumeLayout(false);
+
     }
 
     public frmTAG2Multi(ref frmMain FormMain)
@@ -3722,589 +3728,19 @@ namespace ID3_TagIT
       this.MainForm = FormMain;
     }
 
-    private void AddColumnText()
-    {
-      this.CommentList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol04"]);
-      this.CommentList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol05"]);
-      this.CommentList.Columns[2].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol06"]);
-      this.TIPLList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol07"]);
-      this.TIPLList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol08"]);
-      this.TMCLList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol09"]);
-      this.TMCLList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol10"]);
-      this.PicList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol11"]);
-      this.PicList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol12"]);
-      this.PicList.Columns[2].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol13"]);
-      this.PicList.Columns[3].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol14"]);
-      this.LyricsList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol15"]);
-      this.LyricsList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol16"]);
-      this.LyricsList.Columns[2].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol17"]);
-      this.RatingList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol18"]);
-      this.RatingList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol19"]);
-      this.RatingList.Columns[2].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol20"]);
-      this.TXXXList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol21"]);
-      this.TXXXList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol22"]);
-      this.WXXXList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol21"]);
-      this.WXXXList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol22"]);
-    }
+    #endregion
 
-    private void AddSelectionBar()
-    {
-      IEnumerator enumerator = null;
-      try
-      {
-        enumerator = this.SelectionBar.Groups.GetEnumerator();
-        while (enumerator.MoveNext())
-        {
-          ExplorerBarGroupItem current = (ExplorerBarGroupItem)enumerator.Current;
-          try
-          {
-            current.Text = StringType.FromObject(Declarations.objResources.SelectionBar[current.Name]);
-          }
-          catch (Exception exception1)
-          {
-            ProjectData.SetProjectError(exception1);
-            ProjectData.ClearProjectError();
-          }
-          try
-          {
-            foreach (ButtonItem item in current.SubItems)
-            {
-              item.Text = StringType.FromObject(Declarations.objResources.SelectionBar[item.Name]);
-            }
-            continue;
-          }
-          catch (Exception exception2)
-          {
-            ProjectData.SetProjectError(exception2);
-            ProjectData.ClearProjectError();
-            continue;
-          }
-        }
-      }
-      finally
-      {
-        if (enumerator is IDisposable)
-        {
-          ((IDisposable)enumerator).Dispose();
-        }
-      }
-    }
+    #region Local variables
 
-    private void AddToolTips()
-    {
-      string vstrName = "frmTAG2Multi";
-      Control cmbCDescriptor = this.cmbCDescriptor;
-      this.cmbCDescriptor = (ComboBoxAutoComplete)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.cmbCDescriptor, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox38;
-      this.CheckBox38 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox38, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox10;
-      this.CheckBox10 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox10, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnMoveComment;
-      this.btnMoveComment = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnMoveComment, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnRemoveComment;
-      this.btnRemoveComment = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnRemoveComment, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnAddComment;
-      this.btnAddComment = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnAddComment, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.cmbCLanguage;
-      this.cmbCLanguage = (ComboBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.cmbCLanguage, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtComment;
-      this.txtComment = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtComment, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.cmbGenre;
-      this.cmbGenre = (ComboBoxAutoComplete)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.cmbGenre, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox9;
-      this.CheckBox9 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox9, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnMoveGenre;
-      this.btnMoveGenre = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnMoveGenre, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnRemoveGenre;
-      this.btnRemoveGenre = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnRemoveGenre, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnAddGenre;
-      this.btnAddGenre = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnAddGenre, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.GenreList;
-      this.GenreList = (ListBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.GenreList, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.chkTLEN;
-      this.chkTLEN = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.chkTLEN, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtPOS2;
-      this.txtPOS2 = (IntegerTextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtPOS2, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtPOS1;
-      this.txtPOS1 = (IntegerTextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtPOS1, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtTrack2;
-      this.txtTrack2 = (IntegerTextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtTrack2, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtTrack1;
-      this.txtTrack1 = (IntegerTextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtTrack1, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtYear;
-      this.txtYear = (AMS.TextBox.MaskedTextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtYear, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtBPM;
-      this.txtBPM = (NumericTextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtBPM, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.cmbArtist;
-      this.cmbArtist = (ComboBoxAutoComplete)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.cmbArtist, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox8;
-      this.CheckBox8 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox8, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox7;
-      this.CheckBox7 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox7, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox6;
-      this.CheckBox6 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox6, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox5;
-      this.CheckBox5 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox5, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox4;
-      this.CheckBox4 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox4, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox3;
-      this.CheckBox3 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox3, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox2;
-      this.CheckBox2 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox2, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox1;
-      this.CheckBox1 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox1, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.YearFormat;
-      this.YearFormat = (HScrollBar)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.YearFormat, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.cmbMedia;
-      this.cmbMedia = (ComboBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.cmbMedia, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtAlbum;
-      this.txtAlbum = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtTitle;
-      this.txtTitle = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtTitle, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox41;
-      this.CheckBox41 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox41, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox42;
-      this.CheckBox42 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox42, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox43;
-      this.CheckBox43 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox43, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtSortArtist;
-      this.txtSortArtist = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtSortArtist, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtSortTitle;
-      this.txtSortTitle = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtSortTitle, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtSortAlbum;
-      this.txtSortAlbum = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtSortAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtTORY;
-      this.txtTORY = (AMS.TextBox.MaskedTextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtTORY, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox39;
-      this.CheckBox39 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox39, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox24;
-      this.CheckBox24 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox24, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox23;
-      this.CheckBox23 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox23, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox22;
-      this.CheckBox22 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox22, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox21;
-      this.CheckBox21 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox21, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox20;
-      this.CheckBox20 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox20, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtOOwner;
-      this.txtOOwner = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtOOwner, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtOArtist;
-      this.txtOArtist = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtOArtist, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtOAlbum;
-      this.txtOAlbum = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtOAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtOLyWriter;
-      this.txtOLyWriter = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtOLyWriter, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtOFilename;
-      this.txtOFilename = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtOFilename, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox16;
-      this.CheckBox16 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox16, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox15;
-      this.CheckBox15 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox15, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtContent;
-      this.txtContent = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtContent, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtSubTitle;
-      this.txtSubTitle = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtSubTitle, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox14;
-      this.CheckBox14 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox14, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox13;
-      this.CheckBox13 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox13, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox12;
-      this.CheckBox12 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox12, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox11;
-      this.CheckBox11 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox11, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtComposer;
-      this.txtComposer = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtComposer, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtBand;
-      this.txtBand = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtBand, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtModified;
-      this.txtModified = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtModified, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtConductor;
-      this.txtConductor = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtConductor, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox40;
-      this.CheckBox40 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox40, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtCopyright;
-      this.txtCopyright = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtCopyright, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox19;
-      this.CheckBox19 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox19, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox18;
-      this.CheckBox18 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox18, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox17;
-      this.CheckBox17 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox17, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtLyWriter;
-      this.txtLyWriter = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtLyWriter, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtEncoded;
-      this.txtEncoded = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtEncoded, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtPublisher;
-      this.txtPublisher = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtPublisher, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox45;
-      this.CheckBox45 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox45, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtMusicianName;
-      this.txtMusicianName = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtMusicianName, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnRemoveMusician;
-      this.btnRemoveMusician = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnRemoveMusician, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnAddMusician;
-      this.btnAddMusician = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnAddMusician, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtMusicianInst;
-      this.txtMusicianInst = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtMusicianInst, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox44;
-      this.CheckBox44 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox44, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtInvPerson;
-      this.txtInvPerson = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtInvPerson, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnRemoveInv;
-      this.btnRemoveInv = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnRemoveInv, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnAddInv;
-      this.btnAddInv = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnAddInv, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtInvFunction;
-      this.txtInvFunction = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtInvFunction, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox34;
-      this.CheckBox34 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox34, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnRemovePicture;
-      this.btnRemovePicture = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnRemovePicture, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnAddPicture;
-      this.btnAddPicture = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnAddPicture, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnGetPic;
-      this.btnGetPic = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnGetPic, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.chkPicInclude;
-      this.chkPicInclude = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.chkPicInclude, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtPicPath;
-      this.txtPicPath = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtPicPath, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.cmbPicType;
-      this.cmbPicType = (ComboBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.cmbPicType, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtPDescriptor;
-      this.txtPDescriptor = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtPDescriptor, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox35;
-      this.CheckBox35 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox35, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.cmbLLanguage;
-      this.cmbLLanguage = (ComboBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.cmbLLanguage, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtLDescriptor;
-      this.txtLDescriptor = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtLDescriptor, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox33;
-      this.CheckBox33 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox33, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnMoveRating;
-      this.btnMoveRating = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnMoveRating, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnRemoveRating;
-      this.btnRemoveRating = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnRemoveRating, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnAddRating;
-      this.btnAddRating = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnAddRating, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtRatingCounter;
-      this.txtRatingCounter = (NumericUpDown)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtRatingCounter, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtRatingRating;
-      this.txtRatingRating = (NumericUpDown)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtRatingRating, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtRatingUser;
-      this.txtRatingUser = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtRatingUser, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox32;
-      this.CheckBox32 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox32, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox31;
-      this.CheckBox31 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox31, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox30;
-      this.CheckBox30 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox30, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox29;
-      this.CheckBox29 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox29, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox28;
-      this.CheckBox28 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox28, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox27;
-      this.CheckBox27 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox27, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox26;
-      this.CheckBox26 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox26, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox25;
-      this.CheckBox25 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox25, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtCOMMInfURL;
-      this.txtCOMMInfURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtCOMMInfURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtPubURL;
-      this.txtPubURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtPubURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtPayURL;
-      this.txtPayURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtPayURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtINetRadioURL;
-      this.txtINetRadioURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtINetRadioURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtAudioSRCURL;
-      this.txtAudioSRCURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtAudioSRCURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtCopyInfURL;
-      this.txtCopyInfURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtCopyInfURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtArtistURL;
-      this.txtArtistURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtArtistURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtAudioFileURL;
-      this.txtAudioFileURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtAudioFileURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox37;
-      this.CheckBox37 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox37, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtWXXXContent;
-      this.txtWXXXContent = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtWXXXContent, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnRemoveWXXX;
-      this.btnRemoveWXXX = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnRemoveWXXX, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnAddWXXX;
-      this.btnAddWXXX = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnAddWXXX, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtWXXXDesc;
-      this.txtWXXXDesc = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtWXXXDesc, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox36;
-      this.CheckBox36 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox36, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtTXXXContent;
-      this.txtTXXXContent = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtTXXXContent, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnRemoveTXXX;
-      this.btnRemoveTXXX = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnRemoveTXXX, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.btnAddTXXX;
-      this.btnAddTXXX = (Button)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.btnAddTXXX, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtTXXXDesc;
-      this.txtTXXXDesc = (System.Windows.Forms.TextBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtTXXXDesc, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.txtDigits;
-      this.txtDigits = (NumericUpDown)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.txtDigits, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-      vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.chkRemoveAllNOT;
-      this.chkRemoveAllNOT = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.chkRemoveAllNOT, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
-    }
+    private FileStream PicFStream;
+    private MemoryStream PicMStream;
+    private bool vbooCommentMoved;
+    private bool vbooLyricsMoved;
+    private bool vbooRatingMoved;
+
+    #endregion
+
+    #region Events
 
     private void btnAddComment_Click(object sender, EventArgs e)
     {
@@ -4450,10 +3886,10 @@ namespace ID3_TagIT
         frame.FID = "APIC";
         foreach (ListViewItem item2 in this.PicList.Items)
         {
-          if (((ulong)-(StringType.StrCmp(item2.Text.ToLower(), this.txtPDescriptor.Text.ToLower(), false) == 0 ? 1 : 0) 
+          if (((ulong)-(StringType.StrCmp(item2.Text.ToLower(), this.txtPDescriptor.Text.ToLower(), false) == 0 ? 1 : 0)
             & (ulong)checked((long)Math.Round(Conversion.Val((object)unchecked(DoubleType.FromString(item2.SubItems[1].Text.Substring(0, 2)) == Conversion.Val(this.cmbPicType.Text.Substring(0, 2))))))) > 0UL)
-            //if ((((long)-((StringType.StrCmp(item2.Text.ToLower(), this.txtPDescriptor.Text.ToLower(), false) == 0) > false)) 
-            // & ((long)Math.Round(Conversion.Val(DoubleType.FromString(item2.SubItems[1].Text.Substring(0, 2)) == Conversion.Val(this.cmbPicType.Text.Substring(0, 2)))))) > 0L)
+          //if ((((long)-((StringType.StrCmp(item2.Text.ToLower(), this.txtPDescriptor.Text.ToLower(), false) == 0) > false)) 
+          // & ((long)Math.Round(Conversion.Val(DoubleType.FromString(item2.SubItems[1].Text.Substring(0, 2)) == Conversion.Val(this.cmbPicType.Text.Substring(0, 2)))))) > 0L)
           {
             if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.BitAndObj(ObjectType.BitAndObj(ObjectType.BitAndObj(ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Descriptor", new object[0], null, null), this.txtPDescriptor.Text, false) == 0, ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "PicType", new object[0], null, null), Conversion.Val(this.cmbPicType.Text.Substring(0, 2)), false) == 0), ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Path", new object[0], null, null), this.txtPicPath.Text, false) == 0), ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Include", new object[0], null, null), this.chkPicInclude.Checked, false) == 0), ((item2.Font.Style == FontStyle.Bold) & this.chkPicRelativPath.Checked) | ((item2.Font.Style == FontStyle.Regular) & !this.chkPicRelativPath.Checked))))
               return;
@@ -5025,215 +4461,6 @@ namespace ID3_TagIT
       this.txtAlbum.Text = text;
     }
 
-    private string CheckReplace(V2TAG V2ReplaceTAG, string vstrEntry)
-    {
-      if ((vstrEntry.IndexOf("<") >= 0) && (vstrEntry.IndexOf(">") >= 0))
-      {
-        if (vstrEntry.IndexOf("<A>") >= 0)
-        {
-          if (V2ReplaceTAG.FrameExists("TPE1"))
-          {
-            vstrEntry = vstrEntry.Replace("<A>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPE1"), null, "Content", new object[0], null, null)));
-          }
-          else
-          {
-            vstrEntry = vstrEntry.Replace("<A>", "");
-          }
-        }
-        if (vstrEntry.IndexOf("<T>") >= 0)
-        {
-          if (V2ReplaceTAG.FrameExists("TIT2"))
-          {
-            vstrEntry = vstrEntry.Replace("<T>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TIT2"), null, "Content", new object[0], null, null)));
-          }
-          else
-          {
-            vstrEntry = vstrEntry.Replace("<T>", "");
-          }
-        }
-        if (vstrEntry.IndexOf("<B>") >= 0)
-        {
-          if (V2ReplaceTAG.FrameExists("TALB"))
-          {
-            vstrEntry = vstrEntry.Replace("<B>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TALB"), null, "Content", new object[0], null, null)));
-          }
-          else
-          {
-            vstrEntry = vstrEntry.Replace("<B>", "");
-          }
-        }
-        if ((vstrEntry.IndexOf("<") < 0) || (vstrEntry.IndexOf(">") < 0))
-        {
-          return vstrEntry;
-        }
-        if (vstrEntry.IndexOf("<C>") >= 0)
-        {
-          if (V2ReplaceTAG.GetFrames("COMM").Count > 0)
-          {
-            vstrEntry = vstrEntry.Replace("<C>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrames("COMM")[0], null, "Content", new object[0], null, null)));
-          }
-          else
-          {
-            vstrEntry = vstrEntry.Replace("<C>", "");
-          }
-        }
-        if (vstrEntry.IndexOf("<E>") >= 0)
-        {
-          if (V2ReplaceTAG.GetFrames("TBPM").Count > 0)
-          {
-            vstrEntry = vstrEntry.Replace("<E>", Conversion.Fix(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(V2ReplaceTAG.GetFrames("TBPM")[0], null, "Content", new object[0], null, null)))).ToString());
-          }
-          else
-          {
-            vstrEntry = vstrEntry.Replace("<E>", "");
-          }
-        }
-        if (vstrEntry.IndexOf("<U>") >= 0)
-        {
-          if (V2ReplaceTAG.FrameExists("TIT1"))
-          {
-            vstrEntry = vstrEntry.Replace("<U>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TIT1"), null, "Content", new object[0], null, null)));
-          }
-          else
-          {
-            vstrEntry = vstrEntry.Replace("<U>", "");
-          }
-        }
-        if (vstrEntry.IndexOf("<S>") >= 0)
-        {
-          if (V2ReplaceTAG.FrameExists("TIT3"))
-          {
-            vstrEntry = vstrEntry.Replace("<S>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TIT3"), null, "Content", new object[0], null, null)));
-          }
-          else
-          {
-            vstrEntry = vstrEntry.Replace("<S>", "");
-          }
-        }
-        if (vstrEntry.IndexOf("<O>") >= 0)
-        {
-          if (V2ReplaceTAG.FrameExists("TPE2"))
-          {
-            vstrEntry = vstrEntry.Replace("<O>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPE2"), null, "Content", new object[0], null, null)));
-          }
-          else
-          {
-            vstrEntry = vstrEntry.Replace("<O>", "");
-          }
-        }
-        if (vstrEntry.IndexOf("<N>") >= 0)
-        {
-          if (V2ReplaceTAG.FrameExists("TPE3"))
-          {
-            vstrEntry = vstrEntry.Replace("<N>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPE3"), null, "Content", new object[0], null, null)));
-          }
-          else
-          {
-            vstrEntry = vstrEntry.Replace("<N>", "");
-          }
-        }
-        if (vstrEntry.IndexOf("<M>") >= 0)
-        {
-          if (V2ReplaceTAG.FrameExists("TPE4"))
-          {
-            vstrEntry = vstrEntry.Replace("<M>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPE4"), null, "Content", new object[0], null, null)));
-          }
-          else
-          {
-            vstrEntry = vstrEntry.Replace("<M>", "");
-          }
-        }
-        if (vstrEntry.IndexOf("<G>") >= 0)
-        {
-          if (V2ReplaceTAG.FrameExists("TCON"))
-          {
-            string newValue = StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TCON"), null, "Content", new object[0], null, null));
-            if (newValue.IndexOf("\0") >= 0)
-            {
-              newValue = newValue.Substring(0, newValue.IndexOf("\0"));
-            }
-            vstrEntry = vstrEntry.Replace("<G>", newValue);
-          }
-          else
-          {
-            vstrEntry = vstrEntry.Replace("<G>", "");
-          }
-        }
-        if (vstrEntry.IndexOf("<R>") >= 0)
-        {
-          if (V2ReplaceTAG.FrameExists("TCOM"))
-          {
-            vstrEntry = vstrEntry.Replace("<R>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TCOM"), null, "Content", new object[0], null, null)));
-          }
-          else
-          {
-            vstrEntry = vstrEntry.Replace("<R>", "");
-          }
-        }
-        if (vstrEntry.IndexOf("<Y>") >= 0)
-        {
-          if (V2ReplaceTAG.TAGVersion == 3)
-          {
-            if (V2ReplaceTAG.FrameExists("TYER"))
-            {
-              vstrEntry = vstrEntry.Replace("<Y>", StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TYER"), null, "Content", new object[0], null, null), null, "PadLeft", new object[] { 4, "0" }, null, null), null, "Substring", new object[] { 0, 4 }, null, null)));
-            }
-            else
-            {
-              vstrEntry = vstrEntry.Replace("<Y>", "");
-            }
-          }
-          else if (V2ReplaceTAG.FrameExists("TDRC"))
-          {
-            vstrEntry = vstrEntry.Replace("<Y>", StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TDRC"), null, "Content", new object[0], null, null), null, "PadLeft", new object[] { 4, "0" }, null, null), null, "Substring", new object[] { 0, 4 }, null, null)));
-          }
-          else
-          {
-            vstrEntry = vstrEntry.Replace("<Y>", "");
-          }
-        }
-        if ((vstrEntry.IndexOf("<K>") >= 0) | (vstrEntry.IndexOf("<k>") >= 0))
-        {
-          if (V2ReplaceTAG.FrameExists("TRCK"))
-          {
-            string str3 = "";
-            string str4 = "";
-            str3 = StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TRCK"), null, "Content", new object[0], null, null));
-            if (str3.IndexOf("/") >= 0)
-            {
-              str4 = str3.Substring(str3.IndexOf("/") + 1);
-            }
-            str3 = str3.Replace("/" + str4, "");
-            vstrEntry = vstrEntry.Replace("<K>", str3);
-            vstrEntry = vstrEntry.Replace("<k>", str4);
-          }
-          else
-          {
-            vstrEntry = vstrEntry.Replace("<K>", "").Replace("<k>", "");
-          }
-        }
-        if ((vstrEntry.IndexOf("<P>") >= 0) | (vstrEntry.IndexOf("<p>") >= 0))
-        {
-          if (V2ReplaceTAG.FrameExists("TPOS"))
-          {
-            string str5 = "";
-            string str6 = "";
-            str5 = StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPOS"), null, "Content", new object[0], null, null));
-            if (str5.IndexOf("/") >= 0)
-            {
-              str6 = str5.Substring(str5.IndexOf("/") + 1);
-            }
-            str5 = str5.Replace("/" + str6, "");
-            vstrEntry = vstrEntry.Replace("<P>", str5);
-            vstrEntry = vstrEntry.Replace("<p>", str6);
-            return vstrEntry;
-          }
-          vstrEntry = vstrEntry.Replace("<P>", "").Replace("<p>", "");
-        }
-      }
-      return vstrEntry;
-    }
-
     private void chkPicInclude_CheckedChanged(object sender, EventArgs e)
     {
       if (this.chkPicInclude.Checked)
@@ -5248,356 +4475,6 @@ namespace ID3_TagIT
       {
         this.chkPicInclude.Checked = false;
       }
-    }
-
-    private void CommentList_Click(object sender, EventArgs e)
-    {
-      if (this.CommentList.FocusedItem == null)
-      {
-        return;
-      }
-      this.cmbCDescriptor.Text = this.CommentList.FocusedItem.Text;
-      var enumerator = this.cmbCLanguage.Items.GetEnumerator();
-      while (enumerator.MoveNext())
-      {
-        string str = StringType.FromObject(enumerator.Current);
-        if (str.StartsWith(this.CommentList.FocusedItem.SubItems[2].Text))
-        {
-          this.cmbCLanguage.SelectedItem = str;
-          goto Label_0099;
-        }
-      }
-      Label_0099:
-      this.txtComment.Text = this.CommentList.FocusedItem.SubItems[1].Text.Replace("\n", "\r\n");
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-      {
-        this.components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
-
-    private void FillForm()
-    {
-      byte num = 0;
-      this.cmbArtist.Autocomplete = false;
-      this.cmbGenre.Autocomplete = false;
-      if (this.MainForm.MP3View.SelectedItems.Count > 0)
-      {
-        V2TextFrame frame;
-        V2TextFrame frame2;
-        MP3 tag = (MP3)this.MainForm.MP3View.SelectedItems[0].Tag;
-        string sLeft = "yyyy-MM-dd";
-        if (tag.V2TAG.TAGVersion == 3)
-        {
-          if (tag.V2TAG.FrameExists("TYER"))
-          {
-            frame = (V2TextFrame)tag.V2TAG.GetFrame("TYER");
-            if (frame.Content.Length > 4)
-            {
-              frame.Content = Conversion.Val(frame.Content.Substring(0, 4)).ToString();
-            }
-            if (Convert.ToInt32(Conversion.Val(frame.Content)) >= 0)
-            {
-              sLeft = sLeft.Replace("yyyy", frame.Content.PadLeft(4, '0'));
-              if (tag.V2TAG.FrameExists("TDAT"))
-              {
-                frame2 = (V2TextFrame)tag.V2TAG.GetFrame("TDAT");
-                sLeft = sLeft.Replace("MM", frame2.Content.Substring(2, 2)).Replace("dd", frame2.Content.Substring(0, 2));
-                this.txtYear.Mask = "####-##-##";
-                this.YearFormat.Value = 2;
-              }
-              if (sLeft.IndexOf("MM") >= 0)
-              {
-                this.txtYear.Mask = "####";
-                this.YearFormat.Value = 0;
-              }
-            }
-            else
-            {
-              sLeft = sLeft.Replace("yyyy", StringType.FromInteger(DateTime.Now.Year));
-              if (tag.V2TAG.FrameExists("TDAT"))
-              {
-                frame2 = (V2TextFrame)tag.V2TAG.GetFrame("TDAT");
-                sLeft = sLeft.Replace("MM", frame2.Content.Substring(2, 2)).Replace("dd", frame2.Content.Substring(0, 2));
-                this.txtYear.Mask = "####-##-##";
-                this.YearFormat.Value = 2;
-              }
-              if (sLeft.IndexOf("MM") >= 0)
-              {
-                this.txtYear.Mask = "####";
-                this.YearFormat.Value = 0;
-              }
-            }
-            if (sLeft.IndexOf("MM") >= 0)
-            {
-              sLeft = sLeft.Substring(0, 4);
-            }
-          }
-          else
-          {
-            sLeft = "";
-            num = (byte)(num | 8);
-          }
-        }
-        else if (tag.V2TAG.FrameExists("TDRC"))
-        {
-          frame = (V2TextFrame)tag.V2TAG.GetFrame("TDRC");
-          if ((frame.Content.Length >= 4) && (Convert.ToInt32(Conversion.Val(frame.Content.Substring(0, 4))) >= 0))
-          {
-            if (frame.Content.IndexOf("T") < 0)
-            {
-              sLeft = frame.Content.PadLeft(4, '0');
-              if (sLeft.Length == 10)
-              {
-                this.txtYear.Mask = "####-##-##";
-                this.YearFormat.Value = 2;
-              }
-              if (sLeft.Length == 7)
-              {
-                this.txtYear.Mask = "####-##";
-                this.YearFormat.Value = 1;
-              }
-              if (sLeft.Length == 4)
-              {
-                this.txtYear.Mask = "####";
-                this.YearFormat.Value = 0;
-              }
-            }
-            else
-            {
-              sLeft = frame.Content.Substring(0, frame.Content.IndexOf("T"));
-              this.txtYear.Mask = "####-##-##";
-              this.YearFormat.Value = 2;
-            }
-          }
-        }
-        else
-        {
-          sLeft = "";
-          num = (byte)(num | 8);
-        }
-        foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
-        {
-          MP3 mp2 = (MP3)item.Tag;
-          if (tag != mp2)
-          {
-            if ((((num & 1) == 0) && tag.V2TAG.FrameExists("TPE1")) && mp2.V2TAG.FrameExists("TPE1"))
-            {
-              if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp2.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp2.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), "", false) == 0)))
-              {
-                num = (byte)(num | 1);
-              }
-            }
-            else
-            {
-              num = (byte)(num | 1);
-            }
-            if ((((num & 2) == 0) && tag.V2TAG.FrameExists("TIT2")) && mp2.V2TAG.FrameExists("TIT2"))
-            {
-              if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp2.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp2.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), "", false) == 0)))
-              {
-                num = (byte)(num | 2);
-              }
-            }
-            else
-            {
-              num = (byte)(num | 2);
-            }
-            if ((((num & 4) == 0) && tag.V2TAG.FrameExists("TALB")) && mp2.V2TAG.FrameExists("TALB"))
-            {
-              if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp2.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp2.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), "", false) == 0)))
-              {
-                num = (byte)(num | 4);
-              }
-            }
-            else
-            {
-              num = (byte)(num | 4);
-            }
-            if ((num & 8) == 0)
-            {
-              string sRight = "yyyy-MM-dd";
-              if (mp2.V2TAG.TAGVersion == 3)
-              {
-                if (mp2.V2TAG.FrameExists("TYER"))
-                {
-                  frame = (V2TextFrame)mp2.V2TAG.GetFrame("TYER");
-                  if (frame.Content.Length > 4)
-                  {
-                    frame.Content = Conversion.Val(frame.Content.Substring(0, 4)).ToString();
-                  }
-                  if (Convert.ToInt32(Conversion.Val(frame.Content)) >= 0x708)
-                  {
-                    sRight = sRight.Replace("yyyy", frame.Content);
-                    if (mp2.V2TAG.FrameExists("TDAT"))
-                    {
-                      frame2 = (V2TextFrame)mp2.V2TAG.GetFrame("TDAT");
-                      sRight = sRight.Replace("MM", frame2.Content.Substring(2, 2)).Replace("dd", frame2.Content.Substring(0, 2));
-                    }
-                  }
-                  else
-                  {
-                    sRight = sRight.Replace("yyyy", StringType.FromInteger(DateTime.Now.Year));
-                    if (mp2.V2TAG.FrameExists("TDAT"))
-                    {
-                      frame2 = (V2TextFrame)mp2.V2TAG.GetFrame("TDAT");
-                      sRight = sRight.Replace("MM", frame2.Content.Substring(2, 2)).Replace("dd", frame2.Content.Substring(0, 2));
-                    }
-                  }
-                  if (sRight.IndexOf("MM") >= 0)
-                  {
-                    sRight = sRight.Substring(0, 4);
-                  }
-                }
-                else
-                {
-                  sRight = "";
-                  num = (byte)(num | 8);
-                }
-              }
-              else if (mp2.V2TAG.FrameExists("TDRC"))
-              {
-                frame = (V2TextFrame)mp2.V2TAG.GetFrame("TDRC");
-                if ((frame.Content.Length >= 4) && (Convert.ToInt32(Conversion.Val(frame.Content.Substring(0, 4))) >= 0x708))
-                {
-                  if (frame.Content.IndexOf("T") < 0)
-                  {
-                    sRight = frame.Content;
-                  }
-                  else
-                  {
-                    sRight = frame.Content.Substring(0, frame.Content.IndexOf("T"));
-                  }
-                }
-              }
-              else
-              {
-                sRight = "";
-                num = (byte)(num | 8);
-              }
-              if (StringType.StrCmp(sLeft, sRight, false) != 0)
-              {
-                num = (byte)(num | 8);
-              }
-            }
-            if ((((num & 0x10) == 0) && tag.V2TAG.FrameExists("TCON")) && mp2.V2TAG.FrameExists("TCON"))
-            {
-              if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp2.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp2.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null), "", false) == 0)))
-              {
-                num = (byte)(num | 0x10);
-              }
-            }
-            else
-            {
-              num = (byte)(num | 0x10);
-            }
-            if (num == 0x1f)
-            {
-              break;
-            }
-          }
-        }
-        if (num != 0x1f)
-        {
-          if (((num & 1) == 0) & tag.V2TAG.FrameExists("TPE1"))
-          {
-            this.cmbArtist.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
-          }
-          if (((num & 2) == 0) & tag.V2TAG.FrameExists("TIT2"))
-          {
-            this.txtTitle.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
-          }
-          if (((num & 4) == 0) & tag.V2TAG.FrameExists("TALB"))
-          {
-            this.txtAlbum.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
-          }
-          if ((num & 8) == 0)
-          {
-            switch (this.YearFormat.Value)
-            {
-              case 0:
-                this.txtYear.Mask = "####";
-                break;
-
-              case 1:
-                this.txtYear.Mask = "####-##";
-                break;
-
-              case 2:
-                this.txtYear.Mask = "####-##-##";
-                break;
-            }
-            sLeft = sLeft.Replace("dd", "01").Replace("MM", "01").Replace("yyyy", StringType.FromInteger(DateTime.Now.Year));
-            try
-            {
-              this.txtYear.Text = sLeft;
-            }
-            catch (Exception exception1)
-            {
-              ProjectData.SetProjectError(exception1);
-              this.txtYear.Text = "";
-              ProjectData.ClearProjectError();
-            }
-          }
-          if (((num & 0x10) == 0) & tag.V2TAG.FrameExists("TCON"))
-          {
-            foreach (string str3 in Strings.Split(StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null)), "\0", -1, CompareMethod.Binary))
-            {
-              var ss33 = str3;
-
-              if (StringType.StrCmp(ss33, "", false) != 0)
-              {
-                if ((ss33.Length > 2) && Information.IsNumeric(ss33.Replace("(", "").Replace(")", "")))
-                {
-                  if ((Conversion.Val(ss33.Replace("(", "").Replace(")", "")) >= 0.0) & (Conversion.Val(ss33.Replace("(", "").Replace(")", "")) < 148.0))
-                  {
-                    ss33 = Declarations.astrGenreLookup[(int)Math.Round(Conversion.Val(ss33.Replace("(", "").Replace(")", "")))];
-                    this.CheckBox9.Checked = true;
-                  }
-                  else
-                    ss33 = "< undefined >";
-                }
-                this.GenreList.Items.Add(ss33);
-              }
-            }
-          }
-        }
-      }
-      this.CheckBox1.Checked = false;
-      this.CheckBox2.Checked = false;
-      this.CheckBox3.Checked = false;
-      this.CheckBox4.Checked = false;
-      this.CheckBox9.Checked = false;
-      if (!Declarations.objSettings.SingleGC)
-        goto Label_0F9C;
-      if (this.GenreList.Items.Count > 0)
-      {
-        this.cmbGenre.Text = StringType.FromObject(this.GenreList.Items[0]);
-      }
-      if (this.CommentList.Items.Count <= 0)
-      {
-        goto Label_0F9C;
-      }
-      this.cmbCDescriptor.Text = StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Descriptor", new object[0], null, null));
-      var enumerator = this.cmbCLanguage.Items.GetEnumerator();
-      while (enumerator.MoveNext())
-      {
-        string str4 = StringType.FromObject(enumerator.Current);
-        if (str4.StartsWith(StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Language", new object[0], null, null))))
-        {
-          this.cmbCLanguage.SelectedItem = str4;
-          goto Label_0F63;
-        }
-      }
-      Label_0F63:
-      this.txtComment.Text = StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Content", new object[0], null, null));
-      Label_0F9C:
-      this.cmbArtist.Autocomplete = true;
-      this.cmbGenre.Autocomplete = true;
     }
 
     private void frmTAG2Multi_Load(object sender, EventArgs e)
@@ -6997,27 +5874,6 @@ namespace ID3_TagIT
       }
     }
 
-    private void SaveToTAG()
-    {
-      ArrayList list = new ArrayList();
-      this.MainForm.MP3View.BeginUpdate();
-      Form ownerForm = this;
-      frmProgress.Callback cB = new frmProgress.Callback(this.Multi2CB);
-      frmProgress progress = new frmProgress(0, this.MainForm.MP3View.SelectedItems.Count, 1, ref ownerForm, ref cB);
-      progress.SetStateMultiple();
-      progress.List = list;
-      progress.ShowDialog(this);
-      this.MainForm.MP3View.EndUpdate();
-      if (list.Count > 0)
-      {
-        Declarations.UNDOList.Add(list);
-        this.MainForm.UnDoEnable(true, true);
-      }
-      ownerForm = this;
-      Id3TagIT_Main.SaveFormSettings(ref ownerForm);
-      this.Close();
-    }
-
     private void Select_Enter(object sender, EventArgs e)
     {
       object[] objArray3 = new object[2];
@@ -7407,5788 +6263,1165 @@ namespace ID3_TagIT
       }
     }
 
-
-    //internal virtual PictureBox APICView
-    //{
-    //  get
-    //  {
-    //    return this._APICView;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._APICView != null)
-    //    {
-    //    }
-    //    this._APICView = value;
-    //    if (this._APICView != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnAddComment
-    //{
-    //  get
-    //  {
-    //    return this._btnAddComment;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnAddComment != null)
-    //    {
-    //      this._btnAddComment.Click -= new EventHandler(this.btnAddComment_Click);
-    //    }
-    //    this._btnAddComment = value;
-    //    if (this._btnAddComment != null)
-    //    {
-    //      this._btnAddComment.Click += new EventHandler(this.btnAddComment_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnAddGenre
-    //{
-    //  get
-    //  {
-    //    return this._btnAddGenre;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnAddGenre != null)
-    //    {
-    //      this._btnAddGenre.Click -= new EventHandler(this.btnAddGenre_Click);
-    //    }
-    //    this._btnAddGenre = value;
-    //    if (this._btnAddGenre != null)
-    //    {
-    //      this._btnAddGenre.Click += new EventHandler(this.btnAddGenre_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnAddInv
-    //{
-    //  get
-    //  {
-    //    return this._btnAddInv;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnAddInv != null)
-    //    {
-    //      this._btnAddInv.Click -= new EventHandler(this.btnAddInv_Click);
-    //    }
-    //    this._btnAddInv = value;
-    //    if (this._btnAddInv != null)
-    //    {
-    //      this._btnAddInv.Click += new EventHandler(this.btnAddInv_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnAddLyrics
-    //{
-    //  get
-    //  {
-    //    return this._btnAddLyrics;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnAddLyrics != null)
-    //    {
-    //      this._btnAddLyrics.Click -= new EventHandler(this.btnAddLyrics_Click);
-    //    }
-    //    this._btnAddLyrics = value;
-    //    if (this._btnAddLyrics != null)
-    //    {
-    //      this._btnAddLyrics.Click += new EventHandler(this.btnAddLyrics_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnAddMusician
-    //{
-    //  get
-    //  {
-    //    return this._btnAddMusician;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnAddMusician != null)
-    //    {
-    //      this._btnAddMusician.Click -= new EventHandler(this.btnAddMusican_Click);
-    //    }
-    //    this._btnAddMusician = value;
-    //    if (this._btnAddMusician != null)
-    //    {
-    //      this._btnAddMusician.Click += new EventHandler(this.btnAddMusican_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnAddPicture
-    //{
-    //  get
-    //  {
-    //    return this._btnAddPicture;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnAddPicture != null)
-    //    {
-    //      this._btnAddPicture.Click -= new EventHandler(this.btnAddPicture_Click);
-    //    }
-    //    this._btnAddPicture = value;
-    //    if (this._btnAddPicture != null)
-    //    {
-    //      this._btnAddPicture.Click += new EventHandler(this.btnAddPicture_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnAddRating
-    //{
-    //  get
-    //  {
-    //    return this._btnAddRating;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnAddRating != null)
-    //    {
-    //      this._btnAddRating.Click -= new EventHandler(this.btnAddRating_Click);
-    //    }
-    //    this._btnAddRating = value;
-    //    if (this._btnAddRating != null)
-    //    {
-    //      this._btnAddRating.Click += new EventHandler(this.btnAddRating_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnAddTXXX
-    //{
-    //  get
-    //  {
-    //    return this._btnAddTXXX;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnAddTXXX != null)
-    //    {
-    //      this._btnAddTXXX.Click -= new EventHandler(this.btnAddTXXX_Click);
-    //    }
-    //    this._btnAddTXXX = value;
-    //    if (this._btnAddTXXX != null)
-    //    {
-    //      this._btnAddTXXX.Click += new EventHandler(this.btnAddTXXX_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnAddWXXX
-    //{
-    //  get
-    //  {
-    //    return this._btnAddWXXX;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnAddWXXX != null)
-    //    {
-    //      this._btnAddWXXX.Click -= new EventHandler(this.btnAddWXXX_Click);
-    //    }
-    //    this._btnAddWXXX = value;
-    //    if (this._btnAddWXXX != null)
-    //    {
-    //      this._btnAddWXXX.Click += new EventHandler(this.btnAddWXXX_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnCancel
-    //{
-    //  get
-    //  {
-    //    return this._btnCancel;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnCancel != null)
-    //    {
-    //      this._btnCancel.Click -= new EventHandler(this.btnCancel_Click);
-    //    }
-    //    this._btnCancel = value;
-    //    if (this._btnCancel != null)
-    //    {
-    //      this._btnCancel.Click += new EventHandler(this.btnCancel_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem btnExport
-    //{
-    //  get
-    //  {
-    //    return this._btnExport;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnExport != null)
-    //    {
-    //    }
-    //    this._btnExport = value;
-    //    if (this._btnExport != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem btnGet
-    //{
-    //  get
-    //  {
-    //    return this._btnGet;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnGet != null)
-    //    {
-    //    }
-    //    this._btnGet = value;
-    //    if (this._btnGet != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnGetPic
-    //{
-    //  get
-    //  {
-    //    return this._btnGetPic;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnGetPic != null)
-    //    {
-    //      this._btnGetPic.Click -= new EventHandler(this.btnGetPic_Click);
-    //    }
-    //    this._btnGetPic = value;
-    //    if (this._btnGetPic != null)
-    //    {
-    //      this._btnGetPic.Click += new EventHandler(this.btnGetPic_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem btnImport
-    //{
-    //  get
-    //  {
-    //    return this._btnImport;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnImport != null)
-    //    {
-    //    }
-    //    this._btnImport = value;
-    //    if (this._btnImport != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnLyricsFile
-    //{
-    //  get
-    //  {
-    //    return this._btnLyricsFile;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnLyricsFile != null)
-    //    {
-    //      this._btnLyricsFile.Click -= new EventHandler(this.btnLyricsFile_Click);
-    //    }
-    //    this._btnLyricsFile = value;
-    //    if (this._btnLyricsFile != null)
-    //    {
-    //      this._btnLyricsFile.Click += new EventHandler(this.btnLyricsFile_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnMoveComment
-    //{
-    //  get
-    //  {
-    //    return this._btnMoveComment;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnMoveComment != null)
-    //    {
-    //      this._btnMoveComment.Click -= new EventHandler(this.btnMoveComment_Click);
-    //    }
-    //    this._btnMoveComment = value;
-    //    if (this._btnMoveComment != null)
-    //    {
-    //      this._btnMoveComment.Click += new EventHandler(this.btnMoveComment_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnMoveGenre
-    //{
-    //  get
-    //  {
-    //    return this._btnMoveGenre;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnMoveGenre != null)
-    //    {
-    //      this._btnMoveGenre.Click -= new EventHandler(this.btnMoveGenre_Click);
-    //    }
-    //    this._btnMoveGenre = value;
-    //    if (this._btnMoveGenre != null)
-    //    {
-    //      this._btnMoveGenre.Click += new EventHandler(this.btnMoveGenre_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnMoveLyrics
-    //{
-    //  get
-    //  {
-    //    return this._btnMoveLyrics;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnMoveLyrics != null)
-    //    {
-    //      this._btnMoveLyrics.Click -= new EventHandler(this.btnMoveLyrics_Click);
-    //    }
-    //    this._btnMoveLyrics = value;
-    //    if (this._btnMoveLyrics != null)
-    //    {
-    //      this._btnMoveLyrics.Click += new EventHandler(this.btnMoveLyrics_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnMoveRating
-    //{
-    //  get
-    //  {
-    //    return this._btnMoveRating;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnMoveRating != null)
-    //    {
-    //      this._btnMoveRating.Click -= new EventHandler(this.btnMoveRating_Click);
-    //    }
-    //    this._btnMoveRating = value;
-    //    if (this._btnMoveRating != null)
-    //    {
-    //      this._btnMoveRating.Click += new EventHandler(this.btnMoveRating_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnOK
-    //{
-    //  get
-    //  {
-    //    return this._btnOK;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnOK != null)
-    //    {
-    //      this._btnOK.Click -= new EventHandler(this.btnOK_Click);
-    //    }
-    //    this._btnOK = value;
-    //    if (this._btnOK != null)
-    //    {
-    //      this._btnOK.Click += new EventHandler(this.btnOK_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnRemoveComment
-    //{
-    //  get
-    //  {
-    //    return this._btnRemoveComment;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnRemoveComment != null)
-    //    {
-    //      this._btnRemoveComment.Click -= new EventHandler(this.btnRemoveComment_Click);
-    //    }
-    //    this._btnRemoveComment = value;
-    //    if (this._btnRemoveComment != null)
-    //    {
-    //      this._btnRemoveComment.Click += new EventHandler(this.btnRemoveComment_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnRemoveGenre
-    //{
-    //  get
-    //  {
-    //    return this._btnRemoveGenre;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnRemoveGenre != null)
-    //    {
-    //      this._btnRemoveGenre.Click -= new EventHandler(this.btnRemoveGenre_Click);
-    //    }
-    //    this._btnRemoveGenre = value;
-    //    if (this._btnRemoveGenre != null)
-    //    {
-    //      this._btnRemoveGenre.Click += new EventHandler(this.btnRemoveGenre_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnRemoveInv
-    //{
-    //  get
-    //  {
-    //    return this._btnRemoveInv;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnRemoveInv != null)
-    //    {
-    //      this._btnRemoveInv.Click -= new EventHandler(this.btnRemoveInv_Click);
-    //    }
-    //    this._btnRemoveInv = value;
-    //    if (this._btnRemoveInv != null)
-    //    {
-    //      this._btnRemoveInv.Click += new EventHandler(this.btnRemoveInv_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnRemoveLyrics
-    //{
-    //  get
-    //  {
-    //    return this._btnRemoveLyrics;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnRemoveLyrics != null)
-    //    {
-    //      this._btnRemoveLyrics.Click -= new EventHandler(this.btnRemoveLyrics_Click);
-    //    }
-    //    this._btnRemoveLyrics = value;
-    //    if (this._btnRemoveLyrics != null)
-    //    {
-    //      this._btnRemoveLyrics.Click += new EventHandler(this.btnRemoveLyrics_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnRemoveMusician
-    //{
-    //  get
-    //  {
-    //    return this._btnRemoveMusician;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnRemoveMusician != null)
-    //    {
-    //      this._btnRemoveMusician.Click -= new EventHandler(this.btnRemoveMusican_Click);
-    //    }
-    //    this._btnRemoveMusician = value;
-    //    if (this._btnRemoveMusician != null)
-    //    {
-    //      this._btnRemoveMusician.Click += new EventHandler(this.btnRemoveMusican_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnRemovePicture
-    //{
-    //  get
-    //  {
-    //    return this._btnRemovePicture;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnRemovePicture != null)
-    //    {
-    //      this._btnRemovePicture.Click -= new EventHandler(this.btnRemovePicture_Click);
-    //    }
-    //    this._btnRemovePicture = value;
-    //    if (this._btnRemovePicture != null)
-    //    {
-    //      this._btnRemovePicture.Click += new EventHandler(this.btnRemovePicture_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnRemoveRating
-    //{
-    //  get
-    //  {
-    //    return this._btnRemoveRating;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnRemoveRating != null)
-    //    {
-    //      this._btnRemoveRating.Click -= new EventHandler(this.btnRemoveRating_Click);
-    //    }
-    //    this._btnRemoveRating = value;
-    //    if (this._btnRemoveRating != null)
-    //    {
-    //      this._btnRemoveRating.Click += new EventHandler(this.btnRemoveRating_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnRemoveTXXX
-    //{
-    //  get
-    //  {
-    //    return this._btnRemoveTXXX;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnRemoveTXXX != null)
-    //    {
-    //      this._btnRemoveTXXX.Click -= new EventHandler(this.btnRemoveTXXX_Click);
-    //    }
-    //    this._btnRemoveTXXX = value;
-    //    if (this._btnRemoveTXXX != null)
-    //    {
-    //      this._btnRemoveTXXX.Click += new EventHandler(this.btnRemoveTXXX_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual Button btnRemoveWXXX
-    //{
-    //  get
-    //  {
-    //    return this._btnRemoveWXXX;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnRemoveWXXX != null)
-    //    {
-    //      this._btnRemoveWXXX.Click -= new EventHandler(this.btnRemoveWXXX_Click);
-    //    }
-    //    this._btnRemoveWXXX = value;
-    //    if (this._btnRemoveWXXX != null)
-    //    {
-    //      this._btnRemoveWXXX.Click += new EventHandler(this.btnRemoveWXXX_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem btnSwapAA
-    //{
-    //  get
-    //  {
-    //    return this._btnSwapAA;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnSwapAA != null)
-    //    {
-    //      this._btnSwapAA.Click -= new EventHandler(this.btnSwapAA_Click);
-    //    }
-    //    this._btnSwapAA = value;
-    //    if (this._btnSwapAA != null)
-    //    {
-    //      this._btnSwapAA.Click += new EventHandler(this.btnSwapAA_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem btnSwapAT
-    //{
-    //  get
-    //  {
-    //    return this._btnSwapAT;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnSwapAT != null)
-    //    {
-    //      this._btnSwapAT.Click -= new EventHandler(this.btnSwapAT_Click);
-    //    }
-    //    this._btnSwapAT = value;
-    //    if (this._btnSwapAT != null)
-    //    {
-    //      this._btnSwapAT.Click += new EventHandler(this.btnSwapAT_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem btnSwapTA
-    //{
-    //  get
-    //  {
-    //    return this._btnSwapTA;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._btnSwapTA != null)
-    //    {
-    //      this._btnSwapTA.Click -= new EventHandler(this.btnSwapTA_Click);
-    //    }
-    //    this._btnSwapTA = value;
-    //    if (this._btnSwapTA != null)
-    //    {
-    //      this._btnSwapTA.Click += new EventHandler(this.btnSwapTA_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual PanelEx ButtomPanel
-    //{
-    //  get
-    //  {
-    //    return this._ButtomPanel;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ButtomPanel != null)
-    //    {
-    //    }
-    //    this._ButtomPanel = value;
-    //    if (this._ButtomPanel != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox1
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox1;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox1 != null)
-    //    {
-    //    }
-    //    this._CheckBox1 = value;
-    //    if (this._CheckBox1 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox10
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox10;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox10 != null)
-    //    {
-    //    }
-    //    this._CheckBox10 = value;
-    //    if (this._CheckBox10 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox11
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox11;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox11 != null)
-    //    {
-    //    }
-    //    this._CheckBox11 = value;
-    //    if (this._CheckBox11 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox12
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox12;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox12 != null)
-    //    {
-    //    }
-    //    this._CheckBox12 = value;
-    //    if (this._CheckBox12 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox13
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox13;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox13 != null)
-    //    {
-    //    }
-    //    this._CheckBox13 = value;
-    //    if (this._CheckBox13 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox14
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox14;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox14 != null)
-    //    {
-    //    }
-    //    this._CheckBox14 = value;
-    //    if (this._CheckBox14 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox15
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox15;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox15 != null)
-    //    {
-    //    }
-    //    this._CheckBox15 = value;
-    //    if (this._CheckBox15 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox16
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox16;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox16 != null)
-    //    {
-    //    }
-    //    this._CheckBox16 = value;
-    //    if (this._CheckBox16 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox17
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox17;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox17 != null)
-    //    {
-    //    }
-    //    this._CheckBox17 = value;
-    //    if (this._CheckBox17 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox18
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox18;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox18 != null)
-    //    {
-    //    }
-    //    this._CheckBox18 = value;
-    //    if (this._CheckBox18 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox19
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox19;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox19 != null)
-    //    {
-    //    }
-    //    this._CheckBox19 = value;
-    //    if (this._CheckBox19 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox2
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox2;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox2 != null)
-    //    {
-    //    }
-    //    this._CheckBox2 = value;
-    //    if (this._CheckBox2 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox20
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox20;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox20 != null)
-    //    {
-    //    }
-    //    this._CheckBox20 = value;
-    //    if (this._CheckBox20 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox21
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox21;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox21 != null)
-    //    {
-    //    }
-    //    this._CheckBox21 = value;
-    //    if (this._CheckBox21 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox22
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox22;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox22 != null)
-    //    {
-    //    }
-    //    this._CheckBox22 = value;
-    //    if (this._CheckBox22 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox23
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox23;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox23 != null)
-    //    {
-    //    }
-    //    this._CheckBox23 = value;
-    //    if (this._CheckBox23 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox24
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox24;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox24 != null)
-    //    {
-    //    }
-    //    this._CheckBox24 = value;
-    //    if (this._CheckBox24 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox25
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox25;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox25 != null)
-    //    {
-    //    }
-    //    this._CheckBox25 = value;
-    //    if (this._CheckBox25 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox26
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox26;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox26 != null)
-    //    {
-    //    }
-    //    this._CheckBox26 = value;
-    //    if (this._CheckBox26 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox27
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox27;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox27 != null)
-    //    {
-    //    }
-    //    this._CheckBox27 = value;
-    //    if (this._CheckBox27 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox28
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox28;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox28 != null)
-    //    {
-    //    }
-    //    this._CheckBox28 = value;
-    //    if (this._CheckBox28 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox29
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox29;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox29 != null)
-    //    {
-    //    }
-    //    this._CheckBox29 = value;
-    //    if (this._CheckBox29 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox3
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox3;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox3 != null)
-    //    {
-    //    }
-    //    this._CheckBox3 = value;
-    //    if (this._CheckBox3 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox30
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox30;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox30 != null)
-    //    {
-    //    }
-    //    this._CheckBox30 = value;
-    //    if (this._CheckBox30 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox31
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox31;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox31 != null)
-    //    {
-    //    }
-    //    this._CheckBox31 = value;
-    //    if (this._CheckBox31 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox32
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox32;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox32 != null)
-    //    {
-    //    }
-    //    this._CheckBox32 = value;
-    //    if (this._CheckBox32 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox33
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox33;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox33 != null)
-    //    {
-    //    }
-    //    this._CheckBox33 = value;
-    //    if (this._CheckBox33 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox34
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox34;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox34 != null)
-    //    {
-    //    }
-    //    this._CheckBox34 = value;
-    //    if (this._CheckBox34 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox35
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox35;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox35 != null)
-    //    {
-    //    }
-    //    this._CheckBox35 = value;
-    //    if (this._CheckBox35 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox36
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox36;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox36 != null)
-    //    {
-    //    }
-    //    this._CheckBox36 = value;
-    //    if (this._CheckBox36 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox37
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox37;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox37 != null)
-    //    {
-    //    }
-    //    this._CheckBox37 = value;
-    //    if (this._CheckBox37 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox38
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox38;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox38 != null)
-    //    {
-    //    }
-    //    this._CheckBox38 = value;
-    //    if (this._CheckBox38 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox39
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox39;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox39 != null)
-    //    {
-    //    }
-    //    this._CheckBox39 = value;
-    //    if (this._CheckBox39 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox4
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox4;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox4 != null)
-    //    {
-    //    }
-    //    this._CheckBox4 = value;
-    //    if (this._CheckBox4 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox40
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox40;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox40 != null)
-    //    {
-    //    }
-    //    this._CheckBox40 = value;
-    //    if (this._CheckBox40 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox41
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox41;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox41 != null)
-    //    {
-    //    }
-    //    this._CheckBox41 = value;
-    //    if (this._CheckBox41 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox42
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox42;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox42 != null)
-    //    {
-    //    }
-    //    this._CheckBox42 = value;
-    //    if (this._CheckBox42 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox43
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox43;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox43 != null)
-    //    {
-    //    }
-    //    this._CheckBox43 = value;
-    //    if (this._CheckBox43 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox44
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox44;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox44 != null)
-    //    {
-    //    }
-    //    this._CheckBox44 = value;
-    //    if (this._CheckBox44 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox45
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox45;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox45 != null)
-    //    {
-    //    }
-    //    this._CheckBox45 = value;
-    //    if (this._CheckBox45 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox5
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox5;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox5 != null)
-    //    {
-    //    }
-    //    this._CheckBox5 = value;
-    //    if (this._CheckBox5 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox6
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox6;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox6 != null)
-    //    {
-    //    }
-    //    this._CheckBox6 = value;
-    //    if (this._CheckBox6 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox7
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox7;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox7 != null)
-    //    {
-    //    }
-    //    this._CheckBox7 = value;
-    //    if (this._CheckBox7 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox8
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox8;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox8 != null)
-    //    {
-    //    }
-    //    this._CheckBox8 = value;
-    //    if (this._CheckBox8 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox CheckBox9
-    //{
-    //  get
-    //  {
-    //    return this._CheckBox9;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CheckBox9 != null)
-    //    {
-    //    }
-    //    this._CheckBox9 = value;
-    //    if (this._CheckBox9 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox chkPicInclude
-    //{
-    //  get
-    //  {
-    //    return this._chkPicInclude;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._chkPicInclude != null)
-    //    {
-    //      this._chkPicInclude.CheckedChanged -= new EventHandler(this.chkPicInclude_CheckedChanged);
-    //    }
-    //    this._chkPicInclude = value;
-    //    if (this._chkPicInclude != null)
-    //    {
-    //      this._chkPicInclude.CheckedChanged += new EventHandler(this.chkPicInclude_CheckedChanged);
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox chkPicRelativPath
-    //{
-    //  get
-    //  {
-    //    return this._chkPicRelativPath;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._chkPicRelativPath != null)
-    //    {
-    //      this._chkPicRelativPath.CheckedChanged -= new EventHandler(this.chkPicRelativPath_CheckedChanged);
-    //    }
-    //    this._chkPicRelativPath = value;
-    //    if (this._chkPicRelativPath != null)
-    //    {
-    //      this._chkPicRelativPath.CheckedChanged += new EventHandler(this.chkPicRelativPath_CheckedChanged);
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox chkRemoveAllNOT
-    //{
-    //  get
-    //  {
-    //    return this._chkRemoveAllNOT;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._chkRemoveAllNOT != null)
-    //    {
-    //    }
-    //    this._chkRemoveAllNOT = value;
-    //    if (this._chkRemoveAllNOT != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual CheckBox chkTLEN
-    //{
-    //  get
-    //  {
-    //    return this._chkTLEN;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._chkTLEN != null)
-    //    {
-    //    }
-    //    this._chkTLEN = value;
-    //    if (this._chkTLEN != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ComboBoxAutoComplete cmbArtist
-    //{
-    //  get
-    //  {
-    //    return this._cmbArtist;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._cmbArtist != null)
-    //    {
-    //      this._cmbArtist.Leave -= new EventHandler(this.Select_Leave);
-    //      this._cmbArtist.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._cmbArtist.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._cmbArtist = value;
-    //    if (this._cmbArtist != null)
-    //    {
-    //      this._cmbArtist.Leave += new EventHandler(this.Select_Leave);
-    //      this._cmbArtist.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._cmbArtist.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ComboBoxAutoComplete cmbCDescriptor
-    //{
-    //  get
-    //  {
-    //    return this._cmbCDescriptor;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._cmbCDescriptor != null)
-    //    {
-    //      this._cmbCDescriptor.Leave -= new EventHandler(this.Select_Leave);
-    //      this._cmbCDescriptor.EnabledChanged -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._cmbCDescriptor = value;
-    //    if (this._cmbCDescriptor != null)
-    //    {
-    //      this._cmbCDescriptor.Leave += new EventHandler(this.Select_Leave);
-    //      this._cmbCDescriptor.EnabledChanged += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ComboBox cmbCLanguage
-    //{
-    //  get
-    //  {
-    //    return this._cmbCLanguage;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._cmbCLanguage != null)
-    //    {
-    //      this._cmbCLanguage.Leave -= new EventHandler(this.Select_Leave);
-    //      this._cmbCLanguage.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._cmbCLanguage.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._cmbCLanguage = value;
-    //    if (this._cmbCLanguage != null)
-    //    {
-    //      this._cmbCLanguage.Leave += new EventHandler(this.Select_Leave);
-    //      this._cmbCLanguage.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._cmbCLanguage.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ComboBoxAutoComplete cmbGenre
-    //{
-    //  get
-    //  {
-    //    return this._cmbGenre;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._cmbGenre != null)
-    //    {
-    //      this._cmbGenre.Leave -= new EventHandler(this.Select_Leave);
-    //      this._cmbGenre.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._cmbGenre.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._cmbGenre = value;
-    //    if (this._cmbGenre != null)
-    //    {
-    //      this._cmbGenre.Leave += new EventHandler(this.Select_Leave);
-    //      this._cmbGenre.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._cmbGenre.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ComboBox cmbLLanguage
-    //{
-    //  get
-    //  {
-    //    return this._cmbLLanguage;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._cmbLLanguage != null)
-    //    {
-    //      this._cmbLLanguage.Leave -= new EventHandler(this.Select_Leave);
-    //      this._cmbLLanguage.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._cmbLLanguage.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._cmbLLanguage = value;
-    //    if (this._cmbLLanguage != null)
-    //    {
-    //      this._cmbLLanguage.Leave += new EventHandler(this.Select_Leave);
-    //      this._cmbLLanguage.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._cmbLLanguage.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ComboBox cmbMedia
-    //{
-    //  get
-    //  {
-    //    return this._cmbMedia;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._cmbMedia != null)
-    //    {
-    //      this._cmbMedia.Leave -= new EventHandler(this.Select_Leave);
-    //      this._cmbMedia.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._cmbMedia.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._cmbMedia = value;
-    //    if (this._cmbMedia != null)
-    //    {
-    //      this._cmbMedia.Leave += new EventHandler(this.Select_Leave);
-    //      this._cmbMedia.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._cmbMedia.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ComboBox cmbPicType
-    //{
-    //  get
-    //  {
-    //    return this._cmbPicType;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._cmbPicType != null)
-    //    {
-    //      this._cmbPicType.Leave -= new EventHandler(this.Select_Leave);
-    //      this._cmbPicType.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._cmbPicType.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._cmbPicType = value;
-    //    if (this._cmbPicType != null)
-    //    {
-    //      this._cmbPicType.Leave += new EventHandler(this.Select_Leave);
-    //      this._cmbPicType.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._cmbPicType.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader colComment
-    //{
-    //  get
-    //  {
-    //    return this._colComment;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._colComment != null)
-    //    {
-    //    }
-    //    this._colComment = value;
-    //    if (this._colComment != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader colDescriptor
-    //{
-    //  get
-    //  {
-    //    return this._colDescriptor;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._colDescriptor != null)
-    //    {
-    //    }
-    //    this._colDescriptor = value;
-    //    if (this._colDescriptor != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader colLanguage
-    //{
-    //  get
-    //  {
-    //    return this._colLanguage;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._colLanguage != null)
-    //    {
-    //    }
-    //    this._colLanguage = value;
-    //    if (this._colLanguage != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader1
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader1;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader1 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader1 = value;
-    //    if (this._ColumnHeader1 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader10
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader10;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader10 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader10 = value;
-    //    if (this._ColumnHeader10 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader11
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader11;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader11 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader11 = value;
-    //    if (this._ColumnHeader11 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader12
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader12;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader12 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader12 = value;
-    //    if (this._ColumnHeader12 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader13
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader13;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader13 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader13 = value;
-    //    if (this._ColumnHeader13 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader14
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader14;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader14 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader14 = value;
-    //    if (this._ColumnHeader14 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader15
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader15;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader15 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader15 = value;
-    //    if (this._ColumnHeader15 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader16
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader16;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader16 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader16 = value;
-    //    if (this._ColumnHeader16 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader17
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader17;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader17 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader17 = value;
-    //    if (this._ColumnHeader17 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader18
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader18;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader18 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader18 = value;
-    //    if (this._ColumnHeader18 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader2
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader2;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader2 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader2 = value;
-    //    if (this._ColumnHeader2 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader3
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader3;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader3 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader3 = value;
-    //    if (this._ColumnHeader3 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader4
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader4;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader4 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader4 = value;
-    //    if (this._ColumnHeader4 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader5
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader5;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader5 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader5 = value;
-    //    if (this._ColumnHeader5 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader6
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader6;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader6 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader6 = value;
-    //    if (this._ColumnHeader6 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader7
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader7;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader7 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader7 = value;
-    //    if (this._ColumnHeader7 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader8
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader8;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader8 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader8 = value;
-    //    if (this._ColumnHeader8 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ColumnHeader ColumnHeader9
-    //{
-    //  get
-    //  {
-    //    return this._ColumnHeader9;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ColumnHeader9 != null)
-    //    {
-    //    }
-    //    this._ColumnHeader9 = value;
-    //    if (this._ColumnHeader9 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ListView CommentList
-    //{
-    //  get
-    //  {
-    //    return this._CommentList;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._CommentList != null)
-    //    {
-    //      this._CommentList.Leave -= new EventHandler(this.Select_Leave);
-    //      this._CommentList.Click -= new EventHandler(this.CommentList_Click);
-    //    }
-    //    this._CommentList = value;
-    //    if (this._CommentList != null)
-    //    {
-    //      this._CommentList.Leave += new EventHandler(this.Select_Leave);
-    //      this._CommentList.Click += new EventHandler(this.CommentList_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ListBox GenreList
-    //{
-    //  get
-    //  {
-    //    return this._GenreList;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._GenreList != null)
-    //    {
-    //      this._GenreList.Leave -= new EventHandler(this.Select_Leave);
-    //    }
-    //    this._GenreList = value;
-    //    if (this._GenreList != null)
-    //    {
-    //      this._GenreList.Leave += new EventHandler(this.Select_Leave);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem Label
-    //{
-    //  get
-    //  {
-    //    return this._Label;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Label != null)
-    //    {
-    //    }
-    //    this._Label = value;
-    //    if (this._Label != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblAlbum
-    //{
-    //  get
-    //  {
-    //    return this._lblAlbum;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblAlbum != null)
-    //    {
-    //    }
-    //    this._lblAlbum = value;
-    //    if (this._lblAlbum != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblAlbumSort
-    //{
-    //  get
-    //  {
-    //    return this._lblAlbumSort;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblAlbumSort != null)
-    //    {
-    //    }
-    //    this._lblAlbumSort = value;
-    //    if (this._lblAlbumSort != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblArtist
-    //{
-    //  get
-    //  {
-    //    return this._lblArtist;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblArtist != null)
-    //    {
-    //    }
-    //    this._lblArtist = value;
-    //    if (this._lblArtist != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblArtistSort
-    //{
-    //  get
-    //  {
-    //    return this._lblArtistSort;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblArtistSort != null)
-    //    {
-    //    }
-    //    this._lblArtistSort = value;
-    //    if (this._lblArtistSort != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblArtistURL
-    //{
-    //  get
-    //  {
-    //    return this._lblArtistURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblArtistURL != null)
-    //    {
-    //    }
-    //    this._lblArtistURL = value;
-    //    if (this._lblArtistURL != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblAudioFileURL
-    //{
-    //  get
-    //  {
-    //    return this._lblAudioFileURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblAudioFileURL != null)
-    //    {
-    //    }
-    //    this._lblAudioFileURL = value;
-    //    if (this._lblAudioFileURL != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblAudioSRCURL
-    //{
-    //  get
-    //  {
-    //    return this._lblAudioSRCURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblAudioSRCURL != null)
-    //    {
-    //    }
-    //    this._lblAudioSRCURL = value;
-    //    if (this._lblAudioSRCURL != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblBand
-    //{
-    //  get
-    //  {
-    //    return this._lblBand;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblBand != null)
-    //    {
-    //    }
-    //    this._lblBand = value;
-    //    if (this._lblBand != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblBPM
-    //{
-    //  get
-    //  {
-    //    return this._lblBPM;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblBPM != null)
-    //    {
-    //    }
-    //    this._lblBPM = value;
-    //    if (this._lblBPM != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblCOMM
-    //{
-    //  get
-    //  {
-    //    return this._lblCOMM;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblCOMM != null)
-    //    {
-    //    }
-    //    this._lblCOMM = value;
-    //    if (this._lblCOMM != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblCOMMDesc
-    //{
-    //  get
-    //  {
-    //    return this._lblCOMMDesc;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblCOMMDesc != null)
-    //    {
-    //    }
-    //    this._lblCOMMDesc = value;
-    //    if (this._lblCOMMDesc != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblCommDescInfo
-    //{
-    //  get
-    //  {
-    //    return this._lblCommDescInfo;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblCommDescInfo != null)
-    //    {
-    //    }
-    //    this._lblCommDescInfo = value;
-    //    if (this._lblCommDescInfo != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblCOMMInfURL
-    //{
-    //  get
-    //  {
-    //    return this._lblCOMMInfURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblCOMMInfURL != null)
-    //    {
-    //    }
-    //    this._lblCOMMInfURL = value;
-    //    if (this._lblCOMMInfURL != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblCOMMLan
-    //{
-    //  get
-    //  {
-    //    return this._lblCOMMLan;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblCOMMLan != null)
-    //    {
-    //    }
-    //    this._lblCOMMLan = value;
-    //    if (this._lblCOMMLan != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblComposer
-    //{
-    //  get
-    //  {
-    //    return this._lblComposer;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblComposer != null)
-    //    {
-    //    }
-    //    this._lblComposer = value;
-    //    if (this._lblComposer != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblConductor
-    //{
-    //  get
-    //  {
-    //    return this._lblConductor;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblConductor != null)
-    //    {
-    //    }
-    //    this._lblConductor = value;
-    //    if (this._lblConductor != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblContent
-    //{
-    //  get
-    //  {
-    //    return this._lblContent;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblContent != null)
-    //    {
-    //    }
-    //    this._lblContent = value;
-    //    if (this._lblContent != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblCopyInfURL
-    //{
-    //  get
-    //  {
-    //    return this._lblCopyInfURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblCopyInfURL != null)
-    //    {
-    //    }
-    //    this._lblCopyInfURL = value;
-    //    if (this._lblCopyInfURL != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblCopyright
-    //{
-    //  get
-    //  {
-    //    return this._lblCopyright;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblCopyright != null)
-    //    {
-    //    }
-    //    this._lblCopyright = value;
-    //    if (this._lblCopyright != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblDigits
-    //{
-    //  get
-    //  {
-    //    return this._lblDigits;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblDigits != null)
-    //    {
-    //    }
-    //    this._lblDigits = value;
-    //    if (this._lblDigits != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblEncoded
-    //{
-    //  get
-    //  {
-    //    return this._lblEncoded;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblEncoded != null)
-    //    {
-    //    }
-    //    this._lblEncoded = value;
-    //    if (this._lblEncoded != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblGenre
-    //{
-    //  get
-    //  {
-    //    return this._lblGenre;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblGenre != null)
-    //    {
-    //    }
-    //    this._lblGenre = value;
-    //    if (this._lblGenre != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblGenreInfo
-    //{
-    //  get
-    //  {
-    //    return this._lblGenreInfo;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblGenreInfo != null)
-    //    {
-    //    }
-    //    this._lblGenreInfo = value;
-    //    if (this._lblGenreInfo != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblINetRadioURL
-    //{
-    //  get
-    //  {
-    //    return this._lblINetRadioURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblINetRadioURL != null)
-    //    {
-    //    }
-    //    this._lblINetRadioURL = value;
-    //    if (this._lblINetRadioURL != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblInfo
-    //{
-    //  get
-    //  {
-    //    return this._lblInfo;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblInfo != null)
-    //    {
-    //    }
-    //    this._lblInfo = value;
-    //    if (this._lblInfo != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblInfoStar
-    //{
-    //  get
-    //  {
-    //    return this._lblInfoStar;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblInfoStar != null)
-    //    {
-    //    }
-    //    this._lblInfoStar = value;
-    //    if (this._lblInfoStar != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblInvFunction
-    //{
-    //  get
-    //  {
-    //    return this._lblInvFunction;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblInvFunction != null)
-    //    {
-    //    }
-    //    this._lblInvFunction = value;
-    //    if (this._lblInvFunction != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblInvPerson
-    //{
-    //  get
-    //  {
-    //    return this._lblInvPerson;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblInvPerson != null)
-    //    {
-    //    }
-    //    this._lblInvPerson = value;
-    //    if (this._lblInvPerson != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblLyDesc
-    //{
-    //  get
-    //  {
-    //    return this._lblLyDesc;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblLyDesc != null)
-    //    {
-    //    }
-    //    this._lblLyDesc = value;
-    //    if (this._lblLyDesc != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblLyLan
-    //{
-    //  get
-    //  {
-    //    return this._lblLyLan;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblLyLan != null)
-    //    {
-    //    }
-    //    this._lblLyLan = value;
-    //    if (this._lblLyLan != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblLyrics
-    //{
-    //  get
-    //  {
-    //    return this._lblLyrics;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblLyrics != null)
-    //    {
-    //    }
-    //    this._lblLyrics = value;
-    //    if (this._lblLyrics != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblLyWriter
-    //{
-    //  get
-    //  {
-    //    return this._lblLyWriter;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblLyWriter != null)
-    //    {
-    //    }
-    //    this._lblLyWriter = value;
-    //    if (this._lblLyWriter != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblMediaTyp
-    //{
-    //  get
-    //  {
-    //    return this._lblMediaTyp;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblMediaTyp != null)
-    //    {
-    //    }
-    //    this._lblMediaTyp = value;
-    //    if (this._lblMediaTyp != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblModified
-    //{
-    //  get
-    //  {
-    //    return this._lblModified;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblModified != null)
-    //    {
-    //    }
-    //    this._lblModified = value;
-    //    if (this._lblModified != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblMusicianInfo
-    //{
-    //  get
-    //  {
-    //    return this._lblMusicianInfo;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblMusicianInfo != null)
-    //    {
-    //    }
-    //    this._lblMusicianInfo = value;
-    //    if (this._lblMusicianInfo != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblMusicianInst
-    //{
-    //  get
-    //  {
-    //    return this._lblMusicianInst;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblMusicianInst != null)
-    //    {
-    //    }
-    //    this._lblMusicianInst = value;
-    //    if (this._lblMusicianInst != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblMusicianName
-    //{
-    //  get
-    //  {
-    //    return this._lblMusicianName;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblMusicianName != null)
-    //    {
-    //    }
-    //    this._lblMusicianName = value;
-    //    if (this._lblMusicianName != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblOAlbum
-    //{
-    //  get
-    //  {
-    //    return this._lblOAlbum;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblOAlbum != null)
-    //    {
-    //    }
-    //    this._lblOAlbum = value;
-    //    if (this._lblOAlbum != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblOArtist
-    //{
-    //  get
-    //  {
-    //    return this._lblOArtist;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblOArtist != null)
-    //    {
-    //    }
-    //    this._lblOArtist = value;
-    //    if (this._lblOArtist != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblOf1
-    //{
-    //  get
-    //  {
-    //    return this._lblOf1;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblOf1 != null)
-    //    {
-    //    }
-    //    this._lblOf1 = value;
-    //    if (this._lblOf1 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblOf2
-    //{
-    //  get
-    //  {
-    //    return this._lblOf2;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblOf2 != null)
-    //    {
-    //    }
-    //    this._lblOf2 = value;
-    //    if (this._lblOf2 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblOFilename
-    //{
-    //  get
-    //  {
-    //    return this._lblOFilename;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblOFilename != null)
-    //    {
-    //    }
-    //    this._lblOFilename = value;
-    //    if (this._lblOFilename != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblOLyWriter
-    //{
-    //  get
-    //  {
-    //    return this._lblOLyWriter;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblOLyWriter != null)
-    //    {
-    //    }
-    //    this._lblOLyWriter = value;
-    //    if (this._lblOLyWriter != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblOOwner
-    //{
-    //  get
-    //  {
-    //    return this._lblOOwner;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblOOwner != null)
-    //    {
-    //    }
-    //    this._lblOOwner = value;
-    //    if (this._lblOOwner != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblOYear
-    //{
-    //  get
-    //  {
-    //    return this._lblOYear;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblOYear != null)
-    //    {
-    //    }
-    //    this._lblOYear = value;
-    //    if (this._lblOYear != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblOYearInfo
-    //{
-    //  get
-    //  {
-    //    return this._lblOYearInfo;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblOYearInfo != null)
-    //    {
-    //    }
-    //    this._lblOYearInfo = value;
-    //    if (this._lblOYearInfo != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblPayURL
-    //{
-    //  get
-    //  {
-    //    return this._lblPayURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblPayURL != null)
-    //    {
-    //    }
-    //    this._lblPayURL = value;
-    //    if (this._lblPayURL != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblPicDesc
-    //{
-    //  get
-    //  {
-    //    return this._lblPicDesc;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblPicDesc != null)
-    //    {
-    //    }
-    //    this._lblPicDesc = value;
-    //    if (this._lblPicDesc != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblPicPath
-    //{
-    //  get
-    //  {
-    //    return this._lblPicPath;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblPicPath != null)
-    //    {
-    //    }
-    //    this._lblPicPath = value;
-    //    if (this._lblPicPath != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblPicType
-    //{
-    //  get
-    //  {
-    //    return this._lblPicType;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblPicType != null)
-    //    {
-    //    }
-    //    this._lblPicType = value;
-    //    if (this._lblPicType != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblPosMedia
-    //{
-    //  get
-    //  {
-    //    return this._lblPosMedia;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblPosMedia != null)
-    //    {
-    //    }
-    //    this._lblPosMedia = value;
-    //    if (this._lblPosMedia != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblPublisher
-    //{
-    //  get
-    //  {
-    //    return this._lblPublisher;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblPublisher != null)
-    //    {
-    //    }
-    //    this._lblPublisher = value;
-    //    if (this._lblPublisher != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblPubURL
-    //{
-    //  get
-    //  {
-    //    return this._lblPubURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblPubURL != null)
-    //    {
-    //    }
-    //    this._lblPubURL = value;
-    //    if (this._lblPubURL != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblRatingCounter
-    //{
-    //  get
-    //  {
-    //    return this._lblRatingCounter;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblRatingCounter != null)
-    //    {
-    //    }
-    //    this._lblRatingCounter = value;
-    //    if (this._lblRatingCounter != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblRatingRating
-    //{
-    //  get
-    //  {
-    //    return this._lblRatingRating;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblRatingRating != null)
-    //    {
-    //    }
-    //    this._lblRatingRating = value;
-    //    if (this._lblRatingRating != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblRatingUser
-    //{
-    //  get
-    //  {
-    //    return this._lblRatingUser;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblRatingUser != null)
-    //    {
-    //    }
-    //    this._lblRatingUser = value;
-    //    if (this._lblRatingUser != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblSubTitle
-    //{
-    //  get
-    //  {
-    //    return this._lblSubTitle;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblSubTitle != null)
-    //    {
-    //    }
-    //    this._lblSubTitle = value;
-    //    if (this._lblSubTitle != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblTitle
-    //{
-    //  get
-    //  {
-    //    return this._lblTitle;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblTitle != null)
-    //    {
-    //    }
-    //    this._lblTitle = value;
-    //    if (this._lblTitle != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblTitleSort
-    //{
-    //  get
-    //  {
-    //    return this._lblTitleSort;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblTitleSort != null)
-    //    {
-    //    }
-    //    this._lblTitleSort = value;
-    //    if (this._lblTitleSort != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblTLEN
-    //{
-    //  get
-    //  {
-    //    return this._lblTLEN;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblTLEN != null)
-    //    {
-    //    }
-    //    this._lblTLEN = value;
-    //    if (this._lblTLEN != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblTrack
-    //{
-    //  get
-    //  {
-    //    return this._lblTrack;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblTrack != null)
-    //    {
-    //    }
-    //    this._lblTrack = value;
-    //    if (this._lblTrack != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblTXXXContent
-    //{
-    //  get
-    //  {
-    //    return this._lblTXXXContent;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblTXXXContent != null)
-    //    {
-    //    }
-    //    this._lblTXXXContent = value;
-    //    if (this._lblTXXXContent != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblTXXXDesc
-    //{
-    //  get
-    //  {
-    //    return this._lblTXXXDesc;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblTXXXDesc != null)
-    //    {
-    //    }
-    //    this._lblTXXXDesc = value;
-    //    if (this._lblTXXXDesc != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblWXXXContent
-    //{
-    //  get
-    //  {
-    //    return this._lblWXXXContent;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblWXXXContent != null)
-    //    {
-    //    }
-    //    this._lblWXXXContent = value;
-    //    if (this._lblWXXXContent != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblWXXXDesc
-    //{
-    //  get
-    //  {
-    //    return this._lblWXXXDesc;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblWXXXDesc != null)
-    //    {
-    //    }
-    //    this._lblWXXXDesc = value;
-    //    if (this._lblWXXXDesc != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.Label lblYear
-    //{
-    //  get
-    //  {
-    //    return this._lblYear;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._lblYear != null)
-    //    {
-    //    }
-    //    this._lblYear = value;
-    //    if (this._lblYear != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ListView LyricsList
-    //{
-    //  get
-    //  {
-    //    return this._LyricsList;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._LyricsList != null)
-    //    {
-    //      this._LyricsList.Leave -= new EventHandler(this.Select_Leave);
-    //      this._LyricsList.Click -= new EventHandler(this.LyricsList_Click);
-    //    }
-    //    this._LyricsList = value;
-    //    if (this._LyricsList != null)
-    //    {
-    //      this._LyricsList.Leave += new EventHandler(this.Select_Leave);
-    //      this._LyricsList.Click += new EventHandler(this.LyricsList_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.OpenFileDialog OpenFileDialog
-    //{
-    //  get
-    //  {
-    //    return this._OpenFileDialog;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._OpenFileDialog != null)
-    //    {
-    //    }
-    //    this._OpenFileDialog = value;
-    //    if (this._OpenFileDialog != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel panDetail
-    //{
-    //  get
-    //  {
-    //    return this._panDetail;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._panDetail != null)
-    //    {
-    //    }
-    //    this._panDetail = value;
-    //    if (this._panDetail != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel1
-    //{
-    //  get
-    //  {
-    //    return this._Panel1;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel1 != null)
-    //    {
-    //    }
-    //    this._Panel1 = value;
-    //    if (this._Panel1 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel10
-    //{
-    //  get
-    //  {
-    //    return this._Panel10;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel10 != null)
-    //    {
-    //    }
-    //    this._Panel10 = value;
-    //    if (this._Panel10 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel11
-    //{
-    //  get
-    //  {
-    //    return this._Panel11;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel11 != null)
-    //    {
-    //    }
-    //    this._Panel11 = value;
-    //    if (this._Panel11 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel12
-    //{
-    //  get
-    //  {
-    //    return this._Panel12;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel12 != null)
-    //    {
-    //    }
-    //    this._Panel12 = value;
-    //    if (this._Panel12 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel13
-    //{
-    //  get
-    //  {
-    //    return this._Panel13;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel13 != null)
-    //    {
-    //    }
-    //    this._Panel13 = value;
-    //    if (this._Panel13 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel14
-    //{
-    //  get
-    //  {
-    //    return this._Panel14;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel14 != null)
-    //    {
-    //    }
-    //    this._Panel14 = value;
-    //    if (this._Panel14 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel15
-    //{
-    //  get
-    //  {
-    //    return this._Panel15;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel15 != null)
-    //    {
-    //    }
-    //    this._Panel15 = value;
-    //    if (this._Panel15 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel16
-    //{
-    //  get
-    //  {
-    //    return this._Panel16;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel16 != null)
-    //    {
-    //    }
-    //    this._Panel16 = value;
-    //    if (this._Panel16 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel2
-    //{
-    //  get
-    //  {
-    //    return this._Panel2;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel2 != null)
-    //    {
-    //    }
-    //    this._Panel2 = value;
-    //    if (this._Panel2 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel3
-    //{
-    //  get
-    //  {
-    //    return this._Panel3;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel3 != null)
-    //    {
-    //    }
-    //    this._Panel3 = value;
-    //    if (this._Panel3 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel4
-    //{
-    //  get
-    //  {
-    //    return this._Panel4;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel4 != null)
-    //    {
-    //    }
-    //    this._Panel4 = value;
-    //    if (this._Panel4 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel5
-    //{
-    //  get
-    //  {
-    //    return this._Panel5;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel5 != null)
-    //    {
-    //    }
-    //    this._Panel5 = value;
-    //    if (this._Panel5 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel6
-    //{
-    //  get
-    //  {
-    //    return this._Panel6;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel6 != null)
-    //    {
-    //    }
-    //    this._Panel6 = value;
-    //    if (this._Panel6 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel7
-    //{
-    //  get
-    //  {
-    //    return this._Panel7;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel7 != null)
-    //    {
-    //    }
-    //    this._Panel7 = value;
-    //    if (this._Panel7 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel8
-    //{
-    //  get
-    //  {
-    //    return this._Panel8;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel8 != null)
-    //    {
-    //    }
-    //    this._Panel8 = value;
-    //    if (this._Panel8 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel Panel9
-    //{
-    //  get
-    //  {
-    //    return this._Panel9;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._Panel9 != null)
-    //    {
-    //    }
-    //    this._Panel9 = value;
-    //    if (this._Panel9 != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel panInvolved
-    //{
-    //  get
-    //  {
-    //    return this._panInvolved;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._panInvolved != null)
-    //    {
-    //    }
-    //    this._panInvolved = value;
-    //    if (this._panInvolved != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel panLyrics
-    //{
-    //  get
-    //  {
-    //    return this._panLyrics;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._panLyrics != null)
-    //    {
-    //    }
-    //    this._panLyrics = value;
-    //    if (this._panLyrics != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel panMain
-    //{
-    //  get
-    //  {
-    //    return this._panMain;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._panMain != null)
-    //    {
-    //    }
-    //    this._panMain = value;
-    //    if (this._panMain != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel panOriginal
-    //{
-    //  get
-    //  {
-    //    return this._panOriginal;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._panOriginal != null)
-    //    {
-    //    }
-    //    this._panOriginal = value;
-    //    if (this._panOriginal != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel panPic
-    //{
-    //  get
-    //  {
-    //    return this._panPic;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._panPic != null)
-    //    {
-    //    }
-    //    this._panPic = value;
-    //    if (this._panPic != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel panRating
-    //{
-    //  get
-    //  {
-    //    return this._panRating;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._panRating != null)
-    //    {
-    //    }
-    //    this._panRating = value;
-    //    if (this._panRating != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel panUser
-    //{
-    //  get
-    //  {
-    //    return this._panUser;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._panUser != null)
-    //    {
-    //    }
-    //    this._panUser = value;
-    //    if (this._panUser != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual Panel panWeb
-    //{
-    //  get
-    //  {
-    //    return this._panWeb;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._panWeb != null)
-    //    {
-    //    }
-    //    this._panWeb = value;
-    //    if (this._panWeb != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ListView PicList
-    //{
-    //  get
-    //  {
-    //    return this._PicList;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._PicList != null)
-    //    {
-    //      this._PicList.Leave -= new EventHandler(this.Select_Leave);
-    //      this._PicList.Click -= new EventHandler(this.PicList_Click);
-    //    }
-    //    this._PicList = value;
-    //    if (this._PicList != null)
-    //    {
-    //      this._PicList.Leave += new EventHandler(this.Select_Leave);
-    //      this._PicList.Click += new EventHandler(this.PicList_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ListView RatingList
-    //{
-    //  get
-    //  {
-    //    return this._RatingList;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._RatingList != null)
-    //    {
-    //      this._RatingList.Click -= new EventHandler(this.RatingList_Click);
-    //    }
-    //    this._RatingList = value;
-    //    if (this._RatingList != null)
-    //    {
-    //      this._RatingList.Click += new EventHandler(this.RatingList_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ExplorerBar SelectionBar
-    //{
-    //  get
-    //  {
-    //    return this._SelectionBar;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._SelectionBar != null)
-    //    {
-    //    }
-    //    this._SelectionBar = value;
-    //    if (this._SelectionBar != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem TAGV2ButtonItem1
-    //{
-    //  get
-    //  {
-    //    return this._TAGV2ButtonItem1;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TAGV2ButtonItem1 != null)
-    //    {
-    //      this._TAGV2ButtonItem1.Click -= new EventHandler(this.btnItem_Click);
-    //    }
-    //    this._TAGV2ButtonItem1 = value;
-    //    if (this._TAGV2ButtonItem1 != null)
-    //    {
-    //      this._TAGV2ButtonItem1.Click += new EventHandler(this.btnItem_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem TAGV2ButtonItem2
-    //{
-    //  get
-    //  {
-    //    return this._TAGV2ButtonItem2;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TAGV2ButtonItem2 != null)
-    //    {
-    //      this._TAGV2ButtonItem2.Click -= new EventHandler(this.btnItem_Click);
-    //    }
-    //    this._TAGV2ButtonItem2 = value;
-    //    if (this._TAGV2ButtonItem2 != null)
-    //    {
-    //      this._TAGV2ButtonItem2.Click += new EventHandler(this.btnItem_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem TAGV2ButtonItem3
-    //{
-    //  get
-    //  {
-    //    return this._TAGV2ButtonItem3;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TAGV2ButtonItem3 != null)
-    //    {
-    //      this._TAGV2ButtonItem3.Click -= new EventHandler(this.btnItem_Click);
-    //    }
-    //    this._TAGV2ButtonItem3 = value;
-    //    if (this._TAGV2ButtonItem3 != null)
-    //    {
-    //      this._TAGV2ButtonItem3.Click += new EventHandler(this.btnItem_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem TAGV2ButtonItem4
-    //{
-    //  get
-    //  {
-    //    return this._TAGV2ButtonItem4;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TAGV2ButtonItem4 != null)
-    //    {
-    //      this._TAGV2ButtonItem4.Click -= new EventHandler(this.btnItem_Click);
-    //    }
-    //    this._TAGV2ButtonItem4 = value;
-    //    if (this._TAGV2ButtonItem4 != null)
-    //    {
-    //      this._TAGV2ButtonItem4.Click += new EventHandler(this.btnItem_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem TAGV2ButtonItem5
-    //{
-    //  get
-    //  {
-    //    return this._TAGV2ButtonItem5;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TAGV2ButtonItem5 != null)
-    //    {
-    //      this._TAGV2ButtonItem5.Click -= new EventHandler(this.btnItem_Click);
-    //    }
-    //    this._TAGV2ButtonItem5 = value;
-    //    if (this._TAGV2ButtonItem5 != null)
-    //    {
-    //      this._TAGV2ButtonItem5.Click += new EventHandler(this.btnItem_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem TAGV2ButtonItem6
-    //{
-    //  get
-    //  {
-    //    return this._TAGV2ButtonItem6;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TAGV2ButtonItem6 != null)
-    //    {
-    //      this._TAGV2ButtonItem6.Click -= new EventHandler(this.btnItem_Click);
-    //    }
-    //    this._TAGV2ButtonItem6 = value;
-    //    if (this._TAGV2ButtonItem6 != null)
-    //    {
-    //      this._TAGV2ButtonItem6.Click += new EventHandler(this.btnItem_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem TAGV2ButtonItem7
-    //{
-    //  get
-    //  {
-    //    return this._TAGV2ButtonItem7;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TAGV2ButtonItem7 != null)
-    //    {
-    //      this._TAGV2ButtonItem7.Click -= new EventHandler(this.btnItem_Click);
-    //    }
-    //    this._TAGV2ButtonItem7 = value;
-    //    if (this._TAGV2ButtonItem7 != null)
-    //    {
-    //      this._TAGV2ButtonItem7.Click += new EventHandler(this.btnItem_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem TAGV2ButtonItem8
-    //{
-    //  get
-    //  {
-    //    return this._TAGV2ButtonItem8;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TAGV2ButtonItem8 != null)
-    //    {
-    //      this._TAGV2ButtonItem8.Click -= new EventHandler(this.btnItem_Click);
-    //    }
-    //    this._TAGV2ButtonItem8 = value;
-    //    if (this._TAGV2ButtonItem8 != null)
-    //    {
-    //      this._TAGV2ButtonItem8.Click += new EventHandler(this.btnItem_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ButtonItem TAGV2ButtonItem9
-    //{
-    //  get
-    //  {
-    //    return this._TAGV2ButtonItem9;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TAGV2ButtonItem9 != null)
-    //    {
-    //      this._TAGV2ButtonItem9.Click -= new EventHandler(this.btnItem_Click);
-    //    }
-    //    this._TAGV2ButtonItem9 = value;
-    //    if (this._TAGV2ButtonItem9 != null)
-    //    {
-    //      this._TAGV2ButtonItem9.Click += new EventHandler(this.btnItem_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ExplorerBarGroupItem TAGV2grpCommands
-    //{
-    //  get
-    //  {
-    //    return this._TAGV2grpCommands;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TAGV2grpCommands != null)
-    //    {
-    //    }
-    //    this._TAGV2grpCommands = value;
-    //    if (this._TAGV2grpCommands != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ExplorerBarGroupItem TAGV2grpTAG
-    //{
-    //  get
-    //  {
-    //    return this._TAGV2grpTAG;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TAGV2grpTAG != null)
-    //    {
-    //    }
-    //    this._TAGV2grpTAG = value;
-    //    if (this._TAGV2grpTAG != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual ListView TIPLList
-    //{
-    //  get
-    //  {
-    //    return this._TIPLList;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TIPLList != null)
-    //    {
-    //      this._TIPLList.Click -= new EventHandler(this.TIPLList_Click);
-    //    }
-    //    this._TIPLList = value;
-    //    if (this._TIPLList != null)
-    //    {
-    //      this._TIPLList.Click += new EventHandler(this.TIPLList_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ListView TMCLList
-    //{
-    //  get
-    //  {
-    //    return this._TMCLList;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TMCLList != null)
-    //    {
-    //      this._TMCLList.Click -= new EventHandler(this.TMCLList_Click);
-    //    }
-    //    this._TMCLList = value;
-    //    if (this._TMCLList != null)
-    //    {
-    //      this._TMCLList.Click += new EventHandler(this.TMCLList_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.ToolTip ToolTip
-    //{
-    //  get
-    //  {
-    //    return this._ToolTip;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._ToolTip != null)
-    //    {
-    //    }
-    //    this._ToolTip = value;
-    //    if (this._ToolTip != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual PanelEx TopPanel
-    //{
-    //  get
-    //  {
-    //    return this._TopPanel;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TopPanel != null)
-    //    {
-    //    }
-    //    this._TopPanel = value;
-    //    if (this._TopPanel != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual HScrollBar TORYFormat
-    //{
-    //  get
-    //  {
-    //    return this._TORYFormat;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TORYFormat != null)
-    //    {
-    //      this._TORYFormat.Scroll -= new ScrollEventHandler(this.TORYFormat_Scroll);
-    //    }
-    //    this._TORYFormat = value;
-    //    if (this._TORYFormat != null)
-    //    {
-    //      this._TORYFormat.Scroll += new ScrollEventHandler(this.TORYFormat_Scroll);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtAlbum
-    //{
-    //  get
-    //  {
-    //    return this._txtAlbum;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtAlbum != null)
-    //    {
-    //      this._txtAlbum.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtAlbum.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtAlbum.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtAlbum = value;
-    //    if (this._txtAlbum != null)
-    //    {
-    //      this._txtAlbum.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtAlbum.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtAlbum.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtArtistURL
-    //{
-    //  get
-    //  {
-    //    return this._txtArtistURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtArtistURL != null)
-    //    {
-    //      this._txtArtistURL.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtArtistURL.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtArtistURL.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtArtistURL = value;
-    //    if (this._txtArtistURL != null)
-    //    {
-    //      this._txtArtistURL.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtArtistURL.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtArtistURL.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtAudioFileURL
-    //{
-    //  get
-    //  {
-    //    return this._txtAudioFileURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtAudioFileURL != null)
-    //    {
-    //      this._txtAudioFileURL.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtAudioFileURL.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtAudioFileURL.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtAudioFileURL = value;
-    //    if (this._txtAudioFileURL != null)
-    //    {
-    //      this._txtAudioFileURL.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtAudioFileURL.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtAudioFileURL.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtAudioSRCURL
-    //{
-    //  get
-    //  {
-    //    return this._txtAudioSRCURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtAudioSRCURL != null)
-    //    {
-    //      this._txtAudioSRCURL.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtAudioSRCURL.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtAudioSRCURL.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtAudioSRCURL = value;
-    //    if (this._txtAudioSRCURL != null)
-    //    {
-    //      this._txtAudioSRCURL.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtAudioSRCURL.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtAudioSRCURL.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtBand
-    //{
-    //  get
-    //  {
-    //    return this._txtBand;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtBand != null)
-    //    {
-    //      this._txtBand.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtBand.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtBand.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtBand = value;
-    //    if (this._txtBand != null)
-    //    {
-    //      this._txtBand.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtBand.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtBand.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual NumericTextBox txtBPM
-    //{
-    //  get
-    //  {
-    //    return this._txtBPM;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtBPM != null)
-    //    {
-    //      this._txtBPM.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtBPM.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtBPM.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtBPM = value;
-    //    if (this._txtBPM != null)
-    //    {
-    //      this._txtBPM.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtBPM.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtBPM.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtComment
-    //{
-    //  get
-    //  {
-    //    return this._txtComment;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtComment != null)
-    //    {
-    //      this._txtComment.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtComment.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtComment.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtComment = value;
-    //    if (this._txtComment != null)
-    //    {
-    //      this._txtComment.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtComment.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtComment.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtCOMMInfURL
-    //{
-    //  get
-    //  {
-    //    return this._txtCOMMInfURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtCOMMInfURL != null)
-    //    {
-    //      this._txtCOMMInfURL.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtCOMMInfURL.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtCOMMInfURL.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtCOMMInfURL = value;
-    //    if (this._txtCOMMInfURL != null)
-    //    {
-    //      this._txtCOMMInfURL.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtCOMMInfURL.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtCOMMInfURL.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtComposer
-    //{
-    //  get
-    //  {
-    //    return this._txtComposer;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtComposer != null)
-    //    {
-    //      this._txtComposer.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtComposer.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtComposer.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtComposer = value;
-    //    if (this._txtComposer != null)
-    //    {
-    //      this._txtComposer.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtComposer.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtComposer.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtConductor
-    //{
-    //  get
-    //  {
-    //    return this._txtConductor;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtConductor != null)
-    //    {
-    //      this._txtConductor.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtConductor.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtConductor.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtConductor = value;
-    //    if (this._txtConductor != null)
-    //    {
-    //      this._txtConductor.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtConductor.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtConductor.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtContent
-    //{
-    //  get
-    //  {
-    //    return this._txtContent;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtContent != null)
-    //    {
-    //      this._txtContent.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtContent.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtContent.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtContent = value;
-    //    if (this._txtContent != null)
-    //    {
-    //      this._txtContent.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtContent.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtContent.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtCopyInfURL
-    //{
-    //  get
-    //  {
-    //    return this._txtCopyInfURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtCopyInfURL != null)
-    //    {
-    //      this._txtCopyInfURL.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtCopyInfURL.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtCopyInfURL.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtCopyInfURL = value;
-    //    if (this._txtCopyInfURL != null)
-    //    {
-    //      this._txtCopyInfURL.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtCopyInfURL.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtCopyInfURL.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtCopyright
-    //{
-    //  get
-    //  {
-    //    return this._txtCopyright;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtCopyright != null)
-    //    {
-    //      this._txtCopyright.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtCopyright.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtCopyright.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtCopyright = value;
-    //    if (this._txtCopyright != null)
-    //    {
-    //      this._txtCopyright.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtCopyright.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtCopyright.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual NumericUpDown txtDigits
-    //{
-    //  get
-    //  {
-    //    return this._txtDigits;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtDigits != null)
-    //    {
-    //    }
-    //    this._txtDigits = value;
-    //    if (this._txtDigits != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtEncoded
-    //{
-    //  get
-    //  {
-    //    return this._txtEncoded;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtEncoded != null)
-    //    {
-    //      this._txtEncoded.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtEncoded.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtEncoded.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtEncoded = value;
-    //    if (this._txtEncoded != null)
-    //    {
-    //      this._txtEncoded.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtEncoded.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtEncoded.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtINetRadioURL
-    //{
-    //  get
-    //  {
-    //    return this._txtINetRadioURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtINetRadioURL != null)
-    //    {
-    //      this._txtINetRadioURL.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtINetRadioURL.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtINetRadioURL.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtINetRadioURL = value;
-    //    if (this._txtINetRadioURL != null)
-    //    {
-    //      this._txtINetRadioURL.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtINetRadioURL.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtINetRadioURL.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtInvFunction
-    //{
-    //  get
-    //  {
-    //    return this._txtInvFunction;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtInvFunction != null)
-    //    {
-    //      this._txtInvFunction.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtInvFunction.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtInvFunction = value;
-    //    if (this._txtInvFunction != null)
-    //    {
-    //      this._txtInvFunction.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtInvFunction.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtInvPerson
-    //{
-    //  get
-    //  {
-    //    return this._txtInvPerson;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtInvPerson != null)
-    //    {
-    //      this._txtInvPerson.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtInvPerson.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtInvPerson = value;
-    //    if (this._txtInvPerson != null)
-    //    {
-    //      this._txtInvPerson.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtInvPerson.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtLDescriptor
-    //{
-    //  get
-    //  {
-    //    return this._txtLDescriptor;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtLDescriptor != null)
-    //    {
-    //      this._txtLDescriptor.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtLDescriptor.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtLDescriptor.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtLDescriptor = value;
-    //    if (this._txtLDescriptor != null)
-    //    {
-    //      this._txtLDescriptor.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtLDescriptor.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtLDescriptor.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual RichTextBox txtLyrics
-    //{
-    //  get
-    //  {
-    //    return this._txtLyrics;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtLyrics != null)
-    //    {
-    //    }
-    //    this._txtLyrics = value;
-    //    if (this._txtLyrics != null)
-    //    {
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtLyWriter
-    //{
-    //  get
-    //  {
-    //    return this._txtLyWriter;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtLyWriter != null)
-    //    {
-    //      this._txtLyWriter.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtLyWriter.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtLyWriter.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtLyWriter = value;
-    //    if (this._txtLyWriter != null)
-    //    {
-    //      this._txtLyWriter.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtLyWriter.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtLyWriter.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtModified
-    //{
-    //  get
-    //  {
-    //    return this._txtModified;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtModified != null)
-    //    {
-    //      this._txtModified.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtModified.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtModified.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtModified = value;
-    //    if (this._txtModified != null)
-    //    {
-    //      this._txtModified.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtModified.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtModified.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtMusicianInst
-    //{
-    //  get
-    //  {
-    //    return this._txtMusicianInst;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtMusicianInst != null)
-    //    {
-    //      this._txtMusicianInst.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtMusicianInst.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtMusicianInst = value;
-    //    if (this._txtMusicianInst != null)
-    //    {
-    //      this._txtMusicianInst.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtMusicianInst.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtMusicianName
-    //{
-    //  get
-    //  {
-    //    return this._txtMusicianName;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtMusicianName != null)
-    //    {
-    //      this._txtMusicianName.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtMusicianName.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtMusicianName = value;
-    //    if (this._txtMusicianName != null)
-    //    {
-    //      this._txtMusicianName.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtMusicianName.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtOAlbum
-    //{
-    //  get
-    //  {
-    //    return this._txtOAlbum;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtOAlbum != null)
-    //    {
-    //      this._txtOAlbum.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtOAlbum.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtOAlbum.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtOAlbum = value;
-    //    if (this._txtOAlbum != null)
-    //    {
-    //      this._txtOAlbum.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtOAlbum.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtOAlbum.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtOArtist
-    //{
-    //  get
-    //  {
-    //    return this._txtOArtist;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtOArtist != null)
-    //    {
-    //      this._txtOArtist.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtOArtist.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtOArtist.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtOArtist = value;
-    //    if (this._txtOArtist != null)
-    //    {
-    //      this._txtOArtist.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtOArtist.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtOArtist.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtOFilename
-    //{
-    //  get
-    //  {
-    //    return this._txtOFilename;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtOFilename != null)
-    //    {
-    //      this._txtOFilename.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtOFilename.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtOFilename.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtOFilename = value;
-    //    if (this._txtOFilename != null)
-    //    {
-    //      this._txtOFilename.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtOFilename.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtOFilename.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtOLyWriter
-    //{
-    //  get
-    //  {
-    //    return this._txtOLyWriter;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtOLyWriter != null)
-    //    {
-    //      this._txtOLyWriter.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtOLyWriter.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtOLyWriter.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtOLyWriter = value;
-    //    if (this._txtOLyWriter != null)
-    //    {
-    //      this._txtOLyWriter.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtOLyWriter.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtOLyWriter.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtOOwner
-    //{
-    //  get
-    //  {
-    //    return this._txtOOwner;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtOOwner != null)
-    //    {
-    //      this._txtOOwner.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtOOwner.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtOOwner.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtOOwner = value;
-    //    if (this._txtOOwner != null)
-    //    {
-    //      this._txtOOwner.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtOOwner.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtOOwner.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtPayURL
-    //{
-    //  get
-    //  {
-    //    return this._txtPayURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtPayURL != null)
-    //    {
-    //      this._txtPayURL.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtPayURL.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtPayURL.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtPayURL = value;
-    //    if (this._txtPayURL != null)
-    //    {
-    //      this._txtPayURL.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtPayURL.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtPayURL.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtPDescriptor
-    //{
-    //  get
-    //  {
-    //    return this._txtPDescriptor;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtPDescriptor != null)
-    //    {
-    //      this._txtPDescriptor.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtPDescriptor.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtPDescriptor.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtPDescriptor = value;
-    //    if (this._txtPDescriptor != null)
-    //    {
-    //      this._txtPDescriptor.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtPDescriptor.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtPDescriptor.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtPicPath
-    //{
-    //  get
-    //  {
-    //    return this._txtPicPath;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtPicPath != null)
-    //    {
-    //      this._txtPicPath.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtPicPath.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtPicPath.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtPicPath = value;
-    //    if (this._txtPicPath != null)
-    //    {
-    //      this._txtPicPath.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtPicPath.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtPicPath.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual IntegerTextBox txtPOS1
-    //{
-    //  get
-    //  {
-    //    return this._txtPOS1;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtPOS1 != null)
-    //    {
-    //      this._txtPOS1.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtPOS1.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtPOS1.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtPOS1 = value;
-    //    if (this._txtPOS1 != null)
-    //    {
-    //      this._txtPOS1.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtPOS1.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtPOS1.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual IntegerTextBox txtPOS2
-    //{
-    //  get
-    //  {
-    //    return this._txtPOS2;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtPOS2 != null)
-    //    {
-    //      this._txtPOS2.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtPOS2.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtPOS2.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtPOS2 = value;
-    //    if (this._txtPOS2 != null)
-    //    {
-    //      this._txtPOS2.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtPOS2.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtPOS2.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtPublisher
-    //{
-    //  get
-    //  {
-    //    return this._txtPublisher;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtPublisher != null)
-    //    {
-    //      this._txtPublisher.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtPublisher.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtPublisher.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtPublisher = value;
-    //    if (this._txtPublisher != null)
-    //    {
-    //      this._txtPublisher.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtPublisher.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtPublisher.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtPubURL
-    //{
-    //  get
-    //  {
-    //    return this._txtPubURL;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtPubURL != null)
-    //    {
-    //      this._txtPubURL.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtPubURL.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtPubURL.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtPubURL = value;
-    //    if (this._txtPubURL != null)
-    //    {
-    //      this._txtPubURL.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtPubURL.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtPubURL.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual NumericUpDown txtRatingCounter
-    //{
-    //  get
-    //  {
-    //    return this._txtRatingCounter;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtRatingCounter != null)
-    //    {
-    //      this._txtRatingCounter.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtRatingCounter.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtRatingCounter.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtRatingCounter = value;
-    //    if (this._txtRatingCounter != null)
-    //    {
-    //      this._txtRatingCounter.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtRatingCounter.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtRatingCounter.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual NumericUpDown txtRatingRating
-    //{
-    //  get
-    //  {
-    //    return this._txtRatingRating;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtRatingRating != null)
-    //    {
-    //      this._txtRatingRating.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtRatingRating.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtRatingRating.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtRatingRating = value;
-    //    if (this._txtRatingRating != null)
-    //    {
-    //      this._txtRatingRating.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtRatingRating.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtRatingRating.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtRatingUser
-    //{
-    //  get
-    //  {
-    //    return this._txtRatingUser;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtRatingUser != null)
-    //    {
-    //      this._txtRatingUser.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtRatingUser.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtRatingUser.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtRatingUser = value;
-    //    if (this._txtRatingUser != null)
-    //    {
-    //      this._txtRatingUser.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtRatingUser.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtRatingUser.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtSortAlbum
-    //{
-    //  get
-    //  {
-    //    return this._txtSortAlbum;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtSortAlbum != null)
-    //    {
-    //      this._txtSortAlbum.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtSortAlbum.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtSortAlbum.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtSortAlbum = value;
-    //    if (this._txtSortAlbum != null)
-    //    {
-    //      this._txtSortAlbum.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtSortAlbum.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtSortAlbum.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtSortArtist
-    //{
-    //  get
-    //  {
-    //    return this._txtSortArtist;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtSortArtist != null)
-    //    {
-    //      this._txtSortArtist.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtSortArtist.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtSortArtist.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtSortArtist = value;
-    //    if (this._txtSortArtist != null)
-    //    {
-    //      this._txtSortArtist.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtSortArtist.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtSortArtist.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtSortTitle
-    //{
-    //  get
-    //  {
-    //    return this._txtSortTitle;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtSortTitle != null)
-    //    {
-    //      this._txtSortTitle.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtSortTitle.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtSortTitle.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtSortTitle = value;
-    //    if (this._txtSortTitle != null)
-    //    {
-    //      this._txtSortTitle.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtSortTitle.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtSortTitle.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtSubTitle
-    //{
-    //  get
-    //  {
-    //    return this._txtSubTitle;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtSubTitle != null)
-    //    {
-    //      this._txtSubTitle.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtSubTitle.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtSubTitle.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtSubTitle = value;
-    //    if (this._txtSubTitle != null)
-    //    {
-    //      this._txtSubTitle.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtSubTitle.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtSubTitle.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtTitle
-    //{
-    //  get
-    //  {
-    //    return this._txtTitle;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtTitle != null)
-    //    {
-    //      this._txtTitle.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtTitle.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtTitle.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtTitle = value;
-    //    if (this._txtTitle != null)
-    //    {
-    //      this._txtTitle.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtTitle.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtTitle.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual AMS.TextBox.MaskedTextBox txtTORY
-    //{
-    //  get
-    //  {
-    //    return this._txtTORY;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtTORY != null)
-    //    {
-    //      this._txtTORY.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtTORY.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtTORY.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtTORY = value;
-    //    if (this._txtTORY != null)
-    //    {
-    //      this._txtTORY.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtTORY.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtTORY.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual IntegerTextBox txtTrack1
-    //{
-    //  get
-    //  {
-    //    return this._txtTrack1;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtTrack1 != null)
-    //    {
-    //      this._txtTrack1.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtTrack1.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtTrack1.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtTrack1 = value;
-    //    if (this._txtTrack1 != null)
-    //    {
-    //      this._txtTrack1.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtTrack1.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtTrack1.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual IntegerTextBox txtTrack2
-    //{
-    //  get
-    //  {
-    //    return this._txtTrack2;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtTrack2 != null)
-    //    {
-    //      this._txtTrack2.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtTrack2.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtTrack2.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtTrack2 = value;
-    //    if (this._txtTrack2 != null)
-    //    {
-    //      this._txtTrack2.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtTrack2.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtTrack2.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtTXXXContent
-    //{
-    //  get
-    //  {
-    //    return this._txtTXXXContent;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtTXXXContent != null)
-    //    {
-    //      this._txtTXXXContent.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtTXXXContent.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtTXXXContent.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtTXXXContent = value;
-    //    if (this._txtTXXXContent != null)
-    //    {
-    //      this._txtTXXXContent.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtTXXXContent.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtTXXXContent.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtTXXXDesc
-    //{
-    //  get
-    //  {
-    //    return this._txtTXXXDesc;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtTXXXDesc != null)
-    //    {
-    //      this._txtTXXXDesc.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtTXXXDesc.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtTXXXDesc.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtTXXXDesc = value;
-    //    if (this._txtTXXXDesc != null)
-    //    {
-    //      this._txtTXXXDesc.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtTXXXDesc.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtTXXXDesc.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtWXXXContent
-    //{
-    //  get
-    //  {
-    //    return this._txtWXXXContent;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtWXXXContent != null)
-    //    {
-    //      this._txtWXXXContent.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtWXXXContent.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtWXXXContent.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtWXXXContent = value;
-    //    if (this._txtWXXXContent != null)
-    //    {
-    //      this._txtWXXXContent.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtWXXXContent.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtWXXXContent.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual System.Windows.Forms.TextBox txtWXXXDesc
-    //{
-    //  get
-    //  {
-    //    return this._txtWXXXDesc;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtWXXXDesc != null)
-    //    {
-    //      this._txtWXXXDesc.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtWXXXDesc.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtWXXXDesc.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtWXXXDesc = value;
-    //    if (this._txtWXXXDesc != null)
-    //    {
-    //      this._txtWXXXDesc.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtWXXXDesc.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtWXXXDesc.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual AMS.TextBox.MaskedTextBox txtYear
-    //{
-    //  get
-    //  {
-    //    return this._txtYear;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._txtYear != null)
-    //    {
-    //      this._txtYear.Leave -= new EventHandler(this.Select_Leave);
-    //      this._txtYear.TextChanged -= new EventHandler(this.Select_TextChanged);
-    //      this._txtYear.Enter -= new EventHandler(this.Select_Enter);
-    //    }
-    //    this._txtYear = value;
-    //    if (this._txtYear != null)
-    //    {
-    //      this._txtYear.Leave += new EventHandler(this.Select_Leave);
-    //      this._txtYear.TextChanged += new EventHandler(this.Select_TextChanged);
-    //      this._txtYear.Enter += new EventHandler(this.Select_Enter);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ListView TXXXList
-    //{
-    //  get
-    //  {
-    //    return this._TXXXList;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._TXXXList != null)
-    //    {
-    //      this._TXXXList.Leave -= new EventHandler(this.Select_Leave);
-    //      this._TXXXList.Click -= new EventHandler(this.TXXXList_Click);
-    //    }
-    //    this._TXXXList = value;
-    //    if (this._TXXXList != null)
-    //    {
-    //      this._TXXXList.Leave += new EventHandler(this.Select_Leave);
-    //      this._TXXXList.Click += new EventHandler(this.TXXXList_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual ListView WXXXList
-    //{
-    //  get
-    //  {
-    //    return this._WXXXList;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._WXXXList != null)
-    //    {
-    //      this._WXXXList.Leave -= new EventHandler(this.Select_Leave);
-    //      this._WXXXList.Click -= new EventHandler(this.WXXXList_Click);
-    //    }
-    //    this._WXXXList = value;
-    //    if (this._WXXXList != null)
-    //    {
-    //      this._WXXXList.Leave += new EventHandler(this.Select_Leave);
-    //      this._WXXXList.Click += new EventHandler(this.WXXXList_Click);
-    //    }
-    //  }
-    //}
-
-    //internal virtual HScrollBar YearFormat
-    //{
-    //  get
-    //  {
-    //    return this._YearFormat;
-    //  }
-    //  [MethodImpl(MethodImplOptions.Synchronized)]
-    //  set
-    //  {
-    //    if (this._YearFormat != null)
-    //    {
-    //      this._YearFormat.Scroll -= new ScrollEventHandler(this.YearFormat_Scroll);
-    //    }
-    //    this._YearFormat = value;
-    //    if (this._YearFormat != null)
-    //    {
-    //      this._YearFormat.Scroll += new ScrollEventHandler(this.YearFormat_Scroll);
-    //    }
-    //  }
-    //}
+    #endregion
+
+    #region Class logic
+
+    private void AddColumnText()
+    {
+      this.CommentList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol04"]);
+      this.CommentList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol05"]);
+      this.CommentList.Columns[2].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol06"]);
+      this.TIPLList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol07"]);
+      this.TIPLList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol08"]);
+      this.TMCLList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol09"]);
+      this.TMCLList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol10"]);
+      this.PicList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol11"]);
+      this.PicList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol12"]);
+      this.PicList.Columns[2].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol13"]);
+      this.PicList.Columns[3].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol14"]);
+      this.LyricsList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol15"]);
+      this.LyricsList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol16"]);
+      this.LyricsList.Columns[2].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol17"]);
+      this.RatingList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol18"]);
+      this.RatingList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol19"]);
+      this.RatingList.Columns[2].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol20"]);
+      this.TXXXList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol21"]);
+      this.TXXXList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol22"]);
+      this.WXXXList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol21"]);
+      this.WXXXList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol22"]);
+    }
+
+    private void AddSelectionBar()
+    {
+      IEnumerator enumerator = null;
+      try
+      {
+        enumerator = this.SelectionBar.Groups.GetEnumerator();
+        while (enumerator.MoveNext())
+        {
+          ExplorerBarGroupItem current = (ExplorerBarGroupItem)enumerator.Current;
+          try
+          {
+            current.Text = StringType.FromObject(Declarations.objResources.SelectionBar[current.Name]);
+          }
+          catch (Exception exception1)
+          {
+            ProjectData.SetProjectError(exception1);
+            ProjectData.ClearProjectError();
+          }
+          try
+          {
+            foreach (ButtonItem item in current.SubItems)
+            {
+              item.Text = StringType.FromObject(Declarations.objResources.SelectionBar[item.Name]);
+            }
+            continue;
+          }
+          catch (Exception exception2)
+          {
+            ProjectData.SetProjectError(exception2);
+            ProjectData.ClearProjectError();
+            continue;
+          }
+        }
+      }
+      finally
+      {
+        if (enumerator is IDisposable)
+        {
+          ((IDisposable)enumerator).Dispose();
+        }
+      }
+    }
+
+    private void AddToolTips()
+    {
+      string vstrName = "frmTAG2Multi";
+      Control cmbCDescriptor = this.cmbCDescriptor;
+      this.cmbCDescriptor = (ComboBoxAutoComplete)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.cmbCDescriptor, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox38;
+      this.CheckBox38 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox38, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox10;
+      this.CheckBox10 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox10, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnMoveComment;
+      this.btnMoveComment = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnMoveComment, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnRemoveComment;
+      this.btnRemoveComment = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnRemoveComment, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnAddComment;
+      this.btnAddComment = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnAddComment, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.cmbCLanguage;
+      this.cmbCLanguage = (ComboBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.cmbCLanguage, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtComment;
+      this.txtComment = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtComment, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.cmbGenre;
+      this.cmbGenre = (ComboBoxAutoComplete)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.cmbGenre, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox9;
+      this.CheckBox9 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox9, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnMoveGenre;
+      this.btnMoveGenre = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnMoveGenre, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnRemoveGenre;
+      this.btnRemoveGenre = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnRemoveGenre, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnAddGenre;
+      this.btnAddGenre = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnAddGenre, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.GenreList;
+      this.GenreList = (ListBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.GenreList, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.chkTLEN;
+      this.chkTLEN = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.chkTLEN, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtPOS2;
+      this.txtPOS2 = (IntegerTextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtPOS2, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtPOS1;
+      this.txtPOS1 = (IntegerTextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtPOS1, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtTrack2;
+      this.txtTrack2 = (IntegerTextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtTrack2, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtTrack1;
+      this.txtTrack1 = (IntegerTextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtTrack1, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtYear;
+      this.txtYear = (AMS.TextBox.MaskedTextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtYear, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtBPM;
+      this.txtBPM = (NumericTextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtBPM, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.cmbArtist;
+      this.cmbArtist = (ComboBoxAutoComplete)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.cmbArtist, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox8;
+      this.CheckBox8 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox8, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox7;
+      this.CheckBox7 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox7, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox6;
+      this.CheckBox6 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox6, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox5;
+      this.CheckBox5 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox5, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox4;
+      this.CheckBox4 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox4, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox3;
+      this.CheckBox3 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox3, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox2;
+      this.CheckBox2 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox2, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox1;
+      this.CheckBox1 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox1, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.YearFormat;
+      this.YearFormat = (HScrollBar)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.YearFormat, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.cmbMedia;
+      this.cmbMedia = (ComboBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.cmbMedia, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtAlbum;
+      this.txtAlbum = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtTitle;
+      this.txtTitle = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtTitle, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox41;
+      this.CheckBox41 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox41, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox42;
+      this.CheckBox42 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox42, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox43;
+      this.CheckBox43 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox43, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtSortArtist;
+      this.txtSortArtist = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtSortArtist, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtSortTitle;
+      this.txtSortTitle = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtSortTitle, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtSortAlbum;
+      this.txtSortAlbum = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtSortAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtTORY;
+      this.txtTORY = (AMS.TextBox.MaskedTextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtTORY, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox39;
+      this.CheckBox39 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox39, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox24;
+      this.CheckBox24 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox24, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox23;
+      this.CheckBox23 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox23, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox22;
+      this.CheckBox22 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox22, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox21;
+      this.CheckBox21 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox21, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox20;
+      this.CheckBox20 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox20, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtOOwner;
+      this.txtOOwner = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtOOwner, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtOArtist;
+      this.txtOArtist = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtOArtist, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtOAlbum;
+      this.txtOAlbum = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtOAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtOLyWriter;
+      this.txtOLyWriter = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtOLyWriter, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtOFilename;
+      this.txtOFilename = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtOFilename, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox16;
+      this.CheckBox16 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox16, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox15;
+      this.CheckBox15 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox15, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtContent;
+      this.txtContent = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtContent, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtSubTitle;
+      this.txtSubTitle = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtSubTitle, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox14;
+      this.CheckBox14 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox14, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox13;
+      this.CheckBox13 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox13, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox12;
+      this.CheckBox12 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox12, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox11;
+      this.CheckBox11 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox11, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtComposer;
+      this.txtComposer = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtComposer, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtBand;
+      this.txtBand = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtBand, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtModified;
+      this.txtModified = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtModified, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtConductor;
+      this.txtConductor = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtConductor, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox40;
+      this.CheckBox40 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox40, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtCopyright;
+      this.txtCopyright = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtCopyright, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox19;
+      this.CheckBox19 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox19, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox18;
+      this.CheckBox18 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox18, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox17;
+      this.CheckBox17 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox17, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtLyWriter;
+      this.txtLyWriter = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtLyWriter, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtEncoded;
+      this.txtEncoded = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtEncoded, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtPublisher;
+      this.txtPublisher = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtPublisher, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox45;
+      this.CheckBox45 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox45, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtMusicianName;
+      this.txtMusicianName = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtMusicianName, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnRemoveMusician;
+      this.btnRemoveMusician = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnRemoveMusician, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnAddMusician;
+      this.btnAddMusician = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnAddMusician, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtMusicianInst;
+      this.txtMusicianInst = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtMusicianInst, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox44;
+      this.CheckBox44 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox44, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtInvPerson;
+      this.txtInvPerson = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtInvPerson, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnRemoveInv;
+      this.btnRemoveInv = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnRemoveInv, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnAddInv;
+      this.btnAddInv = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnAddInv, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtInvFunction;
+      this.txtInvFunction = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtInvFunction, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox34;
+      this.CheckBox34 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox34, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnRemovePicture;
+      this.btnRemovePicture = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnRemovePicture, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnAddPicture;
+      this.btnAddPicture = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnAddPicture, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnGetPic;
+      this.btnGetPic = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnGetPic, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.chkPicInclude;
+      this.chkPicInclude = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.chkPicInclude, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtPicPath;
+      this.txtPicPath = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtPicPath, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.cmbPicType;
+      this.cmbPicType = (ComboBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.cmbPicType, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtPDescriptor;
+      this.txtPDescriptor = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtPDescriptor, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox35;
+      this.CheckBox35 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox35, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.cmbLLanguage;
+      this.cmbLLanguage = (ComboBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.cmbLLanguage, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtLDescriptor;
+      this.txtLDescriptor = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtLDescriptor, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox33;
+      this.CheckBox33 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox33, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnMoveRating;
+      this.btnMoveRating = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnMoveRating, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnRemoveRating;
+      this.btnRemoveRating = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnRemoveRating, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnAddRating;
+      this.btnAddRating = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnAddRating, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtRatingCounter;
+      this.txtRatingCounter = (NumericUpDown)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtRatingCounter, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtRatingRating;
+      this.txtRatingRating = (NumericUpDown)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtRatingRating, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtRatingUser;
+      this.txtRatingUser = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtRatingUser, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox32;
+      this.CheckBox32 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox32, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox31;
+      this.CheckBox31 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox31, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox30;
+      this.CheckBox30 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox30, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox29;
+      this.CheckBox29 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox29, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox28;
+      this.CheckBox28 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox28, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox27;
+      this.CheckBox27 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox27, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox26;
+      this.CheckBox26 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox26, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox25;
+      this.CheckBox25 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox25, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtCOMMInfURL;
+      this.txtCOMMInfURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtCOMMInfURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtPubURL;
+      this.txtPubURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtPubURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtPayURL;
+      this.txtPayURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtPayURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtINetRadioURL;
+      this.txtINetRadioURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtINetRadioURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtAudioSRCURL;
+      this.txtAudioSRCURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtAudioSRCURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtCopyInfURL;
+      this.txtCopyInfURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtCopyInfURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtArtistURL;
+      this.txtArtistURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtArtistURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtAudioFileURL;
+      this.txtAudioFileURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtAudioFileURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox37;
+      this.CheckBox37 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox37, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtWXXXContent;
+      this.txtWXXXContent = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtWXXXContent, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnRemoveWXXX;
+      this.btnRemoveWXXX = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnRemoveWXXX, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnAddWXXX;
+      this.btnAddWXXX = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnAddWXXX, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtWXXXDesc;
+      this.txtWXXXDesc = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtWXXXDesc, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.CheckBox36;
+      this.CheckBox36 = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.CheckBox36, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtTXXXContent;
+      this.txtTXXXContent = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtTXXXContent, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnRemoveTXXX;
+      this.btnRemoveTXXX = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnRemoveTXXX, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.btnAddTXXX;
+      this.btnAddTXXX = (Button)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.btnAddTXXX, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtTXXXDesc;
+      this.txtTXXXDesc = (System.Windows.Forms.TextBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtTXXXDesc, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.txtDigits;
+      this.txtDigits = (NumericUpDown)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.txtDigits, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      vstrName = "frmTAG2Multi";
+      cmbCDescriptor = this.chkRemoveAllNOT;
+      this.chkRemoveAllNOT = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.chkRemoveAllNOT, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+    }
+
+    private string CheckReplace(V2TAG V2ReplaceTAG, string vstrEntry)
+    {
+      if ((vstrEntry.IndexOf("<") >= 0) && (vstrEntry.IndexOf(">") >= 0))
+      {
+        if (vstrEntry.IndexOf("<A>") >= 0)
+        {
+          if (V2ReplaceTAG.FrameExists("TPE1"))
+          {
+            vstrEntry = vstrEntry.Replace("<A>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPE1"), null, "Content", new object[0], null, null)));
+          }
+          else
+          {
+            vstrEntry = vstrEntry.Replace("<A>", "");
+          }
+        }
+        if (vstrEntry.IndexOf("<T>") >= 0)
+        {
+          if (V2ReplaceTAG.FrameExists("TIT2"))
+          {
+            vstrEntry = vstrEntry.Replace("<T>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TIT2"), null, "Content", new object[0], null, null)));
+          }
+          else
+          {
+            vstrEntry = vstrEntry.Replace("<T>", "");
+          }
+        }
+        if (vstrEntry.IndexOf("<B>") >= 0)
+        {
+          if (V2ReplaceTAG.FrameExists("TALB"))
+          {
+            vstrEntry = vstrEntry.Replace("<B>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TALB"), null, "Content", new object[0], null, null)));
+          }
+          else
+          {
+            vstrEntry = vstrEntry.Replace("<B>", "");
+          }
+        }
+        if ((vstrEntry.IndexOf("<") < 0) || (vstrEntry.IndexOf(">") < 0))
+        {
+          return vstrEntry;
+        }
+        if (vstrEntry.IndexOf("<C>") >= 0)
+        {
+          if (V2ReplaceTAG.GetFrames("COMM").Count > 0)
+          {
+            vstrEntry = vstrEntry.Replace("<C>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrames("COMM")[0], null, "Content", new object[0], null, null)));
+          }
+          else
+          {
+            vstrEntry = vstrEntry.Replace("<C>", "");
+          }
+        }
+        if (vstrEntry.IndexOf("<E>") >= 0)
+        {
+          if (V2ReplaceTAG.GetFrames("TBPM").Count > 0)
+          {
+            vstrEntry = vstrEntry.Replace("<E>", Conversion.Fix(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(V2ReplaceTAG.GetFrames("TBPM")[0], null, "Content", new object[0], null, null)))).ToString());
+          }
+          else
+          {
+            vstrEntry = vstrEntry.Replace("<E>", "");
+          }
+        }
+        if (vstrEntry.IndexOf("<U>") >= 0)
+        {
+          if (V2ReplaceTAG.FrameExists("TIT1"))
+          {
+            vstrEntry = vstrEntry.Replace("<U>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TIT1"), null, "Content", new object[0], null, null)));
+          }
+          else
+          {
+            vstrEntry = vstrEntry.Replace("<U>", "");
+          }
+        }
+        if (vstrEntry.IndexOf("<S>") >= 0)
+        {
+          if (V2ReplaceTAG.FrameExists("TIT3"))
+          {
+            vstrEntry = vstrEntry.Replace("<S>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TIT3"), null, "Content", new object[0], null, null)));
+          }
+          else
+          {
+            vstrEntry = vstrEntry.Replace("<S>", "");
+          }
+        }
+        if (vstrEntry.IndexOf("<O>") >= 0)
+        {
+          if (V2ReplaceTAG.FrameExists("TPE2"))
+          {
+            vstrEntry = vstrEntry.Replace("<O>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPE2"), null, "Content", new object[0], null, null)));
+          }
+          else
+          {
+            vstrEntry = vstrEntry.Replace("<O>", "");
+          }
+        }
+        if (vstrEntry.IndexOf("<N>") >= 0)
+        {
+          if (V2ReplaceTAG.FrameExists("TPE3"))
+          {
+            vstrEntry = vstrEntry.Replace("<N>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPE3"), null, "Content", new object[0], null, null)));
+          }
+          else
+          {
+            vstrEntry = vstrEntry.Replace("<N>", "");
+          }
+        }
+        if (vstrEntry.IndexOf("<M>") >= 0)
+        {
+          if (V2ReplaceTAG.FrameExists("TPE4"))
+          {
+            vstrEntry = vstrEntry.Replace("<M>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPE4"), null, "Content", new object[0], null, null)));
+          }
+          else
+          {
+            vstrEntry = vstrEntry.Replace("<M>", "");
+          }
+        }
+        if (vstrEntry.IndexOf("<G>") >= 0)
+        {
+          if (V2ReplaceTAG.FrameExists("TCON"))
+          {
+            string newValue = StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TCON"), null, "Content", new object[0], null, null));
+            if (newValue.IndexOf("\0") >= 0)
+            {
+              newValue = newValue.Substring(0, newValue.IndexOf("\0"));
+            }
+            vstrEntry = vstrEntry.Replace("<G>", newValue);
+          }
+          else
+          {
+            vstrEntry = vstrEntry.Replace("<G>", "");
+          }
+        }
+        if (vstrEntry.IndexOf("<R>") >= 0)
+        {
+          if (V2ReplaceTAG.FrameExists("TCOM"))
+          {
+            vstrEntry = vstrEntry.Replace("<R>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TCOM"), null, "Content", new object[0], null, null)));
+          }
+          else
+          {
+            vstrEntry = vstrEntry.Replace("<R>", "");
+          }
+        }
+        if (vstrEntry.IndexOf("<Y>") >= 0)
+        {
+          if (V2ReplaceTAG.TAGVersion == 3)
+          {
+            if (V2ReplaceTAG.FrameExists("TYER"))
+            {
+              vstrEntry = vstrEntry.Replace("<Y>", StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TYER"), null, "Content", new object[0], null, null), null, "PadLeft", new object[] { 4, "0" }, null, null), null, "Substring", new object[] { 0, 4 }, null, null)));
+            }
+            else
+            {
+              vstrEntry = vstrEntry.Replace("<Y>", "");
+            }
+          }
+          else if (V2ReplaceTAG.FrameExists("TDRC"))
+          {
+            vstrEntry = vstrEntry.Replace("<Y>", StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TDRC"), null, "Content", new object[0], null, null), null, "PadLeft", new object[] { 4, "0" }, null, null), null, "Substring", new object[] { 0, 4 }, null, null)));
+          }
+          else
+          {
+            vstrEntry = vstrEntry.Replace("<Y>", "");
+          }
+        }
+        if ((vstrEntry.IndexOf("<K>") >= 0) | (vstrEntry.IndexOf("<k>") >= 0))
+        {
+          if (V2ReplaceTAG.FrameExists("TRCK"))
+          {
+            string str3 = "";
+            string str4 = "";
+            str3 = StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TRCK"), null, "Content", new object[0], null, null));
+            if (str3.IndexOf("/") >= 0)
+            {
+              str4 = str3.Substring(str3.IndexOf("/") + 1);
+            }
+            str3 = str3.Replace("/" + str4, "");
+            vstrEntry = vstrEntry.Replace("<K>", str3);
+            vstrEntry = vstrEntry.Replace("<k>", str4);
+          }
+          else
+          {
+            vstrEntry = vstrEntry.Replace("<K>", "").Replace("<k>", "");
+          }
+        }
+        if ((vstrEntry.IndexOf("<P>") >= 0) | (vstrEntry.IndexOf("<p>") >= 0))
+        {
+          if (V2ReplaceTAG.FrameExists("TPOS"))
+          {
+            string str5 = "";
+            string str6 = "";
+            str5 = StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPOS"), null, "Content", new object[0], null, null));
+            if (str5.IndexOf("/") >= 0)
+            {
+              str6 = str5.Substring(str5.IndexOf("/") + 1);
+            }
+            str5 = str5.Replace("/" + str6, "");
+            vstrEntry = vstrEntry.Replace("<P>", str5);
+            vstrEntry = vstrEntry.Replace("<p>", str6);
+            return vstrEntry;
+          }
+          vstrEntry = vstrEntry.Replace("<P>", "").Replace("<p>", "");
+        }
+      }
+      return vstrEntry;
+    }
+
+    private void CommentList_Click(object sender, EventArgs e)
+    {
+      if (this.CommentList.FocusedItem == null)
+      {
+        return;
+      }
+      this.cmbCDescriptor.Text = this.CommentList.FocusedItem.Text;
+      var enumerator = this.cmbCLanguage.Items.GetEnumerator();
+      while (enumerator.MoveNext())
+      {
+        string str = StringType.FromObject(enumerator.Current);
+        if (str.StartsWith(this.CommentList.FocusedItem.SubItems[2].Text))
+        {
+          this.cmbCLanguage.SelectedItem = str;
+          goto Label_0099;
+        }
+      }
+      Label_0099:
+      this.txtComment.Text = this.CommentList.FocusedItem.SubItems[1].Text.Replace("\n", "\r\n");
+    }
+
+    private void FillForm()
+    {
+      byte num = 0;
+      this.cmbArtist.Autocomplete = false;
+      this.cmbGenre.Autocomplete = false;
+      if (this.MainForm.MP3View.SelectedItems.Count > 0)
+      {
+        V2TextFrame frame;
+        V2TextFrame frame2;
+        MP3 tag = (MP3)this.MainForm.MP3View.SelectedItems[0].Tag;
+        string sLeft = "yyyy-MM-dd";
+        if (tag.V2TAG.TAGVersion == 3)
+        {
+          if (tag.V2TAG.FrameExists("TYER"))
+          {
+            frame = (V2TextFrame)tag.V2TAG.GetFrame("TYER");
+            if (frame.Content.Length > 4)
+            {
+              frame.Content = Conversion.Val(frame.Content.Substring(0, 4)).ToString();
+            }
+            if (Convert.ToInt32(Conversion.Val(frame.Content)) >= 0)
+            {
+              sLeft = sLeft.Replace("yyyy", frame.Content.PadLeft(4, '0'));
+              if (tag.V2TAG.FrameExists("TDAT"))
+              {
+                frame2 = (V2TextFrame)tag.V2TAG.GetFrame("TDAT");
+                sLeft = sLeft.Replace("MM", frame2.Content.Substring(2, 2)).Replace("dd", frame2.Content.Substring(0, 2));
+                this.txtYear.Mask = "####-##-##";
+                this.YearFormat.Value = 2;
+              }
+              if (sLeft.IndexOf("MM") >= 0)
+              {
+                this.txtYear.Mask = "####";
+                this.YearFormat.Value = 0;
+              }
+            }
+            else
+            {
+              sLeft = sLeft.Replace("yyyy", StringType.FromInteger(DateTime.Now.Year));
+              if (tag.V2TAG.FrameExists("TDAT"))
+              {
+                frame2 = (V2TextFrame)tag.V2TAG.GetFrame("TDAT");
+                sLeft = sLeft.Replace("MM", frame2.Content.Substring(2, 2)).Replace("dd", frame2.Content.Substring(0, 2));
+                this.txtYear.Mask = "####-##-##";
+                this.YearFormat.Value = 2;
+              }
+              if (sLeft.IndexOf("MM") >= 0)
+              {
+                this.txtYear.Mask = "####";
+                this.YearFormat.Value = 0;
+              }
+            }
+            if (sLeft.IndexOf("MM") >= 0)
+            {
+              sLeft = sLeft.Substring(0, 4);
+            }
+          }
+          else
+          {
+            sLeft = "";
+            num = (byte)(num | 8);
+          }
+        }
+        else if (tag.V2TAG.FrameExists("TDRC"))
+        {
+          frame = (V2TextFrame)tag.V2TAG.GetFrame("TDRC");
+          if ((frame.Content.Length >= 4) && (Convert.ToInt32(Conversion.Val(frame.Content.Substring(0, 4))) >= 0))
+          {
+            if (frame.Content.IndexOf("T") < 0)
+            {
+              sLeft = frame.Content.PadLeft(4, '0');
+              if (sLeft.Length == 10)
+              {
+                this.txtYear.Mask = "####-##-##";
+                this.YearFormat.Value = 2;
+              }
+              if (sLeft.Length == 7)
+              {
+                this.txtYear.Mask = "####-##";
+                this.YearFormat.Value = 1;
+              }
+              if (sLeft.Length == 4)
+              {
+                this.txtYear.Mask = "####";
+                this.YearFormat.Value = 0;
+              }
+            }
+            else
+            {
+              sLeft = frame.Content.Substring(0, frame.Content.IndexOf("T"));
+              this.txtYear.Mask = "####-##-##";
+              this.YearFormat.Value = 2;
+            }
+          }
+        }
+        else
+        {
+          sLeft = "";
+          num = (byte)(num | 8);
+        }
+        foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
+        {
+          MP3 mp2 = (MP3)item.Tag;
+          if (tag != mp2)
+          {
+            if ((((num & 1) == 0) && tag.V2TAG.FrameExists("TPE1")) && mp2.V2TAG.FrameExists("TPE1"))
+            {
+              if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp2.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp2.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), "", false) == 0)))
+              {
+                num = (byte)(num | 1);
+              }
+            }
+            else
+            {
+              num = (byte)(num | 1);
+            }
+            if ((((num & 2) == 0) && tag.V2TAG.FrameExists("TIT2")) && mp2.V2TAG.FrameExists("TIT2"))
+            {
+              if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp2.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp2.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), "", false) == 0)))
+              {
+                num = (byte)(num | 2);
+              }
+            }
+            else
+            {
+              num = (byte)(num | 2);
+            }
+            if ((((num & 4) == 0) && tag.V2TAG.FrameExists("TALB")) && mp2.V2TAG.FrameExists("TALB"))
+            {
+              if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp2.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp2.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), "", false) == 0)))
+              {
+                num = (byte)(num | 4);
+              }
+            }
+            else
+            {
+              num = (byte)(num | 4);
+            }
+            if ((num & 8) == 0)
+            {
+              string sRight = "yyyy-MM-dd";
+              if (mp2.V2TAG.TAGVersion == 3)
+              {
+                if (mp2.V2TAG.FrameExists("TYER"))
+                {
+                  frame = (V2TextFrame)mp2.V2TAG.GetFrame("TYER");
+                  if (frame.Content.Length > 4)
+                  {
+                    frame.Content = Conversion.Val(frame.Content.Substring(0, 4)).ToString();
+                  }
+                  if (Convert.ToInt32(Conversion.Val(frame.Content)) >= 0x708)
+                  {
+                    sRight = sRight.Replace("yyyy", frame.Content);
+                    if (mp2.V2TAG.FrameExists("TDAT"))
+                    {
+                      frame2 = (V2TextFrame)mp2.V2TAG.GetFrame("TDAT");
+                      sRight = sRight.Replace("MM", frame2.Content.Substring(2, 2)).Replace("dd", frame2.Content.Substring(0, 2));
+                    }
+                  }
+                  else
+                  {
+                    sRight = sRight.Replace("yyyy", StringType.FromInteger(DateTime.Now.Year));
+                    if (mp2.V2TAG.FrameExists("TDAT"))
+                    {
+                      frame2 = (V2TextFrame)mp2.V2TAG.GetFrame("TDAT");
+                      sRight = sRight.Replace("MM", frame2.Content.Substring(2, 2)).Replace("dd", frame2.Content.Substring(0, 2));
+                    }
+                  }
+                  if (sRight.IndexOf("MM") >= 0)
+                  {
+                    sRight = sRight.Substring(0, 4);
+                  }
+                }
+                else
+                {
+                  sRight = "";
+                  num = (byte)(num | 8);
+                }
+              }
+              else if (mp2.V2TAG.FrameExists("TDRC"))
+              {
+                frame = (V2TextFrame)mp2.V2TAG.GetFrame("TDRC");
+                if ((frame.Content.Length >= 4) && (Convert.ToInt32(Conversion.Val(frame.Content.Substring(0, 4))) >= 0x708))
+                {
+                  if (frame.Content.IndexOf("T") < 0)
+                  {
+                    sRight = frame.Content;
+                  }
+                  else
+                  {
+                    sRight = frame.Content.Substring(0, frame.Content.IndexOf("T"));
+                  }
+                }
+              }
+              else
+              {
+                sRight = "";
+                num = (byte)(num | 8);
+              }
+              if (StringType.StrCmp(sLeft, sRight, false) != 0)
+              {
+                num = (byte)(num | 8);
+              }
+            }
+            if ((((num & 0x10) == 0) && tag.V2TAG.FrameExists("TCON")) && mp2.V2TAG.FrameExists("TCON"))
+            {
+              if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp2.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp2.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null), "", false) == 0)))
+              {
+                num = (byte)(num | 0x10);
+              }
+            }
+            else
+            {
+              num = (byte)(num | 0x10);
+            }
+            if (num == 0x1f)
+            {
+              break;
+            }
+          }
+        }
+        if (num != 0x1f)
+        {
+          if (((num & 1) == 0) & tag.V2TAG.FrameExists("TPE1"))
+          {
+            this.cmbArtist.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
+          }
+          if (((num & 2) == 0) & tag.V2TAG.FrameExists("TIT2"))
+          {
+            this.txtTitle.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
+          }
+          if (((num & 4) == 0) & tag.V2TAG.FrameExists("TALB"))
+          {
+            this.txtAlbum.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
+          }
+          if ((num & 8) == 0)
+          {
+            switch (this.YearFormat.Value)
+            {
+              case 0:
+                this.txtYear.Mask = "####";
+                break;
+
+              case 1:
+                this.txtYear.Mask = "####-##";
+                break;
+
+              case 2:
+                this.txtYear.Mask = "####-##-##";
+                break;
+            }
+            sLeft = sLeft.Replace("dd", "01").Replace("MM", "01").Replace("yyyy", StringType.FromInteger(DateTime.Now.Year));
+            try
+            {
+              this.txtYear.Text = sLeft;
+            }
+            catch (Exception exception1)
+            {
+              ProjectData.SetProjectError(exception1);
+              this.txtYear.Text = "";
+              ProjectData.ClearProjectError();
+            }
+          }
+          if (((num & 0x10) == 0) & tag.V2TAG.FrameExists("TCON"))
+          {
+            foreach (string str3 in Strings.Split(StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null)), "\0", -1, CompareMethod.Binary))
+            {
+              var ss33 = str3;
+
+              if (StringType.StrCmp(ss33, "", false) != 0)
+              {
+                if ((ss33.Length > 2) && Information.IsNumeric(ss33.Replace("(", "").Replace(")", "")))
+                {
+                  if ((Conversion.Val(ss33.Replace("(", "").Replace(")", "")) >= 0.0) & (Conversion.Val(ss33.Replace("(", "").Replace(")", "")) < 148.0))
+                  {
+                    ss33 = Declarations.astrGenreLookup[(int)Math.Round(Conversion.Val(ss33.Replace("(", "").Replace(")", "")))];
+                    this.CheckBox9.Checked = true;
+                  }
+                  else
+                    ss33 = "< undefined >";
+                }
+                this.GenreList.Items.Add(ss33);
+              }
+            }
+          }
+        }
+      }
+      this.CheckBox1.Checked = false;
+      this.CheckBox2.Checked = false;
+      this.CheckBox3.Checked = false;
+      this.CheckBox4.Checked = false;
+      this.CheckBox9.Checked = false;
+      if (!Declarations.objSettings.SingleGC)
+        goto Label_0F9C;
+      if (this.GenreList.Items.Count > 0)
+      {
+        this.cmbGenre.Text = StringType.FromObject(this.GenreList.Items[0]);
+      }
+      if (this.CommentList.Items.Count <= 0)
+      {
+        goto Label_0F9C;
+      }
+      this.cmbCDescriptor.Text = StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Descriptor", new object[0], null, null));
+      var enumerator = this.cmbCLanguage.Items.GetEnumerator();
+      while (enumerator.MoveNext())
+      {
+        string str4 = StringType.FromObject(enumerator.Current);
+        if (str4.StartsWith(StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Language", new object[0], null, null))))
+        {
+          this.cmbCLanguage.SelectedItem = str4;
+          goto Label_0F63;
+        }
+      }
+      Label_0F63:
+      this.txtComment.Text = StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Content", new object[0], null, null));
+      Label_0F9C:
+      this.cmbArtist.Autocomplete = true;
+      this.cmbGenre.Autocomplete = true;
+    }
+
+    private void SaveToTAG()
+    {
+      ArrayList list = new ArrayList();
+      this.MainForm.MP3View.BeginUpdate();
+      Form ownerForm = this;
+      frmProgress.Callback cB = new frmProgress.Callback(this.Multi2CB);
+      frmProgress progress = new frmProgress(0, this.MainForm.MP3View.SelectedItems.Count, 1, ref ownerForm, ref cB);
+      progress.SetStateMultiple();
+      progress.List = list;
+      progress.ShowDialog(this);
+      this.MainForm.MP3View.EndUpdate();
+      if (list.Count > 0)
+      {
+        Declarations.UNDOList.Add(list);
+        this.MainForm.UnDoEnable(true, true);
+      }
+      ownerForm = this;
+      Id3TagIT_Main.SaveFormSettings(ref ownerForm);
+      this.Close();
+    }
+
+    #endregion
   }
 }

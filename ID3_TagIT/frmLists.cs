@@ -16,10 +16,8 @@ namespace ID3_TagIT
 {
   public class frmLists : Form
   {
-    private DockSite barBottomDockSite;
-    private DockSite barLeftDockSite;
-    private DockSite barRightDockSite;
-    private DockSite barTopDockSite;
+    #region Designer
+
     private Button btnClose;
     private Button btnCreateFromTemp;
     private Button btnCreatePlaylist;
@@ -27,7 +25,6 @@ namespace ID3_TagIT
     private Button btnDown;
     private Button btnPath;
     private Button btnUp;
-    private PanelEx ButtomPanel;
     private CheckBox chkColor;
     private CheckBox chkCreateCSV;
     private CheckBox chkCreateHTML;
@@ -35,7 +32,6 @@ namespace ID3_TagIT
     private CheckBox chkRelativ;
     private ComboBox cmbWidth;
     private ListView ColumnsList;
-    private DotNetBarManager DotNetBarManager1;
     private GroupBox frameColumns;
     private GroupBox frameOptions;
     private GroupBox framePara;
@@ -58,24 +54,25 @@ namespace ID3_TagIT
     private RadioButton optID3V2;
     private System.Windows.Forms.ProgressBar ProgressBar;
     private System.Windows.Forms.SaveFileDialog SaveFileDialog;
-    private DevComponents.DotNetBar.TabControl TabControl1;
-    private TabControlPanel TabControlPanel1;
-    private TabControlPanel TabControlPanel2;
-    private TabControlPanel TabControlPanel3;
     private TabItem tabFilelist;
     private TabItem tabPlaylist;
     private TabItem tabTemp;
     private ListBox TemplatesList;
     private System.Windows.Forms.ToolTip ToolTip;
-    private PanelEx TopPanel;
     private TextBox txtExtInfo;
     private TextBox txtPath;
     private TextBox txtTitleHTML;
     private NumericUpDown txtWidth;
     private IContainer components;
     public frmMain MainForm;
-    private string vstrComparePath;
-    private string vstrTemplatesPath;
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+        this.components.Dispose();
+
+      base.Dispose(disposing);
+    }
 
     [DebuggerStepThrough]
     private void InitializeComponent()
@@ -89,15 +86,9 @@ namespace ID3_TagIT
       this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
       this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
       this.ProgressBar = new System.Windows.Forms.ProgressBar();
-      this.ButtomPanel = new DevComponents.DotNetBar.PanelEx();
-      this.TopPanel = new DevComponents.DotNetBar.PanelEx();
-      this.DotNetBarManager1 = new DevComponents.DotNetBar.DotNetBarManager(this.components);
-      this.barBottomDockSite = new DevComponents.DotNetBar.DockSite();
-      this.barLeftDockSite = new DevComponents.DotNetBar.DockSite();
-      this.barRightDockSite = new DevComponents.DotNetBar.DockSite();
-      this.barTopDockSite = new DevComponents.DotNetBar.DockSite();
-      this.TabControl1 = new DevComponents.DotNetBar.TabControl();
-      this.TabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
+      this.tabPlaylist = new DevComponents.DotNetBar.TabItem(this.components);
+      this.tabTemp = new DevComponents.DotNetBar.TabItem(this.components);
+      this.tabFilelist = new DevComponents.DotNetBar.TabItem(this.components);
       this.btnCreatePlaylist = new System.Windows.Forms.Button();
       this.lblInfo1 = new System.Windows.Forms.Label();
       this.framePara = new System.Windows.Forms.GroupBox();
@@ -111,13 +102,9 @@ namespace ID3_TagIT
       this.chkRelativ = new System.Windows.Forms.CheckBox();
       this.txtExtInfo = new System.Windows.Forms.TextBox();
       this.lblPlaylist = new System.Windows.Forms.Label();
-      this.tabPlaylist = new DevComponents.DotNetBar.TabItem(this.components);
-      this.TabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
       this.TemplatesList = new System.Windows.Forms.ListBox();
       this.lblInfo2 = new System.Windows.Forms.Label();
       this.btnCreateFromTemp = new System.Windows.Forms.Button();
-      this.tabTemp = new DevComponents.DotNetBar.TabItem(this.components);
-      this.TabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
       this.lblInfo3 = new System.Windows.Forms.Label();
       this.chkCreateHTML = new System.Windows.Forms.CheckBox();
       this.chkCreateCSV = new System.Windows.Forms.CheckBox();
@@ -137,19 +124,19 @@ namespace ID3_TagIT
       this.btnUp = new System.Windows.Forms.Button();
       this.btnDown = new System.Windows.Forms.Button();
       this.btnCreateQuickLists = new System.Windows.Forms.Button();
-      this.tabFilelist = new DevComponents.DotNetBar.TabItem(this.components);
-      this.ButtomPanel.SuspendLayout();
-      this.TopPanel.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.TabControl1)).BeginInit();
-      this.TabControl1.SuspendLayout();
-      this.TabControlPanel1.SuspendLayout();
+      this.tabControl2 = new System.Windows.Forms.TabControl();
+      this.tabPage1 = new System.Windows.Forms.TabPage();
+      this.tabPage2 = new System.Windows.Forms.TabPage();
+      this.tabPage3 = new System.Windows.Forms.TabPage();
       this.framePara.SuspendLayout();
-      this.TabControlPanel2.SuspendLayout();
-      this.TabControlPanel3.SuspendLayout();
       this.frameOptions.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.txtWidth)).BeginInit();
       this.frameTAGInfo.SuspendLayout();
       this.frameColumns.SuspendLayout();
+      this.tabControl2.SuspendLayout();
+      this.tabPage1.SuspendLayout();
+      this.tabPage2.SuspendLayout();
+      this.tabPage3.SuspendLayout();
       this.SuspendLayout();
       // 
       // btnClose
@@ -157,7 +144,7 @@ namespace ID3_TagIT
       this.btnClose.BackColor = System.Drawing.SystemColors.Control;
       this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
       this.btnClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnClose.Location = new System.Drawing.Point(440, 8);
+      this.btnClose.Location = new System.Drawing.Point(447, 474);
       this.btnClose.Name = "btnClose";
       this.btnClose.Size = new System.Drawing.Size(160, 24);
       this.btnClose.TabIndex = 16;
@@ -167,9 +154,9 @@ namespace ID3_TagIT
       // 
       // btnPath
       // 
-      this.btnPath.BackColor = System.Drawing.SystemColors.Control;
+      this.btnPath.BackColor = System.Drawing.SystemColors.ButtonFace;
       this.btnPath.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnPath.Location = new System.Drawing.Point(448, 30);
+      this.btnPath.Location = new System.Drawing.Point(456, 38);
       this.btnPath.Name = "btnPath";
       this.btnPath.Size = new System.Drawing.Size(152, 24);
       this.btnPath.TabIndex = 2;
@@ -179,7 +166,8 @@ namespace ID3_TagIT
       // 
       // txtPath
       // 
-      this.txtPath.Location = new System.Drawing.Point(8, 32);
+      this.txtPath.BackColor = System.Drawing.SystemColors.Window;
+      this.txtPath.Location = new System.Drawing.Point(16, 40);
       this.txtPath.MaxLength = 255;
       this.txtPath.Name = "txtPath";
       this.txtPath.Size = new System.Drawing.Size(432, 20);
@@ -187,10 +175,10 @@ namespace ID3_TagIT
       // 
       // lblPath
       // 
-      this.lblPath.BackColor = System.Drawing.Color.White;
+      this.lblPath.BackColor = System.Drawing.SystemColors.Menu;
       this.lblPath.ForeColor = System.Drawing.Color.Black;
       this.lblPath.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblPath.Location = new System.Drawing.Point(8, 8);
+      this.lblPath.Location = new System.Drawing.Point(16, 16);
       this.lblPath.Name = "lblPath";
       this.lblPath.Size = new System.Drawing.Size(320, 16);
       this.lblPath.TabIndex = 0;
@@ -204,168 +192,32 @@ namespace ID3_TagIT
       // 
       this.ProgressBar.BackColor = System.Drawing.SystemColors.Control;
       this.ProgressBar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.ProgressBar.Location = new System.Drawing.Point(8, 12);
+      this.ProgressBar.Location = new System.Drawing.Point(16, 478);
       this.ProgressBar.Name = "ProgressBar";
       this.ProgressBar.Size = new System.Drawing.Size(424, 16);
       this.ProgressBar.Step = 1;
       this.ProgressBar.TabIndex = 17;
       // 
-      // ButtomPanel
+      // tabPlaylist
       // 
-      this.ButtomPanel.AntiAlias = true;
-      this.ButtomPanel.Controls.Add(this.btnClose);
-      this.ButtomPanel.Controls.Add(this.ProgressBar);
-      this.ButtomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.ButtomPanel.Location = new System.Drawing.Point(0, 464);
-      this.ButtomPanel.Name = "ButtomPanel";
-      this.ButtomPanel.Size = new System.Drawing.Size(610, 40);
-      this.ButtomPanel.Style.BackColor1.Color = System.Drawing.Color.White;
-      this.ButtomPanel.Style.BackColor2.Color = System.Drawing.Color.White;
-      this.ButtomPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.ButtomPanel.Style.BorderWidth = 0;
-      this.ButtomPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ButtomPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
-      this.ButtomPanel.Style.GradientAngle = 90;
-      this.ButtomPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
-      this.ButtomPanel.Style.MarginBottom = 2;
-      this.ButtomPanel.Style.MarginLeft = 7;
-      this.ButtomPanel.Style.MarginRight = 2;
-      this.ButtomPanel.Style.MarginTop = 2;
-      this.ButtomPanel.TabIndex = 119;
+      this.tabPlaylist.Name = "tabPlaylist";
+      this.tabPlaylist.Text = "M3U Playlist";
       // 
-      // TopPanel
+      // tabTemp
       // 
-      this.TopPanel.AntiAlias = true;
-      this.TopPanel.Controls.Add(this.btnPath);
-      this.TopPanel.Controls.Add(this.txtPath);
-      this.TopPanel.Controls.Add(this.lblPath);
-      this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
-      this.TopPanel.Location = new System.Drawing.Point(0, 0);
-      this.TopPanel.Name = "TopPanel";
-      this.TopPanel.Size = new System.Drawing.Size(610, 64);
-      this.TopPanel.Style.BackColor1.Color = System.Drawing.Color.White;
-      this.TopPanel.Style.BackColor2.Color = System.Drawing.Color.White;
-      this.TopPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.TopPanel.Style.BorderWidth = 0;
-      this.TopPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.TopPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
-      this.TopPanel.Style.GradientAngle = 90;
-      this.TopPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
-      this.TopPanel.Style.MarginBottom = 2;
-      this.TopPanel.Style.MarginLeft = 7;
-      this.TopPanel.Style.MarginRight = 2;
-      this.TopPanel.Style.MarginTop = 2;
-      this.TopPanel.TabIndex = 120;
+      this.tabTemp.Name = "tabTemp";
+      this.tabTemp.Text = "Filelist from template";
       // 
-      // DotNetBarManager1
+      // tabFilelist
       // 
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.F1);
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlC);
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlA);
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlV);
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlX);
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlZ);
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.Del);
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.Ins);
-      this.DotNetBarManager1.BottomDockSite = this.barBottomDockSite;
-      this.DotNetBarManager1.DefinitionName = "";
-      this.DotNetBarManager1.LeftDockSite = this.barLeftDockSite;
-      this.DotNetBarManager1.ParentForm = this;
-      this.DotNetBarManager1.RightDockSite = this.barRightDockSite;
-      this.DotNetBarManager1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
-      this.DotNetBarManager1.TopDockSite = this.barTopDockSite;
-      // 
-      // barBottomDockSite
-      // 
-      this.barBottomDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-      this.barBottomDockSite.BackgroundImageAlpha = ((byte)(255));
-      this.barBottomDockSite.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.barBottomDockSite.Location = new System.Drawing.Point(0, 504);
-      this.barBottomDockSite.Name = "barBottomDockSite";
-      this.barBottomDockSite.Size = new System.Drawing.Size(610, 0);
-      this.barBottomDockSite.TabIndex = 124;
-      this.barBottomDockSite.TabStop = false;
-      // 
-      // barLeftDockSite
-      // 
-      this.barLeftDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-      this.barLeftDockSite.BackgroundImageAlpha = ((byte)(255));
-      this.barLeftDockSite.Dock = System.Windows.Forms.DockStyle.Left;
-      this.barLeftDockSite.Location = new System.Drawing.Point(0, 0);
-      this.barLeftDockSite.Name = "barLeftDockSite";
-      this.barLeftDockSite.Size = new System.Drawing.Size(0, 504);
-      this.barLeftDockSite.TabIndex = 121;
-      this.barLeftDockSite.TabStop = false;
-      // 
-      // barRightDockSite
-      // 
-      this.barRightDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-      this.barRightDockSite.BackgroundImageAlpha = ((byte)(255));
-      this.barRightDockSite.Dock = System.Windows.Forms.DockStyle.Right;
-      this.barRightDockSite.Location = new System.Drawing.Point(610, 0);
-      this.barRightDockSite.Name = "barRightDockSite";
-      this.barRightDockSite.Size = new System.Drawing.Size(0, 504);
-      this.barRightDockSite.TabIndex = 122;
-      this.barRightDockSite.TabStop = false;
-      // 
-      // barTopDockSite
-      // 
-      this.barTopDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-      this.barTopDockSite.BackgroundImageAlpha = ((byte)(255));
-      this.barTopDockSite.Dock = System.Windows.Forms.DockStyle.Top;
-      this.barTopDockSite.Location = new System.Drawing.Point(0, 0);
-      this.barTopDockSite.Name = "barTopDockSite";
-      this.barTopDockSite.Size = new System.Drawing.Size(610, 0);
-      this.barTopDockSite.TabIndex = 123;
-      this.barTopDockSite.TabStop = false;
-      // 
-      // TabControl1
-      // 
-      this.TabControl1.CanReorderTabs = true;
-      this.TabControl1.Controls.Add(this.TabControlPanel1);
-      this.TabControl1.Controls.Add(this.TabControlPanel2);
-      this.TabControl1.Controls.Add(this.TabControlPanel3);
-      this.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.TabControl1.Location = new System.Drawing.Point(0, 64);
-      this.TabControl1.Name = "TabControl1";
-      this.TabControl1.SelectedTabFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-      this.TabControl1.SelectedTabIndex = 0;
-      this.TabControl1.Size = new System.Drawing.Size(610, 400);
-      this.TabControl1.Style = DevComponents.DotNetBar.eTabStripStyle.VS2005Document;
-      this.TabControl1.TabIndex = 125;
-      this.TabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
-      this.TabControl1.Tabs.Add(this.tabPlaylist);
-      this.TabControl1.Tabs.Add(this.tabTemp);
-      this.TabControl1.Tabs.Add(this.tabFilelist);
-      // 
-      // TabControlPanel1
-      // 
-      this.TabControlPanel1.AntiAlias = true;
-      this.TabControlPanel1.Controls.Add(this.btnCreatePlaylist);
-      this.TabControlPanel1.Controls.Add(this.lblInfo1);
-      this.TabControlPanel1.Controls.Add(this.framePara);
-      this.TabControlPanel1.Controls.Add(this.chkRelativ);
-      this.TabControlPanel1.Controls.Add(this.txtExtInfo);
-      this.TabControlPanel1.Controls.Add(this.lblPlaylist);
-      this.TabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.TabControlPanel1.Location = new System.Drawing.Point(0, 26);
-      this.TabControlPanel1.Name = "TabControlPanel1";
-      this.TabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
-      this.TabControlPanel1.Size = new System.Drawing.Size(610, 374);
-      this.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-      this.TabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.TabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-      this.TabControlPanel1.Style.GradientAngle = 90;
-      this.TabControlPanel1.TabIndex = 1;
-      this.TabControlPanel1.TabItem = this.tabPlaylist;
+      this.tabFilelist.Name = "tabFilelist";
+      this.tabFilelist.Text = "Quick HTML/CSV Filelist";
       // 
       // btnCreatePlaylist
       // 
       this.btnCreatePlaylist.BackColor = System.Drawing.SystemColors.Control;
       this.btnCreatePlaylist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnCreatePlaylist.Location = new System.Drawing.Point(8, 343);
+      this.btnCreatePlaylist.Location = new System.Drawing.Point(6, 338);
       this.btnCreatePlaylist.Name = "btnCreatePlaylist";
       this.btnCreatePlaylist.Size = new System.Drawing.Size(592, 24);
       this.btnCreatePlaylist.TabIndex = 11;
@@ -378,7 +230,7 @@ namespace ID3_TagIT
       this.lblInfo1.BackColor = System.Drawing.Color.Transparent;
       this.lblInfo1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.lblInfo1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblInfo1.Location = new System.Drawing.Point(472, 24);
+      this.lblInfo1.Location = new System.Drawing.Point(462, 23);
       this.lblInfo1.Name = "lblInfo1";
       this.lblInfo1.Size = new System.Drawing.Size(128, 128);
       this.lblInfo1.TabIndex = 9;
@@ -396,7 +248,7 @@ namespace ID3_TagIT
       this.framePara.Controls.Add(this.L3);
       this.framePara.Controls.Add(this.L2);
       this.framePara.Controls.Add(this.L1);
-      this.framePara.Location = new System.Drawing.Point(16, 56);
+      this.framePara.Location = new System.Drawing.Point(6, 55);
       this.framePara.Name = "framePara";
       this.framePara.Size = new System.Drawing.Size(440, 96);
       this.framePara.TabIndex = 8;
@@ -484,7 +336,7 @@ namespace ID3_TagIT
       // 
       this.chkRelativ.BackColor = System.Drawing.Color.Transparent;
       this.chkRelativ.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.chkRelativ.Location = new System.Drawing.Point(16, 168);
+      this.chkRelativ.Location = new System.Drawing.Point(6, 167);
       this.chkRelativ.Name = "chkRelativ";
       this.chkRelativ.Size = new System.Drawing.Size(584, 16);
       this.chkRelativ.TabIndex = 10;
@@ -493,7 +345,7 @@ namespace ID3_TagIT
       // 
       // txtExtInfo
       // 
-      this.txtExtInfo.Location = new System.Drawing.Point(16, 24);
+      this.txtExtInfo.Location = new System.Drawing.Point(6, 23);
       this.txtExtInfo.Name = "txtExtInfo";
       this.txtExtInfo.Size = new System.Drawing.Size(440, 20);
       this.txtExtInfo.TabIndex = 7;
@@ -503,41 +355,15 @@ namespace ID3_TagIT
       // 
       this.lblPlaylist.BackColor = System.Drawing.Color.Transparent;
       this.lblPlaylist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblPlaylist.Location = new System.Drawing.Point(16, 8);
+      this.lblPlaylist.Location = new System.Drawing.Point(6, 7);
       this.lblPlaylist.Name = "lblPlaylist";
       this.lblPlaylist.Size = new System.Drawing.Size(320, 16);
       this.lblPlaylist.TabIndex = 6;
       this.lblPlaylist.Text = "Format of extended playlist info:";
       // 
-      // tabPlaylist
-      // 
-      this.tabPlaylist.AttachedControl = this.TabControlPanel1;
-      this.tabPlaylist.Name = "tabPlaylist";
-      this.tabPlaylist.Text = "M3U Playlist";
-      // 
-      // TabControlPanel2
-      // 
-      this.TabControlPanel2.AntiAlias = true;
-      this.TabControlPanel2.Controls.Add(this.TemplatesList);
-      this.TabControlPanel2.Controls.Add(this.lblInfo2);
-      this.TabControlPanel2.Controls.Add(this.btnCreateFromTemp);
-      this.TabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.TabControlPanel2.Location = new System.Drawing.Point(0, 26);
-      this.TabControlPanel2.Name = "TabControlPanel2";
-      this.TabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
-      this.TabControlPanel2.Size = new System.Drawing.Size(610, 374);
-      this.TabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-      this.TabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.TabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-      this.TabControlPanel2.Style.GradientAngle = 90;
-      this.TabControlPanel2.TabIndex = 2;
-      this.TabControlPanel2.TabItem = this.tabTemp;
-      // 
       // TemplatesList
       // 
-      this.TemplatesList.Location = new System.Drawing.Point(8, 72);
+      this.TemplatesList.Location = new System.Drawing.Point(6, 67);
       this.TemplatesList.Name = "TemplatesList";
       this.TemplatesList.Size = new System.Drawing.Size(240, 264);
       this.TemplatesList.Sorted = true;
@@ -548,7 +374,7 @@ namespace ID3_TagIT
       this.lblInfo2.BackColor = System.Drawing.Color.Transparent;
       this.lblInfo2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.lblInfo2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblInfo2.Location = new System.Drawing.Point(8, 8);
+      this.lblInfo2.Location = new System.Drawing.Point(6, 3);
       this.lblInfo2.Name = "lblInfo2";
       this.lblInfo2.Size = new System.Drawing.Size(592, 56);
       this.lblInfo2.TabIndex = 26;
@@ -559,7 +385,7 @@ namespace ID3_TagIT
       // 
       this.btnCreateFromTemp.BackColor = System.Drawing.SystemColors.Control;
       this.btnCreateFromTemp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnCreateFromTemp.Location = new System.Drawing.Point(8, 343);
+      this.btnCreateFromTemp.Location = new System.Drawing.Point(6, 338);
       this.btnCreateFromTemp.Name = "btnCreateFromTemp";
       this.btnCreateFromTemp.Size = new System.Drawing.Size(592, 24);
       this.btnCreateFromTemp.TabIndex = 25;
@@ -567,44 +393,12 @@ namespace ID3_TagIT
       this.btnCreateFromTemp.UseVisualStyleBackColor = false;
       this.btnCreateFromTemp.Click += new System.EventHandler(this.btnCreateFromTemp_Click);
       // 
-      // tabTemp
-      // 
-      this.tabTemp.AttachedControl = this.TabControlPanel2;
-      this.tabTemp.Name = "tabTemp";
-      this.tabTemp.Text = "Filelist from template";
-      // 
-      // TabControlPanel3
-      // 
-      this.TabControlPanel3.AntiAlias = true;
-      this.TabControlPanel3.Controls.Add(this.lblInfo3);
-      this.TabControlPanel3.Controls.Add(this.chkCreateHTML);
-      this.TabControlPanel3.Controls.Add(this.chkCreateCSV);
-      this.TabControlPanel3.Controls.Add(this.frameOptions);
-      this.TabControlPanel3.Controls.Add(this.lblTitleHTML);
-      this.TabControlPanel3.Controls.Add(this.frameTAGInfo);
-      this.TabControlPanel3.Controls.Add(this.txtTitleHTML);
-      this.TabControlPanel3.Controls.Add(this.frameColumns);
-      this.TabControlPanel3.Controls.Add(this.btnCreateQuickLists);
-      this.TabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.TabControlPanel3.Location = new System.Drawing.Point(0, 26);
-      this.TabControlPanel3.Name = "TabControlPanel3";
-      this.TabControlPanel3.Padding = new System.Windows.Forms.Padding(1);
-      this.TabControlPanel3.Size = new System.Drawing.Size(610, 374);
-      this.TabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-      this.TabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.TabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
-      this.TabControlPanel3.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-      this.TabControlPanel3.Style.GradientAngle = 90;
-      this.TabControlPanel3.TabIndex = 3;
-      this.TabControlPanel3.TabItem = this.tabFilelist;
-      // 
       // lblInfo3
       // 
       this.lblInfo3.BackColor = System.Drawing.Color.Transparent;
       this.lblInfo3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.lblInfo3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblInfo3.Location = new System.Drawing.Point(8, 7);
+      this.lblInfo3.Location = new System.Drawing.Point(6, 3);
       this.lblInfo3.Name = "lblInfo3";
       this.lblInfo3.Size = new System.Drawing.Size(592, 40);
       this.lblInfo3.TabIndex = 31;
@@ -616,7 +410,7 @@ namespace ID3_TagIT
       // 
       this.chkCreateHTML.BackColor = System.Drawing.Color.Transparent;
       this.chkCreateHTML.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.chkCreateHTML.Location = new System.Drawing.Point(8, 63);
+      this.chkCreateHTML.Location = new System.Drawing.Point(6, 59);
       this.chkCreateHTML.Name = "chkCreateHTML";
       this.chkCreateHTML.Size = new System.Drawing.Size(152, 16);
       this.chkCreateHTML.TabIndex = 29;
@@ -627,7 +421,7 @@ namespace ID3_TagIT
       // 
       this.chkCreateCSV.BackColor = System.Drawing.Color.Transparent;
       this.chkCreateCSV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.chkCreateCSV.Location = new System.Drawing.Point(176, 63);
+      this.chkCreateCSV.Location = new System.Drawing.Point(174, 59);
       this.chkCreateCSV.Name = "chkCreateCSV";
       this.chkCreateCSV.Size = new System.Drawing.Size(176, 16);
       this.chkCreateCSV.TabIndex = 30;
@@ -642,7 +436,7 @@ namespace ID3_TagIT
       this.frameOptions.Controls.Add(this.txtWidth);
       this.frameOptions.Controls.Add(this.cmbWidth);
       this.frameOptions.Controls.Add(this.lblListWidth);
-      this.frameOptions.Location = new System.Drawing.Point(368, 175);
+      this.frameOptions.Location = new System.Drawing.Point(366, 171);
       this.frameOptions.Name = "frameOptions";
       this.frameOptions.Size = new System.Drawing.Size(232, 112);
       this.frameOptions.TabIndex = 25;
@@ -710,7 +504,7 @@ namespace ID3_TagIT
       // 
       this.lblTitleHTML.BackColor = System.Drawing.Color.Transparent;
       this.lblTitleHTML.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblTitleHTML.Location = new System.Drawing.Point(8, 295);
+      this.lblTitleHTML.Location = new System.Drawing.Point(6, 291);
       this.lblTitleHTML.Name = "lblTitleHTML";
       this.lblTitleHTML.Size = new System.Drawing.Size(576, 16);
       this.lblTitleHTML.TabIndex = 26;
@@ -721,7 +515,7 @@ namespace ID3_TagIT
       this.frameTAGInfo.BackColor = System.Drawing.Color.Transparent;
       this.frameTAGInfo.Controls.Add(this.optID3V1);
       this.frameTAGInfo.Controls.Add(this.optID3V2);
-      this.frameTAGInfo.Location = new System.Drawing.Point(368, 87);
+      this.frameTAGInfo.Location = new System.Drawing.Point(366, 83);
       this.frameTAGInfo.Name = "frameTAGInfo";
       this.frameTAGInfo.Size = new System.Drawing.Size(232, 80);
       this.frameTAGInfo.TabIndex = 24;
@@ -752,7 +546,7 @@ namespace ID3_TagIT
       // 
       // txtTitleHTML
       // 
-      this.txtTitleHTML.Location = new System.Drawing.Point(8, 311);
+      this.txtTitleHTML.Location = new System.Drawing.Point(6, 307);
       this.txtTitleHTML.Name = "txtTitleHTML";
       this.txtTitleHTML.Size = new System.Drawing.Size(592, 20);
       this.txtTitleHTML.TabIndex = 27;
@@ -763,7 +557,7 @@ namespace ID3_TagIT
       this.frameColumns.Controls.Add(this.ColumnsList);
       this.frameColumns.Controls.Add(this.btnUp);
       this.frameColumns.Controls.Add(this.btnDown);
-      this.frameColumns.Location = new System.Drawing.Point(8, 87);
+      this.frameColumns.Location = new System.Drawing.Point(6, 83);
       this.frameColumns.Name = "frameColumns";
       this.frameColumns.Size = new System.Drawing.Size(352, 200);
       this.frameColumns.TabIndex = 23;
@@ -807,7 +601,7 @@ namespace ID3_TagIT
       // 
       this.btnCreateQuickLists.BackColor = System.Drawing.Color.Transparent;
       this.btnCreateQuickLists.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnCreateQuickLists.Location = new System.Drawing.Point(8, 343);
+      this.btnCreateQuickLists.Location = new System.Drawing.Point(6, 339);
       this.btnCreateQuickLists.Name = "btnCreateQuickLists";
       this.btnCreateQuickLists.Size = new System.Drawing.Size(592, 24);
       this.btnCreateQuickLists.TabIndex = 28;
@@ -815,24 +609,76 @@ namespace ID3_TagIT
       this.btnCreateQuickLists.UseVisualStyleBackColor = false;
       this.btnCreateQuickLists.Click += new System.EventHandler(this.btnCreateQuickLists_Click);
       // 
-      // tabFilelist
+      // tabControl2
       // 
-      this.tabFilelist.AttachedControl = this.TabControlPanel3;
-      this.tabFilelist.Name = "tabFilelist";
-      this.tabFilelist.Text = "Quick HTML/CSV Filelist";
+      this.tabControl2.Controls.Add(this.tabPage1);
+      this.tabControl2.Controls.Add(this.tabPage2);
+      this.tabControl2.Controls.Add(this.tabPage3);
+      this.tabControl2.Location = new System.Drawing.Point(5, 66);
+      this.tabControl2.Name = "tabControl2";
+      this.tabControl2.SelectedIndex = 0;
+      this.tabControl2.Size = new System.Drawing.Size(616, 406);
+      this.tabControl2.TabIndex = 126;
+      // 
+      // tabPage1
+      // 
+      this.tabPage1.Controls.Add(this.btnCreatePlaylist);
+      this.tabPage1.Controls.Add(this.lblPlaylist);
+      this.tabPage1.Controls.Add(this.lblInfo1);
+      this.tabPage1.Controls.Add(this.txtExtInfo);
+      this.tabPage1.Controls.Add(this.framePara);
+      this.tabPage1.Controls.Add(this.chkRelativ);
+      this.tabPage1.Location = new System.Drawing.Point(4, 22);
+      this.tabPage1.Name = "tabPage1";
+      this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage1.Size = new System.Drawing.Size(608, 380);
+      this.tabPage1.TabIndex = 0;
+      this.tabPage1.Text = "M3U Playlist";
+      this.tabPage1.UseVisualStyleBackColor = true;
+      // 
+      // tabPage2
+      // 
+      this.tabPage2.Controls.Add(this.TemplatesList);
+      this.tabPage2.Controls.Add(this.lblInfo2);
+      this.tabPage2.Controls.Add(this.btnCreateFromTemp);
+      this.tabPage2.Location = new System.Drawing.Point(4, 22);
+      this.tabPage2.Name = "tabPage2";
+      this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage2.Size = new System.Drawing.Size(608, 380);
+      this.tabPage2.TabIndex = 1;
+      this.tabPage2.Text = "Filelist from template";
+      this.tabPage2.UseVisualStyleBackColor = true;
+      // 
+      // tabPage3
+      // 
+      this.tabPage3.Controls.Add(this.lblInfo3);
+      this.tabPage3.Controls.Add(this.btnCreateQuickLists);
+      this.tabPage3.Controls.Add(this.chkCreateHTML);
+      this.tabPage3.Controls.Add(this.frameColumns);
+      this.tabPage3.Controls.Add(this.chkCreateCSV);
+      this.tabPage3.Controls.Add(this.txtTitleHTML);
+      this.tabPage3.Controls.Add(this.frameOptions);
+      this.tabPage3.Controls.Add(this.frameTAGInfo);
+      this.tabPage3.Controls.Add(this.lblTitleHTML);
+      this.tabPage3.Location = new System.Drawing.Point(4, 22);
+      this.tabPage3.Name = "tabPage3";
+      this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage3.Size = new System.Drawing.Size(608, 380);
+      this.tabPage3.TabIndex = 2;
+      this.tabPage3.Text = "Quick HTML/CSV Filelist";
+      this.tabPage3.UseVisualStyleBackColor = true;
       // 
       // frmLists
       // 
       this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-      this.ClientSize = new System.Drawing.Size(610, 504);
+      this.ClientSize = new System.Drawing.Size(626, 504);
       this.ControlBox = false;
-      this.Controls.Add(this.TabControl1);
-      this.Controls.Add(this.TopPanel);
-      this.Controls.Add(this.ButtomPanel);
-      this.Controls.Add(this.barLeftDockSite);
-      this.Controls.Add(this.barRightDockSite);
-      this.Controls.Add(this.barTopDockSite);
-      this.Controls.Add(this.barBottomDockSite);
+      this.Controls.Add(this.btnPath);
+      this.Controls.Add(this.tabControl2);
+      this.Controls.Add(this.txtPath);
+      this.Controls.Add(this.ProgressBar);
+      this.Controls.Add(this.lblPath);
+      this.Controls.Add(this.btnClose);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
@@ -840,22 +686,19 @@ namespace ID3_TagIT
       this.ShowInTaskbar = false;
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
       this.Text = "Create lists of selected files";
-      this.ButtomPanel.ResumeLayout(false);
-      this.TopPanel.ResumeLayout(false);
-      this.TopPanel.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.TabControl1)).EndInit();
-      this.TabControl1.ResumeLayout(false);
-      this.TabControlPanel1.ResumeLayout(false);
-      this.TabControlPanel1.PerformLayout();
       this.framePara.ResumeLayout(false);
-      this.TabControlPanel2.ResumeLayout(false);
-      this.TabControlPanel3.ResumeLayout(false);
-      this.TabControlPanel3.PerformLayout();
       this.frameOptions.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.txtWidth)).EndInit();
       this.frameTAGInfo.ResumeLayout(false);
       this.frameColumns.ResumeLayout(false);
+      this.tabControl2.ResumeLayout(false);
+      this.tabPage1.ResumeLayout(false);
+      this.tabPage1.PerformLayout();
+      this.tabPage2.ResumeLayout(false);
+      this.tabPage3.ResumeLayout(false);
+      this.tabPage3.PerformLayout();
       this.ResumeLayout(false);
+      this.PerformLayout();
     }
 
     public frmLists()
@@ -871,142 +714,51 @@ namespace ID3_TagIT
       this.txtWidth.Value = 600M;
     }
 
-    public void AddColumns()
-    {
-      int num;
-      bool flag = false;
-      this.ColumnsList.Columns.Add("Name", this.ColumnsList.Width - 0x19, HorizontalAlignment.Left);
-      string[] array = Declarations.objSettings.ListColumns.Split(new char[] { '-' });
-      int num2 = Declarations.objSettings.Columns.Rows.Count - 1;
-      for (num = 0; num <= num2; num++)
-      {
-        DataRow row = Declarations.objSettings.Columns.Rows[num];
-        ListViewItem item2 = new ListViewItem
-        {
-          Text = StringType.FromObject(Declarations.objResources.ResStrings["Col" + row["ID"].ToString().PadLeft(2, '0')])
-        };
-        if (Array.IndexOf(array, "Col" + row["ID"].ToString().PadLeft(2, '0')) > -1)
-        {
-          item2.Checked = true;
-        }
-        item2.Tag = RuntimeHelpers.GetObjectValue(row["ID"]);
-        this.ColumnsList.Items.Add(item2);
-      }
-      num = 2;
-      do
-      {
-        foreach (ListViewItem item in this.ColumnsList.Items)
-        {
-          if (ObjectType.ObjTst(item.Tag, num, false) == 0)
-          {
-            flag = true;
-            break;
-          }
-        }
-        if (!flag)
-        {
-          ListViewItem item3 = new ListViewItem(Convert.ToString(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["Col" + num.ToString().PadLeft(2, '0')])));
-          if (Array.IndexOf(array, num.ToString()) > -1)
-          {
-            item3.Checked = true;
-          }
-          item3.Tag = num;
-          this.ColumnsList.Items.Add(item3);
-        }
-        flag = false;
-        num++;
-      }
-      while (num <= 0x17);
-    }
+    #endregion
 
-    private void AddToolTips()
-    {
-      string vstrName = "frmLists";
-      Control chkRelativ = this.chkRelativ;
-      this.chkRelativ = (CheckBox)chkRelativ;
-      this.ToolTip.SetToolTip(this.chkRelativ, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
-      vstrName = "frmLists";
-      chkRelativ = this.btnPath;
-      this.btnPath = (Button)chkRelativ;
-      this.ToolTip.SetToolTip(this.btnPath, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
-      vstrName = "frmLists";
-      chkRelativ = this.txtPath;
-      this.txtPath = (TextBox)chkRelativ;
-      this.ToolTip.SetToolTip(this.txtPath, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
-      vstrName = "frmLists";
-      chkRelativ = this.chkColor;
-      this.chkColor = (CheckBox)chkRelativ;
-      this.ToolTip.SetToolTip(this.chkColor, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
-      vstrName = "frmLists";
-      chkRelativ = this.chkGridlines;
-      this.chkGridlines = (CheckBox)chkRelativ;
-      this.ToolTip.SetToolTip(this.chkGridlines, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
-      vstrName = "frmLists";
-      chkRelativ = this.txtWidth;
-      this.txtWidth = (NumericUpDown)chkRelativ;
-      this.ToolTip.SetToolTip(this.txtWidth, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
-      vstrName = "frmLists";
-      chkRelativ = this.cmbWidth;
-      this.cmbWidth = (ComboBox)chkRelativ;
-      this.ToolTip.SetToolTip(this.cmbWidth, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
-      vstrName = "frmLists";
-      chkRelativ = this.optID3V1;
-      this.optID3V1 = (RadioButton)chkRelativ;
-      this.ToolTip.SetToolTip(this.optID3V1, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
-      vstrName = "frmLists";
-      chkRelativ = this.optID3V2;
-      this.optID3V2 = (RadioButton)chkRelativ;
-      this.ToolTip.SetToolTip(this.optID3V2, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
-      vstrName = "frmLists";
-      chkRelativ = this.txtTitleHTML;
-      this.txtTitleHTML = (TextBox)chkRelativ;
-      this.ToolTip.SetToolTip(this.txtTitleHTML, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
-      vstrName = "frmLists";
-      chkRelativ = this.ColumnsList;
-      this.ColumnsList = (ListView)chkRelativ;
-      this.ToolTip.SetToolTip(this.ColumnsList, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
-      vstrName = "frmLists";
-      chkRelativ = this.btnUp;
-      this.btnUp = (Button)chkRelativ;
-      this.ToolTip.SetToolTip(this.btnUp, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
-      vstrName = "frmLists";
-      chkRelativ = this.btnDown;
-      this.btnDown = (Button)chkRelativ;
-      this.ToolTip.SetToolTip(this.btnDown, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
-    }
+    #region Local variables
+
+    private string vstrComparePath;
+    private System.Windows.Forms.TabControl tabControl2;
+    private TabPage tabPage1;
+    private TabPage tabPage2;
+    private TabPage tabPage3;
+    private string vstrTemplatesPath;
+
+    #endregion
+
+    #region Events
 
     private void btnClose_Click(object sender, EventArgs e)
     {
       Form form = this;
       Id3TagIT_Main.SaveFormSettings(ref form);
       string str = this.txtPath.Text.Trim(new char[] { ' ' });
+
       if ((str.LastIndexOf(".") > 0) & (str.LastIndexOf(".") > str.LastIndexOf(@"\")))
-      {
         str = str.Remove(str.LastIndexOf("."), str.Length - str.LastIndexOf("."));
-      }
+
       if (StringType.StrCmp(this.vstrComparePath, "*", false) == 0)
-      {
         Declarations.objSettings.ListPath = str;
-      }
+
       Declarations.objSettings.PlaylistRelPath = this.chkRelativ.Checked;
       Declarations.objSettings.ListStyle = 0;
+
       if (this.chkCreateHTML.Checked)
-      {
         Declarations.objSettings.ListStyle = (byte)(Declarations.objSettings.ListStyle | 1);
-      }
+
       if (this.chkCreateCSV.Checked)
-      {
         Declarations.objSettings.ListStyle = (byte)(Declarations.objSettings.ListStyle | 2);
-      }
+
       Declarations.objSettings.ListColumns = "";
+
       foreach (ListViewItem item in this.ColumnsList.Items)
-      {
         if (item.Checked)
         {
           Settings objSettings = Declarations.objSettings;
           objSettings.ListColumns = objSettings.ListColumns + item.Tag.ToString() + "-";
         }
-      }
+
       Declarations.objSettings.ListColumns = Declarations.objSettings.ListColumns.TrimEnd(new char[] { '-' });
       Declarations.objSettings.HTMLListTitle = this.txtTitleHTML.Text;
       Declarations.objSettings.HTMLListWidth = this.txtWidth.Text;
@@ -1014,14 +766,12 @@ namespace ID3_TagIT
       Declarations.objSettings.HTMLGridlines = this.chkGridlines.Checked;
       Declarations.objSettings.HTMLColored = this.chkColor.Checked;
       Declarations.objSettings.ListExtInfo = this.txtExtInfo.Text.Trim();
+
       if (this.optID3V2.Checked)
-      {
         Declarations.objSettings.HTMLTAGVersion = 2;
-      }
       else
-      {
         Declarations.objSettings.HTMLTAGVersion = 1;
-      }
+
       this.Close();
     }
 
@@ -1030,10 +780,10 @@ namespace ID3_TagIT
       if (this.TemplatesList.Items.Count != 0)
       {
         string str;
+
         if (this.TemplatesList.SelectedItem == null)
-        {
           this.TemplatesList.SelectedIndex = 0;
-        }
+
         string path = StringType.FromObject(ObjectType.StrCatObj(this.vstrTemplatesPath, this.TemplatesList.SelectedItem));
         string str2 = this.txtPath.Text.Trim(new char[] { ' ' });
         StreamReader reader = new StreamReader(path);
@@ -1041,28 +791,27 @@ namespace ID3_TagIT
         ArrayList list3 = new ArrayList();
         ArrayList list = new ArrayList();
         byte num = 0;
+
         do
         {
           str = reader.ReadLine();
+
           if (!((str == null) | (StringType.StrCmp(str, "", false) == 0)))
           {
             str.TrimEnd(new char[] { '\r' });
+
             if (str.StartsWith("[ITLHEADER]"))
-            {
               num = 1;
-            }
+
             if (str.StartsWith("[ITLRECORD]"))
-            {
               num = 2;
-            }
+
             if (str.StartsWith("[ITLFOOTER]"))
-            {
               num = 3;
-            }
+
             if (str.StartsWith("[ITLEXTENSION]"))
-            {
               num = 4;
-            }
+
             if (!str.StartsWith("[ITL"))
             {
               switch (num)
@@ -1087,8 +836,10 @@ namespace ID3_TagIT
             }
           }
         }
+
         while (str != null);
         reader.Close();
+
         try
         {
           File.Create(str2).Close();
@@ -1101,17 +852,21 @@ namespace ID3_TagIT
           ProjectData.ClearProjectError();
           return;
         }
+
         this.Enabled = false;
         StreamWriter writer = new StreamWriter(str2);
         var enumerator4 = list2.GetEnumerator();
+
         while (enumerator4.MoveNext())
         {
           str = StringType.FromObject(enumerator4.Current);
           writer.WriteLine(str);
         }
+
         foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
         {
           var enumerator2 = list3.GetEnumerator();
+
           while (enumerator2.MoveNext())
           {
             str = StringType.FromObject(enumerator2.Current);
@@ -1202,12 +957,15 @@ namespace ID3_TagIT
 
           this.ProgressBar.PerformStep();
         }
+
         var enumerator = list.GetEnumerator();
+
         while (enumerator.MoveNext())
         {
           str = StringType.FromObject(enumerator.Current);
           writer.WriteLine(str);
         }
+
         writer.Close();
         this.Enabled = true;
         this.ProgressBar.Value = 0;
@@ -1219,6 +977,7 @@ namespace ID3_TagIT
       string str = this.txtPath.Text.Trim(new char[] { ' ' });
       this.Enabled = false;
       string path = str + ".m3u";
+
       try
       {
         File.Create(path).Close();
@@ -1232,6 +991,7 @@ namespace ID3_TagIT
         ProjectData.ClearProjectError();
         return;
       }
+
       this.CreatePlaylist(path);
       this.Enabled = true;
     }
@@ -1241,9 +1001,11 @@ namespace ID3_TagIT
       string str2;
       string str = this.txtPath.Text.Trim(new char[] { ' ' });
       this.Enabled = false;
+
       if (this.chkCreateHTML.Checked)
       {
         str2 = str + ".html";
+
         try
         {
           File.Create(str2).Close();
@@ -1257,6 +1019,7 @@ namespace ID3_TagIT
           ProjectData.ClearProjectError();
           return;
         }
+
         switch (ID3Functions.FormatReplaceCheck(this.txtExtInfo.Text.Trim(), Declarations.FormatReplace.TAGToFilename | Declarations.FormatReplace.TAGVer2))
         {
           case Declarations.FormatReplaceFeedback.InvalidFormat:
@@ -1269,11 +1032,14 @@ namespace ID3_TagIT
             Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["InvalidCharFormat"]), MsgBoxStyle.Exclamation, null);
             return;
         }
+
         this.CreateHTML(str2);
       }
+
       if (this.chkCreateCSV.Checked)
       {
         str2 = str + ".csv";
+
         try
         {
           File.Create(str2).Close();
@@ -1287,31 +1053,38 @@ namespace ID3_TagIT
           ProjectData.ClearProjectError();
           return;
         }
+
         string str3 = "";
         StreamWriter writer = new StreamWriter(str2, false, Encoding.Default);
         int count = this.ColumnsList.CheckedItems.Count;
         int num = 1;
+
         while (num <= count)
         {
           str3 = str3 + this.ColumnsList.CheckedItems[num - 1].Text + ";";
           num++;
         }
+
         str3 = str3.TrimEnd(new char[] { ';' });
+
         writer.WriteLine(str3);
+
         foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
         {
           str3 = "";
           int num2 = this.ColumnsList.CheckedItems.Count;
+
           for (num = 1; num <= num2; num++)
-          {
             str3 = str3 + "\"" + this.GetQuickData(item, ByteType.FromObject(this.ColumnsList.CheckedItems[num - 1].Tag)).Replace("\"", "_") + "\"" + ";";
-          }
+
           str3 = str3.TrimEnd(new char[] { ';' });
           writer.WriteLine(str3);
           this.ProgressBar.PerformStep();
         }
+
         writer.Close();
       }
+
       this.Enabled = true;
       this.ProgressBar.Value = 0;
     }
@@ -1319,24 +1092,21 @@ namespace ID3_TagIT
     private void btnDown_Click(object sender, EventArgs e)
     {
       this.ColumnsList.BeginUpdate();
+
       if (this.ColumnsList.SelectedItems.Count == 1)
       {
         ListViewItem item = this.ColumnsList.SelectedItems[0];
+
         if (item.Index == (this.ColumnsList.Items.Count - 1))
-        {
           this.ColumnsList.EndUpdate();
-        }
         else
         {
           ListViewItem item2 = (ListViewItem)item.Clone();
           if (item.Checked)
-          {
             item2.Checked = true;
-          }
           else
-          {
             item2.Checked = false;
-          }
+
           this.ColumnsList.Items.Insert(item.Index + 2, item2);
           item2.Selected = true;
           item2.Focused = true;
@@ -1351,6 +1121,7 @@ namespace ID3_TagIT
     {
       this.SaveFileDialog.InitialDirectory = this.txtPath.Text;
       this.SaveFileDialog.Filter = "All files|*.*";
+
       if (this.SaveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
       {
         string str = this.SaveFileDialog.FileName.Trim(new char[] { ' ' });
@@ -1361,24 +1132,21 @@ namespace ID3_TagIT
     private void btnUp_Click(object sender, EventArgs e)
     {
       this.ColumnsList.BeginUpdate();
+
       if (this.ColumnsList.SelectedItems.Count == 1)
       {
         ListViewItem item = this.ColumnsList.SelectedItems[0];
+
         if (item.Index == 0)
-        {
           this.ColumnsList.EndUpdate();
-        }
         else
         {
           ListViewItem item2 = (ListViewItem)item.Clone();
           if (item.Checked)
-          {
             item2.Checked = true;
-          }
           else
-          {
             item2.Checked = false;
-          }
+
           this.ColumnsList.Items.Insert(item.Index - 1, item2);
           item2.Selected = true;
           item2.Focused = true;
@@ -1405,97 +1173,6 @@ namespace ID3_TagIT
       }
     }
 
-    private void CreateHTML(string vstrPath)
-    {
-      int vintNum = 0;
-      HTMLList list = new HTMLList
-      {
-        TableWidth = this.txtWidth.Text + this.cmbWidth.Text
-      };
-      list.CreateHTMLFile(vstrPath, this.txtTitleHTML.Text + "   (created by <a href=" + "\"" + "http://www.id3-tagit.de" + "\"" + " target=_blank>ID3-TagIT </a> )");
-      list.OpenGrid(this.chkGridlines.Checked);
-      int count = this.ColumnsList.CheckedItems.Count;
-      int num = 1;
-      while (num <= count)
-      {
-        list.CellString((long)num, HTMLList.HTMLRowColor.HTMLRowGray, HTMLList.HTMLFontFormat.HTMLFontBold, HTMLList.HTMLFontColor.HTMLFontBlack, HTMLList.HTMLAlignment.HTMLLeftJustify, BooleanType.FromObject(Interaction.IIf(num == this.ColumnsList.CheckedItems.Count, true, false)), this.ColumnsList.CheckedItems[num - 1].Text);
-        num++;
-      }
-      foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
-      {
-        vintNum++;
-        int num4 = this.ColumnsList.CheckedItems.Count;
-        for (num = 1; num <= num4; num++)
-        {
-          if (num == 1)
-          {
-            if (this.chkColor.Checked)
-            {
-              if (this.IsEven(vintNum))
-              {
-                list.CellString((long)num, HTMLList.HTMLRowColor.HTMLRowGray, HTMLList.HTMLFontFormat.HTMLFontNormal, HTMLList.HTMLFontColor.HTMLFontBlack, HTMLList.HTMLAlignment.HTMLLeftJustify, BooleanType.FromObject(Interaction.IIf(num == this.ColumnsList.CheckedItems.Count, true, false)), this.GetQuickData(item, ByteType.FromObject(this.ColumnsList.CheckedItems[num - 1].Tag)));
-              }
-              else
-              {
-                list.CellString((long)num, HTMLList.HTMLRowColor.HTMLRowWhite, HTMLList.HTMLFontFormat.HTMLFontNormal, HTMLList.HTMLFontColor.HTMLFontBlack, HTMLList.HTMLAlignment.HTMLLeftJustify, BooleanType.FromObject(Interaction.IIf(num == this.ColumnsList.CheckedItems.Count, true, false)), this.GetQuickData(item, ByteType.FromObject(this.ColumnsList.CheckedItems[num - 1].Tag)));
-              }
-            }
-            else
-            {
-              list.CellString((long)num, HTMLList.HTMLRowColor.HTMLRowWhite, HTMLList.HTMLFontFormat.HTMLFontNormal, HTMLList.HTMLFontColor.HTMLFontBlack, HTMLList.HTMLAlignment.HTMLLeftJustify, BooleanType.FromObject(Interaction.IIf(num == this.ColumnsList.CheckedItems.Count, true, false)), this.GetQuickData(item, ByteType.FromObject(this.ColumnsList.CheckedItems[num - 1].Tag)));
-            }
-          }
-          else
-          {
-            list.CellString((long)num, HTMLList.HTMLRowColor.HTMLRowWhite, HTMLList.HTMLFontFormat.HTMLFontNormal, HTMLList.HTMLFontColor.HTMLFontBlack, HTMLList.HTMLAlignment.HTMLLeftJustify, BooleanType.FromObject(Interaction.IIf(num == this.ColumnsList.CheckedItems.Count, true, false)), this.GetQuickData(item, ByteType.FromObject(this.ColumnsList.CheckedItems[num - 1].Tag)));
-          }
-        }
-        this.ProgressBar.PerformStep();
-      }
-      list.CloseGrid();
-      list.FinishHTMLFile();
-      this.ProgressBar.Value = 0;
-    }
-
-    private void CreatePlaylist(string vstrPath)
-    {
-      StreamWriter writer = new StreamWriter(vstrPath, false, Encoding.Default);
-      string vstrBaseDir = vstrPath.Substring(0, vstrPath.LastIndexOf(@"\"));
-      writer.WriteLine("#EXTM3U");
-      foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
-      {
-        string str;
-        MP3 tag = (MP3)item.Tag;
-        string sLeft = "";
-        if (tag.V2TAG.TAGHeaderPresent)
-          sLeft = ID3Functions.FormatReplacedByTag(tag, this.txtExtInfo.Text.Trim(), 2);
-        else if (tag.V1TAG.TAGPresent)
-          sLeft = ID3Functions.FormatReplacedByTag(tag, this.txtExtInfo.Text.Trim(), 1);
-        sLeft = sLeft.Trim();
-        if (StringType.StrCmp(sLeft, "", false) != 0)
-          str = "#EXTINF:" + StringType.FromInteger(tag.Duration) + "," + sLeft;
-        else
-          str = "#EXTINF:" + StringType.FromInteger(tag.Duration);
-        writer.WriteLine(str);
-        if (!this.chkRelativ.Checked)
-          writer.WriteLine(tag.FI.FullName);
-        else
-          writer.WriteLine(Id3TagIT_Main.GetRelativePath(vstrBaseDir, tag.FI.FullName));
-        this.ProgressBar.PerformStep();
-      }
-      writer.Flush();
-      writer.Close();
-      this.ProgressBar.Value = 0;
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-        this.components.Dispose();
-
-      base.Dispose(disposing);
-    }
-
     private void frmLists_Load(object sender, EventArgs e)
     {
       Form objForm = this;
@@ -1512,374 +1189,46 @@ namespace ID3_TagIT
       this.cmbWidth.Text = Declarations.objSettings.HTMLListWidthUnit;
       this.chkGridlines.Checked = Declarations.objSettings.HTMLGridlines;
       this.chkColor.Checked = Declarations.objSettings.HTMLColored;
+
       if (Declarations.objSettings.HTMLTAGVersion == 2)
-      {
         this.optID3V2.Checked = true;
-      }
       else
-      {
         this.optID3V2.Checked = false;
-      }
+
       if ((Declarations.objSettings.ListStyle & 1) == 1)
-      {
         this.chkCreateHTML.Checked = true;
-      }
+
       if ((Declarations.objSettings.ListStyle & 2) == 2)
-      {
         this.chkCreateCSV.Checked = true;
-      }
+
       string str = Declarations.objSettings.ListColumns + "-";
+
       foreach (ListViewItem item in this.ColumnsList.Items)
-      {
         if (str.IndexOf(item.Tag.ToString() + "-") > -1)
-        {
           item.Checked = true;
-        }
-      }
+
       foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
       {
         if (StringType.StrCmp(this.vstrComparePath, "*", false) == 0)
-        {
           this.vstrComparePath = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "FI", new object[0], null, null), null, "DirectoryName", new object[0], null, null));
-        }
+
         if (ObjectType.ObjTst(this.vstrComparePath, LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "FI", new object[0], null, null), null, "DirectoryName", new object[0], null, null), false) != 0)
         {
           this.vstrComparePath = "*";
           break;
         }
       }
+
       if (StringType.StrCmp(this.vstrComparePath, "*", false) != 0)
-      {
         this.txtPath.Text = this.vstrComparePath + this.vstrComparePath.Substring(this.vstrComparePath.LastIndexOf(@"\"));
-      }
+
       DirectoryInfo info = new DirectoryInfo(this.vstrTemplatesPath);
+
       foreach (FileInfo info2 in info.GetFiles("*.itl"))
-      {
         this.TemplatesList.Items.Add(info2.Name);
-      }
+
       this.ProgressBar.Maximum = this.MainForm.MP3View.SelectedItems.Count;
       this.AddToolTips();
-    }
-
-    private string GetQuickData(ListViewItem lstItem, byte colID)
-    {
-      MP3 tag = (MP3)lstItem.Tag;
-      switch (colID)
-      {
-        case 1:
-          return tag.CurrentName;
-
-        case 2:
-          return StringType.FromObject(Interaction.IIf(Declarations.objSettings.CurrentPath.EndsWith(":"), tag.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath + @"\", ""), tag.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath, "")));
-
-        case 3:
-          return tag.V1TAG.TAGVersion.ToString().Replace("0", "-").Replace("1-", "1.0").Replace("11", "1.1");
-
-        case 4:
-          return tag.V2TAG.TAGVersion.ToString().Replace("2", "2.2").Replace("3", "2.3").Replace("4", "2.4").Replace("0", "-");
-
-        case 5:
-          if (!this.optID3V2.Checked)
-          {
-            return tag.V1TAG.Artist;
-          }
-          if (!tag.V2TAG.FrameExists("TPE1"))
-          {
-            break;
-          }
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TPE1")), null, "Content", new object[0], null, null));
-
-        case 6:
-          if (!this.optID3V2.Checked)
-          {
-            return tag.V1TAG.Title;
-          }
-          if (!tag.V2TAG.FrameExists("TIT2"))
-          {
-            break;
-          }
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TIT2")), null, "Content", new object[0], null, null));
-
-        case 7:
-          if (!this.optID3V2.Checked)
-            return tag.V1TAG.Album;
-          if (!tag.V2TAG.FrameExists("TALB"))
-            break;
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TALB")), null, "Content", new object[0], null, null));
-
-        case 8:
-          if (!this.optID3V2.Checked)
-            return tag.V1TAG.Tracknumber.ToString();
-          if (!tag.V2TAG.FrameExists("TRCK"))
-            break;
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TRCK")), null, "Content", new object[0], null, null));
-
-        case 9:
-          if (!this.optID3V2.Checked || !tag.V2TAG.FrameExists("TPOS"))
-            break;
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TPOS")), null, "Content", new object[0], null, null));
-
-        case 10:
-          if (!this.optID3V2.Checked)
-            return tag.V1TAG.Comment;
-          if (tag.V2TAG.FrameExists("COMM"))
-          {
-            var enumerator2 = tag.V2TAG.GetFrames("COMM").GetEnumerator();
-            while (enumerator2.MoveNext())
-              return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator2.Current), null, "Content", new object[0], null, null).ToString();
-          }
-          break;
-
-        case 11:
-          if (!this.optID3V2.Checked)
-            return tag.V1TAG.GenreText;
-          if (!tag.V2TAG.FrameExists("TCON"))
-            break;
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TCON")), null, "Content", new object[0], null, null));
-
-        case 12:
-          if (!this.optID3V2.Checked)
-            return tag.V1TAG.Year.ToString();
-          if (!tag.V2TAG.FrameExists("TYER"))
-          {
-            if (tag.V2TAG.FrameExists("TDRC"))
-            {
-              object objectValue = RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TDRC"));
-              try
-              {
-                return StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "SubString", new object[] { 0, 4 }, null, null));
-              }
-              catch (Exception exception1)
-              {
-                ProjectData.SetProjectError(exception1);
-                ProjectData.ClearProjectError();
-              }
-            }
-            break;
-          }
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TYER")), null, "Content", new object[0], null, null));
-
-        case 13:
-          if (this.optID3V2.Checked && tag.V2TAG.FrameExists("POPM"))
-          {
-            var enumerator = tag.V2TAG.GetFrames("POPM").GetEnumerator();
-            while (enumerator.MoveNext())
-              return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator.Current), null, "Rating", new object[0], null, null).ToString();
-          }
-          break;
-
-        case 14:
-          return tag.DurationFormated;
-
-        case 15:
-          return StringType.FromInteger(tag.Bitrate);
-
-        case 0x10:
-          return StringType.FromObject(Interaction.IIf(tag.VBR, "VBR", "CBR"));
-
-        case 0x11:
-          return StringType.FromInteger(tag.Samplerate);
-
-        case 0x12:
-          return tag.ChannelText;
-
-        case 0x13:
-          return (tag.VersionText + " " + tag.LayerText);
-
-        case 20:
-          return tag.FI.LastWriteTime.ToString();
-
-        case 0x15:
-          if (!this.optID3V2.Checked || !tag.V2TAG.FrameExists("TCOM"))
-          {
-            break;
-          }
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TCOM")), null, "Content", new object[0], null, null));
-
-        case 0x16:
-          {
-            long num2 = tag.FI.Length / 0x400L;
-            return num2.ToString();
-          }
-        case 0x17:
-          {
-            if (!this.optID3V2.Checked || !tag.V2TAG.FrameExists("TBPM"))
-            {
-              break;
-            }
-            string inputStr = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TBPM"), null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null));
-            if (inputStr.Length < 4)
-            {
-              return Conversion.Val(inputStr).ToString();
-            }
-            double num = Conversion.Val(inputStr) / 100.0;
-            return num.ToString();
-          }
-      }
-      return "";
-    }
-
-    private string GetTempData(ListViewItem lstItem, string vstrVar, [Optional, DefaultParameterValue("")] string vstrPath)
-    {
-      string sLeft = vstrVar;
-      MP3 tag = (MP3)lstItem.Tag;
-
-      if (StringType.StrCmp(sLeft, "%Filename%", false) == 0)
-        return tag.CurrentName;
-      if (StringType.StrCmp(sLeft, "%FullFilename%", false) == 0)
-        return tag.CurrentFullName;
-      if (StringType.StrCmp(sLeft, "%Subdirectory%", false) == 0)
-        return StringType.FromObject(Interaction.IIf(Declarations.objSettings.CurrentPath.EndsWith(":"), tag.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath + @"\", ""), tag.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath, "")));
-      if (StringType.StrCmp(sLeft, "%Ver1%", false) == 0)
-        return tag.V1TAG.TAGVersion.ToString().Replace("0", "-").Replace("1-", "1.0").Replace("11", "1.1");
-      if (StringType.StrCmp(sLeft, "%Ver2%", false) == 0)
-        return tag.V2TAG.TAGVersion.ToString().Replace("2", "2.2").Replace("3", "2.3").Replace("4", "2.4").Replace("0", "-");
-      if (StringType.StrCmp(sLeft, "%Artist%", false) == 0)
-      {
-        if (!this.optID3V2.Checked)
-          return tag.V1TAG.Artist;
-        if (tag.V2TAG.FrameExists("TPE1"))
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TPE1")), null, "Content", new object[0], null, null));
-      }
-      else if (StringType.StrCmp(sLeft, "%Title%", false) == 0)
-      {
-        if (!this.optID3V2.Checked)
-          return tag.V1TAG.Title;
-        if (tag.V2TAG.FrameExists("TIT2"))
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TIT2")), null, "Content", new object[0], null, null));
-      }
-      else if (StringType.StrCmp(sLeft, "%Album%", false) == 0)
-      {
-        if (!this.optID3V2.Checked)
-          return tag.V1TAG.Album;
-        if (tag.V2TAG.FrameExists("TALB"))
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TALB")), null, "Content", new object[0], null, null));
-      }
-      else if (StringType.StrCmp(sLeft, "%Track%", false) == 0)
-      {
-        if (!this.optID3V2.Checked)
-          return tag.V1TAG.Tracknumber.ToString();
-        if (tag.V2TAG.FrameExists("TRCK"))
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TRCK")), null, "Content", new object[0], null, null));
-      }
-      else if (StringType.StrCmp(sLeft, "%Position%", false) == 0)
-      {
-        if (this.optID3V2.Checked && tag.V2TAG.FrameExists("TPOS"))
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TPOS")), null, "Content", new object[0], null, null));
-      }
-      else if (StringType.StrCmp(sLeft, "%Comment%", false) == 0)
-      {
-        if (!this.optID3V2.Checked)
-          return tag.V1TAG.Comment;
-        if (tag.V2TAG.FrameExists("COMM"))
-        {
-          var enumerator2 = tag.V2TAG.GetFrames("COMM").GetEnumerator();
-          while (enumerator2.MoveNext())
-            return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator2.Current), null, "Content", new object[0], null, null).ToString();
-        }
-      }
-      else if (StringType.StrCmp(sLeft, "%Genre%", false) == 0)
-      {
-        if (!this.optID3V2.Checked)
-          return tag.V1TAG.GenreText;
-        if (tag.V2TAG.FrameExists("TCON"))
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TCON")), null, "Content", new object[0], null, null));
-      }
-      else if (StringType.StrCmp(sLeft, "%Year%", false) == 0)
-      {
-        if (!this.optID3V2.Checked)
-          return tag.V1TAG.Year.ToString();
-        if (tag.V2TAG.FrameExists("TYER"))
-          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TYER")), null, "Content", new object[0], null, null));
-        if (tag.V2TAG.FrameExists("TDRC"))
-        {
-          object objectValue = RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TDRC"));
-          try
-          {
-            return StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "SubString", new object[] { 0, 4 }, null, null));
-          }
-          catch (Exception exception1)
-          {
-            ProjectData.SetProjectError(exception1);
-            ProjectData.ClearProjectError();
-          }
-        }
-      }
-      else if (StringType.StrCmp(sLeft, "%Rating%", false) == 0)
-      {
-        if (this.optID3V2.Checked && tag.V2TAG.FrameExists("POPM"))
-        {
-          var enumerator = tag.V2TAG.GetFrames("POPM").GetEnumerator();
-          while (enumerator.MoveNext())
-            return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator.Current), null, "Rating", new object[0], null, null).ToString();
-        }
-      }
-      else
-      {
-        if (StringType.StrCmp(sLeft, "%Duration%", false) == 0)
-          return tag.DurationFormated;
-        if (StringType.StrCmp(sLeft, "%DurationSec%", false) == 0)
-          return tag.Duration.ToString();
-        if (StringType.StrCmp(sLeft, "%Bitrate%", false) == 0)
-          return tag.Bitrate.ToString();
-        if (StringType.StrCmp(sLeft, "%CBRVBR%", false) == 0)
-          return StringType.FromObject(Interaction.IIf(tag.VBR, "VBR", "CBR"));
-        if (StringType.StrCmp(sLeft, "%Samplerate%", false) == 0)
-          return tag.Samplerate.ToString();
-        if (StringType.StrCmp(sLeft, "%Channel%", false) == 0)
-          return tag.ChannelText;
-        if (StringType.StrCmp(sLeft, "%Version%", false) == 0)
-          return (tag.VersionText + " " + tag.LayerText);
-        if (StringType.StrCmp(sLeft, "%LastChanged%", false) == 0)
-          return tag.FI.LastWriteTime.ToString();
-        if (StringType.StrCmp(sLeft, "%Composer%", false) == 0)
-        {
-          if (this.optID3V2.Checked && tag.V2TAG.FrameExists("TCOM"))
-            return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TCOM")), null, "Content", new object[0], null, null));
-        }
-        else
-        {
-          if (StringType.StrCmp(sLeft, "%FileSize%", false) == 0)
-          {
-            long num2 = tag.FI.Length / 0x400L;
-            return num2.ToString();
-          }
-          if (StringType.StrCmp(sLeft, "%BPM%", false) == 0)
-          {
-            if (this.optID3V2.Checked && tag.V2TAG.FrameExists("TBPM"))
-            {
-              string inputStr = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TBPM"), null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null));
-              if (inputStr.Length >= 4)
-              {
-                double num = Conversion.Val(inputStr) / 100.0;
-                return num.ToString();
-              }
-              return Conversion.Val(inputStr).ToString();
-            }
-          }
-          else
-          {
-            if (StringType.StrCmp(sLeft, "%RelFilename%", false) == 0)
-              return Id3TagIT_Main.GetRelativePath(vstrPath.Substring(0, vstrPath.LastIndexOf(@"\")), tag.FI.FullName);
-
-            if (StringType.StrCmp(sLeft, "%CRC%", false) == 0)
-            {
-              if (tag.AudioCheckSum == 0)
-                tag.CalcAudioCheckSum();
-              if (tag.AudioCheckSum != 0)
-                return tag.AudioCheckSum.ToString();
-
-              return "";
-            }
-          }
-        }
-      }
-      return "";
-    }
-
-    private bool IsEven(int vintNum)
-    {
-      return ((vintNum % 2) == 0);
     }
 
     private void Label_Click(object sender, EventArgs e)
@@ -1917,5 +1266,586 @@ namespace ID3_TagIT
           break;
       }
     }
+
+    #endregion
+
+    #region Class logic
+
+    public void AddColumns()
+    {
+      int num;
+      bool flag = false;
+      this.ColumnsList.Columns.Add("Name", this.ColumnsList.Width - 0x19, HorizontalAlignment.Left);
+      string[] array = Declarations.objSettings.ListColumns.Split(new char[] { '-' });
+      int num2 = Declarations.objSettings.Columns.Rows.Count - 1;
+
+      for (num = 0; num <= num2; num++)
+      {
+        DataRow row = Declarations.objSettings.Columns.Rows[num];
+        ListViewItem item2 = new ListViewItem
+        {
+          Text = StringType.FromObject(Declarations.objResources.ResStrings["Col" + row["ID"].ToString().PadLeft(2, '0')])
+        };
+
+        if (Array.IndexOf(array, "Col" + row["ID"].ToString().PadLeft(2, '0')) > -1)
+          item2.Checked = true;
+
+        item2.Tag = RuntimeHelpers.GetObjectValue(row["ID"]);
+        this.ColumnsList.Items.Add(item2);
+      }
+
+      num = 2;
+
+      do
+      {
+        foreach (ListViewItem item in this.ColumnsList.Items)
+        {
+          if (ObjectType.ObjTst(item.Tag, num, false) == 0)
+          {
+            flag = true;
+            break;
+          }
+        }
+
+        if (!flag)
+        {
+          ListViewItem item3 = new ListViewItem(Convert.ToString(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["Col" + num.ToString().PadLeft(2, '0')])));
+
+          if (Array.IndexOf(array, num.ToString()) > -1)
+            item3.Checked = true;
+
+          item3.Tag = num;
+          this.ColumnsList.Items.Add(item3);
+        }
+
+        flag = false;
+        num++;
+      }
+
+      while (num <= 0x17);
+    }
+
+    private void AddToolTips()
+    {
+      string vstrName = "frmLists";
+      Control chkRelativ = this.chkRelativ;
+      this.chkRelativ = (CheckBox)chkRelativ;
+      this.ToolTip.SetToolTip(this.chkRelativ, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
+
+      vstrName = "frmLists";
+      chkRelativ = this.btnPath;
+      this.btnPath = (Button)chkRelativ;
+      this.ToolTip.SetToolTip(this.btnPath, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
+
+      vstrName = "frmLists";
+      chkRelativ = this.txtPath;
+      this.txtPath = (TextBox)chkRelativ;
+      this.ToolTip.SetToolTip(this.txtPath, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
+
+      vstrName = "frmLists";
+      chkRelativ = this.chkColor;
+      this.chkColor = (CheckBox)chkRelativ;
+      this.ToolTip.SetToolTip(this.chkColor, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
+
+      vstrName = "frmLists";
+      chkRelativ = this.chkGridlines;
+      this.chkGridlines = (CheckBox)chkRelativ;
+      this.ToolTip.SetToolTip(this.chkGridlines, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
+
+      vstrName = "frmLists";
+      chkRelativ = this.txtWidth;
+      this.txtWidth = (NumericUpDown)chkRelativ;
+      this.ToolTip.SetToolTip(this.txtWidth, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
+
+      vstrName = "frmLists";
+      chkRelativ = this.cmbWidth;
+      this.cmbWidth = (ComboBox)chkRelativ;
+      this.ToolTip.SetToolTip(this.cmbWidth, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
+
+      vstrName = "frmLists";
+      chkRelativ = this.optID3V1;
+      this.optID3V1 = (RadioButton)chkRelativ;
+      this.ToolTip.SetToolTip(this.optID3V1, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
+
+      vstrName = "frmLists";
+      chkRelativ = this.optID3V2;
+      this.optID3V2 = (RadioButton)chkRelativ;
+      this.ToolTip.SetToolTip(this.optID3V2, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
+
+      vstrName = "frmLists";
+      chkRelativ = this.txtTitleHTML;
+      this.txtTitleHTML = (TextBox)chkRelativ;
+      this.ToolTip.SetToolTip(this.txtTitleHTML, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
+
+      vstrName = "frmLists";
+      chkRelativ = this.ColumnsList;
+      this.ColumnsList = (ListView)chkRelativ;
+      this.ToolTip.SetToolTip(this.ColumnsList, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
+
+      vstrName = "frmLists";
+      chkRelativ = this.btnUp;
+      this.btnUp = (Button)chkRelativ;
+      this.ToolTip.SetToolTip(this.btnUp, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
+
+      vstrName = "frmLists";
+      chkRelativ = this.btnDown;
+      this.btnDown = (Button)chkRelativ;
+      this.ToolTip.SetToolTip(this.btnDown, Declarations.objResources.GetToolTip(ref vstrName, ref chkRelativ));
+    }
+
+    private void CreateHTML(string vstrPath)
+    {
+      int vintNum = 0;
+      HTMLList list = new HTMLList
+      {
+        TableWidth = this.txtWidth.Text + this.cmbWidth.Text
+      };
+
+      list.CreateHTMLFile(vstrPath, this.txtTitleHTML.Text + "   (created by <a href=" + "\"" + "http://www.id3-tagit.de" + "\"" + " target=_blank>ID3-TagIT </a> )");
+      list.OpenGrid(this.chkGridlines.Checked);
+      int count = this.ColumnsList.CheckedItems.Count;
+      int num = 1;
+
+      while (num <= count)
+      {
+        list.CellString((long)num, HTMLList.HTMLRowColor.HTMLRowGray, HTMLList.HTMLFontFormat.HTMLFontBold, HTMLList.HTMLFontColor.HTMLFontBlack, HTMLList.HTMLAlignment.HTMLLeftJustify, BooleanType.FromObject(Interaction.IIf(num == this.ColumnsList.CheckedItems.Count, true, false)), this.ColumnsList.CheckedItems[num - 1].Text);
+        num++;
+      }
+
+      foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
+      {
+        vintNum++;
+
+        int num4 = this.ColumnsList.CheckedItems.Count;
+
+        for (num = 1; num <= num4; num++)
+        {
+          if (num == 1)
+          {
+            if (this.chkColor.Checked)
+            {
+              if (this.IsEven(vintNum))
+                list.CellString((long)num, HTMLList.HTMLRowColor.HTMLRowGray, HTMLList.HTMLFontFormat.HTMLFontNormal, HTMLList.HTMLFontColor.HTMLFontBlack, HTMLList.HTMLAlignment.HTMLLeftJustify, BooleanType.FromObject(Interaction.IIf(num == this.ColumnsList.CheckedItems.Count, true, false)), this.GetQuickData(item, ByteType.FromObject(this.ColumnsList.CheckedItems[num - 1].Tag)));
+              else
+                list.CellString((long)num, HTMLList.HTMLRowColor.HTMLRowWhite, HTMLList.HTMLFontFormat.HTMLFontNormal, HTMLList.HTMLFontColor.HTMLFontBlack, HTMLList.HTMLAlignment.HTMLLeftJustify, BooleanType.FromObject(Interaction.IIf(num == this.ColumnsList.CheckedItems.Count, true, false)), this.GetQuickData(item, ByteType.FromObject(this.ColumnsList.CheckedItems[num - 1].Tag)));
+            }
+            else
+              list.CellString((long)num, HTMLList.HTMLRowColor.HTMLRowWhite, HTMLList.HTMLFontFormat.HTMLFontNormal, HTMLList.HTMLFontColor.HTMLFontBlack, HTMLList.HTMLAlignment.HTMLLeftJustify, BooleanType.FromObject(Interaction.IIf(num == this.ColumnsList.CheckedItems.Count, true, false)), this.GetQuickData(item, ByteType.FromObject(this.ColumnsList.CheckedItems[num - 1].Tag)));
+          }
+          else
+            list.CellString((long)num, HTMLList.HTMLRowColor.HTMLRowWhite, HTMLList.HTMLFontFormat.HTMLFontNormal, HTMLList.HTMLFontColor.HTMLFontBlack, HTMLList.HTMLAlignment.HTMLLeftJustify, BooleanType.FromObject(Interaction.IIf(num == this.ColumnsList.CheckedItems.Count, true, false)), this.GetQuickData(item, ByteType.FromObject(this.ColumnsList.CheckedItems[num - 1].Tag)));
+        }
+
+        this.ProgressBar.PerformStep();
+      }
+
+      list.CloseGrid();
+      list.FinishHTMLFile();
+      this.ProgressBar.Value = 0;
+    }
+
+    private void CreatePlaylist(string vstrPath)
+    {
+      StreamWriter writer = new StreamWriter(vstrPath, false, Encoding.Default);
+      string vstrBaseDir = vstrPath.Substring(0, vstrPath.LastIndexOf(@"\"));
+      writer.WriteLine("#EXTM3U");
+
+      foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
+      {
+        string str;
+        MP3 tag = (MP3)item.Tag;
+        string sLeft = "";
+
+        if (tag.V2TAG.TAGHeaderPresent)
+          sLeft = ID3Functions.FormatReplacedByTag(tag, this.txtExtInfo.Text.Trim(), 2);
+        else if (tag.V1TAG.TAGPresent)
+          sLeft = ID3Functions.FormatReplacedByTag(tag, this.txtExtInfo.Text.Trim(), 1);
+
+        sLeft = sLeft.Trim();
+
+        if (StringType.StrCmp(sLeft, "", false) != 0)
+          str = "#EXTINF:" + StringType.FromInteger(tag.Duration) + "," + sLeft;
+        else
+          str = "#EXTINF:" + StringType.FromInteger(tag.Duration);
+
+        writer.WriteLine(str);
+
+        if (!this.chkRelativ.Checked)
+          writer.WriteLine(tag.FI.FullName);
+        else
+          writer.WriteLine(Id3TagIT_Main.GetRelativePath(vstrBaseDir, tag.FI.FullName));
+
+        this.ProgressBar.PerformStep();
+      }
+
+      writer.Flush();
+      writer.Close();
+      this.ProgressBar.Value = 0;
+    }
+
+    private string GetQuickData(ListViewItem lstItem, byte colID)
+    {
+      MP3 tag = (MP3)lstItem.Tag;
+
+      switch (colID)
+      {
+        case 1:
+          return tag.CurrentName;
+
+        case 2:
+          return StringType.FromObject(Interaction.IIf(Declarations.objSettings.CurrentPath.EndsWith(":"), tag.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath + @"\", ""), tag.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath, "")));
+
+        case 3:
+          return tag.V1TAG.TAGVersion.ToString().Replace("0", "-").Replace("1-", "1.0").Replace("11", "1.1");
+
+        case 4:
+          return tag.V2TAG.TAGVersion.ToString().Replace("2", "2.2").Replace("3", "2.3").Replace("4", "2.4").Replace("0", "-");
+
+        case 5:
+          if (!this.optID3V2.Checked)
+            return tag.V1TAG.Artist;
+
+          if (!tag.V2TAG.FrameExists("TPE1"))
+            break;
+
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TPE1")), null, "Content", new object[0], null, null));
+
+        case 6:
+          if (!this.optID3V2.Checked)
+            return tag.V1TAG.Title;
+
+          if (!tag.V2TAG.FrameExists("TIT2"))
+            break;
+
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TIT2")), null, "Content", new object[0], null, null));
+
+        case 7:
+          if (!this.optID3V2.Checked)
+            return tag.V1TAG.Album;
+
+          if (!tag.V2TAG.FrameExists("TALB"))
+            break;
+
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TALB")), null, "Content", new object[0], null, null));
+
+        case 8:
+          if (!this.optID3V2.Checked)
+            return tag.V1TAG.Tracknumber.ToString();
+
+          if (!tag.V2TAG.FrameExists("TRCK"))
+            break;
+
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TRCK")), null, "Content", new object[0], null, null));
+
+        case 9:
+          if (!this.optID3V2.Checked || !tag.V2TAG.FrameExists("TPOS"))
+            break;
+
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TPOS")), null, "Content", new object[0], null, null));
+
+        case 10:
+          if (!this.optID3V2.Checked)
+            return tag.V1TAG.Comment;
+
+          if (tag.V2TAG.FrameExists("COMM"))
+          {
+            var enumerator2 = tag.V2TAG.GetFrames("COMM").GetEnumerator();
+
+            while (enumerator2.MoveNext())
+              return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator2.Current), null, "Content", new object[0], null, null).ToString();
+          }
+
+          break;
+
+        case 11:
+          if (!this.optID3V2.Checked)
+            return tag.V1TAG.GenreText;
+
+          if (!tag.V2TAG.FrameExists("TCON"))
+            break;
+
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TCON")), null, "Content", new object[0], null, null));
+
+        case 12:
+          if (!this.optID3V2.Checked)
+            return tag.V1TAG.Year.ToString();
+
+          if (!tag.V2TAG.FrameExists("TYER"))
+          {
+            if (tag.V2TAG.FrameExists("TDRC"))
+            {
+              object objectValue = RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TDRC"));
+
+              try
+              {
+                return StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "SubString", new object[] { 0, 4 }, null, null));
+              }
+              catch (Exception exception1)
+              {
+                ProjectData.SetProjectError(exception1);
+                ProjectData.ClearProjectError();
+              }
+            }
+
+            break;
+          }
+
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TYER")), null, "Content", new object[0], null, null));
+
+        case 13:
+          if (this.optID3V2.Checked && tag.V2TAG.FrameExists("POPM"))
+          {
+            var enumerator = tag.V2TAG.GetFrames("POPM").GetEnumerator();
+
+            while (enumerator.MoveNext())
+              return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator.Current), null, "Rating", new object[0], null, null).ToString();
+          }
+
+          break;
+
+        case 14:
+          return tag.DurationFormated;
+
+        case 15:
+          return StringType.FromInteger(tag.Bitrate);
+
+        case 0x10:
+          return StringType.FromObject(Interaction.IIf(tag.VBR, "VBR", "CBR"));
+
+        case 0x11:
+          return StringType.FromInteger(tag.Samplerate);
+
+        case 0x12:
+          return tag.ChannelText;
+
+        case 0x13:
+          return (tag.VersionText + " " + tag.LayerText);
+
+        case 20:
+          return tag.FI.LastWriteTime.ToString();
+
+        case 0x15:
+          if (!this.optID3V2.Checked || !tag.V2TAG.FrameExists("TCOM"))
+            break;
+
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TCOM")), null, "Content", new object[0], null, null));
+
+        case 0x16:
+          {
+            long num2 = tag.FI.Length / 0x400L;
+            return num2.ToString();
+          }
+
+        case 0x17:
+          {
+            if (!this.optID3V2.Checked || !tag.V2TAG.FrameExists("TBPM"))
+              break;
+
+            string inputStr = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TBPM"), null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null));
+
+            if (inputStr.Length < 4)
+              return Conversion.Val(inputStr).ToString();
+
+            double num = Conversion.Val(inputStr) / 100.0;
+            return num.ToString();
+          }
+      }
+
+      return "";
+    }
+
+    private string GetTempData(ListViewItem lstItem, string vstrVar, [Optional, DefaultParameterValue("")] string vstrPath)
+    {
+      string sLeft = vstrVar;
+      MP3 tag = (MP3)lstItem.Tag;
+
+      if (StringType.StrCmp(sLeft, "%Filename%", false) == 0)
+        return tag.CurrentName;
+
+      if (StringType.StrCmp(sLeft, "%FullFilename%", false) == 0)
+        return tag.CurrentFullName;
+
+      if (StringType.StrCmp(sLeft, "%Subdirectory%", false) == 0)
+        return StringType.FromObject(Interaction.IIf(Declarations.objSettings.CurrentPath.EndsWith(":"), tag.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath + @"\", ""), tag.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath, "")));
+
+      if (StringType.StrCmp(sLeft, "%Ver1%", false) == 0)
+        return tag.V1TAG.TAGVersion.ToString().Replace("0", "-").Replace("1-", "1.0").Replace("11", "1.1");
+
+      if (StringType.StrCmp(sLeft, "%Ver2%", false) == 0)
+        return tag.V2TAG.TAGVersion.ToString().Replace("2", "2.2").Replace("3", "2.3").Replace("4", "2.4").Replace("0", "-");
+
+      if (StringType.StrCmp(sLeft, "%Artist%", false) == 0)
+      {
+        if (!this.optID3V2.Checked)
+          return tag.V1TAG.Artist;
+
+        if (tag.V2TAG.FrameExists("TPE1"))
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TPE1")), null, "Content", new object[0], null, null));
+      }
+      else if (StringType.StrCmp(sLeft, "%Title%", false) == 0)
+      {
+        if (!this.optID3V2.Checked)
+          return tag.V1TAG.Title;
+
+        if (tag.V2TAG.FrameExists("TIT2"))
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TIT2")), null, "Content", new object[0], null, null));
+      }
+      else if (StringType.StrCmp(sLeft, "%Album%", false) == 0)
+      {
+        if (!this.optID3V2.Checked)
+          return tag.V1TAG.Album;
+
+        if (tag.V2TAG.FrameExists("TALB"))
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TALB")), null, "Content", new object[0], null, null));
+      }
+      else if (StringType.StrCmp(sLeft, "%Track%", false) == 0)
+      {
+        if (!this.optID3V2.Checked)
+          return tag.V1TAG.Tracknumber.ToString();
+
+        if (tag.V2TAG.FrameExists("TRCK"))
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TRCK")), null, "Content", new object[0], null, null));
+      }
+      else if (StringType.StrCmp(sLeft, "%Position%", false) == 0)
+      {
+        if (this.optID3V2.Checked && tag.V2TAG.FrameExists("TPOS"))
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TPOS")), null, "Content", new object[0], null, null));
+      }
+      else if (StringType.StrCmp(sLeft, "%Comment%", false) == 0)
+      {
+        if (!this.optID3V2.Checked)
+          return tag.V1TAG.Comment;
+
+        if (tag.V2TAG.FrameExists("COMM"))
+        {
+          var enumerator2 = tag.V2TAG.GetFrames("COMM").GetEnumerator();
+
+          while (enumerator2.MoveNext())
+            return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator2.Current), null, "Content", new object[0], null, null).ToString();
+        }
+      }
+      else if (StringType.StrCmp(sLeft, "%Genre%", false) == 0)
+      {
+        if (!this.optID3V2.Checked)
+          return tag.V1TAG.GenreText;
+
+        if (tag.V2TAG.FrameExists("TCON"))
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TCON")), null, "Content", new object[0], null, null));
+      }
+      else if (StringType.StrCmp(sLeft, "%Year%", false) == 0)
+      {
+        if (!this.optID3V2.Checked)
+          return tag.V1TAG.Year.ToString();
+
+        if (tag.V2TAG.FrameExists("TYER"))
+          return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TYER")), null, "Content", new object[0], null, null));
+
+        if (tag.V2TAG.FrameExists("TDRC"))
+        {
+          object objectValue = RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TDRC"));
+
+          try
+          {
+            return StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "SubString", new object[] { 0, 4 }, null, null));
+          }
+          catch (Exception exception1)
+          {
+            ProjectData.SetProjectError(exception1);
+            ProjectData.ClearProjectError();
+          }
+        }
+      }
+      else if (StringType.StrCmp(sLeft, "%Rating%", false) == 0)
+      {
+        if (this.optID3V2.Checked && tag.V2TAG.FrameExists("POPM"))
+        {
+          var enumerator = tag.V2TAG.GetFrames("POPM").GetEnumerator();
+
+          while (enumerator.MoveNext())
+            return LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator.Current), null, "Rating", new object[0], null, null).ToString();
+        }
+      }
+      else
+      {
+        if (StringType.StrCmp(sLeft, "%Duration%", false) == 0)
+          return tag.DurationFormated;
+
+        if (StringType.StrCmp(sLeft, "%DurationSec%", false) == 0)
+          return tag.Duration.ToString();
+
+        if (StringType.StrCmp(sLeft, "%Bitrate%", false) == 0)
+          return tag.Bitrate.ToString();
+
+        if (StringType.StrCmp(sLeft, "%CBRVBR%", false) == 0)
+          return StringType.FromObject(Interaction.IIf(tag.VBR, "VBR", "CBR"));
+
+        if (StringType.StrCmp(sLeft, "%Samplerate%", false) == 0)
+          return tag.Samplerate.ToString();
+
+        if (StringType.StrCmp(sLeft, "%Channel%", false) == 0)
+          return tag.ChannelText;
+
+        if (StringType.StrCmp(sLeft, "%Version%", false) == 0)
+          return (tag.VersionText + " " + tag.LayerText);
+
+        if (StringType.StrCmp(sLeft, "%LastChanged%", false) == 0)
+          return tag.FI.LastWriteTime.ToString();
+
+        if (StringType.StrCmp(sLeft, "%Composer%", false) == 0)
+        {
+          if (this.optID3V2.Checked && tag.V2TAG.FrameExists("TCOM"))
+            return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TCOM")), null, "Content", new object[0], null, null));
+        }
+        else
+        {
+          if (StringType.StrCmp(sLeft, "%FileSize%", false) == 0)
+          {
+            long num2 = tag.FI.Length / 0x400L;
+            return num2.ToString();
+          }
+
+          if (StringType.StrCmp(sLeft, "%BPM%", false) == 0)
+          {
+            if (this.optID3V2.Checked && tag.V2TAG.FrameExists("TBPM"))
+            {
+              string inputStr = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TBPM"), null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null));
+
+              if (inputStr.Length >= 4)
+              {
+                double num = Conversion.Val(inputStr) / 100.0;
+                return num.ToString();
+              }
+
+              return Conversion.Val(inputStr).ToString();
+            }
+          }
+          else
+          {
+            if (StringType.StrCmp(sLeft, "%RelFilename%", false) == 0)
+              return Id3TagIT_Main.GetRelativePath(vstrPath.Substring(0, vstrPath.LastIndexOf(@"\")), tag.FI.FullName);
+
+            if (StringType.StrCmp(sLeft, "%CRC%", false) == 0)
+            {
+              if (tag.AudioCheckSum == 0)
+                tag.CalcAudioCheckSum();
+
+              if (tag.AudioCheckSum != 0)
+                return tag.AudioCheckSum.ToString();
+
+              return "";
+            }
+          }
+        }
+      }
+
+      return "";
+    }
+
+    private bool IsEven(int vintNum)
+    {
+      return (vintNum % 2) == 0;
+    }
+
+    #endregion
   }
 }

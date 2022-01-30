@@ -12,16 +12,12 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
-//FIXME
-//this.btnNext.Icon = (Icon)manager.GetObject("btnNext.Icon");
-//this.btnNext.Icon = (Icon)(new ResourceManager("Icons", this.GetType().Assembly).GetObject("btnNext.Icon"));
-//this.btnPrev.Icon = (Icon)manager.GetObject("btnPrev.Icon");
-//this.btnPrev.Icon = (Icon)(new ResourceManager("Icons", this.GetType().Assembly).GetObject("btnPrev.Icon"));
-
 namespace ID3_TagIT
 {
   public class frmTAG1 : Form
   {
+    #region Designer
+
     private Button btnCancel;
     private ButtonItem btnExport;
     private ButtonItem btnGet;
@@ -32,14 +28,12 @@ namespace ID3_TagIT
     private ButtonItem btnSwapAA;
     private ButtonItem btnSwapAT;
     private ButtonItem btnSwapTA;
-    private PanelEx ButtomPanel;
     private ComboBoxAutoComplete cmbArtist;
     private ComboBoxAutoComplete cmbGenre;
     private Label lblAlbum;
     private Label lblArtist;
     private Label lblComment;
     private Label lblGenre;
-    private Label lblSelected;
     private Label lblTitle;
     private Label lblTrack;
     private Label lblYear;
@@ -56,25 +50,36 @@ namespace ID3_TagIT
     private ButtonItem TAGV2ButtonItem9;
     private ExplorerBarGroupItem TAGV2grpCommands;
     private System.Windows.Forms.ToolTip ToolTip;
-    private PanelEx TopPanel;
     private System.Windows.Forms.TextBox txtAlbum;
     private System.Windows.Forms.TextBox txtComment;
-    private System.Windows.Forms.TextBox txtSelected;
     private System.Windows.Forms.TextBox txtTitle;
     private NumericTextBox txtTrack;
     private NumericTextBox txtYear;
     private IContainer components;
     private Control FocusedControl;
     private frmMain MainForm;
-    private ID3_TagIT.MP3 MP3;
+    private Label lblSelected;
+    private System.Windows.Forms.TextBox txtSelected;
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+        this.components.Dispose();
+
+      base.Dispose(disposing);
+    }
+
+//FIXME
+//this.btnNext.Icon = (Icon)manager.GetObject("btnNext.Icon");
+//this.btnNext.Icon = (Icon)(new ResourceManager("Icons", this.GetType().Assembly).GetObject("btnNext.Icon"));
+//this.btnPrev.Icon = (Icon)manager.GetObject("btnPrev.Icon");
+//this.btnPrev.Icon = (Icon)(new ResourceManager("Icons", this.GetType().Assembly).GetObject("btnPrev.Icon"));
 
     [DebuggerStepThrough]
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTAG1));
-      this.lblSelected = new System.Windows.Forms.Label();
-      this.txtSelected = new System.Windows.Forms.TextBox();
       this.btnCancel = new System.Windows.Forms.Button();
       this.btnOK = new System.Windows.Forms.Button();
       this.lblGenre = new System.Windows.Forms.Label();
@@ -112,41 +117,17 @@ namespace ID3_TagIT
       this.btnImport = new DevComponents.DotNetBar.ButtonItem();
       this.btnExport = new DevComponents.DotNetBar.ButtonItem();
       this.btnGet = new DevComponents.DotNetBar.ButtonItem();
-      this.ButtomPanel = new DevComponents.DotNetBar.PanelEx();
-      this.TopPanel = new DevComponents.DotNetBar.PanelEx();
+      this.lblSelected = new System.Windows.Forms.Label();
+      this.txtSelected = new System.Windows.Forms.TextBox();
       ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).BeginInit();
-      this.ButtomPanel.SuspendLayout();
-      this.TopPanel.SuspendLayout();
       this.SuspendLayout();
-      // 
-      // lblSelected
-      // 
-      this.lblSelected.BackColor = System.Drawing.Color.White;
-      this.lblSelected.ForeColor = System.Drawing.Color.Black;
-      this.lblSelected.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblSelected.Location = new System.Drawing.Point(8, 8);
-      this.lblSelected.Name = "lblSelected";
-      this.lblSelected.Size = new System.Drawing.Size(152, 16);
-      this.lblSelected.TabIndex = 19;
-      this.lblSelected.Text = "Selected file:";
-      // 
-      // txtSelected
-      // 
-      this.txtSelected.BackColor = System.Drawing.Color.White;
-      this.txtSelected.BorderStyle = System.Windows.Forms.BorderStyle.None;
-      this.txtSelected.ForeColor = System.Drawing.Color.Black;
-      this.txtSelected.Location = new System.Drawing.Point(8, 24);
-      this.txtSelected.Name = "txtSelected";
-      this.txtSelected.ReadOnly = true;
-      this.txtSelected.Size = new System.Drawing.Size(440, 13);
-      this.txtSelected.TabIndex = 20;
       // 
       // btnCancel
       // 
       this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
       this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
       this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnCancel.Location = new System.Drawing.Point(336, 8);
+      this.btnCancel.Location = new System.Drawing.Point(504, 236);
       this.btnCancel.Name = "btnCancel";
       this.btnCancel.Size = new System.Drawing.Size(112, 24);
       this.btnCancel.TabIndex = 16;
@@ -158,7 +139,7 @@ namespace ID3_TagIT
       this.btnOK.BackColor = System.Drawing.SystemColors.Control;
       this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
       this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnOK.Location = new System.Drawing.Point(216, 8);
+      this.btnOK.Location = new System.Drawing.Point(384, 236);
       this.btnOK.Name = "btnOK";
       this.btnOK.Size = new System.Drawing.Size(112, 24);
       this.btnOK.TabIndex = 15;
@@ -572,51 +553,27 @@ namespace ID3_TagIT
       this.btnGet.Name = "btnGet";
       this.btnGet.Text = "Get from filename";
       // 
-      // ButtomPanel
+      // lblSelected
       // 
-      this.ButtomPanel.AntiAlias = true;
-      this.ButtomPanel.Controls.Add(this.btnOK);
-      this.ButtomPanel.Controls.Add(this.btnCancel);
-      this.ButtomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.ButtomPanel.Location = new System.Drawing.Point(168, 232);
-      this.ButtomPanel.Name = "ButtomPanel";
-      this.ButtomPanel.Size = new System.Drawing.Size(458, 40);
-      this.ButtomPanel.Style.BackColor1.Color = System.Drawing.Color.White;
-      this.ButtomPanel.Style.BackColor2.Color = System.Drawing.Color.White;
-      this.ButtomPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.ButtomPanel.Style.BorderWidth = 0;
-      this.ButtomPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ButtomPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
-      this.ButtomPanel.Style.GradientAngle = 90;
-      this.ButtomPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
-      this.ButtomPanel.Style.MarginBottom = 2;
-      this.ButtomPanel.Style.MarginLeft = 7;
-      this.ButtomPanel.Style.MarginRight = 2;
-      this.ButtomPanel.Style.MarginTop = 2;
-      this.ButtomPanel.TabIndex = 14;
+      this.lblSelected.BackColor = System.Drawing.SystemColors.Control;
+      this.lblSelected.ForeColor = System.Drawing.Color.Black;
+      this.lblSelected.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblSelected.Location = new System.Drawing.Point(176, 13);
+      this.lblSelected.Name = "lblSelected";
+      this.lblSelected.Size = new System.Drawing.Size(152, 16);
+      this.lblSelected.TabIndex = 19;
+      this.lblSelected.Text = "Selected file:";
       // 
-      // TopPanel
+      // txtSelected
       // 
-      this.TopPanel.AntiAlias = true;
-      this.TopPanel.Controls.Add(this.txtSelected);
-      this.TopPanel.Controls.Add(this.lblSelected);
-      this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
-      this.TopPanel.Location = new System.Drawing.Point(168, 0);
-      this.TopPanel.Name = "TopPanel";
-      this.TopPanel.Size = new System.Drawing.Size(458, 48);
-      this.TopPanel.Style.BackColor1.Color = System.Drawing.Color.White;
-      this.TopPanel.Style.BackColor2.Color = System.Drawing.Color.White;
-      this.TopPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.TopPanel.Style.BorderWidth = 0;
-      this.TopPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.TopPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
-      this.TopPanel.Style.GradientAngle = 90;
-      this.TopPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
-      this.TopPanel.Style.MarginBottom = 2;
-      this.TopPanel.Style.MarginLeft = 7;
-      this.TopPanel.Style.MarginRight = 2;
-      this.TopPanel.Style.MarginTop = 2;
-      this.TopPanel.TabIndex = 18;
+      this.txtSelected.BackColor = System.Drawing.SystemColors.Control;
+      this.txtSelected.BorderStyle = System.Windows.Forms.BorderStyle.None;
+      this.txtSelected.ForeColor = System.Drawing.Color.Black;
+      this.txtSelected.Location = new System.Drawing.Point(176, 29);
+      this.txtSelected.Name = "txtSelected";
+      this.txtSelected.ReadOnly = true;
+      this.txtSelected.Size = new System.Drawing.Size(440, 13);
+      this.txtSelected.TabIndex = 20;
       // 
       // frmTAG1
       // 
@@ -625,7 +582,10 @@ namespace ID3_TagIT
       this.CancelButton = this.btnCancel;
       this.ClientSize = new System.Drawing.Size(626, 272);
       this.ControlBox = false;
-      this.Controls.Add(this.ButtomPanel);
+      this.Controls.Add(this.txtSelected);
+      this.Controls.Add(this.btnOK);
+      this.Controls.Add(this.lblSelected);
+      this.Controls.Add(this.btnCancel);
       this.Controls.Add(this.txtYear);
       this.Controls.Add(this.txtTrack);
       this.Controls.Add(this.cmbGenre);
@@ -640,7 +600,6 @@ namespace ID3_TagIT
       this.Controls.Add(this.lblArtist);
       this.Controls.Add(this.txtComment);
       this.Controls.Add(this.txtTitle);
-      this.Controls.Add(this.TopPanel);
       this.Controls.Add(this.SelectionBar);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.KeyPreview = true;
@@ -650,9 +609,6 @@ namespace ID3_TagIT
       this.ShowInTaskbar = false;
       this.Text = "Edit TAG Ver. 1";
       ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).EndInit();
-      this.ButtomPanel.ResumeLayout(false);
-      this.TopPanel.ResumeLayout(false);
-      this.TopPanel.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -665,86 +621,32 @@ namespace ID3_TagIT
       this.MainForm = FormMain;
     }
 
-    private void AddSelectionBar()
-    {
-      IEnumerator enumerator = null;
-      try
-      {
-        enumerator = this.SelectionBar.Groups.GetEnumerator();
-        while (enumerator.MoveNext())
-        {
-          ExplorerBarGroupItem current = (ExplorerBarGroupItem)enumerator.Current;
-          current.Text = StringType.FromObject(Declarations.objResources.SelectionBar[current.Name]);
-          try
-          {
-            foreach (ButtonItem item in current.SubItems)
-            {
-              item.Text = StringType.FromObject(Declarations.objResources.SelectionBar[item.Name]);
-            }
-            continue;
-          }
-          catch (Exception exception1)
-          {
-            ProjectData.SetProjectError(exception1);
-            ProjectData.ClearProjectError();
-            continue;
-          }
-        }
-      }
-      finally
-      {
-        if (enumerator is IDisposable)
-        {
-          ((IDisposable)enumerator).Dispose();
-        }
-      }
-    }
+    #endregion
 
-    private void AddToolTips()
-    {
-      string vstrName = "frmTAG1";
-      Control txtAlbum = this.txtAlbum;
-      this.txtAlbum = (System.Windows.Forms.TextBox)txtAlbum;
-      this.ToolTip.SetToolTip(this.txtAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref txtAlbum));
-      vstrName = "frmTAG1";
-      txtAlbum = this.txtComment;
-      this.txtComment = (System.Windows.Forms.TextBox)txtAlbum;
-      this.ToolTip.SetToolTip(this.txtComment, Declarations.objResources.GetToolTip(ref vstrName, ref txtAlbum));
-      vstrName = "frmTAG1";
-      txtAlbum = this.txtTitle;
-      this.txtTitle = (System.Windows.Forms.TextBox)txtAlbum;
-      this.ToolTip.SetToolTip(this.txtTitle, Declarations.objResources.GetToolTip(ref vstrName, ref txtAlbum));
-      vstrName = "frmTAG1";
-      txtAlbum = this.txtTrack;
-      this.txtTrack = (NumericTextBox)txtAlbum;
-      this.ToolTip.SetToolTip(this.txtTrack, Declarations.objResources.GetToolTip(ref vstrName, ref txtAlbum));
-      vstrName = "frmTAG1";
-      txtAlbum = this.txtYear;
-      this.txtYear = (NumericTextBox)txtAlbum;
-      this.ToolTip.SetToolTip(this.txtYear, Declarations.objResources.GetToolTip(ref vstrName, ref txtAlbum));
-      vstrName = "frmTAG1";
-      txtAlbum = this.cmbArtist;
-      this.cmbArtist = (ComboBoxAutoComplete)txtAlbum;
-      this.ToolTip.SetToolTip(this.cmbArtist, Declarations.objResources.GetToolTip(ref vstrName, ref txtAlbum));
-      vstrName = "frmTAG1";
-      txtAlbum = this.cmbGenre;
-      this.cmbGenre = (ComboBoxAutoComplete)txtAlbum;
-      this.ToolTip.SetToolTip(this.cmbGenre, Declarations.objResources.GetToolTip(ref vstrName, ref txtAlbum));
-    }
+    #region Local variables
+
+    private ID3_TagIT.MP3 MP3;
+
+    #endregion
+
+    #region Events
 
     private void btnNext_Click(object sender, EventArgs e)
     {
       this.SaveToTAG();
+
       if (this.MainForm.MP3View.FocusedItem.Index < (this.MainForm.MP3View.Items.Count - 1))
       {
         this.MainForm.MP3View.Items[this.MainForm.MP3View.FocusedItem.Index + 1].Focused = true;
         this.MP3 = (ID3_TagIT.MP3)this.MainForm.MP3View.FocusedItem.Tag;
         this.ClearForm();
         this.FillForm();
+      
         // FIXME
         //if (this.ActiveControl == this.btnNext)
         //  this.FocusedControl.Focus();
       }
+
       // FIXME
       //else if (this.ActiveControl == this.btnNext)
       //  this.FocusedControl.Focus();
@@ -761,16 +663,19 @@ namespace ID3_TagIT
     private void btnPrev_Click(object sender, EventArgs e)
     {
       this.SaveToTAG();
+
       if (this.MainForm.MP3View.FocusedItem.Index != 0)
       {
         this.MainForm.MP3View.Items[this.MainForm.MP3View.FocusedItem.Index - 1].Focused = true;
         this.MP3 = (ID3_TagIT.MP3)this.MainForm.MP3View.FocusedItem.Tag;
         this.ClearForm();
         this.FillForm();
+
         // FIXME
         //if (this.ActiveControl == this.btnPrev)
         //  this.FocusedControl.Focus();
       }
+
       // FIXME
       //else if (this.ActiveControl == this.btnPrev)
       //  this.FocusedControl.Focus();
@@ -797,64 +702,6 @@ namespace ID3_TagIT
       this.txtAlbum.Text = text;
     }
 
-    private void ClearForm()
-    {
-      this.cmbArtist.Text = "";
-      this.txtTitle.Text = "";
-      this.txtAlbum.Text = "";
-      this.txtTrack.Text = "";
-      this.txtYear.Text = "";
-      this.cmbGenre.Text = "";
-      this.txtComment.Text = "";
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-      {
-        this.components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
-
-    private void FillForm()
-    {
-      this.cmbArtist.Autocomplete = false;
-      if (this.MP3.V1TAG.TAGVersion < 11)
-      {
-        this.txtComment.MaxLength = 30;
-      }
-      else
-      {
-        this.txtComment.MaxLength = 0x1c;
-      }
-      this.txtSelected.Text = this.MP3.CurrentFullName;
-      this.cmbArtist.Text = this.MP3.V1TAG.Artist;
-      this.txtTitle.Text = this.MP3.V1TAG.Title;
-      this.txtAlbum.Text = this.MP3.V1TAG.Album;
-      try
-      {
-        this.txtTrack.Text = StringType.FromObject(Interaction.IIf(this.MP3.V1TAG.Tracknumber == 0, "", this.MP3.V1TAG.Tracknumber.ToString()));
-      }
-      catch (Exception exception1)
-      {
-        ProjectData.SetProjectError(exception1);
-        ProjectData.ClearProjectError();
-      }
-      try
-      {
-        this.txtYear.Text = StringType.FromObject(Interaction.IIf(this.MP3.V1TAG.Year == 0, "", this.MP3.V1TAG.Year.ToString()));
-      }
-      catch (Exception exception2)
-      {
-        ProjectData.SetProjectError(exception2);
-        ProjectData.ClearProjectError();
-      }
-      this.cmbGenre.Text = this.MP3.V1TAG.GenreText;
-      this.txtComment.Text = this.MP3.V1TAG.Comment;
-      this.cmbArtist.Autocomplete = true;
-    }
-
     private void Focus_Leave(object sender, EventArgs e)
     {
       this.FocusedControl = (Control)sender;
@@ -868,25 +715,24 @@ namespace ID3_TagIT
       Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
       Id3TagIT_Main.WindowsXPCheck(ref objForm);
+
       if (this.MainForm.MP3View.FocusedItem == null)
-      {
         this.MainForm.MP3View.Items[this.MainForm.MP3View.SelectedItems[0].Index].Focused = true;
-      }
+
       this.MP3 = (ID3_TagIT.MP3)this.MainForm.MP3View.SelectedItems[0].Tag;
       this.FocusedControl = this.cmbArtist;
+
       foreach (DataRow row in Declarations.objSettings.Artists.Rows)
-      {
         this.cmbArtist.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
-      }
+
       this.cmbGenre.Items.Add("");
+
       foreach (DataRow row in Declarations.objSettings.Genres.Rows)
-      {
         this.cmbGenre.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
-      }
+
       foreach (string str in Declarations.astrGenreLookup)
-      {
         this.cmbGenre.Items.Add(str);
-      }
+
       this.cmbGenre.Sorted = true;
       this.cmbGenre.Sorted = false;
       this.FillForm();
@@ -896,6 +742,147 @@ namespace ID3_TagIT
       this.cmbArtist.Focus();
     }
 
+    private void Select_Enter(object sender, EventArgs e)
+    {
+      object[] objArray3 = new object[2];
+      objArray3[0] = 0;
+      object o = sender;
+      object[] args = new object[0];
+      string[] paramnames = null;
+      objArray3[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(o, null, "Text", args, paramnames, null), null, "Length", new object[0], null, null));
+      object[] objArray2 = objArray3;
+      bool[] copyBack = new bool[] { false, true };
+      LateBinding.LateCall(sender, null, "Select", objArray2, null, copyBack);
+
+      if (copyBack[1])
+        LateBinding.LateSetComplex(LateBinding.LateGet(o, null, "Text", args, paramnames, null), null, "Length", new object[] { RuntimeHelpers.GetObjectValue(objArray2[1]) }, null, true, true);
+    }
+
+    #endregion
+
+    private void AddSelectionBar()
+    {
+      IEnumerator enumerator = null;
+
+      try
+      {
+        enumerator = this.SelectionBar.Groups.GetEnumerator();
+
+        while (enumerator.MoveNext())
+        {
+          ExplorerBarGroupItem current = (ExplorerBarGroupItem)enumerator.Current;
+          current.Text = StringType.FromObject(Declarations.objResources.SelectionBar[current.Name]);
+
+          try
+          {
+            foreach (ButtonItem item in current.SubItems)
+              item.Text = StringType.FromObject(Declarations.objResources.SelectionBar[item.Name]);
+
+            continue;
+          }
+          catch (Exception exception1)
+          {
+            ProjectData.SetProjectError(exception1);
+            ProjectData.ClearProjectError();
+            continue;
+          }
+        }
+      }
+      finally
+      {
+        if (enumerator is IDisposable)
+          ((IDisposable)enumerator).Dispose();
+      }
+    }
+
+    private void AddToolTips()
+    {
+      string vstrName = "frmTAG1";
+      Control txtAlbum = this.txtAlbum;
+      this.txtAlbum = (System.Windows.Forms.TextBox)txtAlbum;
+      this.ToolTip.SetToolTip(this.txtAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref txtAlbum));
+
+      vstrName = "frmTAG1";
+      txtAlbum = this.txtComment;
+      this.txtComment = (System.Windows.Forms.TextBox)txtAlbum;
+      this.ToolTip.SetToolTip(this.txtComment, Declarations.objResources.GetToolTip(ref vstrName, ref txtAlbum));
+
+      vstrName = "frmTAG1";
+      txtAlbum = this.txtTitle;
+      this.txtTitle = (System.Windows.Forms.TextBox)txtAlbum;
+      this.ToolTip.SetToolTip(this.txtTitle, Declarations.objResources.GetToolTip(ref vstrName, ref txtAlbum));
+
+      vstrName = "frmTAG1";
+      txtAlbum = this.txtTrack;
+      this.txtTrack = (NumericTextBox)txtAlbum;
+      this.ToolTip.SetToolTip(this.txtTrack, Declarations.objResources.GetToolTip(ref vstrName, ref txtAlbum));
+
+      vstrName = "frmTAG1";
+      txtAlbum = this.txtYear;
+      this.txtYear = (NumericTextBox)txtAlbum;
+      this.ToolTip.SetToolTip(this.txtYear, Declarations.objResources.GetToolTip(ref vstrName, ref txtAlbum));
+
+      vstrName = "frmTAG1";
+      txtAlbum = this.cmbArtist;
+      this.cmbArtist = (ComboBoxAutoComplete)txtAlbum;
+      this.ToolTip.SetToolTip(this.cmbArtist, Declarations.objResources.GetToolTip(ref vstrName, ref txtAlbum));
+
+      vstrName = "frmTAG1";
+      txtAlbum = this.cmbGenre;
+      this.cmbGenre = (ComboBoxAutoComplete)txtAlbum;
+      this.ToolTip.SetToolTip(this.cmbGenre, Declarations.objResources.GetToolTip(ref vstrName, ref txtAlbum));
+    }
+
+    private void ClearForm()
+    {
+      this.cmbArtist.Text = "";
+      this.txtTitle.Text = "";
+      this.txtAlbum.Text = "";
+      this.txtTrack.Text = "";
+      this.txtYear.Text = "";
+      this.cmbGenre.Text = "";
+      this.txtComment.Text = "";
+    }
+
+    private void FillForm()
+    {
+      this.cmbArtist.Autocomplete = false;
+
+      if (this.MP3.V1TAG.TAGVersion < 11)
+        this.txtComment.MaxLength = 30;
+      else
+        this.txtComment.MaxLength = 0x1c;
+
+      this.txtSelected.Text = this.MP3.CurrentFullName;
+      this.cmbArtist.Text = this.MP3.V1TAG.Artist;
+      this.txtTitle.Text = this.MP3.V1TAG.Title;
+      this.txtAlbum.Text = this.MP3.V1TAG.Album;
+
+      try
+      {
+        this.txtTrack.Text = StringType.FromObject(Interaction.IIf(this.MP3.V1TAG.Tracknumber == 0, "", this.MP3.V1TAG.Tracknumber.ToString()));
+      }
+      catch (Exception exception1)
+      {
+        ProjectData.SetProjectError(exception1);
+        ProjectData.ClearProjectError();
+      }
+
+      try
+      {
+        this.txtYear.Text = StringType.FromObject(Interaction.IIf(this.MP3.V1TAG.Year == 0, "", this.MP3.V1TAG.Year.ToString()));
+      }
+      catch (Exception exception2)
+      {
+        ProjectData.SetProjectError(exception2);
+        ProjectData.ClearProjectError();
+      }
+
+      this.cmbGenre.Text = this.MP3.V1TAG.GenreText;
+      this.txtComment.Text = this.MP3.V1TAG.Comment;
+      this.cmbArtist.Autocomplete = true;
+    }
+
     private void SaveToTAG()
     {
       ArrayList list = new ArrayList();
@@ -903,99 +890,107 @@ namespace ID3_TagIT
       list.Add(@do);
       Declarations.UNDOList.Add(list);
       this.MainForm.UnDoEnable(true, true);
+
       if (StringType.StrCmp(this.MP3.V1TAG.Artist, this.cmbArtist.Text, false) != 0)
       {
         this.MP3.V1TAG.Artist = this.cmbArtist.Text;
         this.MP3.V1TAG.TAGPresent = true;
         this.MP3.Changed = true;
       }
+
       if (StringType.StrCmp(this.MP3.V1TAG.Title, this.txtTitle.Text, false) != 0)
       {
         this.MP3.V1TAG.Title = this.txtTitle.Text;
         this.MP3.V1TAG.TAGPresent = true;
         this.MP3.Changed = true;
       }
+
       if (StringType.StrCmp(this.MP3.V1TAG.Album, this.txtAlbum.Text, false) != 0)
       {
         this.MP3.V1TAG.Album = this.txtAlbum.Text;
         this.MP3.V1TAG.TAGPresent = true;
         this.MP3.Changed = true;
       }
+
       if (this.MP3.V1TAG.Year != Conversion.Val(this.txtYear.Text))
       {
         this.MP3.V1TAG.Year = (int)Math.Round(Conversion.Val(this.txtYear.Text));
         this.MP3.V1TAG.TAGPresent = true;
         this.MP3.Changed = true;
       }
+
       if (this.MP3.V1TAG.Tracknumber != Conversion.Val(this.txtTrack.Text))
       {
         this.MP3.V1TAG.Tracknumber = (byte)Math.Round(Conversion.Val(this.txtTrack.Text));
         this.MP3.V1TAG.TAGPresent = true;
         this.MP3.Changed = true;
       }
+
       if (this.MP3.V1TAG.GenreByte != ID3Functions.GetV1GenreByName(this.cmbGenre.Text))
       {
         this.MP3.V1TAG.GenreText = this.cmbGenre.Text;
         this.MP3.V1TAG.TAGPresent = true;
         this.MP3.Changed = true;
       }
+
       if (StringType.StrCmp(this.MP3.V1TAG.Comment, this.txtComment.Text, false) != 0)
       {
         this.MP3.V1TAG.Comment = this.txtComment.Text;
         this.MP3.V1TAG.TAGPresent = true;
         this.MP3.Changed = true;
       }
+
       if (Declarations.objSettings.SynchronizeTAGs)
       {
         object o = ID3Functions.CreateTextFrame("TPE1", this.cmbArtist.Text);
+
         if (StringType.StrCmp(this.cmbArtist.Text.Trim(new char[] { ' ' }), "", false) == 0)
-        {
           LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
-        }
+
         this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
         o = ID3Functions.CreateTextFrame("TIT2", this.txtTitle.Text);
+
         if (StringType.StrCmp(this.txtTitle.Text.Trim(new char[] { ' ' }), "", false) == 0)
-        {
           LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
-        }
+
         this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
         o = ID3Functions.CreateTextFrame("TALB", this.txtAlbum.Text);
+
         if (StringType.StrCmp(this.txtAlbum.Text.Trim(new char[] { ' ' }), "", false) == 0)
-        {
           LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
-        }
+
         this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
         string text = this.cmbGenre.Text;
+
         foreach (DataRow row in Declarations.objSettings.Genres.Rows)
-        {
           if (ObjectType.ObjTst(row["V1V2"], ID3Functions.GetV1GenreByName(this.cmbGenre.Text), false) == 0)
           {
             text = row["Name"].ToString();
             break;
           }
-        }
+
         o = ID3Functions.CreateTextFrame("TCON", text);
+
         if (StringType.StrCmp(this.cmbGenre.Text.Trim(new char[] { ' ' }), "", false) == 0)
-        {
           LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
-        }
+
         this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
         o = new V2LDCFrame();
         LateBinding.LateSet(o, null, "FID", new object[] { "COMM" }, null);
         LateBinding.LateSet(o, null, "Language", new object[] { Declarations.astrLanLookup[Declarations.objSettings.V2Language].Substring(0, 3) }, null);
         LateBinding.LateSet(o, null, "Descriptor", new object[] { Declarations.objSettings.TransferCommentD }, null);
         LateBinding.LateSet(o, null, "Content", new object[] { this.txtComment.Text }, null);
+
         if (StringType.StrCmp(this.txtComment.Text, "", false) == 0)
-        {
           LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
-        }
+
         this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
+
         if (StringType.StrCmp(this.txtYear.Text, "", false) != 0)
         {
           if (!this.MP3.V2TAG.TAGHeaderPresent)
-          {
             this.MP3.V2TAG.TAGHeaderPresent = true;
-          }
+
           if (this.MP3.V2TAG.TAGVersion == DoubleType.FromString("3"))
           {
             o = ID3Functions.CreateTextFrame("TYER", this.txtYear.Text.PadLeft(4, '0'));
@@ -1019,6 +1014,7 @@ namespace ID3_TagIT
           LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
           this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
         }
+
         if (StringType.StrCmp(this.txtTrack.Text, "", false) != 0)
         {
           o = ID3Functions.CreateTextFrame("TRCK", this.txtTrack.Text.PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'));
@@ -1030,33 +1026,17 @@ namespace ID3_TagIT
           LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
           this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
         }
+
         if (this.MP3.V2TAG.Changed)
         {
           if (!this.MP3.V2TAG.TAGHeaderPresent)
-          {
             this.MP3.V2TAG.TAGHeaderPresent = true;
-          }
+
           this.MP3.Changed = true;
         }
       }
-      this.MainForm.UpdateListItem(this.MainForm.MP3View.FocusedItem, false);
-    }
 
-    private void Select_Enter(object sender, EventArgs e)
-    {
-      object[] objArray3 = new object[2];
-      objArray3[0] = 0;
-      object o = sender;
-      object[] args = new object[0];
-      string[] paramnames = null;
-      objArray3[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(o, null, "Text", args, paramnames, null), null, "Length", new object[0], null, null));
-      object[] objArray2 = objArray3;
-      bool[] copyBack = new bool[] { false, true };
-      LateBinding.LateCall(sender, null, "Select", objArray2, null, copyBack);
-      if (copyBack[1])
-      {
-        LateBinding.LateSetComplex(LateBinding.LateGet(o, null, "Text", args, paramnames, null), null, "Length", new object[] { RuntimeHelpers.GetObjectValue(objArray2[1]) }, null, true, true);
-      }
+      this.MainForm.UpdateListItem(this.MainForm.MP3View.FocusedItem, false);
     }
   }
 }

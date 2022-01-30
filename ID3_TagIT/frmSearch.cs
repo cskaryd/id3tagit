@@ -12,6 +12,8 @@ namespace ID3_TagIT
 {
   public class frmSearch : Form
   {
+    #region Designer
+
     private Button btnClose;
     private Button btnReplace;
     private Button btnSelect;
@@ -41,6 +43,14 @@ namespace ID3_TagIT
     private TextBox txtSearch;
     private IContainer components;
     public frmMain MainForm;
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+        this.components.Dispose();
+
+      base.Dispose(disposing);
+    }
 
     [DebuggerStepThrough]
     private void InitializeComponent()
@@ -367,85 +377,9 @@ namespace ID3_TagIT
       this.InitializeComponent();
     }
 
-    private void AddToolTips()
-    {
-      string vstrName = "frmSearch";
-      Control txtSearch = this.txtSearch;
-      this.txtSearch = (TextBox)txtSearch;
-      this.ToolTip.SetToolTip(this.txtSearch, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.txtReplace;
-      this.txtReplace = (TextBox)txtSearch;
-      this.ToolTip.SetToolTip(this.txtReplace, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.btnSelect;
-      this.btnSelect = (Button)txtSearch;
-      this.ToolTip.SetToolTip(this.btnSelect, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.btnReplace;
-      this.btnReplace = (Button)txtSearch;
-      this.ToolTip.SetToolTip(this.btnReplace, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.chkFilename;
-      this.chkFilename = (CheckBox)txtSearch;
-      this.ToolTip.SetToolTip(this.chkFilename, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.chkVer1;
-      this.chkVer1 = (CheckBox)txtSearch;
-      this.ToolTip.SetToolTip(this.chkVer1, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.chkVer2;
-      this.chkVer2 = (CheckBox)txtSearch;
-      this.ToolTip.SetToolTip(this.chkVer2, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.chkRegExpress;
-      this.chkRegExpress = (CheckBox)txtSearch;
-      this.ToolTip.SetToolTip(this.chkRegExpress, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.chkSelected;
-      this.chkSelected = (CheckBox)txtSearch;
-      this.ToolTip.SetToolTip(this.chkSelected, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.chkCase;
-      this.chkCase = (CheckBox)txtSearch;
-      this.ToolTip.SetToolTip(this.chkCase, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.optAND;
-      this.optAND = (RadioButton)txtSearch;
-      this.ToolTip.SetToolTip(this.optAND, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.optOR;
-      this.optOR = (RadioButton)txtSearch;
-      this.ToolTip.SetToolTip(this.optOR, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.chkArtist;
-      this.chkArtist = (CheckBox)txtSearch;
-      this.ToolTip.SetToolTip(this.chkArtist, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.chkTitle;
-      this.chkTitle = (CheckBox)txtSearch;
-      this.ToolTip.SetToolTip(this.chkTitle, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.chkAlbum;
-      this.chkAlbum = (CheckBox)txtSearch;
-      this.ToolTip.SetToolTip(this.chkAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.chkTracknumber;
-      this.chkTracknumber = (CheckBox)txtSearch;
-      this.ToolTip.SetToolTip(this.chkTracknumber, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.chkYear;
-      this.chkYear = (CheckBox)txtSearch;
-      this.ToolTip.SetToolTip(this.chkYear, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.chkGenre;
-      this.chkGenre = (CheckBox)txtSearch;
-      this.ToolTip.SetToolTip(this.chkGenre, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-      vstrName = "frmSearch";
-      txtSearch = this.chkComment;
-      this.chkComment = (CheckBox)txtSearch;
-      this.ToolTip.SetToolTip(this.chkComment, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
-    }
+    #endregion
+
+    #region Events
 
     private void btnClose_Click(object sender, EventArgs e)
     {
@@ -474,16 +408,16 @@ namespace ID3_TagIT
     {
       ArrayList uNDO = new ArrayList();
       int num = 0;
+
       if (((this.chkFilename.Checked | this.chkVer1.Checked) | this.chkVer2.Checked) && !(!((((((this.chkArtist.Checked | this.chkTitle.Checked) | this.chkAlbum.Checked) | this.chkComment.Checked) | this.chkYear.Checked) | this.chkTracknumber.Checked) | this.chkGenre.Checked) & !this.chkFilename.Checked))
       {
         string text = this.txtSearch.Text;
         string str = this.txtReplace.Text;
+
         if (!BooleanType.FromObject(ObjectType.BitOrObj(StringType.StrCmp(text, "", false) == 0, Interaction.IIf(this.chkCase.Checked, text.Equals(str), text.ToLower().Equals(str.ToLower())))))
         {
           if (!this.chkRegExpress.Checked)
-          {
             text = Regex.Escape(text);
-          }
           else
           {
             try
@@ -499,6 +433,7 @@ namespace ID3_TagIT
               return;
             }
           }
+
           if (!BooleanType.FromObject(ObjectType.BitOrObj(StringType.StrCmp(text, "", false) == 0, Interaction.IIf(this.chkCase.Checked, text.Equals(str), text.ToLower().Equals(str.ToLower())))))
           {
             this.btnSelect.Enabled = false;
@@ -506,38 +441,41 @@ namespace ID3_TagIT
             this.btnClose.Enabled = false;
             Application.DoEvents();
             this.MainForm.MP3View.BeginUpdate();
+
             if (!this.chkSelected.Checked)
             {
               this.ProgressBar.Maximum = this.MainForm.MP3View.Items.Count;
+
               foreach (ListViewItem item in this.MainForm.MP3View.Items)
               {
                 num++;
                 this.SR(item, ref text, ref str, ref uNDO);
+
                 if ((num % 0x19) == 0)
-                {
                   this.ProgressBar.PerformStep();
-                }
               }
             }
             else
             {
               this.ProgressBar.Maximum = this.MainForm.MP3View.SelectedItems.Count;
+
               foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
               {
                 num++;
                 this.SR(item, ref text, ref str, ref uNDO);
+
                 if ((num % 0x19) == 0)
-                {
                   this.ProgressBar.PerformStep();
-                }
               }
             }
+
             this.ProgressBar.Value = this.ProgressBar.Maximum;
             this.MainForm.MP3View.EndUpdate();
             this.btnSelect.Enabled = true;
             this.btnReplace.Enabled = true;
             this.btnClose.Enabled = true;
             this.ProgressBar.Value = 0;
+
             if (uNDO.Count > 0)
             {
               Declarations.UNDOList.Add(uNDO);
@@ -553,12 +491,11 @@ namespace ID3_TagIT
       if (((this.chkFilename.Checked | this.chkVer1.Checked) | this.chkVer2.Checked) && ((((((this.chkArtist.Checked | this.chkTitle.Checked) | this.chkAlbum.Checked) | this.chkComment.Checked) | this.chkYear.Checked) | this.chkTracknumber.Checked) | this.chkGenre.Checked))
       {
         string text = this.txtSearch.Text;
+
         if (StringType.StrCmp(text, "", false) != 0)
         {
           if (!this.chkRegExpress.Checked)
-          {
             text = Regex.Escape(text);
-          }
           else
           {
             try
@@ -574,16 +511,14 @@ namespace ID3_TagIT
               return;
             }
           }
+
           if (!this.chkSelected.Checked)
-          {
             foreach (ListViewItem item in this.MainForm.MP3View.Items)
               this.SearchSelect(item, ref text);
-          }
           else
-          {
             foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
               this.SearchSelect(item, ref text);
-          }
+
           try
           {
             if (this.MainForm.MP3View.FocusedItem == null)
@@ -601,56 +536,34 @@ namespace ID3_TagIT
     private void chkVer_CheckedChanged(object sender, EventArgs e)
     {
       this.frameTAGOptions.Enabled = this.chkVer1.Checked | this.chkVer2.Checked;
-      if (Declarations.objSettings.SynchronizeTAGs)
-      {
-        if (sender == this.chkVer1)
-        {
-          if (this.chkVer1.Checked)
-          {
-            this.chkVer2.Checked = true;
-          }
-          else
-          {
-            this.chkVer2.Checked = false;
-          }
-          if (this.chkVer2.Checked)
-          {
-            this.chkVer1.Checked = true;
-          }
-          else
-          {
-            this.chkVer1.Checked = false;
-          }
-        }
-        else
-        {
-          if (this.chkVer2.Checked)
-          {
-            this.chkVer1.Checked = true;
-          }
-          else
-          {
-            this.chkVer1.Checked = false;
-          }
-          if (this.chkVer1.Checked)
-          {
-            this.chkVer2.Checked = true;
-          }
-          else
-          {
-            this.chkVer2.Checked = false;
-          }
-        }
-      }
-    }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
+      if (!Declarations.objSettings.SynchronizeTAGs)
+        return;
+
+      if (sender == this.chkVer1)
       {
-        this.components.Dispose();
+        if (this.chkVer1.Checked)
+          this.chkVer2.Checked = true;
+        else
+          this.chkVer2.Checked = false;
+
+        if (this.chkVer2.Checked)
+          this.chkVer1.Checked = true;
+        else
+          this.chkVer1.Checked = false;
       }
-      base.Dispose(disposing);
+      else
+      {
+        if (this.chkVer2.Checked)
+          this.chkVer1.Checked = true;
+        else
+          this.chkVer1.Checked = false;
+
+        if (this.chkVer1.Checked)
+          this.chkVer2.Checked = true;
+        else
+          this.chkVer2.Checked = false;
+      }
     }
 
     private void frmSearch_Load(object sender, EventArgs e)
@@ -662,6 +575,7 @@ namespace ID3_TagIT
       Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
       Id3TagIT_Main.WindowsXPCheck(ref objForm);
+
       this.txtSearch.Text = Declarations.objSettings.SearchSearchText;
       this.txtReplace.Text = Declarations.objSettings.SearchReplaceText;
       this.chkVer1.Checked = Declarations.objSettings.SearchVer1;
@@ -680,12 +594,115 @@ namespace ID3_TagIT
       this.chkGenre.Checked = Declarations.objSettings.SearchGenre;
       this.chkTracknumber.Checked = Declarations.objSettings.SearchTracknumber;
       this.frameTAGOptions.Enabled = this.chkVer1.Checked | this.chkVer2.Checked;
+
       this.AddToolTips();
     }
 
     private void LinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
       Process.Start(this.LinkLabel.Text);
+    }
+
+    #endregion
+
+    #region Class logic
+
+    private void AddToolTips()
+    {
+      string vstrName = "frmSearch";
+      Control txtSearch = this.txtSearch;
+      this.txtSearch = (TextBox)txtSearch;
+      this.ToolTip.SetToolTip(this.txtSearch, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.txtReplace;
+      this.txtReplace = (TextBox)txtSearch;
+      this.ToolTip.SetToolTip(this.txtReplace, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.btnSelect;
+      this.btnSelect = (Button)txtSearch;
+      this.ToolTip.SetToolTip(this.btnSelect, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.btnReplace;
+      this.btnReplace = (Button)txtSearch;
+      this.ToolTip.SetToolTip(this.btnReplace, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.chkFilename;
+      this.chkFilename = (CheckBox)txtSearch;
+      this.ToolTip.SetToolTip(this.chkFilename, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.chkVer1;
+      this.chkVer1 = (CheckBox)txtSearch;
+      this.ToolTip.SetToolTip(this.chkVer1, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.chkVer2;
+      this.chkVer2 = (CheckBox)txtSearch;
+      this.ToolTip.SetToolTip(this.chkVer2, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.chkRegExpress;
+      this.chkRegExpress = (CheckBox)txtSearch;
+      this.ToolTip.SetToolTip(this.chkRegExpress, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.chkSelected;
+      this.chkSelected = (CheckBox)txtSearch;
+      this.ToolTip.SetToolTip(this.chkSelected, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.chkCase;
+      this.chkCase = (CheckBox)txtSearch;
+      this.ToolTip.SetToolTip(this.chkCase, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.optAND;
+      this.optAND = (RadioButton)txtSearch;
+      this.ToolTip.SetToolTip(this.optAND, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.optOR;
+      this.optOR = (RadioButton)txtSearch;
+      this.ToolTip.SetToolTip(this.optOR, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.chkArtist;
+      this.chkArtist = (CheckBox)txtSearch;
+      this.ToolTip.SetToolTip(this.chkArtist, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.chkTitle;
+      this.chkTitle = (CheckBox)txtSearch;
+      this.ToolTip.SetToolTip(this.chkTitle, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.chkAlbum;
+      this.chkAlbum = (CheckBox)txtSearch;
+      this.ToolTip.SetToolTip(this.chkAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.chkTracknumber;
+      this.chkTracknumber = (CheckBox)txtSearch;
+      this.ToolTip.SetToolTip(this.chkTracknumber, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.chkYear;
+      this.chkYear = (CheckBox)txtSearch;
+      this.ToolTip.SetToolTip(this.chkYear, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.chkGenre;
+      this.chkGenre = (CheckBox)txtSearch;
+      this.ToolTip.SetToolTip(this.chkGenre, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
+
+      vstrName = "frmSearch";
+      txtSearch = this.chkComment;
+      this.chkComment = (CheckBox)txtSearch;
+      this.ToolTip.SetToolTip(this.chkComment, Declarations.objResources.GetToolTip(ref vstrName, ref txtSearch));
     }
 
     private void SearchSelect(ListViewItem lstItem, ref string vstrSearchString)
@@ -702,6 +719,7 @@ namespace ID3_TagIT
         mp2 = (MP3)lstItem.Tag;
         lstItem.Selected = false;
         flag = false;
+
         if (this.chkFilename.Checked)
         {
           if (!Regex.IsMatch(mp2.CurrentName, vstrSearchString, none))
@@ -709,60 +727,81 @@ namespace ID3_TagIT
           else if (!((((((this.chkArtist.Checked | this.chkTitle.Checked) | this.chkAlbum.Checked) | this.chkComment.Checked) | this.chkYear.Checked) | this.chkTracknumber.Checked) | this.chkGenre.Checked))
             lstItem.Selected = true;
         }
+
         flag = false;
+
         if ((this.chkVer1.Checked & mp2.V1TAG.TAGPresent) & !flag)
         {
           if ((!flag && this.chkArtist.Checked) && !Regex.IsMatch(mp2.V1TAG.Artist, vstrSearchString, none))
             flag = true;
+
           if ((!flag && this.chkTitle.Checked) && !Regex.IsMatch(mp2.V1TAG.Title, vstrSearchString, none))
             flag = true;
+
           if ((!flag && this.chkAlbum.Checked) && !Regex.IsMatch(mp2.V1TAG.Album, vstrSearchString, none))
             flag = true;
+
           if ((!flag && this.chkComment.Checked) && !Regex.IsMatch(mp2.V1TAG.Comment, vstrSearchString, none))
             flag = true;
+
           if (!flag && this.chkYear.Checked)
           {
             if (!Regex.IsMatch(mp2.V1TAG.Year.ToString(), vstrSearchString, none))
               flag = true;
+
             if (mp2.V1TAG.Year <= 0)
               flag = true;
           }
+
           if (!flag && this.chkTracknumber.Checked)
           {
             if (!Regex.IsMatch(mp2.V1TAG.Tracknumber.ToString(), vstrSearchString, none))
               flag = true;
+
             if (mp2.V1TAG.Tracknumber <= 0)
               flag = true;
           }
+
           if ((!flag && this.chkGenre.Checked) && !Regex.IsMatch(mp2.V1TAG.GenreText, vstrSearchString, none))
             flag = true;
+
           if (!flag)
             lstItem.Selected = true;
         }
+
         flag = false;
+
         if (!((this.chkVer2.Checked & mp2.V2TAG.TAGHeaderPresent) & !flag))
           return;
+
         if (!flag && this.chkArtist.Checked)
         {
           flag = true;
+
           if (mp2.V2TAG.FrameExists("TPE1") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(mp2.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null)), vstrSearchString, none))
             flag = false;
         }
+
         if (!flag && this.chkTitle.Checked)
         {
           flag = true;
+
           if (mp2.V2TAG.FrameExists("TIT2") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(mp2.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null)), vstrSearchString, none))
             flag = false;
         }
+
         if (!flag && this.chkAlbum.Checked)
         {
           flag = true;
+
           if (mp2.V2TAG.FrameExists("TALB") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(mp2.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null)), vstrSearchString, none))
             flag = false;
         }
+
         if (!flag && this.chkComment.Checked)
         {
           flag = true;
+
           foreach (var frameItem in mp2.V2TAG.GetFrames("COMM"))
           {
             if (Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(frameItem), null, "Content", new object[0], null, null)), vstrSearchString, none))
@@ -772,16 +811,20 @@ namespace ID3_TagIT
             }
           }
         }
+
         goto Label_0941;
       }
+
       MP3 tag = (MP3)lstItem.Tag;
       flag = false;
       lstItem.Selected = false;
+
       if (this.chkFilename.Checked && Regex.IsMatch(tag.CurrentName, vstrSearchString, none))
       {
         lstItem.Selected = true;
         flag = true;
       }
+
       if ((this.chkVer1.Checked & tag.V1TAG.TAGPresent) & !flag)
       {
         if ((!flag && this.chkArtist.Checked) && Regex.IsMatch(tag.V1TAG.Artist, vstrSearchString, none))
@@ -789,54 +832,65 @@ namespace ID3_TagIT
           lstItem.Selected = true;
           flag = true;
         }
+
         if ((!flag && this.chkTitle.Checked) && Regex.IsMatch(tag.V1TAG.Title, vstrSearchString, none))
         {
           lstItem.Selected = true;
           flag = true;
         }
+
         if ((!flag && this.chkAlbum.Checked) && Regex.IsMatch(tag.V1TAG.Album, vstrSearchString, none))
         {
           lstItem.Selected = true;
           flag = true;
         }
+
         if ((!flag && this.chkComment.Checked) && Regex.IsMatch(tag.V1TAG.Comment, vstrSearchString, none))
         {
           lstItem.Selected = true;
           flag = true;
         }
+
         if (((!flag && this.chkYear.Checked) & (tag.V1TAG.Year > 0)) && Regex.IsMatch(tag.V1TAG.Year.ToString(), vstrSearchString, none))
         {
           lstItem.Selected = true;
           flag = true;
         }
+
         if (((!flag && this.chkTracknumber.Checked) & (tag.V1TAG.Tracknumber > 0)) && Regex.IsMatch(tag.V1TAG.Tracknumber.ToString(), vstrSearchString, none))
         {
           lstItem.Selected = true;
           flag = true;
         }
+
         if ((!flag && this.chkGenre.Checked) && Regex.IsMatch(tag.V1TAG.GenreText, vstrSearchString, none))
         {
           lstItem.Selected = true;
           flag = true;
         }
       }
+
       if (!((this.chkVer2.Checked & tag.V2TAG.TAGHeaderPresent) & !flag))
         return;
+
       if ((!flag && this.chkArtist.Checked) && (tag.V2TAG.FrameExists("TPE1") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null)), vstrSearchString, none)))
       {
         lstItem.Selected = true;
         flag = true;
       }
+
       if ((!flag && this.chkTitle.Checked) && (tag.V2TAG.FrameExists("TIT2") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null)), vstrSearchString, none)))
       {
         lstItem.Selected = true;
         flag = true;
       }
+
       if ((!flag && this.chkAlbum.Checked) && (tag.V2TAG.FrameExists("TALB") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null)), vstrSearchString, none)))
       {
         lstItem.Selected = true;
         flag = true;
       }
+
       if (!flag && this.chkComment.Checked)
       {
         foreach (var frameItem in tag.V2TAG.GetFrames("COMM"))
@@ -849,6 +903,7 @@ namespace ID3_TagIT
           }
         }
       }
+
       Label_03CB:
       if (!flag && this.chkYear.Checked)
       {
@@ -857,6 +912,7 @@ namespace ID3_TagIT
           lstItem.Selected = true;
           flag = true;
         }
+
         if (tag.V2TAG.FrameExists("TDRC"))
         {
           try
@@ -874,33 +930,35 @@ namespace ID3_TagIT
           }
         }
       }
+
       if ((!flag && this.chkTracknumber.Checked) && (tag.V2TAG.FrameExists("TRCK") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null)), vstrSearchString, none)))
       {
         lstItem.Selected = true;
         flag = true;
       }
+
       if ((!flag && this.chkGenre.Checked) && (tag.V2TAG.FrameExists("TCON") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null)), vstrSearchString, none)))
       {
         lstItem.Selected = true;
         flag = true;
       }
+
       return;
+
       Label_0941:
       if (!flag && this.chkYear.Checked)
       {
         flag = true;
+
         if (mp2.V2TAG.FrameExists("TYER") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(mp2.V2TAG.GetFrame("TYER"), null, "Content", new object[0], null, null)), vstrSearchString, none))
-        {
           flag = false;
-        }
+
         if (mp2.V2TAG.FrameExists("TDRC"))
         {
           try
           {
             if (Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(mp2.V2TAG.GetFrame("TDRC"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 4 }, null, null)), vstrSearchString, none))
-            {
               flag = false;
-            }
           }
           catch (Exception exception2)
           {
@@ -909,26 +967,25 @@ namespace ID3_TagIT
           }
         }
       }
+
       if (!flag && this.chkTracknumber.Checked)
       {
         flag = true;
+
         if (mp2.V2TAG.FrameExists("TRCK") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(mp2.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null)), vstrSearchString, none))
-        {
           flag = false;
-        }
       }
+
       if (!flag && this.chkGenre.Checked)
       {
         flag = true;
+
         if (mp2.V2TAG.FrameExists("TCON") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(mp2.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null)), vstrSearchString, none))
-        {
           flag = false;
-        }
       }
+
       if (!flag)
-      {
         lstItem.Selected = true;
-      }
     }
 
     private void SR(ListViewItem lstItem, ref string vstrSearchString, ref string vstrReplaceString, ref ArrayList UNDO)
@@ -937,15 +994,17 @@ namespace ID3_TagIT
       string str = "";
       bool flag = false;
       RegexOptions none = RegexOptions.None;
+
       if (!this.chkCase.Checked)
-      {
         none |= RegexOptions.IgnoreCase;
-      }
+
       MP3 tag = (MP3)lstItem.Tag;
       Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)lstItem.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(lstItem.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(lstItem.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(lstItem.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(lstItem.Tag, null, "Changed", new object[0], null, null)));
+
       if (this.chkFilename.Checked)
       {
         str = Regex.Replace(tag.CurrentName, vstrSearchString, vstrReplaceString, none).Replace("<", "_").Replace(">", "_").Replace("|", "_").Replace("\"", "_").Replace("/", "_").Replace("*", "_").Replace("?", "_").Replace(":", "_").Replace(@"\", "_");
+
         if (str.Length > 0xff)
         {
           ListViewItem item2 = new ListViewItem
@@ -953,12 +1012,14 @@ namespace ID3_TagIT
             Text = StringType.FromObject(LateBinding.LateGet(lstItem.Tag, null, "CurrentFullName", new object[0], null, null)),
             SubItems = { Declarations.objResources.ResStrings["InvalidPathLength"].ToString() }
           };
+
           this.MainForm.ErrorMsg.Items.Insert(0, item2);
           this.MainForm.SplitterBottom.Expanded = true;
         }
         else
         {
           string newValue = tag.CurrentFullName.Substring(0, tag.CurrentFullName.LastIndexOf(@"\") + 1) + str + tag.FI.Extension;
+
           foreach (MP3 mp2 in Declarations.MP3s)
           {
             if ((StringType.StrCmp(newValue.ToLower(), mp2.CurrentFullName.ToLower(), false) == 0) && (mp2 != tag))
@@ -967,6 +1028,7 @@ namespace ID3_TagIT
               break;
             }
           }
+
           if (!flag)
           {
             tag.CurrentName = str;
@@ -980,16 +1042,19 @@ namespace ID3_TagIT
               Text = tag.CurrentFullName,
               SubItems = { Declarations.objResources.ResStrings["FileAlreadyExistsRename"].ToString().Replace("%1", newValue).Replace("%2", tag.CurrentFullName).Replace("%C", "") }
             };
+
             this.MainForm.ErrorMsg.Items.Insert(0, item);
             this.MainForm.SplitterBottom.Expanded = true;
           }
         }
       }
+
       if (this.chkVer1.Checked & tag.V1TAG.TAGPresent)
       {
         if (this.chkArtist.Checked)
         {
           str = Regex.Replace(tag.V1TAG.Artist, vstrSearchString, vstrReplaceString, none);
+
           if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(tag.V1TAG.Artist), str.ToLower().Equals(tag.V1TAG.Artist.ToLower())))))
           {
             tag.V1TAG.Artist = str;
@@ -997,9 +1062,11 @@ namespace ID3_TagIT
             tag.Changed = true;
           }
         }
+
         if (this.chkTitle.Checked)
         {
           str = Regex.Replace(tag.V1TAG.Title, vstrSearchString, vstrReplaceString, none);
+
           if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(tag.V1TAG.Title), str.ToLower().Equals(tag.V1TAG.Title.ToLower())))))
           {
             tag.V1TAG.Title = str;
@@ -1007,9 +1074,11 @@ namespace ID3_TagIT
             tag.Changed = true;
           }
         }
+
         if (this.chkAlbum.Checked)
         {
           str = Regex.Replace(tag.V1TAG.Album, vstrSearchString, vstrReplaceString, none);
+
           if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(tag.V1TAG.Album), str.ToLower().Equals(tag.V1TAG.Album.ToLower())))))
           {
             tag.V1TAG.Album = str;
@@ -1017,9 +1086,11 @@ namespace ID3_TagIT
             tag.Changed = true;
           }
         }
+
         if (this.chkComment.Checked)
         {
           str = Regex.Replace(tag.V1TAG.Comment, vstrSearchString, vstrReplaceString, none);
+
           if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(tag.V1TAG.Comment), str.ToLower().Equals(tag.V1TAG.Comment.ToLower())))))
           {
             tag.V1TAG.Comment = str;
@@ -1027,11 +1098,13 @@ namespace ID3_TagIT
             tag.Changed = true;
           }
         }
+
         if ((this.chkYear.Checked & (tag.V1TAG.Year > 0)) && Information.IsNumeric(vstrReplaceString))
         {
           try
           {
             str = Regex.Replace(tag.V1TAG.Year.ToString(), vstrSearchString, vstrReplaceString, none);
+
             if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(tag.V1TAG.Year.ToString()), str.ToLower().Equals(tag.V1TAG.Year.ToString().ToLower())))))
             {
               tag.V1TAG.Year = Convert.ToInt32(str);
@@ -1045,11 +1118,13 @@ namespace ID3_TagIT
             ProjectData.ClearProjectError();
           }
         }
+
         if ((this.chkTracknumber.Checked & (tag.V1TAG.Tracknumber > 0)) && Information.IsNumeric(vstrReplaceString))
         {
           try
           {
             str = Regex.Replace(tag.V1TAG.Tracknumber.ToString(), vstrSearchString, vstrReplaceString, none);
+
             if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(tag.V1TAG.Tracknumber.ToString()), str.ToLower().Equals(tag.V1TAG.Tracknumber.ToString().ToLower())))))
             {
               tag.V1TAG.Tracknumber = (byte)Convert.ToInt32(str);
@@ -1064,13 +1139,16 @@ namespace ID3_TagIT
           }
         }
       }
+
       if (this.chkVer2.Checked & tag.V2TAG.TAGHeaderPresent)
       {
         object objectValue;
+
         if (this.chkArtist.Checked && tag.V2TAG.FrameExists("TPE1"))
         {
           objectValue = RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TPE1"));
           str = Regex.Replace(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)), vstrSearchString, vstrReplaceString, none);
+
           if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null))), str.ToLower().Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null)))))))
           {
             LateBinding.LateSet(objectValue, null, "Content", new object[] { str }, null);
@@ -1078,10 +1156,12 @@ namespace ID3_TagIT
             tag.Changed = true;
           }
         }
+
         if (this.chkTitle.Checked && tag.V2TAG.FrameExists("TIT2"))
         {
           objectValue = RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TIT2"));
           str = Regex.Replace(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)), vstrSearchString, vstrReplaceString, none);
+
           if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null))), str.ToLower().Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null)))))))
           {
             LateBinding.LateSet(objectValue, null, "Content", new object[] { str }, null);
@@ -1089,10 +1169,12 @@ namespace ID3_TagIT
             tag.Changed = true;
           }
         }
+
         if (this.chkAlbum.Checked && tag.V2TAG.FrameExists("TALB"))
         {
           objectValue = RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TALB"));
           str = Regex.Replace(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)), vstrSearchString, vstrReplaceString, none);
+
           if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null))), str.ToLower().Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null)))))))
           {
             LateBinding.LateSet(objectValue, null, "Content", new object[] { str }, null);
@@ -1100,12 +1182,14 @@ namespace ID3_TagIT
             tag.Changed = true;
           }
         }
+
         if (this.chkComment.Checked)
         {
           foreach (var frameItem in tag.V2TAG.GetFrames("COMM"))
           {
             objectValue = RuntimeHelpers.GetObjectValue(frameItem);
             str = Regex.Replace(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)), vstrSearchString, vstrReplaceString, none);
+
             if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null))), str.ToLower().Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null)))))))
             {
               LateBinding.LateSet(objectValue, null, "Content", new object[] { str }, null);
@@ -1114,14 +1198,17 @@ namespace ID3_TagIT
             }
           }
         }
+
         if (this.chkYear.Checked & Information.IsNumeric(vstrReplaceString))
         {
           if (tag.V2TAG.FrameExists("TYER"))
           {
             objectValue = RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TYER"));
+
             if ((Information.IsNumeric(vstrReplaceString) & (Conversion.Val((string)vstrReplaceString) > 1000.0)) & (Conversion.Val((string)vstrReplaceString) < 10000.0))
             {
               str = Regex.Replace(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)), vstrSearchString, Math.Floor(Conversion.Val((string)vstrReplaceString)).ToString(), none);
+
               if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null))), str.ToLower().Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null)))))))
               {
                 LateBinding.LateSet(objectValue, null, "Content", new object[] { str }, null);
@@ -1130,12 +1217,15 @@ namespace ID3_TagIT
               }
             }
           }
+
           if (tag.V2TAG.FrameExists("TDRC"))
           {
             objectValue = RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TDRC"));
+
             if ((Information.IsNumeric(vstrReplaceString) & (Conversion.Val((string)vstrReplaceString) > 1000.0)) & (Conversion.Val((string)vstrReplaceString) < 10000.0))
             {
               str = Regex.Replace(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)), vstrSearchString, Math.Floor(Conversion.Val((string)vstrReplaceString)).ToString(), none);
+
               if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null))), str.ToLower().Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null)))))))
               {
                 LateBinding.LateSet(objectValue, null, "Content", new object[] { str }, null);
@@ -1145,17 +1235,19 @@ namespace ID3_TagIT
             }
           }
         }
+
         if ((this.chkTracknumber.Checked & (Information.IsNumeric(vstrReplaceString) | (StringType.StrCmp(vstrReplaceString, "", false) == 0))) && tag.V2TAG.FrameExists("TRCK"))
         {
           objectValue = RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TRCK"));
+
           if (StringType.StrCmp(vstrReplaceString, "", false) == 0)
           {
             str = Regex.Replace(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)), vstrSearchString, vstrReplaceString, none);
             LateBinding.LateSet(objectValue, null, "Content", new object[] { str }, null);
+
             if (StringType.StrCmp(str, "", false) == 0)
-            {
               tag.V2TAG.RemoveFrame("TRCK");
-            }
+
             flag2 = true;
             tag.Changed = true;
           }
@@ -1167,10 +1259,12 @@ namespace ID3_TagIT
             tag.Changed = true;
           }
         }
+
         if (this.chkGenre.Checked && tag.V2TAG.FrameExists("TCON"))
         {
           objectValue = RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TCON"));
           str = Regex.Replace(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)), vstrSearchString, vstrReplaceString, none);
+
           if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null))), str.ToLower().Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null)))))))
           {
             LateBinding.LateSet(objectValue, null, "Content", new object[] { str }, null);
@@ -1179,11 +1273,14 @@ namespace ID3_TagIT
           }
         }
       }
+
       if (flag2)
       {
         UNDO.Add(@do);
         this.MainForm.UpdateListItem(lstItem, false);
       }
     }
+
+    #endregion
   }
 }

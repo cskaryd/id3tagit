@@ -1,59 +1,68 @@
-﻿  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.ComponentModel;
-  using System.Data;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.IO;
-  using System.Runtime.CompilerServices;
-  using System.Windows.Forms;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace ID3_TagIT
 {
   public class frmOrganize : Form
   {
-    private Button  btnAdd;
-    private Button  btnBrowse;
-    private Button  btnCancel;
-    private Button  btnOK;
-    private Button  btnRemove;
-    private CheckBox  chkCopy;
-    private CheckBox  chkOverwrite;
-    private ComboBox  cmbFormat;
-    private System.Windows.Forms.FolderBrowserDialog  FolderBrowserDialog;
-    private GroupBox  framePara;
-    private Label  L1;
-    private Label  L10;
-    private Label  L11;
-    private Label  L12;
-    private Label  L13;
-    private Label  L14;
-    private Label  L15;
-    private Label  L16;
-    private Label  L17;
-    private Label  L18;
-    private Label  L19;
-    private Label  L2;
-    private Label  L20;
-    private Label  L3;
-    private Label  L4;
-    private Label  L5;
-    private Label  L6;
-    private Label  L7;
-    private Label  L8;
-    private Label  L9;
-    private Label  lblDigits;
-    private Label  lblFormat;
-    private Label  lblInfo;
-    private Label  lblPath;
-    private RadioButton  optID3V1;
-    private RadioButton  optID3V2;
-    private System.Windows.Forms.ToolTip  ToolTip;
-    private NumericUpDown  txtDigits;
-    private TextBox  txtPath;
+    #region Designer
+
+    private Button btnAdd;
+    private Button btnBrowse;
+    private Button btnCancel;
+    private Button btnOK;
+    private Button btnRemove;
+    private CheckBox chkCopy;
+    private CheckBox chkOverwrite;
+    private ComboBox cmbFormat;
+    private System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog;
+    private GroupBox framePara;
+    private Label L1;
+    private Label L10;
+    private Label L11;
+    private Label L12;
+    private Label L13;
+    private Label L14;
+    private Label L15;
+    private Label L16;
+    private Label L17;
+    private Label L18;
+    private Label L19;
+    private Label L2;
+    private Label L20;
+    private Label L3;
+    private Label L4;
+    private Label L5;
+    private Label L6;
+    private Label L7;
+    private Label L8;
+    private Label L9;
+    private Label lblDigits;
+    private Label lblFormat;
+    private Label lblInfo;
+    private Label lblPath;
+    private RadioButton optID3V1;
+    private RadioButton optID3V2;
+    private System.Windows.Forms.ToolTip ToolTip;
+    private NumericUpDown txtDigits;
+    private TextBox txtPath;
     private IContainer components;
     private frmMain MainForm;
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+        this.components.Dispose();
+
+      base.Dispose(disposing);
+    }
 
     [DebuggerStepThrough]
     private void InitializeComponent()
@@ -526,7 +535,6 @@ namespace ID3_TagIT
       ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
-
     }
 
     public frmOrganize(ref frmMain FormMain)
@@ -536,41 +544,9 @@ namespace ID3_TagIT
       this.MainForm = FormMain;
     }
 
-    private void AddToolTips()
-    {
-      string vstrName = "frmOrganize";
-      Control txtPath = this.txtPath;
-      this.txtPath = (TextBox)txtPath;
-      this.ToolTip.SetToolTip(this.txtPath, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
-      vstrName = "frmOrganize";
-      txtPath = this.btnBrowse;
-      this.btnBrowse = (Button)txtPath;
-      this.ToolTip.SetToolTip(this.btnBrowse, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
-      vstrName = "frmOrganize";
-      txtPath = this.cmbFormat;
-      this.cmbFormat = (ComboBox)txtPath;
-      this.ToolTip.SetToolTip(this.cmbFormat, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
-      vstrName = "frmOrganize";
-      txtPath = this.btnAdd;
-      this.btnAdd = (Button)txtPath;
-      this.ToolTip.SetToolTip(this.btnAdd, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
-      vstrName = "frmOrganize";
-      txtPath = this.btnRemove;
-      this.btnRemove = (Button)txtPath;
-      this.ToolTip.SetToolTip(this.btnRemove, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
-      vstrName = "frmOrganize";
-      txtPath = this.optID3V2;
-      this.optID3V2 = (RadioButton)txtPath;
-      this.ToolTip.SetToolTip(this.optID3V2, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
-      vstrName = "frmOrganize";
-      txtPath = this.optID3V1;
-      this.optID3V1 = (RadioButton)txtPath;
-      this.ToolTip.SetToolTip(this.optID3V1, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
-      vstrName = "frmOrganize";
-      txtPath = this.txtDigits;
-      this.txtDigits = (NumericUpDown)txtPath;
-      this.ToolTip.SetToolTip(this.txtDigits, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
-    }
+    #endregion
+
+    #region Events
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
@@ -583,6 +559,7 @@ namespace ID3_TagIT
       string selectedPath = "";
       this.FolderBrowserDialog.Description = StringType.FromObject(Declarations.objResources.ResStrings["FileMoveText"]);
       this.FolderBrowserDialog.SelectedPath = Declarations.objSettings.OrganizePath;
+
       if (this.FolderBrowserDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
       {
         selectedPath = this.FolderBrowserDialog.SelectedPath;
@@ -623,6 +600,7 @@ namespace ID3_TagIT
             Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["InvalidCharFormat"]), MsgBoxStyle.Exclamation, null);
             return;
         }
+
         if (!Directory.Exists(vstrName))
         {
           this.DialogResult = System.Windows.Forms.DialogResult.None;
@@ -641,12 +619,14 @@ namespace ID3_TagIT
           Declarations.objSettings.OrganizeVersion = ByteType.FromObject(Interaction.IIf(this.optID3V1.Checked, 1, 2));
           Declarations.objSettings.TracknumberDigitsFilename = Convert.ToByte(this.txtDigits.Value);
           int num3 = this.cmbFormat.Items.Count - 1;
+
           for (int i = 0; i <= num3; i++)
           {
             DataRow row = Declarations.objSettings.OrganizeFormats.NewRow();
             row["Format"] = this.cmbFormat.Items[i].ToString();
             Declarations.objSettings.OrganizeFormats.Rows.Add(row);
           }
+
           form = this;
           frmProgress.Callback cB = new frmProgress.Callback(this.OrganizeCB);
           frmProgress progress = new frmProgress(0, this.MainForm.MP3View.SelectedItems.Count, 1, ref form, ref cB);
@@ -682,14 +662,6 @@ namespace ID3_TagIT
       }
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-        this.components.Dispose();
-
-      base.Dispose(disposing);
-    }
-
     private void frmOrganize_Load(object sender, EventArgs e)
     {
       Form objForm = this;
@@ -699,16 +671,20 @@ namespace ID3_TagIT
       objForm = this;
       Id3TagIT_Main.WindowsXPCheck(ref objForm);
       int num2 = Declarations.objSettings.OrganizeFormats.Rows.Count - 1;
+
       for (int i = 0; i <= num2; i++)
         this.cmbFormat.Items.Add(RuntimeHelpers.GetObjectValue(Declarations.objSettings.OrganizeFormats.Rows[i]["Format"]));
+
       this.cmbFormat.Text = Declarations.objSettings.OrganizeFormat;
       this.txtPath.Text = Declarations.objSettings.OrganizePath;
       this.chkOverwrite.Checked = Declarations.objSettings.OrganizeOverwrite;
       this.chkCopy.Checked = Declarations.objSettings.OrganizeCopy;
+
       if (Declarations.objSettings.OrganizeVersion == 1)
         this.optID3V1.Checked = true;
       else
         this.optID3V2.Checked = true;
+
       this.txtDigits.Value = new decimal(Declarations.objSettings.TracknumberDigitsFilename);
       this.AddToolTips();
     }
@@ -717,6 +693,7 @@ namespace ID3_TagIT
     {
       string selectedText = this.cmbFormat.SelectedText;
       int selectionStart = this.cmbFormat.SelectionStart;
+
       if (this.cmbFormat.SelectionLength == 0)
       {
         this.cmbFormat.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(this.cmbFormat.Text.Substring(0, this.cmbFormat.SelectionStart), LateBinding.LateGet(LateBinding.LateGet(sender, null, "Text", new object[0], null, null), null, "Substring", new object[] { 0, 3 }, null, null)), this.cmbFormat.Text.Substring(this.cmbFormat.SelectionStart)));
@@ -733,38 +710,97 @@ namespace ID3_TagIT
 
     private void optID3V1_CheckedChanged(object sender, EventArgs e)
     {
-      if (BooleanType.FromObject(LateBinding.LateGet(sender, null, "checked", new object[0], null, null)))
+      var viz = !BooleanType.FromObject(LateBinding.LateGet(sender, null, "checked", new object[0], null, null));
+
+      this.L8.Visible = viz;
+      this.L9.Visible = viz;
+      this.L10.Visible = viz;
+      this.L11.Visible = viz;
+      this.L12.Visible = viz;
+      this.L13.Visible = viz;
+      this.L14.Visible = viz;
+      this.L15.Visible = viz;
+      this.L16.Visible = viz;
+      this.L17.Visible = viz;
+    }
+
+    private void txtDigits_Validated(object sender, EventArgs e)
+    {
+      if (decimal.Compare(this.txtDigits.Value, this.txtDigits.Minimum) < 0)
+        this.txtDigits.Value = this.txtDigits.Minimum;
+
+      if (decimal.Compare(this.txtDigits.Value, this.txtDigits.Maximum) > 0)
+        this.txtDigits.Value = this.txtDigits.Maximum;
+    }
+
+    private void txtPath_KeyPress(object sender, KeyPressEventArgs e)
+    {
+      switch (e.KeyChar)
       {
-        this.L8.Visible = false;
-        this.L9.Visible = false;
-        this.L10.Visible = false;
-        this.L11.Visible = false;
-        this.L12.Visible = false;
-        this.L13.Visible = false;
-        this.L14.Visible = false;
-        this.L15.Visible = false;
-        this.L16.Visible = false;
-        this.L17.Visible = false;
+        case '<':
+        case '>':
+        case '|':
+        case '"':
+        case '/':
+        case '*':
+        case '?':
+          e.Handled = true;
+          break;
       }
-      else
-      {
-        this.L8.Visible = true;
-        this.L9.Visible = true;
-        this.L10.Visible = true;
-        this.L11.Visible = true;
-        this.L12.Visible = true;
-        this.L13.Visible = true;
-        this.L14.Visible = true;
-        this.L15.Visible = true;
-        this.L16.Visible = true;
-        this.L17.Visible = true;
-      }
+    }
+
+    #endregion
+
+    #region Class logic
+
+    private void AddToolTips()
+    {
+      string vstrName = "frmOrganize";
+      Control txtPath = this.txtPath;
+      this.txtPath = (TextBox)txtPath;
+      this.ToolTip.SetToolTip(this.txtPath, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
+
+      vstrName = "frmOrganize";
+      txtPath = this.btnBrowse;
+      this.btnBrowse = (Button)txtPath;
+      this.ToolTip.SetToolTip(this.btnBrowse, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
+
+      vstrName = "frmOrganize";
+      txtPath = this.cmbFormat;
+      this.cmbFormat = (ComboBox)txtPath;
+      this.ToolTip.SetToolTip(this.cmbFormat, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
+
+      vstrName = "frmOrganize";
+      txtPath = this.btnAdd;
+      this.btnAdd = (Button)txtPath;
+      this.ToolTip.SetToolTip(this.btnAdd, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
+
+      vstrName = "frmOrganize";
+      txtPath = this.btnRemove;
+      this.btnRemove = (Button)txtPath;
+      this.ToolTip.SetToolTip(this.btnRemove, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
+
+      vstrName = "frmOrganize";
+      txtPath = this.optID3V2;
+      this.optID3V2 = (RadioButton)txtPath;
+      this.ToolTip.SetToolTip(this.optID3V2, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
+
+      vstrName = "frmOrganize";
+      txtPath = this.optID3V1;
+      this.optID3V1 = (RadioButton)txtPath;
+      this.ToolTip.SetToolTip(this.optID3V1, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
+
+      vstrName = "frmOrganize";
+      txtPath = this.txtDigits;
+      this.txtDigits = (NumericUpDown)txtPath;
+      this.ToolTip.SetToolTip(this.txtDigits, Declarations.objResources.GetToolTip(ref vstrName, ref txtPath));
     }
 
     private void OrganizeCB(ref frmProgress frmProg)
     {
       string vstrFormat = frmProg.String01;
       string str5 = frmProg.String02;
+
       foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
       {
         Application.DoEvents();
@@ -787,6 +823,7 @@ namespace ID3_TagIT
         {
           string fullName = tag.FI.FullName;
           string str = path + tag.FI.Name;
+
           if (StringType.StrCmp(fullName.ToLower(), str.ToLower(), false) != 0)
           {
             try
@@ -802,6 +839,7 @@ namespace ID3_TagIT
                   {
                     File.Delete(str);
                     Application.DoEvents();
+
                     if (this.chkCopy.Checked)
                       File.Copy(fullName, str);
                     else
@@ -851,29 +889,6 @@ namespace ID3_TagIT
       }
     }
 
-    private void txtDigits_Validated(object sender, EventArgs e)
-    {
-      if (decimal.Compare(this.txtDigits.Value, this.txtDigits.Minimum) < 0)
-        this.txtDigits.Value = this.txtDigits.Minimum;
-
-      if (decimal.Compare(this.txtDigits.Value, this.txtDigits.Maximum) > 0)
-        this.txtDigits.Value = this.txtDigits.Maximum;
-    }
-
-    private void txtPath_KeyPress(object sender, KeyPressEventArgs e)
-    {
-      switch (e.KeyChar)
-      {
-        case '<':
-        case '>':
-        case '|':
-        case '"':
-        case '/':
-        case '*':
-        case '?':
-          e.Handled = true;
-          break;
-      }
-    }
+    #endregion
   }
 }

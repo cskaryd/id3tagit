@@ -12,6 +12,8 @@ namespace ID3_TagIT
 {
   public class frmTransfer : Form
   {
+    #region Designer
+
     private Button btnCancel;
     private Button btnDeselectAll;
     private Button btnOK;
@@ -34,6 +36,14 @@ namespace ID3_TagIT
     private TextBox txtCommentD;
     private IContainer components;
     private frmMain MainForm;
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+        this.components.Dispose();
+
+      base.Dispose(disposing);
+    }
 
     [DebuggerStepThrough]
     private void InitializeComponent()
@@ -285,61 +295,81 @@ namespace ID3_TagIT
       this.MainForm = FormMain;
     }
 
+    #endregion
+
+    #region Class logic
+
     private void AddToolTips()
     {
       string vstrName = "frmTransfer";
       Control objControl = this.opt12;
       this.opt12 = (RadioButton)objControl;
       this.ToolTip.SetToolTip(this.opt12, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
       vstrName = "frmTransfer";
       objControl = this.opt21;
       this.opt21 = (RadioButton)objControl;
       this.ToolTip.SetToolTip(this.opt21, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
       vstrName = "frmTransfer";
       objControl = this.optConvert34;
       this.optConvert34 = (RadioButton)objControl;
       this.ToolTip.SetToolTip(this.optConvert34, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
       vstrName = "frmTransfer";
       objControl = this.optConvert43;
       this.optConvert43 = (RadioButton)objControl;
       this.ToolTip.SetToolTip(this.optConvert43, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
       vstrName = "frmTransfer";
       objControl = this.chkExists;
       this.chkExists = (CheckBox)objControl;
       this.ToolTip.SetToolTip(this.chkExists, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
       vstrName = "frmTransfer";
       objControl = this.txtCommentD;
       this.txtCommentD = (TextBox)objControl;
       this.ToolTip.SetToolTip(this.txtCommentD, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
       vstrName = "frmTransfer";
       objControl = this.chkYear;
       this.chkYear = (CheckBox)objControl;
       this.ToolTip.SetToolTip(this.chkYear, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
       vstrName = "frmTransfer";
       objControl = this.chkGenre;
       this.chkGenre = (CheckBox)objControl;
       this.ToolTip.SetToolTip(this.chkGenre, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
       vstrName = "frmTransfer";
       objControl = this.chkTrack;
       this.chkTrack = (CheckBox)objControl;
       this.ToolTip.SetToolTip(this.chkTrack, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
       vstrName = "frmTransfer";
       objControl = this.chkComment;
       this.chkComment = (CheckBox)objControl;
       this.ToolTip.SetToolTip(this.chkComment, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
       vstrName = "frmTransfer";
       objControl = this.chkAlbum;
       this.chkAlbum = (CheckBox)objControl;
       this.ToolTip.SetToolTip(this.chkAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
       vstrName = "frmTransfer";
       objControl = this.chkTitle;
       this.chkTitle = (CheckBox)objControl;
       this.ToolTip.SetToolTip(this.chkTitle, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
+
       vstrName = "frmTransfer";
       objControl = this.chkArtist;
       this.chkArtist = (CheckBox)objControl;
       this.ToolTip.SetToolTip(this.chkArtist, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
     }
+
+    #endregion
+
+    #region Events
 
     private void btnDeSelectAll_Click(object sender, EventArgs e)
     {
@@ -518,8 +548,10 @@ namespace ID3_TagIT
             Descriptor = this.txtCommentD.Text,
             Content = tag.V1TAG.Comment
           };
+
           if (StringType.StrCmp(tag.V1TAG.Comment, "", false) == 0)
             frame5.Remove = true;
+
           if (!this.chkExists.Checked || !tag.V2TAG.FrameExistsExact(frame5))
             tag.V2TAG.AddFrame(frame5);
         }
@@ -529,18 +561,17 @@ namespace ID3_TagIT
           string genreText = tag.V1TAG.GenreText;
 
           foreach (DataRow row in Declarations.objSettings.Genres.Rows)
-          {
             if (ObjectType.ObjTst(row["V1V2"], tag.V1TAG.GenreByte, false) == 0)
             {
               genreText = row["Name"].ToString();
               break;
             }
-          }
 
           V2TextFrame frame6 = ID3Functions.CreateTextFrame("TCON", genreText);
 
           if (tag.V1TAG.GenreByte > 0x93)
             frame6.Remove = true;
+
           tag.V2TAG.AddFrame(frame6);
         }
 
@@ -580,8 +611,10 @@ namespace ID3_TagIT
         Label_05DD:
         if (tag.V2TAG.Changed & !tag.V2TAG.TAGHeaderPresent)
           tag.V2TAG.TAGHeaderPresent = true;
+
         if (tag.V2TAG.Changed)
           tag.V2TAG.TAGHeaderPresent = true;
+
         if (tag.V2TAG.Changed)
           tag.Changed = true;
 
@@ -724,10 +757,10 @@ namespace ID3_TagIT
                     objArray3[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj2, null, "Content", objArray5, strArray, null), null, "IndexOf", objArray4, null, null));
                     object[] objArray2 = objArray3;
                     bool[] flagArray = new bool[] { false, true };
+
                     if (flagArray[1])
-                    {
                       LateBinding.LateSetComplex(LateBinding.LateGet(obj2, null, "Content", objArray5, strArray, null), null, "IndexOf", new object[] { str2, RuntimeHelpers.GetObjectValue(objArray2[1]) }, null, true, true);
-                    }
+
                     tag.V1TAG.Tracknumber = Convert.ToByte(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null), null, "Substring", objArray2, null, flagArray))));
                     flag = true;
                   }
@@ -754,6 +787,7 @@ namespace ID3_TagIT
                   tag.V1TAG.Comment = frame.Content;
                   flag = true;
                 }
+
                 break;
               }
             }
@@ -786,6 +820,7 @@ namespace ID3_TagIT
                     flag2 = true;
                     flag = true;
                   }
+
                   break;
                 }
               }
@@ -1024,20 +1059,20 @@ namespace ID3_TagIT
         tag.V2TAG.FooterPresent = false;
         tag.Changed = true;
         tag.V2TAG.Changed = true;
+
         if (tag.V2TAG.FrameExists("TDRC"))
         {
           V2TextFrame frame = (V2TextFrame)tag.V2TAG.GetFrame("TDRC");
+
           if (StringType.StrCmp(frame.Content, "", false) != 0)
           {
             tag.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TYER", frame.Content.Substring(0, 4)));
+
             if (frame.Content.Length >= 10)
-            {
               tag.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TDAT", frame.Content.Substring(8, 2) + frame.Content.Substring(5, 2)));
-            }
+
             if (Strings.Len(frame.Content) >= 0x10)
-            {
               tag.V2TAG.AddFrame(ID3Functions.CreateTextFrame("TIME", frame.Content.Substring(11, 2) + frame.Content.Substring(14, 2)));
-            }
           }
           tag.V2TAG.RemoveFrame("TDRC");
         }
@@ -1061,9 +1096,10 @@ namespace ID3_TagIT
           tag.V2TAG.RemoveFrame("TDEN");
 
         if (tag.V2TAG.FrameExists("TDRL"))
-
           tag.V2TAG.RemoveFrame("TDRL");
-        tag.V2TAG.RemoveFrame("TDTG");
+
+        if (tag.V2TAG.FrameExists("TDTG"))
+          tag.V2TAG.RemoveFrame("TDTG");
 
         if (tag.V2TAG.FrameExists("TMCL"))
           tag.V2TAG.RemoveFrame("TMCL");
@@ -1093,10 +1129,10 @@ namespace ID3_TagIT
         tag.V2TAG.RemoveFrames("SEEK");
 
         var enumerator = tag.V2TAG.GetAllSupportedFrames().GetEnumerator();
-
         while (enumerator.MoveNext())
         {
           objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
+
           try
           {
             if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "EncodingByte", new object[0], null, null), 0xff, false) != 0, ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "EncodingByte", new object[0], null, null), 1, false) > 0)))
@@ -1119,14 +1155,6 @@ namespace ID3_TagIT
       }
     }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-        this.components.Dispose();
-
-      base.Dispose(disposing);
-    }
-
     private void frmTransfer_Load(object sender, EventArgs e)
     {
       Form objForm = this;
@@ -1135,6 +1163,7 @@ namespace ID3_TagIT
       Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
       Id3TagIT_Main.WindowsXPCheck(ref objForm);
+
       switch (Declarations.objSettings.TransferMethod)
       {
         case 1:
@@ -1175,6 +1204,7 @@ namespace ID3_TagIT
     private void opt12_CheckedChanged(object sender, EventArgs e)
     {
       this.GroupBox.Enabled = true;
+
       if (!this.opt12.Checked)
       {
         Declarations.objSettings.TransferCommentD = this.txtCommentD.Text;
@@ -1187,6 +1217,7 @@ namespace ID3_TagIT
         Declarations.objSettings.TransferYear12 = this.chkYear.Checked;
         Declarations.objSettings.TransferKeep12 = this.chkExists.Checked;
       }
+
       if (this.opt12.Checked)
       {
         this.txtCommentD.Text = Declarations.objSettings.TransferCommentD;
@@ -1204,6 +1235,7 @@ namespace ID3_TagIT
     private void opt21_CheckedChanged(object sender, EventArgs e)
     {
       this.GroupBox.Enabled = true;
+
       if (!this.opt21.Checked)
       {
         Declarations.objSettings.TransferArtist21 = this.chkArtist.Checked;
@@ -1215,6 +1247,7 @@ namespace ID3_TagIT
         Declarations.objSettings.TransferYear21 = this.chkYear.Checked;
         Declarations.objSettings.TransferKeep21 = this.chkExists.Checked;
       }
+
       if (this.opt21.Checked)
       {
         this.chkArtist.Checked = Declarations.objSettings.TransferArtist21;
@@ -1232,5 +1265,7 @@ namespace ID3_TagIT
     {
       this.GroupBox.Enabled = false;
     }
+
+    #endregion
   }
 }

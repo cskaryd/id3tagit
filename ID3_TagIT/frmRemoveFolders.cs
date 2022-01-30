@@ -10,6 +10,8 @@ namespace ID3_TagIT
 {
   public class frmRemoveFolders : Form
   {
+    #region Designer
+
     private Button btnBrowse;
     private Button btnCancel;
     private Button btnOK;
@@ -24,7 +26,14 @@ namespace ID3_TagIT
     private TextBox txtPath;
     private IContainer components;
     private frmMain MainForm;
-    private bool vbooCancel;
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && (this.components != null))
+        this.components.Dispose();
+
+      base.Dispose(disposing);
+    }
 
     [DebuggerStepThrough]
     private void InitializeComponent()
@@ -175,22 +184,21 @@ namespace ID3_TagIT
       this.MainForm = Main;
     }
 
-    private void AddToolTips()
-    {
-      string vstrName = "frmRemoveFolders";
-      Control btnBrowse = this.btnBrowse;
-      this.btnBrowse = (Button)btnBrowse;
-      this.ToolTip.SetToolTip(this.btnBrowse, Declarations.objResources.GetToolTip(ref vstrName, ref btnBrowse));
-      vstrName = "frmRemoveFolders";
-      btnBrowse = this.txtPath;
-      this.txtPath = (TextBox)btnBrowse;
-      this.ToolTip.SetToolTip(this.txtPath, Declarations.objResources.GetToolTip(ref vstrName, ref btnBrowse));
-    }
+    #endregion
+
+    #region Local variables
+
+    private bool vbooCancel;
+
+    #endregion
+
+    #region Events
 
     private void btnBrowse_Click(object sender, EventArgs e)
     {
       string selectedPath = "";
       this.FolderBrowserDialog.SelectedPath = this.txtPath.Text;
+
       if (this.FolderBrowserDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
       {
         selectedPath = this.FolderBrowserDialog.SelectedPath;
@@ -201,22 +209,14 @@ namespace ID3_TagIT
     private void btnOK_Click(object sender, EventArgs e)
     {
       ArrayList alstFolders = new ArrayList();
-      if (Directory.Exists(this.txtPath.Text))
-      {
-        Form form = this;
-        Id3TagIT_Main.SaveFormSettings(ref form);
-        alstFolders.Add(this.txtPath.Text);
-        this.ScanFolders(alstFolders, "*.MP3", this.txtPath.Text);
-      }
-    }
 
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-      {
-        this.components.Dispose();
-      }
-      base.Dispose(disposing);
+      if (!Directory.Exists(this.txtPath.Text))
+        return;
+
+      Form form = this;
+      Id3TagIT_Main.SaveFormSettings(ref form);
+      alstFolders.Add(this.txtPath.Text);
+      this.ScanFolders(alstFolders, "*.MP3", this.txtPath.Text);
     }
 
     private void frmRemoveFolders_Load(object sender, EventArgs e)
@@ -231,6 +231,23 @@ namespace ID3_TagIT
       this.AddToolTips();
     }
 
+    #endregion
+
+    #region Class logic
+
+    private void AddToolTips()
+    {
+      string vstrName = "frmRemoveFolders";
+      Control btnBrowse = this.btnBrowse;
+      this.btnBrowse = (Button)btnBrowse;
+      this.ToolTip.SetToolTip(this.btnBrowse, Declarations.objResources.GetToolTip(ref vstrName, ref btnBrowse));
+
+      vstrName = "frmRemoveFolders";
+      btnBrowse = this.txtPath;
+      this.txtPath = (TextBox)btnBrowse;
+      this.ToolTip.SetToolTip(this.txtPath, Declarations.objResources.GetToolTip(ref vstrName, ref btnBrowse));
+    }
+
     public void ScanFolders(ArrayList alstFolders, string vstrSearchPattern, string vstrStartFolder)
     {
       foreach (string str in alstFolders)
@@ -243,6 +260,7 @@ namespace ID3_TagIT
             path = path + @"\";
 
           DirectoryInfo info = new DirectoryInfo(path);
+
           foreach (DirectoryInfo info2 in info.GetDirectories())
           {
             ArrayList list = new ArrayList { info2.FullName };
@@ -256,6 +274,7 @@ namespace ID3_TagIT
           Application.DoEvents();
           DirectoryInfo[] directories = info.GetDirectories();
           FileInfo[] files = info.GetFiles(vstrSearchPattern);
+
           if ((directories.GetLength(0) <= 0) && (files.GetLength(0) <= 0))
           {
             if (this.chkIgnoreOther.Checked)
@@ -283,6 +302,7 @@ namespace ID3_TagIT
               }
             }
           }
+
           continue;
         }
         catch (Exception exception3)
@@ -293,5 +313,7 @@ namespace ID3_TagIT
         }
       }
     }
+
+    #endregion
   }
 }

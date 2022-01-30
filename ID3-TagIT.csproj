@@ -101,6 +101,9 @@
     <EmbeddedResource Include="ID3_TagIT\frmTAG1.resx">
       <DependentUpon>frmTAG1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmTAG1Multi.resx">
+      <DependentUpon>frmTAG1Multi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ID3_TagIT\frmTAG1ToFilename.resx">
       <DependentUpon>frmTAG1ToFilename.cs</DependentUpon>
     </EmbeddedResource>
