@@ -547,6 +547,7 @@ namespace ID3_TagIT
       this.ColumnsList.CheckBoxes = true;
       this.ColumnsList.FullRowSelect = true;
       this.ColumnsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+      this.ColumnsList.HideSelection = false;
       this.ColumnsList.Location = new System.Drawing.Point(6, 6);
       this.ColumnsList.MultiSelect = false;
       this.ColumnsList.Name = "ColumnsList";

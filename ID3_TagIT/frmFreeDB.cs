@@ -344,7 +344,8 @@ namespace ID3_TagIT
       this.lblSearchWord.Size = new System.Drawing.Size(232, 56);
       this.lblSearchWord.TabIndex = 3;
       this.lblSearchWord.Text = "ID3-TagIT will try to find the CDs that match the selected MP3 files. So it is ne" +
-    "ssesary for a successful search to select all files of the album in the correct order.";
+    "ssesary for a successful search to select all files of the album in the correct " +
+    "order.";
       this.lblSearchWord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // frmFreeDB

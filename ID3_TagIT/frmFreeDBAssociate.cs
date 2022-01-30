@@ -78,9 +78,11 @@ namespace ID3_TagIT
       // lvwFreeDB
       // 
       this.lvwFreeDB.CheckBoxes = true;
-      this.lvwFreeDB.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { this.FreeDB });
+      this.lvwFreeDB.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.FreeDB});
       this.lvwFreeDB.GridLines = true;
       this.lvwFreeDB.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.lvwFreeDB.HideSelection = false;
       this.lvwFreeDB.LabelWrap = false;
       this.lvwFreeDB.Location = new System.Drawing.Point(384, 40);
       this.lvwFreeDB.MultiSelect = false;
@@ -109,10 +111,12 @@ namespace ID3_TagIT
       // lvwFiles
       // 
       this.lvwFiles.CheckBoxes = true;
-      this.lvwFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { this.Filename });
+      this.lvwFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Filename});
       this.lvwFiles.FullRowSelect = true;
       this.lvwFiles.GridLines = true;
       this.lvwFiles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.lvwFiles.HideSelection = false;
       this.lvwFiles.Location = new System.Drawing.Point(8, 40);
       this.lvwFiles.Name = "lvwFiles";
       this.lvwFiles.Size = new System.Drawing.Size(368, 360);
@@ -203,6 +207,7 @@ namespace ID3_TagIT
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
       this.Text = "FreeDB";
       this.ResumeLayout(false);
+
     }
 
     public frmFreeDBAssociate(frmMain frmM)

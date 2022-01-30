@@ -3035,7 +3035,7 @@ namespace ID3_TagIT
       this.lblTopPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
       this.lblTopPanel.Location = new System.Drawing.Point(174, 9);
       this.lblTopPanel.Name = "lblTopPanel";
-      this.lblTopPanel.Size = new System.Drawing.Size(76, 16);
+      this.lblTopPanel.Size = new System.Drawing.Size(75, 16);
       this.lblTopPanel.TabIndex = 126;
       this.lblTopPanel.Text = "TopPanel";
       // 

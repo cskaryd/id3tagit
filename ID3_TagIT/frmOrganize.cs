@@ -535,6 +535,7 @@ namespace ID3_TagIT
       ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
+
     }
 
     public frmOrganize(frmMain FormMain)

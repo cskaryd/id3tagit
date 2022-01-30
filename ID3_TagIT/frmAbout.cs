@@ -102,7 +102,7 @@ namespace ID3_TagIT
       this.lblUpdate.AutoSize = true;
       this.lblUpdate.Location = new System.Drawing.Point(72, 189);
       this.lblUpdate.Name = "lblUpdate";
-      this.lblUpdate.Size = new System.Drawing.Size(230, 13);
+      this.lblUpdate.Size = new System.Drawing.Size(243, 13);
       this.lblUpdate.TabIndex = 19;
       this.lblUpdate.Text = "Recompiled version by Chris Skaryd made in 2022";
       // 
