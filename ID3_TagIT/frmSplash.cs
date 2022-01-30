@@ -98,7 +98,6 @@ namespace ID3_TagIT
       this.Text = "ID3-TagIT";
       ((System.ComponentModel.ISupportInitialize)(this._PictureBox)).EndInit();
       this.ResumeLayout(false);
-
     }
 
     public Label lblState

@@ -85,9 +85,7 @@
     protected virtual void OnNoMatchFound(CancelEventArgs e)
     {
       if (this.NoMatchFoundEvent != null)
-      {
         this.NoMatchFoundEvent(this, e);
-      }
     }
 
     protected override void OnTextChanged(EventArgs e)

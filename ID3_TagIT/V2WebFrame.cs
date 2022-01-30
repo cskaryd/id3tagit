@@ -26,6 +26,7 @@
       byte[] bytes;
       byte[] buffer2;
       byte[] buffer3;
+
       switch (MP3.V2TAG.TAGVersion)
       {
         case 3:
@@ -53,7 +54,8 @@
           Array.Copy(bytes, 0, buffer2, buffer3.Length, bytes.Length);
           return buffer2;
       }
-      return buffer2;
+
+      return null;
     }
 
     public bool GetFrame(ref MP3 MP3, ref MemoryStream mstrTAG)

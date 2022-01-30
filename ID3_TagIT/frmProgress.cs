@@ -46,7 +46,7 @@
     public frmProgress(int vintMinimum, int vintMaximum, int vintStep, ref Form OwnerForm, ref Callback CB)
     {
       base.Load += new EventHandler(this.frmProgress_Load);
-      base.Closing += new CancelEventHandler(this, (IntPtr)this.frmProgress_Closing);
+      base.Closing += new CancelEventHandler(this.frmProgress_Closing);
       this.vbooCanceled = false;
       this.vbooFinished = false;
       this.vbooScanForFiles = false;
@@ -62,10 +62,10 @@
       this.objList = null;
       this.objListHelp = null;
       this.InitializeComponent();
-      this.ProgressBar.Minimum = vintMinimum;
-      this.ProgressBar.Maximum = vintMaximum;
-      this.ProgressBar.Step = vintStep;
-      this.ProgressBar.Value = vintMinimum;
+      this._ProgressBar.Minimum = vintMinimum;
+      this._ProgressBar.Maximum = vintMaximum;
+      this._ProgressBar.Step = vintStep;
+      this._ProgressBar.Value = vintMinimum;
       this.Owner = OwnerForm;
       this.CBack = CB;
     }
@@ -78,9 +78,8 @@
     protected override void Dispose(bool disposing)
     {
       if (disposing && (this.components != null))
-      {
         this.components.Dispose();
-      }
+
       base.Dispose(disposing);
     }
 
@@ -103,106 +102,100 @@
     private void InitializeComponent()
     {
       this.components = new Container();
-      this.ProgressBar = new System.Windows.Forms.ProgressBar();
-      this.btnCancel = new Button();
-      this.State = new Label();
-      this.Infos = new Label();
-      this.Timer = new System.Windows.Forms.Timer(this.components);
-      this.ButtomPanel = new PanelEx();
-      this.TopPanel = new PanelEx();
-      this.ButtomPanel.SuspendLayout();
-      this.TopPanel.SuspendLayout();
+      this._ProgressBar = new System.Windows.Forms.ProgressBar();
+      this._btnCancel = new Button();
+      this._State = new Label();
+      this._Infos = new Label();
+      this._Timer = new System.Windows.Forms.Timer(this.components);
+      this._ButtomPanel = new PanelEx();
+      this._TopPanel = new PanelEx();
+      this._ButtomPanel.SuspendLayout();
+      this._TopPanel.SuspendLayout();
       this.SuspendLayout();
-      this.ProgressBar.ImeMode = ImeMode.NoControl;
-      Point point = new Point(0x10, 40);
-      this.ProgressBar.Location = point;
-      this.ProgressBar.Name = "ProgressBar";
-      Size size = new Size(0x178, 0x10);
-      this.ProgressBar.Size = size;
-      this.ProgressBar.TabIndex = 0;
-      this.btnCancel.BackColor = SystemColors.Control;
-      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnCancel.FlatStyle = FlatStyle.Popup;
-      this.btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
-      this.btnCancel.ImeMode = ImeMode.NoControl;
-      point = new Point(0x88, 8);
-      this.btnCancel.Location = point;
-      this.btnCancel.Name = "btnCancel";
-      size = new Size(0x80, 0x18);
-      this.btnCancel.Size = size;
-      this.btnCancel.TabIndex = 1;
-      this.btnCancel.Text = "&Cancel";
-      this.State.BackColor = Color.White;
-      this.State.ForeColor = Color.Black;
-      this.State.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.State.Location = point;
-      this.State.Name = "State";
-      size = new Size(0x180, 0x10);
-      this.State.Size = size;
-      this.State.TabIndex = 2;
-      this.Infos.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x40);
-      this.Infos.Location = point;
-      this.Infos.Name = "Infos";
-      size = new Size(0x178, 0x38);
-      this.Infos.Size = size;
-      this.Infos.TabIndex = 3;
-      this.Infos.TextAlign = ContentAlignment.MiddleCenter;
-      this.Timer.Enabled = true;
-      this.Timer.Interval = 10;
-      this.ButtomPanel.Controls.Add(this.btnCancel);
-      this.ButtomPanel.Dock = DockStyle.Bottom;
-      point = new Point(0, 0x80);
-      this.ButtomPanel.Location = point;
-      this.ButtomPanel.Name = "ButtomPanel";
-      size = new Size(0x198, 40);
-      this.ButtomPanel.Size = size;
-      this.ButtomPanel.Style.BackColor1.Color = Color.White;
-      this.ButtomPanel.Style.BackColor2.Color = Color.White;
-      this.ButtomPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this.ButtomPanel.Style.BorderWidth = 0;
-      this.ButtomPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.ButtomPanel.Style.ForeColor.Color = Color.Black;
-      this.ButtomPanel.Style.GradientAngle = 90;
-      this.ButtomPanel.Style.LineAlignment = StringAlignment.Near;
-      this.ButtomPanel.Style.MarginBottom = 2;
-      this.ButtomPanel.Style.MarginLeft = 7;
-      this.ButtomPanel.Style.MarginRight = 2;
-      this.ButtomPanel.Style.MarginTop = 2;
-      this.ButtomPanel.TabIndex = 0x76;
-      this.TopPanel.Controls.Add(this.State);
-      this.TopPanel.Dock = DockStyle.Top;
-      point = new Point(0, 0);
-      this.TopPanel.Location = point;
-      this.TopPanel.Name = "TopPanel";
-      size = new Size(0x198, 0x20);
-      this.TopPanel.Size = size;
-      this.TopPanel.Style.BackColor1.Color = Color.White;
-      this.TopPanel.Style.BackColor2.Color = Color.White;
-      this.TopPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this.TopPanel.Style.BorderWidth = 0;
-      this.TopPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.TopPanel.Style.ForeColor.Color = Color.Black;
-      this.TopPanel.Style.GradientAngle = 90;
-      this.TopPanel.Style.LineAlignment = StringAlignment.Near;
-      this.TopPanel.Style.MarginBottom = 2;
-      this.TopPanel.Style.MarginLeft = 7;
-      this.TopPanel.Style.MarginRight = 2;
-      this.TopPanel.Style.MarginTop = 2;
-      this.TopPanel.TabIndex = 0x77;
+
+      this._ProgressBar.ImeMode = ImeMode.NoControl;
+      this._ProgressBar.Location = new Point(0x10, 40);
+      this._ProgressBar.Name = "_ProgressBar";
+      this._ProgressBar.Size = new Size(0x178, 0x10);
+      this._ProgressBar.TabIndex = 0;
+
+      this._btnCancel.BackColor = SystemColors.Control;
+      this._btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+      this._btnCancel.FlatStyle = FlatStyle.Popup;
+      this._btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
+      this._btnCancel.ImeMode = ImeMode.NoControl;
+      this._btnCancel.Location = new Point(0x88, 8);
+      this._btnCancel.Name = "_btnCancel";
+      this._btnCancel.Size = new Size(0x80, 0x18);
+      this._btnCancel.TabIndex = 1;
+      this._btnCancel.Text = "&Cancel";
+
+      this._State.BackColor = Color.White;
+      this._State.ForeColor = Color.Black;
+      this._State.ImeMode = ImeMode.NoControl;
+      this._State.Location = new Point(8, 8);
+      this._State.Name = "_State";
+      this._State.Size = new Size(0x180, 0x10);
+      this._State.TabIndex = 2;
+
+      this._Infos.ImeMode = ImeMode.NoControl;
+      this._Infos.Location = new Point(0x10, 0x40);
+      this._Infos.Name = "_Infos";
+      this._Infos.Size = new Size(0x178, 0x38);
+      this._Infos.TabIndex = 3;
+      this._Infos.TextAlign = ContentAlignment.MiddleCenter;
+
+      this._Timer.Enabled = true;
+      this._Timer.Interval = 10;
+
+      this._ButtomPanel.Controls.Add(this.btnCancel);
+      this._ButtomPanel.Dock = DockStyle.Bottom;
+      this._ButtomPanel.Location = new Point(0, 0x80);
+      this._ButtomPanel.Name = "_ButtomPanel";
+      this._ButtomPanel.Size = new Size(0x198, 40);
+      this._ButtomPanel.Style.BackColor1.Color = Color.White;
+      this._ButtomPanel.Style.BackColor2.Color = Color.White;
+      this._ButtomPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
+      this._ButtomPanel.Style.BorderWidth = 0;
+      this._ButtomPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
+      this._ButtomPanel.Style.ForeColor.Color = Color.Black;
+      this._ButtomPanel.Style.GradientAngle = 90;
+      this._ButtomPanel.Style.LineAlignment = StringAlignment.Near;
+      this._ButtomPanel.Style.MarginBottom = 2;
+      this._ButtomPanel.Style.MarginLeft = 7;
+      this._ButtomPanel.Style.MarginRight = 2;
+      this._ButtomPanel.Style.MarginTop = 2;
+      this._ButtomPanel.TabIndex = 0x76;
+
+      this._TopPanel.Controls.Add(this.State);
+      this._TopPanel.Dock = DockStyle.Top;
+      this._TopPanel.Location = new Point(0, 0);
+      this._TopPanel.Name = "_TopPanel";
+      this._TopPanel.Size = new Size(0x198, 0x20);
+      this._TopPanel.Style.BackColor1.Color = Color.White;
+      this._TopPanel.Style.BackColor2.Color = Color.White;
+      this._TopPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
+      this._TopPanel.Style.BorderWidth = 0;
+      this._TopPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
+      this._TopPanel.Style.ForeColor.Color = Color.Black;
+      this._TopPanel.Style.GradientAngle = 90;
+      this._TopPanel.Style.LineAlignment = StringAlignment.Near;
+      this._TopPanel.Style.MarginBottom = 2;
+      this._TopPanel.Style.MarginLeft = 7;
+      this._TopPanel.Style.MarginRight = 2;
+      this._TopPanel.Style.MarginTop = 2;
+      this._TopPanel.TabIndex = 0x77;
+
       this.AllowDrop = true;
-      this.AutoScale = false;
-      size = new Size(5, 13);
-      this.AutoScaleBaseSize = size;
+      this.AutoScaleMode = AutoScaleMode.None;
+      this.AutoScaleBaseSize = new Size(5, 13);
       this.CancelButton = this.btnCancel;
-      size = new Size(0x198, 0xa8);
-      this.ClientSize = size;
+      this.ClientSize = new Size(0x198, 0xa8);
       this.ControlBox = false;
-      this.Controls.Add(this.Infos);
-      this.Controls.Add(this.ProgressBar);
-      this.Controls.Add(this.ButtomPanel);
-      this.Controls.Add(this.TopPanel);
+      this.Controls.Add(this._Infos);
+      this.Controls.Add(this._ProgressBar);
+      this.Controls.Add(this._ButtomPanel);
+      this.Controls.Add(this._TopPanel);
       this.FormBorderStyle = FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
@@ -427,7 +420,7 @@
       }
     }
 
-    internal virtual Button btnCancel
+    public Button btnCancel
     {
       get
       {
@@ -448,7 +441,7 @@
       }
     }
 
-    internal virtual PanelEx ButtomPanel
+    public PanelEx ButtomPanel
     {
       get
       {
@@ -475,7 +468,7 @@
       }
     }
 
-    internal virtual Label Infos
+    public Label Infos
     {
       get
       {
@@ -566,26 +559,7 @@
       }
     }
 
-    internal virtual System.Windows.Forms.ProgressBar ProgressBar
-    {
-      get
-      {
-        return this._ProgressBar;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ProgressBar != null)
-        {
-        }
-        this._ProgressBar = value;
-        if (this._ProgressBar != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label State
+    public Label State
     {
       get
       {
@@ -594,13 +568,7 @@
       [MethodImpl(MethodImplOptions.Synchronized)]
       set
       {
-        if (this._State != null)
-        {
-        }
         this._State = value;
-        if (this._State != null)
-        {
-        }
       }
     }
 
@@ -661,7 +629,7 @@
       }
     }
 
-    internal virtual PanelEx TopPanel
+    public PanelEx TopPanel
     {
       get
       {

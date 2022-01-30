@@ -541,52 +541,48 @@
 
     public static void ScanForFiles(ArrayList alstFolders, string vstrSearchPattern, bool vbooIncludeSubDir, ref ArrayList alstFile, [Optional, DefaultParameterValue(null)] ref frmProgress frmProg)
     {
-      using (IEnumerator enumerator = alstFolders.GetEnumerator())
+      foreach (string str in alstFolders)
       {
-        while (enumerator.MoveNext())
+        try
         {
-          string str = StringType.FromObject(enumerator.Current);
-          try
+          string path = str;
+          if (path.EndsWith(":"))
           {
-            string path = str;
-            if (path.EndsWith(":"))
+            path = path + @"\";
+          }
+          DirectoryInfo info = new DirectoryInfo(path);
+          DirectoryInfo[] directories = info.GetDirectories();
+          if (vbooIncludeSubDir)
+          {
+            foreach (DirectoryInfo info2 in directories)
             {
-              path = path + @"\";
-            }
-            DirectoryInfo info = new DirectoryInfo(path);
-            DirectoryInfo[] directories = info.GetDirectories();
-            if (vbooIncludeSubDir)
-            {
-              foreach (DirectoryInfo info2 in directories)
+              Application.DoEvents();
+              if (frmProg.Canceled)
               {
-                Application.DoEvents();
-                if (frmProg.Canceled)
-                {
-                  return;
-                }
-                ArrayList list = new ArrayList {
+                return;
+              }
+              ArrayList list = new ArrayList {
                                     info2.FullName
                                 };
-                ScanForFiles(list, vstrSearchPattern, vbooIncludeSubDir, ref alstFile, ref frmProg);
-              }
+              ScanForFiles(list, vstrSearchPattern, vbooIncludeSubDir, ref alstFile, ref frmProg);
             }
-            if (frmProg != null)
-            {
-              frmProg.Infos.Text = info.FullName;
-            }
-            Application.DoEvents();
-            foreach (FileInfo info3 in info.GetFiles(vstrSearchPattern))
-            {
-              alstFile.Add(info3.FullName);
-            }
-            continue;
           }
-          catch (Exception exception1)
+          if (frmProg != null)
           {
-            ProjectData.SetProjectError(exception1);
-            ProjectData.ClearProjectError();
-            continue;
+            frmProg.Infos.Text = info.FullName;
           }
+          Application.DoEvents();
+          foreach (FileInfo info3 in info.GetFiles(vstrSearchPattern))
+          {
+            alstFile.Add(info3.FullName);
+          }
+          continue;
+        }
+        catch (Exception exception1)
+        {
+          ProjectData.SetProjectError(exception1);
+          ProjectData.ClearProjectError();
+          continue;
         }
       }
     }
