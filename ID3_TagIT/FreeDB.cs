@@ -40,10 +40,7 @@
       int num3 = 150;
       int num2 = 0;
       if (!this.vbooConnected)
-      {
-        string str;
-        return str;
-      }
+        return string.Empty;
       vstrCommand = "discid " + TracksLength.Length.ToString() + " ";
       foreach (int num in TracksLength)
       {
@@ -54,9 +51,7 @@
       vstrCommand = vstrCommand + num2.ToString() + "\r\n";
       str3 = this.SendCommand(vstrCommand).Replace("\r\n", "");
       if (StringType.StrCmp(str3.Substring(0, 3), "200", false) == 0)
-      {
         return str3.Replace("200 Disc ID is ", "");
-      }
       return "00000000";
     }
 

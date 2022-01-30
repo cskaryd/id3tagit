@@ -8,7 +8,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <AssemblyName>ID3-TagIT</AssemblyName>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -108,6 +109,9 @@
     <Compile Include="ID3_TagIT\frmSplash.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="ID3_TagIT\frmSplash.resx">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="ID3_TagIT\frmSelectFormat.cs">
       <SubType>Form</SubType>
     </Compile>
