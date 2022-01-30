@@ -402,18 +402,18 @@ namespace ID3_TagIT
       this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
       this.shortcutsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.sepButtons1 = new System.Windows.Forms.ToolStripSeparator();
       this.sepButtons2 = new System.Windows.Forms.ToolStripSeparator();
       this.sepButtons3 = new System.Windows.Forms.ToolStripSeparator();
       this.sepButtons4 = new System.Windows.Forms.ToolStripSeparator();
       this.sepButtons5 = new System.Windows.Forms.ToolStripSeparator();
-      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-      this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.mnuBtns = new System.Windows.Forms.MenuStrip();
       this.btnAddFolder = new System.Windows.Forms.ToolStripMenuItem();
-      this.btnRefresh = new System.Windows.Forms.ToolStripMenuItem();
       this.btnSave = new System.Windows.Forms.ToolStripMenuItem();
       this.btnPlay = new System.Windows.Forms.ToolStripMenuItem();
+      this.btnRefresh = new System.Windows.Forms.ToolStripMenuItem();
       this.btnUndo = new System.Windows.Forms.ToolStripMenuItem();
       this.btnRedo = new System.Windows.Forms.ToolStripMenuItem();
       this.btnEditV1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -1190,6 +1190,7 @@ namespace ID3_TagIT
       this.addDirectoryToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F8;
       this.addDirectoryToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.addDirectoryToolStripMenuItem.Text = "&Add directory";
+      this.addDirectoryToolStripMenuItem.Click += new System.EventHandler(this.mnuAddFolder_Click);
       // 
       // refreshToolStripMenuItem
       // 
@@ -1197,6 +1198,7 @@ namespace ID3_TagIT
       this.refreshToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
       this.refreshToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.refreshToolStripMenuItem.Text = "&Refresh";
+      this.refreshToolStripMenuItem.Click += new System.EventHandler(this.mnuRefresh_Click);
       // 
       // toolStripSeparator2
       // 
@@ -1209,6 +1211,7 @@ namespace ID3_TagIT
       this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
       this.saveToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.saveToolStripMenuItem.Text = "&Save";
+      this.saveToolStripMenuItem.Click += new System.EventHandler(this.mnuSave_Click);
       // 
       // toolStripSeparator3
       // 
@@ -1221,6 +1224,7 @@ namespace ID3_TagIT
       this.playToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
       this.playToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.playToolStripMenuItem.Text = "&Play";
+      this.playToolStripMenuItem.Click += new System.EventHandler(this.mnuPlay_Click);
       // 
       // toolStripSeparator4
       // 
@@ -1233,6 +1237,7 @@ namespace ID3_TagIT
       this.moveFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
       this.moveFilesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.moveFilesToolStripMenuItem.Text = "&Move files";
+      this.moveFilesToolStripMenuItem.Click += new System.EventHandler(this.moveFilesToolStripMenuItem_Click);
       // 
       // copyFilesToolStripMenuItem
       // 
@@ -1328,6 +1333,7 @@ namespace ID3_TagIT
       this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
       this.undoToolStripMenuItem.Size = new System.Drawing.Size(341, 22);
       this.undoToolStripMenuItem.Text = "&Undo";
+      this.undoToolStripMenuItem.Click += new System.EventHandler(this.mnuUndo_Click);
       // 
       // redoToolStripMenuItem
       // 
@@ -1337,6 +1343,7 @@ namespace ID3_TagIT
             | System.Windows.Forms.Keys.Z)));
       this.redoToolStripMenuItem.Size = new System.Drawing.Size(341, 22);
       this.redoToolStripMenuItem.Text = "&Redo";
+      this.redoToolStripMenuItem.Click += new System.EventHandler(this.mnuRedo_Click);
       // 
       // toolStripSeparator18
       // 
@@ -1503,6 +1510,7 @@ namespace ID3_TagIT
       this.viewTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
       this.viewTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
       this.viewTAGVer1ToolStripMenuItem.Text = "View TAG Ver. &1";
+      this.viewTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.viewTAGVer1ToolStripMenuItem_Click);
       // 
       // viewTAGVer2ToolStripMenuItem
       // 
@@ -1512,6 +1520,7 @@ namespace ID3_TagIT
       this.viewTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F2)));
       this.viewTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
       this.viewTAGVer2ToolStripMenuItem.Text = "View TAG Ver. &2";
+      this.viewTAGVer2ToolStripMenuItem.Click += new System.EventHandler(this.viewTAGVer2ToolStripMenuItem_Click);
       // 
       // toolStripSeparator7
       // 
@@ -1594,6 +1603,7 @@ namespace ID3_TagIT
       this.editTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
       this.editTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
       this.editTAGVer1ToolStripMenuItem.Text = "Edit TAG Ver. &1";
+      this.editTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.mnuEditV1_Click);
       // 
       // multipleEditTAGVer1ToolStripMenuItem
       // 
@@ -1601,6 +1611,7 @@ namespace ID3_TagIT
       this.multipleEditTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
       this.multipleEditTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
       this.multipleEditTAGVer1ToolStripMenuItem.Text = "&Multiple Edit TAG Ver. 1 ";
+      this.multipleEditTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.mnuMultiEditV1_Click);
       // 
       // removeTAGVer1ToolStripMenuItem
       // 
@@ -1608,6 +1619,7 @@ namespace ID3_TagIT
       this.removeTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F11)));
       this.removeTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
       this.removeTAGVer1ToolStripMenuItem.Text = "&Remove TAG Ver. 1";
+      this.removeTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.mnuRemoveV1_Click);
       // 
       // filenameTAGVer1ToolStripMenuItem
       // 
@@ -1615,6 +1627,7 @@ namespace ID3_TagIT
       this.filenameTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
       this.filenameTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
       this.filenameTAGVer1ToolStripMenuItem.Text = "&Filename -> TAG Ver. 1";
+      this.filenameTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.mnuFileToTagV1_Click);
       // 
       // tAGVer1FilenameToolStripMenuItem
       // 
@@ -1622,6 +1635,7 @@ namespace ID3_TagIT
       this.tAGVer1FilenameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
       this.tAGVer1FilenameToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
       this.tAGVer1FilenameToolStripMenuItem.Text = "&TAG Ver. 1 -> Filename";
+      this.tAGVer1FilenameToolStripMenuItem.Click += new System.EventHandler(this.mnuTagToFileV1_Click);
       // 
       // toolStripSeparator17
       // 
@@ -1634,6 +1648,7 @@ namespace ID3_TagIT
       this.editTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
       this.editTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
       this.editTAGVer2ToolStripMenuItem.Text = "Edit TAG Ver. &2";
+      this.editTAGVer2ToolStripMenuItem.Click += new System.EventHandler(this.mnuEditV2_Click);
       // 
       // multipleEditTAGVer2ToolStripMenuItem
       // 
@@ -1641,20 +1656,23 @@ namespace ID3_TagIT
       this.multipleEditTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
       this.multipleEditTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
       this.multipleEditTAGVer2ToolStripMenuItem.Text = "&Multi&ple Edit TAG Ver. 2";
+      this.multipleEditTAGVer2ToolStripMenuItem.Click += new System.EventHandler(this.mnuMultiEditV2_Click);
       // 
-      // removeTAGVer1ToolStripMenuItem1
+      // removeTAGVer1ToolStripMenuItem
       // 
-      this.removeTAGVer1ToolStripMenuItem1.Name = "removeTAGVer1ToolStripMenuItem1";
-      this.removeTAGVer1ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F12)));
-      this.removeTAGVer1ToolStripMenuItem1.Size = new System.Drawing.Size(247, 22);
-      this.removeTAGVer1ToolStripMenuItem1.Text = "Remo&ve TAG Ver. 2";
+      this.removeTAGVer1ToolStripMenuItem.Name = "removeTAGVer1ToolStripMenuItem";
+      this.removeTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F12)));
+      this.removeTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+      this.removeTAGVer1ToolStripMenuItem.Text = "Remo&ve TAG Ver. 2";
+      this.removeTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.mnuRemoveV2_Click);
       // 
-      // removeTAGVer1ToolStripMenuItem2
+      // filenameTAGVer1ToolStripMenuItem
       // 
-      this.removeTAGVer1ToolStripMenuItem2.Name = "removeTAGVer1ToolStripMenuItem2";
-      this.removeTAGVer1ToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-      this.removeTAGVer1ToolStripMenuItem2.Size = new System.Drawing.Size(247, 22);
-      this.removeTAGVer1ToolStripMenuItem2.Text = "File&name -> TAG Ver. 2";
+      this.filenameTAGVer1ToolStripMenuItem.Name = "filenameTAGVer1ToolStripMenuItem";
+      this.filenameTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+      this.filenameTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+      this.filenameTAGVer1ToolStripMenuItem.Text = "File&name -> TAG Ver. 2";
+      this.filenameTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.mnuFileToTagV2_Click);
       // 
       // tAGVer2FilenameToolStripMenuItem
       // 
@@ -1662,6 +1680,7 @@ namespace ID3_TagIT
       this.tAGVer2FilenameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
       this.tAGVer2FilenameToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
       this.tAGVer2FilenameToolStripMenuItem.Text = "TA&G Ver. 2 -> Filename";
+      this.tAGVer2FilenameToolStripMenuItem.Click += new System.EventHandler(this.mnuTagToFileV2_Click);
       // 
       // extendedFunctionsToolStripMenuItem
       // 
@@ -1916,27 +1935,27 @@ namespace ID3_TagIT
       // sepButtons1
       // 
       this.sepButtons1.Name = "sepButtons1";
-      this.sepButtons1.Size = new System.Drawing.Size(133, 6);
+      this.sepButtons1.Size = new System.Drawing.Size(6, 23);
       // 
       // sepButtons2
       // 
       this.sepButtons2.Name = "sepButtons2";
-      this.sepButtons2.Size = new System.Drawing.Size(133, 6);
+      this.sepButtons2.Size = new System.Drawing.Size(6, 23);
       // 
       // sepButtons3
       // 
       this.sepButtons3.Name = "sepButtons3";
-      this.sepButtons3.Size = new System.Drawing.Size(133, 6);
+      this.sepButtons3.Size = new System.Drawing.Size(6, 23);
       // 
       // sepButtons4
       // 
       this.sepButtons4.Name = "sepButtons4";
-      this.sepButtons4.Size = new System.Drawing.Size(133, 6);
+      this.sepButtons4.Size = new System.Drawing.Size(6, 23);
       // 
       // sepButtons5
       // 
       this.sepButtons5.Name = "sepButtons5";
-      this.sepButtons5.Size = new System.Drawing.Size(133, 6);
+      this.sepButtons5.Size = new System.Drawing.Size(6, 23);
       // 
       // mnuBtns
       // 
@@ -1971,103 +1990,124 @@ namespace ID3_TagIT
       // 
       // btnAddFolder
       // 
-      this.btnAddFolder.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFolder.Image")));
+      this.btnAddFolder.Image = global::Properties.Resources.AddFolder;
       this.btnAddFolder.Name = "btnAddFolder";
-      this.btnAddFolder.Padding = new Padding(3, 0, 3, 0);
-      this.btnAddFolder.Size = new System.Drawing.Size(28, 23);
+      this.btnAddFolder.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+      this.btnAddFolder.Size = new System.Drawing.Size(26, 23);
+      this.btnAddFolder.Click += new System.EventHandler(this.mnuAddFolder_Click);
       // 
-      // toolStripMenuItem1
+      // btnSave
       // 
-      this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
-      this.btnRefresh.Name = "toolStripMenuItem1";
-      this.btnRefresh.Size = new System.Drawing.Size(28, 23);
-      // 
-      // toolStripMenuItem2
-      // 
-      this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem2.Image")));
-      this.btnSave.Name = "toolStripMenuItem2";
+      this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+      this.btnSave.Name = "btnSave";
       this.btnSave.Size = new System.Drawing.Size(28, 23);
+      this.btnSave.Click += new System.EventHandler(this.mnuSave_Click);
       // 
-      // toolStripMenuItem3
+      // btnPlay
       // 
-      this.btnPlay.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem3.Image")));
-      this.btnPlay.Name = "toolStripMenuItem3";
+      this.btnPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnPlay.Image")));
+      this.btnPlay.Name = "btnPlay";
       this.btnPlay.Size = new System.Drawing.Size(28, 23);
+      this.btnPlay.Click += new System.EventHandler(this.mnuPlay_Click);
       // 
-      // toolStripMenuItem4
+      // btnRefresh
       // 
-      this.btnUndo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem4.Image")));
-      this.btnUndo.Name = "toolStripMenuItem4";
+      this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+      this.btnRefresh.Name = "btnRefresh";
+      this.btnRefresh.Size = new System.Drawing.Size(28, 23);
+      this.btnRefresh.Click += new System.EventHandler(this.mnuRefresh_Click);
+      // 
+      // btnUndo
+      // 
+      this.btnUndo.Image = ((System.Drawing.Image)(resources.GetObject("btnUndo.Image")));
+      this.btnUndo.Name = "btnUndo";
       this.btnUndo.Size = new System.Drawing.Size(28, 23);
+      this.btnUndo.Click += new System.EventHandler(this.mnuUndo_Click);
       // 
-      // toolStripMenuItem5
+      // btnRedo
       // 
-      this.btnRedo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem5.Image")));
-      this.btnRedo.Name = "toolStripMenuItem5";
+      this.btnRedo.Image = ((System.Drawing.Image)(resources.GetObject("btnRedo.Image")));
+      this.btnRedo.Name = "btnRedo";
       this.btnRedo.Size = new System.Drawing.Size(28, 23);
+      this.btnRedo.Click += new System.EventHandler(this.mnuRedo_Click);
       // 
-      // toolStripMenuItem6
+      // btnEditV1
       // 
-      this.btnEditV1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem6.Image")));
-      this.btnEditV1.Name = "toolStripMenuItem6";
+      this.btnEditV1.Image = ((System.Drawing.Image)(resources.GetObject("btnEditV1.Image")));
+      this.btnEditV1.Name = "btnEditV1";
       this.btnEditV1.Size = new System.Drawing.Size(28, 23);
+      this.btnEditV1.Click += new System.EventHandler(this.mnuEditV1_Click);
       // 
-      // toolStripMenuItem7
+      // btnMultiEditV1
       // 
-      this.btnMultiEditV1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem7.Image")));
-      this.btnMultiEditV1.Name = "toolStripMenuItem7";
+      this.btnMultiEditV1.Image = ((System.Drawing.Image)(resources.GetObject("btnMultiEditV1.Image")));
+      this.btnMultiEditV1.Name = "btnMultiEditV1";
       this.btnMultiEditV1.Size = new System.Drawing.Size(28, 23);
+      this.btnMultiEditV1.Click += new System.EventHandler(this.mnuMultiEditV1_Click);
       // 
-      // toolStripMenuItem8
+      // btnRemoveV1
       // 
-      this.btnRemoveV1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem8.Image")));
-      this.btnRemoveV1.Name = "toolStripMenuItem8";
+      this.btnRemoveV1.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveV1.Image")));
+      this.btnRemoveV1.Name = "btnRemoveV1";
       this.btnRemoveV1.Size = new System.Drawing.Size(28, 23);
+      this.btnRemoveV1.Click += new System.EventHandler(this.mnuRemoveV1_Click);
       // 
-      // toolStripMenuItem9
+      // btnFileToTagV1
       // 
-      this.btnFileToTagV1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem9.Image")));
-      this.btnFileToTagV1.Name = "toolStripMenuItem9";
+      this.btnFileToTagV1.Image = ((System.Drawing.Image)(resources.GetObject("btnFileToTagV1.Image")));
+      this.btnFileToTagV1.Name = "btnFileToTagV1";
       this.btnFileToTagV1.Size = new System.Drawing.Size(28, 23);
+      this.btnFileToTagV1.Click += new System.EventHandler(this.mnuFileToTagV1_Click);
       // 
-      // toolStripMenuItem10
+      // btnTagToFileV1
       // 
-      this.btnTagToFileV1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem10.Image")));
-      this.btnTagToFileV1.Name = "toolStripMenuItem10";
+      this.btnTagToFileV1.Image = ((System.Drawing.Image)(resources.GetObject("btnTagToFileV1.Image")));
+      this.btnTagToFileV1.Name = "btnTagToFileV1";
       this.btnTagToFileV1.Size = new System.Drawing.Size(28, 23);
+      this.btnTagToFileV1.Click += new System.EventHandler(this.mnuTagToFileV1_Click);
       // 
-      // toolStripMenuItem11
+      // btnSwitchV1V2
       // 
-      this.btnSwitchV1V2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem11.Image")));
-      this.btnSwitchV1V2.Name = "toolStripMenuItem11";
+      this.btnSwitchV1V2.Image = ((System.Drawing.Image)(resources.GetObject("btnSwitchV1V2.Image")));
+      this.btnSwitchV1V2.Name = "btnSwitchV1V2";
       this.btnSwitchV1V2.Size = new System.Drawing.Size(136, 23);
       this.btnSwitchV1V2.Text = "Shown Tag Version";
+      this.btnSwitchV1V2.Click += new System.EventHandler(this.btnSwitchV1V2_Click);
       // 
-      // toolStripMenuItem17
+      // btnEditV2
       // 
-      this.btnEditV2.Name = "toolStripMenuItem17";
-      this.btnEditV2.Size = new System.Drawing.Size(24, 23);
-      this.btnEditV2.Text = "-";
+      this.btnEditV2.Image = global::Properties.Resources.EditV2;
+      this.btnEditV2.Name = "btnEditV2";
+      this.btnEditV2.Size = new System.Drawing.Size(28, 23);
+      this.btnEditV2.Click += new System.EventHandler(this.mnuEditV2_Click);
       // 
-      // toolStripMenuItem12
+      // btnMultiEditV2
       // 
-      this.btnMultiEditV2.Name = "toolStripMenuItem12";
-      this.btnMultiEditV2.Size = new System.Drawing.Size(12, 23);
+      this.btnMultiEditV2.Image = global::Properties.Resources.MultiEditV2;
+      this.btnMultiEditV2.Name = "btnMultiEditV2";
+      this.btnMultiEditV2.Size = new System.Drawing.Size(28, 23);
+      this.btnMultiEditV2.Click += new System.EventHandler(this.mnuMultiEditV2_Click);
       // 
-      // toolStripMenuItem13
+      // btnRemoveV2
       // 
-      this.btnRemoveV2.Name = "toolStripMenuItem13";
-      this.btnRemoveV2.Size = new System.Drawing.Size(12, 23);
+      this.btnRemoveV2.Image = global::Properties.Resources.RemoveV2;
+      this.btnRemoveV2.Name = "btnRemoveV2";
+      this.btnRemoveV2.Size = new System.Drawing.Size(28, 23);
+      this.btnRemoveV2.Click += new System.EventHandler(this.mnuRemoveV2_Click);
       // 
-      // toolStripMenuItem14
+      // btnFileToTagV2
       // 
-      this.btnFileToTagV2.Name = "toolStripMenuItem14";
-      this.btnFileToTagV2.Size = new System.Drawing.Size(12, 23);
+      this.btnFileToTagV2.Image = global::Properties.Resources.FileToTagV2;
+      this.btnFileToTagV2.Name = "btnFileToTagV2";
+      this.btnFileToTagV2.Size = new System.Drawing.Size(28, 23);
+      this.btnFileToTagV2.Click += new System.EventHandler(this.mnuFileToTagV2_Click);
       // 
-      // toolStripMenuItem15
+      // btnTagToFileV2
       // 
-      this.btnTagToFileV2.Name = "toolStripMenuItem15";
-      this.btnTagToFileV2.Size = new System.Drawing.Size(12, 23);
+      this.btnTagToFileV2.Image = global::Properties.Resources.TagToFileV2;
+      this.btnTagToFileV2.Name = "btnTagToFileV2";
+      this.btnTagToFileV2.Size = new System.Drawing.Size(28, 23);
+      this.btnTagToFileV2.Click += new System.EventHandler(this.mnuTagToFileV2_Click);
       // 
       // frmMain
       // 
@@ -2176,7 +2216,8 @@ namespace ID3_TagIT
           Exception exception = exception1;
           ProjectData.ClearProjectError();
         }
-          ((ProgressBarItem)this.DotNetBarManager.GetItem("StatusProgressBar")).Value = 0;
+
+        ((ProgressBarItem)this.DotNetBarManager.GetItem("StatusProgressBar")).Value = 0;
         ((ProgressBarItem)this.DotNetBarManager.GetItem("StatusProgressBar")).Maximum = this.MP3View.Items.Count;
         this.DotNetBarManager.GetItem("lblVersion").Visible = false;
         this.DotNetBarManager.GetItem("lblSubDirs").Visible = false;
@@ -2500,23 +2541,6 @@ namespace ID3_TagIT
         return;
       }
       string name = item.Name;
-      if (StringType.StrCmp(name, "mnubtnAddDir", false) == 0)
-      {
-        string selectedPath = "";
-        this.FolderBrowserDialog.Description = StringType.FromObject(Declarations.objResources.ResStrings["FileAddDir"]);
-        this.FolderBrowserDialog.SelectedPath = Declarations.objSettings.MoveCopyPath;
-        if (this.FolderBrowserDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
-        {
-          selectedPath = this.FolderBrowserDialog.SelectedPath;
-          if (StringType.StrCmp(selectedPath, Declarations.objSettings.CurrentPath, false) != 0)
-          {
-            ArrayList alstFolders = new ArrayList { selectedPath };
-            this.GetFiles(alstFolders, false, true);
-          }
-        }
-        this.Timer.Start();
-        return;
-      }
       if (StringType.StrCmp(name, "mnubtnRefresh", false) != 0)
       {
         if (StringType.StrCmp(name, "mnubtnSave", false) == 0)
@@ -3769,7 +3793,7 @@ namespace ID3_TagIT
       }
       this.AudioCheckSumCalculation();
       return;
-      Label_31F2:
+Label_31F2:
       this.vstrFilter = ((ButtonItem)item).Text;
       ((ButtonItem)item).Checked = true;
       string sLeft = ((ButtonItem)item).Parent.Name;
@@ -3922,7 +3946,7 @@ namespace ID3_TagIT
       foreach (ButtonItem item3 in item2.SubItems)
         item3.Checked = false;
       this.vbytFilterIndex = 0xff;
-      Label_010A:
+Label_010A:
       this.MP3View.Items.Clear();
       Declarations.MP3s.Clear();
       if (e.Node.Parent == null)
@@ -3951,7 +3975,7 @@ namespace ID3_TagIT
         }
       }
       this.MP3View_FillColumns(ref Declarations.MP3s);
-      Label_021B:
+Label_021B:
       num = 0;
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
@@ -4162,7 +4186,7 @@ namespace ID3_TagIT
         item3.Checked = false;
       }
       this.vbytFilterIndex = 0xff;
-      Label_010B:
+Label_010B:
       this.GetFiles(null, true, true);
       int num = 0;
       foreach (ListViewItem item in this.MP3View.SelectedItems)
@@ -5276,11 +5300,11 @@ namespace ID3_TagIT
         else if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null), null, "ToUpper", new object[0], null, null), this.vstrFilter, false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_051D:
+Label_051D:
         if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_053C:
+Label_053C:
         if (StringType.StrCmp(mp.V1TAG.Artist, "", false) != 0)
         {
           if (StringType.StrCmp(mp.V1TAG.Artist, "", false) != 0)
@@ -5296,7 +5320,7 @@ namespace ID3_TagIT
         else if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_0739:
+Label_0739:
         objArray5 = new object[1];
         obj3 = mp.V2TAG.GetFrame("TIT2");
         object[] objArray2 = new object[0];
@@ -5350,11 +5374,11 @@ namespace ID3_TagIT
         else if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null), null, "ToUpper", new object[0], null, null), this.vstrFilter, false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_0ADF:
+Label_0ADF:
         if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_0AFE:
+Label_0AFE:
         if (StringType.StrCmp(mp.V1TAG.Title, "", false) != 0)
         {
           if (StringType.StrCmp(mp.V1TAG.Title, "", false) != 0)
@@ -5372,7 +5396,7 @@ namespace ID3_TagIT
           flag = true;
         }
         goto Label_11ED;
-        Label_0CFB:
+Label_0CFB:
         objArray5 = new object[1];
         obj3 = mp.V2TAG.GetFrame("TALB");
         objArray2 = new object[0];
@@ -5426,11 +5450,11 @@ namespace ID3_TagIT
         else if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null), null, "ToUpper", new object[0], null, null), this.vstrFilter, false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_10A1:
+Label_10A1:
         if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_10C0:
+Label_10C0:
         if (StringType.StrCmp(mp.V1TAG.Album, "", false) != 0)
         {
           if (StringType.StrCmp(mp.V1TAG.Album, "", false) != 0)
@@ -5446,9 +5470,9 @@ namespace ID3_TagIT
         else if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
           flag = true;
         goto Label_11ED;
-        Label_11EA:
+Label_11EA:
         flag = true;
-        Label_11ED:
+Label_11ED:
         if (!flag)
           goto Label_23AA;
         ListViewItem item = new ListViewItem(mp.CurrentName);
@@ -5624,7 +5648,7 @@ namespace ID3_TagIT
           else
             item.SubItems[this.colHComment.Index].Text = "";
         }
-        Label_1FBE:
+Label_1FBE:
         if (this.MP3View.Columns.Contains(this.colHRating))
         {
           if (mp.V2TAG.FrameExists("POPM"))
@@ -5640,7 +5664,7 @@ namespace ID3_TagIT
           else
             item.SubItems[this.colHRating.Index].Text = "";
         }
-        Label_208F:
+Label_208F:
         if (this.MP3View.Columns.Contains(this.colHComposer))
         {
           if (mp.V2TAG.FrameExists("TCOM"))
@@ -5650,7 +5674,7 @@ namespace ID3_TagIT
         }
         if (this.MP3View.Columns.Contains(this.colHPicCount))
           item.SubItems[this.colHPicCount.Index].Text = StringType.FromInteger(mp.V2TAG.GetFrames("APIC").Count);
-        Label_216E:
+Label_216E:
         if (mp.V1TAG.TAGPresent && (this.vbytVersionToShow == 1))
         {
           if (this.MP3View.Columns.Contains(this.colHArtist))
@@ -5670,7 +5694,7 @@ namespace ID3_TagIT
         }
         item.Tag = mp;
         this.MP3View.Items.Add(item);
-        Label_23AA:
+Label_23AA:
         if ((num3 > 0) && ((num2 % num3) == 0))
           frmProg.ProgressBar.PerformStep();
         if (num2 == list.Count)
@@ -7286,7 +7310,7 @@ namespace ID3_TagIT
           this.txtAlbum.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
         }
       }
-      Label_0B93:
+Label_0B93:
       if (this.BarGroupInfo.Expanded & (this.MP3View.SelectedItems.Count == 1))
       {
         MP3 mp5 = (MP3)this.MP3View.SelectedItems[0].Tag;
@@ -7648,7 +7672,7 @@ namespace ID3_TagIT
           lstItem.SubItems[this.colHComment.Index].Text = "";
       }
 
-      Label_0BFB:
+Label_0BFB:
       if (this.MP3View.Columns.Contains(this.colHRating))
       {
         if (tag.V2TAG.FrameExists("POPM"))
@@ -7667,7 +7691,7 @@ namespace ID3_TagIT
         }
       }
 
-      Label_0CC7:
+Label_0CC7:
       if (this.MP3View.Columns.Contains(this.colHComposer))
       {
         if (tag.V2TAG.FrameExists("TCOM"))
@@ -7679,7 +7703,7 @@ namespace ID3_TagIT
       if (this.MP3View.Columns.Contains(this.colHPicCount))
         lstItem.SubItems[this.colHPicCount.Index].Text = StringType.FromInteger(tag.V2TAG.GetFrames("APIC").Count);
 
-      Label_0DA3:
+Label_0DA3:
       if (tag.V1TAG.TAGPresent && (this.vbytVersionToShow == 1))
       {
         if (this.MP3View.Columns.Contains(this.colHArtist))
@@ -7744,6 +7768,118 @@ namespace ID3_TagIT
     private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
     {
       new frmAbout().ShowDialog();
+    }
+
+    private void mnuAddFolder_Click(object sender, EventArgs e)
+    {
+      string selectedPath = "";
+      this.FolderBrowserDialog.Description = StringType.FromObject(Declarations.objResources.ResStrings["FileAddDir"]);
+      this.FolderBrowserDialog.SelectedPath = Declarations.objSettings.MoveCopyPath;
+      if (this.FolderBrowserDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+      {
+        selectedPath = this.FolderBrowserDialog.SelectedPath;
+        if (StringType.StrCmp(selectedPath, Declarations.objSettings.CurrentPath, false) != 0)
+        {
+          ArrayList alstFolders = new ArrayList { selectedPath };
+          this.GetFiles(alstFolders, false, true);
+        }
+      }
+      this.Timer.Start();
+    }
+
+    private void mnuRefresh_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnuSave_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnuPlay_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void moveFilesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnuUndo_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnuRedo_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnuEditV1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnuMultiEditV1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnuRemoveV1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnuFileToTagV1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnuTagToFileV1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void btnSwitchV1V2_Click(object sender, EventArgs e)
+    {
+      // switch betweeen v1 and v2
+    }
+
+    private void viewTAGVer1ToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      // switch back to v1
+    }
+
+    private void viewTAGVer2ToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      // switch back to v2
+    }
+
+    private void mnuEditV2_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnuMultiEditV2_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnuRemoveV2_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnuFileToTagV2_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnuTagToFileV2_Click(object sender, EventArgs e)
+    {
+
     }
   }
 }

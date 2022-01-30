@@ -1,15 +1,15 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.Collections.Specialized;
-  using System.IO;
-  using System.Runtime.CompilerServices;
-  using System.Runtime.InteropServices;
-  using System.Runtime.Serialization.Formatters.Binary;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.Collections.Specialized;
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Runtime.Serialization.Formatters.Binary;
 
+namespace ID3_TagIT
+{
   [Serializable]
   public class V2TAG : V2TAGHeader
   {
@@ -26,9 +26,11 @@
     public void AddFrame(object Frame)
     {
       string sLeft = StringType.FromObject(LateBinding.LateGet(Frame, null, "FID", new object[0], null, null));
+
       if (((sLeft.StartsWith("T") | sLeft.StartsWith("W")) | (StringType.StrCmp(sLeft, "IPLS", false) == 0)) && !((StringType.StrCmp(sLeft, "TXXX", false) == 0) | (StringType.StrCmp(sLeft, "WXXX", false) == 0)))
       {
         LateBinding.LateSet(Frame, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Content", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
+
         if (BooleanType.FromObject(LateBinding.LateGet(Frame, null, "Remove", new object[0], null, null)))
         {
           if (this.htSingleFrames.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Frame, null, "FID", new object[0], null, null))))
@@ -54,11 +56,13 @@
       else
       {
         string str2 = sLeft;
+
         if (StringType.StrCmp(str2, "COMM", false) == 0)
         {
           LateBinding.LateSet(Frame, null, "Descriptor", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
           LateBinding.LateSet(Frame, null, "Language", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Language", new object[0], null, null), null, "ToLower", new object[0], null, null)) }, null);
           LateBinding.LateSet(Frame, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Content", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
+
           if (BooleanType.FromObject(LateBinding.LateGet(Frame, null, "Remove", new object[0], null, null)))
           {
             if (this.htCOMMFrames.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(ObjectType.StrCatObj(LateBinding.LateGet(Frame, null, "Language", new object[0], null, null), LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null))))
@@ -92,6 +96,7 @@
           LateBinding.LateSet(Frame, null, "Descriptor", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
           LateBinding.LateSet(Frame, null, "Language", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Language", new object[0], null, null), null, "ToLower", new object[0], null, null)) }, null);
           LateBinding.LateSet(Frame, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Content", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
+
           if (BooleanType.FromObject(LateBinding.LateGet(Frame, null, "Remove", new object[0], null, null)))
           {
             if (this.htUSLTFrames.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(ObjectType.StrCatObj(LateBinding.LateGet(Frame, null, "Language", new object[0], null, null), LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null))))
@@ -124,6 +129,7 @@
         {
           LateBinding.LateSet(Frame, null, "Descriptor", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
           LateBinding.LateSet(Frame, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Content", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
+
           if (BooleanType.FromObject(LateBinding.LateGet(Frame, null, "Remove", new object[0], null, null)))
           {
             if (this.htTXXXFrames.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(ObjectType.StrCatObj("-", LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null))))
@@ -151,6 +157,7 @@
         {
           LateBinding.LateSet(Frame, null, "Descriptor", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
           LateBinding.LateSet(Frame, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Content", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
+
           if (BooleanType.FromObject(LateBinding.LateGet(Frame, null, "Remove", new object[0], null, null)))
           {
             if (this.htWXXXFrames.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(ObjectType.StrCatObj("-", LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null))))
@@ -177,6 +184,7 @@
         else if (StringType.StrCmp(str2, "POPM", false) == 0)
         {
           LateBinding.LateSet(Frame, null, "User", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "User", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
+
           if (BooleanType.FromObject(LateBinding.LateGet(Frame, null, "Remove", new object[0], null, null)))
           {
             if (this.htPOPMFrames.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(ObjectType.StrCatObj("-", LateBinding.LateGet(Frame, null, "User", new object[0], null, null)), null, "ToLower", new object[0], null, null))))
@@ -205,6 +213,7 @@
         {
           LateBinding.LateSet(Frame, null, "Descriptor", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
           LateBinding.LateSet(Frame, null, "Path", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Path", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
+
           if (BooleanType.FromObject(LateBinding.LateGet(Frame, null, "Remove", new object[0], null, null)))
           {
             if (this.htAPICFrames.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(ObjectType.StrCatObj(LateBinding.LateGet(Frame, null, "PicType", new object[0], null, null).ToString().PadLeft(2, '0'), LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null))))
@@ -246,6 +255,7 @@
       try
       {
         enumerator = alstFrames.GetEnumerator();
+
         while (enumerator.MoveNext())
         {
           object objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
@@ -277,107 +287,125 @@
       ArrayList list = new ArrayList();
       int num = 0;
       var enumerator10 = this.htSingleFrames.Keys.GetEnumerator();
+
       while (enumerator10.MoveNext())
       {
         objectValue = RuntimeHelpers.GetObjectValue(enumerator10.Current);
         objArray2 = new object[] { MP3 };
         flagArray = new bool[] { true };
+
         if (flagArray[0])
-        {
           MP3 = (MP3)objArray2[0];
-        }
+
         list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htSingleFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray2, null, flagArray)));
       }
+
       var enumerator9 = this.htCOMMFrames.Keys.GetEnumerator();
+
       while (enumerator9.MoveNext())
       {
         objectValue = RuntimeHelpers.GetObjectValue(enumerator9.Current);
         objArray3 = new object[] { MP3 };
         flagArray = new bool[] { true };
+
         if (flagArray[0])
-        {
           MP3 = (MP3)objArray3[0];
-        }
+
         list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htCOMMFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
       }
+
       var enumerator8 = this.htUSLTFrames.Keys.GetEnumerator();
+
       while (enumerator8.MoveNext())
       {
         objectValue = RuntimeHelpers.GetObjectValue(enumerator8.Current);
         objArray3 = new object[] { MP3 };
         flagArray = new bool[] { true };
+
         if (flagArray[0])
-        {
           MP3 = (MP3)objArray3[0];
-        }
+
         list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htUSLTFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
       }
+
       var enumerator7 = this.htAPICFrames.Keys.GetEnumerator();
+
       while (enumerator7.MoveNext())
       {
         objectValue = RuntimeHelpers.GetObjectValue(enumerator7.Current);
         objArray3 = new object[] { MP3 };
         flagArray = new bool[] { true };
+
         if (flagArray[0])
-        {
           MP3 = (MP3)objArray3[0];
-        }
+
         list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htAPICFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
       }
+
       var enumerator6 = this.htTXXXFrames.Keys.GetEnumerator();
+
       while (enumerator6.MoveNext())
       {
         objectValue = RuntimeHelpers.GetObjectValue(enumerator6.Current);
         objArray3 = new object[] { MP3 };
         flagArray = new bool[] { true };
+
         if (flagArray[0])
-        {
           MP3 = (MP3)objArray3[0];
-        }
+
         list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htTXXXFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
       }
+
       var enumerator5 = this.htWXXXFrames.Keys.GetEnumerator();
+
       while (enumerator5.MoveNext())
       {
         objectValue = RuntimeHelpers.GetObjectValue(enumerator5.Current);
         objArray3 = new object[] { MP3 };
         flagArray = new bool[] { true };
+
         if (flagArray[0])
-        {
           MP3 = (MP3)objArray3[0];
-        }
+
         list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htWXXXFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
       }
+
       var enumerator4 = this.htPOPMFrames.Keys.GetEnumerator();
+
       while (enumerator4.MoveNext())
       {
         objectValue = RuntimeHelpers.GetObjectValue(enumerator4.Current);
         objArray3 = new object[] { MP3 };
         flagArray = new bool[] { true };
+
         if (flagArray[0])
-        {
           MP3 = (MP3)objArray3[0];
-        }
+
         list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(this.htPOPMFrames[RuntimeHelpers.GetObjectValue(objectValue)], null, "CreateFrame", objArray3, null, flagArray)));
       }
+
       var enumerator3 = this.htBinFrames.GetEnumerator();
+
       while (enumerator3.MoveNext())
       {
         objectValue = RuntimeHelpers.GetObjectValue(enumerator3.Current);
         objArray3 = new object[] { MP3 };
         flagArray = new bool[] { true };
+
         if (flagArray[0])
-        {
           MP3 = (MP3)objArray3[0];
-        }
+
         list.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "CreateFrame", objArray3, null, flagArray)));
       }
+
       var enumerator2 = list.GetEnumerator();
+
       while (enumerator2.MoveNext())
       {
         objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
         num = IntegerType.FromObject(ObjectType.AddObj(num, LateBinding.LateGet(objectValue, null, "Length", new object[0], null, null)));
       }
+
       if (!MP3.V2TAG.FooterPresent)
       {
         if (vintPadSize >= num)
@@ -395,9 +423,12 @@
         else
           num = ((num / 0x400) * 0x400) + 0x7f6;
       }
+
       byte[] abytBuffer = new byte[(num - 1) + 1];
       num = 0;
+
       var enumerator = list.GetEnumerator();
+
       while (enumerator.MoveNext())
       {
         objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
@@ -411,29 +442,24 @@
         objArray3 = objArray2;
         flagArray = new bool[] { true, false, true, true, true };
         LateBinding.LateCall(null, typeof(Array), "Copy", objArray3, null, flagArray);
+
         if (flagArray[4])
-        {
           LateBinding.LateSetComplex(o, null, "Length", new object[] { RuntimeHelpers.GetObjectValue(objArray3[4]) }, null, true, false);
-        }
         if (flagArray[3])
-        {
           num = IntegerType.FromObject(objArray3[3]);
-        }
         if (flagArray[2])
-        {
           abytBuffer = (byte[])objArray3[2];
-        }
         if (flagArray[0])
-        {
           objectValue = RuntimeHelpers.GetObjectValue(objArray3[0]);
-        }
+
         num = IntegerType.FromObject(ObjectType.AddObj(num, LateBinding.LateGet(objectValue, null, "Length", new object[0], null, null)));
       }
+
       ReturnedPadAdded = abytBuffer.Length - num;
+
       if ((MP3.V2TAG.TAGVersion == 3) & Declarations.objSettings.WriteUnsync)
-      {
         abytBuffer = ID3Functions.DoUnsync(abytBuffer);
-      }
+
       return abytBuffer;
     }
 
@@ -442,115 +468,111 @@
       if (((vstrFrameID.StartsWith("T") | vstrFrameID.StartsWith("W")) | (StringType.StrCmp(vstrFrameID, "IPLS", false) == 0)) && !((StringType.StrCmp(vstrFrameID, "TXXX", false) == 0) | (StringType.StrCmp(vstrFrameID, "WXXX", false) == 0)))
       {
         if (this.htSingleFrames.Contains(vstrFrameID))
-        {
           return true;
-        }
       }
       else
       {
         string sLeft = vstrFrameID;
+
         if (StringType.StrCmp(sLeft, "COMM", false) == 0)
         {
           if (this.htCOMMFrames.Keys.Count > 0)
-          {
             return true;
-          }
         }
         else if (StringType.StrCmp(sLeft, "USLT", false) == 0)
         {
           if (this.htUSLTFrames.Keys.Count > 0)
-          {
             return true;
-          }
         }
         else if (StringType.StrCmp(sLeft, "TXXX", false) == 0)
         {
           if (this.htTXXXFrames.Keys.Count > 0)
-          {
             return true;
-          }
         }
         else if (StringType.StrCmp(sLeft, "WXXX", false) == 0)
         {
           if (this.htWXXXFrames.Keys.Count > 0)
-          {
             return true;
-          }
         }
         else if (StringType.StrCmp(sLeft, "POPM", false) == 0)
         {
           if (this.htPOPMFrames.Keys.Count > 0)
-          {
             return true;
-          }
         }
         else if (StringType.StrCmp(sLeft, "APIC", false) == 0)
         {
           if (this.htAPICFrames.Keys.Count > 0)
-          {
             return true;
-          }
         }
         else
-        {
           foreach (V2BinFrame frame in this.htBinFrames)
-          {
             if (StringType.StrCmp(frame.FID, vstrFrameID, false) == 0)
-            {
               return true;
-            }
-          }
-        }
       }
+
       return false;
     }
 
     public bool FrameExistsExact(object Frame)
     {
       string sLeft = StringType.FromObject(LateBinding.LateGet(Frame, null, "FID", new object[0], null, null));
+
       if (((sLeft.StartsWith("T") | sLeft.StartsWith("W")) | (StringType.StrCmp(sLeft, "IPLS", false) == 0)) && !((StringType.StrCmp(sLeft, "TXXX", false) == 0) | (StringType.StrCmp(sLeft, "WXXX", false) == 0)))
       {
         LateBinding.LateSet(Frame, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Content", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
+
         return this.htSingleFrames.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Frame, null, "FID", new object[0], null, null)));
       }
+
       string str2 = sLeft;
+
       if (StringType.StrCmp(str2, "COMM", false) == 0)
       {
         LateBinding.LateSet(Frame, null, "Descriptor", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
         LateBinding.LateSet(Frame, null, "Language", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Language", new object[0], null, null), null, "ToLower", new object[0], null, null)) }, null);
         LateBinding.LateSet(Frame, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Content", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
+
         return this.htCOMMFrames.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(ObjectType.StrCatObj(LateBinding.LateGet(Frame, null, "Language", new object[0], null, null), LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null)));
       }
+
       if (StringType.StrCmp(str2, "USLT", false) == 0)
       {
         LateBinding.LateSet(Frame, null, "Descriptor", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
         LateBinding.LateSet(Frame, null, "Language", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Language", new object[0], null, null), null, "ToLower", new object[0], null, null)) }, null);
         LateBinding.LateSet(Frame, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Content", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
+
         return this.htUSLTFrames.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(ObjectType.StrCatObj(LateBinding.LateGet(Frame, null, "Language", new object[0], null, null), LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null)));
       }
+
       if (StringType.StrCmp(str2, "TXXX", false) == 0)
       {
         LateBinding.LateSet(Frame, null, "Descriptor", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
         LateBinding.LateSet(Frame, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Content", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
+
         return this.htTXXXFrames.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(ObjectType.StrCatObj("-", LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null)));
       }
+
       if (StringType.StrCmp(str2, "WXXX", false) == 0)
       {
         LateBinding.LateSet(Frame, null, "Descriptor", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
         LateBinding.LateSet(Frame, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Content", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
+
         return this.htWXXXFrames.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(ObjectType.StrCatObj("-", LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null)));
       }
+
       if (StringType.StrCmp(str2, "POPM", false) == 0)
       {
         LateBinding.LateSet(Frame, null, "User", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "User", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
+
         return this.htPOPMFrames.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(ObjectType.StrCatObj("-", LateBinding.LateGet(Frame, null, "User", new object[0], null, null)), null, "ToLower", new object[0], null, null)));
       }
+
       if (StringType.StrCmp(str2, "APIC", false) != 0)
-      {
         return false;
-      }
+
       LateBinding.LateSet(Frame, null, "Descriptor", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
       LateBinding.LateSet(Frame, null, "Path", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Frame, null, "Path", new object[0], null, null), null, "Trim", new object[] { Strings.Space(1) }, null, null)) }, null);
+
       return this.htAPICFrames.Contains(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(ObjectType.StrCatObj(LateBinding.LateGet(Frame, null, "PicType", new object[0], null, null).ToString().PadLeft(2, '0'), LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null)));
     }
 
@@ -563,66 +585,84 @@
     {
       string str;
       ArrayList list = new ArrayList();
+
       var enumerator7 = this.htSingleFrames.Keys.GetEnumerator();
+
       while (enumerator7.MoveNext())
       {
         str = StringType.FromObject(enumerator7.Current);
         list.Add(RuntimeHelpers.GetObjectValue(this.htSingleFrames[str]));
       }
+
       var enumerator6 = this.htCOMMFrames.Keys.GetEnumerator();
+
       while (enumerator6.MoveNext())
       {
         str = StringType.FromObject(enumerator6.Current);
         list.Add(RuntimeHelpers.GetObjectValue(this.htCOMMFrames[str]));
       }
+
       var enumerator5 = this.htUSLTFrames.Keys.GetEnumerator();
+
       while (enumerator5.MoveNext())
       {
         str = StringType.FromObject(enumerator5.Current);
         list.Add(RuntimeHelpers.GetObjectValue(this.htUSLTFrames[str]));
       }
+
       var enumerator4 = this.htTXXXFrames.Keys.GetEnumerator();
+
       while (enumerator4.MoveNext())
       {
         str = StringType.FromObject(enumerator4.Current);
         list.Add(RuntimeHelpers.GetObjectValue(this.htTXXXFrames[str]));
       }
+
       var enumerator3 = this.htWXXXFrames.Keys.GetEnumerator();
+
       while (enumerator3.MoveNext())
       {
         str = StringType.FromObject(enumerator3.Current);
         list.Add(RuntimeHelpers.GetObjectValue(this.htWXXXFrames[str]));
       }
+
       var enumerator2 = this.htPOPMFrames.Keys.GetEnumerator();
+
       while (enumerator2.MoveNext())
       {
         str = StringType.FromObject(enumerator2.Current);
         list.Add(RuntimeHelpers.GetObjectValue(this.htPOPMFrames[str]));
       }
+
       var enumerator = this.htAPICFrames.Keys.GetEnumerator();
+
       while (enumerator.MoveNext())
       {
         str = StringType.FromObject(enumerator.Current);
         list.Add(RuntimeHelpers.GetObjectValue(this.htAPICFrames[str]));
       }
+
       return list;
     }
 
     public object GetFrame(string vstrFrameID)
     {
       string str;
+
       if (((vstrFrameID.StartsWith("T") | vstrFrameID.StartsWith("W")) | (StringType.StrCmp(vstrFrameID, "IPLS", false) == 0)) && !((StringType.StrCmp(vstrFrameID, "TXXX", false) == 0) | (StringType.StrCmp(vstrFrameID, "WXXX", false) == 0)))
       {
         if (this.htSingleFrames.Contains(vstrFrameID))
-        {
           return this.htSingleFrames[vstrFrameID];
-        }
+
         return null;
       }
+
       string sLeft = vstrFrameID;
+
       if (StringType.StrCmp(sLeft, "COMM", false) == 0)
       {
         var enumerator7 = this.htCOMMFrames.Keys.GetEnumerator();
+
         while (enumerator7.MoveNext())
         {
           str = StringType.FromObject(enumerator7.Current);
@@ -630,9 +670,11 @@
         }
         goto Label_0335;
       }
+
       if (StringType.StrCmp(sLeft, "USLT", false) == 0)
       {
         var enumerator6 = this.htUSLTFrames.Keys.GetEnumerator();
+
         while (enumerator6.MoveNext())
         {
           str = StringType.FromObject(enumerator6.Current);
@@ -640,9 +682,11 @@
         }
         goto Label_0335;
       }
+
       if (StringType.StrCmp(sLeft, "TXXX", false) == 0)
       {
         var enumerator5 = this.htTXXXFrames.Keys.GetEnumerator();
+
         while (enumerator5.MoveNext())
         {
           str = StringType.FromObject(enumerator5.Current);
@@ -650,9 +694,11 @@
         }
         goto Label_0335;
       }
+
       if (StringType.StrCmp(sLeft, "WXXX", false) == 0)
       {
         var enumerator4 = this.htWXXXFrames.Keys.GetEnumerator();
+
         while (enumerator4.MoveNext())
         {
           str = StringType.FromObject(enumerator4.Current);
@@ -660,9 +706,11 @@
         }
         goto Label_0335;
       }
+
       if (StringType.StrCmp(sLeft, "POPM", false) == 0)
       {
         var enumerator3 = this.htPOPMFrames.Keys.GetEnumerator();
+
         while (enumerator3.MoveNext())
         {
           str = StringType.FromObject(enumerator3.Current);
@@ -670,9 +718,11 @@
         }
         goto Label_0335;
       }
+
       if (StringType.StrCmp(sLeft, "APIC", false) == 0)
       {
         var enumerator2 = this.htAPICFrames.Keys.GetEnumerator();
+
         while (enumerator2.MoveNext())
         {
           str = StringType.FromObject(enumerator2.Current);
@@ -680,13 +730,13 @@
         }
         goto Label_0335;
       }
+
       foreach (V2BinFrame frame in this.htBinFrames)
       {
         if (StringType.StrCmp(frame.FID, vstrFrameID, false) == 0)
-        {
           return frame;
-        }
       }
+
       Label_0335:
       return null;
     }
@@ -695,73 +745,92 @@
     {
       string str;
       ArrayList list = new ArrayList();
+
       if (((vstrFrameID.StartsWith("T") | vstrFrameID.StartsWith("W")) | (StringType.StrCmp(vstrFrameID, "IPLS", false) == 0)) && !((StringType.StrCmp(vstrFrameID, "TXXX", false) == 0) | (StringType.StrCmp(vstrFrameID, "WXXX", false) == 0)))
       {
         if (this.htSingleFrames.Contains(vstrFrameID))
-        {
           list.Add(RuntimeHelpers.GetObjectValue(this.htSingleFrames[vstrFrameID]));
-        }
+
         return list;
       }
+
       string sLeft = vstrFrameID;
+
       if (StringType.StrCmp(sLeft, "COMM", false) == 0)
       {
         var enumerator7 = this.htCOMMFrames.Keys.GetEnumerator();
+
         while (enumerator7.MoveNext())
         {
           str = StringType.FromObject(enumerator7.Current);
           list.Add(RuntimeHelpers.GetObjectValue(this.htCOMMFrames[str]));
         }
+
         return list;
       }
+
       if (StringType.StrCmp(sLeft, "USLT", false) == 0)
       {
         var enumerator6 = this.htUSLTFrames.Keys.GetEnumerator();
+
         while (enumerator6.MoveNext())
         {
           str = StringType.FromObject(enumerator6.Current);
           list.Add(RuntimeHelpers.GetObjectValue(this.htUSLTFrames[str]));
         }
+
         return list;
       }
+
       if (StringType.StrCmp(sLeft, "TXXX", false) == 0)
       {
         var enumerator5 = this.htTXXXFrames.Keys.GetEnumerator();
+
         while (enumerator5.MoveNext())
         {
           str = StringType.FromObject(enumerator5.Current);
           list.Add(RuntimeHelpers.GetObjectValue(this.htTXXXFrames[str]));
         }
+
         return list;
       }
+
       if (StringType.StrCmp(sLeft, "WXXX", false) == 0)
       {
         var enumerator4 = this.htWXXXFrames.Keys.GetEnumerator();
+
         while (enumerator4.MoveNext())
         {
           str = StringType.FromObject(enumerator4.Current);
           list.Add(RuntimeHelpers.GetObjectValue(this.htWXXXFrames[str]));
         }
+
         return list;
       }
+
       if (StringType.StrCmp(sLeft, "POPM", false) == 0)
       {
         var enumerator3 = this.htPOPMFrames.Keys.GetEnumerator();
+
         while (enumerator3.MoveNext())
         {
           str = StringType.FromObject(enumerator3.Current);
           list.Add(RuntimeHelpers.GetObjectValue(this.htPOPMFrames[str]));
         }
+
         return list;
       }
+
       if (StringType.StrCmp(sLeft, "APIC", false) == 0)
       {
         var enumerator2 = this.htAPICFrames.Keys.GetEnumerator();
+
         while (enumerator2.MoveNext())
         {
           str = StringType.FromObject(enumerator2.Current);
           list.Add(RuntimeHelpers.GetObjectValue(this.htAPICFrames[str]));
         }
+
         return list;
       }
 
@@ -775,9 +844,8 @@
     public string GetTextWebFrameContent(string vstrFrameID)
     {
       if (this.htSingleFrames.Contains(vstrFrameID))
-      {
         return StringType.FromObject(LateBinding.LateGet(this.htSingleFrames[vstrFrameID], null, "Content", new object[0], null, null));
-      }
+
       return "";
     }
 
@@ -785,113 +853,105 @@
     {
       byte[] buffer = new byte[4];
       string str = "";
+
       if (this.GetTAGHeader(ref MP3) && (this.TAGHeaderPresent & (this.TAGSize > 10)))
       {
         byte[] abytBuffer = MP3.BinReader.ReadBytes(this.TAGSize - this.ExtendedHeaderSize);
+
         if ((this.TAGVersion == 3) & this.Unsynchronisation)
-        {
           abytBuffer = ID3Functions.RemoveUnsync(abytBuffer);
-        }
+
         MemoryStream mstrTAG = new MemoryStream(abytBuffer);
+
         do
         {
           mstrTAG.Read(buffer, 0, 4);
           mstrTAG.Position -= 4L;
+
           if (buffer[0] == 0)
-          {
             break;
-          }
+
           str = StringType.FromChar(Convert.ToChar(buffer[0])) + StringType.FromChar(Convert.ToChar(buffer[1])) + StringType.FromChar(Convert.ToChar(buffer[2])) + StringType.FromChar(Convert.ToChar(buffer[3]));
+
           if (Array.IndexOf(Declarations.astrDefinedFrames, str) >= 0)
           {
             if ((str.StartsWith("T") && (StringType.StrCmp(str, "TXXX", false) != 0)) | (StringType.StrCmp(str, "IPLS", false) == 0))
             {
               V2TextFrame frame = new V2TextFrame();
+
               if (frame.GetFrame(ref MP3, ref mstrTAG) & !this.htSingleFrames.Contains(frame.FID))
-              {
                 this.htSingleFrames.Add(frame.FID, frame);
-              }
             }
             else if (str.StartsWith("W") && (StringType.StrCmp(str, "WXXX", false) != 0))
             {
               V2WebFrame frame2 = new V2WebFrame();
+
               if (frame2.GetFrame(ref MP3, ref mstrTAG) & !this.htSingleFrames.Contains(frame2.FID))
-              {
                 this.htSingleFrames.Add(frame2.FID, frame2);
-              }
             }
             else
             {
               string sLeft = str;
+
               if (StringType.StrCmp(sLeft, "COMM", false) == 0)
               {
                 V2LDCFrame frame3 = new V2LDCFrame();
+
                 if (frame3.GetFrame(ref MP3, ref mstrTAG) & !this.htCOMMFrames.Contains((frame3.Language + frame3.Descriptor).ToLower()))
-                {
                   this.htCOMMFrames.Add((frame3.Language + frame3.Descriptor).ToLower(), frame3);
-                }
               }
               else if (StringType.StrCmp(sLeft, "USLT", false) == 0)
               {
                 V2LDCFrame frame4 = new V2LDCFrame();
+
                 if (frame4.GetFrame(ref MP3, ref mstrTAG) & !this.htUSLTFrames.Contains((frame4.Language + frame4.Descriptor).ToLower()))
-                {
                   this.htUSLTFrames.Add((frame4.Language + frame4.Descriptor).ToLower(), frame4);
-                }
               }
               else if (StringType.StrCmp(sLeft, "TXXX", false) == 0)
               {
                 V2TXXXFrame frame5 = new V2TXXXFrame();
+
                 if (frame5.GetFrame(ref MP3, ref mstrTAG) & !this.htTXXXFrames.Contains("-" + frame5.Descriptor.ToLower()))
-                {
                   this.htTXXXFrames.Add("-" + frame5.Descriptor.ToLower(), frame5);
-                }
               }
               else if (StringType.StrCmp(sLeft, "WXXX", false) == 0)
               {
                 V2WXXXFrame frame6 = new V2WXXXFrame();
+
                 if (frame6.GetFrame(ref MP3, ref mstrTAG) & !this.htWXXXFrames.Contains("-" + frame6.Descriptor.ToLower()))
-                {
                   this.htWXXXFrames.Add("-" + frame6.Descriptor.ToLower(), frame6);
-                }
               }
               else if (StringType.StrCmp(sLeft, "POPM", false) == 0)
               {
                 V2POPMFrame frame7 = new V2POPMFrame();
+
                 if (frame7.GetFrame(ref MP3, ref mstrTAG) & !this.htPOPMFrames.Contains("-" + frame7.User.ToLower()))
-                {
                   this.htPOPMFrames.Add("-" + frame7.User.ToLower(), frame7);
-                }
               }
               else if (StringType.StrCmp(sLeft, "APIC", false) == 0)
               {
                 V2APICFrame frame8 = new V2APICFrame();
+
                 if (frame8.GetFrame(ref MP3, ref mstrTAG) & !this.htAPICFrames.Contains((frame8.PicType.ToString().PadLeft(2, '0') + frame8.Descriptor).ToLower()))
-                {
                   this.htAPICFrames.Add((frame8.PicType.ToString().PadLeft(2, '0') + frame8.Descriptor).ToLower(), frame8);
-                }
               }
               else
               {
                 V2BinFrame frame9 = new V2BinFrame();
                 if (frame9.GetFrame(ref MP3, ref mstrTAG))
-                {
                   this.htBinFrames.Add(frame9);
-                }
                 else if (frame9.FSize != 0L)
-                {
                   break;
-                }
               }
             }
           }
           else
           {
             V2BinFrame frame10 = new V2BinFrame();
+
             if (!frame10.GetFrame(ref MP3, ref mstrTAG))
-            {
               break;
-            }
+
             this.htBinFrames.Add(frame10);
           }
         }
@@ -924,6 +984,7 @@
       string str5;
       string str6;
       string str7;
+
       if (((vstrFrameID.StartsWith("T") | vstrFrameID.StartsWith("W")) | (StringType.StrCmp(vstrFrameID, "IPLS", false) == 0)) && !((StringType.StrCmp(vstrFrameID, "TXXX", false) == 0) | (StringType.StrCmp(vstrFrameID, "WXXX", false) == 0)))
       {
         if (this.htSingleFrames.Contains(vstrFrameID))
@@ -931,9 +992,12 @@
           this.htSingleFrames.Remove(vstrFrameID);
           this.vbooChanged = true;
         }
+
         return;
       }
+
       string sLeft = vstrFrameID;
+
       if (StringType.StrCmp(sLeft, "COMM", false) != 0)
       {
         if (StringType.StrCmp(sLeft, "USLT", false) != 0)
@@ -955,106 +1019,130 @@
                       break;
                     }
                   }
+
                   return;
                 }
+
                 str7 = "";
+
                 var enumerator2 = this.htAPICFrames.Keys.GetEnumerator();
+
                 while (enumerator2.MoveNext())
                 {
                   str7 = StringType.FromObject(enumerator2.Current);
                   this.vbooChanged = true;
                   goto Label_0381;
                 }
+
                 goto Label_0381;
               }
+
               str6 = "";
+
               var enumerator3 = this.htPOPMFrames.Keys.GetEnumerator();
+
               while (enumerator3.MoveNext())
               {
                 str6 = StringType.FromObject(enumerator3.Current);
                 this.vbooChanged = true;
                 goto Label_02F7;
               }
+
               goto Label_02F7;
             }
+
             str5 = "";
+
             var enumerator4 = this.htWXXXFrames.Keys.GetEnumerator();
+
             while (enumerator4.MoveNext())
             {
               str5 = StringType.FromObject(enumerator4.Current);
               this.vbooChanged = true;
               goto Label_026D;
             }
+
             goto Label_026D;
           }
+
           str4 = "";
+
           var enumerator5 = this.htTXXXFrames.Keys.GetEnumerator();
+
           while (enumerator5.MoveNext())
           {
             str4 = StringType.FromObject(enumerator5.Current);
             this.vbooChanged = true;
             goto Label_01E5;
           }
+
           goto Label_01E5;
         }
+
         str3 = "";
+
         var enumerator6 = this.htUSLTFrames.Keys.GetEnumerator();
+
         while (enumerator6.MoveNext())
         {
           str3 = StringType.FromObject(enumerator6.Current);
           this.vbooChanged = true;
           goto Label_015F;
         }
+
         goto Label_015F;
       }
+
       string str2 = "";
+
       var enumerator7 = this.htCOMMFrames.Keys.GetEnumerator();
+
       while (enumerator7.MoveNext())
       {
         str2 = StringType.FromObject(enumerator7.Current);
         this.vbooChanged = true;
         goto Label_00D9;
       }
+
       Label_00D9:
       if (StringType.StrCmp(str2, "", false) != 0)
-      {
         this.htCOMMFrames.Remove(str2);
-      }
+
       return;
+
       Label_015F:
       if (StringType.StrCmp(str3, "", false) != 0)
-      {
         this.htUSLTFrames.Remove(str3);
-      }
+
       return;
+
       Label_01E5:
       if (StringType.StrCmp(str4, "", false) != 0)
-      {
         this.htTXXXFrames.Remove(str4);
-      }
+
       return;
+
       Label_026D:
       if (StringType.StrCmp(str5, "", false) != 0)
-      {
         this.htWXXXFrames.Remove(str5);
-      }
+
       return;
+
       Label_02F7:
       if (StringType.StrCmp(str6, "", false) != 0)
-      {
         this.htPOPMFrames.Remove(str6);
-      }
+
       return;
+
       Label_0381:
       if (StringType.StrCmp(str7, "", false) != 0)
-      {
         this.htAPICFrames.Remove(str7);
-      }
     }
 
     public void RemoveFrameExact(object Frame)
     {
       string sLeft = StringType.FromObject(LateBinding.LateGet(Frame, null, "FID", new object[0], null, null));
+
       if (((sLeft.StartsWith("T") | sLeft.StartsWith("W")) | (StringType.StrCmp(sLeft, "IPLS", false) == 0)) && !((StringType.StrCmp(sLeft, "TXXX", false) == 0) | (StringType.StrCmp(sLeft, "WXXX", false) == 0)))
       {
         if (this.htSingleFrames.Contains(sLeft))
@@ -1066,53 +1154,48 @@
       else
       {
         string str8 = sLeft;
+
         if (StringType.StrCmp(str8, "COMM", false) == 0)
         {
           string key = StringType.FromObject(LateBinding.LateGet(ObjectType.StrCatObj(LateBinding.LateGet(Frame, null, "Language", new object[0], null, null), LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null));
+
           if (this.htCOMMFrames.Contains(key))
-          {
             this.htCOMMFrames.Remove(key);
-          }
         }
         else if (StringType.StrCmp(str8, "USLT", false) == 0)
         {
           string str3 = StringType.FromObject(LateBinding.LateGet(ObjectType.StrCatObj(LateBinding.LateGet(Frame, null, "Language", new object[0], null, null), LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null));
+
           if (this.htUSLTFrames.Contains(str3))
-          {
             this.htUSLTFrames.Remove(str3);
-          }
         }
         else if (StringType.StrCmp(str8, "TXXX", false) == 0)
         {
           string str4 = StringType.FromObject(LateBinding.LateGet(ObjectType.StrCatObj("-", LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null));
+
           if (this.htTXXXFrames.Contains(str4))
-          {
             this.htTXXXFrames.Remove(str4);
-          }
         }
         else if (StringType.StrCmp(str8, "WXXX", false) == 0)
         {
           string str5 = StringType.FromObject(LateBinding.LateGet(ObjectType.StrCatObj("-", LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null));
+
           if (this.htWXXXFrames.Contains(str5))
-          {
             this.htWXXXFrames.Remove(str5);
-          }
         }
         else if (StringType.StrCmp(str8, "POPM", false) == 0)
         {
           string str6 = StringType.FromObject(LateBinding.LateGet(ObjectType.StrCatObj("-", LateBinding.LateGet(Frame, null, "User", new object[0], null, null)), null, "ToLower", new object[0], null, null));
+
           if (this.htPOPMFrames.Contains(str6))
-          {
             this.htPOPMFrames.Remove(str6);
-          }
         }
         else if (StringType.StrCmp(str8, "APIC", false) == 0)
         {
           string str7 = StringType.FromObject(LateBinding.LateGet(ObjectType.StrCatObj(LateBinding.LateGet(Frame, null, "PicType", new object[0], null, null).ToString().PadLeft(2, '0'), LateBinding.LateGet(Frame, null, "Descriptor", new object[0], null, null)), null, "ToLower", new object[0], null, null));
+
           if (this.htAPICFrames.Contains(str7))
-          {
             this.htAPICFrames.Remove(str7);
-          }
         }
         else
         {
@@ -1143,69 +1226,62 @@
       else
       {
         string sLeft = vstrFrameID;
+
         if (StringType.StrCmp(sLeft, "COMM", false) == 0)
         {
           if (this.htCOMMFrames.Keys.Count > 0)
-          {
             this.vbooChanged = true;
-          }
+
           this.htCOMMFrames.Clear();
         }
         else if (StringType.StrCmp(sLeft, "USLT", false) == 0)
         {
           if (this.htUSLTFrames.Keys.Count > 0)
-          {
             this.vbooChanged = true;
-          }
+
           this.htUSLTFrames.Clear();
         }
         else if (StringType.StrCmp(sLeft, "TXXX", false) == 0)
         {
           if (this.htTXXXFrames.Keys.Count > 0)
-          {
             this.vbooChanged = true;
-          }
+
           this.htTXXXFrames.Clear();
         }
         else if (StringType.StrCmp(sLeft, "WXXX", false) == 0)
         {
           if (this.htWXXXFrames.Keys.Count > 0)
-          {
             this.vbooChanged = true;
-          }
+
           this.htWXXXFrames.Clear();
         }
         else if (StringType.StrCmp(sLeft, "POPM", false) == 0)
         {
           if (this.htPOPMFrames.Keys.Count > 0)
-          {
             this.vbooChanged = true;
-          }
+
           this.htPOPMFrames.Clear();
         }
         else if (StringType.StrCmp(sLeft, "APIC", false) == 0)
         {
           if (this.htAPICFrames.Keys.Count > 0)
-          {
             this.vbooChanged = true;
-          }
+
           this.htAPICFrames.Clear();
         }
         else
         {
           ArrayList list = new ArrayList();
+
           foreach (V2BinFrame frame in this.htBinFrames)
-          {
             if (StringType.StrCmp(frame.FID, vstrFrameID, false) == 0)
             {
               list.Add(frame);
               this.vbooChanged = true;
             }
-          }
+
           foreach (V2BinFrame frame in list)
-          {
             this.htBinFrames.Remove(frame);
-          }
         }
       }
     }
@@ -1218,9 +1294,11 @@
       int num3 = 0;
       bool flag = false;
       string path = "";
+
       if (MP3.OpenFileStreamRW())
       {
         MP3.OpenBinaryReader();
+
         if (header.GetTAGHeader(ref MP3))
         {
           byte[] buffer = null;
@@ -1228,16 +1306,18 @@
           byte[] buffer3 = null;
           byte[] buffer4 = null;
           MP3.CloseBinaryReader();
+
           if (header.TAGHeaderPresent)
           {
             vintPadSize = IntegerType.FromObject(Interaction.IIf(header.FooterPresent, header.TAGSize + 20, header.TAGSize + 10));
             num3 = IntegerType.FromObject(ObjectType.SubObj(ObjectType.SubObj(vintPadSize - 10, Interaction.IIf(header.FooterPresent == this.FooterPresent, 0, 10)), this.ExtendedHeaderSize));
+
             if (!this.TAGHeaderPresent)
-            {
               return vintPadSize;
-            }
+
             buffer3 = this.CreateTAG(MP3, num3, ref returnedPadAdded);
             buffer2 = this.CreateTAGHeader(MP3, buffer3, returnedPadAdded);
+
             if (!MP3.V2TAG.FooterPresent)
             {
               buffer4 = new byte[((buffer3.Length + buffer2.Length) - 1) + 1];
@@ -1253,27 +1333,26 @@
               Array.Copy(buffer3, 0, buffer4, buffer2.Length, buffer3.Length);
               Array.Copy(buffer, 0, buffer4, buffer2.Length + buffer3.Length, buffer.Length);
             }
+
             if (buffer4.Length == vintPadSize)
             {
               if (!MP3.OpenFileStreamRW())
-              {
                 return -1;
-              }
+
               MP3.OpenBinaryWriter();
               MP3.WriteData(0, SeekOrigin.Begin, buffer4);
               MP3.CloseBinaryWriter();
               flag = false;
             }
             else
-            {
               flag = true;
-            }
           }
           else if (this.TAGHeaderPresent)
           {
             vintPadSize = 0;
             buffer3 = this.CreateTAG(MP3, vintPadSize, ref returnedPadAdded);
             buffer2 = this.CreateTAGHeader(MP3, buffer3, returnedPadAdded);
+
             if (!MP3.V2TAG.FooterPresent)
             {
               buffer4 = new byte[((buffer3.Length + buffer2.Length) - 1) + 1];
@@ -1289,8 +1368,10 @@
               Array.Copy(buffer3, 0, buffer4, buffer2.Length, buffer3.Length);
               Array.Copy(buffer, 0, buffer4, buffer2.Length + buffer3.Length, buffer.Length);
             }
+
             flag = true;
           }
+
           if (flag)
           {
             BinaryWriter writer = null;
@@ -1305,22 +1386,25 @@
               writer.BaseStream.Seek(0L, SeekOrigin.Begin);
               writer.Write(buffer4);
               writer.Flush();
+
               if (!MP3.OpenFileStreamRW())
-              {
                 return -1;
-              }
+
               MP3.OpenBinaryReader();
               int vintNumberOfBytes = ((int)MP3.FI.Length) - vintPadSize;
+
               if (vintNumberOfBytes > 0x800000)
               {
                 int num6 = vintNumberOfBytes / 0x800000;
                 int num9 = num6 - 1;
+
                 for (int i = 0; i <= num9; i++)
                 {
                   buffer5 = MP3.ReadData(vintPadSize + (i * 0x800000), SeekOrigin.Begin, 0x800000);
                   writer.Write(buffer5);
                   writer.Flush();
                 }
+
                 buffer5 = MP3.ReadData(vintPadSize + (num6 * 0x800000), SeekOrigin.Begin, ((int)MP3.FI.Length) - (vintPadSize + (num6 * 0x800000)));
                 writer.Write(buffer5);
                 writer.Flush();
@@ -1331,6 +1415,7 @@
                 writer.Write(buffer5);
                 writer.Flush();
               }
+
               MP3.CloseBinaryReader();
               MP3.CloseFileStream();
               writer.Close();
@@ -1351,17 +1436,22 @@
               return -1;
             }
           }
+
           this.vbooChanged = false;
+
           if (this.htAPICFrames.Keys.Count > 0)
           {
             MP3.RemoveV1TAG();
             MP3.RemoveV2TAG();
             MP3.ExploreMP3();
           }
+
           return 0;
         }
+
         MP3.CloseBinaryReader();
       }
+
       return -1;
     }
 

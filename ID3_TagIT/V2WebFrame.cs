@@ -1,12 +1,12 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.IO;
-  using System.Runtime.Serialization.Formatters.Binary;
-  using System.Text;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 
+namespace ID3_TagIT
+{
   [Serializable]
   public class V2WebFrame : V2FrameHeader
   {
@@ -44,10 +44,10 @@
           this.vstrContent = this.vstrContent + "\0";
           bytes = Encoding.Default.GetBytes(this.vstrContent);
           this.vstrContent = this.vstrContent.TrimEnd(new char[] { '\0' });
+
           if (this.FUnsyncUsed)
-          {
             bytes = ID3Functions.DoUnsync(bytes);
-          }
+
           buffer3 = this.CreateFrameHeader(MP3, bytes, this.vstrContent.Length);
           buffer2 = new byte[((buffer3.Length + bytes.Length) - 1) + 1];
           Array.Copy(buffer3, 0, buffer2, 0, buffer3.Length);
@@ -61,13 +61,11 @@
     public bool GetFrame(ref MP3 MP3, ref MemoryStream mstrTAG)
     {
       if (!this.GetFrameHeader(ref MP3, ref mstrTAG))
-      {
         return false;
-      }
+
       if (this.FSize < 1L)
-      {
         return false;
-      }
+
       byte[] buffer = new byte[((int)((this.FSize - 1L) - this.FNumberOfInfoBytes)) + 1];
       mstrTAG.Read(buffer, 0, (int)(this.FSize - this.FNumberOfInfoBytes));
       if (!this.FEncrypted)
@@ -75,13 +73,11 @@
         try
         {
           if (this.FUnsyncUsed)
-          {
             buffer = ID3Functions.RemoveUnsync(buffer);
-          }
+
           if (this.FCompressed && !ID3Functions.ZLibDecompress(this.FDataLength, ref buffer))
-          {
             return false;
-          }
+
           byte[] destinationArray = new byte[buffer.GetUpperBound(0) + 1];
           Array.Copy(buffer, 0, destinationArray, 0, destinationArray.Length);
           this.vstrContent = Encoding.Default.GetString(destinationArray).Trim(new char[] { '\0' });
@@ -93,10 +89,10 @@
           return false;
         }
       }
+
       if (StringType.StrCmp(this.vstrContent, "", false) == 0)
-      {
         return false;
-      }
+
       this.vstrContent = this.vstrContent.Trim(new char[] { CharType.FromString(Strings.Space(1)) });
       return true;
     }

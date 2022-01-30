@@ -1,12 +1,12 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.IO;
-  using System.Runtime.Serialization.Formatters.Binary;
-  using System.Text;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 
+namespace ID3_TagIT
+{
   [Serializable]
   public class V2APICFrame : V2FrameHeader
   {
@@ -38,6 +38,7 @@
       byte[] bytes = null;
       Encoding encoding;
       int length;
+
       switch (MP3.V2TAG.TAGVersion)
       {
         case 3:

@@ -1,9 +1,8 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
 
+namespace ID3_TagIT
+{
   [StandardModule]
   internal sealed class modCompareLikeBin
   {

@@ -60,6 +60,7 @@ namespace ID3_TagIT
           case 3:
             buffer4 = new byte[((abytTAG.Length - vintPadAdded) - 1) + 1];
             Array.Copy(abytTAG, 0, buffer4, 0, buffer4.Length);
+
             if (this.vbooExtHeaderCRCPresent)
             {
               buffer = new byte[14];
@@ -67,6 +68,7 @@ namespace ID3_TagIT
               buffer[4] = 0x80;
               num2 = crc.CRC_32(0, ref buffer4, (long)buffer4.GetUpperBound(0));
               num = 3;
+
               do
               {
                 buffer[13 - num] = (byte)(((long)num2) / ((long)Math.Round(Math.Pow(256.0, (double)num))));
@@ -76,6 +78,7 @@ namespace ID3_TagIT
               while (num >= 1);
               buffer[13] = (byte)num2;
               num = 3;
+
               do
               {
                 buffer[9 - num] = (byte)(((long)vintPadAdded) / ((long)Math.Round(Math.Pow(256.0, (double)num))));
@@ -193,17 +196,21 @@ namespace ID3_TagIT
         this.vbooTAGHeaderPresent = true;
         this.vintTAGSize = 0;
         this.I = 3;
+
         do
         {
           this.vintTAGSize = (int)Math.Round((double)(this.vintTAGSize + (Math.Pow(128.0, (double)this.I) * abytBuffer[9 - this.I])));
           this.I += -1;
         }
+
         while (this.I >= 0);
+
         if ((this.vintTAGSize + 10) > MP3.FI.Length)
         {
           this.vbooTAGHeaderPresent = false;
           return false;
         }
+
         this.vbytTAGVersion = abytBuffer[3];
         this.vbytTAGSubVersion = abytBuffer[4];
 
@@ -243,7 +250,9 @@ namespace ID3_TagIT
                 this.vintExtHeaderSize = (int)Math.Round((double)(this.vintExtHeaderSize + (Math.Pow(256.0, (double)this.I) * abytBuffer[3 - this.I])));
                 this.I += -1;
               }
+
               while (this.I >= 0);
+
               if ((this.vintExtHeaderSize - 10) >= this.TAGSize)
               {
                 this.vbooExtHeaderPresent = false;
@@ -259,6 +268,7 @@ namespace ID3_TagIT
                 this.vbytExtHeaderRestrictImageEnc = 0;
                 this.vbytExtHeaderRestrictImageSize = 0;
                 MP3.BinReader.BaseStream.Seek(10L, SeekOrigin.Begin);
+
                 return true;
               }
 
@@ -273,8 +283,10 @@ namespace ID3_TagIT
                 this.vintExtHeaderPaddingSize = (int)Math.Round((double)(this.vintExtHeaderPaddingSize + (Math.Pow(256.0, (double)this.I) * abytBuffer[9 - this.I])));
                 this.I += -1;
               }
+
               while (this.I >= 0);
               this.vlngExtHeaderCRCData = 0L;
+
               if (this.vbooExtHeaderCRCPresent)
               {
                 this.I = 3;
@@ -285,18 +297,22 @@ namespace ID3_TagIT
                 }
                 while (this.I >= 0);
               }
+
               MP3.BinReader.BaseStream.Seek((long)((10 + this.vintExtHeaderSize) + 4), SeekOrigin.Begin);
               break;
 
             case 4:
               byte num;
               this.I = 3;
+
               do
               {
                 this.vintExtHeaderSize = (int)Math.Round((double)(this.vintExtHeaderSize + (Math.Pow(128.0, (double)this.I) * abytBuffer[3 - this.I])));
                 this.I += -1;
               }
+
               while (this.I >= 0);
+
               if ((this.vintExtHeaderSize - 10) >= this.TAGSize)
               {
                 this.vbooExtHeaderPresent = false;
@@ -314,6 +330,7 @@ namespace ID3_TagIT
                 MP3.BinReader.BaseStream.Seek(10L, SeekOrigin.Begin);
                 return true;
               }
+
               if ((abytBuffer[5] & 0x40) > 0)
               {
                 this.vbooExtHeaderTAGIsUpdate = true;
@@ -324,6 +341,7 @@ namespace ID3_TagIT
                 this.vbooExtHeaderTAGIsUpdate = false;
                 num = 6;
               }
+
               if ((abytBuffer[5] & 0x20) > 0)
               {
                 this.vbooExtHeaderCRCPresent = true;
@@ -341,6 +359,7 @@ namespace ID3_TagIT
                 this.vbooExtHeaderCRCPresent = false;
                 this.vlngExtHeaderCRCData = 0L;
               }
+
               if ((abytBuffer[1] & 0x10) > 0)
               {
                 this.vbooExtHeaderRestrictPresent = true;
@@ -359,6 +378,7 @@ namespace ID3_TagIT
                 this.vbytExtHeaderRestrictImageEnc = 0;
                 this.vbytExtHeaderRestrictImageSize = 0;
               }
+
               MP3.BinReader.BaseStream.Seek((long)(10 + this.vintExtHeaderSize), SeekOrigin.Begin);
               break;
           }
@@ -565,6 +585,7 @@ namespace ID3_TagIT
           this.vbytExtHeaderRestrictImageEnc = 0;
           this.vbytExtHeaderRestrictImageSize = 0;
         }
+
         this.vbooTAGHeaderPresent = value;
       }
     }

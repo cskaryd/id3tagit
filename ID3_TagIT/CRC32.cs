@@ -1,8 +1,8 @@
-﻿namespace ID3_TagIT
-{
-  using System;
-  using System.IO;
+﻿using System;
+using System.IO;
 
+namespace ID3_TagIT
+{
   public class CRC32
   {
     private const int BUFFER_SIZE = 0x400;

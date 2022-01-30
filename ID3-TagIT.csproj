@@ -8,7 +8,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <AssemblyName>ID3-TagIT</AssemblyName>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -265,5 +265,140 @@
     <EmbeddedResource Include="ID3_TagIT.MenuResources-Fre.xml" />
     <EmbeddedResource Include="ID3_TagIT.Tooltips.xml" />
     <EmbeddedResource Include="ID3-TagIT.MenuBars.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\RemoveV1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\RemoveV2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\SelectAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\SwapV1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\SwapV2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\SwitchV1V2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\TagToFileV1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\TagToFileV2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\TransferConvertTags.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\AddFolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\CaseConversion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\ClearFilter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\CreatePlaylist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Decrease.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\DeleteFolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\EditV1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\EditV2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Enumerate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\FileToTagV1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\FileToTagV2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\GroupSelection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\HelpBook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\HelpCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Increase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Invert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\MoveFiles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\MultiEditV1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\MultiEditV2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\OpenLocation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\QueryFreeDB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Quit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\RandomUnknown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Redo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ID3_TagIT\icons\Refresh.png" />
   </ItemGroup>
 </Project>

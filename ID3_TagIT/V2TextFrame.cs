@@ -1,9 +1,9 @@
-﻿  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.IO;
-  using System.Runtime.Serialization.Formatters.Binary;
-  using System.Text;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 
 namespace ID3_TagIT
 {

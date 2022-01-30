@@ -1,9 +1,9 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.IO;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.IO;
 
+namespace ID3_TagIT
+{
   public class FileOperations
   {
     private BinaryReader objBinaryReader;
@@ -38,6 +38,7 @@
     public bool OpenBinaryReader()
     {
       bool flag;
+
       try
       {
         this.objBinaryReader = new BinaryReader(this.objFileStream);
@@ -49,12 +50,14 @@
         flag = false;
         ProjectData.ClearProjectError();
       }
+
       return flag;
     }
 
     public bool OpenBinaryWriter()
     {
       bool flag;
+
       try
       {
         this.objBinaryWriter = new BinaryWriter(this.objFileStream);
@@ -66,12 +69,14 @@
         flag = false;
         ProjectData.ClearProjectError();
       }
+
       return flag;
     }
 
     public bool OpenFileStreamR()
     {
       bool flag;
+
       try
       {
         this.objFileStream = this.objFileInfo.Open(FileMode.Open, FileAccess.Read, FileShare.Read);
@@ -83,12 +88,14 @@
         flag = false;
         ProjectData.ClearProjectError();
       }
+
       return flag;
     }
 
     public bool OpenFileStreamRW()
     {
       bool flag;
+
       try
       {
         this.objFileStream = this.objFileInfo.Open(FileMode.Open, FileAccess.ReadWrite, FileShare.None);
@@ -100,6 +107,7 @@
         flag = false;
         ProjectData.ClearProjectError();
       }
+
       return flag;
     }
 
@@ -112,23 +120,25 @@
     public bool TrimFile(int vintRelBegin, int vintRelEnd)
     {
       bool flag;
+
       try
       {
         if (vintRelBegin == 0)
         {
           if (!this.OpenFileStreamRW())
-          {
             return false;
-          }
+
           this.objFileStream.SetLength(this.FI.Length - vintRelEnd);
           this.CloseFileStream();
           goto Label_01C9;
         }
+
         if (this.OpenFileStreamR())
         {
           BinaryWriter writer = null;
           FileStream stream = null;
           this.OpenBinaryReader();
+
           try
           {
             byte[] buffer;
@@ -137,16 +147,19 @@
             writer = new BinaryWriter(stream);
             writer.BaseStream.Seek(0L, SeekOrigin.Begin);
             int vintNumberOfBytes = (((int)this.FI.Length) - vintRelBegin) - vintRelEnd;
+
             if (vintNumberOfBytes > 0x800000)
             {
               int num2 = vintNumberOfBytes / 0x800000;
               int num5 = num2 - 1;
+
               for (int i = 0; i <= num5; i++)
               {
                 buffer = this.ReadData(vintRelBegin + (i * 0x800000), SeekOrigin.Begin, 0x800000);
                 writer.Write(buffer);
                 writer.Flush();
               }
+
               buffer = this.ReadData(vintRelBegin + (num2 * 0x800000), SeekOrigin.Begin, (((int)this.FI.Length) - (vintRelBegin + (num2 * 0x800000))) - vintRelEnd);
               writer.Write(buffer);
               writer.Flush();
@@ -157,6 +170,7 @@
               writer.Write(buffer);
               writer.Flush();
             }
+
             writer.Close();
             stream.Close();
             this.CloseBinaryReader();
@@ -179,6 +193,7 @@
             return flag;
           }
         }
+
         flag = false;
       }
       catch (Exception exception2)
@@ -187,6 +202,7 @@
         flag = false;
         ProjectData.ClearProjectError();
       }
+
       return flag;
       Label_01C9:
       return true;

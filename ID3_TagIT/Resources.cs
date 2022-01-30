@@ -1,12 +1,12 @@
-﻿namespace ID3_TagIT
-{
-  using DevComponents.DotNetBar;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Data;
-  using System.Reflection;
-  using System.Windows.Forms;
+﻿using DevComponents.DotNetBar;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Data;
+using System.Reflection;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class Resources
   {
     private DataSet ID3TagITMenus;

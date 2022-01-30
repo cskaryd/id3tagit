@@ -1,13 +1,13 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.Data;
-  using System.IO;
-  using System.Runtime.Serialization.Formatters.Binary;
-  using System.Windows.Forms;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.Data;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class Settings
   {
     private ArrayList alstColumns = new ArrayList();
@@ -51,6 +51,7 @@
       string str4 = (Declarations.vstrUserAppData + @"\Libraries\Library-Exceptions.xml").Replace(@"\\", @"\");
       string str5 = (Declarations.vstrUserAppData + @"\Libraries\Library-Favourites.xml").Replace(@"\\", @"\");
       string str3 = (Declarations.vstrUserAppData + @"\Libraries\Library-CommDescriptors.xml").Replace(@"\\", @"\");
+
       if (File.Exists(str))
       {
         this.ArtistLibrary.ReadXml(str);
@@ -64,6 +65,7 @@
         this.ArtistLibrary.Tables.Add(table);
         this.ArtistTable = this.ArtistLibrary.Tables["Artists"];
       }
+
       if (File.Exists(str4))
       {
         this.ExceptionsLibrary.ReadXml(str4);
@@ -77,6 +79,7 @@
         this.ExceptionsLibrary.Tables.Add(table2);
         this.ExceptionsTable = this.ExceptionsLibrary.Tables["Exceptions"];
       }
+
       if (File.Exists(str7))
       {
         this.GenreLibrary.ReadXml(str7);
@@ -96,6 +99,7 @@
         this.GenreLibrary.Tables["Genres"].Constraints.Add(constraint);
         this.GenreTable = this.GenreLibrary.Tables["Genres"];
       }
+
       if (File.Exists(str6))
       {
         this.FormatsLibrary.ReadXml(str6);
@@ -107,21 +111,25 @@
         this.SelectFormatTable = this.FormatsLibrary.Tables[5];
         this.CompareFormatTable = this.FormatsLibrary.Tables[6];
       }
+
       if (File.Exists(str9))
       {
         this.ToolsLibrary.ReadXml(str9);
         this.ToolsTable = this.ToolsLibrary.Tables[0];
       }
+
       if (File.Exists(str3))
       {
         this.CommDLibrary.ReadXml(str3);
         this.CommDTable = this.CommDLibrary.Tables[0];
       }
+
       if (File.Exists(str2))
       {
         this.ColumnsLibrary.ReadXml(str2);
         this.ColumnsTable = this.ColumnsLibrary.Tables[0];
       }
+
       if (File.Exists(path))
       {
         this.TotalSettings.ReadXml(path);
@@ -130,6 +138,7 @@
         this.SettingsRow = this.SettingsTable.Rows[0];
         this.FirstPath = this.CurrentPath;
       }
+
       try
       {
         IEnumerator enumerator = null;
@@ -137,13 +146,13 @@
         FileStream serializationStream = new FileStream(str5, FileMode.OpenOrCreate);
         ArrayList list = (ArrayList)formatter.Deserialize(serializationStream);
         serializationStream.Close();
+
         try
         {
           enumerator = list.GetEnumerator();
+
           while (enumerator.MoveNext())
-          {
             this.alstFavNodes.Add(((Favourite)enumerator.Current).CreateNode());
-          }
         }
         finally
         {
@@ -169,10 +178,10 @@
       string str4 = (Declarations.vstrUserAppData + @"\Libraries\Library-Exceptions.xml").Replace(@"\\", @"\");
       string path = (Declarations.vstrUserAppData + @"\Libraries\Library-Favourites.xml").Replace(@"\\", @"\");
       string str3 = (Declarations.vstrUserAppData + @"\Libraries\Library-CommDescriptors.xml").Replace(@"\\", @"\");
+
       if (!this.SaveFolder)
-      {
         this.CurrentPath = this.FirstPath;
-      }
+
       this.TotalSettings.WriteXml(fileName, XmlWriteMode.WriteSchema);
       this.ArtistLibrary.WriteXml(str, XmlWriteMode.WriteSchema);
       this.ExceptionsLibrary.WriteXml(str4, XmlWriteMode.WriteSchema);
@@ -184,12 +193,14 @@
       BinaryFormatter formatter = new BinaryFormatter();
       FileStream serializationStream = new FileStream(path, FileMode.OpenOrCreate);
       ArrayList graph = new ArrayList();
+
       foreach (TreeNode node in this.alstFavNodes)
       {
         Favourite favourite = new Favourite();
         favourite.CreateFromNode(node);
         graph.Add(favourite);
       }
+
       formatter.Serialize(serializationStream, graph);
       serializationStream.Close();
     }
@@ -1969,6 +1980,7 @@
         IEnumerator enumerator = null;
         TreeNode current = new TreeNode();
         this.vstrName = objNode.Text;
+
         try
         {
           enumerator = objNode.Nodes.GetEnumerator();
@@ -1989,11 +2001,13 @@
       {
         TreeNode node2 = new TreeNode(this.vstrName);
         var enumerator = this.alstDirs.GetEnumerator();
+
         while (enumerator.MoveNext())
         {
           string text = StringType.FromObject(enumerator.Current);
           node2.Nodes.Add(text);
         }
+
         return node2;
       }
 

@@ -1,11 +1,11 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.IO;
-  using System.Runtime.Serialization.Formatters.Binary;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
+namespace ID3_TagIT
+{
   public class MP3 : FileOperations
   {
     private int I;
@@ -95,8 +95,10 @@
         this.GetMP3Header(IntegerType.FromObject(Interaction.IIf(this.V2TAG.TAGSize == 0, 0, this.V2TAG.TAGSize + 10)));
         this.CloseBinaryReader();
         this.CloseFileStream();
+
         return true;
       }
+
       return false;
     }
 
@@ -109,8 +111,10 @@
         this.ReadV2TAG();
         this.CloseBinaryReader();
         this.CloseFileStream();
+
         return true;
       }
+
       return false;
     }
 
@@ -205,11 +209,13 @@
         do
         {
           MP3Frame frame2 = new MP3Frame();
+
           if (this.FStream.Read(array, 0, 4) < 4)
           {
             numArray = (int[])Utils.CopyArray((Array)numArray, new int[num4 + 1]);
             break;
           }
+
           if ((array[0] == 0xff) & (array[1] >= 240))
           {
             if (frame2.GetFrame(ref this.objFileStream, ref array, false))
@@ -233,21 +239,29 @@
             num5++;
           }
         }
+
         while (((num4 != 80) || (num3 != 0)) && ((num5 <= 0x1000) && (num4 != 0x1c1)));
+
         this.vbooVBR = num3 >= 7;
+
         if (!this.vbooVBR)
           this.vintBitrate = Declarations.aintBitrateLookup[((this.vbytVersion & 1) * 4) | this.vbytLayer, frame.BitrateValue] * 0x3e8;
         else
         {
           int num8 = num4;
+
           for (index = 0; index <= num8; index++)
             num6 += numArray[index];
+
           Array.Sort(numArray);
+
           byte num7 = 0;
+
           for (index = num4; index >= 1; index += -1)
           {
             if (numArray[index] != numArray[index - 1])
               num7 = (byte)(num7 + 1);
+
             if (num7 == 2)
             {
               num6 += numArray[index - 1] * (num4 / 2);
@@ -255,8 +269,10 @@
               break;
             }
           }
+
           this.vintBitrate = Convert.ToInt32((double)(Math.Round((double)((((double)num6) / 1000.0) / ((double)num4)), 0) * 1000.0));
         }
+
         if ((((this.vintBitrate != 0xf3e58) & (this.vintBitrate != 0)) & (this.vintSamplerate != 0x1869f)) & (this.vintSamplerate != 0))
         {
           this.vintDuration = (int)Math.Round(Conversion.Fix((double)(((double)((this.FI.Length - vintStartPos) * 8L)) / ((double)this.vintBitrate))));
@@ -294,46 +310,44 @@
       int num;
       bool flag = false;
       this.FI.Refresh();
+
       if ((this.FI.Attributes & FileAttributes.ReadOnly) > 0)
       {
         if (!Declarations.objSettings.IgnoreWrite)
-        {
           return false;
-        }
+
         flag = true;
         this.FI.Attributes ^= FileAttributes.ReadOnly;
       }
+
       DateTime lastWriteTime = this.FI.LastWriteTime;
+
       if (!this.OpenFileStreamRW())
-      {
         return false;
-      }
+
       this.CloseFileStream();
       MP3 mp = this;
       int vintRelEnd = this.V1TAG.WriteTAG(ref mp);
       this.FI.Refresh();
+
       if (vintRelEnd == -1)
-      {
         return false;
-      }
+
       if (this.V2TAG.TAGVersion != 2)
       {
         mp = this;
         num = this.V2TAG.WriteTAG(ref mp);
         this.FI.Refresh();
+
         if (num == -1)
-        {
           return false;
-        }
       }
       else
-      {
         num = 0;
-      }
+
       if (((num + vintRelEnd) != 0) && !this.TrimFile(num, vintRelEnd))
-      {
         return false;
-      }
+
       if (StringType.StrCmp(this.FI.FullName, this.CurrentFullName, false) != 0)
       {
         try
@@ -345,34 +359,29 @@
         {
           ProjectData.SetProjectError(exception1);
           this.FI.Refresh();
+
           if (Declarations.objSettings.RestoreDate)
-          {
             this.FI.LastWriteTime = lastWriteTime;
-          }
+
           if (flag)
-          {
             this.FI.Attributes ^= FileAttributes.ReadOnly;
-          }
+
           this.FI.Refresh();
           ProjectData.ClearProjectError();
           return false;
         }
+
         foreach (V2APICFrame frame in this.V2TAG.GetFrames("APIC"))
-        {
           if (frame.Include)
-          {
             frame.Path = this.FI.FullName;
-          }
-        }
       }
+
       if (Declarations.objSettings.RestoreDate)
-      {
         this.FI.LastWriteTime = lastWriteTime;
-      }
+
       if (flag)
-      {
         this.FI.Attributes ^= FileAttributes.ReadOnly;
-      }
+
       this.Changed = false;
       this.FI.Refresh();
       return true;

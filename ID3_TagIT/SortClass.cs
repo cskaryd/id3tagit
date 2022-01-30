@@ -1,11 +1,11 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.Windows.Forms;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class SortClass : IComparer
   {
     private bool vbooAltSort;
@@ -47,6 +47,7 @@
                 else
                   return 1;
               }
+
               if (this.AltSort)
                 return -1;
               else
@@ -66,8 +67,10 @@
                 num = (int)((LongType.FromString(text) - LongType.FromString(expression)) / 0xf4240L);
                 ProjectData.ClearProjectError();
               }
+
               return num;
             }
+
             try
             {
               num = (int)(LongType.FromString(text) + LongType.FromString(expression));
@@ -79,14 +82,17 @@
               num = (int)((LongType.FromString(text) + LongType.FromString(expression)) / 0xf4240L);
               ProjectData.ClearProjectError();
             }
+
             return num;
           }
+
         case 3:
           if (!this.vbooAltSort)
             return DateTime.Compare(DateType.FromString(item.SubItems[this.vintColumn].Text), DateType.FromString(item2.SubItems[this.vintColumn].Text));
           else
             return DateTime.Compare(DateType.FromString(item2.SubItems[this.vintColumn].Text), DateType.FromString(item.SubItems[this.vintColumn].Text));
       }
+
       return num;
     }
 

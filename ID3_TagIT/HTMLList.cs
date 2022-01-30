@@ -1,11 +1,10 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.IO;
-  using System.Text;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System.IO;
+using System.Text;
 
+namespace ID3_TagIT
+{
   public class HTMLList
   {
     private FileInfo objFileInfo;
@@ -16,10 +15,12 @@
     {
       this.objHTMLFile.WriteLine(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(Strings.Space(8), Interaction.IIf(vlngColumn == 1L, "<tr bgcolor=" + this.GetRowColor(RC) + ">", "")), "<td"), this.GetAlign(A)), ">"));
       this.objHTMLFile.WriteLine(Strings.Space(10) + "<font color=" + this.GetFontColor(FC) + ">" + this.GetFontOpen(FF));
+
       if (StringType.StrCmp(vstrEntry, "", false) != 0)
       {
         string str = null;
         int num2 = Strings.Len(vstrEntry);
+
         for (int i = 1; i <= num2; i++)
         {
           if ((StringType.StrCmp(Strings.Mid(vstrEntry, i, 1), "\r", false) == 0) | (StringType.StrCmp(Strings.Mid(vstrEntry, i, 1), "\n", false) == 0))
@@ -31,16 +32,14 @@
             }
           }
           else
-          {
             str = StringType.FromObject(ObjectType.StrCatObj(str, Interaction.IIf((StringType.StrCmp(Strings.Mid(vstrEntry, i, 1), " ", false) == 0) & (StringType.StrCmp(Strings.Mid(vstrEntry, i + 1, 1), " ", false) == 0), "&nbsp;", Strings.Mid(vstrEntry, i, 1))));
-          }
         }
+
         this.objHTMLFile.WriteLine(Strings.Space(14) + str);
       }
       else
-      {
         this.objHTMLFile.WriteLine(Strings.Space(14) + "&nbsp;");
-      }
+
       this.objHTMLFile.WriteLine(Strings.Space(10) + this.GetFontClose(FF) + "</font>");
       this.objHTMLFile.WriteLine(ObjectType.StrCatObj(Strings.Space(8) + "</td>", Interaction.IIf(vbooCloseRow, "</tr>", "")));
     }
@@ -56,10 +55,10 @@
     public void CreateHTMLFile(string vstrFilename, string vstrTitle)
     {
       this.objHTMLFile = new StreamWriter(vstrFilename.Trim(new char[] { ' ' }), false, Encoding.Default);
+
       if (StringType.StrCmp(this.vstrWidth, "", false) == 0)
-      {
         this.vstrWidth = "600";
-      }
+
       this.objHTMLFile.WriteLine("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
       this.objHTMLFile.WriteLine("<html>");
       this.objHTMLFile.WriteLine("<head>");

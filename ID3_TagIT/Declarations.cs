@@ -1,23 +1,20 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.Runtime.InteropServices;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.Runtime.InteropServices;
 
+namespace ID3_TagIT
+{
   [StandardModule]
   internal sealed class Declarations
   {
-    public static int[] aintAllowedBitrates = new int[] {
-            8, 0x10, 0x18, 0x20, 40, 0x30, 0x38, 0x40, 80, 0x60, 0x70, 0x80, 160, 0xc0, 0xe0, 0x100,
-            320, 0x180, 0x1a0, 0x1c0
-        };
-    public static int[,] aintBitrateLookup = new int[8, 0x10];
+    public static int[] aintAllowedBitrates = new int[] { 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 384, 416, 448 };
+    public static int[,] aintBitrateLookup = new int[8, 16];
     public static int[,] aintFreqLookup = new int[4, 8];
     public static float[] asinBaseLenLayer1 = new float[4];
     public static float[] asinBaseLenLayer23 = new float[4];
-    public static string[] astrDefinedFrames = new string[0x5d];
-    public static string[] astrGenreLookup = new string[0x94];
+    public static string[] astrDefinedFrames = new string[93];
+    public static string[] astrGenreLookup = new string[148];
     public static string[] astrLanLookup;
     public const short FO_COPY = 2;
     public const short FO_DELETE = 3;
