@@ -1,0 +1,300 @@
+<?xml version="1.0" standalone="yes" ?>
+<ID3TagITMenus>
+	<xs:schema id="ID3TagITMenus" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xs:element name="ID3TagITMenus" msdata:IsDataSet="true" msdata:Locale="de-DE">
+			<xs:complexType>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element name="Menus">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="mnuFile" type="xs:string" minOccurs="0" />
+								<xs:element name="mnuView" type="xs:string" minOccurs="0" />
+								<xs:element name="mnuEdit" type="xs:string" minOccurs="0" />
+								<xs:element name="mnuID3Func" type="xs:string" minOccurs="0" />
+								<xs:element name="mnuExtendedFunc" type="xs:string" minOccurs="0" />
+								<xs:element name="mnuAnalyse" type="xs:string" minOccurs="0" />
+								<xs:element name="mnuOptions" type="xs:string" minOccurs="0" />
+								<xs:element name="mnuHelp" type="xs:string" minOccurs="0" />
+								<xs:element name="btnV1V2View" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnAbout" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnAddDir" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnCaseConversion" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnChangeTextEnc" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnCompareFileTAG" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnCopy" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnCopyV1" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnCopyV2" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnCopyV1V2" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnCopyFiles" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnDeleteFiles" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnDouble" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnE1" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnE2" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnEditLibraries" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnEnumCounter" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnEnumerate" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnEnumFilename" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnEnumV1" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnEnumV2" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnEnumMinus" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnEnumPlus" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnErrors" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnFilterAlbum" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnFilterNumber" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnFilterEmpty" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnFilterOther" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnFilterArtist" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnFilterTitle" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnFreeDB" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnFT1" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnFT2" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnHelp" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnLists" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnLocation" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnME1" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnME2" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnMoveFiles" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnNavigation" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnOrganizeFiles" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnPaste" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnPlay" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnPreferences" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnProperties" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnQuit" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnRedo" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnRefresh" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnRemove" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnRemoveFilter" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnRemoveFolders" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnRemoveV1" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnRemoveV2" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnRename" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSave" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSearchReplace" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSelectAll" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSelectChanged" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSelectCompare" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSelectDouble" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSelectFormat" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSelectGroup" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSelectInvert" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnShortcuts" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSplitArtist1" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSplitArtist2" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSwapV1" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSwapV1AT" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSwapV1AA" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSwapV1TA" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSwapV2" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSwapV2AT" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSwapV2AA" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSwapV2TA" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnT1F" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnT2F" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnTransfer" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnUndo" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnViewVer1" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnViewVer2" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnScanSubDirs" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnQuickFilename" type="xs:string" minOccurs="0" />
+								<xs:element name="mnubtnSynchronize" type="xs:string" minOccurs="0" />
+								<xs:element name="TAGV1" type="xs:string" minOccurs="0" />
+								<xs:element name="TAGV2" type="xs:string" minOccurs="0" />		
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:choice>
+			</xs:complexType>
+		</xs:element>
+	</xs:schema>
+	<Menus>
+	    <mnuFile>&amp;Datei</mnuFile>
+		<mnuView>&amp;Ansicht</mnuView>
+		<mnuEdit>&amp;Bearbeiten</mnuEdit>
+		<mnuID3Func>&amp;ID3-Funktionen</mnuID3Func>
+		<mnuExtendedFunc>&amp;Erweiterte Funktionen</mnuExtendedFunc>
+		<mnuAnalyse>Anal&amp;ysieren</mnuAnalyse>
+		<mnuOptions>&amp;Optionen</mnuOptions>
+		<mnuHelp>&amp;Hilfe</mnuHelp>
+		<btnV1V2View>Gezeigte TAG Version</btnV1V2View>
+		<mnubtnAbout>&amp;Über ...</mnubtnAbout>
+		<mnubtnAddDir>Verzeichnis &amp;hinzufügen</mnubtnAddDir>
+		<mnubtnCaseConversion>Groß-/Kleinschreibung konvertieren</mnubtnCaseConversion>
+		<mnubtnChangeTextEnc>TAG Ver. 2 Text &amp;Encoding ändern</mnubtnChangeTextEnc>
+		<mnubtnCompareFileTAG>&amp;Vergleiche Dateinamen mit TAG Informationen</mnubtnCompareFileTAG>
+		<mnubtnCopy>&amp;Kopiere TAG Informationen</mnubtnCopy>
+		<mnubtnCopyV1>Kopiere nur TAG Ver. &amp;1</mnubtnCopyV1>
+		<mnubtnCopyV2>Kopiere nur TAG Ver. &amp;2</mnubtnCopyV2>
+		<mnubtnCopyV1V2>&amp;Kopiere TAG Ver. 1 und 2</mnubtnCopyV1V2>
+		<mnubtnCopyFiles>&amp;Kopiere Dateien</mnubtnCopyFiles>
+		<mnubtnDeleteFiles>&amp;Lösche Dateien</mnubtnDeleteFiles>
+		<mnubtnDouble>Finde &amp;doppelte Dateien</mnubtnDouble>
+		<mnubtnE1>Editiere TAG Ver. &amp;1</mnubtnE1>
+		<mnubtnE2>Editiere TAG Ver. &amp;2</mnubtnE2>
+		<mnubtnEditLibraries>Editiere &amp;Bibliotheken</mnubtnEditLibraries>
+		<mnubtnEnumCounter>1</mnubtnEnumCounter>
+		<mnubtnEnumerate>Nummerieren</mnubtnEnumerate>
+		<mnubtnEnumFilename>Nummerieren im &amp;Dateinamen</mnubtnEnumFilename>
+		<mnubtnEnumV1>Nummerieren in TAG Ver. &amp;1</mnubtnEnumV1>
+		<mnubtnEnumV2>Nummerieren in TAG Ver. &amp;2</mnubtnEnumV2>
+		<mnubtnEnumMinus>-</mnubtnEnumMinus>
+		<mnubtnEnumPlus>+</mnubtnEnumPlus>
+		<mnubtnErrors>Zeige/Verstecke &amp;Fehler-Panel</mnubtnErrors>
+		<mnubtnFilterAlbum>Album</mnubtnFilterAlbum>
+		<mnubtnFilterNumber>#</mnubtnFilterNumber>
+		<mnubtnFilterEmpty>''</mnubtnFilterEmpty>
+		<mnubtnFilterOther>@</mnubtnFilterOther>
+		<mnubtnFilterArtist>Interpret</mnubtnFilterArtist>
+		<mnubtnFilterTitle>Titel</mnubtnFilterTitle>
+		<mnubtnFreeDB>&amp;Suche in FreeDB</mnubtnFreeDB>
+		<mnubtnFT1>&amp;Dateiname -&gt; TAG Ver. 1</mnubtnFT1>
+		<mnubtnFT2>Datei&amp;name -&gt; TAG Ver. 2</mnubtnFT2>
+		<mnubtnHelp>&amp;Hilfe ...</mnubtnHelp>
+		<mnubtnLists>&amp;Erstelle Dateiliste / Playlist</mnubtnLists>
+		<mnubtnLocation>&amp;Ordner der Datei öffnen</mnubtnLocation>
+		<mnubtnME1>&amp;Mehrfacheditierung TAG Ver. 1</mnubtnME1>
+		<mnubtnME2>Meh&amp;rfacheditierung Edit TAG Ver. 2</mnubtnME2>
+		<mnubtnMoveFiles>&amp;Verschiebe Dateien</mnubtnMoveFiles>
+		<mnubtnNavigation>Zeige/Verstecke &amp;Navigation-Panel</mnubtnNavigation>
+		<mnubtnOrganizeFiles>&amp;Organisiere Dateien</mnubtnOrganizeFiles>
+		<mnubtnPaste>&amp;Einfügen der  TAG Informationen</mnubtnPaste>
+		<mnubtnPlay>&amp;Wiedergeben</mnubtnPlay>
+		<mnubtnPreferences>&amp;Einstellungen...</mnubtnPreferences>
+		<mnubtnProperties>&amp;Dateieigenschaften</mnubtnProperties>
+		<mnubtnQuit>&amp;Beenden</mnubtnQuit>
+		<mnubtnRedo>&amp;Wiederholen</mnubtnRedo>
+		<mnubtnRefresh>&amp;Aktualisieren</mnubtnRefresh>
+		<mnubtnRemove>&amp;Entferne ausgewählte Dateien aus der Liste</mnubtnRemove>
+		<mnubtnRemoveFilter>Entferne Filter</mnubtnRemoveFilter>
+		<mnubtnRemoveFolders>E&amp;ntferne leere Ordner</mnubtnRemoveFolders>
+		<mnubtnRemoveV1>&amp;Entferne TAG Ver. 1</mnubtnRemoveV1>
+		<mnubtnRemoveV2>Ent&amp;ferne TAG Ver. 2</mnubtnRemoveV2>
+		<mnubtnRename>Datei/Ordner &amp;umbenennen</mnubtnRename>
+		<mnubtnSave>&amp;Speichern</mnubtnSave>
+		<mnubtnSearchReplace>&amp;Suchen (und Ersetzen)</mnubtnSearchReplace>
+		<mnubtnSelectAll>&amp;Alle auswählen</mnubtnSelectAll>
+		<mnubtnSelectChanged>&amp;Geänderte Dateien auswählen</mnubtnSelectChanged>
+		<mnubtnSelectCompare>&amp;Fehlerhafte Dateiname &lt;-&gt; TAG Dateien auswählen</mnubtnSelectCompare>
+		<mnubtnSelectDouble>&amp;Doppelte Dateien auswählen</mnubtnSelectDouble>
+		<mnubtnSelectFormat>Dateien nach &amp;Format auswählen</mnubtnSelectFormat>
+		<mnubtnSelectGroup>Auswahl &amp;gruppieren</mnubtnSelectGroup>
+		<mnubtnSelectInvert>Auswahl &amp;invertieren</mnubtnSelectInvert>
+		<mnubtnShortcuts>&amp;Shortcuts ...</mnubtnShortcuts>
+		<mnubtnSplitArtist1>S&amp;plitte TAG Ver. 1 Interpret in Interpret und Titel</mnubtnSplitArtist1>
+		<mnubtnSplitArtist2>Sp&amp;litte TAG Ver. 2 Interpret in Interpret und Titel</mnubtnSplitArtist2>
+		<mnubtnSwapV1>&amp;Vertausche TAG Ver. 1 Einträge</mnubtnSwapV1>
+		<mnubtnSwapV1AT>Interpret &lt;-&gt; Titel</mnubtnSwapV1AT>
+		<mnubtnSwapV1AA>Interpret &lt;-&gt; Album</mnubtnSwapV1AA>
+		<mnubtnSwapV1TA>Titel&lt;-&gt; Album</mnubtnSwapV1TA>
+		<mnubtnSwapV2>Ver&amp;tausche TAG Ver. 2 Einträge</mnubtnSwapV2>
+		<mnubtnSwapV2AT>Interpret &lt;-&gt; Titel</mnubtnSwapV2AT>
+		<mnubtnSwapV2AA>Interpret &lt;-&gt; Album</mnubtnSwapV2AA>
+		<mnubtnSwapV2TA>Titel &lt;-&gt; Album</mnubtnSwapV2TA>
+		<mnubtnT1F>&amp;TAG Ver. 1 -&gt; Dateiname</mnubtnT1F>
+		<mnubtnT2F>TA&amp;G Ver. 2 -&gt; Dateiname</mnubtnT2F>
+		<mnubtnTransfer>Transferiere/Konvertiere TAGs</mnubtnTransfer>
+		<mnubtnUndo>&amp;Rückgängig</mnubtnUndo>
+		<mnubtnViewVer1>Zeige TAG Ver. 1</mnubtnViewVer1>
+		<mnubtnViewVer2>Zeige TAG Ver. 2</mnubtnViewVer2>
+        <mnubtnScanSubDirs>&amp;Scanne Unterverzeichnisse</mnubtnScanSubDirs>
+        <mnubtnQuickFilename>Sch&amp;nelle Dateinamen Editierung</mnubtnQuickFilename>
+        <mnubtnSynchronize>S&amp;ynchronisiere Ver. 1 und Ver. 2 Editierung</mnubtnSynchronize>
+        <TAGV1>TAG Ver. 1 Funktionen</TAGV1> 
+        <TAGV2>TAG Ver. 2 Funktionen</TAGV2> 
+	</Menus>
+	<Menus>
+	    <mnuFile />
+		<mnuView />
+		<mnuEdit />
+		<mnuID3Func />
+		<mnuExtendedFunc />
+		<mnuAnalyse />
+		<mnuOptions />
+		<mnuHelp />
+		<btnV1V2View>Ändern der angezeigten TAG Version</btnV1V2View>
+		<mnubtnAbout>Über ID3-TagIT</mnubtnAbout>
+		<mnubtnAddDir>Ein Verzeichnis auswählen, dessen Dateien der Liste hinzugefügt werden sollen</mnubtnAddDir>
+		<mnubtnCaseConversion>Groß-/Kleinschreibung konvertieren</mnubtnCaseConversion>
+		<mnubtnChangeTextEnc>Ändern der TAG Ver.2 Text Encodierung (ANSI/Unicode)</mnubtnChangeTextEnc>
+		<mnubtnCompareFileTAG>Vergleicht den Dateinamen mit einem aus TAG Information erzeugten Namen</mnubtnCompareFileTAG>
+		<mnubtnCopy />
+		<mnubtnCopyV1>Kopiere TAG Ver. 1 Informationen der ausgewählten Dateien</mnubtnCopyV1>
+		<mnubtnCopyV2>Kopiere TAG Ver. 2 Informationen der ausgewählten Dateien</mnubtnCopyV2>
+		<mnubtnCopyV1V2>Kopiere beide TAG Informationen der ausgewählten Dateien</mnubtnCopyV1V2>
+		<mnubtnCopyFiles>Kopiere die ausgewählten Dateien in ein Verzeichnis</mnubtnCopyFiles>
+		<mnubtnDeleteFiles>Lösche die ausgewählten Dateien</mnubtnDeleteFiles>
+		<mnubtnDouble>Suche nach doppelten Dateien in Bezug auf TAG Information oder Audiodaten</mnubtnDouble>
+		<mnubtnE1>Editiere TAG Ver. 1</mnubtnE1>
+		<mnubtnE2>Editiere TAG Ver. 2</mnubtnE2>
+		<mnubtnEditLibraries>Editiere die von ID3-TagIT verwendeten Bibliotheken</mnubtnEditLibraries>
+		<mnubtnEnumCounter>Nummerierungszähler</mnubtnEnumCounter>
+		<mnubtnEnumerate>Auswahl der Nummerierungsfunktion</mnubtnEnumerate>
+		<mnubtnEnumFilename>Nummerieren der Dateien im Dateinamen</mnubtnEnumFilename>
+		<mnubtnEnumV1>Nummerieren der Dateien in der TAG Ver. 1 Tracknummer</mnubtnEnumV1>
+		<mnubtnEnumV2>Nummerieren der Dateien in der TAG Ver. 2 Tracknummer</mnubtnEnumV2>
+		<mnubtnEnumMinus>Den Nummerierungszähler verringern</mnubtnEnumMinus>
+		<mnubtnEnumPlus>Den Nummerierungszähler erhöhen</mnubtnEnumPlus>
+		<mnubtnErrors>Zeige/Verstecke Fehler-Panel</mnubtnErrors>
+		<mnubtnFilterAlbum>Eintrag auswählen nach dem die angezeigten Dateien gefilitert werden sollen</mnubtnFilterAlbum>
+		<mnubtnFilterNumber>Zahlen</mnubtnFilterNumber>
+		<mnubtnFilterEmpty>Leere Einträge</mnubtnFilterEmpty>
+		<mnubtnFilterOther>Alle Einträge, die nicht in einen anderen Filter passen</mnubtnFilterOther>
+		<mnubtnFilterArtist>Eintrag auswählen nach dem die angezeigten Dateien gefilitert werden sollen</mnubtnFilterArtist>
+		<mnubtnFilterTitle>Eintrag auswählen nach dem die angezeigten Dateien gefilitert werden sollen</mnubtnFilterTitle>
+		<mnubtnFreeDB>In FreeDB nach Dateien suchen</mnubtnFreeDB>
+		<mnubtnFT1>Informationen aus dem Dateinamen in TAG Ver. 1 übernehmen</mnubtnFT1>
+		<mnubtnFT2>Informationen aus dem Dateinamen in TAG Ver. 2 übernehmen</mnubtnFT2>
+		<mnubtnHelp>ID3-TagIT Hilfe anzeigen</mnubtnHelp>
+		<mnubtnLists>Eine Playlist/Dateiliste der ausgewählten Dateien erzeugen</mnubtnLists>
+		<mnubtnLocation>Öffnet den Ordner, in dem die Datei untergebracht ist</mnubtnLocation>
+		<mnubtnME1>Mehrfacheditierung TAG Ver. 1</mnubtnME1>
+		<mnubtnME2>Mehrfacheditierung TAG Ver. 2</mnubtnME2>
+		<mnubtnMoveFiles>Verschiebe die ausgewählten Dateien in Verzeichnis</mnubtnMoveFiles>
+		<mnubtnNavigation>Zeige/Verstecke Navigation-Panel</mnubtnNavigation>
+		<mnubtnOrganizeFiles>Organisiere die ausgewählten Dateien gemäß ihrer TAGs unter einem Ordner</mnubtnOrganizeFiles>
+		<mnubtnPaste>Einfügen der TAG Informationen in die ausgewählten Dateien</mnubtnPaste>
+		<mnubtnPlay>Dateien abspielen</mnubtnPlay>
+		<mnubtnPreferences>Einstellungen für ID3-TagIT ändern</mnubtnPreferences>
+		<mnubtnProperties>Anzeigen der Dateieigenschaften</mnubtnProperties>
+		<mnubtnQuit>ID3-TagIT beenden</mnubtnQuit>
+		<mnubtnRedo>Letzte Aktion wiederholen</mnubtnRedo>
+		<mnubtnRefresh>Liste aktualisieren</mnubtnRefresh>
+		<mnubtnRemove>Entfernen der ausgewählten Dateien aus der Liste (NICHT von der Festplatte)</mnubtnRemove>
+		<mnubtnRemoveFilter>Aktuellen Filter entfernen</mnubtnRemoveFilter>
+		<mnubtnRemoveFolders>Alle leeren Ordner entfernen</mnubtnRemoveFolders>
+		<mnubtnRemoveV1>TAG Ver. 1 entfernen</mnubtnRemoveV1>
+		<mnubtnRemoveV2>TAG Ver. 2 entfernen</mnubtnRemoveV2>
+		<mnubtnRename>Umbenennen der ausgewählten Datei bzw. des ausgewählten Ordners</mnubtnRename>
+		<mnubtnSave>Änderungen speichern</mnubtnSave>
+		<mnubtnSearchReplace>Suchen und Ersetzen</mnubtnSearchReplace>
+		<mnubtnSelectAll>Alle Dateien auswählen</mnubtnSelectAll>
+		<mnubtnSelectChanged>Auswählen der geänderten Dateien</mnubtnSelectChanged>
+		<mnubtnSelectCompare>Alle Dateien auswählen, deren Dateiname nicht mit den TAG Informationen übereinstimmt</mnubtnSelectCompare>
+		<mnubtnSelectDouble>Doppelte Dateien auswählen</mnubtnSelectDouble>
+		<mnubtnSelectFormat>Dateien auswählen, die dem eingegebenen Format entsprechen</mnubtnSelectFormat>
+		<mnubtnSelectGroup>Gruppiere alle alle ausgewählten Dateien am Anfang der Liste</mnubtnSelectGroup>
+		<mnubtnSelectInvert>Auswahl invertieren</mnubtnSelectInvert>
+		<mnubtnShortcuts>Anzeigen der Liste der Shortcuts in ID3-TagIT</mnubtnShortcuts>
+		<mnubtnSplitArtist1>Splitten des TAG Ver. 1 Interpreten in Interpret und Titel</mnubtnSplitArtist1>
+		<mnubtnSplitArtist2>Splitten des TAG Ver. 2 Interpreten in Interpret und Titel</mnubtnSplitArtist2>
+		<mnubtnSwapV1>Vertausche TAG Ver. 1 Einträge</mnubtnSwapV1>
+		<mnubtnSwapV1AT>Vertausche Interpret und Titel Eintrag des TAG Ver. 1</mnubtnSwapV1AT>
+		<mnubtnSwapV1AA>Vertausche Interpret und Album Eintrag des TAG Ver. 1</mnubtnSwapV1AA>
+		<mnubtnSwapV1TA>Vertausche Titel und Album Eintrag des TAG Ver. 1</mnubtnSwapV1TA>
+		<mnubtnSwapV2>Vertausche TAG Ver. 2 Einträge</mnubtnSwapV2>
+		<mnubtnSwapV2AT>Vertausche Interpret und Titel Eintrag des TAG Ver. 2</mnubtnSwapV2AT>
+		<mnubtnSwapV2AA>Vertausche Interpret und Album Eintrag des TAG Ver. 2</mnubtnSwapV2AA>
+		<mnubtnSwapV2TA>Vertausche Titel und Album Eintrag des TAG Ver. 2</mnubtnSwapV2TA>
+		<mnubtnT1F>TAG Ver. 1 Informationen in den Dateinamen übernehmen</mnubtnT1F>
+		<mnubtnT2F>TAG Ver. 2 Informationen in den Dateinamen übernehmen</mnubtnT2F>
+		<mnubtnTransfer>Transferiere/Konvertiere TAGs</mnubtnTransfer>
+		<mnubtnUndo>Letzte Aktion rückgängig machen</mnubtnUndo>
+		<mnubtnViewVer1>Anzeigen der TAG Ver. 1 Information</mnubtnViewVer1>
+		<mnubtnViewVer2>Anzeigen der TAG Ver. 2 Information</mnubtnViewVer2>
+		<mnubtnScanSubDirs>Wenn aktiviert, wird der ausgewählte Ordner und dessen Unterordner nach Dateien durchsucht</mnubtnScanSubDirs>
+		<mnubtnQuickFilename>Wenn aktiviert, wird nach dem Editieren eines Dateinames direkt der nächste zur Editierung aktiviert</mnubtnQuickFilename>
+		<mnubtnSynchronize>Wenn aktiviert, werden alle Änderungen immer auf beide TAG Versionen angewendet</mnubtnSynchronize>
+		<TAGV1 /> 
+		<TAGV2 /> 
+	</Menus>
+</ID3TagITMenus>

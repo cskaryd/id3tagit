@@ -1,0 +1,1896 @@
+<?xml version="1.0" standalone="yes"?>
+<ID3TagITRessources>
+  <xs:schema id="ID3TagITRessources" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ID3TagITRessources" msdata:IsDataSet="true" msdata:Locale="de-DE">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="Strings">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Col01" type="xs:string" minOccurs="0" />
+                <xs:element name="Col02" type="xs:string" minOccurs="0" />
+                <xs:element name="Col03" type="xs:string" minOccurs="0" />
+                <xs:element name="Col04" type="xs:string" minOccurs="0" />
+                <xs:element name="Col05" type="xs:string" minOccurs="0" />
+                <xs:element name="Col06" type="xs:string" minOccurs="0" />
+                <xs:element name="Col07" type="xs:string" minOccurs="0" />
+                <xs:element name="Col08" type="xs:string" minOccurs="0" />
+                <xs:element name="Col09" type="xs:string" minOccurs="0" />
+                <xs:element name="Col10" type="xs:string" minOccurs="0" />
+                <xs:element name="Col11" type="xs:string" minOccurs="0" />
+                <xs:element name="Col12" type="xs:string" minOccurs="0" />
+                <xs:element name="Col13" type="xs:string" minOccurs="0" />
+                <xs:element name="Col14" type="xs:string" minOccurs="0" />
+                <xs:element name="Col15" type="xs:string" minOccurs="0" />
+                <xs:element name="Col16" type="xs:string" minOccurs="0" />
+                <xs:element name="Col17" type="xs:string" minOccurs="0" />
+                <xs:element name="Col18" type="xs:string" minOccurs="0" />
+                <xs:element name="Col19" type="xs:string" minOccurs="0" />
+                <xs:element name="Col20" type="xs:string" minOccurs="0" />
+                <xs:element name="Col21" type="xs:string" minOccurs="0" />
+                <xs:element name="Col22" type="xs:string" minOccurs="0" />
+                <xs:element name="Col23" type="xs:string" minOccurs="0" />
+                <xs:element name="Col24" type="xs:string" minOccurs="0" />
+                <xs:element name="Col25" type="xs:string" minOccurs="0" />
+                <xs:element name="Col26" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol01" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol02" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol03" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol04" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol05" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol06" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol07" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol08" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol09" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol10" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol11" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol12" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol13" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol14" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol15" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol16" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol17" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol18" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol19" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol20" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol21" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol22" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol23" type="xs:string" minOccurs="0" />
+                <xs:element name="DialogCol24" type="xs:string" minOccurs="0" />
+                <xs:element name="FileExists" type="xs:string" minOccurs="0" />
+                <xs:element name="FileCouldNotReplace" type="xs:string" minOccurs="0" />
+                <xs:element name="FileDelete" type="xs:string" minOccurs="0" />
+                <xs:element name="ChangesNotSaved" type="xs:string" minOccurs="0" />
+                <xs:element name="DoubleArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="FileAlreadyExistsRename" type="xs:string" minOccurs="0" />
+                <xs:element name="InvalidName" type="xs:string" minOccurs="0" />
+                <xs:element name="InvalidCharFormat" type="xs:string" minOccurs="0" />
+                <xs:element name="InvalidCharPath" type="xs:string" minOccurs="0" />
+                <xs:element name="InvalidFormat" type="xs:string" minOccurs="0" />
+                <xs:element name="InvalidPath" type="xs:string" minOccurs="0" />
+                <xs:element name="ToolMissing" type="xs:string" minOccurs="0" />
+                <xs:element name="ErrorTFExists" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="FreeDBToLong" type="xs:string" minOccurs="0" />
+                <xs:element name="ErrorCouldNotWriteChanges" type="xs:string" minOccurs="0" />
+                <xs:element name="InvalidPathLength" type="xs:string" minOccurs="0" />
+                <xs:element name="Convert2324" type="xs:string" minOccurs="0" />
+                <xs:element name="Convert2423" type="xs:string" minOccurs="0" />
+                <xs:element name="SelectFiles" type="xs:string" minOccurs="0" />
+                <xs:element name="Cancel" type="xs:string" minOccurs="0" />
+                <xs:element name="FolderAlreadyExistsRename" type="xs:string" minOccurs="0" />
+                <xs:element name="DoubleCommD" type="xs:string" minOccurs="0" />
+                <xs:element name="Connecting" type="xs:string" minOccurs="0" />
+                <xs:element name="ConnectionFailed" type="xs:string" minOccurs="0" />
+                <xs:element name="Querying" type="xs:string" minOccurs="0" />
+                <xs:element name="NoMatches" type="xs:string" minOccurs="0" />
+                <xs:element name="Matches" type="xs:string" minOccurs="0" />
+                <xs:element name="Connection" type="xs:string" minOccurs="0" />
+                <xs:element name="Version1" type="xs:string" minOccurs="0" />
+                <xs:element name="Version2" type="xs:string" minOccurs="0" />
+                <xs:element name="Folders" type="xs:string" minOccurs="0" />
+                <xs:element name="Tools" type="xs:string" minOccurs="0" />
+                <xs:element name="Errors" type="xs:string" minOccurs="0" />
+                <xs:element name="CHError1" type="xs:string" minOccurs="0" />
+                <xs:element name="CHError2" type="xs:string" minOccurs="0" />
+                <xs:element name="Filter" type="xs:string" minOccurs="0" />
+                <xs:element name="SearchArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="Number" type="xs:string" minOccurs="0" />
+                <xs:element name="ScanMP3" type="xs:string" minOccurs="0" />
+                <xs:element name="Path" type="xs:string" minOccurs="0" />
+                <xs:element name="FilenameLen" type="xs:string" minOccurs="0" />
+                <xs:element name="SubDirsYes" type="xs:string" minOccurs="0" />
+                <xs:element name="SubDirsNo" type="xs:string" minOccurs="0" />
+                <xs:element name="ProgressChecksum" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGVer" type="xs:string" minOccurs="0" />
+                <xs:element name="Scan" type="xs:string" minOccurs="0" />
+                <xs:element name="Read" type="xs:string" minOccurs="0" />
+                <xs:element name="Write" type="xs:string" minOccurs="0" />
+                <xs:element name="Fill" type="xs:string" minOccurs="0" />
+                <xs:element name="Name" type="xs:string" minOccurs="0" />
+                <xs:element name="Move" type="xs:string" minOccurs="0" />
+                <xs:element name="Copy" type="xs:string" minOccurs="0" />
+                <xs:element name="Delete" type="xs:string" minOccurs="0" />
+                <xs:element name="GetArtists" type="xs:string" minOccurs="0" />
+                <xs:element name="CreateLib" type="xs:string" minOccurs="0" />
+                <xs:element name="SaveLib" type="xs:string" minOccurs="0" />
+                <xs:element name="Save" type="xs:string" minOccurs="0" />
+                <xs:element name="FilenameTAG" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGFilename" type="xs:string" minOccurs="0" />
+                <xs:element name="RemoveTAG" type="xs:string" minOccurs="0" />
+                <xs:element name="Undo" type="xs:string" minOccurs="0" />
+                <xs:element name="Redo" type="xs:string" minOccurs="0" />
+                <xs:element name="CaseConv" type="xs:string" minOccurs="0" />
+                <xs:element name="Transfer" type="xs:string" minOccurs="0" />
+                <xs:element name="Multiple" type="xs:string" minOccurs="0" />
+                <xs:element name="Paste" type="xs:string" minOccurs="0" />
+                <xs:element name="Swap" type="xs:string" minOccurs="0" />
+                <xs:element name="Split" type="xs:string" minOccurs="0" />
+                <xs:element name="DoubleCreating" type="xs:string" minOccurs="0" />
+                <xs:element name="DoubleComparing" type="xs:string" minOccurs="0" />
+                <xs:element name="CompareFileTAG" type="xs:string" minOccurs="0" />
+                <xs:element name="Organize" type="xs:string" minOccurs="0" />
+                <xs:element name="FolderRename" type="xs:string" minOccurs="0" />
+                <xs:element name="FileCopyText" type="xs:string" minOccurs="0" />
+                <xs:element name="FileMoveText" type="xs:string" minOccurs="0" />
+                <xs:element name="FileAddDir" type="xs:string" minOccurs="0" />
+                <xs:element name="SplitAT1" type="xs:string" minOccurs="0" />
+                <xs:element name="SplitAT2" type="xs:string" minOccurs="0" />
+                <xs:element name="SplitATText" type="xs:string" minOccurs="0" />
+                <xs:element name="FoldersPan" type="xs:string" minOccurs="0" />
+                <xs:element name="FavouritesPan" type="xs:string" minOccurs="0" />
+                <xs:element name="ToolsPan" type="xs:string" minOccurs="0" />
+                <xs:element name="QuickEditPan" type="xs:string" minOccurs="0" />
+                <xs:element name="PicturePan" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="SelectionBars">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="TAGV2ButtonItem1" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGV2ButtonItem2" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGV2ButtonItem3" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGV2ButtonItem4" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGV2ButtonItem5" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGV2ButtonItem6" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGV2ButtonItem7" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGV2ButtonItem8" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGV2ButtonItem9" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGV2ButtonItem10" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGV2grpTAG" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGV2grpTransfer" type="xs:string" minOccurs="0" />
+                <xs:element name="TAGV2grpCommands" type="xs:string" minOccurs="0" />
+                <xs:element name="btnPrev" type="xs:string" minOccurs="0" />
+                <xs:element name="btnNext" type="xs:string" minOccurs="0" />
+                <xs:element name="btnSwapAA" type="xs:string" minOccurs="0" />
+                <xs:element name="btnSwapAT" type="xs:string" minOccurs="0" />
+                <xs:element name="btnSwapTA" type="xs:string" minOccurs="0" />
+                <xs:element name="btnImport" type="xs:string" minOccurs="0" />
+                <xs:element name="btnExport" type="xs:string" minOccurs="0" />
+                <xs:element name="btnGet" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmCaseConv">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="TabPage1" type="xs:string" minOccurs="0" />
+                <xs:element name="frameOptions" type="xs:string" minOccurs="0" />
+                <xs:element name="chkAlwaysFirst" type="xs:string" minOccurs="0" />
+                <xs:element name="chkReplaceSpaceUnder" type="xs:string" minOccurs="0" />
+                <xs:element name="chkReplaceSpace20" type="xs:string" minOccurs="0" />
+                <xs:element name="chkReplaceUnderSpace" type="xs:string" minOccurs="0" />
+                <xs:element name="chkReplace20Space" type="xs:string" minOccurs="0" />
+                <xs:element name="chkSeparator" type="xs:string" minOccurs="0" />
+                <xs:element name="frameMethod" type="xs:string" minOccurs="0" />
+                <xs:element name="optAllFirstUp" type="xs:string" minOccurs="0" />
+                <xs:element name="optFirstUp" type="xs:string" minOccurs="0" />
+                <xs:element name="optAllUp" type="xs:string" minOccurs="0" />
+                <xs:element name="optAllLow" type="xs:string" minOccurs="0" />
+                <xs:element name="chkVer1" type="xs:string" minOccurs="0" />
+                <xs:element name="chkVer2" type="xs:string" minOccurs="0" />
+                <xs:element name="chkFilename" type="xs:string" minOccurs="0" />
+                <xs:element name="frameTAGOptions" type="xs:string" minOccurs="0" />
+                <xs:element name="chkArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="chkAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="chkComment" type="xs:string" minOccurs="0" />
+                <xs:element name="TabPage2" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmCompareFileTAG">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="chkIgnoreCase" type="xs:string" minOccurs="0" />
+                <xs:element name="chkReplaceUnderScore" type="xs:string" minOccurs="0" />
+                <xs:element name="optTAGV1" type="xs:string" minOccurs="0" />
+                <xs:element name="optTAGV2" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="lblDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="framePara" type="xs:string" minOccurs="0" />
+                <xs:element name="L18" type="xs:string" minOccurs="0" />
+                <xs:element name="L19" type="xs:string" minOccurs="0" />
+                <xs:element name="L20" type="xs:string" minOccurs="0" />
+                <xs:element name="L13" type="xs:string" minOccurs="0" />
+                <xs:element name="L16" type="xs:string" minOccurs="0" />
+                <xs:element name="L15" type="xs:string" minOccurs="0" />
+                <xs:element name="L14" type="xs:string" minOccurs="0" />
+                <xs:element name="L17" type="xs:string" minOccurs="0" />
+                <xs:element name="L12" type="xs:string" minOccurs="0" />
+                <xs:element name="L11" type="xs:string" minOccurs="0" />
+                <xs:element name="L10" type="xs:string" minOccurs="0" />
+                <xs:element name="L9" type="xs:string" minOccurs="0" />
+                <xs:element name="L8" type="xs:string" minOccurs="0" />
+                <xs:element name="L7" type="xs:string" minOccurs="0" />
+                <xs:element name="L6" type="xs:string" minOccurs="0" />
+                <xs:element name="L5" type="xs:string" minOccurs="0" />
+                <xs:element name="L4" type="xs:string" minOccurs="0" />
+                <xs:element name="L3" type="xs:string" minOccurs="0" />
+                <xs:element name="L2" type="xs:string" minOccurs="0" />
+                <xs:element name="L1" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+                <xs:element name="lblFormat" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmDouble">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="optAD" type="xs:string" minOccurs="0" />
+                <xs:element name="optATA" type="xs:string" minOccurs="0" />
+                <xs:element name="optAT" type="xs:string" minOccurs="0" />
+                <xs:element name="optTAGV1" type="xs:string" minOccurs="0" />
+                <xs:element name="optTAGV2" type="xs:string" minOccurs="0" />
+                <xs:element name="GroupBox" type="xs:string" minOccurs="0" />
+                <xs:element name="lblStatus" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmFilenameToTAG1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="framePara" type="xs:string" minOccurs="0" />
+                <xs:element name="L8" type="xs:string" minOccurs="0" />
+                <xs:element name="L18" type="xs:string" minOccurs="0" />
+                <xs:element name="L7" type="xs:string" minOccurs="0" />
+                <xs:element name="L6" type="xs:string" minOccurs="0" />
+                <xs:element name="L5" type="xs:string" minOccurs="0" />
+                <xs:element name="L4" type="xs:string" minOccurs="0" />
+                <xs:element name="L3" type="xs:string" minOccurs="0" />
+                <xs:element name="L2" type="xs:string" minOccurs="0" />
+                <xs:element name="L1" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+                <xs:element name="lblFormat" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmFilenameToTAG2">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="chkSaveName" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="lblDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="framePara" type="xs:string" minOccurs="0" />
+                <xs:element name="L17" type="xs:string" minOccurs="0" />
+                <xs:element name="L18" type="xs:string" minOccurs="0" />
+                <xs:element name="L16" type="xs:string" minOccurs="0" />
+                <xs:element name="L19" type="xs:string" minOccurs="0" />
+                <xs:element name="L15" type="xs:string" minOccurs="0" />
+                <xs:element name="L14" type="xs:string" minOccurs="0" />
+                <xs:element name="L13" type="xs:string" minOccurs="0" />
+                <xs:element name="L12" type="xs:string" minOccurs="0" />
+                <xs:element name="L11" type="xs:string" minOccurs="0" />
+                <xs:element name="L10" type="xs:string" minOccurs="0" />
+                <xs:element name="L9" type="xs:string" minOccurs="0" />
+                <xs:element name="L8" type="xs:string" minOccurs="0" />
+                <xs:element name="L7" type="xs:string" minOccurs="0" />
+                <xs:element name="L6" type="xs:string" minOccurs="0" />
+                <xs:element name="L5" type="xs:string" minOccurs="0" />
+                <xs:element name="L4" type="xs:string" minOccurs="0" />
+                <xs:element name="L3" type="xs:string" minOccurs="0" />
+                <xs:element name="L2" type="xs:string" minOccurs="0" />
+                <xs:element name="L1" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+                <xs:element name="lblFormat" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmFreeDB">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="grpSearchFile" type="xs:string" minOccurs="0" />
+                <xs:element name="lblSearchWord" type="xs:string" minOccurs="0" />
+                <xs:element name="btnQuery" type="xs:string" minOccurs="0" />
+                <xs:element name="grpSearchWord" type="xs:string" minOccurs="0" />
+                <xs:element name="chkArtistExact" type="xs:string" minOccurs="0" />
+                <xs:element name="chkArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="chkComplete" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="btnSearch" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTrack" type="xs:string" minOccurs="0" />
+                <xs:element name="grpStatus" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnClose" type="xs:string" minOccurs="0" />
+                <xs:element name="pnlWrite" type="xs:string" minOccurs="0" />
+                <xs:element name="btnWrite" type="xs:string" minOccurs="0" />
+                <xs:element name="chkWrite2" type="xs:string" minOccurs="0" />
+                <xs:element name="chkWrite1" type="xs:string" minOccurs="0" />
+                <xs:element name="optVariousArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="optSingleArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmFreeDBAssociate">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="Label2" type="xs:string" minOccurs="0" />
+                <xs:element name="Label1" type="xs:string" minOccurs="0" />
+                <xs:element name="btnUp" type="xs:string" minOccurs="0" />
+                <xs:element name="btnDown" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmLibraries">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+                <xs:element name="Favourites" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo1" type="xs:string" minOccurs="0" />
+                <xs:element name="btnFavBrowse" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveFavDir" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddFavDir" type="xs:string" minOccurs="0" />
+                <xs:element name="Label2" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveFav" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddFav" type="xs:string" minOccurs="0" />
+                <xs:element name="Label1" type="xs:string" minOccurs="0" />
+                <xs:element name="Genre" type="xs:string" minOccurs="0" />
+                <xs:element name="chkOnlyOwn" type="xs:string" minOccurs="0" />
+                <xs:element name="lblDescGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCorres" type="xs:string" minOccurs="0" />
+                <xs:element name="btnDeleteG" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddG" type="xs:string" minOccurs="0" />
+                <xs:element name="lblGenreName" type="xs:string" minOccurs="0" />
+                <xs:element name="Artist" type="xs:string" minOccurs="0" />
+                <xs:element name="lblDescArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="btnClearA" type="xs:string" minOccurs="0" />
+                <xs:element name="btnDeleteA" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="lblArtistName" type="xs:string" minOccurs="0" />
+                <xs:element name="btnGetArtistV1" type="xs:string" minOccurs="0" />
+                <xs:element name="btnGetArtistV2" type="xs:string" minOccurs="0" />
+                <xs:element name="Comment" type="xs:string" minOccurs="0" />
+                <xs:element name="btnClearCommD" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveCommD" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddCommD" type="xs:string" minOccurs="0" />
+                <xs:element name="Label3" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo2" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmLists">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="tabPlaylist" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCreatePlaylist" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo1" type="xs:string" minOccurs="0" />
+                <xs:element name="framePara" type="xs:string" minOccurs="0" />
+                <xs:element name="L7" type="xs:string" minOccurs="0" />
+                <xs:element name="L6" type="xs:string" minOccurs="0" />
+                <xs:element name="L5" type="xs:string" minOccurs="0" />
+                <xs:element name="L4" type="xs:string" minOccurs="0" />
+                <xs:element name="L3" type="xs:string" minOccurs="0" />
+                <xs:element name="L2" type="xs:string" minOccurs="0" />
+                <xs:element name="L1" type="xs:string" minOccurs="0" />
+                <xs:element name="chkRelativ" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPlaylist" type="xs:string" minOccurs="0" />
+                <xs:element name="tabTemp" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo2" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCreateFromTemp" type="xs:string" minOccurs="0" />
+                <xs:element name="tabFilelist" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo3" type="xs:string" minOccurs="0" />
+                <xs:element name="chkCreateHTML" type="xs:string" minOccurs="0" />
+                <xs:element name="chkCreateCSV" type="xs:string" minOccurs="0" />
+                <xs:element name="frameOptions" type="xs:string" minOccurs="0" />
+                <xs:element name="chkColor" type="xs:string" minOccurs="0" />
+                <xs:element name="chkGridlines" type="xs:string" minOccurs="0" />
+                <xs:element name="lblListWidth" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTitleHTML" type="xs:string" minOccurs="0" />
+                <xs:element name="frameTAGInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="optID3V1" type="xs:string" minOccurs="0" />
+                <xs:element name="optID3V2" type="xs:string" minOccurs="0" />
+                <xs:element name="frameColumns" type="xs:string" minOccurs="0" />
+                <xs:element name="btnUp" type="xs:string" minOccurs="0" />
+                <xs:element name="btnDown" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCreateQuickLists" type="xs:string" minOccurs="0" />
+                <xs:element name="btnClose" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPath" type="xs:string" minOccurs="0" />
+                <xs:element name="btnPath" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmMain">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="btnQuickEdit" type="xs:string" minOccurs="0" />
+                <xs:element name="btnQuickEditMore" type="xs:string" minOccurs="0" />
+                <xs:element name="EnumInfo" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmOrganize">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="chkOverwrite" type="xs:string" minOccurs="0" />
+                <xs:element name="chkCopy" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="lblDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="optID3V2" type="xs:string" minOccurs="0" />
+                <xs:element name="optID3V1" type="xs:string" minOccurs="0" />
+                <xs:element name="framePara" type="xs:string" minOccurs="0" />
+                <xs:element name="L18" type="xs:string" minOccurs="0" />
+                <xs:element name="L19" type="xs:string" minOccurs="0" />
+                <xs:element name="L20" type="xs:string" minOccurs="0" />
+                <xs:element name="L13" type="xs:string" minOccurs="0" />
+                <xs:element name="L16" type="xs:string" minOccurs="0" />
+                <xs:element name="L15" type="xs:string" minOccurs="0" />
+                <xs:element name="L14" type="xs:string" minOccurs="0" />
+                <xs:element name="L17" type="xs:string" minOccurs="0" />
+                <xs:element name="L12" type="xs:string" minOccurs="0" />
+                <xs:element name="L11" type="xs:string" minOccurs="0" />
+                <xs:element name="L10" type="xs:string" minOccurs="0" />
+                <xs:element name="L9" type="xs:string" minOccurs="0" />
+                <xs:element name="L8" type="xs:string" minOccurs="0" />
+                <xs:element name="L7" type="xs:string" minOccurs="0" />
+                <xs:element name="L6" type="xs:string" minOccurs="0" />
+                <xs:element name="L5" type="xs:string" minOccurs="0" />
+                <xs:element name="L4" type="xs:string" minOccurs="0" />
+                <xs:element name="L3" type="xs:string" minOccurs="0" />
+                <xs:element name="L2" type="xs:string" minOccurs="0" />
+                <xs:element name="L1" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+                <xs:element name="btnBrowse" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPath" type="xs:string" minOccurs="0" />
+                <xs:element name="lblFormat" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmPreferences">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+                <xs:element name="Settings" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPlay" type="xs:string" minOccurs="0" />
+                <xs:element name="chkExplorerContext" type="xs:string" minOccurs="0" />
+                <xs:element name="frameEnum" type="xs:string" minOccurs="0" />
+                <xs:element name="lbl2" type="xs:string" minOccurs="0" />
+                <xs:element name="lblEnumSep" type="xs:string" minOccurs="0" />
+                <xs:element name="lbl1" type="xs:string" minOccurs="0" />
+                <xs:element name="chkMouseRenaming" type="xs:string" minOccurs="0" />
+                <xs:element name="chkRestore" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTracknumbers" type="xs:string" minOccurs="0" />
+                <xs:element name="frameSelection" type="xs:string" minOccurs="0" />
+                <xs:element name="optAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="optSingle" type="xs:string" minOccurs="0" />
+                <xs:element name="chkSaveOnExit" type="xs:string" minOccurs="0" />
+                <xs:element name="frameDoubleClick" type="xs:string" minOccurs="0" />
+                <xs:element name="optEditCur" type="xs:string" minOccurs="0" />
+                <xs:element name="optEditV1" type="xs:string" minOccurs="0" />
+                <xs:element name="optEditV2" type="xs:string" minOccurs="0" />
+                <xs:element name="chkIgnoreWrite" type="xs:string" minOccurs="0" />
+                <xs:element name="chkAudioChecksumCalc" type="xs:string" minOccurs="0" />
+                <xs:element name="Columns" type="xs:string" minOccurs="0" />
+                <xs:element name="lblDescript" type="xs:string" minOccurs="0" />
+                <xs:element name="btnUp" type="xs:string" minOccurs="0" />
+                <xs:element name="btnDown" type="xs:string" minOccurs="0" />
+                <xs:element name="Ver2" type="xs:string" minOccurs="0" />
+                <xs:element name="lblFormat" type="xs:string" minOccurs="0" />
+                <xs:element name="lblDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="lblV24" type="xs:string" minOccurs="0" />
+                <xs:element name="lblV23" type="xs:string" minOccurs="0" />
+                <xs:element name="chkSingle" type="xs:string" minOccurs="0" />
+                <xs:element name="chkUnSync" type="xs:string" minOccurs="0" />
+                <xs:element name="optUse24" type="xs:string" minOccurs="0" />
+                <xs:element name="optUse23" type="xs:string" minOccurs="0" />
+                <xs:element name="FreeDB" type="xs:string" minOccurs="0" />
+                <xs:element name="grpProxy" type="xs:string" minOccurs="0" />
+                <xs:element name="Label10" type="xs:string" minOccurs="0" />
+                <xs:element name="Label9" type="xs:string" minOccurs="0" />
+                <xs:element name="Label8" type="xs:string" minOccurs="0" />
+                <xs:element name="Label7" type="xs:string" minOccurs="0" />
+                <xs:element name="chkProxy" type="xs:string" minOccurs="0" />
+                <xs:element name="lblUsername" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPort" type="xs:string" minOccurs="0" />
+                <xs:element name="lblServer" type="xs:string" minOccurs="0" />
+                <xs:element name="Colors" type="xs:string" minOccurs="0" />
+                <xs:element name="chkWinXPThemes" type="xs:string" minOccurs="0" />
+                <xs:element name="Label5" type="xs:string" minOccurs="0" />
+                <xs:element name="Label6" type="xs:string" minOccurs="0" />
+                <xs:element name="Label4" type="xs:string" minOccurs="0" />
+                <xs:element name="Label3" type="xs:string" minOccurs="0" />
+                <xs:element name="Label2" type="xs:string" minOccurs="0" />
+                <xs:element name="Label1" type="xs:string" minOccurs="0" />
+                <xs:element name="Tools" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="lblP" type="xs:string" minOccurs="0" />
+                <xs:element name="btnBrowse" type="xs:string" minOccurs="0" />
+                <xs:element name="chkDefault" type="xs:string" minOccurs="0" />
+                <xs:element name="lblParameters" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPath" type="xs:string" minOccurs="0" />
+                <xs:element name="lblDescription" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTextEncInfo" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmProgress">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmRemoveFolders">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="chkIgnoreOther" type="xs:string" minOccurs="0" />
+                <xs:element name="btnBrowse" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPath" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="GroupBox" type="xs:string" minOccurs="0" />
+                <xs:element name="lblStatus" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmSearch">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="frameTAGOptions" type="xs:string" minOccurs="0" />
+                <xs:element name="chkArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="chkAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTracknumber" type="xs:string" minOccurs="0" />
+                <xs:element name="chkYear" type="xs:string" minOccurs="0" />
+                <xs:element name="chkGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="chkComment" type="xs:string" minOccurs="0" />
+                <xs:element name="FrameMode" type="xs:string" minOccurs="0" />
+                <xs:element name="LinkLabel" type="xs:string" minOccurs="0" />
+                <xs:element name="chkRegExpress" type="xs:string" minOccurs="0" />
+                <xs:element name="chkSelected" type="xs:string" minOccurs="0" />
+                <xs:element name="chkCase" type="xs:string" minOccurs="0" />
+                <xs:element name="optAND" type="xs:string" minOccurs="0" />
+                <xs:element name="optOR" type="xs:string" minOccurs="0" />
+                <xs:element name="chkVer1" type="xs:string" minOccurs="0" />
+                <xs:element name="chkVer2" type="xs:string" minOccurs="0" />
+                <xs:element name="chkFilename" type="xs:string" minOccurs="0" />
+                <xs:element name="btnSelect" type="xs:string" minOccurs="0" />
+                <xs:element name="lblSearch" type="xs:string" minOccurs="0" />
+                <xs:element name="lblReplace" type="xs:string" minOccurs="0" />
+                <xs:element name="btnReplace" type="xs:string" minOccurs="0" />
+                <xs:element name="btnClose" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmSelectFormat">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="framePara" type="xs:string" minOccurs="0" />
+                <xs:element name="L2" type="xs:string" minOccurs="0" />
+                <xs:element name="L1" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+                <xs:element name="lblFormat" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmTransfer">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="btnDeselectAll" type="xs:string" minOccurs="0" />
+                <xs:element name="btnSelectAll" type="xs:string" minOccurs="0" />
+                <xs:element name="GroupBox" type="xs:string" minOccurs="0" />
+                <xs:element name="chkExists" type="xs:string" minOccurs="0" />
+                <xs:element name="lblComment" type="xs:string" minOccurs="0" />
+                <xs:element name="chkYear" type="xs:string" minOccurs="0" />
+                <xs:element name="chkGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTrack" type="xs:string" minOccurs="0" />
+                <xs:element name="chkComment" type="xs:string" minOccurs="0" />
+                <xs:element name="chkAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="chkArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="optConvert43" type="xs:string" minOccurs="0" />
+                <xs:element name="optConvert34" type="xs:string" minOccurs="0" />
+                <xs:element name="opt21" type="xs:string" minOccurs="0" />
+                <xs:element name="opt12" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmTAG1ToFilename">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="lblDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="framePara" type="xs:string" minOccurs="0" />
+                <xs:element name="lbl2" type="xs:string" minOccurs="0" />
+                <xs:element name="lbl1" type="xs:string" minOccurs="0" />
+                <xs:element name="L18" type="xs:string" minOccurs="0" />
+                <xs:element name="L17" type="xs:string" minOccurs="0" />
+                <xs:element name="L7" type="xs:string" minOccurs="0" />
+                <xs:element name="L6" type="xs:string" minOccurs="0" />
+                <xs:element name="L5" type="xs:string" minOccurs="0" />
+                <xs:element name="L4" type="xs:string" minOccurs="0" />
+                <xs:element name="L3" type="xs:string" minOccurs="0" />
+                <xs:element name="L2" type="xs:string" minOccurs="0" />
+                <xs:element name="L1" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+                <xs:element name="lblFormat" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmTAG2ToFilename">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="chkRebuildName" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="lblDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="framePara" type="xs:string" minOccurs="0" />
+                <xs:element name="L13" type="xs:string" minOccurs="0" />
+                <xs:element name="lbl2" type="xs:string" minOccurs="0" />
+                <xs:element name="lbl1" type="xs:string" minOccurs="0" />
+                <xs:element name="L19" type="xs:string" minOccurs="0" />
+                <xs:element name="L18" type="xs:string" minOccurs="0" />
+                <xs:element name="L16" type="xs:string" minOccurs="0" />
+                <xs:element name="L15" type="xs:string" minOccurs="0" />
+                <xs:element name="L14" type="xs:string" minOccurs="0" />
+                <xs:element name="L17" type="xs:string" minOccurs="0" />
+                <xs:element name="L12" type="xs:string" minOccurs="0" />
+                <xs:element name="L11" type="xs:string" minOccurs="0" />
+                <xs:element name="L10" type="xs:string" minOccurs="0" />
+                <xs:element name="L9" type="xs:string" minOccurs="0" />
+                <xs:element name="L8" type="xs:string" minOccurs="0" />
+                <xs:element name="L7" type="xs:string" minOccurs="0" />
+                <xs:element name="L6" type="xs:string" minOccurs="0" />
+                <xs:element name="L5" type="xs:string" minOccurs="0" />
+                <xs:element name="L4" type="xs:string" minOccurs="0" />
+                <xs:element name="L3" type="xs:string" minOccurs="0" />
+                <xs:element name="L2" type="xs:string" minOccurs="0" />
+                <xs:element name="L1" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+                <xs:element name="lblFormat" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmTAG1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="lblGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="lblComment" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="lblAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="lblYear" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTrack" type="xs:string" minOccurs="0" />
+                <xs:element name="lblArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="btnNext" type="xs:string" minOccurs="0" />
+                <xs:element name="btnPrev" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+                <xs:element name="lblSelected" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmTAG1Multi">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfoStar" type="xs:string" minOccurs="0" />
+                <xs:element name="lblGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="lblComment" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="lblAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="lblYear" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTrack" type="xs:string" minOccurs="0" />
+                <xs:element name="lblArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmTAG2">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="btnGet" type="xs:string" minOccurs="0" />
+                <xs:element name="lblGet" type="xs:string" minOccurs="0" />
+                <xs:element name="lblDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="btnExport" type="xs:string" minOccurs="0" />
+                <xs:element name="btnImport" type="xs:string" minOccurs="0" />
+                <xs:element name="btnNext" type="xs:string" minOccurs="0" />
+                <xs:element name="btnPrev" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+                <xs:element name="Main" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCommDescInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="btnV1Comment" type="xs:string" minOccurs="0" />
+                <xs:element name="btnMoveComment" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveComment" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddComment" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCOMM" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCOMMLan" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCOMMDesc" type="xs:string" minOccurs="0" />
+                <xs:element name="btnV1Genre" type="xs:string" minOccurs="0" />
+                <xs:element name="lblGenreInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="btnMoveGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="lblGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="btnTLEN" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTLEN" type="xs:string" minOccurs="0" />
+                <xs:element name="lblBPM" type="xs:string" minOccurs="0" />
+                <xs:element name="btnV1Title" type="xs:string" minOccurs="0" />
+                <xs:element name="btnV1Album" type="xs:string" minOccurs="0" />
+                <xs:element name="btnV1Track" type="xs:string" minOccurs="0" />
+                <xs:element name="btnV1Year" type="xs:string" minOccurs="0" />
+                <xs:element name="btnV1Artist" type="xs:string" minOccurs="0" />
+                <xs:element name="lblMediaTyp" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOf2" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOf1" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="lblAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPosMedia" type="xs:string" minOccurs="0" />
+                <xs:element name="lblYear" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTrack" type="xs:string" minOccurs="0" />
+                <xs:element name="lblArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="Detail1" type="xs:string" minOccurs="0" />
+                <xs:element name="lblAlbumSort" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTitleSort" type="xs:string" minOccurs="0" />
+                <xs:element name="lblArtistSort" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOYearInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOYear" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOOwner" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOFilename" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOLyWriter" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="lblSubTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="lblContent" type="xs:string" minOccurs="0" />
+                <xs:element name="lblComposer" type="xs:string" minOccurs="0" />
+                <xs:element name="lblConductor" type="xs:string" minOccurs="0" />
+                <xs:element name="lblModified" type="xs:string" minOccurs="0" />
+                <xs:element name="lblBand" type="xs:string" minOccurs="0" />
+                <xs:element name="Detail2" type="xs:string" minOccurs="0" />
+                <xs:element name="lblMusicianInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveMusician" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddMusician" type="xs:string" minOccurs="0" />
+                <xs:element name="lblMusicianName" type="xs:string" minOccurs="0" />
+                <xs:element name="lblMusicianInst" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveInv" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddInv" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInvPerson" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInvFunction" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCopyright" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPublisher" type="xs:string" minOccurs="0" />
+                <xs:element name="lblEncoded" type="xs:string" minOccurs="0" />
+                <xs:element name="lblLyWriter" type="xs:string" minOccurs="0" />
+                <xs:element name="PicLy" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemovePicture" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddPicture" type="xs:string" minOccurs="0" />
+                <xs:element name="btnGetPic" type="xs:string" minOccurs="0" />
+                <xs:element name="btnExPic" type="xs:string" minOccurs="0" />
+                <xs:element name="chkPicInclude" type="xs:string" minOccurs="0" />
+                <xs:element name="chkPicRelativPath" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPicPath" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPicType" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPicDesc" type="xs:string" minOccurs="0" />
+                <xs:element name="btnMoveLyrics" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveLyrics" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddLyrics" type="xs:string" minOccurs="0" />
+                <xs:element name="btnLyricsFile" type="xs:string" minOccurs="0" />
+                <xs:element name="lblLyrics" type="xs:string" minOccurs="0" />
+                <xs:element name="lblLyLan" type="xs:string" minOccurs="0" />
+                <xs:element name="lblLyDesc" type="xs:string" minOccurs="0" />
+                <xs:element name="WWWRat" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="btnMoveRating" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveRating" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddRating" type="xs:string" minOccurs="0" />
+                <xs:element name="lblRatingRating" type="xs:string" minOccurs="0" />
+                <xs:element name="lblRatingCounter" type="xs:string" minOccurs="0" />
+                <xs:element name="lblRatingUser" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCOMMInfURL" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPubURL" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPayURL" type="xs:string" minOccurs="0" />
+                <xs:element name="lblINetRadioURL" type="xs:string" minOccurs="0" />
+                <xs:element name="lblAudioSRCURL" type="xs:string" minOccurs="0" />
+                <xs:element name="lblAudioFileURL" type="xs:string" minOccurs="0" />
+                <xs:element name="lblArtistURL" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCopyInfURL" type="xs:string" minOccurs="0" />
+                <xs:element name="UserDefined" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveWXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddWXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="lblWXXXContent" type="xs:string" minOccurs="0" />
+                <xs:element name="lblWXXXDesc" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveTXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddTXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTXXXContent" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTXXXDesc" type="xs:string" minOccurs="0" />
+                <xs:element name="NotSupported" type="xs:string" minOccurs="0" />
+                <xs:element name="lblNot" type="xs:string" minOccurs="0" />
+                <xs:element name="lblSelected" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmTAG2Multi">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfoStar" type="xs:string" minOccurs="0" />
+                <xs:element name="chkRemoveAllNOT" type="xs:string" minOccurs="0" />
+                <xs:element name="lblDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+                <xs:element name="Main" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCommDescInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox10" type="xs:string" minOccurs="0" />
+                <xs:element name="btnMoveComment" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveComment" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddComment" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCOMM" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCOMMLan" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCOMMDesc" type="xs:string" minOccurs="0" />
+                <xs:element name="lblGenreInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="btnMoveGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="lblGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTLEN" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTLEN" type="xs:string" minOccurs="0" />
+                <xs:element name="lblBPM" type="xs:string" minOccurs="0" />
+                <xs:element name="lblMediaTyp" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOf2" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOf1" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="lblAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPosMedia" type="xs:string" minOccurs="0" />
+                <xs:element name="lblYear" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTrack" type="xs:string" minOccurs="0" />
+                <xs:element name="lblArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="Detail1" type="xs:string" minOccurs="0" />
+                <xs:element name="lblAlbumSort" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTitleSort" type="xs:string" minOccurs="0" />
+                <xs:element name="lblArtistSort" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOYearInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOYear" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOOwner" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOFilename" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOLyWriter" type="xs:string" minOccurs="0" />
+                <xs:element name="lblOAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="lblSubTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="lblContent" type="xs:string" minOccurs="0" />
+                <xs:element name="lblComposer" type="xs:string" minOccurs="0" />
+                <xs:element name="lblConductor" type="xs:string" minOccurs="0" />
+                <xs:element name="lblModified" type="xs:string" minOccurs="0" />
+                <xs:element name="lblBand" type="xs:string" minOccurs="0" />
+                <xs:element name="Detail2" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCopyright" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPublisher" type="xs:string" minOccurs="0" />
+                <xs:element name="lblEncoded" type="xs:string" minOccurs="0" />
+                <xs:element name="lblLyWriter" type="xs:string" minOccurs="0" />
+                <xs:element name="lblMusicianInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveMusician" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddMusician" type="xs:string" minOccurs="0" />
+                <xs:element name="lblMusicianName" type="xs:string" minOccurs="0" />
+                <xs:element name="lblMusicianInst" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveInv" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddInv" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInvPerson" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInvFunction" type="xs:string" minOccurs="0" />
+                <xs:element name="PicLy" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox34" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemovePicture" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddPicture" type="xs:string" minOccurs="0" />
+                <xs:element name="btnGetPic" type="xs:string" minOccurs="0" />
+                <xs:element name="chkPicInclude" type="xs:string" minOccurs="0" />
+                <xs:element name="chkPicRelativPath" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPicPath" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPicType" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPicDesc" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox35" type="xs:string" minOccurs="0" />
+                <xs:element name="btnMoveLyrics" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveLyrics" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddLyrics" type="xs:string" minOccurs="0" />
+                <xs:element name="btnLyricsFile" type="xs:string" minOccurs="0" />
+                <xs:element name="lblLyrics" type="xs:string" minOccurs="0" />
+                <xs:element name="lblLyLan" type="xs:string" minOccurs="0" />
+                <xs:element name="lblLyDesc" type="xs:string" minOccurs="0" />
+                <xs:element name="WWWRat" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox33" type="xs:string" minOccurs="0" />
+                <xs:element name="lblInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="btnMoveRating" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveRating" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddRating" type="xs:string" minOccurs="0" />
+                <xs:element name="lblRatingRating" type="xs:string" minOccurs="0" />
+                <xs:element name="lblRatingCounter" type="xs:string" minOccurs="0" />
+                <xs:element name="lblRatingUser" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCOMMInfURL" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPubURL" type="xs:string" minOccurs="0" />
+                <xs:element name="lblPayURL" type="xs:string" minOccurs="0" />
+                <xs:element name="lblINetRadioURL" type="xs:string" minOccurs="0" />
+                <xs:element name="lblAudioSRCURL" type="xs:string" minOccurs="0" />
+                <xs:element name="lblAudioFileURL" type="xs:string" minOccurs="0" />
+                <xs:element name="lblArtistURL" type="xs:string" minOccurs="0" />
+                <xs:element name="lblCopyInfURL" type="xs:string" minOccurs="0" />
+                <xs:element name="UserDefined" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox37" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveWXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddWXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="lblWXXXContent" type="xs:string" minOccurs="0" />
+                <xs:element name="lblWXXXDesc" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox36" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveTXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddTXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTXXXContent" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTXXXDesc" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmEncoding">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FormName" type="xs:string" minOccurs="0" />
+                <xs:element name="lblV24" type="xs:string" minOccurs="0" />
+                <xs:element name="lblV23" type="xs:string" minOccurs="0" />
+                <xs:element name="btnCancel" type="xs:string" minOccurs="0" />
+                <xs:element name="lblTextEncInfo" type="xs:string" minOccurs="0" />
+                <xs:element name="btnOK" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Strings>
+    <Col01>Filename</Col01>
+    <Col02>Subdirectory</Col02>
+    <Col03>Ver. 1</Col03>
+    <Col04>Ver. 2</Col04>
+    <Col05>Artist</Col05>
+    <Col06>Title</Col06>
+    <Col07>Album</Col07>
+    <Col08>Track</Col08>
+    <Col09>Position in media set</Col09>
+    <Col10>Comment</Col10>
+    <Col11>Genre</Col11>
+    <Col12>Year</Col12>
+    <Col13>Rating</Col13>
+    <Col14>Duration</Col14>
+    <Col15>Bitrate (kBit/s)</Col15>
+    <Col16>CBR / VBR</Col16>
+    <Col17>Samplerate</Col17>
+    <Col18>Channel</Col18>
+    <Col19>Version</Col19>
+    <Col20>Last Changed</Col20>
+    <Col21>Composer</Col21>
+    <Col22>File size (KB)</Col22>
+    <Col23>BPM</Col23>
+    <Col24>Number of Pic.</Col24>
+    <Col25>Checksum Audio</Col25>
+    <Col26>Date of creation</Col26>
+    <DialogCol01>Own TAG Ver. 2 genre</DialogCol01>
+    <DialogCol02>TAG Ver. 1 genre for transfer 1 -&gt;  2</DialogCol02>
+    <DialogCol03>TAG Ver. 1 genre for transfer 2 -&gt;  1</DialogCol03>
+    <DialogCol04>Descriptor</DialogCol04>
+    <DialogCol05>Comment</DialogCol05>
+    <DialogCol06>Language</DialogCol06>
+    <DialogCol07>Function</DialogCol07>
+    <DialogCol08>Name</DialogCol08>
+    <DialogCol09>Instrument</DialogCol09>
+    <DialogCol10>Name</DialogCol10>
+    <DialogCol11>Descriptor</DialogCol11>
+    <DialogCol12>Picture Type</DialogCol12>
+    <DialogCol13>Path</DialogCol13>
+    <DialogCol14>Include</DialogCol14>
+    <DialogCol15>Descriptor</DialogCol15>
+    <DialogCol16>Text</DialogCol16>
+    <DialogCol17>Language</DialogCol17>
+    <DialogCol18>User</DialogCol18>
+    <DialogCol19>Rating</DialogCol19>
+    <DialogCol20>Play Counter</DialogCol20>
+    <DialogCol21>Descriptor</DialogCol21>
+    <DialogCol22>Content</DialogCol22>
+    <DialogCol23>Frame ID</DialogCol23>
+    <DialogCol24>Content</DialogCol24>
+    <FileExists>The file "%1" already exists. %CDo you really want to replace it?</FileExists>
+    <FileCouldNotReplace>The file "%1" could not be replaced.%CContinue anyway?</FileCouldNotReplace>
+    <FileDelete>Are you sure to delete all selected files?</FileDelete>
+    <ChangesNotSaved>Changes have not been saved. If you continue all changes will be lost.%CSave changes now?</ChangesNotSaved>
+    <DoubleArtist>The artist you entered already exists in the libraray.%CEntered artist was not added to the library.</DoubleArtist>
+    <FileAlreadyExistsRename>The file "%1" already exists. %C"%2" could not be renamed.</FileAlreadyExistsRename>
+    <InvalidName>The path or filename is not valid. Please check.</InvalidName>
+    <InvalidCharFormat>Wrong character found in the format string. Please check this.</InvalidCharFormat>
+    <InvalidCharPath>Wrong character found in the path string. Please check this.</InvalidCharPath>
+    <InvalidFormat>The format entered is not valid. Please check this.</InvalidFormat>
+    <InvalidPath>The path entered is not valid. Please check this.</InvalidPath>
+    <ToolMissing>Please enter a description and a path or check the default player box.</ToolMissing>
+    <ErrorTFExists>The file could not be renamed because the filename already exists. Perhaps two or more files have the same TAG.</ErrorTFExists>
+    <TAGRemove>Are you sure to remove all TAG Ver. %1 information%Cfrom the selected files?</TAGRemove>
+    <FreeDBToLong>Please select a proper number of files (1-99) with a play time shorter then 100 minutes.</FreeDBToLong>
+    <ErrorCouldNotWriteChanges>Changes could not be save. Perhaps the file is write protected or in use or was renamed or removed by another application.</ErrorCouldNotWriteChanges>
+    <InvalidPathLength>The new path would be longer the 255 char. so it could not be changed.</InvalidPathLength>
+    <Convert2324>There are frames in the TAG Ver. 2.3 which are no longer%Csupported in ver. 2.4. If you continue, these frames will be lost.%CContinue anyway?</Convert2324>
+    <Convert2423>There are frames in the TAG Ver. 2.4 which are no longer%Csupported in ver. 2.3. If you continue, these frames will be lost.%CContinue anyway?</Convert2423>
+    <SelectFiles>You have to select one or more files before using this function.</SelectFiles>
+    <Cancel>Cancel</Cancel>
+    <FolderAlreadyExistsRename>The folder "%1" already exists.</FolderAlreadyExistsRename>
+    <DoubleCommD>The comment descriptor you entered already exists in the libraray.%CEntered descriptor was not added to the library.</DoubleCommD>
+    <Connecting>Connecting to server. Please wait.</Connecting>
+    <ConnectionFailed>Connection to server failed. Please check your internet connection.</ConnectionFailed>
+    <Querying>Querying database. Please wait.</Querying>
+    <NoMatches>No matches were found.</NoMatches>
+    <Matches>Matches were found. They are listed in the tree now.</Matches>
+    <Connection>Connected to server.</Connection>
+    <Version1>Show TAG Version 1</Version1>
+    <Version2>Show TAG Version 2</Version2>
+    <Folders>Folders</Folders>
+    <Tools>Tools</Tools>
+    <Errors>Error Messages</Errors>
+    <CHError1>File</CHError1>
+    <CHError2>Error Message</CHError2>
+    <Filter>Filter</Filter>
+    <SearchArtist>Search for Artist</SearchArtist>
+    <Number>Total files: %1 (Selected: %2 = %3)</Number>
+    <Path>Current path: %1</Path>
+    <ScanMP3>Scanning MP3 information:</ScanMP3>
+    <FilenameLen>Length of filename: %1 char.</FilenameLen>
+    <SubDirsYes>Scan Subdir.: Yes</SubDirsYes>
+    <SubDirsNo>Scan Subdir.: No</SubDirsNo>
+    <ProgressChecksum>Calculating Audiockecksum:</ProgressChecksum>
+    <TAGVer>Shown Ver.:</TAGVer>
+    <Scan>Scanning for files. Please wait.</Scan>
+    <Read>Reading TAG information from files.</Read>
+    <Write>Writing TAG information to files.</Write>
+    <Fill>Creating list.</Fill>
+    <Name>Progress ...</Name>
+    <Move>Moving selected files. Please wait.</Move>
+    <Copy>Copying selected files. Please wait.</Copy>
+    <Delete>Deleting selected files. Please wait.</Delete>
+    <GetArtists>Gathering artists.</GetArtists>
+    <CreateLib>Creating library.</CreateLib>
+    <SaveLib>Saving library.</SaveLib>
+    <Save>Saving changes.</Save>
+    <FilenameTAG>Creating TAGs from filename</FilenameTAG>
+    <TAGFilename>Creating filenames with TAG information</TAGFilename>
+    <RemoveTAG>Removing TAG information</RemoveTAG>
+    <Undo>Undoing changes</Undo>
+    <Redo>Redoing changes</Redo>
+    <CaseConv>Case Conversion in progress ...</CaseConv>
+    <Transfer>Transfering / Converting TAGs</Transfer>
+    <Multiple>Adding TAG information</Multiple>
+    <Paste>Pasting TAG information</Paste>
+    <Swap>Swapping TAG information</Swap>
+    <Split>Splitting artist information into artist and title</Split>
+    <DoubleCreating>Preparing data for compare ...</DoubleCreating>
+    <DoubleComparing>Comparing files ...</DoubleComparing>
+    <CompareFileTAG>Comparing filename with TAG entries</CompareFileTAG>
+    <Organize>Organizing files ...</Organize>
+    <FolderRename>Updating Path information ...</FolderRename>
+    <FileCopyText>Please select the folder the file(s) should be copied to.</FileCopyText>
+    <FileMoveText>Please select the folder the file(s) should be moved to.</FileMoveText>
+    <FileAddDir>Please select the folder whose files should be added to the list.</FileAddDir>
+    <SplitAT1>Split TAG Ver. 1 Artist</SplitAT1>
+    <SplitAT2>Split TAG Ver. 2 Artist</SplitAT2>
+    <SplitATText>Please enter the separator between Artist and Title</SplitATText>
+    <FoldersPan>Folders</FoldersPan>
+    <FavouritesPan>Favourites</FavouritesPan>
+    <ToolsPan>Tools</ToolsPan>
+    <QuickEditPan>Quick Edit</QuickEditPan>
+    <PicturePan>Picture</PicturePan>
+  </Strings>
+  <SelectionBars>
+    <TAGV2ButtonItem1>Main Entries</TAGV2ButtonItem1>
+	<TAGV2ButtonItem2>Detailed information</TAGV2ButtonItem2>
+    <TAGV2ButtonItem3>Original information</TAGV2ButtonItem3>
+    <TAGV2ButtonItem4>Involved people</TAGV2ButtonItem4>
+    <TAGV2ButtonItem5>Web information</TAGV2ButtonItem5>
+    <TAGV2ButtonItem6>Pictures</TAGV2ButtonItem6>
+    <TAGV2ButtonItem7>Lyrics</TAGV2ButtonItem7>
+    <TAGV2ButtonItem8>Rating</TAGV2ButtonItem8>
+    <TAGV2ButtonItem9>User defined information</TAGV2ButtonItem9>
+    <TAGV2ButtonItem10>Not supported</TAGV2ButtonItem10>
+    <TAGV2grpTAG>TAG information</TAGV2grpTAG>
+    <TAGV2grpTransfer>Transfer and Import</TAGV2grpTransfer>
+    <TAGV2grpCommands>Commands</TAGV2grpCommands>
+    <btnPrev>Previous File</btnPrev>
+    <btnNext>Next File</btnNext>
+    <btnSwapAA>Swap Artist-Album</btnSwapAA>
+    <btnSwapAT>Swap Artist-Title</btnSwapAT>
+    <btnSwapTA>Swap Title-Album</btnSwapTA>
+    <btnImport>Transfer from Ver. 1</btnImport>
+    <btnExport>Transfer to Ver. 1</btnExport>
+    <btnGet>Get info from filename:</btnGet>
+   </SelectionBars>
+  <frmCaseConv>
+    <FormName>Case Conversion</FormName>
+    <TabPage1>Conversion settings</TabPage1>
+    <frameOptions>Options</frameOptions>
+    <chkAlwaysFirst>Always uppercase first letter of entry</chkAlwaysFirst>
+    <chkReplaceSpaceUnder>Replace space by '_'</chkReplaceSpaceUnder>
+    <chkReplaceSpace20>Replace space by '%20'</chkReplaceSpace20>
+    <chkReplaceUnderSpace>Replace '_' by space</chkReplaceUnderSpace>
+    <chkReplace20Space>Replace '%20' by space</chkReplace20Space>
+    <chkSeparator>&amp;Separator:</chkSeparator>
+    <frameMethod>Convert method</frameMethod>
+    <optAllFirstUp>A&amp;ll first letters uppercase</optAllFirstUp>
+    <optFirstUp>&amp;First letter uppercase</optFirstUp>
+    <optAllUp>All &amp;uppercase</optAllUp>
+    <optAllLow>All &amp;lowercase</optAllLow>
+    <chkVer1>Convert TAG Ver. &amp;1</chkVer1>
+    <chkVer2>Convert TAG Ver. &amp;2</chkVer2>
+    <chkFilename>Convert &amp;Filename</chkFilename>
+    <frameTAGOptions>TAG fields to convert</frameTAGOptions>
+    <chkArtist>&amp;Artist</chkArtist>
+    <chkTitle>&amp;Title</chkTitle>
+    <chkAlbum>Al&amp;bum</chkAlbum>
+    <chkComment>&amp;Comment</chkComment>
+    <TabPage2>Exceptions</TabPage2>
+    <lblInfo>All the words in the list will always be written in the casing you entered here.</lblInfo>
+    <btnRemove>&amp;Remove</btnRemove>
+    <btnAdd>&amp;Add</btnAdd>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+  </frmCaseConv>
+  <frmCompareFileTAG>
+    <FormName>Compare filename with TAG entries</FormName>
+    <chkIgnoreCase>Ignore case during comparing</chkIgnoreCase>
+    <chkReplaceUnderScore>Replace characters not allowed in filenames by "_"</chkReplaceUnderScore>
+    <optTAGV1>Use TAG Ver. 1 for comparing</optTAGV1>
+    <optTAGV2>Use TAG Ver. 2 for comparing</optTAGV2>
+    <lblInfo>This function compares the current filename with the filename created by the format. If there is a mismatch the file will be marked.</lblInfo>
+    <lblDigits>&amp;Number of digits of track numbers:</lblDigits>
+    <framePara>Parameters (Tip: click the label to add the parameter to the format)</framePara>
+    <L18>&lt;1&gt; = First letter of artist</L18>
+    <L19>&lt;I&gt; = Bitrate</L19>
+    <L20>\ = Folder</L20>
+    <L13>&lt;R&gt; = Composer</L13>
+    <L16>&lt;E&gt; = Beats/minute (BPM)</L16>
+    <L15>&lt;O&gt; = Band / Orchestra</L15>
+    <L14>&lt;S&gt; = Subtitle</L14>
+    <L17>&lt;M&gt; = Modified / Remixed by</L17>
+    <L12>&lt;N&gt; = Conductor</L12>
+    <L11>&lt;p&gt; = Total number of medias</L11>
+    <L10>&lt;P&gt; = Position in media set</L10>
+    <L9>&lt;U&gt; = Content Group</L9>
+    <L8>&lt;k&gt; = Total number of tracks</L8>
+    <L7>&lt;K&gt; = Track number</L7>
+    <L6>&lt;G&gt; = First Genre</L6>
+    <L5>&lt;Y&gt; = Year</L5>
+    <L4>&lt;C&gt; = Comment</L4>
+    <L3>&lt;B&gt; = Album</L3>
+    <L2>&lt;T&gt; = Title</L2>
+    <L1>&lt;A&gt; = Artist</L1>
+    <btnRemove>&amp;Remove format from list</btnRemove>
+    <btnAdd>&amp;Add format to list</btnAdd>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+    <lblFormat>&amp;Format:</lblFormat>
+  </frmCompareFileTAG>
+  <frmDouble>
+    <FormName>Find duplicate files</FormName>
+    <optAD>Find files with same audio data (LENGTHLY operation)</optAD>
+    <optATA>Find files with same artist, title, album</optATA>
+    <optAT>Find files with same artist and title</optAT>
+    <optTAGV1>Use TAG Ver. 1 for comparing</optTAGV1>
+    <optTAGV2>Use TAG Ver. 2 for comparing</optTAGV2>
+    <GroupBox>Progress ...</GroupBox>
+    <lblStatus>Status</lblStatus>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+  </frmDouble>
+  <frmFilenameToTAG1>
+    <FormName>Filename -&gt; TAG Ver. 1</FormName>
+    <lblInfo>This function offers you the possibilty to extract information from the filename and write it into the TAG.  Enter the format using the parameters above. To save the format give it a description (using the following syntax: "Description: Format") and add it to the list.</lblInfo>
+    <framePara>Parameters (Tip: click the label to add the parameter to the format)</framePara>
+    <L8>&lt;X&gt; = Unused</L8>
+    <L18>\ = Folder</L18>
+    <L7>&lt;K&gt; = Track number</L7>
+    <L6>&lt;G&gt; = Genre</L6>
+    <L5>&lt;Y&gt; = Year</L5>
+    <L4>&lt;C&gt; = Comment</L4>
+    <L3>&lt;B&gt; = Album</L3>
+    <L2>&lt;T&gt; = Title</L2>
+    <L1>&lt;A&gt; = Artist</L1>
+    <btnRemove>&amp;Remove format from list</btnRemove>
+    <btnAdd>&amp;Add format to list</btnAdd>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+    <lblFormat>&amp;Format:</lblFormat>
+  </frmFilenameToTAG1>
+  <frmFilenameToTAG2>
+    <FormName>Filename -&gt; TAG Ver. 2</FormName>
+    <chkSaveName>Save filename to original filename entry</chkSaveName>
+    <lblInfo>This function offers you the possibilty to extract information from the filename and write it into the TAG.  Enter the format using the parameters above. To save the format give it a description (using the following syntax: "Description: Format") and add it to the list.</lblInfo>
+    <lblDigits>&amp;Number of digits of track numbers:</lblDigits>
+    <framePara>Parameters (Tip: click the label to add the parameter to the format)</framePara>
+    <L17>&lt;R&gt; = Composer</L17>
+    <L18>&lt;X&gt; = Unused</L18>
+    <L16>&lt;E&gt; = Beats/minute (BPM)</L16>
+    <L19>\ = Folder</L19>
+    <L15>&lt;O&gt; = Band / Orchestra</L15>
+    <L14>&lt;S&gt; = Subtitle</L14>
+    <L13>&lt;M&gt; = Modified / Remixed by</L13>
+    <L12>&lt;N&gt; = Conductor</L12>
+    <L11>&lt;p&gt; = Total number of medias</L11>
+    <L10>&lt;P&gt; = Position in media set</L10>
+    <L9>&lt;U&gt; = Content Group</L9>
+    <L8>&lt;k&gt; = Total number of tracks</L8>
+    <L7>&lt;K&gt; = Track number</L7>
+    <L6>&lt;G&gt; = First Genre</L6>
+    <L5>&lt;Y&gt; = Year</L5>
+    <L4>&lt;C&gt; = Comment</L4>
+    <L3>&lt;B&gt; = Album</L3>
+    <L2>&lt;T&gt; = Title</L2>
+    <L1>&lt;A&gt; = Artist</L1>
+    <btnRemove>&amp;Remove format from list</btnRemove>
+    <btnAdd>&amp;Add format to list</btnAdd>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+    <lblFormat>&amp;Format:</lblFormat>
+  </frmFilenameToTAG2>
+  <frmFreeDB>
+    <FormName>Query FreeDB</FormName>
+    <grpSearchFile>Search by selected files </grpSearchFile>
+    <lblSearchWord>ID3-TagIT will try to find the CDs that match the selected MP3 files. So it is nessesary for a successful search to select all files of the album in the correct order.</lblSearchWord>
+    <btnQuery>Start search by files</btnQuery>
+    <grpSearchWord>Search by words </grpSearchWord>
+    <chkArtistExact>Exact artist search</chkArtistExact>
+    <chkArtist>Artist</chkArtist>
+    <chkComplete>Match complete search string</chkComplete>
+    <chkTitle>Title</chkTitle>
+    <btnSearch>Start search by words</btnSearch>
+    <chkTrack>Track</chkTrack>
+    <grpStatus>Status ... </grpStatus>
+    <btnCancel>Cancel connection</btnCancel>
+    <btnClose>Close</btnClose>
+    <pnlWrite>Where should the selected information be stored?</pnlWrite>
+    <btnWrite>Write information</btnWrite>
+    <chkWrite2>Write information into TAG Ver. 2</chkWrite2>
+    <chkWrite1>Write information into TAG Ver. 1</chkWrite1>
+    <optVariousArtist>Album of various artists</optVariousArtist>
+    <optSingleArtist>Album of single artist</optSingleArtist>
+    <lblInfo>With this function you can query FreeDB for information. For connection settings go to the preferences.</lblInfo>
+  </frmFreeDB>
+  <frmFreeDBAssociate>
+    <FormName>Associate FreeDB results</FormName>
+    <Label2>Year:</Label2>
+    <Label1>Genre:</Label1>
+    <btnUp>File &amp;up</btnUp>
+    <btnDown>File &amp;down</btnDown>
+    <lblInfo>Associate the selected files with entries found in the FreeDB. Only checked files will be tagged.</lblInfo>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+  </frmFreeDBAssociate>
+  <frmLibraries>
+    <FormName>Edit Libraries</FormName>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+    <Favourites>Favourites Library</Favourites>
+    <lblInfo1>You can group different directories under one Favourite so that can access them directly with one click.</lblInfo1>
+    <btnFavBrowse>Browse ...</btnFavBrowse>
+    <btnRemoveFavDir>Remove</btnRemoveFavDir>
+    <btnAddFavDir>Add</btnAddFavDir>
+    <Label2>Name of Directory:</Label2>
+    <btnRemoveFav>Remove</btnRemoveFav>
+    <btnAddFav>Add</btnAddFav>
+    <Label1>Name of Favourite:</Label1>
+    <Genre>Genre Library</Genre>
+    <chkOnlyOwn>Use only the own genres entered above in TAG Ver. 2 genre dropdown lists</chkOnlyOwn>
+    <lblDescGenre>To this library you can add your own genres for Ver. 2 TAGs which will then appear in the dropdown boxes for TAG Ver. genres. The relations between TAG Ver. 1 and TAG Ver. 2 genres are used when the "Transfer function" is started, so e. g. a genre in TAG Ver. 1 becomes the genre you entered above in TAG Ver. 2.</lblDescGenre>
+    <lblCorres>Corres&amp;ponding TAG Ver. 1 genres for transfer from  Ver. 1 to Ver. 2 and  Ver. 2 to Ver. 1:</lblCorres>
+    <btnDeleteG>&amp;Delete selected genre</btnDeleteG>
+    <btnAddG>&amp;Add genre to library</btnAddG>
+    <lblGenreName>&amp;New TAG Ver. 2 genre name:</lblGenreName>
+    <Artist>Artist Library</Artist>
+    <lblDescArtist>You can add the name of the artists you are using to this library and every time you enter an artist name in a dialog, these Artists will be shown as a suggestion. The buttons "Get artists" will add the artists found in the currently shown files.</lblDescArtist>
+    <btnClearA>Clea&amp;r Library</btnClearA>
+    <btnDeleteA>&amp;Delete selected artist</btnDeleteA>
+    <btnAdd>&amp;Add artist to library</btnAdd>
+    <lblArtistName>&amp;New artist name:</lblArtistName>
+    <btnGetArtistV1>Get artists from TAGs Ver. &amp;1</btnGetArtistV1>
+    <btnGetArtistV2>Get artists from TAGs Ver. &amp;2</btnGetArtistV2>
+    <Comment>Comment descriptor Library</Comment>
+    <btnClearCommD>Clea&amp;r Library</btnClearCommD>
+    <btnRemoveCommD>&amp;Delete selected com. descriptor</btnRemoveCommD>
+    <btnAddCommD>&amp;Add com. descriptor to library</btnAddCommD>
+    <Label3>&amp;New comment descriptor:</Label3>
+    <lblInfo2>Add or remove comment descriptors which will be displayed in the TAG Ver. 2 Edit dialogs.</lblInfo2>
+  </frmLibraries>
+  <frmLists>
+    <FormName>Create lists of selected files</FormName>
+    <tabPlaylist>M3U Playlist</tabPlaylist>
+    <btnCreatePlaylist>Create Playlist</btnCreatePlaylist>
+    <lblInfo1>M3U playlists can include some extended information with the format above you can choose which information should be put into the playlist.</lblInfo1>
+    <framePara>Parameters (Tip: click the label to add the parameter to the format)</framePara>
+    <L7>&lt;K&gt; = Track number</L7>
+    <L6>&lt;G&gt; = Genre</L6>
+    <L5>&lt;Y&gt; = Year</L5>
+    <L4>&lt;C&gt; = Comment</L4>
+    <L3>&lt;B&gt; = Album</L3>
+    <L2>&lt;T&gt; = Title</L2>
+    <L1>&lt;A&gt; = Artist</L1>
+    <chkRelativ>Use &amp;relative paths in playlist</chkRelativ>
+    <lblPlaylist>Format of extended playlist info:</lblPlaylist>
+    <tabTemp>Filelist from template</tabTemp>
+    <lblInfo2>This functions makes it possible to create a filelist in a user defined format which is defined by a template. The templates listed below can be found and edited in the ID3-TagIT installation folder under Templates. There you will also find a textfile with all necessary instructions to edit or create templates.</lblInfo2>
+    <btnCreateFromTemp>Create from template</btnCreateFromTemp>
+    <tabFilelist>Quick HTML/CSV Filelist</tabFilelist>
+    <lblInfo3>This option allows to create a HTML or CSV file without a template. Select the file format(s) and choose the columns. </lblInfo3>
+    <chkCreateHTML>Create HTML list</chkCreateHTML>
+    <chkCreateCSV>Create CSV list</chkCreateCSV>
+    <frameOptions>Options (HTML-List only)</frameOptions>
+    <chkColor>&amp;Color odd and even rows</chkColor>
+    <chkGridlines>Show &amp;gridlines</chkGridlines>
+    <lblListWidth>List &amp;width</lblListWidth>
+    <lblTitleHTML>&amp;Title of the list (HTML-List only)</lblTitleHTML>
+    <frameTAGInfo>Choose TAG Ver. for creating list</frameTAGInfo>
+    <optID3V1>Use TAG Ver. &amp;1 for creating the list</optID3V1>
+    <optID3V2>Use TAG Ver. &amp;2 for creating the list</optID3V2>
+    <frameColumns>Select columns of the list</frameColumns>
+    <btnUp>Column &amp;up</btnUp>
+    <btnDown>Column &amp;down</btnDown>
+    <btnCreateQuickLists>Create &amp;lists</btnCreateQuickLists>
+    <btnClose>&amp;Close</btnClose>
+    <lblPath>&amp;Path and Filename of the list(s) (without extension): </lblPath>
+    <btnPath>&amp;Select filename ...</btnPath>
+  </frmLists>
+  <frmMain>
+    <btnQuickEdit>OK</btnQuickEdit>
+    <btnQuickEditMore>More ...</btnQuickEditMore>
+    <EnumInfo>Enumeration mode</EnumInfo>
+  </frmMain>  
+  <frmOrganize>
+    <FormName>Organize files</FormName>
+    <chkOverwrite>Overwrite existing files</chkOverwrite>
+    <chkCopy>Copy files instead of moving them</chkCopy>
+    <lblInfo>With this dialog you can orginze your MP3 files within folders using the TAG information. Enter the format using the parameters above. To save the format give it a description (using the following syntax: "Description: Format") and add it to the list.</lblInfo>
+    <lblDigits>&amp;Number of digits of track numbers:</lblDigits>
+    <optID3V2>Use Ver. &amp;2 TAG information</optID3V2>
+    <optID3V1>Use Ver. &amp;1 TAG information</optID3V1>
+    <framePara>Parameters (Tip: click the label to add the parameter to the format)</framePara>
+    <L18>&lt;1&gt; = First letter of artist</L18>
+    <L19>&lt;I&gt; = Bitrate</L19>
+    <L20>\ = Folder</L20>
+    <L13>&lt;R&gt; = Composer</L13>
+    <L16>&lt;E&gt; = Beats/minute (BPM)</L16>
+    <L15>&lt;O&gt; = Band / Orchestra</L15>
+    <L14>&lt;S&gt; = Subtitle</L14>
+    <L17>&lt;M&gt; = Modified / Remixed by</L17>
+    <L12>&lt;N&gt; = Conductor</L12>
+    <L11>&lt;p&gt; = Total number of medias</L11>
+    <L10>&lt;P&gt; = Position in media set</L10>
+    <L9>&lt;U&gt; = Content Group</L9>
+    <L8>&lt;k&gt; = Total number of tracks</L8>
+    <L7>&lt;K&gt; = Track number</L7>
+    <L6>&lt;G&gt; = First Genre</L6>
+    <L5>&lt;Y&gt; = Year</L5>
+    <L4>&lt;C&gt; = Comment</L4>
+    <L3>&lt;B&gt; = Album</L3>
+    <L2>&lt;T&gt; = Title</L2>
+    <L1>&lt;A&gt; = Artist</L1>
+    <btnRemove>&amp;Remove format from list</btnRemove>
+    <btnAdd>&amp;Add format to list</btnAdd>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+    <btnBrowse>&amp;Browse ...</btnBrowse>
+    <lblPath>&amp;Root-Path:</lblPath>
+    <lblFormat>&amp;Format:</lblFormat>
+  </frmOrganize>
+  <frmPreferences>
+    <FormName>Preferences</FormName>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+    <Settings>Settings</Settings>
+    <lblPlay>Shell command for PLA&amp;Y function:</lblPlay>
+    <chkExplorerContext>Show "ID3-TagIT" in the folder context menu of the Windows Explorer</chkExplorerContext>
+    <frameEnum>Enumerating mode</frameEnum>
+    <lbl2>Number of digits of filename enumeration:</lbl2>
+    <lblEnumSep>Separator:</lblEnumSep>
+    <lbl1>Number to start with:</lbl1>
+    <chkMouseRenaming>Enable &amp;Renaming by mouse click</chkMouseRenaming>
+    <chkRestore>&amp;Restore date of file after tagging</chkRestore>
+    <lblTracknumbers>Number of digits of track numbers in filenames:</lblTracknumbers>
+    <frameSelection>Selection mode</frameSelection>
+    <optAdd>&amp;Add to selection</optAdd>
+    <optSingle>&amp;New selection</optSingle>
+    <chkSaveOnExit>&amp;Save folder on exit</chkSaveOnExit>
+    <frameDoubleClick> Double click open command </frameDoubleClick>
+    <optEditCur>Open 'Edit TAG Ver. &amp;X' dialog corresponding to current view</optEditCur>
+    <optEditV1>Open 'Edit TAG Ver. &amp;1' dialog</optEditV1>
+    <optEditV2>Open 'Edit TAG Ver. &amp;2' dialog</optEditV2>
+    <chkIgnoreWrite>&amp;Ignore write protection</chkIgnoreWrite>
+    <chkAudioChecksumCalc>&amp;Calculate Audiochecksum in the background</chkAudioChecksumCalc>
+    <Columns>Columns</Columns>
+    <lblDescript>Only checked columns will be displayed. You can reorder the columns by moving them  up or down. The filename column will always be visible.</lblDescript>
+    <btnUp>Column &amp;up</btnUp>
+    <btnDown>Column &amp;down</btnDown>
+    <Ver2>TAG Ver. 2</Ver2>
+    <lblFormat>&amp;Format of year entry:</lblFormat>
+    <lblDigits>Number of digits of track numbers in Ver. 2 TAGs:</lblDigits>
+    <lblV24>Text encoding for TAG Ver. 2.4:</lblV24>
+    <lblV23>Text encoding for TAG Ver. 2.3:</lblV23>
+    <chkSingle>Allow onl&amp;y one genre / comment</chkSingle>
+    <chkUnSync>Write &amp;unsync. version 2 TAGs</chkUnSync>
+    <optUse24>Use Ver. 2.&amp;4 for new TAGs of TAG Ver. 2</optUse24>
+    <optUse23>Use Ver. 2.&amp;3 for new TAGs of TAG Ver. 2</optUse23>
+    <FreeDB>FreeDB</FreeDB>
+    <grpProxy>Proxy settings </grpProxy>
+    <Label10>Pa&amp;ssword:</Label10>
+    <Label9>User&amp;name:</Label9>
+    <Label8>P&amp;ort:</Label8>
+    <Label7>Pro&amp;xy Server:</Label7>
+    <chkProxy>Use Proxy server</chkProxy>
+    <lblUsername>&amp;Username:</lblUsername>
+    <lblPort>&amp;Port:</lblPort>
+    <lblServer>&amp;Server:</lblServer>
+    <Colors>Colors</Colors>
+    <chkWinXPThemes>Use Windows XP menu style</chkWinXPThemes>
+    <Label5>Text color of mismatches Filename&lt;-&gt;TAG  files:</Label5>
+    <Label6>Background color of mismatches Filename&lt;-&gt;TAG  files:</Label6>
+    <Label4>Text color of duplicate files:</Label4>
+    <Label3>Background color of duplicate files:</Label3>
+    <Label2>Text color of changed files:</Label2>
+    <Label1>Background color of changed files:</Label1>
+    <Tools>Tools</Tools>
+    <btnRemove>Remove tool from list</btnRemove>
+    <btnAdd>Add tool to list</btnAdd>
+    <lblP>%P = MP3-Path</lblP>
+    <btnBrowse>&amp;Browse</btnBrowse>
+    <chkDefault>Use &amp;Windows default MP3-Player:</chkDefault>
+    <lblParameters>Tool &amp;parameters:</lblParameters>
+    <lblPath>Tool &amp;path:</lblPath>
+    <lblDescription>Tool &amp;description:</lblDescription>
+    <lblTextEncInfo>NOTE: The text encoding will only be used for new TAG Ver. 2 frames. Already present frames will not be changed when the TAG is saved.</lblTextEncInfo>
+  </frmPreferences>
+  <frmProgress>
+    <FormName>Progress ...</FormName>
+    <btnCancel>&amp;Cancel</btnCancel>
+  </frmProgress>
+  <frmRemoveFolders>
+    <FormName>Remove empty folders</FormName>
+    <chkIgnoreOther>Delete all folders with no MP3 files ignoring any other possible present files. (WARNING: This will delete non MP3 files when no MP3 files are found in a folder)</chkIgnoreOther>
+    <btnBrowse>&amp;Browse ...</btnBrowse>
+    <lblPath>&amp;Root-Path:</lblPath>
+    <lblInfo>This function will scan a folder with its subdirectories and remove all subdirectories which do not contain any files.</lblInfo>
+    <GroupBox>Progress ...</GroupBox>
+    <lblStatus>Status</lblStatus>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+  </frmRemoveFolders>
+  <frmSearch>
+    <FormName>Search and Replace</FormName>
+    <frameTAGOptions>TAG fields to search in</frameTAGOptions>
+    <chkArtist>&amp;Artist</chkArtist>
+    <chkTitle>&amp;Title</chkTitle>
+    <chkAlbum>Al&amp;bum</chkAlbum>
+    <chkTracknumber>Trac&amp;knumber</chkTracknumber>
+    <chkYear>&amp;Year</chkYear>
+    <chkGenre>&amp;Genre (Ver. 2 only)</chkGenre>
+    <chkComment>&amp;Comment</chkComment>
+    <FrameMode>Search options</FrameMode>
+    <LinkLabel>http://www.regular-expressions.info/reference.html</LinkLabel>
+    <chkRegExpress>&amp;Use regular expressions</chkRegExpress>
+    <chkSelected>Search selected files only</chkSelected>
+    <chkCase>Search case sensitive</chkCase>
+    <optAND>Search AN&amp;D ('Search and Select' only)</optAND>
+    <optOR>Search &amp;OR  ('Search and Select' only)</optOR>
+    <chkVer1>Search in TAG Ver. &amp;1</chkVer1>
+    <chkVer2>Search in TAG Ver. &amp;2</chkVer2>
+    <chkFilename>Search in &amp;Filename</chkFilename>
+    <btnSelect>Search and S&amp;elect</btnSelect>
+    <lblSearch>&amp;Search for:</lblSearch>
+    <lblReplace>&amp;Replace by:</lblReplace>
+    <btnReplace>Search and Re&amp;place</btnReplace>
+    <btnClose>Clo&amp;se</btnClose>
+  </frmSearch>
+  <frmSelectFormat>
+    <FormName>Select files by format</FormName>
+    <lblInfo>This function offers you the possibilty to select all the files which match the format you entered above. &lt;ABC&gt; stands for a alphanumeric string while &lt;123&gt; stands for a numeric only string.</lblInfo>
+    <framePara>Parameters (Tip: click the label to add the parameter to the format)</framePara>
+    <L2>&lt;123&gt; = Numeric string</L2>
+    <L1>&lt;ABC&gt; = Alphanumeric string</L1>
+    <btnRemove>&amp;Remove format from list</btnRemove>
+    <btnAdd>&amp;Add format to list</btnAdd>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+    <lblFormat>&amp;Format:</lblFormat>
+  </frmSelectFormat>
+  <frmTransfer>
+    <FormName>Transfer/Convert TAGs</FormName>
+    <btnDeselectAll>Deselect all</btnDeselectAll>
+    <btnSelectAll>Select all</btnSelectAll>
+    <GroupBox>TAG fields to transfer</GroupBox>
+    <chkExists>Do not overwrite existing TAG entries</chkExists>
+    <lblComment>Comment &amp;descriptor:</lblComment>
+    <chkYear>Year</chkYear>
+    <chkGenre>Genre</chkGenre>
+    <chkTrack>Track number</chkTrack>
+    <chkComment>Comment</chkComment>
+    <chkAlbum>Album</chkAlbum>
+    <chkTitle>Title</chkTitle>
+    <chkArtist>Artist</chkArtist>
+    <optConvert43>Convert TAG Ver. 2.4 to Ver. 2.3</optConvert43>
+    <optConvert34>Convert TAG Ver. 2.3 to Ver. 2.4</optConvert34>
+    <opt21>Transfer TAG Ver 2. -&gt; Ver. 1</opt21>
+    <opt12>Transfer TAG Ver 1. -&gt; Ver. 2</opt12>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+  </frmTransfer>
+  <frmTAG1ToFilename>
+    <FormName>TAG Ver. 1 -&gt; Filename</FormName>
+    <lblInfo>This function offers you the possibilty to extract information from the filename and write it into the TAG.  Enter the format using the parameters above. To save the format give it a description (using the following syntax: "Description: Format") and add it to the list.</lblInfo>
+    <lblDigits>&amp;Number of digits of track numbers:</lblDigits>
+    <framePara>Parameters (Tip: click the label to add the parameter to the format)</framePara>
+    <lbl2>Number of digits</lbl2>
+    <lbl1>Number to start with</lbl1>
+    <L18>&lt;#&gt; = Enumerate files:</L18>
+    <L17>&lt;F&gt; = Current Filename</L17>
+    <L7>&lt;K&gt; = Track number</L7>
+    <L6>&lt;G&gt; = Genre</L6>
+    <L5>&lt;Y&gt; = Year</L5>
+    <L4>&lt;C&gt; = Comment</L4>
+    <L3>&lt;B&gt; = Album</L3>
+    <L2>&lt;T&gt; = Title</L2>
+    <L1>&lt;A&gt; = Artist</L1>
+    <btnRemove>&amp;Remove format from list</btnRemove>
+    <btnAdd>&amp;Add format to list</btnAdd>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+    <lblFormat>&amp;Format:</lblFormat>
+  </frmTAG1ToFilename>
+  <frmTAG2ToFilename>
+    <FormName>TAG Ver. 2 -&gt; Filename</FormName>
+    <chkRebuildName>Rebuild filename from original filename entry if present (ignores format)</chkRebuildName>
+    <lblInfo>This function offers you the possibilty to extract information from the TAG and write it into the filename.  Enter the format using the parameters above. To save the format give it a description (using the following syntax: "Description: Format") and add it to the list.</lblInfo>
+    <lblDigits>&amp;Number of digits of track numbers:</lblDigits>
+    <framePara>Parameters (Tip: click the label to add the parameter to the format)</framePara>
+    <L13>&lt;R&gt; = Composer</L13>
+    <lbl2>Number of digits</lbl2>
+    <lbl1>Number to start with</lbl1>
+    <L19>&lt;#&gt; = Enumerate files:</L19>
+    <L18>&lt;F&gt; = Current Filename</L18>
+    <L16>&lt;E&gt; = Beats/minute (BPM)</L16>
+    <L15>&lt;O&gt; = Band / Orchestra</L15>
+    <L14>&lt;S&gt; = Subtitle</L14>
+    <L17>&lt;M&gt; = Modified / Remixed by</L17>
+    <L12>&lt;N&gt; = Conductor</L12>
+    <L11>&lt;p&gt; = Total number of medias</L11>
+    <L10>&lt;P&gt; = Position in media set</L10>
+    <L9>&lt;U&gt; = Content Group</L9>
+    <L8>&lt;k&gt; = Total number of tracks</L8>
+    <L7>&lt;K&gt; = Track number</L7>
+    <L6>&lt;G&gt; = First Genre</L6>
+    <L5>&lt;Y&gt; = Year</L5>
+    <L4>&lt;C&gt; = Comment</L4>
+    <L3>&lt;B&gt; = Album</L3>
+    <L2>&lt;T&gt; = Title</L2>
+    <L1>&lt;A&gt; = Artist</L1>
+    <btnRemove>&amp;Remove format from list</btnRemove>
+    <btnAdd>&amp;Add format to list</btnAdd>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+    <lblFormat>&amp;Format:</lblFormat>
+  </frmTAG2ToFilename>
+  <frmTAG1>
+    <FormName>Edit TAG Ver. 1</FormName>
+    <lblGenre>&amp;Genres:</lblGenre>
+    <lblComment>&amp;Comment:</lblComment>
+    <lblTitle>&amp;Title:</lblTitle>
+    <lblAlbum>Al&amp;bum:</lblAlbum>
+    <lblYear>&amp;Year:</lblYear>
+    <lblTrack>&amp;Track number:</lblTrack>
+    <lblArtist>&amp;Artist:</lblArtist>
+    <btnNext>&amp;Next File &gt;</btnNext>
+    <btnPrev>&lt; &amp;Previous File</btnPrev>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+    <lblSelected>Selected file:</lblSelected>
+  </frmTAG1>
+  <frmTAG1Multi>
+    <FormName>Multiple Edit TAG Ver. 1</FormName>
+    <lblInfoStar>You can use the following parameters to enter the information from one field into another: &lt;A&gt;=Artist, &lt;T&gt;=Title, &lt;B&gt;=Album, &lt;C&gt;=Comment, &lt;K&gt;=Track number, &lt;Y&gt;=Year, &lt;G&gt;=Genre</lblInfoStar>
+    <lblGenre>&amp;Genres:</lblGenre>
+    <lblComment>&amp;Comment:</lblComment>
+    <lblTitle>&amp;Title:</lblTitle>
+    <lblAlbum>Al&amp;bum:</lblAlbum>
+    <lblYear>&amp;Year:</lblYear>
+    <lblTrack>&amp;Track number:</lblTrack>
+    <lblArtist>&amp;Artist:</lblArtist>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+  </frmTAG1Multi>
+  <frmTAG2>
+    <FormName>Edit TAG Ver. 2</FormName>
+    <lblDigits>Number of digits of track numbers:</lblDigits>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+    <lblCommDescInfo>Predefined comment descriptors can be set under Edit Libraries (Options menu)</lblCommDescInfo>
+    <btnV1Comment>&lt;- Ver. 1</btnV1Comment>
+    <btnMoveComment>Move Comment to top</btnMoveComment>
+    <btnRemoveComment>Remove Comment</btnRemoveComment>
+    <btnAddComment>Add Comment</btnAddComment>
+    <lblCOMM>&amp;Comment:</lblCOMM>
+    <lblCOMMLan>Comment &amp;Language:</lblCOMMLan>
+    <lblCOMMDesc>Comment &amp;Descriptor:</lblCOMMDesc>
+    <btnV1Genre>&lt;- Ver. 1</btnV1Genre>
+    <lblGenreInfo>Note: Many programs only show the first genre entered. So move the important genre to the top of the list.</lblGenreInfo>
+    <btnMoveGenre>Move Genre to top</btnMoveGenre>
+    <btnRemoveGenre>Remove Genre</btnRemoveGenre>
+    <btnAddGenre>Add Genre</btnAddGenre>
+    <lblGenre>&amp;Genre:</lblGenre>
+    <btnTLEN>Length from file</btnTLEN>
+    <lblTLEN>Track length (msec):</lblTLEN>
+    <lblBPM>BP&amp;M:</lblBPM>
+    <btnV1Title>&lt;- Ver. 1</btnV1Title>
+    <btnV1Album>&lt;- Ver. 1</btnV1Album>
+    <btnV1Track>&lt;- Ver. 1</btnV1Track>
+    <btnV1Year>&lt;- Ver. 1</btnV1Year>
+    <btnV1Artist>&lt;- Ver. 1</btnV1Artist>
+    <lblMediaTyp>M&amp;edia type:</lblMediaTyp>
+    <lblOf2>/</lblOf2>
+    <lblOf1>/</lblOf1>
+    <lblTitle>&amp;Title:</lblTitle>
+    <lblAlbum>Al&amp;bum:</lblAlbum>
+    <lblPosMedia>Position in media &amp;set:</lblPosMedia>
+    <lblYear>&amp;Year (date) of recording:</lblYear>
+    <lblTrack>Trac&amp;k number:</lblTrack>
+    <lblArtist>&amp;Artist:</lblArtist>
+    <lblAlbumSort>Al&amp;bum sort name (Ver. 2.4 only):</lblAlbumSort>
+    <lblTitleSort>&amp;Title sort name (Ver. 2.4 only):</lblTitleSort>
+    <lblArtistSort>&amp;Artist sort name (Ver. 2.4 only):</lblArtistSort>
+    <lblOYearInfo>(In TAG Ver. 2.3 only the year entry will be saved)</lblOYearInfo>
+    <lblOYear>Original release &amp;year (date):</lblOYear>
+    <lblOOwner>Original &amp;owner:</lblOOwner>
+    <lblOArtist>Original &amp;artist:</lblOArtist>
+    <lblOFilename>Original &amp;filename:</lblOFilename>
+    <lblOLyWriter>Original lyrics &amp;writer:</lblOLyWriter>
+    <lblOAlbum>Original a&amp;lbum title:</lblOAlbum>
+    <lblSubTitle>&amp;Sub Title:</lblSubTitle>
+    <lblContent>Con&amp;tent Group:</lblContent>
+    <lblComposer>Co&amp;mposer:</lblComposer>
+    <lblConductor>&amp;Conductor:</lblConductor>
+    <lblModified>Modified / Remixed b&amp;y:</lblModified>
+    <lblBand>&amp;Band / Orchestra:</lblBand>
+    <lblMusicianInfo>(TAG Ver. 2.4 only)</lblMusicianInfo>
+    <btnRemoveMusician>Remove musician</btnRemoveMusician>
+    <btnAddMusician>Add musician</btnAddMusician>
+    <lblMusicianName>Musician name:</lblMusicianName>
+    <lblMusicianInst>Musician instrument:</lblMusicianInst>
+    <btnRemoveInv>Remove involved person</btnRemoveInv>
+    <btnAddInv>Add involved person</btnAddInv>
+    <lblInvPerson>Involved person name:</lblInvPerson>
+    <lblInvFunction>Involved person function:</lblInvFunction>
+    <lblCopyright>Copyright:</lblCopyright>
+    <lblPublisher>Publis&amp;her:</lblPublisher>
+    <lblEncoded>&amp;Encoded by:</lblEncoded>
+    <lblLyWriter>Lyr&amp;ics / Text Writer:</lblLyWriter>
+    <btnRemovePicture>Remove Picture</btnRemovePicture>
+    <btnAddPicture>Add Picture</btnAddPicture>
+    <btnGetPic>Get new picture</btnGetPic>
+    <btnExPic>Extract picture</btnExPic>
+    <chkPicInclude>Include picture within the MP3 file when saving</chkPicInclude>
+    <chkPicRelativPath>Use relativ path if the picture is not included (bold in list)</chkPicRelativPath>
+    <lblPicPath>P&amp;ath containing pic. data:</lblPicPath>
+    <lblPicType>Picture &amp;Type:</lblPicType>
+    <lblPicDesc>&amp;Picture Descriptor:</lblPicDesc>
+    <btnMoveLyrics>Move Lyrics to top</btnMoveLyrics>
+    <btnRemoveLyrics>Remove Lyrics</btnRemoveLyrics>
+    <btnAddLyrics>Add Lyrics</btnAddLyrics>
+    <btnLyricsFile>Get lyrics from text file</btnLyricsFile>
+    <lblLyrics>&amp;Lyrics Text:</lblLyrics>
+    <lblLyLan>Lyrics &amp;Language:</lblLyLan>
+    <lblLyDesc>Lyrics &amp;Descriptor:</lblLyDesc>
+    <lblInfo>The rating is 1-255 where 1 is worst and 255 is best. Note that many programs have their own rating scale. The scale 1-255 is given by the ID3 standard and the other programs rescale it.</lblInfo>
+    <btnMoveRating>Move Rating to top</btnMoveRating>
+    <btnRemoveRating>Remove Rating</btnRemoveRating>
+    <btnAddRating>Add Rating</btnAddRating>
+    <lblRatingRating>Rating:</lblRatingRating>
+    <lblRatingCounter>Play counter:</lblRatingCounter>
+    <lblRatingUser>User (email):</lblRatingUser>
+    <lblCOMMInfURL>Commercial information URL:</lblCOMMInfURL>
+    <lblPubURL>Offical publisher URL:</lblPubURL>
+    <lblPayURL>Offical payment URL:</lblPayURL>
+    <lblINetRadioURL>Offical internet radio station URL:</lblINetRadioURL>
+    <lblAudioSRCURL>Offical audio source URL:</lblAudioSRCURL>
+    <lblAudioFileURL>Offical audio file URL:</lblAudioFileURL>
+    <lblArtistURL>Offical artist URL:</lblArtistURL>
+    <lblCopyInfURL>Copyright information URL:</lblCopyInfURL>
+    <btnRemoveWXXX>Remove user web frame</btnRemoveWXXX>
+    <btnAddWXXX>Add user web frame</btnAddWXXX>
+    <lblWXXXContent>Web frame &amp;Content:</lblWXXXContent>
+    <lblWXXXDesc>Web frame &amp;Descriptor:</lblWXXXDesc>
+    <btnRemoveTXXX>Remove user text frame</btnRemoveTXXX>
+    <btnAddTXXX>Add user text frame</btnAddTXXX>
+    <lblTXXXContent>Text frame &amp;Content:</lblTXXXContent>
+    <lblTXXXDesc>Text frame &amp;Descriptor:</lblTXXXDesc>
+    <lblNot>All frames which are not supported by ID3-TagIT. You cannot edit them but you can remove them by unchecking the checkbox.</lblNot>
+    <lblSelected>Selected file:</lblSelected>
+  </frmTAG2>
+  <frmTAG2Multi>
+    <FormName>Multiple Edit TAG Ver. 2</FormName>
+    <lblInfoStar>You can use the following parameters to enter the information from one field into another: &lt;A&gt;=Artist, &lt;T&gt;=Title, &lt;B&gt;=Album, &lt;K&gt;=Track number, &lt;k&gt;=Total number of tracks, &lt;P&gt;=Position in media set, &lt;p&gt;=Total number of medias, &lt;Y&gt;=Year, &lt;G&gt;=Genre, &lt;C&gt;=Comment, &lt;U&gt;=Content group, &lt;S&gt;=Subtitle, &lt;O&gt;=Orchster/Band, &lt;N&gt;=Conductor, &lt;M&gt;=Modified/Remixed by, &lt;R&gt;=Composer, &lt;E&gt;=BPM</lblInfoStar>
+    <chkRemoveAllNOT>Remove all NOT supported entries</chkRemoveAllNOT>
+    <lblDigits>Number of digits of track numbers:</lblDigits>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <btnOK>&amp;OK</btnOK>
+    <Main>Main Entries</Main>
+    <lblCommDescInfo>Predefined comment descriptors can be set under Edit Libraries (Options menu)</lblCommDescInfo>
+    <CheckBox10>Remove all existing comments first</CheckBox10>
+    <btnMoveComment>Move Comment to top</btnMoveComment>
+    <btnRemoveComment>Remove Comment</btnRemoveComment>
+    <btnAddComment>Add Comment</btnAddComment>
+    <lblCOMM>&amp;Comment:</lblCOMM>
+    <lblCOMMLan>Comment &amp;Language:</lblCOMMLan>
+    <lblCOMMDesc>Comment &amp;Descriptor:</lblCOMMDesc>
+    <lblGenreInfo>Note: Many programs only show the first genre entered. So move the important genre to the top of the list.</lblGenreInfo>
+    <btnMoveGenre>Move Genre to top</btnMoveGenre>
+    <btnRemoveGenre>Remove Genre</btnRemoveGenre>
+    <btnAddGenre>Add Genre</btnAddGenre>
+    <lblGenre>&amp;Genre:</lblGenre>
+    <chkTLEN>Create track length entry from file</chkTLEN>
+    <lblTLEN>Track length (msec):</lblTLEN>
+    <lblBPM>BP&amp;M:</lblBPM>
+    <lblMediaTyp>M&amp;edia type:</lblMediaTyp>
+    <lblOf2>/</lblOf2>
+    <lblOf1>/</lblOf1>
+    <lblTitle>&amp;Title:</lblTitle>
+    <lblAlbum>Al&amp;bum:</lblAlbum>
+    <lblPosMedia>Position in media &amp;set:</lblPosMedia>
+    <lblYear>&amp;Year (date) of recording:</lblYear>
+    <lblTrack>Trac&amp;k number:</lblTrack>
+    <lblArtist>&amp;Artist:</lblArtist>
+    <Detail1>Detailed Information 1</Detail1>
+    <lblAlbumSort>Al&amp;bum sort name (Ver. 2.4 only):</lblAlbumSort>
+    <lblTitleSort>&amp;Title sort name (Ver. 2.4 only):</lblTitleSort>
+    <lblArtistSort>&amp;Artist sort name (Ver. 2.4 only):</lblArtistSort>
+    <lblOYearInfo>(In TAG Ver. 2.3 only the year entry will be saved)</lblOYearInfo>
+    <lblOYear>Original release &amp;year (date):</lblOYear>
+    <lblOOwner>Original &amp;owner:</lblOOwner>
+    <lblOArtist>Original &amp;artist:</lblOArtist>
+    <lblOFilename>Original &amp;filename:</lblOFilename>
+    <lblOLyWriter>Original lyrics &amp;writer:</lblOLyWriter>
+    <lblOAlbum>Original a&amp;lbum title:</lblOAlbum>
+    <lblSubTitle>&amp;Sub Title:</lblSubTitle>
+    <lblContent>Con&amp;tent Group:</lblContent>
+    <lblComposer>Co&amp;mposer:</lblComposer>
+    <lblConductor>&amp;Conductor:</lblConductor>
+    <lblModified>Modified / Remixed b&amp;y:</lblModified>
+    <lblBand>&amp;Band / Orchestra:</lblBand>
+    <Detail2>Detailed Information 2</Detail2>
+    <lblCopyright>Copyright:</lblCopyright>
+    <lblPublisher>Publis&amp;her:</lblPublisher>
+    <lblEncoded>&amp;Encoded by:</lblEncoded>
+    <lblLyWriter>Lyr&amp;ics / Text Writer:</lblLyWriter>
+    <lblMusicianInfo>(TAG Ver. 2.4 only)</lblMusicianInfo>
+    <btnRemoveMusician>Remove musician</btnRemoveMusician>
+    <btnAddMusician>Add musician</btnAddMusician>
+    <lblMusicianName>Musician name:</lblMusicianName>
+    <lblMusicianInst>Musician instrument:</lblMusicianInst>
+    <btnRemoveInv>Remove involved person</btnRemoveInv>
+    <btnAddInv>Add involved person</btnAddInv>
+    <lblInvPerson>Involved person name:</lblInvPerson>
+    <lblInvFunction>Involved person function:</lblInvFunction>
+    <PicLy>Pictures and Lyrics</PicLy>
+    <CheckBox34>Remove all existing pictures first</CheckBox34>
+    <btnRemovePicture>Remove Picture</btnRemovePicture>
+    <btnAddPicture>Add Picture</btnAddPicture>
+    <btnGetPic>Get new picture</btnGetPic>
+    <chkPicInclude>Include picture within the MP3 file when saving</chkPicInclude>
+    <chkPicRelativPath>Use relativ path if the picture is not included (bold in list)</chkPicRelativPath>
+    <lblPicPath>P&amp;ath containing pic. data:</lblPicPath>
+    <lblPicType>Picture &amp;Type:</lblPicType>
+    <lblPicDesc>&amp;Picture Descriptor:</lblPicDesc>
+    <CheckBox35>Remove all existing lyrics first</CheckBox35>
+    <btnMoveLyrics>Move Lyrics to top</btnMoveLyrics>
+    <btnRemoveLyrics>Remove Lyrics</btnRemoveLyrics>
+    <btnAddLyrics>Add Lyrics</btnAddLyrics>
+    <btnLyricsFile>Get lyrics from text file</btnLyricsFile>
+    <lblLyrics>&amp;Lyrics Text:</lblLyrics>
+    <lblLyLan>Lyrics &amp;Language:</lblLyLan>
+    <lblLyDesc>Lyrics &amp;Descriptor:</lblLyDesc>
+    <WWWRat>WWW and Rating</WWWRat>
+    <CheckBox33>Remove all existing ratings first</CheckBox33>
+    <lblInfo>The rating is 1-255 where 1 is worst and 255 is best. Note that many programs have their own rating scale. The scale 1-255 is given by the ID3 standard and the other programs rescale it.</lblInfo>
+    <btnMoveRating>Move Rating to top</btnMoveRating>
+    <btnRemoveRating>Remove Rating</btnRemoveRating>
+    <btnAddRating>Add Rating</btnAddRating>
+    <lblRatingRating>Rating:</lblRatingRating>
+    <lblRatingCounter>Play counter:</lblRatingCounter>
+    <lblRatingUser>User (email):</lblRatingUser>
+    <lblCOMMInfURL>Commercial information URL:</lblCOMMInfURL>
+    <lblPubURL>Offical publisher URL:</lblPubURL>
+    <lblPayURL>Offical payment URL:</lblPayURL>
+    <lblINetRadioURL>Offical internet radio station URL:</lblINetRadioURL>
+    <lblAudioSRCURL>Offical audio source URL:</lblAudioSRCURL>
+    <lblAudioFileURL>Offical audio file URL:</lblAudioFileURL>
+    <lblArtistURL>Offical artist URL:</lblArtistURL>
+    <lblCopyInfURL>Copyright information URL:</lblCopyInfURL>
+    <UserDefined>User Defined Frames</UserDefined>
+    <CheckBox37>Remove all existing user web frames first</CheckBox37>
+    <btnRemoveWXXX>Remove user web frame</btnRemoveWXXX>
+    <btnAddWXXX>Add user web frame</btnAddWXXX>
+    <lblWXXXContent>Web frame &amp;Content:</lblWXXXContent>
+    <lblWXXXDesc>Web frame &amp;Descriptor:</lblWXXXDesc>
+    <CheckBox36>Remove all existing user text frames first</CheckBox36>
+    <btnRemoveTXXX>Remove user text frame</btnRemoveTXXX>
+    <btnAddTXXX>Add user text frame</btnAddTXXX>
+    <lblTXXXContent>Text frame &amp;Content:</lblTXXXContent>
+    <lblTXXXDesc>Text frame &amp;Descriptor:</lblTXXXDesc>
+  </frmTAG2Multi>
+  <frmEncoding>
+    <FormName>Change TAG Ver. 2 text encoding</FormName>
+    <lblV24>Text encoding for TAG Ver. 2.4:</lblV24>
+    <lblV23>Text encoding for TAG Ver. 2.3:</lblV23>
+    <btnCancel>&amp;Cancel</btnCancel>
+    <lblTextEncInfo>This will change the text encoding of the TAG Ver. 2 frames of the selected files from ANSI to Unicode or vise versa.</lblTextEncInfo>
+    <btnOK>&amp;OK</btnOK>
+  </frmEncoding>
+</ID3TagITRessources>

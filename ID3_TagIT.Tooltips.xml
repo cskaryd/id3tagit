@@ -1,0 +1,1017 @@
+<?xml version="1.0" standalone="yes"?>
+<ID3TagITToolTips>
+  <xs:schema id="ID3TagITToolTips" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ID3TagITToolTips" msdata:IsDataSet="true" msdata:Locale="de-DE">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="frmCaseConv">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="chkAlwaysFirst" type="xs:string" minOccurs="0" />
+                <xs:element name="chkReplaceSpaceUnder" type="xs:string" minOccurs="0" />
+                <xs:element name="chkReplaceSpace20" type="xs:string" minOccurs="0" />
+                <xs:element name="chkReplaceUnderSpace" type="xs:string" minOccurs="0" />
+                <xs:element name="chkReplace20Space" type="xs:string" minOccurs="0" />
+                <xs:element name="txtSeparator" type="xs:string" minOccurs="0" />
+                <xs:element name="chkSeparator" type="xs:string" minOccurs="0" />
+                <xs:element name="optAllFirstUp" type="xs:string" minOccurs="0" />
+                <xs:element name="optFirstUp" type="xs:string" minOccurs="0" />
+                <xs:element name="optAllUp" type="xs:string" minOccurs="0" />
+                <xs:element name="optAllLow" type="xs:string" minOccurs="0" />
+                <xs:element name="chkVer1" type="xs:string" minOccurs="0" />
+                <xs:element name="chkVer2" type="xs:string" minOccurs="0" />
+                <xs:element name="chkFilename" type="xs:string" minOccurs="0" />
+                <xs:element name="chkArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="chkAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="chkComment" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="lstExceptions" type="xs:string" minOccurs="0" />
+                <xs:element name="txtException" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmCompareFileTAG">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="txtDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbFormat" type="xs:string" minOccurs="0" />
+                <xs:element name="optTAGV1" type="xs:string" minOccurs="0" />
+                <xs:element name="optTAGV2" type="xs:string" minOccurs="0" />
+                <xs:element name="chkReplaceUnderScore" type="xs:string" minOccurs="0" />
+                <xs:element name="chkIgnoreCase" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmDouble">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="optTAGV1" type="xs:string" minOccurs="0" />
+                <xs:element name="optTAGV2" type="xs:string" minOccurs="0" />
+                <xs:element name="optAD" type="xs:string" minOccurs="0" />
+                <xs:element name="optATA" type="xs:string" minOccurs="0" />
+                <xs:element name="optAT" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmFilenameToTAG1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbFormat" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmFilenameToTAG2">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="txtDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbFormat" type="xs:string" minOccurs="0" />
+                <xs:element name="chkSaveName" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmFreeDB">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="btnQuery" type="xs:string" minOccurs="0" />
+                <xs:element name="optVariousArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="optSingleArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTrack" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="btnSearch" type="xs:string" minOccurs="0" />
+                <xs:element name="chkArtistExact" type="xs:string" minOccurs="0" />
+                <xs:element name="chkArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="chkComplete" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmLibraries">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="txtDir" type="xs:string" minOccurs="0" />
+                <xs:element name="txtName" type="xs:string" minOccurs="0" />
+                <xs:element name="chkOnlyOwn" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbV2V1" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbV1V2" type="xs:string" minOccurs="0" />
+                <xs:element name="btnDeleteG" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddG" type="xs:string" minOccurs="0" />
+                <xs:element name="txtGenreName" type="xs:string" minOccurs="0" />
+                <xs:element name="GenreList" type="xs:string" minOccurs="0" />
+                <xs:element name="btnClearA" type="xs:string" minOccurs="0" />
+                <xs:element name="btnDeleteA" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="txtArtistName" type="xs:string" minOccurs="0" />
+                <xs:element name="btnGetArtistV1" type="xs:string" minOccurs="0" />
+                <xs:element name="ArtistList" type="xs:string" minOccurs="0" />
+                <xs:element name="btnGetArtistV2" type="xs:string" minOccurs="0" />
+                <xs:element name="btnClearCommD" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveCommD" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddCommD" type="xs:string" minOccurs="0" />
+                <xs:element name="txtNewCommD" type="xs:string" minOccurs="0" />
+                <xs:element name="CommDList" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmLists">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="chkRelativ" type="xs:string" minOccurs="0" />
+                <xs:element name="btnPath" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPath" type="xs:string" minOccurs="0" />
+                <xs:element name="chkColor" type="xs:string" minOccurs="0" />
+                <xs:element name="chkGridlines" type="xs:string" minOccurs="0" />
+                <xs:element name="txtWidth" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbWidth" type="xs:string" minOccurs="0" />
+                <xs:element name="optID3V1" type="xs:string" minOccurs="0" />
+                <xs:element name="optID3V2" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTitleHTML" type="xs:string" minOccurs="0" />
+                <xs:element name="ColumnsList" type="xs:string" minOccurs="0" />
+                <xs:element name="btnUp" type="xs:string" minOccurs="0" />
+                <xs:element name="btnDown" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmOrganize">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="txtPath" type="xs:string" minOccurs="0" />
+                <xs:element name="btnBrowse" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbFormat" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="optID3V2" type="xs:string" minOccurs="0" />
+                <xs:element name="optID3V1" type="xs:string" minOccurs="0" />
+                <xs:element name="txtDigits" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmPreferences">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="cmbPlay" type="xs:string" minOccurs="0" />
+                <xs:element name="chkExplorerContext" type="xs:string" minOccurs="0" />
+                <xs:element name="txtFDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="txtEnumSep" type="xs:string" minOccurs="0" />
+                <xs:element name="txtStartNr" type="xs:string" minOccurs="0" />
+                <xs:element name="chkMouseRenaming" type="xs:string" minOccurs="0" />
+                <xs:element name="chkRestore" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTFDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="optAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="optSingle" type="xs:string" minOccurs="0" />
+                <xs:element name="chkSaveOnExit" type="xs:string" minOccurs="0" />
+                <xs:element name="optEditCur" type="xs:string" minOccurs="0" />
+                <xs:element name="optEditV1" type="xs:string" minOccurs="0" />
+                <xs:element name="optEditV2" type="xs:string" minOccurs="0" />
+                <xs:element name="chkIgnoreWrite" type="xs:string" minOccurs="0" />
+                <xs:element name="chkAudioChecksumCalc" type="xs:string" minOccurs="0" />
+                <xs:element name="ColumnsList" type="xs:string" minOccurs="0" />
+                <xs:element name="btnUp" type="xs:string" minOccurs="0" />
+                <xs:element name="btnDown" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbYearFormat" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTTDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbV24Enc" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbV23Enc" type="xs:string" minOccurs="0" />
+                <xs:element name="chkSingle" type="xs:string" minOccurs="0" />
+                <xs:element name="chkUnSync" type="xs:string" minOccurs="0" />
+                <xs:element name="optUse24" type="xs:string" minOccurs="0" />
+                <xs:element name="optUse23" type="xs:string" minOccurs="0" />
+                <xs:element name="ColorCompareText" type="xs:string" minOccurs="0" />
+                <xs:element name="ColorCompareBack" type="xs:string" minOccurs="0" />
+                <xs:element name="ColorChangedBack" type="xs:string" minOccurs="0" />
+                <xs:element name="ColorDoubleText" type="xs:string" minOccurs="0" />
+                <xs:element name="ColorDoubleBack" type="xs:string" minOccurs="0" />
+                <xs:element name="ColorChangedText" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="btnBrowse" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbShell" type="xs:string" minOccurs="0" />
+                <xs:element name="txtParameters" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPath" type="xs:string" minOccurs="0" />
+                <xs:element name="txtDescription" type="xs:string" minOccurs="0" />
+                <xs:element name="chkDefault" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmRemoveFolders">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="btnBrowse" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPath" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmSearch">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="txtSearch" type="xs:string" minOccurs="0" />
+                <xs:element name="txtReplace" type="xs:string" minOccurs="0" />
+                <xs:element name="btnSelect" type="xs:string" minOccurs="0" />
+                <xs:element name="btnReplace" type="xs:string" minOccurs="0" />
+                <xs:element name="chkFilename" type="xs:string" minOccurs="0" />
+                <xs:element name="chkVer1" type="xs:string" minOccurs="0" />
+                <xs:element name="chkVer2" type="xs:string" minOccurs="0" />
+                <xs:element name="chkRegExpress" type="xs:string" minOccurs="0" />
+                <xs:element name="chkSelected" type="xs:string" minOccurs="0" />
+                <xs:element name="chkCase" type="xs:string" minOccurs="0" />
+                <xs:element name="optAND" type="xs:string" minOccurs="0" />
+                <xs:element name="optOR" type="xs:string" minOccurs="0" />
+                <xs:element name="chkArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="chkAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTracknumber" type="xs:string" minOccurs="0" />
+                <xs:element name="chkYear" type="xs:string" minOccurs="0" />
+                <xs:element name="chkGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="chkComment" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmSelectFormat">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbFormat" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmTAG1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="btnPrev" type="xs:string" minOccurs="0" />
+                <xs:element name="btnNext" type="xs:string" minOccurs="0" />
+                <xs:element name="txtAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="txtComment" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbGenre" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmTAG1Multi">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="txtAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="txtComment" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox1" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox2" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox3" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox4" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox5" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox6" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox7" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbArtist" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmTAG1ToFilename">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="txtDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="txtFDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="txtStartNr" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbFormat" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmTAG2">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="txtSelected" type="xs:string" minOccurs="0" />
+                <xs:element name="btnV1Comment" type="xs:string" minOccurs="0" />
+                <xs:element name="btnMoveComment" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveComment" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddComment" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbCLanguage" type="xs:string" minOccurs="0" />
+                <xs:element name="txtComment" type="xs:string" minOccurs="0" />
+                <xs:element name="btnV1Genre" type="xs:string" minOccurs="0" />
+                <xs:element name="btnMoveGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="GenreList" type="xs:string" minOccurs="0" />
+                <xs:element name="btnTLEN" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTLEN" type="xs:string" minOccurs="0" />
+                <xs:element name="txtYear" type="xs:string" minOccurs="0" />
+                <xs:element name="txtBPM" type="xs:string" minOccurs="0" />
+                <xs:element name="btnV1Title" type="xs:string" minOccurs="0" />
+                <xs:element name="btnV1Album" type="xs:string" minOccurs="0" />
+                <xs:element name="btnV1Track" type="xs:string" minOccurs="0" />
+                <xs:element name="btnV1Year" type="xs:string" minOccurs="0" />
+                <xs:element name="btnV1Artist" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbMedia" type="xs:string" minOccurs="0" />
+                <xs:element name="txtAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="txtSortArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="txtSortTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="txtSortAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTORY" type="xs:string" minOccurs="0" />
+                <xs:element name="txtOOwner" type="xs:string" minOccurs="0" />
+                <xs:element name="txtOArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="txtOAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="txtOLyWriter" type="xs:string" minOccurs="0" />
+                <xs:element name="txtOFilename" type="xs:string" minOccurs="0" />
+                <xs:element name="txtContent" type="xs:string" minOccurs="0" />
+                <xs:element name="txtSubTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="txtComposer" type="xs:string" minOccurs="0" />
+                <xs:element name="txtBand" type="xs:string" minOccurs="0" />
+                <xs:element name="txtModified" type="xs:string" minOccurs="0" />
+                <xs:element name="txtConductor" type="xs:string" minOccurs="0" />
+                <xs:element name="txtMusicianName" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveMusician" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddMusician" type="xs:string" minOccurs="0" />
+                <xs:element name="txtMusicianInst" type="xs:string" minOccurs="0" />
+                <xs:element name="txtInvPerson" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveInv" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddInv" type="xs:string" minOccurs="0" />
+                <xs:element name="txtInvFunction" type="xs:string" minOccurs="0" />
+                <xs:element name="txtCopyright" type="xs:string" minOccurs="0" />
+                <xs:element name="txtLyWriter" type="xs:string" minOccurs="0" />
+                <xs:element name="txtEncoded" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPublisher" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemovePicture" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddPicture" type="xs:string" minOccurs="0" />
+                <xs:element name="btnGetPic" type="xs:string" minOccurs="0" />
+                <xs:element name="btnExPic" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPicPath" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbPicType" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPDescriptor" type="xs:string" minOccurs="0" />
+                <xs:element name="APICView" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbLLanguage" type="xs:string" minOccurs="0" />
+                <xs:element name="txtLDescriptor" type="xs:string" minOccurs="0" />
+                <xs:element name="btnMoveRating" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveRating" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddRating" type="xs:string" minOccurs="0" />
+                <xs:element name="txtRatingCounter" type="xs:string" minOccurs="0" />
+                <xs:element name="txtRatingRating" type="xs:string" minOccurs="0" />
+                <xs:element name="txtRatingUser" type="xs:string" minOccurs="0" />
+                <xs:element name="txtCOMMInfURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPubURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPayURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtINetRadioURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtAudioSRCURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtCopyInfURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtArtistURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtAudioFileURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtWXXXContent" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveWXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddWXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="txtWXXXDesc" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTXXXContent" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveTXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddTXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTXXXDesc" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbCDescriptor" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPos1" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPos2" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTrack1" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTrack2" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmTAG2Multi">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="TabControl" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox38" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox10" type="xs:string" minOccurs="0" />
+                <xs:element name="btnMoveComment" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveComment" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddComment" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbCLanguage" type="xs:string" minOccurs="0" />
+                <xs:element name="txtComment" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox9" type="xs:string" minOccurs="0" />
+                <xs:element name="btnMoveGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="GenreList" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTLEN" type="xs:string" minOccurs="0" />
+                <xs:element name="txtYear" type="xs:string" minOccurs="0" />
+                <xs:element name="txtBPM" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox8" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox7" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox6" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox5" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox4" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox3" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox2" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox1" type="xs:string" minOccurs="0" />
+                <xs:element name="YearFormat" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbMedia" type="xs:string" minOccurs="0" />
+                <xs:element name="txtAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox41" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox42" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox43" type="xs:string" minOccurs="0" />
+                <xs:element name="txtSortArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="txtSortTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="txtSortAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTORY" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox39" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox24" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox23" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox22" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox21" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox20" type="xs:string" minOccurs="0" />
+                <xs:element name="txtOOwner" type="xs:string" minOccurs="0" />
+                <xs:element name="txtOArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="txtOAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="txtOLyWriter" type="xs:string" minOccurs="0" />
+                <xs:element name="txtOFilename" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox16" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox15" type="xs:string" minOccurs="0" />
+                <xs:element name="txtContent" type="xs:string" minOccurs="0" />
+                <xs:element name="txtSubTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox14" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox13" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox12" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox11" type="xs:string" minOccurs="0" />
+                <xs:element name="txtComposer" type="xs:string" minOccurs="0" />
+                <xs:element name="txtBand" type="xs:string" minOccurs="0" />
+                <xs:element name="txtModified" type="xs:string" minOccurs="0" />
+                <xs:element name="txtConductor" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox40" type="xs:string" minOccurs="0" />
+                <xs:element name="txtCopyright" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox19" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox18" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox17" type="xs:string" minOccurs="0" />
+                <xs:element name="txtLyWriter" type="xs:string" minOccurs="0" />
+                <xs:element name="txtEncoded" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPublisher" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox45" type="xs:string" minOccurs="0" />
+                <xs:element name="txtMusicianName" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveMusician" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddMusician" type="xs:string" minOccurs="0" />
+                <xs:element name="txtMusicianInst" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox44" type="xs:string" minOccurs="0" />
+                <xs:element name="txtInvPerson" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveInv" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddInv" type="xs:string" minOccurs="0" />
+                <xs:element name="txtInvFunction" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox34" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemovePicture" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddPicture" type="xs:string" minOccurs="0" />
+                <xs:element name="btnGetPic" type="xs:string" minOccurs="0" />
+                <xs:element name="chkPicInclude" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPicPath" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbPicType" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPDescriptor" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox35" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbLLanguage" type="xs:string" minOccurs="0" />
+                <xs:element name="txtLDescriptor" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox33" type="xs:string" minOccurs="0" />
+                <xs:element name="btnMoveRating" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveRating" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddRating" type="xs:string" minOccurs="0" />
+                <xs:element name="txtRatingCounter" type="xs:string" minOccurs="0" />
+                <xs:element name="txtRatingRating" type="xs:string" minOccurs="0" />
+                <xs:element name="txtRatingUser" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox32" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox31" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox30" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox29" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox28" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox27" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox26" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox25" type="xs:string" minOccurs="0" />
+                <xs:element name="txtCOMMInfURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPubURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPayURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtINetRadioURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtAudioSRCURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtCopyInfURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtArtistURL" type="xs:string" minOccurs="0" />
+                <xs:element name="txtAudioFileURL" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox37" type="xs:string" minOccurs="0" />
+                <xs:element name="txtWXXXContent" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveWXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddWXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="txtWXXXDesc" type="xs:string" minOccurs="0" />
+                <xs:element name="CheckBox36" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTXXXContent" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemoveTXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAddTXXX" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTXXXDesc" type="xs:string" minOccurs="0" />
+                <xs:element name="txtDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="chkRemoveAllNOT" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbArtist" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbCDescriptor" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPos1" type="xs:string" minOccurs="0" />
+                <xs:element name="txtPos2" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTrack1" type="xs:string" minOccurs="0" />
+                <xs:element name="txtTrack2" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmTAG2ToFilename">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="txtDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="txtFDigits" type="xs:string" minOccurs="0" />
+                <xs:element name="txtStartNr" type="xs:string" minOccurs="0" />
+                <xs:element name="btnRemove" type="xs:string" minOccurs="0" />
+                <xs:element name="btnAdd" type="xs:string" minOccurs="0" />
+                <xs:element name="cmbFormat" type="xs:string" minOccurs="0" />
+                <xs:element name="chkRebuildName" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="frmTransfer">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="opt12" type="xs:string" minOccurs="0" />
+                <xs:element name="opt21" type="xs:string" minOccurs="0" />
+                <xs:element name="optConvert34" type="xs:string" minOccurs="0" />
+                <xs:element name="optConvert43" type="xs:string" minOccurs="0" />
+                <xs:element name="chkExists" type="xs:string" minOccurs="0" />
+                <xs:element name="txtCommentD" type="xs:string" minOccurs="0" />
+                <xs:element name="chkYear" type="xs:string" minOccurs="0" />
+                <xs:element name="chkGenre" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTrack" type="xs:string" minOccurs="0" />
+                <xs:element name="chkComment" type="xs:string" minOccurs="0" />
+                <xs:element name="chkAlbum" type="xs:string" minOccurs="0" />
+                <xs:element name="chkTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="chkArtist" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <frmCaseConv>
+    <chkAlwaysFirst>If checked the first letter of every entry / filename will be uppercase ignoring the exceptions</chkAlwaysFirst>
+    <chkReplaceSpaceUnder>Space will be replaced by underscore</chkReplaceSpaceUnder>
+    <chkReplaceSpace20>Space will be replaced by %20</chkReplaceSpace20>
+    <chkReplaceUnderSpace>Underscore will be replaced by space</chkReplaceUnderSpace>
+    <chkReplace20Space>%20 will be replaced by space</chkReplace20Space>
+    <txtSeparator>Enter separator here</txtSeparator>
+    <chkSeparator>Use separator</chkSeparator>
+    <optAllFirstUp>If checked, All First Letters Will Be Set To Upper Case</optAllFirstUp>
+    <optFirstUp>If checked, the first letter will be set to upper case</optFirstUp>
+    <optAllUp>If checked, all characters will be set to UPPER CASE</optAllUp>
+    <optAllLow>If checked, all characters will be set to lower case</optAllLow>
+    <chkVer1>If checked, conversion options will be used on ID3 Tag Version 1</chkVer1>
+    <chkVer2>If checked, conversion options will be used on ID3 Tag Version 2</chkVer2>
+    <chkFilename>If checked, conversion options will be used on filename</chkFilename>
+    <chkArtist>Artist will be modified in TAG</chkArtist>
+    <chkTitle>Title will be modified in TAG</chkTitle>
+    <chkAlbum>Album will be modified in TAG</chkAlbum>
+    <chkComment>Comment will be modified in TAG</chkComment>
+    <btnRemove>Remove selected exception from list</btnRemove>
+    <btnAdd>Add entered exception to list</btnAdd>
+    <lstExceptions>List of exceptions</lstExceptions>
+    <txtException>Enter exception here</txtException>
+  </frmCaseConv>
+  <frmCompareFileTAG>
+    <txtDigits>Select number of digits of track number</txtDigits>
+    <btnRemove>Remove selected format from list</btnRemove>
+    <btnAdd>Add entered format to list</btnAdd>
+    <cmbFormat>Enter format of how the filename should look like</cmbFormat>
+    <optTAGV1>Use entries of the TAG Ver. 1 for comparing</optTAGV1>
+    <optTAGV2>Use entries of the TAG Ver. 2 for comparing</optTAGV2>
+    <chkReplaceUnderScore>If checked characters not allowed in filenames will be replaced by '_' for comparing</chkReplaceUnderScore>
+    <chkIgnoreCase>If checked the case will be ignored</chkIgnoreCase>
+  </frmCompareFileTAG>
+  <frmDouble>
+    <optTAGV1>Use entries of the TAG Ver. 1 for comparing</optTAGV1>
+    <optTAGV2>Use entries of the TAG Ver. 2 for comparing</optTAGV2>
+    <optAD>TAG entries will be ignored and the audio data will be compared</optAD>
+    <optATA>Artist, title and album fields will be compared</optATA>
+    <optAT>Only artist and title fields will be compared</optAT>
+  </frmDouble>
+  <frmFilenameToTAG1>
+    <btnRemove>Entered format will be removed from list of known formats</btnRemove>
+    <btnAdd>Entered format will be saved to list of known formats</btnAdd>
+    <cmbFormat>Specify format of filename</cmbFormat>
+  </frmFilenameToTAG1>
+  <frmFilenameToTAG2>
+    <txtDigits>Select the number of digits to be used when adding track numbers to the TAG</txtDigits>
+    <btnRemove>Entered format will be removed from list of known formats</btnRemove>
+    <btnAdd>Entered format will be saved to list of known formats</btnAdd>
+    <cmbFormat>Specify format of filename</cmbFormat>
+    <chkSaveName>Saves the current filename to then original filename entry is present in the TAG this entry</chkSaveName>
+  </frmFilenameToTAG2>
+  <frmFreeDB>
+    <btnQuery>When clicked ID3-TagIT tries to find all CDs in FreeDB that matched the selected files</btnQuery>
+    <optVariousArtist>Use this setting if every track on the album has another artist</optVariousArtist>
+    <optSingleArtist>Use this setting if the album contains only one artist</optSingleArtist>
+    <chkTrack>Search for the entered text in the track fields</chkTrack>
+    <chkTitle>Search for the entered text in the album title field</chkTitle>
+    <btnSearch>When clicked ID3-TagIT tries to find all CDs in FreeDB that contain one of the words</btnSearch>
+    <chkArtistExact>Search entered text has to exactly match the artist field</chkArtistExact>
+    <chkArtist>Search for the entered text in the artist field</chkArtist>
+    <chkComplete>If checked, the search string has to be found completely within the searched field.</chkComplete>
+  </frmFreeDB>
+  <frmLibraries>
+    <txtDir>Enter the path of the directory which should be added to the currently selected favourite</txtDir>
+    <txtName>Enter the name of the favourite</txtName>
+    <chkOnlyOwn>Check to only use user defined genres</chkOnlyOwn>
+    <cmbV2V1>Ver. 1 genre for Ver. 2 -&gt; Ver. 1</cmbV2V1>
+    <cmbV1V2>Ver. 1 genre for  Ver. 1 -&gt; Ver. 2 </cmbV1V2>
+    <btnDeleteG>Delete selected genre from list</btnDeleteG>
+    <btnAddG>Add entered genre to list</btnAddG>
+    <txtGenreName>Enter new Ver. 2 genre name</txtGenreName>
+    <GenreList>List of known genres</GenreList>
+    <btnClearA>Clear the entire list of artists</btnClearA>
+    <btnDeleteA>Delete selected artist from list</btnDeleteA>
+    <btnAdd>Add specified artist to list</btnAdd>
+    <txtArtistName>Enter new artist name</txtArtistName>
+    <btnGetArtistV1>Get artists from ID3 Ver. 1 TAGs of scanned files</btnGetArtistV1>
+    <ArtistList>List of known artists</ArtistList>
+    <btnGetArtistV2>Get artists from ID3 Ver. 2 TAGs of scanned files</btnGetArtistV2>
+    <btnClearCommD>Clear the entire list of artists</btnClearCommD>
+    <btnRemoveCommD>Delete selected artist from list</btnRemoveCommD>
+    <btnAddCommD>Add specified artist to list</btnAddCommD>
+    <txtNewCommD>Enter new artist name</txtNewCommD>
+    <CommDList>List of known artists</CommDList>
+  </frmLibraries>
+  <frmLists>
+    <chkRelativ>Check to use relative paths within the playlist</chkRelativ>
+    <btnPath>Select path and filename for the playlist/filelist</btnPath>
+    <txtPath>Set path and filename for playlist/filelist, containing the selected files</txtPath>
+    <chkColor>Check to color odd/even rows</chkColor>
+    <chkGridlines>Check to show gridlines</chkGridlines>
+    <txtWidth>Select width of list</txtWidth>
+    <cmbWidth>Select the scale for the width (Pixel / %)</cmbWidth>
+    <optID3V1>Check to use Ver. 1 TAGs to create the list</optID3V1>
+    <optID3V2>Check to use Ver. 2 TAGs to create the list</optID3V2>
+    <txtTitleHTML>Define the tilte of the list</txtTitleHTML>
+    <ColumnsList>Check the boxes of the columns you want to see in the list</ColumnsList>
+    <btnUp>Change the order of the list. Press to move selected column upwards</btnUp>
+    <btnDown>Change the order of the list. Press to move selected column downwards</btnDown>
+  </frmLists>
+  <frmOrganize>
+    <txtPath>Specify root path under which the files should be organized</txtPath>
+    <btnBrowse>Click to select path</btnBrowse>
+    <cmbFormat>Enter format to use</cmbFormat>
+    <btnAdd>Add the specified format to list</btnAdd>
+    <btnRemove>Remove selected format from list</btnRemove>
+    <optID3V2>Check to use Ver. 2 TAG - Infos to organize files</optID3V2>
+    <optID3V1>Check to use Ver. 1 TAG - Infos to organize files</optID3V1>
+    <txtDigits>Select number of digits in track numbers</txtDigits>
+  </frmOrganize>
+  <frmPreferences>
+    <cmbPlay>Select what to do with MP3 in Player</cmbPlay>
+    <chkExplorerContext>If check, an item ID3-TagIT is shown in the folder context menu of the Windows Explorer</chkExplorerContext>
+    <txtFDigits>Select number of digits to use in filename enumeration</txtFDigits>
+    <txtEnumSep>Select separator that will be placed between number and filename</txtEnumSep>
+    <txtStartNr>Select number to start enumeration with</txtStartNr>
+    <chkMouseRenaming>Check to enable renaming by clicking with the left mouse-button</chkMouseRenaming>
+    <chkRestore>Check to restore date of a file after tagging it</chkRestore>
+    <txtTFDigits>Select number of digits of the track number in the filname</txtTFDigits>
+    <optAdd>If checked, selecting a file will add this file to the current seletion</optAdd>
+    <optSingle>If checked, selecting a file will just select this file</optSingle>
+    <chkSaveOnExit>Check if ID3-TagIT shall save the path to the folder you worked in the last time to start there again</chkSaveOnExit>
+    <optEditCur>If checked, a doubleclick on a file in ID3-TagIT will open an Edit TAG Ver. X dialog corresponding to the current view</optEditCur>
+    <optEditV1>If checked, a doubleclick on a file in ID3-TagIT will open an Edit TAG Ver. 2 dialog</optEditV1>
+    <optEditV2>If checked, a doubleclick on a file in ID3-TagIT will open an Edit TAG Ver. 1 dialog</optEditV2>
+    <chkIgnoreWrite>Check if ID3-TagIT shall ignore the write-protection of files</chkIgnoreWrite>
+    <chkAudioChecksumCalc>Check if ID3-TagIT should calculate the audiochecksum in the background after reading new files</chkAudioChecksumCalc>
+    <ColumnsList>Select which columns shall be shown in ID3-TagIT</ColumnsList>
+    <btnUp>Press to move selected column upwards</btnUp>
+    <btnDown>Press to move selected column downwards</btnDown>
+    <cmbYearFormat>Chose format of year in Ver. 2 TAGs</cmbYearFormat>
+    <txtTTDigits>Select number of digits for track numbers in Ver. 2 TAGs</txtTTDigits>
+    <cmbV24Enc>Select text encoding for version 2.4 TAGs</cmbV24Enc>
+    <cmbV23Enc>Select text encoding for version 2.3 TAGs</cmbV23Enc>
+    <chkSingle>Check to only allow 1 genre and comment in TAG Ver. 2</chkSingle>
+    <chkUnSync>Check to write unsyc. Ver. 2 TAGs</chkUnSync>
+    <optUse24>Check for ID3-TagIT to use Ver 2.4 Tags when creating new Ver. 2 TAGs</optUse24>
+    <optUse23>Check for ID3-TagIT to use Ver 2.3 Tags when creating new Ver. 2 TAGs</optUse23>
+    <ColorCompareText>Click to select a color</ColorCompareText>
+    <ColorCompareBack>Click to select a color</ColorCompareBack>
+    <ColorChangedBack>Click to select a color</ColorChangedBack>
+    <ColorDoubleText>Click to select a color</ColorDoubleText>
+    <ColorDoubleBack>Click to select a color</ColorDoubleBack>
+    <ColorChangedText>Click to select a color</ColorChangedText>
+    <btnRemove>Click to remove the selected tool from list</btnRemove>
+    <btnAdd>Click to add the tool to the list</btnAdd>
+    <btnBrowse>Click to select path to tool</btnBrowse>
+    <cmbShell>Select what to do with MP3 in Player</cmbShell>
+    <txtParameters>Select parameters to start the tool with</txtParameters>
+    <txtPath>Specify path to external tool</txtPath>
+    <txtDescription>Description of external tool (e.g. text - editor)</txtDescription>
+    <chkDefault>Check to use the windows - default MP3 - Player (e.g. Windows Media Player / Winamp)</chkDefault>
+  </frmPreferences>
+  <frmRemoveFolders>
+    <btnBrowse>Click to select path</btnBrowse>
+    <txtPath>Specify root path under which the files should be organized</txtPath>
+  </frmRemoveFolders>
+  <frmSearch>
+    <txtSearch>Enter search string</txtSearch>
+    <txtReplace>Enter string that shall replace search string</txtReplace>
+    <btnSelect>Click to search and select files ( no changes will be written to file)</btnSelect>
+    <btnReplace>Click to search an replace (there will be changes)</btnReplace>
+    <chkFilename>If checked, the search will be done in filename</chkFilename>
+    <chkVer1>If checked, the search will be done in Ver. 1 TAGs</chkVer1>
+    <chkVer2>If checked, the search will be done in Ver. 2 TAGs</chkVer2>
+    <chkRegExpress>If checked, regular expression can be used in the search string</chkRegExpress>
+    <chkSelected>If checked, only the selected files will be searched</chkSelected>
+    <chkCase>If checked, the search will be case sensitive (upper and lower case will be distinguished in search)</chkCase>
+    <optAND>If checked, ALL fields in the search MUST contain the search string</optAND>
+    <optOR>If checked, only one field in the search must contain the search string</optOR>
+    <chkArtist>If checked, the search will take place in the TAG field artist</chkArtist>
+    <chkTitle>If checked, the search will take place in the TAG field title</chkTitle>
+    <chkAlbum>If checked, the search will take place in the TAG field album</chkAlbum>
+    <chkTracknumber>If checked, the search will take place in the TAG field track number</chkTracknumber>
+    <chkYear>If checked, the search will take place in the TAG field year</chkYear>
+    <chkGenre>If checked, the search will take place in the TAG field genre</chkGenre>
+    <chkComment>If checked, the search will take place in the TAG field comment</chkComment>
+  </frmSearch>
+  <frmSelectFormat>
+    <btnRemove>Remove selected format from list</btnRemove>
+    <btnAdd>Add entered format to list</btnAdd>
+    <cmbFormat>Select format of filename</cmbFormat>
+  </frmSelectFormat>
+  <frmTAG1>
+    <btnPrev>Go back one file</btnPrev>
+    <btnNext>Jump to next file</btnNext>
+    <txtAlbum>Enter album for Ver. 1 TAG</txtAlbum>
+    <txtComment>Enter comment for Ver. 1 TAG</txtComment>
+    <txtTitle>Enter title for Ver. 1 TAG</txtTitle>
+    <cmbArtist>Enter lead artist for Ver. 1 TAG</cmbArtist>
+    <cmbGenre>Enter genre for Ver. 1 TAG</cmbGenre>
+  </frmTAG1>
+  <frmTAG1Multi>
+    <txtAlbum>Enter album for all selected files</txtAlbum>
+    <txtComment>Enter comment for all selected files</txtComment>
+    <txtTitle>Enter title for all selected files</txtTitle>
+    <CheckBox1>If checked, the information left of this box will be written to the version 1 TAG. Leave it empty and check the box to erase the information stored.</CheckBox1>
+    <CheckBox2>If checked, the information left of this box will be written to the version 1 TAG. Leave it empty and check the box to erase the information stored.</CheckBox2>
+    <CheckBox3>If checked, the information left of this box will be written to the version 1 TAG. Leave it empty and check the box to erase the information stored.</CheckBox3>
+    <CheckBox4>If checked, the information left of this box will be written to the version 1 TAG. Leave it empty and check the box to erase the information stored.</CheckBox4>
+    <CheckBox5>If checked, the information left of this box will be written to the version 1 TAG. Leave it empty and check the box to erase the information stored.</CheckBox5>
+    <CheckBox6>If checked, the information left of this box will be written to the version 1 TAG. Leave it empty and check the box to erase the information stored.</CheckBox6>
+    <CheckBox7>If checked, the information left of this box will be written to the version 1 TAG. Leave it empty and check the box to erase the information stored.</CheckBox7>
+    <cmbGenre>Enter genre for Ver. 1 TAG</cmbGenre>
+    <cmbArtist>Enter lead artist for Ver. 1 TAG</cmbArtist>
+  </frmTAG1Multi>
+  <frmTAG1ToFilename>
+    <txtDigits>Select number of digits of track number</txtDigits>
+    <txtFDigits>File enumeration: Number of digits in enumeration</txtFDigits>
+    <txtStartNr>File enumeration: Start enumeration with selected number</txtStartNr>
+    <btnRemove>Remove selected format from list</btnRemove>
+    <btnAdd>Add entered format to list</btnAdd>
+    <cmbFormat>Enter format of how the filename should look like</cmbFormat>
+  </frmTAG1ToFilename>
+  <frmTAG2>
+    <txtSelected>Name of selected file</txtSelected>
+    <btnV1Comment>Get information from Ver. 1 TAG</btnV1Comment>
+    <btnMoveComment>Move selected comment to the top of the list of comments of the file</btnMoveComment>
+    <btnRemoveComment>Remove selected comment from list of comments of file</btnRemoveComment>
+    <btnAddComment>Add entered comment to list of comments of file</btnAddComment>
+    <cmbCLanguage>Select language of comment</cmbCLanguage>
+    <txtComment>Enter description / comment of file</txtComment>
+    <btnV1Genre>Get information from version 1 TAG</btnV1Genre>
+    <btnMoveGenre>Move selected genre to the top of the list</btnMoveGenre>
+    <btnRemoveGenre>Remove selected genre from list</btnRemoveGenre>
+    <btnAddGenre>Add entered genre to list</btnAddGenre>
+    <GenreList>Genre list</GenreList>
+    <btnTLEN>Calculates the track length in msec</btnTLEN>
+    <txtTLEN>Enter the track length in msec</txtTLEN>
+    <txtYear>Contains the year or date information in the format yyyy-mm-dd</txtYear>
+    <txtBPM>Contains the BPM information</txtBPM>
+    <btnV1Title>Get information from TAG Ver. 1</btnV1Title>
+    <btnV1Album>Get information from TAG Ver. 1</btnV1Album>
+    <btnV1Track>Get information from TAG Ver. 1</btnV1Track>
+    <btnV1Year>Get information from TAG Ver. 1</btnV1Year>
+    <btnV1Artist>Get information from TAG Ver. 1</btnV1Artist>
+    <cmbMedia>Enter media type the selected track was recorded from</cmbMedia>
+    <txtAlbum>Enter album the selected file belongs to</txtAlbum>
+    <txtTitle>Enter title of selected file</txtTitle>
+    <txtSortArtist>Enter the name of artist used for sorting (e. g. Police, The)</txtSortArtist>
+    <txtSortTitle>Enter the title string used for sorting</txtSortTitle>
+    <txtSortAlbum>Enter the album string used for sorting</txtSortAlbum>
+    <txtTORY>Contains the original release year or date information in the format yyyy-mm-dd</txtTORY>
+    <txtOOwner>Enter name of the original owner (who owns the license for the original song)</txtOOwner>
+    <txtOArtist>Enter name of the original artist (if this is a cover)</txtOArtist>
+    <txtOAlbum>Enter name of album of the original song (if this file is a cover)</txtOAlbum>
+    <txtOLyWriter>Enter songwriter of the original song (if this is a cover)</txtOLyWriter>
+    <txtOFilename>Enter filename of the original song (if this is a cover)</txtOFilename>
+    <txtContent>Specify the content group (if the genre was classical the content group could be piano concert)</txtContent>
+    <txtSubTitle>Enter the subtitle (perhaps something like live in athens)</txtSubTitle>
+    <txtComposer>Enter name of compser of this file</txtComposer>
+    <txtBand>Enter name of band / orchestra, lead artist works with in this file</txtBand>
+    <txtModified>This song was remixed / modified by</txtModified>
+    <txtConductor>Enter name of conductor</txtConductor>
+    <txtMusicianName>Enter the name of the musician</txtMusicianName>
+    <btnRemoveMusician>Click to remove selected musician from list</btnRemoveMusician>
+    <btnAddMusician>Click to add entered musician to list</btnAddMusician>
+    <txtMusicianInst>Enter the instrument the musician plays</txtMusicianInst>
+    <txtInvPerson>Enter the name of the involved person</txtInvPerson>
+    <btnRemoveInv>Click to remove selected person from list</btnRemoveInv>
+    <btnAddInv>Click to add entered person to list</btnAddInv>
+    <txtInvFunction>Enter the function of the person</txtInvFunction>
+    <txtCopyright>Enter the copyright message</txtCopyright>
+    <txtLyWriter>Enter the name of songwriter of this file</txtLyWriter>
+    <txtEncoded>Enter the name of the one who encoded this file</txtEncoded>
+    <txtPublisher>Enter name of publisher</txtPublisher>
+    <btnRemovePicture>Remove selected picture from list</btnRemovePicture>
+    <btnAddPicture>Add picture to list</btnAddPicture>
+    <btnGetPic>Load new picture</btnGetPic>
+    <btnExPic>Save picture to a new file by extracting it from the MP3 file</btnExPic>
+    <txtPicPath>This is the path to the file</txtPicPath>
+    <cmbPicType>Select picture type </cmbPicType>
+    <txtPDescriptor>Enter characterization of this picture</txtPDescriptor>
+    <APICView>This is the picture embedded in this file</APICView>
+    <cmbLLanguage>Select lyrics language</cmbLLanguage>
+    <txtLDescriptor>Enter characterization of lyrics</txtLDescriptor>
+    <btnMoveRating>Click to move selected rating to the top of the list</btnMoveRating>
+    <btnRemoveRating>Click to remove selected rating from list</btnRemoveRating>
+    <btnAddRating>Click to add entered rating to list</btnAddRating>
+    <txtRatingCounter>Select, how often this file has been played</txtRatingCounter>
+    <txtRatingRating>Enter your rating (1 ist worst, 255 is best)</txtRatingRating>
+    <txtRatingUser>Enter username</txtRatingUser>
+    <txtCOMMInfURL>Enter URL to commercial information</txtCOMMInfURL>
+    <txtPubURL>Enter URL to publisher's homepage</txtPubURL>
+    <txtPayURL>Enter URL to official payment</txtPayURL>
+    <txtINetRadioURL>Enter URL to internet Radio station</txtINetRadioURL>
+    <txtAudioSRCURL>Enter URL to audio source</txtAudioSRCURL>
+    <txtCopyInfURL>Enter URL to copyright information</txtCopyInfURL>
+    <txtArtistURL>Enter URL to artist Homepage</txtArtistURL>
+    <txtAudioFileURL>Enter URL to audio file</txtAudioFileURL>
+    <txtWXXXContent>Enter web frame content</txtWXXXContent>
+    <btnRemoveWXXX>Click to remove selected web frame from list</btnRemoveWXXX>
+    <btnAddWXXX>Click to add entered web frame to list</btnAddWXXX>
+    <txtWXXXDesc>Enter characterization of web frame</txtWXXXDesc>
+    <txtTXXXContent>Enter the content, the text frame shall contain</txtTXXXContent>
+    <btnRemoveTXXX>Click to remove selected text frame from list</btnRemoveTXXX>
+    <btnAddTXXX>Click to enter user text frame to list</btnAddTXXX>
+    <txtTXXXDesc>Enter characterization of text frame</txtTXXXDesc>
+    <cmbArtist>Enter lead artist</cmbArtist>
+    <cmbGenre>Enter the genre the song belongs to</cmbGenre>
+    <cmbCDescriptor>Enter characterization of the comment</cmbCDescriptor>
+    <txtPos1>Number in media set, a 0 will remove this part</txtPos1>
+    <txtPos2>Total number of medias, a 0 will remove this part</txtPos2>
+    <txtTrack1>Track number on album, a 0 will remove this part</txtTrack1>
+    <txtTrack2>Total number of tracks, a 0 will remove this part</txtTrack2>
+  </frmTAG2>
+  <frmTAG2Multi>
+    <TabControl>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</TabControl>
+    <CheckBox38>If checked, all existing comments will be erased before any entry is made to the version 2 TAG.</CheckBox38>
+    <CheckBox10>If checked, all existing comments will be erased before any entry is made to the version 2 TAG.</CheckBox10>
+    <btnMoveComment>Move selected comment to the top of the list</btnMoveComment>
+    <btnRemoveComment>Remove selected comment from list</btnRemoveComment>
+    <btnAddComment>Add entered comment to list of comments</btnAddComment>
+    <cmbCLanguage>Select comment language</cmbCLanguage>
+    <txtComment>Enter comment for these files</txtComment>
+    <CheckBox9>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox9>
+    <btnMoveGenre>Move the selected gnre to the top of the list</btnMoveGenre>
+    <btnRemoveGenre>Remove selected genre from list</btnRemoveGenre>
+    <btnAddGenre>Add entered genre to list</btnAddGenre>
+    <GenreList>Genre list</GenreList>
+    <chkTLEN>If checked every file gets a TAG entry with the track length in msec</chkTLEN>
+    <txtYear>Contains the year or date information in the format yyyy-mm-dd</txtYear>
+    <txtBPM>Contains the BPM information</txtBPM>
+    <CheckBox8>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox8>
+    <CheckBox7>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox7>
+    <CheckBox6>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox6>
+    <CheckBox5>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox5>
+    <CheckBox4>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox4>
+    <CheckBox3>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox3>
+    <CheckBox2>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox2>
+    <CheckBox1>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox1>
+    <YearFormat>Select the format for the date information</YearFormat>
+    <cmbMedia>Select media type, selected files have been recorded from</cmbMedia>
+    <txtAlbum>Enter album of selected files</txtAlbum>
+    <txtTitle>Enter title of selected file</txtTitle>
+    <CheckBox41>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox41>
+    <CheckBox42>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox42>
+    <CheckBox43>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox43>
+    <txtSortArtist>Enter the name of artist used for sorting (e. g. Police, The)</txtSortArtist>
+    <txtSortTitle>Enter the title string used for sorting</txtSortTitle>
+    <txtSortAlbum>Enter the album string used for sorting</txtSortAlbum>
+    <txtTORY>Contains the original release year or date information in the format yyyy-mm-dd</txtTORY>
+    <CheckBox39>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox39>
+    <CheckBox24>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox24>
+    <CheckBox23>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox23>
+    <CheckBox22>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox22>
+    <CheckBox21>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox21>
+    <CheckBox20>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox20>
+    <txtOOwner>Enter name of the original owner (who owns the license for the original songs)</txtOOwner>
+    <txtOArtist>Enter name of the artist of the original songs (if this files are covers)</txtOArtist>
+    <txtOAlbum>Enter name of album of the original songs (if this files are covers)</txtOAlbum>
+    <txtOLyWriter>Enter name of the lyrics writer of the original songs (if this files are covers)</txtOLyWriter>
+    <txtOFilename>Enter filename of the original songs (if this files are covers)</txtOFilename>
+    <CheckBox16>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox16>
+    <CheckBox15>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox15>
+    <txtContent>Specify the content group (if the genre was classical the content group could be piano concert)</txtContent>
+    <txtSubTitle>Enter the subtitle (perhaps something like live in athens)</txtSubTitle>
+    <CheckBox14>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox14>
+    <CheckBox13>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox13>
+    <CheckBox12>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox12>
+    <CheckBox11>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox11>
+    <txtComposer>Enter name of compser of these files</txtComposer>
+    <txtBand>Enter name of band / orchestra, lead artist works with in this file</txtBand>
+    <txtModified>These songs was remixed / modified by:</txtModified>
+    <txtConductor>Enter name of conductor</txtConductor>
+    <CheckBox40>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox40>
+    <txtCopyright>Enter the copyright message</txtCopyright>
+    <CheckBox19>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox19>
+    <CheckBox18>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox18>
+    <CheckBox17>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox17>
+    <txtLyWriter>Enter name of songwriter of these files</txtLyWriter>
+    <txtEncoded>Enter the name of the one who encoded these files</txtEncoded>
+    <txtPublisher>Enter name of publisher</txtPublisher>
+    <CheckBox45>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox45>
+    <txtMusicianName>Enter the name of the musician</txtMusicianName>
+    <btnRemoveMusician>Click to remove selected musician from list</btnRemoveMusician>
+    <btnAddMusician>Click to add entered musician to list</btnAddMusician>
+    <txtMusicianInst>Enter the instrument the musician plays</txtMusicianInst>
+    <CheckBox44>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox44>
+    <txtInvPerson>Enter the name of the involved person</txtInvPerson>
+    <btnRemoveInv>Click to remove selected person from list</btnRemoveInv>
+    <btnAddInv>Click to add entered person to list</btnAddInv>
+    <txtInvFunction>Enter the function of the person</txtInvFunction>
+    <CheckBox34>If checked all existing pictures will be removed before others are stored</CheckBox34>
+    <btnRemovePicture>Remove selected picture from list</btnRemovePicture>
+    <btnAddPicture>Add picture to list</btnAddPicture>
+    <btnGetPic>Load new picture</btnGetPic>
+    <chkPicInclude>If checked, the picture will be included within the file, when saving</chkPicInclude>
+    <txtPicPath>This is the path to the file</txtPicPath>
+    <cmbPicType>Select picture type </cmbPicType>
+    <txtPDescriptor>Enter characterization of this picture</txtPDescriptor>
+    <CheckBox35>If checked all existing lyrics will be removed before others are stored</CheckBox35>
+    <cmbLLanguage>Select language of lyrics</cmbLLanguage>
+    <txtLDescriptor>Enter characterization of lyrics</txtLDescriptor>
+    <CheckBox33>If checked all existing ratings will be erased before the new are saved</CheckBox33>
+    <btnMoveRating>Click to move the selected rating to the top of the list</btnMoveRating>
+    <btnRemoveRating>Click to remove selected rating from list</btnRemoveRating>
+    <btnAddRating>Click to add entered rating to list</btnAddRating>
+    <txtRatingCounter>Select, how often this file has been played</txtRatingCounter>
+    <txtRatingRating>Enter your rating (1 ist worst, 255 is best)</txtRatingRating>
+    <txtRatingUser>Enter username</txtRatingUser>
+    <CheckBox32>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox32>
+    <CheckBox31>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox31>
+    <CheckBox30>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox30>
+    <CheckBox29>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox29>
+    <CheckBox28>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox28>
+    <CheckBox27>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox27>
+    <CheckBox26>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox26>
+    <CheckBox25>If checked, the information left of this box will be written to TAG Ver. 2. Leave it empty and check the box to erase the information stored.</CheckBox25>
+    <txtCOMMInfURL>Enter URL to commercial information</txtCOMMInfURL>
+    <txtPubURL>Enter URL to publisher's homepage</txtPubURL>
+    <txtPayURL>Enter URL to official payment</txtPayURL>
+    <txtINetRadioURL>Enter URL to internet Radio station</txtINetRadioURL>
+    <txtAudioSRCURL>Enter URL to audio source</txtAudioSRCURL>
+    <txtCopyInfURL>Enter URL to copyright information</txtCopyInfURL>
+    <txtArtistURL>Enter URL to artist Homepage</txtArtistURL>
+    <txtAudioFileURL>Enter URL to audio file</txtAudioFileURL>
+    <CheckBox37>If checked all web frames will be erased before adding a new one</CheckBox37>
+    <txtWXXXContent>Enter web frame content</txtWXXXContent>
+    <btnRemoveWXXX>Click to remove selected web frame from list</btnRemoveWXXX>
+    <btnAddWXXX>Click to add entered web frame to list</btnAddWXXX>
+    <txtWXXXDesc>Enter characterization of web frame</txtWXXXDesc>
+    <CheckBox36>If checked all text frames will be erased before adding a new one</CheckBox36>
+    <txtTXXXContent>Enter the content, the text frame shall contain</txtTXXXContent>
+    <btnRemoveTXXX>Click to remove selected text frame from list</btnRemoveTXXX>
+    <btnAddTXXX>Click to enter user text frame to list</btnAddTXXX>
+    <txtTXXXDesc>Enter characterization of text frame</txtTXXXDesc>
+    <txtDigits>Select number of digits of track numbers</txtDigits>
+    <chkRemoveAllNOT>If checked all TAG Ver. 2 entries not supported by ID3-TagIT will be removed.</chkRemoveAllNOT>
+    <cmbArtist>Enter lead artist</cmbArtist>
+    <cmbGenre>Enter the genre the song belongs to</cmbGenre>
+    <cmbCDescriptor>Enter characterization of the comment</cmbCDescriptor>
+    <txtPos1>Number in media set, a 0 will remove this part</txtPos1>
+    <txtPos2>Total number of medias, a 0 will remove this part</txtPos2>
+    <txtTrack1>Track number on album, a 0 will remove this part</txtTrack1>
+    <txtTrack2>Total number of tracks, a 0 will remove this part</txtTrack2>
+  </frmTAG2Multi>
+  <frmTAG2ToFilename>
+    <txtDigits>Select number of digits of track number</txtDigits>
+    <txtFDigits>File enumeration: Number of digits in enumeration</txtFDigits>
+    <txtStartNr>File enumeration: Start enumeration with selected number</txtStartNr>
+    <btnRemove>Remove selected format from list</btnRemove>
+    <btnAdd>Add entered format to list</btnAdd>
+    <cmbFormat>Enter format of how the filename should look like</cmbFormat>
+    <chkRebuildName>If a original filename entry is present in the TAG this entry will be set as the filename</chkRebuildName>
+  </frmTAG2ToFilename>
+  <frmTransfer>
+    <opt12>If checked, TAG information will be transfered from Ver. 1 TAG to Ver. 2 TAG</opt12>
+    <opt21>If checked, TAG information will be transfered from Ver. 2 TAG to Ver. 1 TAG</opt21>
+    <optConvert34>If checked, the Ver. 2.3 TAG will be converted to Ver. 2.4</optConvert34>
+    <optConvert43>If checked, the Ver. 2.4 TAG will be converted to Ver. 2.3</optConvert43>
+    <chkExists>If checked, ID3-TagIT will not overwrite any existing TAG entries</chkExists>
+    <txtCommentD>Enter the comment descriptor for TAG Ver. 2</txtCommentD>
+    <chkYear>If checked, the information in the field ýear will be transfered</chkYear>
+    <chkGenre>If checked, the information in the field genre will be transfered</chkGenre>
+    <chkTrack>If checked, the information in the field track number will be transfered</chkTrack>
+    <chkComment>If checked, the information in the field comment will be transfered</chkComment>
+    <chkAlbum>If checked, the information in the field album will be transfered</chkAlbum>
+    <chkTitle>If checked, the information in the field title will be transfered</chkTitle>
+    <chkArtist>If checked, the information in the field interpret will be transfered</chkArtist>
+  </frmTransfer>
+</ID3TagITToolTips>

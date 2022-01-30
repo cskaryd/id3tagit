@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D206D600-C939-4592-A0D8-A3641273E2E9}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>ID3-TagIT</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Design" />
+    <Reference Include="Microsoft.VisualC" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="DevComponents.DotNetBar">
+      <HintPath>..\lib\DevComponents.DotNetBar.dll</HintPath>
+    </Reference>
+    <Reference Include="AMS.TextBox">
+      <HintPath>..\lib\AMS.TextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="SkySoftware.FolderView">
+      <HintPath>..\lib\SkySoftware.FolderView.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="ID3_TagIT\Settings.cs" />
+    <Compile Include="ID3_TagIT\Resources.cs" />
+    <Compile Include="ID3_TagIT\Main.cs" />
+    <Compile Include="ID3_TagIT\Declarations.cs" />
+    <Compile Include="ID3_TagIT\modCompareLikeText.cs" />
+    <Compile Include="ID3_TagIT\modCompareLikeBin.cs" />
+    <Compile Include="ID3_TagIT\SortClass.cs" />
+    <Compile Include="ID3_TagIT\V1TAG.cs" />
+    <Compile Include="ID3_TagIT\V2TAG.cs" />
+    <Compile Include="ID3_TagIT\V2TAGHeader.cs" />
+    <Compile Include="ID3_TagIT\V2FrameHeader.cs" />
+    <Compile Include="ID3_TagIT\V2TextFrame.cs" />
+    <Compile Include="ID3_TagIT\V2WebFrame.cs" />
+    <Compile Include="ID3_TagIT\V2LDCFrame.cs" />
+    <Compile Include="ID3_TagIT\V2APICFrame.cs" />
+    <Compile Include="ID3_TagIT\V2TXXXFrame.cs" />
+    <Compile Include="ID3_TagIT\V2WXXXFrame.cs" />
+    <Compile Include="ID3_TagIT\V2POPMFrame.cs" />
+    <Compile Include="ID3_TagIT\V2BinFrame.cs" />
+    <Compile Include="ID3_TagIT\ID3Functions.cs" />
+    <Compile Include="ID3_TagIT\HTMLList.cs" />
+    <Compile Include="ID3_TagIT\FilenameToTAGFormat.cs" />
+    <Compile Include="ID3_TagIT\FreeDB.cs" />
+    <Compile Include="ID3_TagIT\FileOperations.cs" />
+    <Compile Include="ID3_TagIT\MP3.cs" />
+    <Compile Include="ID3_TagIT\MP3Frame.cs" />
+    <Compile Include="ID3_TagIT\CRC32.cs" />
+    <Compile Include="ID3_TagIT\CommandLine.cs" />
+    <Compile Include="ID3_TagIT\frmTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmTAG2ToFilename.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmTAG2Multi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmTAG2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmTAG1ToFilename.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmTAG1Multi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmTAG1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmSelectFormat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmRemoveFolders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmPreferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmOrganize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmLists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmLibraries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmFreeDBAssociate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmFreeDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmFilenameToTAG2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmFilenameToTAG1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmEncoding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmDouble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmCompareFileTAG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmCaseConv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ID3_TagIT\ComboBoxAutoComplete.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="ID3_TagIT.Resources-Pol.xml" />
+    <EmbeddedResource Include="ID3_TagIT.frmTAG2ToFilename.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmMain.resources" />
+    <EmbeddedResource Include="ID3_TagIT.Tooltips-Ger.xml" />
+    <EmbeddedResource Include="ID3_TagIT.frmLibraries.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmFilenameToTAG1.resources" />
+    <EmbeddedResource Include="ID3_TagIT.Logo.ico" />
+    <EmbeddedResource Include="ID3_TagIT.Resources.xml" />
+    <EmbeddedResource Include="ID3_TagIT.MenuResources-Ger.xml" />
+    <EmbeddedResource Include="ID3_TagIT.frmTAG1Multi.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmRemoveFolders.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmPreferences.resources" />
+    <EmbeddedResource Include="ID3_TagIT.MenuResources.xml" />
+    <EmbeddedResource Include="ID3_TagIT.frmTAG1ToFilename.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmCaseConv.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmTAG2.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmCompareFileTAG.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmTAG2Multi.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmFreeDB.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmTransfer.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmOrganize.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmEncoding.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmDouble.resources" />
+    <EmbeddedResource Include="ID3_TagIT.Tooltips-Pol.xml" />
+    <EmbeddedResource Include="ID3_TagIT.Resources-Ger.xml" />
+    <EmbeddedResource Include="ID3_TagIT.MenuResources-Pol.xml" />
+    <EmbeddedResource Include="ID3_TagIT.MenuResources-Fre.xml" />
+    <EmbeddedResource Include="ID3_TagIT.frmTAG1.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmSplash.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmFreeDBAssociate.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmAbout.resources" />
+    <EmbeddedResource Include="ID3-TagIT.exe.licenses" />
+    <EmbeddedResource Include="ID3_TagIT.Tooltips.xml" />
+    <EmbeddedResource Include="ID3_TagIT.frmSelectFormat.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmProgress.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmLists.resources" />
+    <EmbeddedResource Include="ID3_TagIT.frmFilenameToTAG2.resources" />
+    <EmbeddedResource Include="ID3_TagIT.ComboBoxAutoComplete.resources" />
+    <EmbeddedResource Include="ID3_TagIT.ID3-TagIT.MenuBars.xml" />
+    <EmbeddedResource Include="ID3_TagIT.frmSearch.resources" />
+  </ItemGroup>
+</Project>
