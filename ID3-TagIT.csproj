@@ -34,7 +34,19 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <Reference Include="AMS.TextBox">
+      <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\AMS.TextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar">
+      <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\DevComponents.DotNetBar.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="SkySoftware.FolderView">
+      <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\SkySoftware.FolderView.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -43,18 +55,6 @@
     <Reference Include="System.Design" />
     <Reference Include="Microsoft.VisualC" />
     <Reference Include="System.Drawing.Design" />
-    <Reference Include="DevComponents.DotNetBar">
-      <HintPath>..\lib\DevComponents.DotNetBar.dll</HintPath>
-    </Reference>
-    <Reference Include="AMS.TextBox">
-      <HintPath>..\lib\AMS.TextBox.dll</HintPath>
-    </Reference>
-    <Reference Include="SkySoftware.FolderView">
-      <HintPath>..\lib\SkySoftware.FolderView.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="ID3_TagIT\Settings.cs" />
     <Compile Include="ID3_TagIT\Resources.cs" />
