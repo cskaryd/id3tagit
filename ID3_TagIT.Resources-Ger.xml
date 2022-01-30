@@ -1104,7 +1104,7 @@
 		<FilenameLen>Länge Dateiname: %1 Buchst.</FilenameLen>
 		<SubDirsYes>Unterverz.: Ja</SubDirsYes>
 		<SubDirsNo>Unterverz.: Nein</SubDirsNo>
-		<ProgressChecksum>Berechne Audiockecksumme:</ProgressChecksum>
+		<ProgressChecksum>Berechne Audiochecksumme:</ProgressChecksum>
 		<TAGVer>Gez. Ver.:</TAGVer>
 		<Scan>Suche Dateien. Bitte warten.</Scan>
 		<Read>Lese TAG Informationen aus Dateien.</Read>

@@ -1104,7 +1104,7 @@
     <FilenameLen>Length of filename: %1 char.</FilenameLen>
     <SubDirsYes>Scan Subdir.: Yes</SubDirsYes>
     <SubDirsNo>Scan Subdir.: No</SubDirsNo>
-    <ProgressChecksum>Calculating Audiockecksum:</ProgressChecksum>
+    <ProgressChecksum>Calculating Audiochecksum:</ProgressChecksum>
     <TAGVer>Shown Ver.:</TAGVer>
     <Scan>Scanning for files. Please wait.</Scan>
     <Read>Reading TAG information from files.</Read>
