@@ -11,7 +11,8 @@ namespace ID3_TagIT
     private Label lblHome;
     private LinkLabel lblLink;
     private Label lblVersion;
-    private System.Windows.Forms.PictureBox PictureBox;
+    private Label lblUpdate;
+    private System.Windows.Forms.PictureBox picLogo;
 
     public frmAbout()
     {
@@ -34,14 +35,14 @@ namespace ID3_TagIT
     [DebuggerStepThrough]
     private void InitializeComponent()
     {
-      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAbout));
       this.lblVersion = new System.Windows.Forms.Label();
       this.lblCopyright = new System.Windows.Forms.Label();
       this.lblHome = new System.Windows.Forms.Label();
       this.btnOK = new System.Windows.Forms.Button();
       this.lblLink = new System.Windows.Forms.LinkLabel();
-      this.PictureBox = new System.Windows.Forms.PictureBox();
-      ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
+      this.picLogo = new System.Windows.Forms.PictureBox();
+      this.lblUpdate = new System.Windows.Forms.Label();
+      ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
       this.SuspendLayout();
       // 
       // lblVersion
@@ -81,7 +82,7 @@ namespace ID3_TagIT
       this.btnOK.BackColor = System.Drawing.SystemColors.Control;
       this.btnOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
       this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnOK.Location = new System.Drawing.Point(128, 192);
+      this.btnOK.Location = new System.Drawing.Point(126, 214);
       this.btnOK.Name = "btnOK";
       this.btnOK.Size = new System.Drawing.Size(120, 24);
       this.btnOK.TabIndex = 16;
@@ -101,16 +102,25 @@ namespace ID3_TagIT
       this.lblLink.Text = "http://www.id3-tagit.de";
       this.lblLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblLink_LinkClicked);
       // 
-      // PictureBox
+      // picLogo
       // 
-      this.PictureBox.BackColor = System.Drawing.Color.White;
-      this.PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox.Image")));
-      this.PictureBox.Location = new System.Drawing.Point(0, 0);
-      this.PictureBox.Name = "PictureBox";
-      this.PictureBox.Size = new System.Drawing.Size(376, 112);
-      this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-      this.PictureBox.TabIndex = 18;
-      this.PictureBox.TabStop = false;
+      this.picLogo.BackColor = System.Drawing.Color.White;
+      this.picLogo.Image = global::Properties.Resources.ID3_TagIT_Logo;
+      this.picLogo.Location = new System.Drawing.Point(0, 0);
+      this.picLogo.Name = "picLogo";
+      this.picLogo.Size = new System.Drawing.Size(376, 112);
+      this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.picLogo.TabIndex = 18;
+      this.picLogo.TabStop = false;
+      // 
+      // lblUpdate
+      // 
+      this.lblUpdate.AutoSize = true;
+      this.lblUpdate.Location = new System.Drawing.Point(72, 189);
+      this.lblUpdate.Name = "lblUpdate";
+      this.lblUpdate.Size = new System.Drawing.Size(230, 13);
+      this.lblUpdate.TabIndex = 19;
+      this.lblUpdate.Text = "Recompiled version by Chris Skaryd 2018-2019";
       // 
       // frmAbout
       // 
@@ -118,14 +128,15 @@ namespace ID3_TagIT
       this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
       this.BackColor = System.Drawing.Color.White;
       this.CancelButton = this.btnOK;
-      this.ClientSize = new System.Drawing.Size(378, 224);
+      this.ClientSize = new System.Drawing.Size(378, 250);
       this.ControlBox = false;
+      this.Controls.Add(this.lblUpdate);
       this.Controls.Add(this.lblLink);
       this.Controls.Add(this.btnOK);
       this.Controls.Add(this.lblHome);
       this.Controls.Add(this.lblCopyright);
       this.Controls.Add(this.lblVersion);
-      this.Controls.Add(this.PictureBox);
+      this.Controls.Add(this.picLogo);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
@@ -133,8 +144,9 @@ namespace ID3_TagIT
       this.ShowInTaskbar = false;
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "About ...";
-      ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
       this.ResumeLayout(false);
+      this.PerformLayout();
 
     }
 

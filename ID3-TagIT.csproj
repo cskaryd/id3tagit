@@ -393,12 +393,13 @@
     <None Include="ID3_TagIT\icons\Quit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ID3_TagIT\icons\RandomUnknown.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="ID3_TagIT\icons\Redo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ID3_TagIT\icons\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ID3_TagIT\icons\CopyFiles.png" />
+    <None Include="ID3_TagIT_Logo.gif" />
   </ItemGroup>
 </Project>

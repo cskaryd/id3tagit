@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 
@@ -9,8 +8,9 @@ namespace ID3_TagIT
   {
     public Label lblState;
     private Label lblVersion;
-    private System.Windows.Forms.PictureBox PictureBox;
-    private IContainer components;
+    private System.Windows.Forms.PictureBox picLogo;
+    private Label lblUpdate;
+    private Label lblCopyright;
 
     public frmSplash()
     {
@@ -20,9 +20,6 @@ namespace ID3_TagIT
 
     protected override void Dispose(bool disposing)
     {
-      if (disposing && (this.components != null))
-        this.components.Dispose();
-
       base.Dispose(disposing);
     }
 
@@ -34,11 +31,12 @@ namespace ID3_TagIT
     [DebuggerStepThrough]
     private void InitializeComponent()
     {
-      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSplash));
       this.lblState = new System.Windows.Forms.Label();
       this.lblVersion = new System.Windows.Forms.Label();
-      this.PictureBox = new System.Windows.Forms.PictureBox();
-      ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
+      this.picLogo = new System.Windows.Forms.PictureBox();
+      this.lblUpdate = new System.Windows.Forms.Label();
+      this.lblCopyright = new System.Windows.Forms.Label();
+      ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
       this.SuspendLayout();
       // 
       // lblState
@@ -49,7 +47,7 @@ namespace ID3_TagIT
       this.lblState.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.lblState.Location = new System.Drawing.Point(0, 154);
       this.lblState.Name = "lblState";
-      this.lblState.Size = new System.Drawing.Size(376, 29);
+      this.lblState.Size = new System.Drawing.Size(376, 18);
       this.lblState.TabIndex = 4;
       this.lblState.Text = "Copyright 2000-2004 by Michael Pluemper";
       this.lblState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -67,39 +65,60 @@ namespace ID3_TagIT
       this.lblVersion.Text = "Version 3.x";
       this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
-      // PictureBox
+      // picLogo
       // 
-      this.PictureBox.BackColor = System.Drawing.Color.White;
-      this.PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox.Image")));
-      this.PictureBox.Location = new System.Drawing.Point(0, 8);
-      this.PictureBox.Name = "PictureBox";
-      this.PictureBox.Size = new System.Drawing.Size(376, 112);
-      this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-      this.PictureBox.TabIndex = 5;
-      this.PictureBox.TabStop = false;
+      this.picLogo.BackColor = System.Drawing.Color.White;
+      this.picLogo.Image = global::Properties.Resources.ID3_TagIT_Logo;
+      this.picLogo.Location = new System.Drawing.Point(0, 8);
+      this.picLogo.Name = "picLogo";
+      this.picLogo.Size = new System.Drawing.Size(376, 112);
+      this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.picLogo.TabIndex = 5;
+      this.picLogo.TabStop = false;
+      // 
+      // lblUpdate
+      // 
+      this.lblUpdate.BackColor = System.Drawing.Color.Transparent;
+      this.lblUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblUpdate.ForeColor = System.Drawing.Color.SteelBlue;
+      this.lblUpdate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblUpdate.Location = new System.Drawing.Point(0, 195);
+      this.lblUpdate.Name = "lblUpdate";
+      this.lblUpdate.Size = new System.Drawing.Size(376, 18);
+      this.lblUpdate.TabIndex = 7;
+      this.lblUpdate.Text = "Recompiled Updates in 2018-2019 by Chris Skaryd";
+      this.lblUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // lblCopyright
+      // 
+      this.lblCopyright.BackColor = System.Drawing.Color.Transparent;
+      this.lblCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblCopyright.ForeColor = System.Drawing.Color.SteelBlue;
+      this.lblCopyright.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCopyright.Location = new System.Drawing.Point(0, 174);
+      this.lblCopyright.Name = "lblCopyright";
+      this.lblCopyright.Size = new System.Drawing.Size(376, 18);
+      this.lblCopyright.TabIndex = 8;
+      this.lblCopyright.Text = "Copyright 2000-2004 by Michael Pluemper";
+      this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // frmSplash
       // 
       this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
       this.BackColor = System.Drawing.Color.White;
-      this.ClientSize = new System.Drawing.Size(376, 192);
+      this.ClientSize = new System.Drawing.Size(376, 220);
+      this.Controls.Add(this.lblCopyright);
+      this.Controls.Add(this.lblUpdate);
       this.Controls.Add(this.lblVersion);
-      this.Controls.Add(this.PictureBox);
+      this.Controls.Add(this.picLogo);
       this.Controls.Add(this.lblState);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
       this.Name = "frmSplash";
       this.ShowInTaskbar = false;
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "ID3-TagIT";
-      this.Load += new System.EventHandler(this.frmSplash_Load_1);
-      ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
       this.ResumeLayout(false);
-
-    }
-
-    private void frmSplash_Load_1(object sender, EventArgs e)
-    {
-
     }
   }
 }
