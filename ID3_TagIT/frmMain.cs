@@ -126,77 +126,301 @@ namespace ID3_TagIT
     private int vintSelTimerCount;
     private string vstrFilter;
     private string vstrFolderRenameNewPath;
+    private MenuStrip menuStrip1;
+    private ToolStripMenuItem fileToolStripMenuItem;
+    private ToolStripMenuItem editToolStripMenuItem;
+    private ToolStripMenuItem viewToolStripMenuItem;
+    private ToolStripMenuItem iD3FunctionsToolStripMenuItem;
+    private ToolStripMenuItem extendedFunctionsToolStripMenuItem;
+    private ToolStripMenuItem analyseToolStripMenuItem;
+    private ToolStripMenuItem optionsToolStripMenuItem;
+    private ToolStripMenuItem helpToolStripMenuItem;
+    private ErrorProvider errorProvider1;
+    private ToolStripMenuItem helpToolStripMenuItem1;
+    private ToolStripMenuItem shortcutsToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator1;
+    private ToolStripMenuItem aboutToolStripMenuItem;
+    private ToolStripMenuItem addDirectoryToolStripMenuItem;
+    private ToolStripMenuItem refreshToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator2;
+    private ToolStripMenuItem saveToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator3;
+    private ToolStripMenuItem playToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator4;
+    private ToolStripMenuItem moveFilesToolStripMenuItem;
+    private ToolStripMenuItem copyFilesToolStripMenuItem;
+    private ToolStripMenuItem deleteFilesToolStripMenuItem;
+    private ToolStripMenuItem organizeFilesToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator5;
+    private ToolStripMenuItem openFileLocationToolStripMenuItem;
+    private ToolStripMenuItem removeEmptyFoldersToolStripMenuItem;
+    private ToolStripMenuItem renameFilefolderToolStripMenuItem;
+    private ToolStripMenuItem filePropertiesToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator6;
+    private ToolStripMenuItem quitToolStripMenuItem;
+    private ToolStripMenuItem viewTAGVer1ToolStripMenuItem;
+    private ToolStripMenuItem viewTAGVer2ToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator7;
+    private ToolStripMenuItem selectallToolStripMenuItem;
+    private ToolStripMenuItem groupSelectionToolStripMenuItem;
+    private ToolStripMenuItem invertSelectionToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator8;
+    private ToolStripMenuItem selectFilesByformatToolStripMenuItem;
+    private ToolStripMenuItem selectChangedFilesToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator9;
+    private ToolStripMenuItem removeSelectedFilesFromListToolStripMenuItem;
+    private ToolStripMenuItem findduplicateFilesToolStripMenuItem;
+    private ToolStripMenuItem compareFilenameWthTAGInformationToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator10;
+    private ToolStripMenuItem selectDuplicateFilesToolStripMenuItem;
+    private ToolStripMenuItem selectmismatchingFilenameTAGFilesToolStripMenuItem;
+    private ToolStripMenuItem caseConversionToolStripMenuItem;
+    private ToolStripMenuItem transferConvertTAGsToolStripMenuItem;
+    private ToolStripMenuItem changeTAGVer2TextencodingToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator14;
+    private ToolStripMenuItem queryFreeDBToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator15;
+    private ToolStripMenuItem enumerateInfilenameToolStripMenuItem;
+    private ToolStripMenuItem enumerateInTAGVer1ToolStripMenuItem;
+    private ToolStripMenuItem enumerateInTAGVer2ToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator16;
+    private ToolStripMenuItem createFilelistPlaylistToolStripMenuItem;
+    private ToolStripMenuItem scanSubdirectoriesToolStripMenuItem;
+    private ToolStripMenuItem quickFilenameEditingToolStripMenuItem;
+    private ToolStripMenuItem synchronizeVer1AndVer2EditingToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator11;
+    private ToolStripMenuItem editLibrariesToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator12;
+    private ToolStripMenuItem preferencesToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator13;
+    private ToolStripComboBox cboLanguage;
+    private ToolStripMenuItem editTAGVer1ToolStripMenuItem;
+    private ToolStripMenuItem multipleEditTAGVer1ToolStripMenuItem;
+    private ToolStripMenuItem removeTAGVer1ToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator17;
+    private ToolStripMenuItem editTAGVer2ToolStripMenuItem;
+    private ToolStripMenuItem multipleEditTAGVer2ToolStripMenuItem;
+    private ToolStripMenuItem removeTAGVer1ToolStripMenuItem1;
+    private ToolStripMenuItem filenameTAGVer1ToolStripMenuItem;
+    private ToolStripMenuItem removeTAGVer1ToolStripMenuItem2;
+    private ToolStripMenuItem undoToolStripMenuItem;
+    private ToolStripMenuItem redoToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator18;
+    private ToolStripMenuItem searchandReplaceToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator19;
+    private ToolStripMenuItem swapTAGVer1EntriesToolStripMenuItem;
+    private ToolStripMenuItem artistTitleToolStripMenuItem;
+    private ToolStripMenuItem artistAlbumToolStripMenuItem;
+    private ToolStripMenuItem titleAlbumToolStripMenuItem;
+    private ToolStripMenuItem swapTAGVer2EntriesToolStripMenuItem;
+    private ToolStripMenuItem artistTitleToolStripMenuItem1;
+    private ToolStripMenuItem artistAlbumToolStripMenuItem1;
+    private ToolStripMenuItem titleAlbumToolStripMenuItem1;
+    private ToolStripSeparator toolStripSeparator20;
+    private ToolStripMenuItem splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem;
+    private ToolStripMenuItem splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem;
+    private ToolStripSeparator toolStripSeparator21;
+    private ToolStripMenuItem copyTAGInformationToolStripMenuItem;
+    private ToolStripMenuItem copyTAGVer1OnlyToolStripMenuItem;
+    private ToolStripMenuItem copyTAGVer2OnlyToolStripMenuItem;
+    private ToolStripMenuItem copyTAGVer1And2ToolStripMenuItem;
+    private ToolStripMenuItem pasteTAGInformationToolStripMenuItem;
+    private ToolStripMenuItem tAGVer1FilenameToolStripMenuItem;
+    private ToolStripMenuItem tAGVer2FilenameToolStripMenuItem;
     private string vstrFolderRenameOldPath;
 
     [DebuggerStepThrough]
     private void InitializeComponent()
     {
-      this.components = new Container();
-      this.ColumnHeaderIcons = new ImageList(this.components);
-      this.ToolsIcons = new ImageList(this.components);
-      this.GroupIcons = new ImageList(this.components);
+      this.components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+      this.ColumnHeaderIcons = new System.Windows.Forms.ImageList(this.components);
+      this.ToolsIcons = new System.Windows.Forms.ImageList(this.components);
+      this.GroupIcons = new System.Windows.Forms.ImageList(this.components);
       this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
       this.Timer = new System.Windows.Forms.Timer(this.components);
       this.FolderRenameTimer = new System.Windows.Forms.Timer(this.components);
       this.DotNetBarManager = new DevComponents.DotNetBar.DotNetBarManager(this.components);
-      this.barBottomDockSite = new DockSite();
-      this.barLeftDockSite = new DockSite();
-      this.barRightDockSite = new DockSite();
-      this.barTopDockSite = new DockSite();
-      this.SplitterLeft = new ExpandableSplitter();
-      this.NavigationPan = new NavigationPane();
-      this.FoldersPanel = new NavigationPanePanel();
-      this.FolderTree = new FolderView();
-      this.FoldersPan = new ButtonItem();
-      this.FavouritesPanel = new NavigationPanePanel();
-      this.FavTree = new TreeView();
-      this.FavouritesPan = new ButtonItem();
-      this.SplitterBottom = new ExpandableSplitter();
-      this.ErrorMsg = new ListView();
-      this.SplitterRight = new ExpandableSplitter();
-      this.SideBar = new ExplorerBar();
-      this.cmbArtist = new ComboBoxAutoComplete();
-      this.txtTitle = new TextBox();
-      this.txtAlbum = new TextBox();
-      this.btnQuickEdit = new Button();
-      this.btnQuickEditMore = new Button();
-      this.APICView = new PictureBox();
-      this.txtInfo = new RichTextBox();
-      this.BarGroupEdit = new ExplorerBarGroupItem();
-      this.lblArtist = new LabelItem();
-      this.CContainerArtist = new ControlContainerItem();
-      this.lblTitle = new LabelItem();
-      this.CContainerTitle = new ControlContainerItem();
-      this.lblAlbum = new LabelItem();
-      this.CContainerAlbum = new ControlContainerItem();
-      this.lblQuickSpacer1 = new LabelItem();
-      this.CContainerbtnQuickEditOK = new ControlContainerItem();
-      this.CContainerbtnQuickEditMore = new ControlContainerItem();
-      this.BarGroupPicture = new ExplorerBarGroupItem();
-      this.CContainerAPICView = new ControlContainerItem();
-      this.BarGroupInfo = new ExplorerBarGroupItem();
-      this.CContainertxtInfo = new ControlContainerItem();
-      this.BarGroupTools = new ExplorerBarGroupItem();
-      this.MP3View = new ListView();
-      this.EnumInfo = new Label();
+      this.barBottomDockSite = new DevComponents.DotNetBar.DockSite();
+      this.barLeftDockSite = new DevComponents.DotNetBar.DockSite();
+      this.barRightDockSite = new DevComponents.DotNetBar.DockSite();
+      this.barTopDockSite = new DevComponents.DotNetBar.DockSite();
+      this.SplitterLeft = new DevComponents.DotNetBar.ExpandableSplitter();
+      this.NavigationPan = new DevComponents.DotNetBar.NavigationPane();
+      this.FoldersPanel = new DevComponents.DotNetBar.NavigationPanePanel();
+      this.FolderTree = new SkySoftware.FolderViewControl.FolderView();
+      this.FoldersPan = new DevComponents.DotNetBar.ButtonItem();
+      this.FavouritesPanel = new DevComponents.DotNetBar.NavigationPanePanel();
+      this.FavTree = new System.Windows.Forms.TreeView();
+      this.FavouritesPan = new DevComponents.DotNetBar.ButtonItem();
+      this.SplitterBottom = new DevComponents.DotNetBar.ExpandableSplitter();
+      this.ErrorMsg = new System.Windows.Forms.ListView();
+      this.SplitterRight = new DevComponents.DotNetBar.ExpandableSplitter();
+      this.SideBar = new DevComponents.DotNetBar.ExplorerBar();
+      this.cmbArtist = new ID3_TagIT.ComboBoxAutoComplete();
+      this.txtTitle = new System.Windows.Forms.TextBox();
+      this.txtAlbum = new System.Windows.Forms.TextBox();
+      this.btnQuickEdit = new System.Windows.Forms.Button();
+      this.btnQuickEditMore = new System.Windows.Forms.Button();
+      this.APICView = new System.Windows.Forms.PictureBox();
+      this.txtInfo = new System.Windows.Forms.RichTextBox();
+      this.BarGroupEdit = new DevComponents.DotNetBar.ExplorerBarGroupItem();
+      this.lblArtist = new DevComponents.DotNetBar.LabelItem();
+      this.CContainerArtist = new DevComponents.DotNetBar.ControlContainerItem();
+      this.lblTitle = new DevComponents.DotNetBar.LabelItem();
+      this.CContainerTitle = new DevComponents.DotNetBar.ControlContainerItem();
+      this.lblAlbum = new DevComponents.DotNetBar.LabelItem();
+      this.CContainerAlbum = new DevComponents.DotNetBar.ControlContainerItem();
+      this.lblQuickSpacer1 = new DevComponents.DotNetBar.LabelItem();
+      this.CContainerbtnQuickEditOK = new DevComponents.DotNetBar.ControlContainerItem();
+      this.CContainerbtnQuickEditMore = new DevComponents.DotNetBar.ControlContainerItem();
+      this.BarGroupPicture = new DevComponents.DotNetBar.ExplorerBarGroupItem();
+      this.CContainerAPICView = new DevComponents.DotNetBar.ControlContainerItem();
+      this.BarGroupInfo = new DevComponents.DotNetBar.ExplorerBarGroupItem();
+      this.CContainertxtInfo = new DevComponents.DotNetBar.ControlContainerItem();
+      this.BarGroupTools = new DevComponents.DotNetBar.ExplorerBarGroupItem();
+      this.MP3View = new System.Windows.Forms.ListView();
+      this.EnumInfo = new System.Windows.Forms.Label();
+      this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+      this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+      this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.addDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+      this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+      this.playToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+      this.moveFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.copyFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.deleteFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.organizeFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+      this.openFileLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.removeEmptyFoldersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.renameFilefolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.filePropertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+      this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
+      this.searchandReplaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
+      this.swapTAGVer1EntriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.artistTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.artistAlbumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.titleAlbumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.swapTAGVer2EntriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.artistTitleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.artistAlbumToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.titleAlbumToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
+      this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
+      this.copyTAGInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.copyTAGVer1OnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.copyTAGVer2OnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.copyTAGVer1And2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.pasteTAGInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.viewTAGVer1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.viewTAGVer2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+      this.selectallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.groupSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.invertSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+      this.selectFilesByformatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.selectChangedFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+      this.removeSelectedFilesFromListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.iD3FunctionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.editTAGVer1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.multipleEditTAGVer1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.removeTAGVer1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.filenameTAGVer1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.tAGVer1FilenameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
+      this.editTAGVer2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.multipleEditTAGVer2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.removeTAGVer1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.removeTAGVer1ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.tAGVer2FilenameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.extendedFunctionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.caseConversionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.transferConvertTAGsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.changeTAGVer2TextencodingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+      this.queryFreeDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
+      this.enumerateInfilenameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.enumerateInTAGVer1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.enumerateInTAGVer2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
+      this.createFilelistPlaylistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.analyseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.findduplicateFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.compareFilenameWthTAGInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+      this.selectDuplicateFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.selectmismatchingFilenameTAGFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.scanSubdirectoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.quickFilenameEditingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.synchronizeVer1AndVer2EditingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+      this.editLibrariesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+      this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+      this.cboLanguage = new System.Windows.Forms.ToolStripComboBox();
+      this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.shortcutsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.NavigationPan.SuspendLayout();
       this.FoldersPanel.SuspendLayout();
       this.FavouritesPanel.SuspendLayout();
-      ((ISupportInitialize)this.SideBar).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SideBar)).BeginInit();
       this.SideBar.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.APICView)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+      this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
-      this.ColumnHeaderIcons.ImageSize = new Size(0x10, 0x10);
-      this.ColumnHeaderIcons.ImageStream = (ImageListStreamer)(new ResourceManager(typeof(frmMain))).GetObject("ColumnHeaderIcons.ImageStream");
+      // 
+      // ColumnHeaderIcons
+      // 
+      this.ColumnHeaderIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ColumnHeaderIcons.ImageStream")));
       this.ColumnHeaderIcons.TransparentColor = System.Drawing.Color.Transparent;
-      this.ToolsIcons.ColorDepth = ColorDepth.Depth32Bit;
-      this.ToolsIcons.ImageSize = new Size(0x10, 0x10);
+      this.ColumnHeaderIcons.Images.SetKeyName(0, "");
+      this.ColumnHeaderIcons.Images.SetKeyName(1, "");
+      // 
+      // ToolsIcons
+      // 
+      this.ToolsIcons.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+      this.ToolsIcons.ImageSize = new System.Drawing.Size(16, 16);
       this.ToolsIcons.TransparentColor = System.Drawing.Color.Transparent;
-      this.GroupIcons.ColorDepth = ColorDepth.Depth32Bit;
-      this.GroupIcons.ImageSize = new Size(0x10, 0x10);
-      this.GroupIcons.ImageStream = (ImageListStreamer)(new ResourceManager(typeof(frmMain))).GetObject("GroupIcons.ImageStream");
+      // 
+      // GroupIcons
+      // 
+      this.GroupIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("GroupIcons.ImageStream")));
       this.GroupIcons.TransparentColor = System.Drawing.Color.Transparent;
+      this.GroupIcons.Images.SetKeyName(0, "");
+      this.GroupIcons.Images.SetKeyName(1, "");
+      this.GroupIcons.Images.SetKeyName(2, "");
+      this.GroupIcons.Images.SetKeyName(3, "");
+      // 
+      // Timer
+      // 
       this.Timer.Enabled = true;
       this.Timer.Interval = 200;
+      // 
+      // DotNetBarManager
+      // 
       this.DotNetBarManager.AllowUserBarCustomize = false;
       this.DotNetBarManager.BottomDockSite = this.barBottomDockSite;
       this.DotNetBarManager.DefinitionName = "ID3-TagIT.MenuBars.xml";
@@ -204,257 +428,309 @@ namespace ID3_TagIT
       this.DotNetBarManager.ParentForm = this;
       this.DotNetBarManager.RightDockSite = this.barRightDockSite;
       this.DotNetBarManager.ShowShortcutKeysInToolTips = true;
-      this.DotNetBarManager.Style = eDotNetBarStyle.Office2003;
+      this.DotNetBarManager.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
       this.DotNetBarManager.TopDockSite = this.barTopDockSite;
-      this.barBottomDockSite.AccessibleRole = AccessibleRole.Window;
-      this.barBottomDockSite.BackgroundImageAlpha = 0xff;
-      this.barBottomDockSite.Dock = DockStyle.Bottom;
-      this.barBottomDockSite.Location = new Point(0, 0x22e);
+      this.DotNetBarManager.ItemClick += new System.EventHandler(this.DotNetBarManager_ItemClick);
+      // 
+      // barBottomDockSite
+      // 
+      this.barBottomDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+      this.barBottomDockSite.BackgroundImageAlpha = ((byte)(255));
+      this.barBottomDockSite.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.barBottomDockSite.Location = new System.Drawing.Point(0, 752);
       this.barBottomDockSite.Name = "barBottomDockSite";
-      this.barBottomDockSite.Size = new Size(960, 0x18);
+      this.barBottomDockSite.Size = new System.Drawing.Size(1157, 26);
       this.barBottomDockSite.TabIndex = 20;
       this.barBottomDockSite.TabStop = false;
-      this.barLeftDockSite.AccessibleRole = AccessibleRole.Window;
-      this.barLeftDockSite.BackgroundImageAlpha = 0xff;
-      this.barLeftDockSite.Dock = DockStyle.Left;
-      this.barLeftDockSite.Location = new Point(0, 0x4a);
+      // 
+      // barLeftDockSite
+      // 
+      this.barLeftDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+      this.barLeftDockSite.BackgroundImageAlpha = ((byte)(255));
+      this.barLeftDockSite.Dock = System.Windows.Forms.DockStyle.Left;
+      this.barLeftDockSite.Location = new System.Drawing.Point(0, 103);
       this.barLeftDockSite.Name = "barLeftDockSite";
-      this.barLeftDockSite.Size = new Size(0, 0x1e4);
-      this.barLeftDockSite.TabIndex = 0x11;
+      this.barLeftDockSite.Size = new System.Drawing.Size(0, 649);
+      this.barLeftDockSite.TabIndex = 17;
       this.barLeftDockSite.TabStop = false;
-      this.barRightDockSite.AccessibleRole = AccessibleRole.Window;
-      this.barRightDockSite.BackgroundImageAlpha = 0xff;
-      this.barRightDockSite.Dock = DockStyle.Right;
-      this.barRightDockSite.Location = new Point(960, 0x4a);
+      // 
+      // barRightDockSite
+      // 
+      this.barRightDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+      this.barRightDockSite.BackgroundImageAlpha = ((byte)(255));
+      this.barRightDockSite.Dock = System.Windows.Forms.DockStyle.Right;
+      this.barRightDockSite.Location = new System.Drawing.Point(1157, 103);
       this.barRightDockSite.Name = "barRightDockSite";
-      this.barRightDockSite.Size = new Size(0, 0x1e4);
-      this.barRightDockSite.TabIndex = 0x12;
+      this.barRightDockSite.Size = new System.Drawing.Size(0, 649);
+      this.barRightDockSite.TabIndex = 18;
       this.barRightDockSite.TabStop = false;
-      this.barTopDockSite.AccessibleRole = AccessibleRole.Window;
-      this.barTopDockSite.BackgroundImageAlpha = 0xff;
-      this.barTopDockSite.Dock = DockStyle.Top;
-      this.barTopDockSite.Location = new Point(0, 0);
+      // 
+      // barTopDockSite
+      // 
+      this.barTopDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+      this.barTopDockSite.BackgroundImageAlpha = ((byte)(255));
+      this.barTopDockSite.Dock = System.Windows.Forms.DockStyle.Top;
+      this.barTopDockSite.Location = new System.Drawing.Point(0, 24);
       this.barTopDockSite.Name = "barTopDockSite";
-      this.barTopDockSite.Size = new Size(960, 0x4a);
-      this.barTopDockSite.TabIndex = 0x13;
+      this.barTopDockSite.Size = new System.Drawing.Size(1157, 79);
+      this.barTopDockSite.TabIndex = 19;
       this.barTopDockSite.TabStop = false;
-      this.SplitterLeft.BackColor2 = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterLeft.BackColor2SchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterLeft.BackColorSchemePart = eColorSchemePart.PanelBackground;
+      // 
+      // SplitterLeft
+      // 
+      this.SplitterLeft.BackColor2 = System.Drawing.SystemColors.ControlDarkDark;
+      this.SplitterLeft.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.SplitterLeft.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
       this.SplitterLeft.ExpandableControl = this.NavigationPan;
-      this.SplitterLeft.ExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterLeft.ExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterLeft.ExpandLineColor = SystemColors.ControlText;
-      this.SplitterLeft.ExpandLineColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterLeft.GripDarkColor = SystemColors.ControlText;
-      this.SplitterLeft.GripDarkColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterLeft.GripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
-      this.SplitterLeft.GripLightColorSchemePart = eColorSchemePart.BarBackground;
-      this.SplitterLeft.HotBackColor = System.Drawing.Color.FromArgb(0xfe, 0x8e, 0x4b);
-      this.SplitterLeft.HotBackColor2 = System.Drawing.Color.FromArgb(0xff, 0xcf, 0x8b);
-      this.SplitterLeft.HotBackColor2SchemePart = eColorSchemePart.ItemPressedBackground2;
-      this.SplitterLeft.HotBackColorSchemePart = eColorSchemePart.ItemPressedBackground;
-      this.SplitterLeft.HotExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterLeft.HotExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterLeft.HotExpandLineColor = SystemColors.ControlText;
-      this.SplitterLeft.HotExpandLineColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterLeft.HotGripDarkColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterLeft.HotGripDarkColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterLeft.HotGripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
-      this.SplitterLeft.HotGripLightColorSchemePart = eColorSchemePart.BarBackground;
-      this.SplitterLeft.Location = new Point(0xd8, 0x4a);
+      this.SplitterLeft.ExpandFillColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.SplitterLeft.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.SplitterLeft.ExpandLineColor = System.Drawing.SystemColors.ControlText;
+      this.SplitterLeft.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+      this.SplitterLeft.GripDarkColor = System.Drawing.SystemColors.ControlText;
+      this.SplitterLeft.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+      this.SplitterLeft.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.SplitterLeft.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+      this.SplitterLeft.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(209)))), ((int)(((byte)(255)))));
+      this.SplitterLeft.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+      this.SplitterLeft.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
+      this.SplitterLeft.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
+      this.SplitterLeft.HotExpandFillColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.SplitterLeft.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.SplitterLeft.HotExpandLineColor = System.Drawing.SystemColors.ControlText;
+      this.SplitterLeft.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+      this.SplitterLeft.HotGripDarkColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.SplitterLeft.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.SplitterLeft.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.SplitterLeft.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+      this.SplitterLeft.Location = new System.Drawing.Point(216, 103);
       this.SplitterLeft.MinExtra = 5;
       this.SplitterLeft.MinSize = 5;
       this.SplitterLeft.Name = "SplitterLeft";
-      this.SplitterLeft.Size = new Size(8, 0x1e4);
-      this.SplitterLeft.TabIndex = 0x18;
+      this.SplitterLeft.Size = new System.Drawing.Size(8, 649);
+      this.SplitterLeft.TabIndex = 24;
       this.SplitterLeft.TabStop = false;
+      // 
+      // NavigationPan
+      // 
       this.NavigationPan.ConfigureAddRemoveVisible = false;
       this.NavigationPan.Controls.Add(this.FoldersPanel);
       this.NavigationPan.Controls.Add(this.FavouritesPanel);
-      this.NavigationPan.Controls.Add(this.NavigationPan.TitlePanel);
-      this.NavigationPan.Dock = DockStyle.Left;
+      this.NavigationPan.Dock = System.Windows.Forms.DockStyle.Left;
       this.NavigationPan.ItemPaddingBottom = 2;
       this.NavigationPan.ItemPaddingTop = 2;
-      this.NavigationPan.Items.AddRange(new BaseItem[] { this.FoldersPan, this.FavouritesPan });
-      this.NavigationPan.Location = new Point(0, 0x4a);
+      this.NavigationPan.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.FoldersPan,
+            this.FavouritesPan});
+      this.NavigationPan.Location = new System.Drawing.Point(0, 103);
       this.NavigationPan.Name = "NavigationPan";
-      this.NavigationPan.NavigationBarHeight = 0x58;
-      this.NavigationPan.Size = new Size(0xd8, 0x1e4);
-      this.NavigationPan.TabIndex = 0x17;
+      this.NavigationPan.NavigationBarHeight = 88;
+      this.NavigationPan.Size = new System.Drawing.Size(216, 649);
+      this.NavigationPan.TabIndex = 23;
+      // 
+      // 
+      // 
       this.NavigationPan.TitlePanel.AntiAlias = true;
-      this.NavigationPan.TitlePanel.Dock = DockStyle.Top;
-      this.NavigationPan.TitlePanel.Font = new Font("Tahoma", 12f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.NavigationPan.TitlePanel.Location = new Point(0, 0);
+      this.NavigationPan.TitlePanel.Dock = System.Windows.Forms.DockStyle.Top;
+      this.NavigationPan.TitlePanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.NavigationPan.TitlePanel.Location = new System.Drawing.Point(0, 0);
       this.NavigationPan.TitlePanel.Name = "panelEx1";
-      this.NavigationPan.TitlePanel.Size = new Size(0xd8, 0x18);
-      this.NavigationPan.TitlePanel.Style.BackColor1.ColorSchemePart = eColorSchemePart.PanelBackground;
-      this.NavigationPan.TitlePanel.Style.BackColor2.ColorSchemePart = eColorSchemePart.PanelBackground2;
-      this.NavigationPan.TitlePanel.Style.Border = eBorderType.SingleLine;
-      this.NavigationPan.TitlePanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this.NavigationPan.TitlePanel.Style.ForeColor.ColorSchemePart = eColorSchemePart.PanelText;
+      this.NavigationPan.TitlePanel.Size = new System.Drawing.Size(216, 24);
+      this.NavigationPan.TitlePanel.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+      this.NavigationPan.TitlePanel.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+      this.NavigationPan.TitlePanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.NavigationPan.TitlePanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.NavigationPan.TitlePanel.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
       this.NavigationPan.TitlePanel.Style.GradientAngle = 90;
       this.NavigationPan.TitlePanel.Style.MarginLeft = 4;
       this.NavigationPan.TitlePanel.TabIndex = 0;
       this.NavigationPan.TitlePanel.Text = "Folders";
+      // 
+      // FoldersPanel
+      // 
       this.FoldersPanel.AntiAlias = true;
       this.FoldersPanel.Controls.Add(this.FolderTree);
-      this.FoldersPanel.Dock = DockStyle.Fill;
-      this.FoldersPanel.DockPadding.Left = 1;
-      this.FoldersPanel.DockPadding.Right = 1;
-      this.FoldersPanel.DockPadding.Top = 1;
-      this.FoldersPanel.Location = new Point(0, 0x18);
+      this.FoldersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.FoldersPanel.Location = new System.Drawing.Point(0, 24);
       this.FoldersPanel.Name = "FoldersPanel";
+      this.FoldersPanel.Padding = new System.Windows.Forms.Padding(1, 1, 1, 0);
       this.FoldersPanel.ParentItem = this.FoldersPan;
-      this.FoldersPanel.Size = new Size(0xd8, 0x174);
-      this.FoldersPanel.Style.Alignment = StringAlignment.Center;
-      this.FoldersPanel.Style.BackColor1.ColorSchemePart = eColorSchemePart.BarBackground;
-      this.FoldersPanel.Style.BackColor2.ColorSchemePart = eColorSchemePart.BarBackground2;
-      this.FoldersPanel.Style.BackgroundImagePosition = eBackgroundImagePosition.Tile;
-      this.FoldersPanel.Style.Border = eBorderType.SingleLine;
-      this.FoldersPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this.FoldersPanel.Style.ForeColor.ColorSchemePart = eColorSchemePart.ItemText;
+      this.FoldersPanel.Size = new System.Drawing.Size(216, 537);
+      this.FoldersPanel.Style.Alignment = System.Drawing.StringAlignment.Center;
+      this.FoldersPanel.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+      this.FoldersPanel.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+      this.FoldersPanel.Style.BackgroundImagePosition = DevComponents.DotNetBar.eBackgroundImagePosition.Tile;
+      this.FoldersPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.FoldersPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.FoldersPanel.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
       this.FoldersPanel.Style.GradientAngle = 90;
-      this.FoldersPanel.StyleMouseDown.Alignment = StringAlignment.Center;
-      this.FoldersPanel.StyleMouseOver.Alignment = StringAlignment.Center;
+      this.FoldersPanel.StyleMouseDown.Alignment = System.Drawing.StringAlignment.Center;
+      this.FoldersPanel.StyleMouseOver.Alignment = System.Drawing.StringAlignment.Center;
       this.FoldersPanel.TabIndex = 2;
+      // 
+      // FolderTree
+      // 
       this.FolderTree.AllowDragDrop = false;
-      this.FolderTree.BorderStyle = BorderStyles.None;
-      this.FolderTree.Dock = DockStyle.Fill;
+      this.FolderTree.BorderStyle = SkySoftware.FolderViewControl.BorderStyles.None;
+      this.FolderTree.Dock = System.Windows.Forms.DockStyle.Fill;
       this.FolderTree.HasLines = false;
-      this.FolderTree.Location = new Point(1, 1);
+      this.FolderTree.Location = new System.Drawing.Point(1, 1);
       this.FolderTree.Name = "FolderTree";
       this.FolderTree.ShowContextMenus = false;
       this.FolderTree.ShowHiddenObjects = false;
       this.FolderTree.ShowSpecialFolders = false;
-      this.FolderTree.Size = new Size(0xd6, 0x173);
+      this.FolderTree.Size = new System.Drawing.Size(214, 536);
       this.FolderTree.TabIndex = 1;
       this.FolderTree.Text = "FolderTree";
-      this.FoldersPan.ButtonStyle = eButtonStyle.ImageAndText;
+      // 
+      // FoldersPan
+      // 
+      this.FoldersPan.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
       this.FoldersPan.Checked = true;
-      this.FoldersPan.Icon = (Icon)(new ResourceManager(typeof(frmMain))).GetObject("FoldersPan.Icon");
+      this.FoldersPan.Icon = ((System.Drawing.Icon)(resources.GetObject("FoldersPan.Icon")));
       this.FoldersPan.ImageIndex = 0;
       this.FoldersPan.Name = "FoldersPan";
       this.FoldersPan.OptionGroup = "navBar";
-      this.FoldersPan.Style = eDotNetBarStyle.Office2003;
+      this.FoldersPan.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
       this.FoldersPan.Text = "Folders";
+      // 
+      // FavouritesPanel
+      // 
       this.FavouritesPanel.AntiAlias = true;
       this.FavouritesPanel.Controls.Add(this.FavTree);
-      this.FavouritesPanel.Dock = DockStyle.Fill;
-      this.FavouritesPanel.DockPadding.Left = 1;
-      this.FavouritesPanel.DockPadding.Right = 1;
-      this.FavouritesPanel.DockPadding.Top = 1;
-      this.FavouritesPanel.Location = new Point(0, 0x18);
+      this.FavouritesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.FavouritesPanel.Location = new System.Drawing.Point(0, 0);
       this.FavouritesPanel.Name = "FavouritesPanel";
+      this.FavouritesPanel.Padding = new System.Windows.Forms.Padding(1, 1, 1, 0);
       this.FavouritesPanel.ParentItem = this.FavouritesPan;
-      this.FavouritesPanel.Size = new Size(0xd8, 0x174);
-      this.FavouritesPanel.Style.Alignment = StringAlignment.Center;
-      this.FavouritesPanel.Style.BackColor1.ColorSchemePart = eColorSchemePart.BarBackground;
-      this.FavouritesPanel.Style.BackColor2.ColorSchemePart = eColorSchemePart.BarBackground2;
-      this.FavouritesPanel.Style.BackgroundImagePosition = eBackgroundImagePosition.Tile;
-      this.FavouritesPanel.Style.Border = eBorderType.SingleLine;
-      this.FavouritesPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this.FavouritesPanel.Style.ForeColor.ColorSchemePart = eColorSchemePart.ItemText;
+      this.FavouritesPanel.Size = new System.Drawing.Size(216, 561);
+      this.FavouritesPanel.Style.Alignment = System.Drawing.StringAlignment.Center;
+      this.FavouritesPanel.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+      this.FavouritesPanel.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+      this.FavouritesPanel.Style.BackgroundImagePosition = DevComponents.DotNetBar.eBackgroundImagePosition.Tile;
+      this.FavouritesPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.FavouritesPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.FavouritesPanel.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
       this.FavouritesPanel.Style.GradientAngle = 90;
-      this.FavouritesPanel.StyleMouseDown.Alignment = StringAlignment.Center;
-      this.FavouritesPanel.StyleMouseOver.Alignment = StringAlignment.Center;
+      this.FavouritesPanel.StyleMouseDown.Alignment = System.Drawing.StringAlignment.Center;
+      this.FavouritesPanel.StyleMouseOver.Alignment = System.Drawing.StringAlignment.Center;
       this.FavouritesPanel.TabIndex = 3;
-      this.FavTree.Dock = DockStyle.Fill;
+      // 
+      // FavTree
+      // 
+      this.FavTree.Dock = System.Windows.Forms.DockStyle.Fill;
       this.FavTree.HideSelection = false;
-      this.FavTree.ImageIndex = -1;
-      this.FavTree.Indent = 0x13;
-      this.FavTree.ItemHeight = 0x10;
-      this.FavTree.Location = new Point(1, 1);
+      this.FavTree.Indent = 19;
+      this.FavTree.ItemHeight = 16;
+      this.FavTree.Location = new System.Drawing.Point(1, 1);
       this.FavTree.Name = "FavTree";
-      this.FavTree.SelectedImageIndex = -1;
-      this.FavTree.Size = new Size(0xd6, 0x173);
+      this.FavTree.Size = new System.Drawing.Size(214, 560);
       this.FavTree.TabIndex = 8;
-      this.FavouritesPan.ButtonStyle = eButtonStyle.ImageAndText;
-      this.FavouritesPan.Icon = (Icon)(new ResourceManager(typeof(frmMain))).GetObject("FavouritesPan.Icon");
+      this.FavTree.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.FavTree_BeforeSelect);
+      this.FavTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.FavTree_AfterSelect);
+      this.FavTree.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FavTree_MouseUp);
+      // 
+      // FavouritesPan
+      // 
+      this.FavouritesPan.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.FavouritesPan.Icon = ((System.Drawing.Icon)(resources.GetObject("FavouritesPan.Icon")));
       this.FavouritesPan.Name = "FavouritesPan";
       this.FavouritesPan.OptionGroup = "navBar";
-      this.FavouritesPan.Style = eDotNetBarStyle.Office2003;
+      this.FavouritesPan.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
       this.FavouritesPan.Text = "Favourites";
-      this.SplitterBottom.BackColor2 = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterBottom.BackColor2SchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterBottom.BackColorSchemePart = eColorSchemePart.PanelBackground;
-      this.SplitterBottom.Dock = DockStyle.Bottom;
+      // 
+      // SplitterBottom
+      // 
+      this.SplitterBottom.BackColor2 = System.Drawing.SystemColors.ControlDarkDark;
+      this.SplitterBottom.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.SplitterBottom.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+      this.SplitterBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
       this.SplitterBottom.ExpandableControl = this.ErrorMsg;
-      this.SplitterBottom.ExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterBottom.ExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterBottom.ExpandLineColor = SystemColors.ControlText;
-      this.SplitterBottom.ExpandLineColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterBottom.GripDarkColor = SystemColors.ControlText;
-      this.SplitterBottom.GripDarkColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterBottom.GripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
-      this.SplitterBottom.GripLightColorSchemePart = eColorSchemePart.BarBackground;
-      this.SplitterBottom.HotBackColor = System.Drawing.Color.FromArgb(0xfe, 0x8e, 0x4b);
-      this.SplitterBottom.HotBackColor2 = System.Drawing.Color.FromArgb(0xff, 0xcf, 0x8b);
-      this.SplitterBottom.HotBackColor2SchemePart = eColorSchemePart.ItemPressedBackground2;
-      this.SplitterBottom.HotBackColorSchemePart = eColorSchemePart.ItemPressedBackground;
-      this.SplitterBottom.HotExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterBottom.HotExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterBottom.HotExpandLineColor = SystemColors.ControlText;
-      this.SplitterBottom.HotExpandLineColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterBottom.HotGripDarkColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterBottom.HotGripDarkColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterBottom.HotGripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
-      this.SplitterBottom.HotGripLightColorSchemePart = eColorSchemePart.BarBackground;
-      this.SplitterBottom.Location = new Point(0xe0, 430);
+      this.SplitterBottom.ExpandFillColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.SplitterBottom.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.SplitterBottom.ExpandLineColor = System.Drawing.SystemColors.ControlText;
+      this.SplitterBottom.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+      this.SplitterBottom.GripDarkColor = System.Drawing.SystemColors.ControlText;
+      this.SplitterBottom.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+      this.SplitterBottom.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.SplitterBottom.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+      this.SplitterBottom.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(209)))), ((int)(((byte)(255)))));
+      this.SplitterBottom.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+      this.SplitterBottom.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
+      this.SplitterBottom.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
+      this.SplitterBottom.HotExpandFillColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.SplitterBottom.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.SplitterBottom.HotExpandLineColor = System.Drawing.SystemColors.ControlText;
+      this.SplitterBottom.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+      this.SplitterBottom.HotGripDarkColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.SplitterBottom.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.SplitterBottom.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.SplitterBottom.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+      this.SplitterBottom.Location = new System.Drawing.Point(224, 624);
       this.SplitterBottom.MinExtra = 5;
       this.SplitterBottom.MinSize = 5;
       this.SplitterBottom.Name = "SplitterBottom";
-      this.SplitterBottom.Size = new Size(0x210, 8);
-      this.SplitterBottom.TabIndex = 0x19;
+      this.SplitterBottom.Size = new System.Drawing.Size(725, 8);
+      this.SplitterBottom.TabIndex = 25;
       this.SplitterBottom.TabStop = false;
-      this.ErrorMsg.BackColor = SystemColors.Window;
-      this.ErrorMsg.Dock = DockStyle.Bottom;
+      // 
+      // ErrorMsg
+      // 
+      this.ErrorMsg.BackColor = System.Drawing.SystemColors.Window;
+      this.ErrorMsg.Dock = System.Windows.Forms.DockStyle.Bottom;
       this.ErrorMsg.FullRowSelect = true;
       this.ErrorMsg.GridLines = true;
       this.ErrorMsg.HideSelection = false;
-      this.ErrorMsg.Location = new Point(0xe0, 0x1b6);
+      this.ErrorMsg.Location = new System.Drawing.Point(224, 632);
       this.ErrorMsg.Name = "ErrorMsg";
-      this.ErrorMsg.Size = new Size(0x210, 120);
+      this.ErrorMsg.Size = new System.Drawing.Size(725, 120);
       this.ErrorMsg.TabIndex = 7;
-      this.ErrorMsg.View = View.Details;
+      this.ErrorMsg.UseCompatibleStateImageBehavior = false;
+      this.ErrorMsg.View = System.Windows.Forms.View.Details;
+      this.ErrorMsg.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ErrorMsg_MouseUp);
+      // 
+      // SplitterRight
+      // 
       this.SplitterRight.AnimationTime = 0;
-      this.SplitterRight.BackColor2 = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterRight.BackColor2SchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterRight.BackColorSchemePart = eColorSchemePart.PanelBackground;
-      this.SplitterRight.Dock = DockStyle.Right;
+      this.SplitterRight.BackColor2 = System.Drawing.SystemColors.ControlDarkDark;
+      this.SplitterRight.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.SplitterRight.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+      this.SplitterRight.Dock = System.Windows.Forms.DockStyle.Right;
       this.SplitterRight.ExpandableControl = this.SideBar;
-      this.SplitterRight.ExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterRight.ExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterRight.ExpandLineColor = SystemColors.ControlText;
-      this.SplitterRight.ExpandLineColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterRight.GripDarkColor = SystemColors.ControlText;
-      this.SplitterRight.GripDarkColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterRight.GripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
-      this.SplitterRight.GripLightColorSchemePart = eColorSchemePart.BarBackground;
-      this.SplitterRight.HotBackColor = System.Drawing.Color.FromArgb(0xfe, 0x8e, 0x4b);
-      this.SplitterRight.HotBackColor2 = System.Drawing.Color.FromArgb(0xff, 0xcf, 0x8b);
-      this.SplitterRight.HotBackColor2SchemePart = eColorSchemePart.ItemPressedBackground2;
-      this.SplitterRight.HotBackColorSchemePart = eColorSchemePart.ItemPressedBackground;
-      this.SplitterRight.HotExpandFillColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterRight.HotExpandFillColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterRight.HotExpandLineColor = SystemColors.ControlText;
-      this.SplitterRight.HotExpandLineColorSchemePart = eColorSchemePart.ItemText;
-      this.SplitterRight.HotGripDarkColor = System.Drawing.Color.FromArgb(0, 0x2d, 150);
-      this.SplitterRight.HotGripDarkColorSchemePart = eColorSchemePart.PanelBorder;
-      this.SplitterRight.HotGripLightColor = System.Drawing.Color.FromArgb(0xdf, 0xed, 0xfe);
-      this.SplitterRight.HotGripLightColorSchemePart = eColorSchemePart.BarBackground;
-      this.SplitterRight.Location = new Point(0x2f0, 0x4a);
+      this.SplitterRight.ExpandFillColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.SplitterRight.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.SplitterRight.ExpandLineColor = System.Drawing.SystemColors.ControlText;
+      this.SplitterRight.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+      this.SplitterRight.GripDarkColor = System.Drawing.SystemColors.ControlText;
+      this.SplitterRight.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+      this.SplitterRight.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.SplitterRight.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+      this.SplitterRight.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(209)))), ((int)(((byte)(255)))));
+      this.SplitterRight.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+      this.SplitterRight.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
+      this.SplitterRight.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
+      this.SplitterRight.HotExpandFillColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.SplitterRight.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.SplitterRight.HotExpandLineColor = System.Drawing.SystemColors.ControlText;
+      this.SplitterRight.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+      this.SplitterRight.HotGripDarkColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.SplitterRight.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.SplitterRight.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.SplitterRight.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+      this.SplitterRight.Location = new System.Drawing.Point(949, 103);
       this.SplitterRight.MinExtra = 5;
       this.SplitterRight.MinSize = 5;
       this.SplitterRight.Name = "SplitterRight";
-      this.SplitterRight.Size = new Size(8, 0x1e4);
-      this.SplitterRight.TabIndex = 0x1b;
+      this.SplitterRight.Size = new System.Drawing.Size(8, 649);
+      this.SplitterRight.TabIndex = 27;
       this.SplitterRight.TabStop = false;
-      this.SideBar.AccessibleRole = AccessibleRole.ToolBar;
+      // 
+      // SideBar
+      // 
+      this.SideBar.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
       this.SideBar.AntiAlias = true;
-      this.SideBar.BackColor = SystemColors.Control;
-      this.SideBar.BackgroundStyle.BackColor1.ColorSchemePart = eColorSchemePart.ExplorerBarBackground;
-      this.SideBar.BackgroundStyle.BackColor2.ColorSchemePart = eColorSchemePart.ExplorerBarBackground2;
+      this.SideBar.BackColor = System.Drawing.SystemColors.Control;
+      this.SideBar.BackgroundStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground;
+      this.SideBar.BackgroundStyle.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground2;
       this.SideBar.BackgroundStyle.GradientAngle = 90;
       this.SideBar.Controls.Add(this.cmbArtist);
       this.SideBar.Controls.Add(this.txtTitle);
@@ -463,278 +739,1138 @@ namespace ID3_TagIT
       this.SideBar.Controls.Add(this.btnQuickEditMore);
       this.SideBar.Controls.Add(this.APICView);
       this.SideBar.Controls.Add(this.txtInfo);
-      this.SideBar.Dock = DockStyle.Right;
-      this.SideBar.Font = new Font("Tahoma", 11f, FontStyle.Regular, GraphicsUnit.World);
+      this.SideBar.Dock = System.Windows.Forms.DockStyle.Right;
+      this.SideBar.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
       this.SideBar.GroupImages = this.GroupIcons;
-      this.SideBar.Groups.AddRange(new BaseItem[] { this.BarGroupEdit, this.BarGroupPicture, this.BarGroupInfo, this.BarGroupTools });
+      this.SideBar.Groups.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.BarGroupEdit,
+            this.BarGroupPicture,
+            this.BarGroupInfo,
+            this.BarGroupTools});
       this.SideBar.Images = this.ToolsIcons;
-      this.SideBar.Location = new Point(760, 0x4a);
+      this.SideBar.Location = new System.Drawing.Point(957, 103);
       this.SideBar.Name = "SideBar";
-      this.SideBar.Size = new Size(200, 0x1e4);
+      this.SideBar.Size = new System.Drawing.Size(200, 649);
       this.SideBar.TabIndex = 2;
       this.SideBar.Text = "SideBar";
       this.SideBar.ThemeAware = true;
-      this.cmbArtist.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
+      this.SideBar.ItemClick += new System.EventHandler(this.SideBar_ItemClick);
+      this.SideBar.ContainerLoadControl += new System.EventHandler(this.SideBar_ContainerLoadControl);
+      // 
+      // cmbArtist
+      // 
+      this.cmbArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.cmbArtist.Autocomplete = true;
-      this.cmbArtist.Location = new Point(10, 0x2b);
+      this.cmbArtist.Location = new System.Drawing.Point(10, 43);
       this.cmbArtist.Name = "cmbArtist";
-      this.cmbArtist.Size = new Size(180, 0x15);
+      this.cmbArtist.Size = new System.Drawing.Size(180, 21);
       this.cmbArtist.TabIndex = 2;
-      this.txtTitle.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-      this.txtTitle.Location = new Point(10, 80);
+      this.cmbArtist.Enter += new System.EventHandler(this.txtArtistTitleAlbum_Enter);
+      this.cmbArtist.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQuickEdit_KeyUp);
+      // 
+      // txtTitle
+      // 
+      this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtTitle.Location = new System.Drawing.Point(10, 80);
       this.txtTitle.Name = "txtTitle";
-      this.txtTitle.Size = new Size(180, 0x15);
+      this.txtTitle.Size = new System.Drawing.Size(180, 21);
       this.txtTitle.TabIndex = 3;
-      this.txtTitle.Text = "";
-      this.txtAlbum.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-      this.txtAlbum.Location = new Point(10, 0x75);
+      this.txtTitle.Enter += new System.EventHandler(this.txtArtistTitleAlbum_Enter);
+      this.txtTitle.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQuickEdit_KeyUp);
+      // 
+      // txtAlbum
+      // 
+      this.txtAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtAlbum.Location = new System.Drawing.Point(10, 117);
       this.txtAlbum.Name = "txtAlbum";
-      this.txtAlbum.Size = new Size(180, 0x15);
+      this.txtAlbum.Size = new System.Drawing.Size(180, 21);
       this.txtAlbum.TabIndex = 4;
-      this.txtAlbum.Text = "";
-      this.btnQuickEdit.ImeMode = ImeMode.NoControl;
-      this.btnQuickEdit.Location = new Point(10, 0x9a);
+      this.txtAlbum.EnabledChanged += new System.EventHandler(this.txtArtistTitleAlbum_Enter);
+      this.txtAlbum.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQuickEdit_KeyUp);
+      // 
+      // btnQuickEdit
+      // 
+      this.btnQuickEdit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnQuickEdit.Location = new System.Drawing.Point(10, 154);
       this.btnQuickEdit.Name = "btnQuickEdit";
-      this.btnQuickEdit.Size = new Size(180, 0x18);
+      this.btnQuickEdit.Size = new System.Drawing.Size(180, 24);
       this.btnQuickEdit.TabIndex = 5;
       this.btnQuickEdit.Text = "OK";
-      this.btnQuickEditMore.Anchor = AnchorStyles.Right | AnchorStyles.Top;
-      this.btnQuickEditMore.ImeMode = ImeMode.NoControl;
-      this.btnQuickEditMore.Location = new Point(10, 180);
+      this.btnQuickEdit.Click += new System.EventHandler(this.btnQuickEdit_Click);
+      // 
+      // btnQuickEditMore
+      // 
+      this.btnQuickEditMore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnQuickEditMore.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnQuickEditMore.Location = new System.Drawing.Point(10, 180);
       this.btnQuickEditMore.Name = "btnQuickEditMore";
-      this.btnQuickEditMore.Size = new Size(180, 0x18);
+      this.btnQuickEditMore.Size = new System.Drawing.Size(180, 24);
       this.btnQuickEditMore.TabIndex = 6;
       this.btnQuickEditMore.Text = "More ...";
-      this.APICView.Location = new Point(10, 0xfb);
+      this.btnQuickEditMore.Click += new System.EventHandler(this.btnQuickEditMore_Click);
+      // 
+      // APICView
+      // 
+      this.APICView.Location = new System.Drawing.Point(10, 251);
       this.APICView.Name = "APICView";
-      this.APICView.Size = new Size(160, 160);
-      this.APICView.SizeMode = PictureBoxSizeMode.StretchImage;
-      this.APICView.TabIndex = 0x1c;
+      this.APICView.Size = new System.Drawing.Size(160, 160);
+      this.APICView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.APICView.TabIndex = 28;
       this.APICView.TabStop = false;
+      // 
+      // txtInfo
+      // 
       this.txtInfo.AcceptsTab = true;
-      this.txtInfo.BorderStyle = BorderStyle.None;
-      this.txtInfo.Location = new Point(10, 0x11d);
+      this.txtInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+      this.txtInfo.Location = new System.Drawing.Point(10, 285);
       this.txtInfo.Name = "txtInfo";
       this.txtInfo.ReadOnly = true;
-      this.txtInfo.Size = new Size(180, 0x5c);
-      this.txtInfo.TabIndex = 0x1c;
+      this.txtInfo.Size = new System.Drawing.Size(180, 92);
+      this.txtInfo.TabIndex = 28;
       this.txtInfo.TabStop = false;
       this.txtInfo.Text = "";
-      this.BarGroupEdit.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.BarGroupEdit.BackgroundStyle.Border = eBorderType.SingleLine;
+      // 
+      // BarGroupEdit
+      // 
+      this.BarGroupEdit.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
+      this.BarGroupEdit.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.BarGroupEdit.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
       this.BarGroupEdit.Expanded = true;
       this.BarGroupEdit.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupEdit.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupEdit.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupEdit.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x42, 0x8e, 0xff);
+      this.BarGroupEdit.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.BarGroupEdit.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.BarGroupEdit.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
       this.BarGroupEdit.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupEdit.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupEdit.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupEdit.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.BarGroupEdit.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.BarGroupEdit.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.BarGroupEdit.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.BarGroupEdit.ImageIndex = 0;
       this.BarGroupEdit.Name = "BarGroupEdit";
-      this.BarGroupEdit.StockStyle = eExplorerBarStockStyle.Blue;
-      this.BarGroupEdit.SubItems.AddRange(new BaseItem[] { this.lblArtist, this.CContainerArtist, this.lblTitle, this.CContainerTitle, this.lblAlbum, this.CContainerAlbum, this.lblQuickSpacer1, this.CContainerbtnQuickEditOK, this.CContainerbtnQuickEditMore });
+      this.BarGroupEdit.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
+      this.BarGroupEdit.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.lblArtist,
+            this.CContainerArtist,
+            this.lblTitle,
+            this.CContainerTitle,
+            this.lblAlbum,
+            this.CContainerAlbum,
+            this.lblQuickSpacer1,
+            this.CContainerbtnQuickEditOK,
+            this.CContainerbtnQuickEditMore});
       this.BarGroupEdit.Text = "Quick Edit";
       this.BarGroupEdit.ThemeAware = true;
+      // 
+      // lblArtist
+      // 
       this.lblArtist.BackColor = System.Drawing.Color.Empty;
-      this.lblArtist.BorderType = eBorderType.None;
+      this.lblArtist.BorderType = DevComponents.DotNetBar.eBorderType.None;
       this.lblArtist.DividerStyle = false;
-      this.lblArtist.Font = new Font("Microsoft Sans Serif", 8.25f);
-      this.lblArtist.ForeColor = SystemColors.ControlText;
+      this.lblArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+      this.lblArtist.ForeColor = System.Drawing.SystemColors.ControlText;
       this.lblArtist.Name = "lblArtist";
       this.lblArtist.PaddingBottom = 0;
       this.lblArtist.PaddingLeft = 0;
       this.lblArtist.PaddingRight = 0;
       this.lblArtist.PaddingTop = 0;
-      this.lblArtist.SingleLineColor = SystemColors.ControlDark;
+      this.lblArtist.SingleLineColor = System.Drawing.SystemColors.ControlDark;
       this.lblArtist.Text = "Artist";
-      this.lblArtist.TextAlignment = StringAlignment.Near;
-      this.lblArtist.TextLineAlignment = StringAlignment.Center;
+      this.lblArtist.TextAlignment = System.Drawing.StringAlignment.Near;
+      this.lblArtist.TextLineAlignment = System.Drawing.StringAlignment.Center;
       this.lblArtist.ThemeAware = true;
+      // 
+      // CContainerArtist
+      // 
       this.CContainerArtist.AllowItemResize = true;
       this.CContainerArtist.Control = this.cmbArtist;
-      this.CContainerArtist.MenuVisibility = eMenuVisibility.VisibleAlways;
+      this.CContainerArtist.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
       this.CContainerArtist.Name = "CContainerArtist";
       this.CContainerArtist.ThemeAware = true;
+      // 
+      // lblTitle
+      // 
       this.lblTitle.BackColor = System.Drawing.Color.Empty;
-      this.lblTitle.BorderType = eBorderType.None;
+      this.lblTitle.BorderType = DevComponents.DotNetBar.eBorderType.None;
       this.lblTitle.DividerStyle = false;
-      this.lblTitle.Font = new Font("Microsoft Sans Serif", 8.25f);
-      this.lblTitle.ForeColor = SystemColors.ControlText;
+      this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+      this.lblTitle.ForeColor = System.Drawing.SystemColors.ControlText;
       this.lblTitle.Name = "lblTitle";
       this.lblTitle.PaddingBottom = 0;
       this.lblTitle.PaddingLeft = 0;
       this.lblTitle.PaddingRight = 0;
       this.lblTitle.PaddingTop = 0;
-      this.lblTitle.SingleLineColor = SystemColors.ControlDark;
+      this.lblTitle.SingleLineColor = System.Drawing.SystemColors.ControlDark;
       this.lblTitle.Text = "Title";
-      this.lblTitle.TextAlignment = StringAlignment.Near;
-      this.lblTitle.TextLineAlignment = StringAlignment.Center;
+      this.lblTitle.TextAlignment = System.Drawing.StringAlignment.Near;
+      this.lblTitle.TextLineAlignment = System.Drawing.StringAlignment.Center;
       this.lblTitle.ThemeAware = true;
+      // 
+      // CContainerTitle
+      // 
       this.CContainerTitle.AllowItemResize = true;
       this.CContainerTitle.Control = this.txtTitle;
-      this.CContainerTitle.MenuVisibility = eMenuVisibility.VisibleAlways;
+      this.CContainerTitle.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
       this.CContainerTitle.Name = "CContainerTitle";
       this.CContainerTitle.ThemeAware = true;
+      // 
+      // lblAlbum
+      // 
       this.lblAlbum.BackColor = System.Drawing.Color.Empty;
-      this.lblAlbum.BorderType = eBorderType.None;
+      this.lblAlbum.BorderType = DevComponents.DotNetBar.eBorderType.None;
       this.lblAlbum.DividerStyle = false;
-      this.lblAlbum.Font = new Font("Microsoft Sans Serif", 8.25f);
-      this.lblAlbum.ForeColor = SystemColors.ControlText;
+      this.lblAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+      this.lblAlbum.ForeColor = System.Drawing.SystemColors.ControlText;
       this.lblAlbum.Name = "lblAlbum";
       this.lblAlbum.PaddingBottom = 0;
       this.lblAlbum.PaddingLeft = 0;
       this.lblAlbum.PaddingRight = 0;
       this.lblAlbum.PaddingTop = 0;
-      this.lblAlbum.SingleLineColor = SystemColors.ControlDark;
+      this.lblAlbum.SingleLineColor = System.Drawing.SystemColors.ControlDark;
       this.lblAlbum.Text = "Album";
-      this.lblAlbum.TextAlignment = StringAlignment.Near;
-      this.lblAlbum.TextLineAlignment = StringAlignment.Center;
+      this.lblAlbum.TextAlignment = System.Drawing.StringAlignment.Near;
+      this.lblAlbum.TextLineAlignment = System.Drawing.StringAlignment.Center;
       this.lblAlbum.ThemeAware = true;
+      // 
+      // CContainerAlbum
+      // 
       this.CContainerAlbum.AllowItemResize = true;
       this.CContainerAlbum.Control = this.txtAlbum;
-      this.CContainerAlbum.MenuVisibility = eMenuVisibility.VisibleAlways;
+      this.CContainerAlbum.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
       this.CContainerAlbum.Name = "CContainerAlbum";
       this.CContainerAlbum.ThemeAware = true;
+      // 
+      // lblQuickSpacer1
+      // 
       this.lblQuickSpacer1.BackColor = System.Drawing.Color.Empty;
-      this.lblQuickSpacer1.BorderType = eBorderType.None;
+      this.lblQuickSpacer1.BorderType = DevComponents.DotNetBar.eBorderType.None;
       this.lblQuickSpacer1.DividerStyle = true;
-      this.lblQuickSpacer1.Font = new Font("Microsoft Sans Serif", 8.25f);
-      this.lblQuickSpacer1.ForeColor = SystemColors.ControlText;
+      this.lblQuickSpacer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+      this.lblQuickSpacer1.ForeColor = System.Drawing.SystemColors.ControlText;
       this.lblQuickSpacer1.Name = "lblQuickSpacer1";
       this.lblQuickSpacer1.PaddingBottom = 0;
       this.lblQuickSpacer1.PaddingLeft = 0;
       this.lblQuickSpacer1.PaddingRight = 0;
       this.lblQuickSpacer1.PaddingTop = 0;
-      this.lblQuickSpacer1.SingleLineColor = SystemColors.ControlDark;
-      this.lblQuickSpacer1.TextAlignment = StringAlignment.Near;
-      this.lblQuickSpacer1.TextLineAlignment = StringAlignment.Center;
+      this.lblQuickSpacer1.SingleLineColor = System.Drawing.SystemColors.ControlDark;
+      this.lblQuickSpacer1.TextAlignment = System.Drawing.StringAlignment.Near;
+      this.lblQuickSpacer1.TextLineAlignment = System.Drawing.StringAlignment.Center;
       this.lblQuickSpacer1.ThemeAware = true;
+      // 
+      // CContainerbtnQuickEditOK
+      // 
       this.CContainerbtnQuickEditOK.AllowItemResize = true;
       this.CContainerbtnQuickEditOK.Control = this.btnQuickEdit;
-      this.CContainerbtnQuickEditOK.MenuVisibility = eMenuVisibility.VisibleAlways;
+      this.CContainerbtnQuickEditOK.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
       this.CContainerbtnQuickEditOK.Name = "CContainerbtnQuickEditOK";
       this.CContainerbtnQuickEditOK.ThemeAware = true;
+      // 
+      // CContainerbtnQuickEditMore
+      // 
       this.CContainerbtnQuickEditMore.AllowItemResize = true;
       this.CContainerbtnQuickEditMore.Control = this.btnQuickEditMore;
-      this.CContainerbtnQuickEditMore.MenuVisibility = eMenuVisibility.VisibleAlways;
+      this.CContainerbtnQuickEditMore.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
       this.CContainerbtnQuickEditMore.Name = "CContainerbtnQuickEditMore";
       this.CContainerbtnQuickEditMore.ThemeAware = true;
-      this.BarGroupPicture.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.BarGroupPicture.BackgroundStyle.Border = eBorderType.SingleLine;
+      // 
+      // BarGroupPicture
+      // 
+      this.BarGroupPicture.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
+      this.BarGroupPicture.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.BarGroupPicture.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
       this.BarGroupPicture.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupPicture.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupPicture.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupPicture.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x42, 0x8e, 0xff);
+      this.BarGroupPicture.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.BarGroupPicture.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.BarGroupPicture.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
       this.BarGroupPicture.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupPicture.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupPicture.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupPicture.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.BarGroupPicture.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.BarGroupPicture.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.BarGroupPicture.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.BarGroupPicture.ImageIndex = 2;
       this.BarGroupPicture.Name = "BarGroupPicture";
-      this.BarGroupPicture.StockStyle = eExplorerBarStockStyle.Blue;
-      this.BarGroupPicture.SubItems.AddRange(new BaseItem[] { this.CContainerAPICView });
+      this.BarGroupPicture.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
+      this.BarGroupPicture.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.CContainerAPICView});
       this.BarGroupPicture.Text = "Picture";
       this.BarGroupPicture.ThemeAware = true;
+      // 
+      // CContainerAPICView
+      // 
       this.CContainerAPICView.AllowItemResize = false;
       this.CContainerAPICView.Control = this.APICView;
-      this.CContainerAPICView.MenuVisibility = eMenuVisibility.VisibleAlways;
+      this.CContainerAPICView.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
       this.CContainerAPICView.Name = "CContainerAPICView";
       this.CContainerAPICView.ThemeAware = true;
-      this.BarGroupInfo.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.BarGroupInfo.BackgroundStyle.Border = eBorderType.SingleLine;
+      // 
+      // BarGroupInfo
+      // 
+      this.BarGroupInfo.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
+      this.BarGroupInfo.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.BarGroupInfo.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
       this.BarGroupInfo.Expanded = true;
       this.BarGroupInfo.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupInfo.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupInfo.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupInfo.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x42, 0x8e, 0xff);
+      this.BarGroupInfo.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.BarGroupInfo.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.BarGroupInfo.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
       this.BarGroupInfo.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupInfo.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupInfo.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupInfo.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.BarGroupInfo.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.BarGroupInfo.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.BarGroupInfo.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.BarGroupInfo.ImageIndex = 3;
       this.BarGroupInfo.Name = "BarGroupInfo";
-      this.BarGroupInfo.StockStyle = eExplorerBarStockStyle.Blue;
-      this.BarGroupInfo.SubItems.AddRange(new BaseItem[] { this.CContainertxtInfo });
+      this.BarGroupInfo.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
+      this.BarGroupInfo.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.CContainertxtInfo});
       this.BarGroupInfo.Text = "Information";
       this.BarGroupInfo.ThemeAware = true;
+      // 
+      // CContainertxtInfo
+      // 
       this.CContainertxtInfo.AllowItemResize = true;
       this.CContainertxtInfo.Control = this.txtInfo;
-      this.CContainertxtInfo.MenuVisibility = eMenuVisibility.VisibleAlways;
+      this.CContainertxtInfo.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
       this.CContainertxtInfo.Name = "CContainertxtInfo";
       this.CContainertxtInfo.ThemeAware = true;
-      this.BarGroupTools.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.BarGroupTools.BackgroundStyle.Border = eBorderType.SingleLine;
+      // 
+      // BarGroupTools
+      // 
+      this.BarGroupTools.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
+      this.BarGroupTools.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
       this.BarGroupTools.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
       this.BarGroupTools.Expanded = true;
       this.BarGroupTools.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupTools.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupTools.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupTools.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x42, 0x8e, 0xff);
+      this.BarGroupTools.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.BarGroupTools.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.BarGroupTools.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
       this.BarGroupTools.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.BarGroupTools.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.BarGroupTools.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.BarGroupTools.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.BarGroupTools.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.BarGroupTools.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.BarGroupTools.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.BarGroupTools.ImageIndex = 1;
       this.BarGroupTools.Name = "BarGroupTools";
-      this.BarGroupTools.StockStyle = eExplorerBarStockStyle.Blue;
+      this.BarGroupTools.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
       this.BarGroupTools.Text = "Tools";
       this.BarGroupTools.ThemeAware = true;
+      // 
+      // MP3View
+      // 
       this.MP3View.AllowColumnReorder = true;
-      this.MP3View.Dock = DockStyle.Fill;
+      this.MP3View.Dock = System.Windows.Forms.DockStyle.Fill;
       this.MP3View.FullRowSelect = true;
       this.MP3View.HideSelection = false;
-      this.MP3View.Location = new Point(0xe0, 0x4a);
+      this.MP3View.Location = new System.Drawing.Point(224, 103);
       this.MP3View.Name = "MP3View";
-      this.MP3View.Size = new Size(0x210, 0x164);
+      this.MP3View.Size = new System.Drawing.Size(725, 521);
       this.MP3View.TabIndex = 0;
-      this.MP3View.View = View.Details;
-      this.EnumInfo.BackColor = SystemColors.Info;
-      this.EnumInfo.BorderStyle = BorderStyle.FixedSingle;
-      this.EnumInfo.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
-      this.EnumInfo.ForeColor = SystemColors.InfoText;
-      this.EnumInfo.ImeMode = ImeMode.NoControl;
-      this.EnumInfo.Location = new Point(600, 0x20);
+      this.MP3View.UseCompatibleStateImageBehavior = false;
+      this.MP3View.View = System.Windows.Forms.View.Details;
+      this.MP3View.AfterLabelEdit += new System.Windows.Forms.LabelEditEventHandler(this.MP3View_AfterLabelEdit);
+      this.MP3View.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.MP3View_ColumnClick);
+      this.MP3View.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.MP3View_ItemDrag);
+      this.MP3View.SelectedIndexChanged += new System.EventHandler(this.MP3View_SelectedIndexChanged);
+      this.MP3View.Click += new System.EventHandler(this.MP3View_Click);
+      this.MP3View.DoubleClick += new System.EventHandler(this.MP3View_DoubleClick);
+      this.MP3View.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MP3View_KeyDown);
+      this.MP3View.MouseEnter += new System.EventHandler(this.MP3View_MouseEnter);
+      this.MP3View.MouseLeave += new System.EventHandler(this.MP3View_MouseLeave);
+      this.MP3View.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MP3View_MouseMove);
+      this.MP3View.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MP3View_MouseUp);
+      // 
+      // EnumInfo
+      // 
+      this.EnumInfo.BackColor = System.Drawing.SystemColors.Info;
+      this.EnumInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EnumInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+      this.EnumInfo.ForeColor = System.Drawing.SystemColors.InfoText;
+      this.EnumInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.EnumInfo.Location = new System.Drawing.Point(550, 5);
       this.EnumInfo.Name = "EnumInfo";
-      this.EnumInfo.Size = new Size(0x90, 0x10);
-      this.EnumInfo.TabIndex = 0x16;
+      this.EnumInfo.Size = new System.Drawing.Size(144, 16);
+      this.EnumInfo.TabIndex = 22;
       this.EnumInfo.Text = "Enumeration mode";
-      this.EnumInfo.TextAlign = ContentAlignment.MiddleCenter;
+      this.EnumInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       this.EnumInfo.Visible = false;
-
-      this.btnQuickEdit.Click += new EventHandler(this.btnQuickEdit_Click);
-      this.btnQuickEditMore.Click += new EventHandler(this.btnQuickEditMore_Click);
-      this.cmbArtist.KeyUp += new KeyEventHandler(this.txtQuickEdit_KeyUp);
-      this.cmbArtist.Enter += new EventHandler(this.txtArtistTitleAlbum_Enter);
-      this.DotNetBarManager.ItemClick += new EventHandler(this.DotNetBarManager_ItemClick);
-      this.ErrorMsg.MouseUp += new MouseEventHandler(this.ErrorMsg_MouseUp);
-      this.FavTree.MouseUp += new MouseEventHandler(this.FavTree_MouseUp);
-      this.FavTree.AfterSelect += new TreeViewEventHandler(this.FavTree_AfterSelect);
-      this.FavTree.BeforeSelect += new TreeViewCancelEventHandler(this.FavTree_BeforeSelect);
-      this.MP3View.ItemDrag += new ItemDragEventHandler(this.MP3View_ItemDrag);
-      this.MP3View.AfterLabelEdit += new LabelEditEventHandler(this.MP3View_AfterLabelEdit);
-      this.MP3View.DoubleClick += new EventHandler(this.MP3View_DoubleClick);
-      this.MP3View.Click += new EventHandler(this.MP3View_Click);
-      this.MP3View.KeyDown += new KeyEventHandler(this.MP3View_KeyDown);
-      this.MP3View.MouseUp += new MouseEventHandler(this.MP3View_MouseUp);
-      this.MP3View.MouseLeave += new EventHandler(this.MP3View_MouseLeave);
-      this.MP3View.MouseEnter += new EventHandler(this.MP3View_MouseEnter);
-      this.MP3View.MouseMove += new MouseEventHandler(this.MP3View_MouseMove);
-      this.MP3View.SelectedIndexChanged += new EventHandler(this.MP3View_SelectedIndexChanged);
-      this.MP3View.ColumnClick += new ColumnClickEventHandler(this.MP3View_ColumnClick);
-      this.txtTitle.KeyUp += new KeyEventHandler(this.txtQuickEdit_KeyUp);
-      this.txtTitle.Enter += new EventHandler(this.txtArtistTitleAlbum_Enter);
-      this.txtAlbum.KeyUp += new KeyEventHandler(this.txtQuickEdit_KeyUp);
-      this.txtAlbum.EnabledChanged += new EventHandler(this.txtArtistTitleAlbum_Enter);
-      this.SideBar.ItemClick += new EventHandler(this.SideBar_ItemClick);
-      this.SideBar.ContainerLoadControl += new EventHandler(this.SideBar_ContainerLoadControl);
-
-      this.AutoScaleBaseSize = new Size(5, 13);
-      this.ClientSize = new Size(960, 0x246);
+      // 
+      // errorProvider1
+      // 
+      this.errorProvider1.ContainerControl = this;
+      // 
+      // menuStrip1
+      // 
+      this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.viewToolStripMenuItem,
+            this.iD3FunctionsToolStripMenuItem,
+            this.extendedFunctionsToolStripMenuItem,
+            this.analyseToolStripMenuItem,
+            this.optionsToolStripMenuItem,
+            this.helpToolStripMenuItem});
+      this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+      this.menuStrip1.Name = "menuStrip1";
+      this.menuStrip1.Size = new System.Drawing.Size(1157, 24);
+      this.menuStrip1.TabIndex = 28;
+      this.menuStrip1.Text = "menuStrip1";
+      // 
+      // fileToolStripMenuItem
+      // 
+      this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addDirectoryToolStripMenuItem,
+            this.refreshToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.saveToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.playToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.moveFilesToolStripMenuItem,
+            this.copyFilesToolStripMenuItem,
+            this.deleteFilesToolStripMenuItem,
+            this.organizeFilesToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.openFileLocationToolStripMenuItem,
+            this.removeEmptyFoldersToolStripMenuItem,
+            this.renameFilefolderToolStripMenuItem,
+            this.filePropertiesToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.quitToolStripMenuItem});
+      this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+      this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+      this.fileToolStripMenuItem.Text = "&File";
+      // 
+      // addDirectoryToolStripMenuItem
+      // 
+      this.addDirectoryToolStripMenuItem.Name = "addDirectoryToolStripMenuItem";
+      this.addDirectoryToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F8;
+      this.addDirectoryToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+      this.addDirectoryToolStripMenuItem.Text = "&Add directory";
+      // 
+      // refreshToolStripMenuItem
+      // 
+      this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+      this.refreshToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+      this.refreshToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+      this.refreshToolStripMenuItem.Text = "&Refresh";
+      // 
+      // toolStripSeparator2
+      // 
+      this.toolStripSeparator2.Name = "toolStripSeparator2";
+      this.toolStripSeparator2.Size = new System.Drawing.Size(262, 6);
+      // 
+      // saveToolStripMenuItem
+      // 
+      this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+      this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+      this.saveToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+      this.saveToolStripMenuItem.Text = "&Save";
+      // 
+      // toolStripSeparator3
+      // 
+      this.toolStripSeparator3.Name = "toolStripSeparator3";
+      this.toolStripSeparator3.Size = new System.Drawing.Size(262, 6);
+      // 
+      // playToolStripMenuItem
+      // 
+      this.playToolStripMenuItem.Name = "playToolStripMenuItem";
+      this.playToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
+      this.playToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+      this.playToolStripMenuItem.Text = "&Play";
+      // 
+      // toolStripSeparator4
+      // 
+      this.toolStripSeparator4.Name = "toolStripSeparator4";
+      this.toolStripSeparator4.Size = new System.Drawing.Size(262, 6);
+      // 
+      // moveFilesToolStripMenuItem
+      // 
+      this.moveFilesToolStripMenuItem.Name = "moveFilesToolStripMenuItem";
+      this.moveFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+      this.moveFilesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+      this.moveFilesToolStripMenuItem.Text = "&Move files";
+      // 
+      // copyFilesToolStripMenuItem
+      // 
+      this.copyFilesToolStripMenuItem.Name = "copyFilesToolStripMenuItem";
+      this.copyFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+      this.copyFilesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+      this.copyFilesToolStripMenuItem.Text = "&Copy files";
+      // 
+      // deleteFilesToolStripMenuItem
+      // 
+      this.deleteFilesToolStripMenuItem.Name = "deleteFilesToolStripMenuItem";
+      this.deleteFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+            | System.Windows.Forms.Keys.D)));
+      this.deleteFilesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+      this.deleteFilesToolStripMenuItem.Text = "&Delete files";
+      // 
+      // organizeFilesToolStripMenuItem
+      // 
+      this.organizeFilesToolStripMenuItem.Name = "organizeFilesToolStripMenuItem";
+      this.organizeFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+      this.organizeFilesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+      this.organizeFilesToolStripMenuItem.Text = "&Organize files";
+      // 
+      // toolStripSeparator5
+      // 
+      this.toolStripSeparator5.Name = "toolStripSeparator5";
+      this.toolStripSeparator5.Size = new System.Drawing.Size(262, 6);
+      // 
+      // openFileLocationToolStripMenuItem
+      // 
+      this.openFileLocationToolStripMenuItem.Name = "openFileLocationToolStripMenuItem";
+      this.openFileLocationToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+      this.openFileLocationToolStripMenuItem.Text = "&Open file location";
+      // 
+      // removeEmptyFoldersToolStripMenuItem
+      // 
+      this.removeEmptyFoldersToolStripMenuItem.Name = "removeEmptyFoldersToolStripMenuItem";
+      this.removeEmptyFoldersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+            | System.Windows.Forms.Keys.F)));
+      this.removeEmptyFoldersToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+      this.removeEmptyFoldersToolStripMenuItem.Text = "R&emove empty folders";
+      // 
+      // renameFilefolderToolStripMenuItem
+      // 
+      this.renameFilefolderToolStripMenuItem.Name = "renameFilefolderToolStripMenuItem";
+      this.renameFilefolderToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+      this.renameFilefolderToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+      this.renameFilefolderToolStripMenuItem.Text = "&Rename file/folder";
+      // 
+      // filePropertiesToolStripMenuItem
+      // 
+      this.filePropertiesToolStripMenuItem.Name = "filePropertiesToolStripMenuItem";
+      this.filePropertiesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
+      this.filePropertiesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+      this.filePropertiesToolStripMenuItem.Text = "&File properties";
+      // 
+      // toolStripSeparator6
+      // 
+      this.toolStripSeparator6.Name = "toolStripSeparator6";
+      this.toolStripSeparator6.Size = new System.Drawing.Size(262, 6);
+      // 
+      // quitToolStripMenuItem
+      // 
+      this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+      this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+      this.quitToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+      this.quitToolStripMenuItem.Text = "&Quit";
+      // 
+      // editToolStripMenuItem
+      // 
+      this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.undoToolStripMenuItem,
+            this.redoToolStripMenuItem,
+            this.toolStripSeparator18,
+            this.searchandReplaceToolStripMenuItem,
+            this.toolStripSeparator19,
+            this.swapTAGVer1EntriesToolStripMenuItem,
+            this.swapTAGVer2EntriesToolStripMenuItem,
+            this.toolStripSeparator20,
+            this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem,
+            this.splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem,
+            this.toolStripSeparator21,
+            this.copyTAGInformationToolStripMenuItem,
+            this.pasteTAGInformationToolStripMenuItem});
+      this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+      this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+      this.editToolStripMenuItem.Text = "&Edit";
+      // 
+      // undoToolStripMenuItem
+      // 
+      this.undoToolStripMenuItem.Enabled = false;
+      this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+      this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+      this.undoToolStripMenuItem.Size = new System.Drawing.Size(341, 22);
+      this.undoToolStripMenuItem.Text = "&Undo";
+      // 
+      // redoToolStripMenuItem
+      // 
+      this.redoToolStripMenuItem.Enabled = false;
+      this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+      this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+            | System.Windows.Forms.Keys.Z)));
+      this.redoToolStripMenuItem.Size = new System.Drawing.Size(341, 22);
+      this.redoToolStripMenuItem.Text = "&Redo";
+      // 
+      // toolStripSeparator18
+      // 
+      this.toolStripSeparator18.Name = "toolStripSeparator18";
+      this.toolStripSeparator18.Size = new System.Drawing.Size(338, 6);
+      // 
+      // searchandReplaceToolStripMenuItem
+      // 
+      this.searchandReplaceToolStripMenuItem.Name = "searchandReplaceToolStripMenuItem";
+      this.searchandReplaceToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
+      this.searchandReplaceToolStripMenuItem.Size = new System.Drawing.Size(341, 22);
+      this.searchandReplaceToolStripMenuItem.Text = "&Search (and Replace)";
+      // 
+      // toolStripSeparator19
+      // 
+      this.toolStripSeparator19.Name = "toolStripSeparator19";
+      this.toolStripSeparator19.Size = new System.Drawing.Size(338, 6);
+      // 
+      // swapTAGVer1EntriesToolStripMenuItem
+      // 
+      this.swapTAGVer1EntriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.artistTitleToolStripMenuItem,
+            this.artistAlbumToolStripMenuItem,
+            this.titleAlbumToolStripMenuItem});
+      this.swapTAGVer1EntriesToolStripMenuItem.Name = "swapTAGVer1EntriesToolStripMenuItem";
+      this.swapTAGVer1EntriesToolStripMenuItem.Size = new System.Drawing.Size(341, 22);
+      this.swapTAGVer1EntriesToolStripMenuItem.Text = "S&wap TAG Ver. 1 entries";
+      // 
+      // artistTitleToolStripMenuItem
+      // 
+      this.artistTitleToolStripMenuItem.Name = "artistTitleToolStripMenuItem";
+      this.artistTitleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F1)));
+      this.artistTitleToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+      this.artistTitleToolStripMenuItem.Text = "Artist <-> &Title";
+      // 
+      // artistAlbumToolStripMenuItem
+      // 
+      this.artistAlbumToolStripMenuItem.Name = "artistAlbumToolStripMenuItem";
+      this.artistAlbumToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F2)));
+      this.artistAlbumToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+      this.artistAlbumToolStripMenuItem.Text = "&Artist <-> Album";
+      // 
+      // titleAlbumToolStripMenuItem
+      // 
+      this.titleAlbumToolStripMenuItem.Name = "titleAlbumToolStripMenuItem";
+      this.titleAlbumToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F3)));
+      this.titleAlbumToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+      this.titleAlbumToolStripMenuItem.Text = "Title <-> Al&bum";
+      // 
+      // swapTAGVer2EntriesToolStripMenuItem
+      // 
+      this.swapTAGVer2EntriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.artistTitleToolStripMenuItem1,
+            this.artistAlbumToolStripMenuItem1,
+            this.titleAlbumToolStripMenuItem1});
+      this.swapTAGVer2EntriesToolStripMenuItem.Name = "swapTAGVer2EntriesToolStripMenuItem";
+      this.swapTAGVer2EntriesToolStripMenuItem.Size = new System.Drawing.Size(341, 22);
+      this.swapTAGVer2EntriesToolStripMenuItem.Text = "Sw&ap TAG Ver. 2 entries";
+      // 
+      // artistTitleToolStripMenuItem1
+      // 
+      this.artistTitleToolStripMenuItem1.Name = "artistTitleToolStripMenuItem1";
+      this.artistTitleToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F4)));
+      this.artistTitleToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
+      this.artistTitleToolStripMenuItem1.Text = "Artist <-> &Title";
+      // 
+      // artistAlbumToolStripMenuItem1
+      // 
+      this.artistAlbumToolStripMenuItem1.Name = "artistAlbumToolStripMenuItem1";
+      this.artistAlbumToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F5)));
+      this.artistAlbumToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
+      this.artistAlbumToolStripMenuItem1.Text = "&Artist <-> Album";
+      // 
+      // titleAlbumToolStripMenuItem1
+      // 
+      this.titleAlbumToolStripMenuItem1.Name = "titleAlbumToolStripMenuItem1";
+      this.titleAlbumToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F6)));
+      this.titleAlbumToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
+      this.titleAlbumToolStripMenuItem1.Text = "Title <-> Al&bum";
+      // 
+      // toolStripSeparator20
+      // 
+      this.toolStripSeparator20.Name = "toolStripSeparator20";
+      this.toolStripSeparator20.Size = new System.Drawing.Size(338, 6);
+      // 
+      // splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem
+      // 
+      this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem.Name = "splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem";
+      this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F4)));
+      this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem.Size = new System.Drawing.Size(341, 22);
+      this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem.Text = "S&plit TAG Ver. 1 Artist into Artist and Title";
+      // 
+      // splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem
+      // 
+      this.splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem.Name = "splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem";
+      this.splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F8)));
+      this.splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem.Size = new System.Drawing.Size(341, 22);
+      this.splitTAGVer2ArtistIntoArtistAndTitleToolStripMenuItem.Text = "Sp&lit TAG Ver. 2 Artist into Artist and Title";
+      // 
+      // toolStripSeparator21
+      // 
+      this.toolStripSeparator21.Name = "toolStripSeparator21";
+      this.toolStripSeparator21.Size = new System.Drawing.Size(338, 6);
+      // 
+      // copyTAGInformationToolStripMenuItem
+      // 
+      this.copyTAGInformationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyTAGVer1OnlyToolStripMenuItem,
+            this.copyTAGVer2OnlyToolStripMenuItem,
+            this.copyTAGVer1And2ToolStripMenuItem});
+      this.copyTAGInformationToolStripMenuItem.Name = "copyTAGInformationToolStripMenuItem";
+      this.copyTAGInformationToolStripMenuItem.Size = new System.Drawing.Size(341, 22);
+      this.copyTAGInformationToolStripMenuItem.Text = "&Copy TAG information";
+      // 
+      // copyTAGVer1OnlyToolStripMenuItem
+      // 
+      this.copyTAGVer1OnlyToolStripMenuItem.Name = "copyTAGVer1OnlyToolStripMenuItem";
+      this.copyTAGVer1OnlyToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+      this.copyTAGVer1OnlyToolStripMenuItem.Text = "Copy TAG Ver. &1 only";
+      // 
+      // copyTAGVer2OnlyToolStripMenuItem
+      // 
+      this.copyTAGVer2OnlyToolStripMenuItem.Name = "copyTAGVer2OnlyToolStripMenuItem";
+      this.copyTAGVer2OnlyToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+      this.copyTAGVer2OnlyToolStripMenuItem.Text = "Copy TAG Ver. &2 only";
+      // 
+      // copyTAGVer1And2ToolStripMenuItem
+      // 
+      this.copyTAGVer1And2ToolStripMenuItem.Name = "copyTAGVer1And2ToolStripMenuItem";
+      this.copyTAGVer1And2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+            | System.Windows.Forms.Keys.C)));
+      this.copyTAGVer1And2ToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+      this.copyTAGVer1And2ToolStripMenuItem.Text = "&Copy TAG Ver. 1 and 2";
+      // 
+      // pasteTAGInformationToolStripMenuItem
+      // 
+      this.pasteTAGInformationToolStripMenuItem.Name = "pasteTAGInformationToolStripMenuItem";
+      this.pasteTAGInformationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+            | System.Windows.Forms.Keys.V)));
+      this.pasteTAGInformationToolStripMenuItem.Size = new System.Drawing.Size(341, 22);
+      this.pasteTAGInformationToolStripMenuItem.Text = "&Paste TAG information";
+      // 
+      // viewToolStripMenuItem
+      // 
+      this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewTAGVer1ToolStripMenuItem,
+            this.viewTAGVer2ToolStripMenuItem,
+            this.toolStripSeparator7,
+            this.selectallToolStripMenuItem,
+            this.groupSelectionToolStripMenuItem,
+            this.invertSelectionToolStripMenuItem,
+            this.toolStripSeparator8,
+            this.selectFilesByformatToolStripMenuItem,
+            this.selectChangedFilesToolStripMenuItem,
+            this.toolStripSeparator9,
+            this.removeSelectedFilesFromListToolStripMenuItem});
+      this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+      this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+      this.viewToolStripMenuItem.Text = "&View";
+      // 
+      // viewTAGVer1ToolStripMenuItem
+      // 
+      this.viewTAGVer1ToolStripMenuItem.Name = "viewTAGVer1ToolStripMenuItem";
+      this.viewTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
+      this.viewTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+      this.viewTAGVer1ToolStripMenuItem.Text = "View TAG Ver. &1";
+      // 
+      // viewTAGVer2ToolStripMenuItem
+      // 
+      this.viewTAGVer2ToolStripMenuItem.Checked = true;
+      this.viewTAGVer2ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.viewTAGVer2ToolStripMenuItem.Name = "viewTAGVer2ToolStripMenuItem";
+      this.viewTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F2)));
+      this.viewTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+      this.viewTAGVer2ToolStripMenuItem.Text = "View TAG Ver. &2";
+      // 
+      // toolStripSeparator7
+      // 
+      this.toolStripSeparator7.Name = "toolStripSeparator7";
+      this.toolStripSeparator7.Size = new System.Drawing.Size(272, 6);
+      // 
+      // selectallToolStripMenuItem
+      // 
+      this.selectallToolStripMenuItem.Name = "selectallToolStripMenuItem";
+      this.selectallToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+      this.selectallToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+      this.selectallToolStripMenuItem.Text = "Select &all";
+      // 
+      // groupSelectionToolStripMenuItem
+      // 
+      this.groupSelectionToolStripMenuItem.Name = "groupSelectionToolStripMenuItem";
+      this.groupSelectionToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
+      this.groupSelectionToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+      this.groupSelectionToolStripMenuItem.Text = "&Group selection";
+      // 
+      // invertSelectionToolStripMenuItem
+      // 
+      this.invertSelectionToolStripMenuItem.Name = "invertSelectionToolStripMenuItem";
+      this.invertSelectionToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+      this.invertSelectionToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+      this.invertSelectionToolStripMenuItem.Text = "&Invert selection";
+      // 
+      // toolStripSeparator8
+      // 
+      this.toolStripSeparator8.Name = "toolStripSeparator8";
+      this.toolStripSeparator8.Size = new System.Drawing.Size(272, 6);
+      // 
+      // selectFilesByformatToolStripMenuItem
+      // 
+      this.selectFilesByformatToolStripMenuItem.Name = "selectFilesByformatToolStripMenuItem";
+      this.selectFilesByformatToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F5)));
+      this.selectFilesByformatToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+      this.selectFilesByformatToolStripMenuItem.Text = "Select files by &format";
+      // 
+      // selectChangedFilesToolStripMenuItem
+      // 
+      this.selectChangedFilesToolStripMenuItem.Name = "selectChangedFilesToolStripMenuItem";
+      this.selectChangedFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F6)));
+      this.selectChangedFilesToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+      this.selectChangedFilesToolStripMenuItem.Text = "Select c&hanged files";
+      // 
+      // toolStripSeparator9
+      // 
+      this.toolStripSeparator9.Name = "toolStripSeparator9";
+      this.toolStripSeparator9.Size = new System.Drawing.Size(272, 6);
+      // 
+      // removeSelectedFilesFromListToolStripMenuItem
+      // 
+      this.removeSelectedFilesFromListToolStripMenuItem.Name = "removeSelectedFilesFromListToolStripMenuItem";
+      this.removeSelectedFilesFromListToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
+      this.removeSelectedFilesFromListToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+      this.removeSelectedFilesFromListToolStripMenuItem.Text = "&Remove selected files from list";
+      // 
+      // iD3FunctionsToolStripMenuItem
+      // 
+      this.iD3FunctionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editTAGVer1ToolStripMenuItem,
+            this.multipleEditTAGVer1ToolStripMenuItem,
+            this.removeTAGVer1ToolStripMenuItem,
+            this.filenameTAGVer1ToolStripMenuItem,
+            this.tAGVer1FilenameToolStripMenuItem,
+            this.toolStripSeparator17,
+            this.editTAGVer2ToolStripMenuItem,
+            this.multipleEditTAGVer2ToolStripMenuItem,
+            this.removeTAGVer1ToolStripMenuItem1,
+            this.removeTAGVer1ToolStripMenuItem2,
+            this.tAGVer2FilenameToolStripMenuItem});
+      this.iD3FunctionsToolStripMenuItem.Name = "iD3FunctionsToolStripMenuItem";
+      this.iD3FunctionsToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+      this.iD3FunctionsToolStripMenuItem.Text = "&ID3-Functions";
+      // 
+      // editTAGVer1ToolStripMenuItem
+      // 
+      this.editTAGVer1ToolStripMenuItem.Name = "editTAGVer1ToolStripMenuItem";
+      this.editTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+      this.editTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+      this.editTAGVer1ToolStripMenuItem.Text = "Edit TAG Ver. &1";
+      // 
+      // multipleEditTAGVer1ToolStripMenuItem
+      // 
+      this.multipleEditTAGVer1ToolStripMenuItem.Name = "multipleEditTAGVer1ToolStripMenuItem";
+      this.multipleEditTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
+      this.multipleEditTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+      this.multipleEditTAGVer1ToolStripMenuItem.Text = "&Multiple Edit TAG Ver. 1 ";
+      // 
+      // removeTAGVer1ToolStripMenuItem
+      // 
+      this.removeTAGVer1ToolStripMenuItem.Name = "removeTAGVer1ToolStripMenuItem";
+      this.removeTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F11)));
+      this.removeTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+      this.removeTAGVer1ToolStripMenuItem.Text = "&Remove TAG Ver. 1";
+      // 
+      // filenameTAGVer1ToolStripMenuItem
+      // 
+      this.filenameTAGVer1ToolStripMenuItem.Name = "filenameTAGVer1ToolStripMenuItem";
+      this.filenameTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+      this.filenameTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+      this.filenameTAGVer1ToolStripMenuItem.Text = "&Filename -> TAG Ver. 1";
+      // 
+      // tAGVer1FilenameToolStripMenuItem
+      // 
+      this.tAGVer1FilenameToolStripMenuItem.Name = "tAGVer1FilenameToolStripMenuItem";
+      this.tAGVer1FilenameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+      this.tAGVer1FilenameToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+      this.tAGVer1FilenameToolStripMenuItem.Text = "&TAG Ver. 1 -> Filename";
+      // 
+      // toolStripSeparator17
+      // 
+      this.toolStripSeparator17.Name = "toolStripSeparator17";
+      this.toolStripSeparator17.Size = new System.Drawing.Size(244, 6);
+      // 
+      // editTAGVer2ToolStripMenuItem
+      // 
+      this.editTAGVer2ToolStripMenuItem.Name = "editTAGVer2ToolStripMenuItem";
+      this.editTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
+      this.editTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+      this.editTAGVer2ToolStripMenuItem.Text = "Edit TAG Ver. &2";
+      // 
+      // multipleEditTAGVer2ToolStripMenuItem
+      // 
+      this.multipleEditTAGVer2ToolStripMenuItem.Name = "multipleEditTAGVer2ToolStripMenuItem";
+      this.multipleEditTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+      this.multipleEditTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+      this.multipleEditTAGVer2ToolStripMenuItem.Text = "&Multi&ple Edit TAG Ver. 2";
+      // 
+      // removeTAGVer1ToolStripMenuItem1
+      // 
+      this.removeTAGVer1ToolStripMenuItem1.Name = "removeTAGVer1ToolStripMenuItem1";
+      this.removeTAGVer1ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F12)));
+      this.removeTAGVer1ToolStripMenuItem1.Size = new System.Drawing.Size(247, 22);
+      this.removeTAGVer1ToolStripMenuItem1.Text = "Remo&ve TAG Ver. 2";
+      // 
+      // removeTAGVer1ToolStripMenuItem2
+      // 
+      this.removeTAGVer1ToolStripMenuItem2.Name = "removeTAGVer1ToolStripMenuItem2";
+      this.removeTAGVer1ToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+      this.removeTAGVer1ToolStripMenuItem2.Size = new System.Drawing.Size(247, 22);
+      this.removeTAGVer1ToolStripMenuItem2.Text = "File&name -> TAG Ver. 2";
+      // 
+      // tAGVer2FilenameToolStripMenuItem
+      // 
+      this.tAGVer2FilenameToolStripMenuItem.Name = "tAGVer2FilenameToolStripMenuItem";
+      this.tAGVer2FilenameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+      this.tAGVer2FilenameToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+      this.tAGVer2FilenameToolStripMenuItem.Text = "TA&G Ver. 2 -> Filename";
+      // 
+      // extendedFunctionsToolStripMenuItem
+      // 
+      this.extendedFunctionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.caseConversionToolStripMenuItem,
+            this.transferConvertTAGsToolStripMenuItem,
+            this.changeTAGVer2TextencodingToolStripMenuItem,
+            this.toolStripSeparator14,
+            this.queryFreeDBToolStripMenuItem,
+            this.toolStripSeparator15,
+            this.enumerateInfilenameToolStripMenuItem,
+            this.enumerateInTAGVer1ToolStripMenuItem,
+            this.enumerateInTAGVer2ToolStripMenuItem,
+            this.toolStripSeparator16,
+            this.createFilelistPlaylistToolStripMenuItem});
+      this.extendedFunctionsToolStripMenuItem.Name = "extendedFunctionsToolStripMenuItem";
+      this.extendedFunctionsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
+      this.extendedFunctionsToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
+      this.extendedFunctionsToolStripMenuItem.Text = "E&xtended Functions";
+      // 
+      // caseConversionToolStripMenuItem
+      // 
+      this.caseConversionToolStripMenuItem.Name = "caseConversionToolStripMenuItem";
+      this.caseConversionToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
+      this.caseConversionToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+      this.caseConversionToolStripMenuItem.Text = "C&ase Conversion";
+      // 
+      // transferConvertTAGsToolStripMenuItem
+      // 
+      this.transferConvertTAGsToolStripMenuItem.Name = "transferConvertTAGsToolStripMenuItem";
+      this.transferConvertTAGsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
+      this.transferConvertTAGsToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+      this.transferConvertTAGsToolStripMenuItem.Text = "&Transfer/Convert TAGs";
+      // 
+      // changeTAGVer2TextencodingToolStripMenuItem
+      // 
+      this.changeTAGVer2TextencodingToolStripMenuItem.Name = "changeTAGVer2TextencodingToolStripMenuItem";
+      this.changeTAGVer2TextencodingToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+      this.changeTAGVer2TextencodingToolStripMenuItem.Text = "Change TAG Ver. 2 text &encoding";
+      // 
+      // toolStripSeparator14
+      // 
+      this.toolStripSeparator14.Name = "toolStripSeparator14";
+      this.toolStripSeparator14.Size = new System.Drawing.Size(256, 6);
+      // 
+      // queryFreeDBToolStripMenuItem
+      // 
+      this.queryFreeDBToolStripMenuItem.Name = "queryFreeDBToolStripMenuItem";
+      this.queryFreeDBToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+      this.queryFreeDBToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+      this.queryFreeDBToolStripMenuItem.Text = "&Query FreeDB";
+      // 
+      // toolStripSeparator15
+      // 
+      this.toolStripSeparator15.Name = "toolStripSeparator15";
+      this.toolStripSeparator15.Size = new System.Drawing.Size(256, 6);
+      // 
+      // enumerateInfilenameToolStripMenuItem
+      // 
+      this.enumerateInfilenameToolStripMenuItem.Name = "enumerateInfilenameToolStripMenuItem";
+      this.enumerateInfilenameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F9)));
+      this.enumerateInfilenameToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+      this.enumerateInfilenameToolStripMenuItem.Text = "Enumerate in &filename";
+      // 
+      // enumerateInTAGVer1ToolStripMenuItem
+      // 
+      this.enumerateInTAGVer1ToolStripMenuItem.Name = "enumerateInTAGVer1ToolStripMenuItem";
+      this.enumerateInTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F11)));
+      this.enumerateInTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+      this.enumerateInTAGVer1ToolStripMenuItem.Text = "Enumerate in TAG Ver. &1";
+      // 
+      // enumerateInTAGVer2ToolStripMenuItem
+      // 
+      this.enumerateInTAGVer2ToolStripMenuItem.Name = "enumerateInTAGVer2ToolStripMenuItem";
+      this.enumerateInTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F12)));
+      this.enumerateInTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+      this.enumerateInTAGVer2ToolStripMenuItem.Text = "Enumerate in TAG Ver. &2";
+      // 
+      // toolStripSeparator16
+      // 
+      this.toolStripSeparator16.Name = "toolStripSeparator16";
+      this.toolStripSeparator16.Size = new System.Drawing.Size(256, 6);
+      // 
+      // createFilelistPlaylistToolStripMenuItem
+      // 
+      this.createFilelistPlaylistToolStripMenuItem.Name = "createFilelistPlaylistToolStripMenuItem";
+      this.createFilelistPlaylistToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+      this.createFilelistPlaylistToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+      this.createFilelistPlaylistToolStripMenuItem.Text = "&Create Filelist / Playlist";
+      // 
+      // analyseToolStripMenuItem
+      // 
+      this.analyseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.findduplicateFilesToolStripMenuItem,
+            this.compareFilenameWthTAGInformationToolStripMenuItem,
+            this.toolStripSeparator10,
+            this.selectDuplicateFilesToolStripMenuItem,
+            this.selectmismatchingFilenameTAGFilesToolStripMenuItem});
+      this.analyseToolStripMenuItem.Name = "analyseToolStripMenuItem";
+      this.analyseToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+      this.analyseToolStripMenuItem.Text = "Anal&yse";
+      // 
+      // findduplicateFilesToolStripMenuItem
+      // 
+      this.findduplicateFilesToolStripMenuItem.Name = "findduplicateFilesToolStripMenuItem";
+      this.findduplicateFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F7)));
+      this.findduplicateFilesToolStripMenuItem.Size = new System.Drawing.Size(348, 22);
+      this.findduplicateFilesToolStripMenuItem.Text = "Find &duplicate files";
+      // 
+      // compareFilenameWthTAGInformationToolStripMenuItem
+      // 
+      this.compareFilenameWthTAGInformationToolStripMenuItem.Name = "compareFilenameWthTAGInformationToolStripMenuItem";
+      this.compareFilenameWthTAGInformationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F8)));
+      this.compareFilenameWthTAGInformationToolStripMenuItem.Size = new System.Drawing.Size(348, 22);
+      this.compareFilenameWthTAGInformationToolStripMenuItem.Text = "&Compare filename wth TAG information";
+      // 
+      // toolStripSeparator10
+      // 
+      this.toolStripSeparator10.Name = "toolStripSeparator10";
+      this.toolStripSeparator10.Size = new System.Drawing.Size(345, 6);
+      // 
+      // selectDuplicateFilesToolStripMenuItem
+      // 
+      this.selectDuplicateFilesToolStripMenuItem.Name = "selectDuplicateFilesToolStripMenuItem";
+      this.selectDuplicateFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F7)));
+      this.selectDuplicateFilesToolStripMenuItem.Size = new System.Drawing.Size(348, 22);
+      this.selectDuplicateFilesToolStripMenuItem.Text = "&Select duplicate files";
+      // 
+      // selectmismatchingFilenameTAGFilesToolStripMenuItem
+      // 
+      this.selectmismatchingFilenameTAGFilesToolStripMenuItem.Name = "selectmismatchingFilenameTAGFilesToolStripMenuItem";
+      this.selectmismatchingFilenameTAGFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F8)));
+      this.selectmismatchingFilenameTAGFilesToolStripMenuItem.Size = new System.Drawing.Size(348, 22);
+      this.selectmismatchingFilenameTAGFilesToolStripMenuItem.Text = "Select &mismatching filename <--> TAG files";
+      // 
+      // optionsToolStripMenuItem
+      // 
+      this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.scanSubdirectoriesToolStripMenuItem,
+            this.quickFilenameEditingToolStripMenuItem,
+            this.synchronizeVer1AndVer2EditingToolStripMenuItem,
+            this.toolStripSeparator11,
+            this.editLibrariesToolStripMenuItem,
+            this.toolStripSeparator12,
+            this.preferencesToolStripMenuItem,
+            this.toolStripSeparator13,
+            this.cboLanguage});
+      this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+      this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+      this.optionsToolStripMenuItem.Text = "&Options";
+      // 
+      // scanSubdirectoriesToolStripMenuItem
+      // 
+      this.scanSubdirectoriesToolStripMenuItem.Name = "scanSubdirectoriesToolStripMenuItem";
+      this.scanSubdirectoriesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F9)));
+      this.scanSubdirectoriesToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+      this.scanSubdirectoriesToolStripMenuItem.Text = "&Scan subdirectories";
+      // 
+      // quickFilenameEditingToolStripMenuItem
+      // 
+      this.quickFilenameEditingToolStripMenuItem.Checked = true;
+      this.quickFilenameEditingToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.quickFilenameEditingToolStripMenuItem.Name = "quickFilenameEditingToolStripMenuItem";
+      this.quickFilenameEditingToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F10)));
+      this.quickFilenameEditingToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+      this.quickFilenameEditingToolStripMenuItem.Text = "&Quick filename editing";
+      // 
+      // synchronizeVer1AndVer2EditingToolStripMenuItem
+      // 
+      this.synchronizeVer1AndVer2EditingToolStripMenuItem.Name = "synchronizeVer1AndVer2EditingToolStripMenuItem";
+      this.synchronizeVer1AndVer2EditingToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F11)));
+      this.synchronizeVer1AndVer2EditingToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+      this.synchronizeVer1AndVer2EditingToolStripMenuItem.Text = "Synchronize Ver. 1 and Ver. 2 editing";
+      // 
+      // toolStripSeparator11
+      // 
+      this.toolStripSeparator11.Name = "toolStripSeparator11";
+      this.toolStripSeparator11.Size = new System.Drawing.Size(310, 6);
+      // 
+      // editLibrariesToolStripMenuItem
+      // 
+      this.editLibrariesToolStripMenuItem.Name = "editLibrariesToolStripMenuItem";
+      this.editLibrariesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F12)));
+      this.editLibrariesToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+      this.editLibrariesToolStripMenuItem.Text = "Edit &Libraries";
+      // 
+      // toolStripSeparator12
+      // 
+      this.toolStripSeparator12.Name = "toolStripSeparator12";
+      this.toolStripSeparator12.Size = new System.Drawing.Size(310, 6);
+      // 
+      // preferencesToolStripMenuItem
+      // 
+      this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
+      this.preferencesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
+      this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+      this.preferencesToolStripMenuItem.Text = "Preferences ...";
+      // 
+      // toolStripSeparator13
+      // 
+      this.toolStripSeparator13.Name = "toolStripSeparator13";
+      this.toolStripSeparator13.Size = new System.Drawing.Size(310, 6);
+      // 
+      // cboLanguage
+      // 
+      this.cboLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.cboLanguage.DropDownWidth = 250;
+      this.cboLanguage.Items.AddRange(new object[] {
+            "English",
+            "Deutsch"});
+      this.cboLanguage.Name = "cboLanguage";
+      this.cboLanguage.Size = new System.Drawing.Size(121, 23);
+      // 
+      // helpToolStripMenuItem
+      // 
+      this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpToolStripMenuItem1,
+            this.shortcutsToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.aboutToolStripMenuItem});
+      this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+      this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+      this.helpToolStripMenuItem.Text = "&Help";
+      // 
+      // helpToolStripMenuItem1
+      // 
+      this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+      this.helpToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F1;
+      this.helpToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+      this.helpToolStripMenuItem1.Text = "&Help ...";
+      this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
+      // 
+      // shortcutsToolStripMenuItem
+      // 
+      this.shortcutsToolStripMenuItem.Name = "shortcutsToolStripMenuItem";
+      this.shortcutsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.shortcutsToolStripMenuItem.Text = "&Shortcuts ...";
+      this.shortcutsToolStripMenuItem.Click += new System.EventHandler(this.shortcutsToolStripMenuItem_Click);
+      // 
+      // toolStripSeparator1
+      // 
+      this.toolStripSeparator1.Name = "toolStripSeparator1";
+      this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+      // 
+      // aboutToolStripMenuItem
+      // 
+      this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+      this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.aboutToolStripMenuItem.Text = "&About ...";
+      this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+      // 
+      // frmMain
+      // 
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+      this.ClientSize = new System.Drawing.Size(1157, 778);
       this.Controls.Add(this.EnumInfo);
       this.Controls.Add(this.MP3View);
       this.Controls.Add(this.SplitterBottom);
@@ -747,15 +1883,24 @@ namespace ID3_TagIT
       this.Controls.Add(this.barRightDockSite);
       this.Controls.Add(this.barTopDockSite);
       this.Controls.Add(this.barBottomDockSite);
-      this.Icon = (Icon)(new ResourceManager(typeof(frmMain))).GetObject("$this.Icon");
+      this.Controls.Add(this.menuStrip1);
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+      this.MainMenuStrip = this.menuStrip1;
       this.Name = "frmMain";
       this.Text = "ID3-TagIT";
       this.NavigationPan.ResumeLayout(false);
       this.FoldersPanel.ResumeLayout(false);
       this.FavouritesPanel.ResumeLayout(false);
-      ((ISupportInitialize)this.SideBar).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SideBar)).EndInit();
       this.SideBar.ResumeLayout(false);
+      this.SideBar.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.APICView)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+      this.menuStrip1.ResumeLayout(false);
+      this.menuStrip1.PerformLayout();
       this.ResumeLayout(false);
+      this.PerformLayout();
+
     }
 
     public frmMain()
@@ -2695,9 +3840,10 @@ namespace ID3_TagIT
     private void FolderRenameCB(ref frmProgress frmProg)
     {
       IEnumerator enumerator = null;
+      frmProg.btnCancel.Enabled = false;
       string oldValue = frmProg.String01;
       string newValue = frmProg.String02;
-      frmProg.btnCancel.Enabled = false;
+
       try
       {
         enumerator = Declarations.MP3s.GetEnumerator();
@@ -2708,10 +3854,9 @@ namespace ID3_TagIT
           if (!File.Exists(current.FI.FullName))
           {
             string path = current.CurrentFullName.Substring(0, current.CurrentFullName.LastIndexOf(@"\")) + @"\" + current.FI.Name;
+
             if (File.Exists(path))
-            {
               current.FI = new FileInfo(path);
-            }
           }
           frmProg.ProgressBar.PerformStep();
         }
@@ -2719,9 +3864,7 @@ namespace ID3_TagIT
       finally
       {
         if (enumerator is IDisposable)
-        {
           ((IDisposable)enumerator).Dispose();
-        }
       }
     }
 
@@ -3049,45 +4192,44 @@ namespace ID3_TagIT
       Application.DoEvents();
       splash.lblState.Text = "Checking Registry settings";
       Application.DoEvents();
+
       try
       {
         RegistryKey key4 = Registry.ClassesRoot.OpenSubKey(@"Folder\Shell\ID3-TagIT", true);
         string executablePath = Application.ExecutablePath;
+
         if (key4 != null)
-        {
           Registry.ClassesRoot.OpenSubKey(@"Folder\Shell", true).DeleteSubKeyTree("ID3-TagIT");
-        }
+
         RegistryKey key3 = Registry.ClassesRoot.OpenSubKey(@"Directory\Shell\ID3-TagIT", true);
+
         if (Declarations.objSettings.ExplorerContext)
         {
           if (key3 != null)
-          {
             Registry.ClassesRoot.OpenSubKey(@"Directory\Shell", true).DeleteSubKeyTree("ID3-TagIT");
-          }
+
           Registry.ClassesRoot.OpenSubKey(@"Directory\Shell", true).CreateSubKey("ID3-TagIT");
           Registry.ClassesRoot.OpenSubKey(@"Directory\Shell\ID3-TagIT", true).CreateSubKey("command");
           Registry.ClassesRoot.OpenSubKey(@"Directory\Shell\ID3-TagIT\command", true).SetValue(null, "\"" + executablePath + "\"" + " " + "\"" + "/P=%1" + "\"");
         }
         if (!Declarations.objSettings.ExplorerContext & (key3 != null))
-        {
           Registry.ClassesRoot.OpenSubKey(@"Directory\Shell", true).DeleteSubKeyTree("ID3-TagIT");
-        }
       }
       catch (Exception exception1)
       {
         ProjectData.SetProjectError(exception1);
         ProjectData.ClearProjectError();
       }
+
       splash.lblState.Text = "Restoring interface";
       Application.DoEvents();
       Form form = this;
       Id3TagIT_Main.RestoreFormSettings(ref form);
+
       try
       {
         if (File.Exists(Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml")))
-        {
           this.DotNetBarManager.Bars["Toolbar"].LoadDefinition(Path.Combine(Declarations.vstrUserAppData, "Toolbar.xml"));
-        }
       }
       catch (Exception exception2)
       {
@@ -3097,9 +4239,7 @@ namespace ID3_TagIT
       try
       {
         if (File.Exists(Path.Combine(Declarations.vstrUserAppData, "ExtToolbar.xml")))
-        {
           this.DotNetBarManager.Bars["ExtToolbar"].LoadDefinition(Path.Combine(Declarations.vstrUserAppData, "ExtToolbar.xml"));
-        }
       }
       catch (Exception exception3)
       {
@@ -3109,9 +4249,7 @@ namespace ID3_TagIT
       try
       {
         if (File.Exists(Path.Combine(Declarations.vstrUserAppData, "Navpanel.xml")))
-        {
           this.NavigationPan.LoadLayout(Path.Combine(Declarations.vstrUserAppData, "Navpanel.xml"));
-        }
       }
       catch (Exception exception4)
       {
@@ -3121,9 +4259,7 @@ namespace ID3_TagIT
       try
       {
         if (File.Exists(Path.Combine(Declarations.vstrUserAppData, "Interface.xml")))
-        {
           this.DotNetBarManager.LoadLayout(Path.Combine(Declarations.vstrUserAppData, "Interface.xml"));
-        }
       }
       catch (Exception exception5)
       {
@@ -3169,14 +4305,12 @@ namespace ID3_TagIT
       this.mnubtnViewVer2.Checked = BooleanType.FromObject(Interaction.IIf(Declarations.objSettings.VersionToShow == 2, true, false));
       this.DotNetBarManager.GetItem("btnV1V2View").Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
       this.DotNetBarManager.GetItem("lblVersion").Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
+
       if (Declarations.objSettings.ScanSubDirs)
-      {
         this.DotNetBarManager.GetItem("lblSubDirs").Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsYes"]);
-      }
       else
-      {
         this.DotNetBarManager.GetItem("lblSubDirs").Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsNo"]);
-      }
+
       if (Declarations.objSettings.UseThemes)
       {
         foreach (Bar bar in this.DotNetBarManager.Bars)
@@ -3193,6 +4327,7 @@ namespace ID3_TagIT
           bar.Refresh();
         }
       }
+
       this.NavigationPan.Width = Declarations.objSettings.NavPanWidth;
       this.SideBar.Width = Declarations.objSettings.SideBarWidth;
       this.ErrorMsg.Height = Declarations.objSettings.ErrorHeight;
@@ -3219,7 +4354,9 @@ namespace ID3_TagIT
           }
         }
       }
+
       int num = -1;
+
       foreach (DataRow row in Declarations.objSettings.Tools.Rows)
       {
         num++;
@@ -3228,15 +4365,15 @@ namespace ID3_TagIT
           if (BooleanType.FromObject(row["DefaultPlayer"]))
           {
             if (StringType.StrCmp(sLeft, "", false) != 0)
-            {
               this.ToolsIcons.Images.Add(Id3TagIT_Main.GetAppIcon(sLeft, true));
-            }
+
             ButtonItem item2 = new ButtonItem("ToolItem" + num.ToString(), row["ToolDescription"].ToString())
             {
               ImageIndex = num,
               Tag = num,
               ButtonStyle = eButtonStyle.ImageAndText
             };
+
             this.BarGroupTools.SubItems.Add(item2);
           }
           else
@@ -3263,16 +4400,17 @@ namespace ID3_TagIT
           ProjectData.ClearProjectError();
         }
       }
+
       this.FavTree.BeginUpdate();
+
       foreach (TreeNode node in Declarations.objSettings.FavNodes)
-      {
         LateBinding.LateCall(this.FavTree.Nodes, null, "Add", new object[] { RuntimeHelpers.GetObjectValue(node.Clone()) }, null, null);
-      }
+
       this.FavTree.EndUpdate();
+
       foreach (DataRow row in Declarations.objSettings.Artists.Rows)
-      {
         this.cmbArtist.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
-      }
+
       this.colHErrFile.Text = StringType.FromObject(Declarations.objResources.ResStrings["CHError1"]);
       this.colHErrFile.Width = 200;
       this.colHErrMsg.Text = StringType.FromObject(Declarations.objResources.ResStrings["CHError2"]);
@@ -3303,9 +4441,7 @@ namespace ID3_TagIT
       this.FolderRenameTimer.Tick += new EventHandler(this.FolderRenameEventProcessor);
       int num2 = 0;
       foreach (ListViewItem item in this.MP3View.SelectedItems)
-      {
         num2 = IntegerType.FromObject(ObjectType.AddObj(num2, LateBinding.LateGet(item.Tag, null, "Duration", new object[0], null, null)));
-      }
       int num4 = num2 / 0xe10;
       num4 = (num2 - ((num2 / 0xe10) * 0xe10)) / 60;
       string introduced45 = num4.ToString().PadLeft(2, '0') + ":";
@@ -3315,9 +4451,7 @@ namespace ID3_TagIT
       object[] args = new object[] { "%3", str3 };
       bool[] copyBack = new bool[] { false, true };
       if (copyBack[1])
-      {
         str3 = StringType.FromObject(args[1]);
-      }
       this.DotNetBarManager.GetItem("lblNumber").Text = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["Number"], null, "Replace", new object[] { "%1", this.MP3View.Items.Count.ToString() }, null, null), null, "Replace", new object[] { "%2", this.MP3View.SelectedItems.Count.ToString() }, null, null), null, "Replace", args, null, copyBack));
       args = new object[2];
       args[0] = "%1";
@@ -3326,9 +4460,7 @@ namespace ID3_TagIT
       object[] objArray2 = args;
       copyBack = new bool[] { false, true };
       if (copyBack[1])
-      {
         objSettings.CurrentPath = StringType.FromObject(objArray2[1]);
-      }
       this.DotNetBarManager.GetItem("lblPath").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["Path"], null, "Replace", objArray2, null, copyBack));
       try
       {
@@ -3417,9 +4549,7 @@ namespace ID3_TagIT
         ProjectData.ClearProjectError();
       }
       if (vbooFill)
-      {
         this.MP3View_FillColumns(ref Declarations.MP3s);
-      }
     }
 
     private void GetFilesCB(ref frmProgress frmProg)
@@ -3433,24 +4563,18 @@ namespace ID3_TagIT
         string vstrFullFilename = StringType.FromObject(enumerator.Current);
         Application.DoEvents();
         if (frmProg.Canceled)
-        {
           return;
-        }
         frmProg.Infos.Text = vstrFullFilename;
         MP3 mp = new MP3(vstrFullFilename);
         if (mp.ExploreMP3())
-        {
           Declarations.MP3s.Add(mp);
-        }
         if (vintHelpCount != this.vintHelpCount)
         {
           vintHelpCount = this.vintHelpCount;
           try
           {
             if (Declarations.MP3s.Count > 0)
-            {
               num3 = (count - Declarations.MP3s.Count) / (Declarations.MP3s.Count / vintHelpCount);
-            }
           }
           catch (Exception exception1)
           {
@@ -3485,9 +4609,7 @@ namespace ID3_TagIT
             case MsgBoxResult.Yes:
               this.SaveChanges();
               if (!this.CheckAllChanged())
-              {
                 flag = true;
-              }
               break;
 
             case MsgBoxResult.No:
@@ -3496,9 +4618,7 @@ namespace ID3_TagIT
           }
         }
         else
-        {
           flag = true;
-        }
       }
       while (!flag);
       this.FolderBrowserDialog.Description = StringType.FromObject(Declarations.objResources.ResStrings["FileMoveText"]);
@@ -3537,14 +4657,10 @@ namespace ID3_TagIT
               this.AudioCheckSumCalculation();
             }
             else
-            {
               this.GetFiles(null, true, true);
-            }
           }
           else
-          {
             this.GetFiles(null, true, true);
-          }
           this.Focus();
           Declarations.objSettings.MoveCopyPath = path;
         }
@@ -3566,109 +4682,57 @@ namespace ID3_TagIT
         DataRow dataRo = Declarations.objSettings.Columns.Rows[num];
         object obj3 = dataRo["ID"];
         if (ObjectType.ObjTst(obj3, 1, false) == 0)
-        {
           this.colHFilename.Width = IntegerType.FromObject(dataRo["Width"]);
-        }
         else if (ObjectType.ObjTst(obj3, 2, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHSubDir, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 3, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHTAGVer1, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 4, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHTAGVer2, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 5, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHArtist, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 6, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHTitle, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 7, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHAlbum, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 8, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHTrack, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 9, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHPosMedia, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 10, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHComment, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 11, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHGenre, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 12, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHYear, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 13, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHRating, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 14, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHDuration, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 15, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHBitrate, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 0x10, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHVBR, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 0x11, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHSamplerate, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 0x12, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHChannel, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 0x13, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHVersion, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 20, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHDate, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 0x15, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHComposer, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 0x16, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHFileSize, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 0x17, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHBPM, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 0x18, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHPicCount, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 0x19, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHAudioCheckSum, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
         else if (ObjectType.ObjTst(obj3, 0x1a, false) == 0)
-        {
           this.MP3View_BuildColumns(ref this.colHCreateDate, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        }
       }
       if (ObjectType.ObjTst(Declarations.objSettings.Columns.Rows[0]["ID"], 1, false) != 0)
       {
@@ -3680,9 +4744,7 @@ namespace ID3_TagIT
           DataRow row2 = Declarations.objSettings.Columns.Rows[num];
           object obj2 = row2["ID"];
           if (ObjectType.ObjTst(obj2, 1, false) == 0)
-          {
             sortOrder[num] = 0;
-          }
           else
           {
             sortOrder[num] = num2;
@@ -3726,9 +4788,7 @@ namespace ID3_TagIT
               object[] args = objArray5;
               bool[] copyBack = new bool[] { false, true };
               if (copyBack[1])
-              {
                 mp4.CurrentFullName = StringType.FromObject(args[1]);
-              }
               object[] objArray3 = new object[2];
               objArray3[0] = "%2";
               MP3 mp3 = tag;
@@ -3736,9 +4796,7 @@ namespace ID3_TagIT
               object[] objArray2 = objArray3;
               bool[] flagArray = new bool[] { false, true };
               if (flagArray[1])
-              {
                 mp3.CurrentFullName = StringType.FromObject(objArray2[1]);
-              }
               Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["FileAlreadyExistsRename"], null, "Replace", args, null, copyBack), null, "Replace", objArray2, null, flagArray), null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Exclamation, null);
               e.CancelEdit = true;
               this.MP3View.LabelEdit = Declarations.objSettings.MouseFilenameEditing;
@@ -3774,17 +4832,11 @@ namespace ID3_TagIT
       Column.Width = IntegerType.FromObject(DataRo["Width"]);
       object obj2 = DataRo["Alignment"];
       if (ObjectType.ObjTst(obj2, "Left", false) == 0)
-      {
         Column.TextAlign = HorizontalAlignment.Left;
-      }
       else if (ObjectType.ObjTst(obj2, "Right", false) == 0)
-      {
         Column.TextAlign = HorizontalAlignment.Right;
-      }
       else if (ObjectType.ObjTst(obj2, "Center", false) == 0)
-      {
         Column.TextAlign = HorizontalAlignment.Center;
-      }
       this.MP3View.Columns.Add(Column);
     }
 
@@ -3799,13 +4851,9 @@ namespace ID3_TagIT
       IntPtr ptr2 = Declarations.SendMessage(Declarations.SendMessage(this.MP3View.Handle, 0x101f, 0, 0), 0x1208, 0, this.ColumnHeaderIcons.Handle.ToInt32());
       lvcolumn.mask = 1;
       if ((((((((((StringType.StrCmp(this.MP3View.Columns[this.SortedColumn].Text, this.colHTrack.Text, false) == 0) | (StringType.StrCmp(this.MP3View.Columns[this.SortedColumn].Text, this.colHPosMedia.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[this.SortedColumn].Text, this.colHBPM.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[this.SortedColumn].Text, this.colHYear.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[this.SortedColumn].Text, this.colHRating.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[this.SortedColumn].Text, this.colHBitrate.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[this.SortedColumn].Text, this.colHPicCount.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[this.SortedColumn].Text, this.colHAudioCheckSum.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[this.SortedColumn].Text, this.colHFileSize.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[this.SortedColumn].Text, this.colHSamplerate.Text, false) == 0))
-      {
         lvcolumn.fmt = 1;
-      }
       else
-      {
         lvcolumn.fmt = 0;
-      }
       lvcolumn.iImage = 0;
       lvcolumn.cchTextMax = 0;
       lvcolumn.cx = 0;
@@ -3815,21 +4863,13 @@ namespace ID3_TagIT
       ptr2 = Declarations.SendMessage(this.MP3View.Handle, 0x101a, this.SortedColumn, ref lvcolumn);
       lvcolumn.mask = 0x11;
       if ((((((((((StringType.StrCmp(this.MP3View.Columns[e.Column].Text, this.colHTrack.Text, false) == 0) | (StringType.StrCmp(this.MP3View.Columns[e.Column].Text, this.colHPosMedia.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[e.Column].Text, this.colHBPM.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[e.Column].Text, this.colHYear.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[e.Column].Text, this.colHRating.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[e.Column].Text, this.colHBitrate.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[e.Column].Text, this.colHPicCount.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[e.Column].Text, this.colHAudioCheckSum.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[e.Column].Text, this.colHFileSize.Text, false) == 0)) | (StringType.StrCmp(this.MP3View.Columns[e.Column].Text, this.colHSamplerate.Text, false) == 0))
-      {
         lvcolumn.fmt = 0x1801;
-      }
       else
-      {
         lvcolumn.fmt = 0x1800;
-      }
       if (this.LastSortedColumn == e.Column)
-      {
         lvcolumn.iImage = 0;
-      }
       else
-      {
         lvcolumn.iImage = 1;
-      }
       lvcolumn.cchTextMax = 0;
       lvcolumn.cx = 0;
       lvcolumn.iOrder = 0;
@@ -3843,26 +4883,18 @@ namespace ID3_TagIT
       this.SortedColumn = e.Column;
       string text = this.MP3View.Columns[e.Column].Text;
       if ((((StringType.StrCmp(text, this.colHPicCount.Text, false) == 0) || (StringType.StrCmp(text, this.colHAudioCheckSum.Text, false) == 0)) || ((StringType.StrCmp(text, this.colHFileSize.Text, false) == 0) || (StringType.StrCmp(text, this.colHTrack.Text, false) == 0))) || ((((StringType.StrCmp(text, this.colHPosMedia.Text, false) == 0) || (StringType.StrCmp(text, this.colHBPM.Text, false) == 0)) || ((StringType.StrCmp(text, this.colHYear.Text, false) == 0) || (StringType.StrCmp(text, this.colHRating.Text, false) == 0))) || ((StringType.StrCmp(text, this.colHBitrate.Text, false) == 0) || (StringType.StrCmp(text, this.colHSamplerate.Text, false) == 0))))
-      {
         class2.SortMethod = SortClass.SorterMethod.Numeric;
-      }
       else if ((StringType.StrCmp(text, this.colHDate.Text, false) == 0) || (StringType.StrCmp(text, this.colHCreateDate.Text, false) == 0))
-      {
         class2.SortMethod = SortClass.SorterMethod.Dat;
-      }
       else
-      {
         class2.SortMethod = SortClass.SorterMethod.Text;
-      }
       if (this.LastSortedColumn == e.Column)
       {
         class2.AltSort = true;
         this.LastSortedColumn = -1;
       }
       else
-      {
         this.LastSortedColumn = e.Column;
-      }
       this.MP3View.ListViewItemSorter = class2;
     }
 
@@ -3897,13 +4929,9 @@ namespace ID3_TagIT
     public void MP3View_FillColumns(ref ArrayList MP3sList)
     {
       if ((this.LastSortedColumn == -1) & !this.vbooStartUp)
-      {
         this.LastSortedColumn = this.SortedColumn;
-      }
       else
-      {
         this.LastSortedColumn = -1;
-      }
       this.MP3View.ListViewItemSorter = null;
       Form ownerForm = this;
       frmProgress.Callback cB = new frmProgress.Callback(this.MP3View_FillColumnsCB);
@@ -4041,19 +5069,13 @@ namespace ID3_TagIT
           LateBinding.LateSetComplex(LateBinding.LateGet(LateBinding.LateGet(o, null, "Content", objArray7, strArray2, null), null, "Substring", objArray5, strArray, null), null, "ToUpper", new object[] { RuntimeHelpers.GetObjectValue(objArray3[0]) }, null, true, true);
         }
         if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.BitAndObj(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(null, typeof(Strings), "Asc", objArray10, null, copyBack), 0x41, false) < 0, ObjectType.ObjTst(LateBinding.LateGet(null, typeof(Strings), "Asc", objArray3, null, flagArray), 90, false) > 0), StringType.StrCmp(this.vstrFilter, "@", false) == 0), !Information.IsNumeric(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null))))))
-        {
           flag = true;
-        }
         else if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null), null, "ToUpper", new object[0], null, null), this.vstrFilter, false) == 0)
-        {
           flag = true;
-        }
         goto Label_11ED;
         Label_051D:
         if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
-        {
           flag = true;
-        }
         goto Label_11ED;
         Label_053C:
         if (StringType.StrCmp(mp.V1TAG.Artist, "", false) != 0)
@@ -4061,23 +5083,15 @@ namespace ID3_TagIT
           if (StringType.StrCmp(mp.V1TAG.Artist, "", false) != 0)
           {
             if (Information.IsNumeric(mp.V1TAG.Artist.Substring(0, 1)) & (StringType.StrCmp(this.vstrFilter, "#", false) == 0))
-            {
               flag = true;
-            }
             else if ((((Strings.Asc(mp.V1TAG.Artist.Substring(0, 1).ToUpper()) < 0x41) | (Strings.Asc(mp.V1TAG.Artist.Substring(0, 1).ToUpper()) > 90)) & (StringType.StrCmp(this.vstrFilter, "@", false) == 0)) & !Information.IsNumeric(mp.V1TAG.Artist.Substring(0, 1)))
-            {
               flag = true;
-            }
             else if (StringType.StrCmp(mp.V1TAG.Artist.Substring(0, 1).ToUpper(), this.vstrFilter, false) == 0)
-            {
               flag = true;
-            }
           }
         }
         else if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
-        {
           flag = true;
-        }
         goto Label_11ED;
         Label_0739:
         objArray5 = new object[1];
@@ -4129,19 +5143,13 @@ namespace ID3_TagIT
           LateBinding.LateSetComplex(LateBinding.LateGet(LateBinding.LateGet(obj6, null, "Content", objArray9, strArray3, null), null, "Substring", args, paramnames, null), null, "ToUpper", new object[] { RuntimeHelpers.GetObjectValue(objArray13[0]) }, null, true, true);
         }
         if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.BitAndObj(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(null, typeof(Strings), "Asc", objArray6, null, flagArray), 0x41, false) < 0, ObjectType.ObjTst(LateBinding.LateGet(null, typeof(Strings), "Asc", objArray13, null, copyBack), 90, false) > 0), StringType.StrCmp(this.vstrFilter, "@", false) == 0), !Information.IsNumeric(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null))))))
-        {
           flag = true;
-        }
         else if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null), null, "ToUpper", new object[0], null, null), this.vstrFilter, false) == 0)
-        {
           flag = true;
-        }
         goto Label_11ED;
         Label_0ADF:
         if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
-        {
           flag = true;
-        }
         goto Label_11ED;
         Label_0AFE:
         if (StringType.StrCmp(mp.V1TAG.Title, "", false) != 0)
@@ -4149,17 +5157,11 @@ namespace ID3_TagIT
           if (StringType.StrCmp(mp.V1TAG.Title, "", false) != 0)
           {
             if (Information.IsNumeric(mp.V1TAG.Title.Substring(0, 1)) & (StringType.StrCmp(this.vstrFilter, "#", false) == 0))
-            {
               flag = true;
-            }
             else if ((((Strings.Asc(mp.V1TAG.Title.Substring(0, 1).ToUpper()) < 0x41) | (Strings.Asc(mp.V1TAG.Title.Substring(0, 1).ToUpper()) > 90)) & (StringType.StrCmp(this.vstrFilter, "@", false) == 0)) & !Information.IsNumeric(mp.V1TAG.Title.Substring(0, 1)))
-            {
               flag = true;
-            }
             else if (StringType.StrCmp(mp.V1TAG.Title.Substring(0, 1).ToUpper(), this.vstrFilter, false) == 0)
-            {
               flag = true;
-            }
           }
         }
         else if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
@@ -4217,19 +5219,13 @@ namespace ID3_TagIT
           LateBinding.LateSetComplex(LateBinding.LateGet(LateBinding.LateGet(obj6, null, "Content", objArray9, strArray3, null), null, "Substring", args, paramnames, null), null, "ToUpper", new object[] { RuntimeHelpers.GetObjectValue(objArray13[0]) }, null, true, true);
         }
         if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.BitAndObj(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(null, typeof(Strings), "Asc", objArray6, null, flagArray), 0x41, false) < 0, ObjectType.ObjTst(LateBinding.LateGet(null, typeof(Strings), "Asc", objArray13, null, copyBack), 90, false) > 0), StringType.StrCmp(this.vstrFilter, "@", false) == 0), !Information.IsNumeric(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null))))))
-        {
           flag = true;
-        }
         else if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(mp.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 1 }, null, null), null, "ToUpper", new object[0], null, null), this.vstrFilter, false) == 0)
-        {
           flag = true;
-        }
         goto Label_11ED;
         Label_10A1:
         if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
-        {
           flag = true;
-        }
         goto Label_11ED;
         Label_10C0:
         if (StringType.StrCmp(mp.V1TAG.Album, "", false) != 0)
@@ -4237,31 +5233,21 @@ namespace ID3_TagIT
           if (StringType.StrCmp(mp.V1TAG.Album, "", false) != 0)
           {
             if (Information.IsNumeric(mp.V1TAG.Album.Substring(0, 1)) & (StringType.StrCmp(this.vstrFilter, "#", false) == 0))
-            {
               flag = true;
-            }
             else if ((((Strings.Asc(mp.V1TAG.Album.Substring(0, 1).ToUpper()) < 0x41) | (Strings.Asc(mp.V1TAG.Album.Substring(0, 1).ToUpper()) > 90)) & (StringType.StrCmp(this.vstrFilter, "@", false) == 0)) & !Information.IsNumeric(mp.V1TAG.Album.Substring(0, 1)))
-            {
               flag = true;
-            }
             else if (StringType.StrCmp(mp.V1TAG.Album.Substring(0, 1).ToUpper(), this.vstrFilter, false) == 0)
-            {
               flag = true;
-            }
           }
         }
         else if (StringType.StrCmp(this.vstrFilter, "\"", false) == 0)
-        {
           flag = true;
-        }
         goto Label_11ED;
         Label_11EA:
         flag = true;
         Label_11ED:
         if (!flag)
-        {
           goto Label_23AA;
-        }
         ListViewItem item = new ListViewItem(mp.CurrentName);
         if (mp.Selected)
         {
@@ -4270,9 +5256,7 @@ namespace ID3_TagIT
         }
         int num7 = this.MP3View.Columns.Count - 1;
         for (int i = 1; i <= num7; i++)
-        {
           item.SubItems.Add("");
-        }
         if (mp.Changed)
         {
           item.BackColor = System.Drawing.Color.FromArgb(Declarations.objSettings.ColorChangedBack);
@@ -4289,152 +5273,90 @@ namespace ID3_TagIT
           item.ForeColor = System.Drawing.Color.FromArgb(Declarations.objSettings.ColorDoubleText);
         }
         if (this.MP3View.Columns.Contains(this.colHSubDir))
-        {
           item.SubItems[this.colHSubDir.Index].Text = StringType.FromObject(Interaction.IIf(Declarations.objSettings.CurrentPath.EndsWith(":"), mp.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath + @"\", ""), mp.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath, "")));
-        }
         if (!((mp.Bitrate > 0x61a80) | (mp.Bitrate == 0)))
         {
           if (this.MP3View.Columns.Contains(this.colHChannel))
-          {
             item.SubItems[this.colHChannel.Index].Text = mp.ChannelText;
-          }
           if (this.MP3View.Columns.Contains(this.colHBitrate))
-          {
             item.SubItems[this.colHBitrate.Index].Text = StringType.FromInteger(mp.Bitrate / 0x3e8);
-          }
           if (this.MP3View.Columns.Contains(this.colHVBR))
-          {
             item.SubItems[this.colHVBR.Index].Text = StringType.FromObject(Interaction.IIf(mp.VBR, "VBR", "CBR"));
-          }
           if (this.MP3View.Columns.Contains(this.colHSamplerate))
-          {
             item.SubItems[this.colHSamplerate.Index].Text = StringType.FromInteger(mp.Samplerate);
-          }
           if (this.MP3View.Columns.Contains(this.colHVersion))
-          {
             item.SubItems[this.colHVersion.Index].Text = mp.VersionText + " " + mp.LayerText;
-          }
           if (this.MP3View.Columns.Contains(this.colHDuration))
-          {
             item.SubItems[this.colHDuration.Index].Text = mp.DurationFormated;
-          }
         }
         else
         {
           if (this.MP3View.Columns.Contains(this.colHChannel))
-          {
             item.SubItems[this.colHChannel.Index].Text = "";
-          }
           if (this.MP3View.Columns.Contains(this.colHBitrate))
-          {
             item.SubItems[this.colHBitrate.Index].Text = "";
-          }
           if (this.MP3View.Columns.Contains(this.colHVBR))
-          {
             item.SubItems[this.colHVBR.Index].Text = "";
-          }
           if (this.MP3View.Columns.Contains(this.colHSamplerate))
-          {
             item.SubItems[this.colHSamplerate.Index].Text = "";
-          }
           if (this.MP3View.Columns.Contains(this.colHVersion))
-          {
             item.SubItems[this.colHVersion.Index].Text = "";
-          }
           if (this.MP3View.Columns.Contains(this.colHDuration))
-          {
             item.SubItems[this.colHDuration.Index].Text = "";
-          }
         }
         if (this.MP3View.Columns.Contains(this.colHTAGVer1))
-        {
           item.SubItems[this.colHTAGVer1.Index].Text = mp.V1TAG.TAGVersion.ToString().Replace("0", "-").Replace("1-", "1.0").Replace("11", "1.1");
-        }
         if (this.MP3View.Columns.Contains(this.colHTAGVer2))
-        {
           item.SubItems[this.colHTAGVer2.Index].Text = mp.V2TAG.TAGVersion.ToString().Replace("2", "2.2").Replace("3", "2.3").Replace("4", "2.4").Replace("0", "-");
-        }
         if (this.MP3View.Columns.Contains(this.colHDate))
-        {
           item.SubItems[this.colHDate.Index].Text = mp.FI.LastWriteTime.ToString();
-        }
         if (this.MP3View.Columns.Contains(this.colHCreateDate))
-        {
           item.SubItems[this.colHCreateDate.Index].Text = mp.FI.CreationTime.ToString();
-        }
         if (this.MP3View.Columns.Contains(this.colHFileSize))
-        {
           item.SubItems[this.colHFileSize.Index].Text = (mp.FI.Length / 0x400L).ToString();
-        }
         if (this.MP3View.Columns.Contains(this.colHAudioCheckSum))
-        {
           item.SubItems[this.colHAudioCheckSum.Index].Text = StringType.FromObject(Interaction.IIf(mp.AudioCheckSum != 0, mp.AudioCheckSum.ToString(), ""));
-        }
         if (!mp.V2TAG.TAGHeaderPresent || (this.vbytVersionToShow != 2))
-        {
           goto Label_216E;
-        }
         if (this.MP3View.Columns.Contains(this.colHArtist))
         {
           if (mp.V2TAG.FrameExists("TPE1"))
-          {
             item.SubItems[this.colHArtist.Index].Text = StringType.FromObject(LateBinding.LateGet(mp.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
-          }
           else
-          {
             item.SubItems[this.colHArtist.Index].Text = "";
-          }
         }
         if (this.MP3View.Columns.Contains(this.colHTitle))
         {
           if (mp.V2TAG.FrameExists("TIT2"))
-          {
             item.SubItems[this.colHTitle.Index].Text = StringType.FromObject(LateBinding.LateGet(mp.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
-          }
           else
-          {
             item.SubItems[this.colHTitle.Index].Text = "";
-          }
         }
         if (this.MP3View.Columns.Contains(this.colHAlbum))
         {
           if (mp.V2TAG.FrameExists("TALB"))
-          {
             item.SubItems[this.colHAlbum.Index].Text = StringType.FromObject(LateBinding.LateGet(mp.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
-          }
           else
-          {
             item.SubItems[this.colHAlbum.Index].Text = "";
-          }
         }
         if (this.MP3View.Columns.Contains(this.colHTrack))
         {
           if (mp.V2TAG.FrameExists("TRCK"))
-          {
             item.SubItems[this.colHTrack.Index].Text = StringType.FromObject(LateBinding.LateGet(mp.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null));
-          }
           else
-          {
             item.SubItems[this.colHTrack.Index].Text = "";
-          }
         }
         if (this.MP3View.Columns.Contains(this.colHGenre))
         {
           if (mp.V2TAG.FrameExists("TCON"))
-          {
             item.SubItems[this.colHGenre.Index].Text = StringType.FromObject(LateBinding.LateGet(mp.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null));
-          }
           else
-          {
             item.SubItems[this.colHGenre.Index].Text = "";
-          }
         }
         if (this.MP3View.Columns.Contains(this.colHYear))
         {
           if (mp.V2TAG.FrameExists("TYER"))
-          {
             item.SubItems[this.colHYear.Index].Text = StringType.FromObject(LateBinding.LateGet(mp.V2TAG.GetFrame("TYER"), null, "Content", new object[0], null, null));
-          }
           else if (mp.V2TAG.FrameExists("TDRC"))
           {
             try
@@ -4448,20 +5370,14 @@ namespace ID3_TagIT
             }
           }
           else
-          {
             item.SubItems[this.colHYear.Index].Text = "";
-          }
         }
         if (this.MP3View.Columns.Contains(this.colHPosMedia))
         {
           if (mp.V2TAG.FrameExists("TPOS"))
-          {
             item.SubItems[this.colHPosMedia.Index].Text = StringType.FromObject(LateBinding.LateGet(mp.V2TAG.GetFrame("TPOS"), null, "Content", new object[0], null, null));
-          }
           else
-          {
             item.SubItems[this.colHPosMedia.Index].Text = "";
-          }
         }
         if (this.MP3View.Columns.Contains(this.colHBPM))
         {
@@ -4472,13 +5388,9 @@ namespace ID3_TagIT
               try
               {
                 if (StringType.StrCmp(mp.V2TAG.GetTextWebFrameContent("TBPM").Trim(new char[] { ' ' }), "", false) == 0)
-                {
                   item.SubItems[this.colHBPM.Index].Text = "";
-                }
                 else
-                {
                   item.SubItems[this.colHBPM.Index].Text = ((int)Math.Round(Conversion.Fix(Conversion.Val(mp.V2TAG.GetTextWebFrameContent("TBPM").Trim(new char[] { ' ' }))))).ToString();
-                }
               }
               catch (Exception exception2)
               {
@@ -4489,14 +5401,10 @@ namespace ID3_TagIT
               }
             }
             else
-            {
               item.SubItems[this.colHBPM.Index].Text = "";
-            }
           }
           else
-          {
             item.SubItems[this.colHBPM.Index].Text = "";
-          }
         }
         if (this.MP3View.Columns.Contains(this.colHComment))
         {
@@ -4543,45 +5451,27 @@ namespace ID3_TagIT
         if (mp.V1TAG.TAGPresent && (this.vbytVersionToShow == 1))
         {
           if (this.MP3View.Columns.Contains(this.colHArtist))
-          {
             item.SubItems[this.colHArtist.Index].Text = mp.V1TAG.Artist;
-          }
           if (this.MP3View.Columns.Contains(this.colHTitle))
-          {
             item.SubItems[this.colHTitle.Index].Text = mp.V1TAG.Title;
-          }
           if (this.MP3View.Columns.Contains(this.colHAlbum))
-          {
             item.SubItems[this.colHAlbum.Index].Text = mp.V1TAG.Album;
-          }
           if (this.MP3View.Columns.Contains(this.colHTrack))
-          {
             item.SubItems[this.colHTrack.Index].Text = StringType.FromObject(Interaction.IIf(mp.V1TAG.Tracknumber > 0, mp.V1TAG.Tracknumber.ToString(), ""));
-          }
           if (this.MP3View.Columns.Contains(this.colHYear))
-          {
             item.SubItems[this.colHYear.Index].Text = StringType.FromObject(Interaction.IIf(mp.V1TAG.Year > 0, mp.V1TAG.Year.ToString(), ""));
-          }
           if (this.MP3View.Columns.Contains(this.colHGenre))
-          {
             item.SubItems[this.colHGenre.Index].Text = mp.V1TAG.GenreText;
-          }
           if (this.MP3View.Columns.Contains(this.colHComment))
-          {
             item.SubItems[this.colHComment.Index].Text = mp.V1TAG.Comment;
-          }
         }
         item.Tag = mp;
         this.MP3View.Items.Add(item);
         Label_23AA:
         if ((num3 > 0) && ((num2 % num3) == 0))
-        {
           frmProg.ProgressBar.PerformStep();
-        }
         if (num2 == list.Count)
-        {
           frmProg.ProgressBar.Value = frmProg.ProgressBar.Maximum;
-        }
       }
     }
 
@@ -4590,9 +5480,7 @@ namespace ID3_TagIT
       string[] data = new string[(this.MP3View.SelectedItems.Count - 1) + 1];
       int num2 = this.MP3View.SelectedItems.Count - 1;
       for (int i = 0; i <= num2; i++)
-      {
         data[i] = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(this.MP3View.SelectedItems[i].Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null));
-      }
       DataObject obj2 = new DataObject(DataFormats.FileDrop, data);
       obj2.SetData(data);
       this.MP3View.DoDragDrop(obj2, DragDropEffects.Move | DragDropEffects.Copy);
@@ -4661,9 +5549,7 @@ namespace ID3_TagIT
     private void MP3View_MouseEnter(object sender, EventArgs e)
     {
       if ((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2)
-      {
         this.EnumInfo.Visible = true;
-      }
     }
 
     private void MP3View_MouseLeave(object sender, EventArgs e)
@@ -4792,9 +5678,7 @@ namespace ID3_TagIT
       {
         Application.DoEvents();
         if (frmProg.Canceled)
-        {
           break;
-        }
         MP3 tag = (MP3)item.Tag;
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo(tag, tag.V1TAG.Clone(), tag.V2TAG.Clone(), tag.CurrentFullName, tag.Changed);
         frmProg.List.Add(@do);
@@ -4848,21 +5732,15 @@ namespace ID3_TagIT
           {
             obj2 = ID3Functions.CreateTextFrame("TPE1", this.cmbArtist.Text.Trim(new char[] { ' ' }));
             if (StringType.StrCmp(this.cmbArtist.Text.Trim(new char[] { ' ' }), "", false) == 0)
-            {
               LateBinding.LateSet(obj2, null, "Remove", new object[] { true }, null);
-            }
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
             obj2 = ID3Functions.CreateTextFrame("TIT2", this.txtTitle.Text.Trim(new char[] { ' ' }));
             if (StringType.StrCmp(this.txtTitle.Text.Trim(new char[] { ' ' }), "", false) == 0)
-            {
               LateBinding.LateSet(obj2, null, "Remove", new object[] { true }, null);
-            }
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
             obj2 = ID3Functions.CreateTextFrame("TALB", this.txtAlbum.Text.Trim(new char[] { ' ' }));
             if (StringType.StrCmp(this.txtAlbum.Text.Trim(new char[] { ' ' }), "", false) == 0)
-            {
               LateBinding.LateSet(obj2, null, "Remove", new object[] { true }, null);
-            }
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
           }
           else
@@ -4886,9 +5764,7 @@ namespace ID3_TagIT
           if (tag.V2TAG.Changed)
           {
             if (!tag.V2TAG.TAGHeaderPresent)
-            {
               tag.V2TAG.TAGHeaderPresent = true;
-            }
             tag.Changed = true;
           }
         }
@@ -4905,9 +5781,7 @@ namespace ID3_TagIT
         object obj2;
         Application.DoEvents();
         if (frmProg.Canceled)
-        {
           break;
-        }
         MP3 tag = (MP3)item.Tag;
         frmProg.Infos.Text = tag.CurrentFullName;
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo(tag, tag.V1TAG.Clone(), tag.V2TAG.Clone(), tag.CurrentFullName, tag.Changed);
@@ -4916,21 +5790,15 @@ namespace ID3_TagIT
         {
           obj2 = ID3Functions.CreateTextFrame("TPE1", this.cmbArtist.Text.Trim(new char[] { ' ' }));
           if (StringType.StrCmp(this.cmbArtist.Text.Trim(new char[] { ' ' }), "", false) == 0)
-          {
             LateBinding.LateSet(obj2, null, "Remove", new object[] { true }, null);
-          }
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
           obj2 = ID3Functions.CreateTextFrame("TIT2", this.txtTitle.Text.Trim(new char[] { ' ' }));
           if (StringType.StrCmp(this.txtTitle.Text.Trim(new char[] { ' ' }), "", false) == 0)
-          {
             LateBinding.LateSet(obj2, null, "Remove", new object[] { true }, null);
-          }
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
           obj2 = ID3Functions.CreateTextFrame("TALB", this.txtAlbum.Text.Trim(new char[] { ' ' }));
           if (StringType.StrCmp(this.txtAlbum.Text.Trim(new char[] { ' ' }), "", false) == 0)
-          {
             LateBinding.LateSet(obj2, null, "Remove", new object[] { true }, null);
-          }
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(obj2));
         }
         else
@@ -4954,9 +5822,7 @@ namespace ID3_TagIT
         if (tag.V2TAG.Changed)
         {
           if (!tag.V2TAG.TAGHeaderPresent)
-          {
             tag.V2TAG.TAGHeaderPresent = true;
-          }
           tag.Changed = true;
           this.UpdateListItem(item, false);
         }
@@ -5016,15 +5882,11 @@ namespace ID3_TagIT
       {
         Application.DoEvents();
         if (frmProg.Canceled)
-        {
           break;
-        }
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
         frmProg.List.Add(@do);
         if (LateBinding.LateGet(this.alstCopyPaste[0], null, "V1TAG", new object[0], null, null) != null)
-        {
           LateBinding.LateSetComplex(item.Tag, null, "V1TAG", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(this.alstCopyPaste[0], null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null)) }, null, false, true);
-        }
         if (LateBinding.LateGet(this.alstCopyPaste[0], null, "V2TAG", new object[0], null, null) != null)
         {
           LateBinding.LateSetComplex(item.Tag, null, "V2TAG", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(this.alstCopyPaste[0], null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null)) }, null, false, true);
@@ -5045,9 +5907,7 @@ namespace ID3_TagIT
                 frame.DataStart = 0;
               }
               else
-              {
                 frame.Path = tag.FI.FullName;
-              }
             }
           }
         }
@@ -5065,15 +5925,11 @@ namespace ID3_TagIT
       {
         Application.DoEvents();
         if (frmProg.Canceled)
-        {
           break;
-        }
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
         frmProg.List.Add(@do);
         if (LateBinding.LateGet(this.alstCopyPaste[num], null, "V1TAG", new object[0], null, null) != null)
-        {
           LateBinding.LateSetComplex(item.Tag, null, "V1TAG", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(this.alstCopyPaste[num], null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null)) }, null, false, true);
-        }
         if (LateBinding.LateGet(this.alstCopyPaste[num], null, "V2TAG", new object[0], null, null) != null)
         {
           LateBinding.LateSetComplex(item.Tag, null, "V2TAG", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(this.alstCopyPaste[num], null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null)) }, null, false, true);
@@ -5094,9 +5950,7 @@ namespace ID3_TagIT
                 frame.DataStart = 0;
               }
               else
-              {
                 frame.Path = tag.FI.FullName;
-              }
             }
           }
         }
@@ -5115,15 +5969,11 @@ namespace ID3_TagIT
       {
         Application.DoEvents();
         if (frmProg.Canceled)
-        {
           break;
-        }
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
         frmProg.List.Add(@do);
         if (LateBinding.LateGet(this.alstCopyPaste[num], null, "V1TAG", new object[0], null, null) != null)
-        {
           LateBinding.LateSetComplex(item.Tag, null, "V1TAG", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(this.alstCopyPaste[num], null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null)) }, null, false, true);
-        }
         if (LateBinding.LateGet(this.alstCopyPaste[num], null, "V2TAG", new object[0], null, null) != null)
         {
           LateBinding.LateSetComplex(item.Tag, null, "V2TAG", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(this.alstCopyPaste[num], null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null)) }, null, false, true);
@@ -5144,9 +5994,7 @@ namespace ID3_TagIT
                 frame.DataStart = 0;
               }
               else
-              {
                 frame.Path = tag.FI.FullName;
-              }
             }
           }
         }
@@ -5154,9 +6002,7 @@ namespace ID3_TagIT
         this.UpdateListItem(item, true);
         this.UpdateListItem(item, false);
         if (num == (this.alstCopyPaste.Count - 1))
-        {
           break;
-        }
         num++;
         frmProg.ProgressBar.PerformStep();
       }
@@ -5182,17 +6028,13 @@ namespace ID3_TagIT
           current.MP3.CurrentFullName = current.Filename;
           current.MP3.Changed = current.Changed;
           if ((num % 50) == 0)
-          {
             frmProg.ProgressBar.PerformStep();
-          }
         }
       }
       finally
       {
         if (enumerator is IDisposable)
-        {
           ((IDisposable)enumerator).Dispose();
-        }
       }
     }
 
@@ -5202,9 +6044,7 @@ namespace ID3_TagIT
       {
         Application.DoEvents();
         if (frmProg.Canceled)
-        {
           break;
-        }
         frmProg.Infos.Text = StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null));
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
         frmProg.List.Add(@do);
@@ -5230,9 +6070,7 @@ namespace ID3_TagIT
       {
         Application.DoEvents();
         if (frmProg.Canceled)
-        {
           break;
-        }
         frmProg.Infos.Text = StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null));
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
         frmProg.List.Add(@do);
@@ -5259,9 +6097,7 @@ namespace ID3_TagIT
       {
         MP3 tag = (MP3)item.Tag;
         if (tag.Changed)
-        {
           vintMaximum++;
-        }
       }
       if (vintMaximum > 0)
       {
@@ -5290,9 +6126,7 @@ namespace ID3_TagIT
       foreach (ListViewItem item in this.MP3View.Items)
       {
         if (frmProg.Canceled)
-        {
           break;
-        }
         MP3 tag = (MP3)item.Tag;
         if (tag.Changed)
         {
@@ -5327,9 +6161,7 @@ namespace ID3_TagIT
             bool[] copyBack = new bool[] { true };
             LateBinding.LateCall(item2.SubItems, null, "Add", args, null, copyBack);
             if (copyBack[0])
-            {
               resStrings[str] = RuntimeHelpers.GetObjectValue(args[0]);
-            }
             this.ErrorMsg.Items.Insert(0, item2);
             this.SplitterBottom.Expanded = true;
           }
@@ -5397,19 +6229,13 @@ namespace ID3_TagIT
       object[] args = objArray2;
       bool[] copyBack = new bool[] { false, true };
       if (copyBack[1])
-      {
         objSettings.CurrentPath = StringType.FromObject(args[1]);
-      }
       this.DotNetBarManager.GetItem("lblPath").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["Path"], null, "Replace", args, null, copyBack));
       this.DotNetBarManager.GetItem("lblProgress").Text = StringType.FromObject(Declarations.objResources.ResStrings["ProgressChecksum"]);
       if (Declarations.objSettings.ScanSubDirs)
-      {
         this.DotNetBarManager.GetItem("lblSubDirs").Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsYes"]);
-      }
       else
-      {
         this.DotNetBarManager.GetItem("lblSubDirs").Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsNo"]);
-      }
       this.colHFilename.Text = StringType.FromObject(Declarations.objResources.ResStrings["Col01"]);
       this.colHSubDir.Text = StringType.FromObject(Declarations.objResources.ResStrings["Col02"]);
       this.colHTAGVer1.Text = StringType.FromObject(Declarations.objResources.ResStrings["Col03"]);
@@ -5463,33 +6289,19 @@ namespace ID3_TagIT
       ControlContainerItem item = (ControlContainerItem)sender;
       string name = item.Name;
       if (StringType.StrCmp(name, "CContainerArtist", false) == 0)
-      {
         item.Control = this.cmbArtist;
-      }
       else if (StringType.StrCmp(name, "CContainerTitle", false) == 0)
-      {
         item.Control = this.txtTitle;
-      }
       else if (StringType.StrCmp(name, "CContainerAlbum", false) == 0)
-      {
         item.Control = this.txtAlbum;
-      }
       else if (StringType.StrCmp(name, "CContainerbtnQuickEditOK", false) == 0)
-      {
         item.Control = this.btnQuickEdit;
-      }
       else if (StringType.StrCmp(name, "CContainerbtnQuickEditMore", false) == 0)
-      {
         item.Control = this.btnQuickEditMore;
-      }
       else if (StringType.StrCmp(name, "CContainerAPICView", false) == 0)
-      {
         item.Control = this.APICView;
-      }
       else if (StringType.StrCmp(name, "CContainertxtInfo", false) == 0)
-      {
         item.Control = this.txtInfo;
-      }
     }
 
     private void SideBar_ItemClick(object sender, EventArgs e)
@@ -5528,9 +6340,7 @@ namespace ID3_TagIT
           finally
           {
             if (enumerator is IDisposable)
-            {
               ((IDisposable)enumerator).Dispose();
-            }
           }
         }
         catch (Exception exception1)
@@ -6724,17 +7534,11 @@ namespace ID3_TagIT
           lstItem.SubItems[this.colHTrack.Index].Text = StringType.FromObject(Interaction.IIf(tag.V1TAG.Tracknumber > 0, tag.V1TAG.Tracknumber.ToString(), ""));
         }
         if (this.MP3View.Columns.Contains(this.colHYear))
-        {
           lstItem.SubItems[this.colHYear.Index].Text = StringType.FromObject(Interaction.IIf(tag.V1TAG.Year > 0, tag.V1TAG.Year.ToString(), ""));
-        }
         if (this.MP3View.Columns.Contains(this.colHGenre))
-        {
           lstItem.SubItems[this.colHGenre.Index].Text = tag.V1TAG.GenreText;
-        }
         if (this.MP3View.Columns.Contains(this.colHComment))
-        {
           lstItem.SubItems[this.colHComment.Index].Text = tag.V1TAG.Comment;
-        }
       }
     }
 
@@ -6747,6 +7551,35 @@ namespace ID3_TagIT
         //this.FolderTree.add_AfterSelect(new AfterSelectHandler(this.FolderTree_AfterSelect));
         //this.FolderTree.add_BeforeSelect(new BeforeSelectHandler(this.FolderTree_BeforeSelect));
       }
+    }
+
+    private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+      new Process
+      {
+        StartInfo =
+        {
+          FileName = StringType.FromObject(Interaction.IIf(Application.StartupPath.EndsWith(@"\"), Application.StartupPath + @"Help\index.htm", Application.StartupPath + @"\Help\index.htm")),
+          UseShellExecute = true
+        }
+      }.Start();
+    }
+
+    private void shortcutsToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      new Process
+      {
+        StartInfo =
+        {
+          FileName = StringType.FromObject(Interaction.IIf(Application.StartupPath.EndsWith(@"\"), Application.StartupPath + @"Help\shortcuts.htm", Application.StartupPath + @"\Help\shortcuts.htm")),
+          UseShellExecute = true
+        }
+      }.Start();
+    }
+
+    private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      new frmAbout().ShowDialog();
     }
   }
 }
