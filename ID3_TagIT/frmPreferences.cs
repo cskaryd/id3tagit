@@ -1,5 +1,4 @@
-﻿using AMS.TextBox;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using Microsoft.Win32;
 using System;
@@ -90,7 +89,7 @@ namespace ID3_TagIT
     private RadioButton optSingle;
     private RadioButton optUse23;
     private RadioButton optUse24;
-    private NumericTextBox Port;
+    private MaskedTextBox Port;
     private System.Windows.Forms.TextBox Server;
     private DataGridTableStyle Style;
     private DataGrid ToolGrid;
@@ -101,7 +100,7 @@ namespace ID3_TagIT
     private System.Windows.Forms.TextBox txtParameters;
     private System.Windows.Forms.TextBox txtPath;
     private System.Windows.Forms.TextBox txtProxyPassword;
-    private NumericTextBox txtProxyPort;
+    private MaskedTextBox txtProxyPort;
     private System.Windows.Forms.TextBox txtProxyServer;
     private System.Windows.Forms.TextBox txtProxyUser;
     private NumericUpDown txtStartNr;
@@ -180,9 +179,9 @@ namespace ID3_TagIT
       this.chkUnSync = new System.Windows.Forms.CheckBox();
       this.optUse24 = new System.Windows.Forms.RadioButton();
       this.optUse23 = new System.Windows.Forms.RadioButton();
-      this.Port = new AMS.TextBox.NumericTextBox();
+      this.Port = new System.Windows.Forms.MaskedTextBox();
       this.grpProxy = new System.Windows.Forms.GroupBox();
-      this.txtProxyPort = new AMS.TextBox.NumericTextBox();
+      this.txtProxyPort = new System.Windows.Forms.MaskedTextBox();
       this.txtProxyPassword = new System.Windows.Forms.TextBox();
       this.Label10 = new System.Windows.Forms.Label();
       this.txtProxyUser = new System.Windows.Forms.TextBox();
@@ -732,20 +731,13 @@ namespace ID3_TagIT
       // 
       // Port
       // 
-      this.Port.AllowNegative = false;
-      this.Port.DigitsInGroup = 0;
-      this.Port.Flags = 65552;
       this.Port.Location = new System.Drawing.Point(102, 30);
-      this.Port.MaxDecimalPlaces = 0;
-      this.Port.MaxLength = 5;
-      this.Port.MaxWholeDigits = 5;
+      this.Port.Mask = "00000";
       this.Port.Name = "Port";
-      this.Port.Prefix = "";
-      this.Port.RangeMax = 65535D;
-      this.Port.RangeMin = 0D;
       this.Port.Size = new System.Drawing.Size(100, 20);
       this.Port.TabIndex = 9;
       this.Port.Text = "8880";
+      this.Port.ValidatingType = typeof(int);
       // 
       // grpProxy
       // 
@@ -768,19 +760,12 @@ namespace ID3_TagIT
       // 
       // txtProxyPort
       // 
-      this.txtProxyPort.AllowNegative = false;
-      this.txtProxyPort.DigitsInGroup = 0;
-      this.txtProxyPort.Flags = 65552;
       this.txtProxyPort.Location = new System.Drawing.Point(128, 46);
-      this.txtProxyPort.MaxDecimalPlaces = 0;
-      this.txtProxyPort.MaxLength = 5;
-      this.txtProxyPort.MaxWholeDigits = 5;
+      this.txtProxyPort.Mask = "00000";
       this.txtProxyPort.Name = "txtProxyPort";
-      this.txtProxyPort.Prefix = "";
-      this.txtProxyPort.RangeMax = 65535D;
-      this.txtProxyPort.RangeMin = 0D;
       this.txtProxyPort.Size = new System.Drawing.Size(100, 20);
       this.txtProxyPort.TabIndex = 3;
+      this.txtProxyPort.ValidatingType = typeof(int);
       // 
       // txtProxyPassword
       // 
@@ -1814,8 +1799,6 @@ namespace ID3_TagIT
 
       this.ToolGrid.DataSource = Declarations.objSettings.Tools;
       this.ToolGrid.TableStyles[0].MappingName = Declarations.objSettings.Tools.TableName;
-      this.Port.ModifyFlags(0x10, true);
-      this.txtProxyPort.ModifyFlags(0x10, true);
       this.AddToolTips();
     }
 

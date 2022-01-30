@@ -18,6 +18,7 @@ namespace ID3_TagIT
     public string GetMenuText(string vstrName)
     {
       string str;
+
       try
       {
         str = StringType.FromObject(this.ID3TagITMenus.Tables[0].Rows[0][vstrName]);
@@ -29,12 +30,14 @@ namespace ID3_TagIT
         str = "";
         ProjectData.ClearProjectError();
       }
+
       return str;
     }
 
     public string GetMenuToolTip(string vstrName)
     {
       string str;
+
       try
       {
         str = StringType.FromObject(this.ID3TagITMenus.Tables[0].Rows[1][vstrName]);
@@ -46,6 +49,7 @@ namespace ID3_TagIT
         str = "";
         ProjectData.ClearProjectError();
       }
+
       return str;
     }
 
@@ -66,7 +70,7 @@ namespace ID3_TagIT
 
       return str;
     }
-
+    
     public void ReadResources()
     {
       string str = string.Empty;
@@ -75,6 +79,7 @@ namespace ID3_TagIT
       this.ID3TagITRes = new DataSet("ID3TagITResources");
       this.ID3TagITToolTips = new DataSet("ID3TagITToolTips");
       this.ID3TagITMenus = new DataSet("ID3TagITMenus");
+
       switch (Declarations.objSettings.Language)
       {
         case 0:
@@ -95,6 +100,7 @@ namespace ID3_TagIT
           str = "ID3_TagIT.MenuResources-Pol.xml";
           break;
       }
+
       Assembly entryAssembly = Assembly.GetEntryAssembly();
       this.ID3TagITRes.ReadXml(entryAssembly.GetManifestResourceStream(str2));
       this.ID3TagITToolTips.ReadXml(entryAssembly.GetManifestResourceStream(str3));
@@ -106,6 +112,7 @@ namespace ID3_TagIT
     public void ResourcesToForm(ref Form objForm)
     {
       DataRow tempRow = this.ID3TagITRes.Tables[objForm.Name].Rows[0];
+
       try
       {
         objForm.Text = StringType.FromObject(tempRow["FormName"]);
@@ -115,13 +122,14 @@ namespace ID3_TagIT
         ProjectData.SetProjectError(exception1);
         ProjectData.ClearProjectError();
       }
+
       int num2 = objForm.Controls.Count - 1;
+
       for (int i = 0; i <= num2; i++)
-      {
         this.ResourcesToFormRecusiv(objForm.Controls[i], ref tempRow);
-      }
     }
 
+    // FIXME - figure out what this does and where all it's called.
     private void ResourcesToFormRecusiv(Control objControl, ref DataRow TempRow)
     {
       try
@@ -129,6 +137,7 @@ namespace ID3_TagIT
         if (objControl.GetType() == typeof(DevComponents.DotNetBar.TabControl))
         {
           DevComponents.DotNetBar.TabControl control = (DevComponents.DotNetBar.TabControl)objControl;
+
           foreach (TabItem item in control.Tabs)
           {
             try
@@ -143,9 +152,7 @@ namespace ID3_TagIT
           }
         }
         else
-        {
           objControl.Text = StringType.FromObject(TempRow[objControl.Name]);
-        }
       }
       catch (Exception exception2)
       {
@@ -153,14 +160,12 @@ namespace ID3_TagIT
         Exception exception = exception2;
         ProjectData.ClearProjectError();
       }
+
       int num2 = objControl.Controls.Count - 1;
+
       for (int i = 0; i <= num2; i++)
-      {
         if (objControl.Controls.Count > 0)
-        {
           this.ResourcesToFormRecusiv(objControl.Controls[i], ref TempRow);
-        }
-      }
     }
 
     public DataTable MenuTable

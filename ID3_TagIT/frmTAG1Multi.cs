@@ -1,5 +1,4 @@
-﻿using AMS.TextBox;
-using DevComponents.DotNetBar;
+﻿using DevComponents.DotNetBar;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
@@ -44,8 +43,8 @@ namespace ID3_TagIT
     private System.Windows.Forms.TextBox txtAlbum;
     private System.Windows.Forms.TextBox txtComment;
     private System.Windows.Forms.TextBox txtTitle;
-    private NumericTextBox txtTrack;
-    private NumericTextBox txtYear;
+    private MaskedTextBox txtTrack;
+    private MaskedTextBox txtYear;
     private IContainer components;
     private frmMain MainForm;
 
@@ -83,8 +82,8 @@ namespace ID3_TagIT
       this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
       this.cmbGenre = new ID3_TagIT.ComboBoxAutoComplete();
       this.cmbArtist = new ID3_TagIT.ComboBoxAutoComplete();
-      this.txtYear = new AMS.TextBox.NumericTextBox();
-      this.txtTrack = new AMS.TextBox.NumericTextBox();
+      this.txtYear = new System.Windows.Forms.MaskedTextBox();
+      this.txtTrack = new System.Windows.Forms.MaskedTextBox();
       this.lblInfoStar = new System.Windows.Forms.Label();
       this.SelectionBar = new DevComponents.DotNetBar.ExplorerBar();
       this.TAGV2grpCommands = new DevComponents.DotNetBar.ExplorerBarGroupItem();
@@ -296,40 +295,28 @@ namespace ID3_TagIT
       // 
       // txtYear
       // 
-      this.txtYear.AllowNegative = true;
-      this.txtYear.DigitsInGroup = 0;
-      this.txtYear.Flags = 16;
       this.txtYear.Location = new System.Drawing.Point(328, 80);
-      this.txtYear.MaxDecimalPlaces = 0;
-      this.txtYear.MaxLength = 4;
-      this.txtYear.MaxWholeDigits = 4;
+      this.txtYear.Mask = "0000";
       this.txtYear.Name = "txtYear";
-      this.txtYear.Prefix = "";
-      this.txtYear.RangeMax = 9999D;
-      this.txtYear.RangeMin = 1800D;
       this.txtYear.Size = new System.Drawing.Size(64, 20);
       this.txtYear.TabIndex = 10;
+      this.txtYear.ValidatingType = typeof(int);
       this.txtYear.TextChanged += new System.EventHandler(this.txt_TextChanged);
       this.txtYear.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtYear.Validating += new System.ComponentModel.CancelEventHandler(this.txtYear_Validating);
       // 
       // txtTrack
       // 
-      this.txtTrack.AllowNegative = true;
-      this.txtTrack.DigitsInGroup = 0;
-      this.txtTrack.Flags = 16;
       this.txtTrack.Location = new System.Drawing.Point(328, 104);
-      this.txtTrack.MaxDecimalPlaces = 0;
-      this.txtTrack.MaxLength = 3;
-      this.txtTrack.MaxWholeDigits = 3;
+      this.txtTrack.Mask = "000";
       this.txtTrack.Name = "txtTrack";
-      this.txtTrack.Prefix = "";
-      this.txtTrack.RangeMax = 255D;
-      this.txtTrack.RangeMin = 1D;
       this.txtTrack.Size = new System.Drawing.Size(64, 20);
       this.txtTrack.TabIndex = 13;
+      this.txtTrack.ValidatingType = typeof(int);
       this.txtTrack.TextChanged += new System.EventHandler(this.txt_TextChanged);
       this.txtTrack.Enter += new System.EventHandler(this.Select_Enter);
       this.txtTrack.Leave += new System.EventHandler(this.txtTrack_Leave);
+      this.txtTrack.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrack_Validating);
       // 
       // lblInfoStar
       // 
@@ -464,6 +451,7 @@ namespace ID3_TagIT
       ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
+
     }
 
     public frmTAG1Multi(ref frmMain FormMain)
@@ -591,6 +579,18 @@ namespace ID3_TagIT
         this.txtComment.MaxLength = 30;
     }
 
+    private void txtTrack_Validating(object sender, CancelEventArgs e)
+    {
+      if ((int)txtTrack.ValidateText() < 0 || (int)txtTrack.ValidateText() > 255)
+        e.Cancel = true;
+    }
+
+    private void txtYear_Validating(object sender, CancelEventArgs e)
+    {
+      if ((int)txtYear.ValidateText() < 1800 || (int)txtYear.ValidateText() > 2100)
+        e.Cancel = true;
+    }
+
     #endregion
 
     #region Class logic
@@ -684,12 +684,12 @@ namespace ID3_TagIT
 
       vstrName = "frmTAG1";
       objControl = this.txtTrack;
-      this.txtTrack = (NumericTextBox)objControl;
+      this.txtTrack = (MaskedTextBox)objControl;
       this.ToolTip.SetToolTip(this.txtTrack, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
 
       vstrName = "frmTAG1";
       objControl = this.txtYear;
-      this.txtYear = (NumericTextBox)objControl;
+      this.txtYear = (MaskedTextBox)objControl;
       this.ToolTip.SetToolTip(this.txtYear, Declarations.objResources.GetToolTip(ref vstrName, ref objControl));
 
       vstrName = "frmTAG1";

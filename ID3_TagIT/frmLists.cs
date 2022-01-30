@@ -1,5 +1,4 @@
-﻿using DevComponents.DotNetBar;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections;
@@ -54,9 +53,6 @@ namespace ID3_TagIT
     private RadioButton optID3V2;
     private System.Windows.Forms.ProgressBar ProgressBar;
     private System.Windows.Forms.SaveFileDialog SaveFileDialog;
-    private TabItem tabFilelist;
-    private TabItem tabPlaylist;
-    private TabItem tabTemp;
     private ListBox TemplatesList;
     private System.Windows.Forms.ToolTip ToolTip;
     private TextBox txtExtInfo;
@@ -86,9 +82,6 @@ namespace ID3_TagIT
       this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
       this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
       this.ProgressBar = new System.Windows.Forms.ProgressBar();
-      this.tabPlaylist = new DevComponents.DotNetBar.TabItem(this.components);
-      this.tabTemp = new DevComponents.DotNetBar.TabItem(this.components);
-      this.tabFilelist = new DevComponents.DotNetBar.TabItem(this.components);
       this.btnCreatePlaylist = new System.Windows.Forms.Button();
       this.lblInfo1 = new System.Windows.Forms.Label();
       this.framePara = new System.Windows.Forms.GroupBox();
@@ -197,21 +190,6 @@ namespace ID3_TagIT
       this.ProgressBar.Size = new System.Drawing.Size(424, 16);
       this.ProgressBar.Step = 1;
       this.ProgressBar.TabIndex = 17;
-      // 
-      // tabPlaylist
-      // 
-      this.tabPlaylist.Name = "tabPlaylist";
-      this.tabPlaylist.Text = "M3U Playlist";
-      // 
-      // tabTemp
-      // 
-      this.tabTemp.Name = "tabTemp";
-      this.tabTemp.Text = "Filelist from template";
-      // 
-      // tabFilelist
-      // 
-      this.tabFilelist.Name = "tabFilelist";
-      this.tabFilelist.Text = "Quick HTML/CSV Filelist";
       // 
       // btnCreatePlaylist
       // 

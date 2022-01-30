@@ -1580,7 +1580,7 @@ namespace ID3_TagIT
       // txtPOS2
       // 
       this.txtPOS2.Location = new System.Drawing.Point(560, 102);
-      this.txtPOS2.Mask = "00";
+      this.txtPOS2.Mask = "000";
       this.txtPOS2.Name = "txtPOS2";
       this.txtPOS2.Size = new System.Drawing.Size(64, 20);
       this.txtPOS2.TabIndex = 26;
@@ -1588,11 +1588,12 @@ namespace ID3_TagIT
       this.txtPOS2.TextChanged += new System.EventHandler(this.Select_TextChanged);
       this.txtPOS2.Enter += new System.EventHandler(this.Select_Enter);
       this.txtPOS2.Leave += new System.EventHandler(this.Select_Leave);
+      this.txtPOS2.Validating += new System.ComponentModel.CancelEventHandler(this.txtPOS2_Validating);
       // 
       // txtPOS1
       // 
       this.txtPOS1.Location = new System.Drawing.Point(472, 102);
-      this.txtPOS1.Mask = "00";
+      this.txtPOS1.Mask = "000";
       this.txtPOS1.Name = "txtPOS1";
       this.txtPOS1.Size = new System.Drawing.Size(64, 20);
       this.txtPOS1.TabIndex = 25;
@@ -1600,11 +1601,12 @@ namespace ID3_TagIT
       this.txtPOS1.TextChanged += new System.EventHandler(this.Select_TextChanged);
       this.txtPOS1.Enter += new System.EventHandler(this.Select_Enter);
       this.txtPOS1.Leave += new System.EventHandler(this.Select_Leave);
+      this.txtPOS1.Validating += new System.ComponentModel.CancelEventHandler(this.txtPOS1_Validating);
       // 
       // txtTrack2
       // 
       this.txtTrack2.Location = new System.Drawing.Point(224, 102);
-      this.txtTrack2.Mask = "00";
+      this.txtTrack2.Mask = "000";
       this.txtTrack2.Name = "txtTrack2";
       this.txtTrack2.Size = new System.Drawing.Size(64, 20);
       this.txtTrack2.TabIndex = 23;
@@ -1612,11 +1614,12 @@ namespace ID3_TagIT
       this.txtTrack2.TextChanged += new System.EventHandler(this.Select_TextChanged);
       this.txtTrack2.Enter += new System.EventHandler(this.Select_Enter);
       this.txtTrack2.Leave += new System.EventHandler(this.Select_Leave);
+      this.txtTrack2.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrack2_Validating);
       // 
       // txtTrack1
       // 
       this.txtTrack1.Location = new System.Drawing.Point(136, 102);
-      this.txtTrack1.Mask = "00";
+      this.txtTrack1.Mask = "000";
       this.txtTrack1.Name = "txtTrack1";
       this.txtTrack1.Size = new System.Drawing.Size(64, 20);
       this.txtTrack1.TabIndex = 22;
@@ -1624,6 +1627,7 @@ namespace ID3_TagIT
       this.txtTrack1.TextChanged += new System.EventHandler(this.Select_TextChanged);
       this.txtTrack1.Enter += new System.EventHandler(this.Select_Enter);
       this.txtTrack1.Leave += new System.EventHandler(this.Select_Leave);
+      this.txtTrack1.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrack1_Validating);
       // 
       // txtYear
       // 
@@ -3726,14 +3730,11 @@ namespace ID3_TagIT
     private void btnAddComment_Click(object sender, EventArgs e)
     {
       ListViewItem item = new ListViewItem();
-      V2LDCFrame frame = new V2LDCFrame
-      {
-        FID = "COMM"
-      };
+      V2LDCFrame frame = new V2LDCFrame      {        FID = "COMM"      };
+
       if (StringType.StrCmp(this.txtComment.Text, "", false) != 0)
       {
         foreach (ListViewItem item2 in this.CommentList.Items)
-        {
           if ((StringType.StrCmp(item2.Text.ToLower(), this.cmbCDescriptor.Text.ToLower(), false) == 0) & (StringType.StrCmp(item2.SubItems[2].Text, this.cmbCLanguage.Text.Substring(0, 3), false) == 0))
           {
             item2.Text = this.cmbCDescriptor.Text;
@@ -3742,7 +3743,7 @@ namespace ID3_TagIT
             this.txtComment.Text = "";
             return;
           }
-        }
+
         item.Text = this.cmbCDescriptor.Text;
         item.SubItems.Add(this.txtComment.Text.Replace("\r\n", "\n"));
         item.SubItems.Add(this.cmbCLanguage.Text.Substring(0, 3));
@@ -3751,6 +3752,7 @@ namespace ID3_TagIT
         frame.Language = this.cmbCLanguage.Text.Substring(0, 3);
         item.Tag = frame;
         item.Checked = true;
+
         this.CommentList.Items.Add(item);
         this.cmbCDescriptor.Text = "";
         this.txtComment.Text = "";
@@ -3771,20 +3773,21 @@ namespace ID3_TagIT
       if (!((StringType.StrCmp(this.txtInvFunction.Text.TrimEnd(new char[] { ' ' }), "", false) == 0) | (StringType.StrCmp(this.txtInvPerson.Text.TrimEnd(new char[] { ' ' }), "", false) == 0)))
       {
         this.CheckBox44.Checked = true;
+
         foreach (ListViewItem item2 in this.TIPLList.Items)
-        {
           if (StringType.StrCmp(item2.Text.ToLower(), this.txtInvFunction.Text.TrimEnd(new char[] { ' ' }).ToLower(), false) == 0)
           {
             item2.Text = this.txtInvFunction.Text.TrimEnd(new char[] { ' ' });
             item2.SubItems[1].Text = this.txtInvPerson.Text.TrimEnd(new char[] { ' ' });
             return;
           }
-        }
+
         ListViewItem item = new ListViewItem
         {
           Text = this.txtInvFunction.Text.TrimEnd(new char[] { ' ' }),
           SubItems = { this.txtInvPerson.Text.TrimEnd(new char[] { ' ' }) }
         };
+
         this.TIPLList.Items.Add(item);
         this.txtInvFunction.Text = "";
         this.txtInvPerson.Text = "";
@@ -3794,29 +3797,24 @@ namespace ID3_TagIT
     private void btnAddLyrics_Click(object sender, EventArgs e)
     {
       ListViewItem item = new ListViewItem();
-      V2LDCFrame frame = new V2LDCFrame
-      {
-        FID = "USLT"
-      };
+      V2LDCFrame frame = new V2LDCFrame      {        FID = "USLT"      };
+
       if (StringType.StrCmp(this.txtLyrics.Text, "", false) != 0)
       {
         foreach (ListViewItem item2 in this.LyricsList.Items)
-        {
           if ((StringType.StrCmp(item2.Text.ToLower(), this.txtLDescriptor.Text.ToLower(), false) == 0) & (StringType.StrCmp(item2.SubItems[2].Text, this.cmbLLanguage.Text.Substring(0, 3), false) == 0))
           {
             if (ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Descriptor", new object[0], null, null), this.txtLDescriptor.Text, false) != 0)
-            {
               item2.Text = this.txtLDescriptor.Text;
-            }
+
             if (ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Content", new object[0], null, null), this.txtLyrics.Text.Replace("\r\n", "\n"), false) != 0)
-            {
               item2.SubItems[1].Text = this.txtLyrics.Text.Replace("\r\n", "\n");
-            }
+
             this.txtLDescriptor.Text = "";
             this.txtLyrics.Text = "";
             return;
           }
-        }
+
         item.Text = this.txtLDescriptor.Text;
         item.SubItems.Add(this.txtLyrics.Text.Replace("\r\n", "\n"));
         item.SubItems.Add(this.cmbLLanguage.Text.Substring(0, 3));
@@ -3825,6 +3823,7 @@ namespace ID3_TagIT
         frame.Language = this.cmbLLanguage.Text.Substring(0, 3);
         item.Tag = frame;
         item.Checked = true;
+
         this.LyricsList.Items.Add(item);
         this.txtLDescriptor.Text = "";
         this.txtLyrics.Text = "";
@@ -3836,6 +3835,7 @@ namespace ID3_TagIT
       if (!((StringType.StrCmp(this.txtMusicianInst.Text.TrimEnd(new char[] { ' ' }), "", false) == 0) | (StringType.StrCmp(this.txtMusicianName.Text.TrimEnd(new char[] { ' ' }), "", false) == 0)))
       {
         this.CheckBox45.Checked = true;
+
         foreach (ListViewItem item2 in this.TMCLList.Items)
         {
           if (StringType.StrCmp(item2.Text.ToLower(), this.txtMusicianInst.Text.TrimEnd(new char[] { ' ' }).ToLower(), false) == 0)
@@ -3845,11 +3845,13 @@ namespace ID3_TagIT
             return;
           }
         }
+
         ListViewItem item = new ListViewItem
         {
           Text = this.txtMusicianInst.Text.TrimEnd(new char[] { ' ' }),
           SubItems = { this.txtMusicianName.Text.TrimEnd(new char[] { ' ' }) }
         };
+
         this.TMCLList.Items.Add(item);
         this.txtMusicianInst.Text = "";
         this.txtMusicianName.Text = "";
@@ -3865,6 +3867,7 @@ namespace ID3_TagIT
       if (!((StringType.StrCmp(this.txtPicPath.Text, "", false) == 0) | this.txtPicPath.Text.ToLower().EndsWith("mp3")))
       {
         frame.FID = "APIC";
+
         foreach (ListViewItem item2 in this.PicList.Items)
         {
           if (((ulong)-(StringType.StrCmp(item2.Text.ToLower(), this.txtPDescriptor.Text.ToLower(), false) == 0 ? 1 : 0)
@@ -3874,9 +3877,11 @@ namespace ID3_TagIT
           {
             if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.BitAndObj(ObjectType.BitAndObj(ObjectType.BitAndObj(ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Descriptor", new object[0], null, null), this.txtPDescriptor.Text, false) == 0, ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "PicType", new object[0], null, null), Conversion.Val(this.cmbPicType.Text.Substring(0, 2)), false) == 0), ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Path", new object[0], null, null), this.txtPicPath.Text, false) == 0), ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Include", new object[0], null, null), this.chkPicInclude.Checked, false) == 0), ((item2.Font.Style == FontStyle.Bold) & this.chkPicRelativPath.Checked) | ((item2.Font.Style == FontStyle.Regular) & !this.chkPicRelativPath.Checked))))
               return;
+
             item2.Remove();
             break;
           }
+
           index++;
         }
 
@@ -3892,45 +3897,31 @@ namespace ID3_TagIT
         if (frame.Include)
         {
           string sLeft = frame.Path.Substring(frame.Path.LastIndexOf(".") + 1).ToLower();
+
           if (StringType.StrCmp(sLeft, "jpg", false) == 0)
-          {
             frame.MIMEType = "image/jpeg";
-          }
           else if (StringType.StrCmp(sLeft, "bmp", false) == 0)
-          {
             frame.MIMEType = "image/bmp";
-          }
           else if (StringType.StrCmp(sLeft, "gif", false) == 0)
-          {
             frame.MIMEType = "image/gif";
-          }
           else if (StringType.StrCmp(sLeft, "png", false) == 0)
-          {
             frame.MIMEType = "image/png";
-          }
           else if (StringType.StrCmp(sLeft, "ico", false) == 0)
-          {
             frame.MIMEType = "image/ico";
-          }
           else
-          {
             frame.MIMEType = "image/" + frame.Path.Substring(frame.Path.LastIndexOf(".") + 1).ToLower();
-          }
         }
         else
-        {
           frame.MIMEType = "-->";
-        }
+
         if (this.chkPicRelativPath.Checked)
-        {
           item.Font = new Font(item.Font, FontStyle.Bold);
-        }
         else
-        {
           item.Font = new Font(item.Font, FontStyle.Regular);
-        }
+
         item.Tag = frame;
         item.Checked = true;
+
         this.PicList.Items.Insert(index, item);
         this.txtPDescriptor.Text = "";
         this.txtPicPath.Text = "";
@@ -3946,14 +3937,11 @@ namespace ID3_TagIT
     private void btnAddRating_Click(object sender, EventArgs e)
     {
       ListViewItem item = new ListViewItem();
-      V2POPMFrame frame = new V2POPMFrame
-      {
-        FID = "POPM"
-      };
+      V2POPMFrame frame = new V2POPMFrame      {        FID = "POPM"      };
+
       if (decimal.Compare(this.txtRatingRating.Value, decimal.Zero) != 0)
       {
         foreach (ListViewItem item2 in this.RatingList.Items)
-        {
           if (StringType.StrCmp(item2.Text.ToLower(), this.txtRatingUser.Text.ToLower(), false) == 0)
           {
             item2.Text = this.txtRatingUser.Text;
@@ -3964,7 +3952,7 @@ namespace ID3_TagIT
             this.txtRatingCounter.Value = decimal.Zero;
             return;
           }
-        }
+
         item.Text = this.txtRatingUser.Text;
         item.SubItems.Add(this.txtRatingRating.Text);
         item.SubItems.Add(this.txtRatingCounter.Text);
@@ -3973,6 +3961,7 @@ namespace ID3_TagIT
         frame.Counter = Convert.ToInt32(this.txtRatingCounter.Value);
         item.Tag = frame;
         item.Checked = true;
+
         this.RatingList.Items.Add(item);
         this.txtRatingUser.Text = "";
         this.txtRatingRating.Value = decimal.Zero;
@@ -4015,14 +4004,11 @@ namespace ID3_TagIT
     private void btnAddWXXX_Click(object sender, EventArgs e)
     {
       ListViewItem item = new ListViewItem();
-      V2WXXXFrame frame = new V2WXXXFrame
-      {
-        FID = "WXXX"
-      };
+      V2WXXXFrame frame = new V2WXXXFrame      {        FID = "WXXX"      };
+
       if (StringType.StrCmp(this.txtWXXXContent.Text, "", false) != 0)
       {
         foreach (ListViewItem item2 in this.WXXXList.Items)
-        {
           if (StringType.StrCmp(item2.Text.ToLower(), this.txtWXXXDesc.Text.ToLower(), false) == 0)
           {
             item2.Text = this.txtWXXXDesc.Text;
@@ -4031,13 +4017,14 @@ namespace ID3_TagIT
             this.txtWXXXContent.Text = "";
             return;
           }
-        }
+
         item.Text = this.txtWXXXDesc.Text;
         item.SubItems.Add(this.txtWXXXContent.Text);
         frame.Descriptor = this.txtWXXXDesc.Text;
         frame.Content = this.txtWXXXContent.Text;
         item.Tag = frame;
         item.Checked = true;
+
         this.WXXXList.Items.Add(item);
         this.txtWXXXDesc.Text = "";
         this.txtWXXXContent.Text = "";
@@ -4057,6 +4044,7 @@ namespace ID3_TagIT
         Exception exception = exception1;
         ProjectData.ClearProjectError();
       }
+
       try
       {
         this.APICView.Image = null;
@@ -4068,6 +4056,7 @@ namespace ID3_TagIT
         Exception exception2 = exception3;
         ProjectData.ClearProjectError();
       }
+
       this.Close();
     }
 
@@ -4075,6 +4064,7 @@ namespace ID3_TagIT
     {
       this.OpenFileDialog.Filter = "*.BMP;*.JPG;*.GIF;*.PNG;*.ICO|*.BMP;*.JPG;*.GIF;*.PNG;*.ICO";
       this.OpenFileDialog.FilterIndex = 1;
+
       try
       {
         this.APICView.Image = null;
@@ -4086,6 +4076,7 @@ namespace ID3_TagIT
         Exception exception = exception1;
         ProjectData.ClearProjectError();
       }
+
       try
       {
         this.APICView.Image = null;
@@ -4097,6 +4088,7 @@ namespace ID3_TagIT
         Exception exception2 = exception4;
         ProjectData.ClearProjectError();
       }
+
       if (this.OpenFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
       {
         try
@@ -4139,7 +4131,9 @@ namespace ID3_TagIT
       this.panLyrics.Enabled = false;
       this.panInvolved.Enabled = false;
       this.panUser.Enabled = false;
+
       object obj2 = LateBinding.LateGet(sender, null, "Name", new object[0], null, null);
+
       if (ObjectType.ObjTst(obj2, "TAGV2ButtonItem1", false) == 0)
       {
         this.panMain.Visible = true;
@@ -4200,6 +4194,7 @@ namespace ID3_TagIT
     {
       this.OpenFileDialog.Filter = "*.TXT|*.TXT";
       this.OpenFileDialog.FilterIndex = 1;
+
       if (this.OpenFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
       {
         try
@@ -4222,6 +4217,7 @@ namespace ID3_TagIT
       {
         ListViewItem focusedItem = this.CommentList.FocusedItem;
         ListViewItem item = (ListViewItem)focusedItem.Clone();
+
         this.CommentList.Items.Insert(0, item);
         this.CommentList.Items.Remove(focusedItem);
         this.vbooCommentMoved = true;
@@ -4234,6 +4230,7 @@ namespace ID3_TagIT
       {
         string item = StringType.FromObject(this.GenreList.SelectedItem);
         int selectedIndex = this.GenreList.SelectedIndex;
+
         this.GenreList.Items.Insert(0, item);
         this.GenreList.Items.RemoveAt(selectedIndex + 1);
         this.CheckBox9.Checked = true;
@@ -4246,6 +4243,7 @@ namespace ID3_TagIT
       {
         ListViewItem focusedItem = this.LyricsList.FocusedItem;
         ListViewItem item = (ListViewItem)focusedItem.Clone();
+
         this.LyricsList.Items.Insert(0, item);
         this.LyricsList.Items.Remove(focusedItem);
         this.vbooLyricsMoved = true;
@@ -4258,6 +4256,7 @@ namespace ID3_TagIT
       {
         ListViewItem focusedItem = this.RatingList.FocusedItem;
         ListViewItem item = (ListViewItem)focusedItem.Clone();
+
         this.RatingList.Items.Insert(0, item);
         this.RatingList.Items.Remove(focusedItem);
         this.vbooRatingMoved = true;
@@ -4277,6 +4276,7 @@ namespace ID3_TagIT
         Exception exception = exception1;
         ProjectData.ClearProjectError();
       }
+
       try
       {
         this.APICView.Image = null;
@@ -4288,9 +4288,11 @@ namespace ID3_TagIT
         Exception exception2 = exception3;
         ProjectData.ClearProjectError();
       }
+
       Form form = this;
       Id3TagIT_Main.SaveFormSettings(ref form);
       Declarations.objSettings.V2Language = this.cmbCLanguage.SelectedIndex;
+
       this.SaveToTAG();
       this.Close();
     }
@@ -4372,6 +4374,7 @@ namespace ID3_TagIT
         ProjectData.SetProjectError(exception1);
         ProjectData.ClearProjectError();
       }
+
       this.btnAddPicture.Enabled = false;
     }
 
@@ -4424,6 +4427,7 @@ namespace ID3_TagIT
     private void btnSwapAA_Click(object sender, EventArgs e)
     {
       string text = this.cmbArtist.Text;
+
       this.cmbArtist.Text = this.txtAlbum.Text;
       this.txtAlbum.Text = text;
     }
@@ -4431,6 +4435,7 @@ namespace ID3_TagIT
     private void btnSwapAT_Click(object sender, EventArgs e)
     {
       string text = this.cmbArtist.Text;
+
       this.cmbArtist.Text = this.txtTitle.Text;
       this.txtTitle.Text = text;
     }
@@ -4438,6 +4443,7 @@ namespace ID3_TagIT
     private void btnSwapTA_Click(object sender, EventArgs e)
     {
       string text = this.txtTitle.Text;
+
       this.txtTitle.Text = this.txtAlbum.Text;
       this.txtAlbum.Text = text;
     }
@@ -4445,17 +4451,13 @@ namespace ID3_TagIT
     private void chkPicInclude_CheckedChanged(object sender, EventArgs e)
     {
       if (this.chkPicInclude.Checked)
-      {
         this.chkPicRelativPath.Checked = false;
-      }
     }
 
     private void chkPicRelativPath_CheckedChanged(object sender, EventArgs e)
     {
       if (this.chkPicRelativPath.Checked)
-      {
         this.chkPicInclude.Checked = false;
-      }
     }
 
     private void frmTAG2Multi_Load(object sender, EventArgs e)
@@ -4466,6 +4468,7 @@ namespace ID3_TagIT
       Id3TagIT_Main.RestoreFormSettings(ref objForm);
       objForm = this;
       Id3TagIT_Main.WindowsXPCheck(ref objForm);
+
       this.panDetail.Enabled = false;
       this.panOriginal.Enabled = false;
       this.panWeb.Enabled = false;
@@ -4476,41 +4479,37 @@ namespace ID3_TagIT
       this.panUser.Enabled = false;
       this.panMain.Dock = DockStyle.Fill;
       this.TopPanel.Text = StringType.FromObject(Declarations.objResources.SelectionBar["TAGV2ButtonItem1"]);
+
       foreach (DataRow row in Declarations.objSettings.Artists.Rows)
-      {
         this.cmbArtist.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
-      }
+
       foreach (DataRow row in Declarations.objSettings.CommDescriptors.Rows)
-      {
         this.cmbCDescriptor.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
-      }
+
       if (Declarations.objSettings.OwnGenreOnly)
-      {
         foreach (DataRow row in Declarations.objSettings.Genres.Rows)
-        {
           this.cmbGenre.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
-        }
-      }
       else
       {
         foreach (DataRow row in Declarations.objSettings.Genres.Rows)
-        {
           this.cmbGenre.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
-        }
+
         foreach (string str in Declarations.astrGenreLookup)
-        {
           this.cmbGenre.Items.Add(str);
-        }
       }
+
       this.cmbGenre.Sorted = true;
       this.cmbGenre.Sorted = false;
+
       foreach (string str in Declarations.astrLanLookup)
       {
         this.cmbCLanguage.Items.Add(str);
         this.cmbLLanguage.Items.Add(str);
       }
+
       this.cmbCLanguage.SelectedIndex = Declarations.objSettings.V2Language;
       this.cmbLLanguage.SelectedIndex = Declarations.objSettings.V2Language;
+
       switch (this.YearFormat.Value)
       {
         case 0:
@@ -4528,9 +4527,11 @@ namespace ID3_TagIT
           this.txtTORY.Mask = "####-##-##";
           break;
       }
+
       this.CheckBox8.Checked = false;
       this.cmbPicType.SelectedIndex = 0;
       this.txtDigits.Value = new decimal(Declarations.objSettings.TracknumberDigitsTAG);
+
       if (Declarations.objSettings.SingleGC)
       {
         this.btnAddGenre.Visible = false;
@@ -4545,6 +4546,7 @@ namespace ID3_TagIT
         this.CheckBox10.Visible = false;
         this.CheckBox38.Visible = true;
       }
+
       this.FillForm();
       this.AddSelectionBar();
       this.AddToolTips();
@@ -4558,20 +4560,21 @@ namespace ID3_TagIT
     private void LyricsList_Click(object sender, EventArgs e)
     {
       if (this.LyricsList.FocusedItem == null)
-      {
         return;
-      }
+
       this.txtLDescriptor.Text = this.LyricsList.FocusedItem.Text;
-      var enumerator = this.cmbLLanguage.Items.GetEnumerator();
-      while (enumerator.MoveNext())
+
+      foreach (var item in this.cmbLLanguage.Items)
       {
-        string str = StringType.FromObject(enumerator.Current);
+        string str = StringType.FromObject(item);
+
         if (str.StartsWith(this.LyricsList.FocusedItem.SubItems[2].Text))
         {
           this.cmbLLanguage.SelectedItem = str;
           goto Label_0099;
         }
       }
+
       Label_0099:
       this.txtLyrics.Text = this.LyricsList.FocusedItem.SubItems[1].Text.Replace("\n", "\r\n");
     }
@@ -4597,33 +4600,37 @@ namespace ID3_TagIT
         string[] strArray2;
         object obj5;
         object[] objArray11;
+
         Application.DoEvents();
+
         if (frmProg.Canceled)
-        {
           break;
-        }
+
         MP3 tag = (MP3)item.Tag;
         V2TAG vtag = tag.V2TAG.Clone();
         frmProg.Infos.Text = tag.CurrentFullName;
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo(tag, tag.V1TAG.Clone(), tag.V2TAG.Clone(), tag.CurrentFullName, tag.Changed);
         frmProg.List.Add(@do);
+
         if (this.chkTLEN.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TLEN", tag.DurationMS.ToString());
+
           if (tag.DurationMS == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox1.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TPE1", this.CheckReplace(vtag, this.cmbArtist.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
+
           if (Declarations.objSettings.SynchronizeTAGs && (ObjectType.ObjTst(tag.V1TAG.Artist, LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), false) != 0))
           {
             tag.V1TAG.Artist = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null));
@@ -4631,14 +4638,16 @@ namespace ID3_TagIT
             tag.Changed = true;
           }
         }
+
         if (this.CheckBox2.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TIT2", this.CheckReplace(vtag, this.txtTitle.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
+
           if (Declarations.objSettings.SynchronizeTAGs && (ObjectType.ObjTst(tag.V1TAG.Title, LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), false) != 0))
           {
             tag.V1TAG.Title = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null));
@@ -4646,14 +4655,16 @@ namespace ID3_TagIT
             tag.Changed = true;
           }
         }
+
         if (this.CheckBox3.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TALB", this.CheckReplace(vtag, this.txtAlbum.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
+
           if (Declarations.objSettings.SynchronizeTAGs && (ObjectType.ObjTst(tag.V1TAG.Album, LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), false) != 0))
           {
             tag.V1TAG.Album = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null));
@@ -4661,14 +4672,14 @@ namespace ID3_TagIT
             tag.Changed = true;
           }
         }
+
         if (this.CheckBox4.Checked)
         {
           if (StringType.StrCmp(this.txtYear.Text, "", false) != 0)
           {
             if (!tag.V2TAG.TAGHeaderPresent)
-            {
               tag.V2TAG.TAGHeaderPresent = true;
-            }
+
             if (tag.V2TAG.TAGVersion == DoubleType.FromString("3"))
             {
               switch (this.YearFormat.Value)
@@ -4717,6 +4728,7 @@ namespace ID3_TagIT
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
           }
+
           if (Declarations.objSettings.SynchronizeTAGs)
           {
             if (StringType.StrCmp(this.txtYear.Text, "", false) != 0)
@@ -4736,14 +4748,14 @@ namespace ID3_TagIT
             }
           }
         }
+
         if (this.CheckBox39.Checked)
         {
           if (StringType.StrCmp(this.txtTORY.Text, "", false) != 0)
           {
             if (!tag.V2TAG.TAGHeaderPresent)
-            {
               tag.V2TAG.TAGHeaderPresent = true;
-            }
+
             if (tag.V2TAG.TAGVersion == DoubleType.FromString("3"))
             {
               objectValue = ID3Functions.CreateTextFrame("TORY", this.txtTORY.Text.PadLeft(4, '0').Substring(0, 4));
@@ -4768,15 +4780,17 @@ namespace ID3_TagIT
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
           }
         }
+
         if (this.CheckBox5.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TMED", this.cmbMedia.Text);
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox6.Checked)
         {
           if ((StringType.StrCmp(this.txtTrack1.Text, "", false) == 0) & (StringType.StrCmp(this.txtTrack2.Text, "", false) == 0))
@@ -4788,80 +4802,60 @@ namespace ID3_TagIT
           else
           {
             string sLeft = "";
+
             if (tag.V2TAG.FrameExists("TRCK"))
-            {
               sLeft = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null));
-            }
+
             if (StringType.StrCmp(sLeft, "", false) == 0)
             {
               if (StringType.StrCmp(this.txtTrack1.Text, "", false) != 0)
               {
                 if (StringType.StrCmp(this.txtTrack2.Text, "", false) != 0)
-                {
                   objectValue = ID3Functions.CreateTextFrame("TRCK", this.txtTrack1.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0') + "/" + this.txtTrack2.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-                }
                 else
-                {
                   objectValue = ID3Functions.CreateTextFrame("TRCK", this.txtTrack1.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-                }
               }
               else if (StringType.StrCmp(this.txtTrack2.Text, "", false) != 0)
-              {
                 objectValue = ID3Functions.CreateTextFrame("TRCK", "/" + this.txtTrack2.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-              }
             }
             else if (sLeft.IndexOf("/") < 0)
             {
               if (StringType.StrCmp(this.txtTrack1.Text, "", false) != 0)
               {
                 if (StringType.StrCmp(this.txtTrack2.Text, "", false) != 0)
-                {
                   objectValue = ID3Functions.CreateTextFrame("TRCK", this.txtTrack1.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0') + "/" + this.txtTrack2.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-                }
                 else
-                {
                   objectValue = ID3Functions.CreateTextFrame("TRCK", this.txtTrack1.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-                }
               }
               else if (StringType.StrCmp(this.txtTrack2.Text, "", false) != 0)
-              {
                 objectValue = ID3Functions.CreateTextFrame("TRCK", sLeft.Trim(new char[] { ' ' }).PadLeft(Convert.ToInt32(this.txtDigits.Value), '0') + "/" + this.txtTrack2.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-              }
             }
             else
             {
               string str5 = "";
               string str4 = "";
+
               if (!sLeft.StartsWith("/"))
-              {
                 str5 = sLeft.Substring(0, sLeft.IndexOf("/"));
-              }
+
               if (!sLeft.EndsWith("/"))
-              {
                 str4 = sLeft.Substring(sLeft.IndexOf("/"));
-              }
+
               if (StringType.StrCmp(this.txtTrack1.Text, "", false) != 0)
               {
                 if (StringType.StrCmp(this.txtTrack2.Text, "", false) != 0)
-                {
                   objectValue = ID3Functions.CreateTextFrame("TRCK", this.txtTrack1.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0') + "/" + this.txtTrack2.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-                }
                 else
-                {
                   objectValue = ID3Functions.CreateTextFrame("TRCK", this.txtTrack1.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0') + str4);
-                }
               }
               else if (StringType.StrCmp(this.txtTrack2.Text, "", false) != 0)
-              {
                 objectValue = ID3Functions.CreateTextFrame("TRCK", str5.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0') + "/" + this.txtTrack2.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-              }
             }
+
             if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 0, false) < 0)
             {
               if (Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null))) == 0.0)
-              {
                 LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-              }
             }
             else
             {
@@ -4876,10 +4870,10 @@ namespace ID3_TagIT
               objArray9[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj5, null, "Content", args, strArray2, null), null, "IndexOf", objArray11, null, null));
               objArray8 = objArray9;
               flagArray2 = new bool[] { false, true };
+
               if (flagArray2[1])
-              {
                 LateBinding.LateSetComplex(LateBinding.LateGet(obj5, null, "Content", args, strArray2, null), null, "IndexOf", new object[] { str13, RuntimeHelpers.GetObjectValue(objArray8[1]) }, null, true, true);
-              }
+
               if (Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray8, null, flagArray2))) == 0.0)
               {
                 objArray = new object[1];
@@ -4893,13 +4887,14 @@ namespace ID3_TagIT
                 objArray4[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", objArray6, strArray, null), null, "IndexOf", objArray5, null, null));
                 objArray3 = objArray4;
                 flagArray = new bool[] { true };
+
                 if (flagArray[0])
-                {
                   LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", objArray6, strArray, null), null, "IndexOf", new object[] { str12, RuntimeHelpers.GetObjectValue(objArray3[0]) }, null, true, true);
-                }
+
                 objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray3, null, flagArray));
                 LateBinding.LateSet(objectValue, null, "Content", objArray, null);
               }
+
               if (Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", new object[] { ObjectType.AddObj(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 1) }, null, null))) == 0.0)
               {
                 objArray8 = new object[1];
@@ -4914,20 +4909,21 @@ namespace ID3_TagIT
                 objArray5[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", objArray3, strArray, null), null, "IndexOf", objArray4, null, null));
                 objArray6 = objArray5;
                 flagArray = new bool[] { false, true };
+
                 if (flagArray[1])
-                {
                   LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", objArray3, strArray, null), null, "IndexOf", new object[] { str12, RuntimeHelpers.GetObjectValue(objArray6[1]) }, null, true, true);
-                }
+
                 objArray8[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray6, null, flagArray));
                 LateBinding.LateSet(objectValue, null, "Content", objArray8, null);
               }
+
               if (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), "/", false) == 0)
-              {
                 LateBinding.LateSet(objectValue, null, "remove", new object[] { true }, null);
-              }
             }
+
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
           }
+
           if ((Declarations.objSettings.SynchronizeTAGs && (Conversion.Val(this.txtTrack1.Text) <= 255.0)) && (tag.V1TAG.Tracknumber != Conversion.Val(this.txtTrack1.Text)))
           {
             tag.V1TAG.Tracknumber = (byte)Math.Round(Conversion.Val(this.txtTrack1.Text));
@@ -4935,6 +4931,7 @@ namespace ID3_TagIT
             tag.Changed = true;
           }
         }
+
         if (this.CheckBox7.Checked)
         {
           if ((StringType.StrCmp(this.txtPOS1.Text, "", false) == 0) & (StringType.StrCmp(this.txtPOS2.Text, "", false) == 0))
@@ -4946,80 +4943,60 @@ namespace ID3_TagIT
           else
           {
             string str6 = "";
+
             if (tag.V2TAG.FrameExists("TPOS"))
-            {
               str6 = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPOS"), null, "Content", new object[0], null, null));
-            }
+
             if (StringType.StrCmp(str6, "", false) == 0)
             {
               if (StringType.StrCmp(this.txtPOS1.Text, "", false) != 0)
               {
                 if (StringType.StrCmp(this.txtPOS2.Text, "", false) != 0)
-                {
                   objectValue = ID3Functions.CreateTextFrame("TPOS", this.txtPOS1.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0') + "/" + this.txtPOS2.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-                }
                 else
-                {
                   objectValue = ID3Functions.CreateTextFrame("TPOS", this.txtPOS1.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-                }
               }
               else if (StringType.StrCmp(this.txtPOS2.Text, "", false) != 0)
-              {
                 objectValue = ID3Functions.CreateTextFrame("TPOS", "/" + this.txtPOS2.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-              }
             }
             else if (str6.IndexOf("/") < 0)
             {
               if (StringType.StrCmp(this.txtPOS1.Text, "", false) != 0)
               {
                 if (StringType.StrCmp(this.txtPOS2.Text, "", false) != 0)
-                {
                   objectValue = ID3Functions.CreateTextFrame("TPOS", this.txtPOS1.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0') + "/" + this.txtPOS2.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-                }
                 else
-                {
                   objectValue = ID3Functions.CreateTextFrame("TPOS", this.txtPOS1.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-                }
               }
               else if (StringType.StrCmp(this.txtPOS2.Text, "", false) != 0)
-              {
                 objectValue = ID3Functions.CreateTextFrame("TPOS", str6.Trim(new char[] { ' ' }).PadLeft(Convert.ToInt32(this.txtDigits.Value), '0') + "/" + this.txtPOS2.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-              }
             }
             else
             {
               string str8 = "";
               string str7 = "";
+
               if (!str6.StartsWith("/"))
-              {
                 str8 = str6.Substring(0, str6.IndexOf("/"));
-              }
+
               if (!str6.EndsWith("/"))
-              {
                 str7 = str6.Substring(str6.IndexOf("/"));
-              }
+
               if (StringType.StrCmp(this.txtPOS1.Text, "", false) != 0)
               {
                 if (StringType.StrCmp(this.txtPOS2.Text, "", false) != 0)
-                {
                   objectValue = ID3Functions.CreateTextFrame("TPOS", this.txtPOS1.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0') + "/" + this.txtPOS2.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-                }
                 else
-                {
                   objectValue = ID3Functions.CreateTextFrame("TPOS", this.txtPOS1.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0') + str7);
-                }
               }
               else if (StringType.StrCmp(this.txtPOS2.Text, "", false) != 0)
-              {
                 objectValue = ID3Functions.CreateTextFrame("TPOS", str8.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0') + "/" + this.txtPOS2.Text.PadLeft(Convert.ToInt32(this.txtDigits.Value), '0'));
-              }
             }
+
             if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 0, false) < 0)
             {
               if (Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null))) == 0.0)
-              {
                 LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-              }
             }
             else
             {
@@ -5034,10 +5011,10 @@ namespace ID3_TagIT
               objArray3[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", objArray, strArray, null), null, "IndexOf", objArray2, null, null));
               objArray4 = objArray3;
               flagArray = new bool[] { false, true };
+
               if (flagArray[1])
-              {
                 LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", objArray, strArray, null), null, "IndexOf", new object[] { str12, RuntimeHelpers.GetObjectValue(objArray4[1]) }, null, true, true);
-              }
+
               if (Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray4, null, flagArray))) == 0.0)
               {
                 objArray11 = new object[1];
@@ -5051,13 +5028,14 @@ namespace ID3_TagIT
                 objArray8[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj5, null, "Content", objArray6, strArray2, null), null, "IndexOf", objArray7, null, null));
                 objArray9 = objArray8;
                 flagArray2 = new bool[] { true };
+
                 if (flagArray2[0])
-                {
                   LateBinding.LateSetComplex(LateBinding.LateGet(obj5, null, "Content", objArray6, strArray2, null), null, "IndexOf", new object[] { str13, RuntimeHelpers.GetObjectValue(objArray9[0]) }, null, true, true);
-                }
+
                 objArray11[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray9, null, flagArray2));
                 LateBinding.LateSet(objectValue, null, "Content", objArray11, null);
               }
+
               if (Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", new object[] { ObjectType.AddObj(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 1) }, null, null))) == 0.0)
               {
                 objArray8 = new object[1];
@@ -5072,21 +5050,21 @@ namespace ID3_TagIT
                 objArray5[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj4, null, "Content", objArray3, strArray, null), null, "IndexOf", objArray4, null, null));
                 objArray6 = objArray5;
                 flagArray = new bool[] { false, true };
+
                 if (flagArray[1])
-                {
                   LateBinding.LateSetComplex(LateBinding.LateGet(obj4, null, "Content", objArray3, strArray, null), null, "IndexOf", new object[] { str12, RuntimeHelpers.GetObjectValue(objArray6[1]) }, null, true, true);
-                }
+
                 objArray8[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", objArray6, null, flagArray));
                 LateBinding.LateSet(objectValue, null, "Content", objArray8, null);
               }
+
               if (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), "/", false) == 0)
-              {
                 LateBinding.LateSet(objectValue, null, "remove", new object[] { true }, null);
-              }
             }
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
           }
         }
+
         if (this.CheckBox8.Checked)
         {
           if (StringType.StrCmp(this.txtBPM.Text, "", false) == 0)
@@ -5095,54 +5073,58 @@ namespace ID3_TagIT
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
           }
           else
-          {
             objectValue = ID3Functions.CreateTextFrame("TBPM", this.txtBPM.Text);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox9.Checked)
         {
           string text;
+
           if (!Declarations.objSettings.SingleGC)
           {
             text = "";
+
             var enumerator15 = this.GenreList.Items.GetEnumerator();
+
             while (enumerator15.MoveNext())
             {
               string vstrEntry = StringType.FromObject(enumerator15.Current);
               text = text + this.CheckReplace(vtag, vstrEntry) + "\0";
             }
+
             if (text.EndsWith("\0"))
-            {
               text = text.Substring(0, text.Length - 1);
-            }
+
             objectValue = ID3Functions.CreateTextFrame("TCON", text);
+
             if (StringType.StrCmp(text, "", false) == 0)
-            {
               LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-            }
+
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
           }
           else
           {
             text = this.cmbGenre.Text;
             objectValue = ID3Functions.CreateTextFrame("TCON", this.CheckReplace(vtag, text));
+
             if (StringType.StrCmp(text, "", false) == 0)
-            {
               LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-            }
+
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
           }
+
           if (Declarations.objSettings.SynchronizeTAGs)
           {
             if (tag.V2TAG.FrameExists("TCON"))
             {
               string sRight = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null));
               bool flag = false;
+
               if (sRight.IndexOf('\0') > 0)
-              {
                 sRight = sRight.Substring(0, sRight.IndexOf('\0'));
-              }
+
               foreach (DataRow row in Declarations.objSettings.Genres.Rows)
               {
                 if (StringType.StrCmp(row["Name"].ToString().ToLower(), sRight.ToLower(), false) == 0)
@@ -5153,9 +5135,11 @@ namespace ID3_TagIT
                     flag = true;
                     tag.Changed = true;
                   }
+
                   break;
                 }
               }
+
               if (!flag & (StringType.StrCmp(tag.V1TAG.GenreText, sRight, false) != 0))
               {
                 tag.V1TAG.GenreText = sRight;
@@ -5165,43 +5149,43 @@ namespace ID3_TagIT
             else
             {
               if (tag.V1TAG.GenreByte != 0xff)
-              {
                 tag.Changed = true;
-              }
+
               tag.V1TAG.GenreByte = 0xff;
             }
           }
         }
+
         if (this.CheckBox44.Checked)
         {
           if (this.TIPLList.Items.Count > 0)
           {
             if (!tag.V2TAG.TAGHeaderPresent)
-            {
               tag.V2TAG.TAGHeaderPresent = true;
-            }
+
             string vstrContent = "";
+
             foreach (ListViewItem item3 in this.TIPLList.Items)
-            {
               vstrContent = vstrContent + item3.Text + "\0" + this.CheckReplace(vtag, item3.SubItems[1].Text) + "\0";
-            }
+
             vstrContent = vstrContent.TrimEnd(new char[] { '\0' });
+
             if (tag.V2TAG.TAGVersion == DoubleType.FromString("3"))
             {
               objectValue = ID3Functions.CreateTextFrame("IPLS", vstrContent);
+
               if (StringType.StrCmp(vstrContent, "", false) == 0)
-              {
                 LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-              }
+
               tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
             }
             else
             {
               objectValue = ID3Functions.CreateTextFrame("TIPL", vstrContent);
+
               if (StringType.StrCmp(vstrContent, "", false) == 0)
-              {
                 LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-              }
+
               tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
             }
           }
@@ -5221,27 +5205,28 @@ namespace ID3_TagIT
             }
           }
         }
+
         if (this.CheckBox45.Checked)
         {
           if (this.TMCLList.Items.Count > 0)
           {
             if (!tag.V2TAG.TAGHeaderPresent)
-            {
               tag.V2TAG.TAGHeaderPresent = true;
-            }
+
             string str11 = "";
+
             foreach (ListViewItem item4 in this.TMCLList.Items)
-            {
               str11 = str11 + item4.Text + "\0" + this.CheckReplace(vtag, item4.SubItems[1].Text) + "\0";
-            }
+
             str11 = str11.TrimEnd(new char[] { '\0' });
+
             if (tag.V2TAG.TAGVersion == DoubleType.FromString("4"))
             {
               objectValue = ID3Functions.CreateTextFrame("TMCL", str11);
+
               if (StringType.StrCmp(str11, "", false) == 0)
-              {
                 LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-              }
+
               tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
             }
           }
@@ -5252,247 +5237,275 @@ namespace ID3_TagIT
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
           }
         }
+
         if (this.CheckBox11.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TPE2", this.CheckReplace(vtag, this.txtBand.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox12.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TPE3", this.CheckReplace(vtag, this.txtConductor.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox13.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TPE4", this.CheckReplace(vtag, this.txtModified.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox15.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TIT1", this.CheckReplace(vtag, this.txtContent.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox16.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TIT3", this.CheckReplace(vtag, this.txtSubTitle.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox14.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TCOM", this.CheckReplace(vtag, this.txtComposer.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox17.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TEXT", this.CheckReplace(vtag, this.txtLyWriter.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox18.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TPUB", this.CheckReplace(vtag, this.txtPublisher.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox19.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TENC", this.CheckReplace(vtag, this.txtEncoded.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox40.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TCOP", this.CheckReplace(vtag, this.txtCopyright.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (((tag.V2TAG.TAGVersion == 0) & (Declarations.objSettings.NewV2Version == 4)) | (tag.V2TAG.TAGVersion == 4))
         {
           if (this.CheckBox42.Checked)
           {
             objectValue = ID3Functions.CreateTextFrame("TSOA", this.CheckReplace(vtag, this.txtSortAlbum.Text));
+
             if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-            {
               LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-            }
+
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
           }
+
           if (this.CheckBox43.Checked)
           {
             objectValue = ID3Functions.CreateTextFrame("TSOP", this.CheckReplace(vtag, this.txtSortArtist.Text));
+
             if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-            {
               LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-            }
+
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
           }
+
           if (this.CheckBox41.Checked)
           {
             objectValue = ID3Functions.CreateTextFrame("TSOT", this.CheckReplace(vtag, this.txtSortTitle.Text));
+
             if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-            {
               LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-            }
+
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
           }
         }
+
         if (this.CheckBox20.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TOAL", this.CheckReplace(vtag, this.txtOAlbum.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox21.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TOFN", this.CheckReplace(vtag, this.txtOFilename.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox23.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TOPE", this.CheckReplace(vtag, this.txtOArtist.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox22.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TOLY", this.CheckReplace(vtag, this.txtOLyWriter.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox24.Checked)
         {
           objectValue = ID3Functions.CreateTextFrame("TOWN", this.CheckReplace(vtag, this.txtOOwner.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox25.Checked)
         {
           objectValue = ID3Functions.CreateWebFrame("WCOP", this.CheckReplace(vtag, this.txtCopyInfURL.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox26.Checked)
         {
           objectValue = ID3Functions.CreateWebFrame("WOAF", this.CheckReplace(vtag, this.txtAudioFileURL.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox27.Checked)
         {
           objectValue = ID3Functions.CreateWebFrame("WOAR", this.CheckReplace(vtag, this.txtArtistURL.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox28.Checked)
         {
           objectValue = ID3Functions.CreateWebFrame("WOAS", this.CheckReplace(vtag, this.txtAudioSRCURL.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox29.Checked)
         {
           objectValue = ID3Functions.CreateWebFrame("WORS", this.CheckReplace(vtag, this.txtINetRadioURL.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox30.Checked)
         {
           objectValue = ID3Functions.CreateWebFrame("WPAY", this.CheckReplace(vtag, this.txtPayURL.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox31.Checked)
         {
           objectValue = ID3Functions.CreateWebFrame("WPUB", this.CheckReplace(vtag, this.txtPubURL.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox32.Checked)
         {
           objectValue = ID3Functions.CreateWebFrame("WCOM", this.CheckReplace(vtag, this.txtCOMMInfURL.Text));
+
           if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Trim", new object[] { " " }, null, null), "", false) == 0)
-          {
             LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
-          }
+
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
+
         if (this.CheckBox10.Checked & tag.V2TAG.FrameExists("COMM"))
         {
           tag.V2TAG.RemoveFrames("COMM");
           tag.V2TAG.Changed = true;
+
           if (Declarations.objSettings.SynchronizeTAGs)
           {
             if (StringType.StrCmp(tag.V1TAG.Comment, "", false) != 0)
@@ -5500,21 +5513,24 @@ namespace ID3_TagIT
               tag.V1TAG.TAGPresent = true;
               tag.Changed = true;
             }
+
             tag.V1TAG.Comment = "";
           }
         }
+
         if (!Declarations.objSettings.SingleGC)
         {
           if (this.vbooCommentMoved)
           {
             ArrayList alstFrames = new ArrayList();
+
             foreach (ListViewItem item5 in this.CommentList.Items)
-            {
               alstFrames.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(item5.Tag, null, "Clone", new object[0], null, null)));
-            }
+
             tag.V2TAG.RemoveFrames("COMM");
             tag.V2TAG.AddFrames(alstFrames);
           }
+
           foreach (ListViewItem item2 in this.CommentList.Items)
           {
             V2LDCFrame frame = new V2LDCFrame
@@ -5524,22 +5540,23 @@ namespace ID3_TagIT
               Content = StringType.FromObject(LateBinding.LateGet(item2.Tag, null, "Content", new object[0], null, null)),
               Language = StringType.FromObject(LateBinding.LateGet(item2.Tag, null, "Language", new object[0], null, null))
             };
+
             if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Descriptor", new object[0], null, null), item2.Text, false) != 0, ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Content", new object[0], null, null), this.CheckReplace(vtag, item2.SubItems[1].Text), false) != 0)))
             {
               frame.Descriptor = item2.Text;
               frame.Content = this.CheckReplace(vtag, item2.SubItems[1].Text);
               tag.V2TAG.Changed = true;
             }
+
             if (!item2.Checked)
-            {
               frame.Remove = true;
-            }
+
             if (StringType.StrCmp(frame.Content, "", false) == 0)
-            {
               frame.Remove = true;
-            }
+
             tag.V2TAG.AddFrame(frame);
           }
+
           if ((Declarations.objSettings.SynchronizeTAGs && (this.CommentList.CheckedItems.Count > 0)) && (ObjectType.ObjTst(tag.V1TAG.Comment, LateBinding.LateGet(this.CommentList.CheckedItems[0].Tag, null, "Content", new object[0], null, null), false) != 0))
           {
             tag.V1TAG.Comment = StringType.FromObject(LateBinding.LateGet(this.CommentList.CheckedItems[0].Tag, null, "Content", new object[0], null, null));
@@ -5558,25 +5575,24 @@ namespace ID3_TagIT
               Content = this.CheckReplace(vtag, this.txtComment.Text.Replace("\r\n", "\n")),
               Language = this.cmbCLanguage.Text.Substring(0, 3)
             };
+
             if (StringType.StrCmp(frame2.Content, "", false) == 0)
-            {
               frame2.Remove = true;
-            }
+
             if (tag.V2TAG.GetFrames("COMM").Count > 1)
             {
               tag.V2TAG.RemoveFrames("COMM");
               tag.V2TAG.AddFrame(frame2);
             }
             else
-            {
               tag.V2TAG.AddFrame(frame2);
-            }
           }
           else if (tag.V2TAG.FrameExists("COMM"))
           {
             tag.V2TAG.RemoveFrames("COMM");
             tag.V2TAG.Changed = true;
           }
+
           if (Declarations.objSettings.SynchronizeTAGs)
           {
             if (StringType.StrCmp(this.txtComment.Text, "", false) != 0)
@@ -5595,40 +5611,46 @@ namespace ID3_TagIT
                 tag.V1TAG.TAGPresent = true;
                 tag.Changed = true;
               }
+
               tag.V1TAG.Comment = "";
             }
           }
         }
+
         if (this.CheckBox35.Checked & tag.V2TAG.FrameExists("USLT"))
         {
           tag.V2TAG.RemoveFrames("USLT");
           tag.V2TAG.Changed = true;
         }
+
         if (this.vbooLyricsMoved)
         {
           ArrayList list2 = new ArrayList();
+
           foreach (ListViewItem item6 in this.LyricsList.Items)
-          {
             list2.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(item6.Tag, null, "Clone", new object[0], null, null)));
-          }
+
           tag.V2TAG.RemoveFrames("USLT");
           tag.V2TAG.AddFrames(list2);
         }
+
         if (this.CheckBox33.Checked & tag.V2TAG.FrameExists("POPM"))
         {
           tag.V2TAG.RemoveFrames("POPM");
           tag.V2TAG.Changed = true;
         }
+
         if (this.vbooRatingMoved)
         {
           ArrayList list3 = new ArrayList();
+
           foreach (ListViewItem item7 in this.RatingList.Items)
-          {
             list3.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(item7.Tag, null, "Clone", new object[0], null, null)));
-          }
+
           tag.V2TAG.RemoveFrames("POPM");
           tag.V2TAG.AddFrames(list3);
         }
+
         foreach (ListViewItem item2 in this.LyricsList.Items)
         {
           V2LDCFrame frame3 = new V2LDCFrame
@@ -5638,22 +5660,23 @@ namespace ID3_TagIT
             Content = StringType.FromObject(LateBinding.LateGet(item2.Tag, null, "Content", new object[0], null, null)),
             Language = StringType.FromObject(LateBinding.LateGet(item2.Tag, null, "Language", new object[0], null, null))
           };
+
           if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Descriptor", new object[0], null, null), item2.Text, false) != 0, ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Content", new object[0], null, null), this.CheckReplace(vtag, item2.SubItems[1].Text), false) != 0)))
           {
             frame3.Descriptor = item2.Text;
             frame3.Content = this.CheckReplace(vtag, item2.SubItems[1].Text);
             tag.V2TAG.Changed = true;
           }
+
           if (!item2.Checked)
-          {
             frame3.Remove = true;
-          }
+
           if (StringType.StrCmp(frame3.Content, "", false) == 0)
-          {
             frame3.Remove = true;
-          }
+
           tag.V2TAG.AddFrame(frame3);
         }
+
         foreach (ListViewItem item2 in this.RatingList.Items)
         {
           V2POPMFrame frame4 = new V2POPMFrame
@@ -5663,6 +5686,7 @@ namespace ID3_TagIT
             Rating = ByteType.FromObject(LateBinding.LateGet(item2.Tag, null, "Rating", new object[0], null, null)),
             Counter = IntegerType.FromObject(LateBinding.LateGet(item2.Tag, null, "Counter", new object[0], null, null))
           };
+
           if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "User", new object[0], null, null), item2.Text, false) != 0, ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Rating", new object[0], null, null), Convert.ToByte(item2.SubItems[1].Text), false) != 0), ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Counter", new object[0], null, null), Convert.ToInt32(item2.SubItems[2].Text), false) != 0)))
           {
             frame4.User = item2.Text;
@@ -5670,41 +5694,42 @@ namespace ID3_TagIT
             frame4.Counter = Convert.ToInt32(item2.SubItems[2].Text);
             tag.V2TAG.Changed = true;
           }
+
           if (!item2.Checked)
-          {
             frame4.Remove = true;
-          }
+
           tag.V2TAG.AddFrame(frame4);
         }
+
         if (this.CheckBox34.Checked & tag.V2TAG.FrameExists("APIC"))
         {
           tag.V2TAG.RemoveFrames("APIC");
           tag.V2TAG.Changed = true;
         }
+
         foreach (ListViewItem item2 in this.PicList.Items)
         {
           V2APICFrame frame5 = (V2APICFrame)LateBinding.LateGet(item2.Tag, null, "Clone", new object[0], null, null);
           Directory.SetCurrentDirectory(Path.GetDirectoryName(tag.FI.FullName));
+
           if (!item2.Checked)
-          {
             frame5.Remove = true;
-          }
+
           if (item2.Font.Style == FontStyle.Bold)
-          {
             frame5.Path = Id3TagIT_Main.GetRelativePath(Path.GetDirectoryName(tag.FI.FullName), frame5.Path);
-          }
           else
-          {
             frame5.Path = Path.GetFullPath(frame5.Path);
-          }
+
           tag.V2TAG.AddFrame(frame5);
           frame5 = null;
         }
+
         if (this.CheckBox36.Checked & tag.V2TAG.FrameExists("TXXX"))
         {
           tag.V2TAG.RemoveFrames("TXXX");
           tag.V2TAG.Changed = true;
         }
+
         foreach (ListViewItem item2 in this.TXXXList.Items)
         {
           V2TXXXFrame frame6 = new V2TXXXFrame
@@ -5713,27 +5738,29 @@ namespace ID3_TagIT
             Descriptor = StringType.FromObject(LateBinding.LateGet(item2.Tag, null, "Descriptor", new object[0], null, null)),
             Content = StringType.FromObject(LateBinding.LateGet(item2.Tag, null, "Content", new object[0], null, null))
           };
+
           if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Descriptor", new object[0], null, null), item2.Text, false) != 0, ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Content", new object[0], null, null), this.CheckReplace(vtag, item2.SubItems[1].Text), false) != 0)))
           {
             frame6.Descriptor = item2.Text;
             frame6.Content = this.CheckReplace(vtag, item2.SubItems[1].Text);
             tag.V2TAG.Changed = true;
           }
+
           if (!item2.Checked)
-          {
             frame6.Remove = true;
-          }
+
           if (StringType.StrCmp(frame6.Content, "", false) == 0)
-          {
             frame6.Remove = true;
-          }
+
           tag.V2TAG.AddFrame(frame6);
         }
+
         if (this.CheckBox37.Checked & tag.V2TAG.FrameExists("WXXX"))
         {
           tag.V2TAG.RemoveFrames("WXXX");
           tag.V2TAG.Changed = true;
         }
+
         foreach (ListViewItem item2 in this.WXXXList.Items)
         {
           V2WXXXFrame frame7 = new V2WXXXFrame
@@ -5742,49 +5769,61 @@ namespace ID3_TagIT
             Descriptor = StringType.FromObject(LateBinding.LateGet(item2.Tag, null, "Descriptor", new object[0], null, null)),
             Content = StringType.FromObject(LateBinding.LateGet(item2.Tag, null, "Content", new object[0], null, null))
           };
+
           if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Descriptor", new object[0], null, null), item2.Text, false) != 0, ObjectType.ObjTst(LateBinding.LateGet(item2.Tag, null, "Content", new object[0], null, null), this.CheckReplace(vtag, item2.SubItems[1].Text), false) != 0)))
           {
             frame7.Descriptor = item2.Text;
             frame7.Content = this.CheckReplace(vtag, item2.SubItems[1].Text);
             tag.V2TAG.Changed = true;
           }
+
           if (!item2.Checked)
             frame7.Remove = true;
+
           if (StringType.StrCmp(frame7.Content, "", false) == 0)
             frame7.Remove = true;
+
           tag.V2TAG.AddFrame(frame7);
         }
+
         if (this.chkRemoveAllNOT.Checked)
         {
           ArrayList list4 = new ArrayList();
+
           var enumerator2 = tag.V2TAG.GetAllSupportedFrames().GetEnumerator();
+
           while (enumerator2.MoveNext())
           {
             objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
             object obj3 = LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null);
+
             if (((((((ObjectType.ObjTst(obj3, "TPE1", false) != 0) && (ObjectType.ObjTst(obj3, "TPE2", false) != 0)) && ((ObjectType.ObjTst(obj3, "TPE3", false) != 0) && (ObjectType.ObjTst(obj3, "TPE4", false) != 0))) && (((ObjectType.ObjTst(obj3, "TIT1", false) != 0) && (ObjectType.ObjTst(obj3, "TIT2", false) != 0)) && ((ObjectType.ObjTst(obj3, "TIT3", false) != 0) && (ObjectType.ObjTst(obj3, "TALB", false) != 0)))) && ((((ObjectType.ObjTst(obj3, "TRCK", false) != 0) && (ObjectType.ObjTst(obj3, "TBPM", false) != 0)) && ((ObjectType.ObjTst(obj3, "TCOM", false) != 0) && (ObjectType.ObjTst(obj3, "TCON", false) != 0))) && (((ObjectType.ObjTst(obj3, "TDAT", false) != 0) && (ObjectType.ObjTst(obj3, "TENC", false) != 0)) && ((ObjectType.ObjTst(obj3, "TMED", false) != 0) && (ObjectType.ObjTst(obj3, "TYER", false) != 0))))) && (((((ObjectType.ObjTst(obj3, "TEXT", false) != 0) && (ObjectType.ObjTst(obj3, "TPUB", false) != 0)) && ((ObjectType.ObjTst(obj3, "TOAL", false) != 0) && (ObjectType.ObjTst(obj3, "TOFN", false) != 0))) && (((ObjectType.ObjTst(obj3, "TOPE", false) != 0) && (ObjectType.ObjTst(obj3, "TDRC", false) != 0)) && ((ObjectType.ObjTst(obj3, "TPOS", false) != 0) && (ObjectType.ObjTst(obj3, "TORY", false) != 0)))) && ((((ObjectType.ObjTst(obj3, "TCOP", false) != 0) && (ObjectType.ObjTst(obj3, "TOLY", false) != 0)) && ((ObjectType.ObjTst(obj3, "TOWN", false) != 0) && (ObjectType.ObjTst(obj3, "TDOR", false) != 0))) && (((ObjectType.ObjTst(obj3, "WCOM", false) != 0) && (ObjectType.ObjTst(obj3, "WCOP", false) != 0)) && ((ObjectType.ObjTst(obj3, "WOAF", false) != 0) && (ObjectType.ObjTst(obj3, "WOAR", false) != 0)))))) && ((((((ObjectType.ObjTst(obj3, "WOAS", false) != 0) && (ObjectType.ObjTst(obj3, "WORS", false) != 0)) && ((ObjectType.ObjTst(obj3, "WPAY", false) != 0) && (ObjectType.ObjTst(obj3, "WPUB", false) != 0))) && (((ObjectType.ObjTst(obj3, "TSOA", false) != 0) && (ObjectType.ObjTst(obj3, "TSOP", false) != 0)) && ((ObjectType.ObjTst(obj3, "TSOT", false) != 0) && (ObjectType.ObjTst(obj3, "TIPL", false) != 0)))) && ((((ObjectType.ObjTst(obj3, "TMCL", false) != 0) && (ObjectType.ObjTst(obj3, "IPLS", false) != 0)) && ((ObjectType.ObjTst(obj3, "TLEN", false) != 0) && (ObjectType.ObjTst(obj3, "COMM", false) != 0))) && (((ObjectType.ObjTst(obj3, "USLT", false) != 0) && (ObjectType.ObjTst(obj3, "POPM", false) != 0)) && ((ObjectType.ObjTst(obj3, "TXXX", false) != 0) && (ObjectType.ObjTst(obj3, "WXXX", false) != 0))))) && (ObjectType.ObjTst(obj3, "APIC", false) != 0)))
             {
               LateBinding.LateSet(objectValue, null, "Remove", new object[] { true }, null);
               list4.Add(RuntimeHelpers.GetObjectValue(objectValue));
             }
           }
+
           var enumerator = list4.GetEnumerator();
+
           while (enumerator.MoveNext())
           {
             objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
             tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
           }
+
           tag.V2TAG.RemoveAllNotSupportedFrames();
         }
+
         if (tag.V2TAG.Changed)
         {
           if (!tag.V2TAG.TAGHeaderPresent)
-          {
             tag.V2TAG.TAGHeaderPresent = true;
-          }
+
           tag.Changed = true;
           this.MainForm.UpdateListItem(item, false);
         }
+
         frmProg.ProgressBar.PerformStep();
       }
     }
@@ -5803,6 +5842,7 @@ namespace ID3_TagIT
         Exception exception = exception1;
         ProjectData.ClearProjectError();
       }
+
       try
       {
         this.APICView.Image = null;
@@ -5814,6 +5854,7 @@ namespace ID3_TagIT
         Exception exception2 = exception3;
         ProjectData.ClearProjectError();
       }
+
       if (this.PicList.FocusedItem != null)
       {
         this.txtPDescriptor.Text = this.PicList.FocusedItem.Text;
@@ -5822,6 +5863,7 @@ namespace ID3_TagIT
         this.chkPicInclude.Checked = Convert.ToBoolean(this.PicList.FocusedItem.SubItems[3].Text);
         this.chkPicInclude.Enabled = true;
         this.chkPicRelativPath.Checked = (this.PicList.FocusedItem.Font.Style & FontStyle.Bold) == FontStyle.Bold;
+
         if (File.Exists(this.PicList.FocusedItem.SubItems[2].Text))
         {
           FileStream stream = new FileStream(this.PicList.FocusedItem.SubItems[2].Text, FileMode.Open, FileAccess.Read);
@@ -5833,9 +5875,8 @@ namespace ID3_TagIT
           stream.Close();
         }
         else
-        {
           this.APICView.Image = null;
-        }
+
         this.btnAddPicture.Enabled = true;
       }
     }
@@ -5861,10 +5902,9 @@ namespace ID3_TagIT
       object[] objArray2 = objArray3;
       bool[] copyBack = new bool[] { false, true };
       LateBinding.LateCall(sender, null, "Select", objArray2, null, copyBack);
+
       if (copyBack[1])
-      {
         LateBinding.LateSetComplex(LateBinding.LateGet(o, null, "Text", args, paramnames, null), null, "Length", new object[] { RuntimeHelpers.GetObjectValue(objArray2[1]) }, null, true, true);
-      }
     }
 
     private void Select_Leave(object sender, EventArgs e)
@@ -5986,162 +6026,85 @@ namespace ID3_TagIT
     private void Select_TextChanged(object sender, EventArgs e)
     {
       object obj2 = LateBinding.LateGet(sender, null, "Name", new object[0], null, null);
+
       if (ObjectType.ObjTst(obj2, "txtComment", false) == 0)
-      {
         this.CheckBox38.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtAlbum", false) == 0)
-      {
         this.CheckBox3.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtArtistURL", false) == 0)
-      {
         this.CheckBox27.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtAudioFileURL", false) == 0)
-      {
         this.CheckBox26.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtAudioSRCURL", false) == 0)
-      {
         this.CheckBox28.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtBand", false) == 0)
-      {
         this.CheckBox11.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtCOMMInfURL", false) == 0)
-      {
         this.CheckBox32.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtComposer", false) == 0)
-      {
         this.CheckBox14.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtConductor", false) == 0)
-      {
         this.CheckBox12.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtContent", false) == 0)
-      {
         this.CheckBox15.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtCopyInfURL", false) == 0)
-      {
         this.CheckBox25.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtEncoded", false) == 0)
-      {
         this.CheckBox19.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtINetRadioURL", false) == 0)
-      {
         this.CheckBox29.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtLyWriter", false) == 0)
-      {
         this.CheckBox17.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtModified", false) == 0)
-      {
         this.CheckBox13.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtOAlbum", false) == 0)
-      {
         this.CheckBox20.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtOArtist", false) == 0)
-      {
         this.CheckBox23.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtOFilename", false) == 0)
-      {
         this.CheckBox21.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtOLyWriter", false) == 0)
-      {
         this.CheckBox22.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtOOwner", false) == 0)
-      {
         this.CheckBox24.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtPayURL", false) == 0)
-      {
         this.CheckBox30.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtPublisher", false) == 0)
-      {
         this.CheckBox18.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtPubURL", false) == 0)
-      {
         this.CheckBox31.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtSubTitle", false) == 0)
-      {
         this.CheckBox16.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtTitle", false) == 0)
-      {
         this.CheckBox2.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "cmbArtist", false) == 0)
-      {
         this.CheckBox1.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "cmbGenre", false) == 0)
-      {
         this.CheckBox9.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "cmbMedia", false) == 0)
-      {
         this.CheckBox5.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtSortAlbum", false) == 0)
-      {
         this.CheckBox42.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtSortArtist", false) == 0)
-      {
         this.CheckBox43.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtSortTitle", false) == 0)
-      {
         this.CheckBox41.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtCopyright", false) == 0)
-      {
         this.CheckBox40.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtBPM", false) == 0)
-      {
         this.CheckBox8.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtPOS1", false) == 0)
-      {
         this.CheckBox7.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtPOS2", false) == 0)
-      {
         this.CheckBox7.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtTrack1", false) == 0)
-      {
         this.CheckBox6.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtTrack2", false) == 0)
-      {
         this.CheckBox6.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtYear", false) == 0)
-      {
         this.CheckBox4.Checked = true;
-      }
       else if (ObjectType.ObjTst(obj2, "txtTORY", false) == 0)
-      {
         this.CheckBox39.Checked = true;
-      }
     }
 
     private void TIPLList_Click(object sender, EventArgs e)
@@ -6261,22 +6224,29 @@ namespace ID3_TagIT
       this.CommentList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol04"]);
       this.CommentList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol05"]);
       this.CommentList.Columns[2].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol06"]);
+
       this.TIPLList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol07"]);
       this.TIPLList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol08"]);
+
       this.TMCLList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol09"]);
       this.TMCLList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol10"]);
+
       this.PicList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol11"]);
       this.PicList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol12"]);
       this.PicList.Columns[2].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol13"]);
       this.PicList.Columns[3].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol14"]);
+
       this.LyricsList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol15"]);
       this.LyricsList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol16"]);
       this.LyricsList.Columns[2].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol17"]);
+
       this.RatingList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol18"]);
       this.RatingList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol19"]);
       this.RatingList.Columns[2].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol20"]);
+
       this.TXXXList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol21"]);
       this.TXXXList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol22"]);
+
       this.WXXXList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol21"]);
       this.WXXXList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol22"]);
     }
@@ -6284,12 +6254,15 @@ namespace ID3_TagIT
     private void AddSelectionBar()
     {
       IEnumerator enumerator = null;
+
       try
       {
         enumerator = this.SelectionBar.Groups.GetEnumerator();
+
         while (enumerator.MoveNext())
         {
           ExplorerBarGroupItem current = (ExplorerBarGroupItem)enumerator.Current;
+
           try
           {
             current.Text = StringType.FromObject(Declarations.objResources.SelectionBar[current.Name]);
@@ -6299,12 +6272,12 @@ namespace ID3_TagIT
             ProjectData.SetProjectError(exception1);
             ProjectData.ClearProjectError();
           }
+
           try
           {
             foreach (ButtonItem item in current.SubItems)
-            {
               item.Text = StringType.FromObject(Declarations.objResources.SelectionBar[item.Name]);
-            }
+
             continue;
           }
           catch (Exception exception2)
@@ -6318,9 +6291,7 @@ namespace ID3_TagIT
       finally
       {
         if (enumerator is IDisposable)
-        {
           ((IDisposable)enumerator).Dispose();
-        }
       }
     }
 
@@ -6330,510 +6301,637 @@ namespace ID3_TagIT
       Control cmbCDescriptor = this.cmbCDescriptor;
       this.cmbCDescriptor = (ComboBoxAutoComplete)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.cmbCDescriptor, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox38;
       this.CheckBox38 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox38, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox10;
       this.CheckBox10 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox10, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnMoveComment;
       this.btnMoveComment = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnMoveComment, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnRemoveComment;
       this.btnRemoveComment = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnRemoveComment, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnAddComment;
       this.btnAddComment = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnAddComment, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.cmbCLanguage;
       this.cmbCLanguage = (ComboBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.cmbCLanguage, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtComment;
       this.txtComment = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtComment, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.cmbGenre;
       this.cmbGenre = (ComboBoxAutoComplete)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.cmbGenre, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox9;
       this.CheckBox9 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox9, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnMoveGenre;
       this.btnMoveGenre = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnMoveGenre, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnRemoveGenre;
       this.btnRemoveGenre = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnRemoveGenre, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnAddGenre;
       this.btnAddGenre = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnAddGenre, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.GenreList;
       this.GenreList = (ListBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.GenreList, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.chkTLEN;
       this.chkTLEN = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.chkTLEN, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtPOS2;
       this.txtPOS2 = (MaskedTextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtPOS2, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtPOS1;
       this.txtPOS1 = (MaskedTextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtPOS1, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtTrack2;
       this.txtTrack2 = (MaskedTextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtTrack2, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtTrack1;
       this.txtTrack1 = (MaskedTextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtTrack1, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtYear;
       this.txtYear = (MaskedTextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtYear, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtBPM;
       this.txtBPM = (MaskedTextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtBPM, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.cmbArtist;
       this.cmbArtist = (ComboBoxAutoComplete)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.cmbArtist, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox8;
       this.CheckBox8 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox8, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox7;
       this.CheckBox7 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox7, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox6;
       this.CheckBox6 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox6, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox5;
       this.CheckBox5 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox5, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox4;
       this.CheckBox4 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox4, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox3;
       this.CheckBox3 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox3, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox2;
       this.CheckBox2 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox2, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox1;
       this.CheckBox1 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox1, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.YearFormat;
       this.YearFormat = (HScrollBar)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.YearFormat, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.cmbMedia;
       this.cmbMedia = (ComboBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.cmbMedia, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtAlbum;
       this.txtAlbum = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtTitle;
       this.txtTitle = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtTitle, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox41;
       this.CheckBox41 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox41, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox42;
       this.CheckBox42 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox42, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox43;
       this.CheckBox43 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox43, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtSortArtist;
       this.txtSortArtist = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtSortArtist, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtSortTitle;
       this.txtSortTitle = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtSortTitle, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtSortAlbum;
       this.txtSortAlbum = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtSortAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtTORY;
       this.txtTORY = (MaskedTextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtTORY, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox39;
       this.CheckBox39 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox39, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox24;
       this.CheckBox24 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox24, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox23;
       this.CheckBox23 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox23, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox22;
       this.CheckBox22 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox22, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox21;
       this.CheckBox21 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox21, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox20;
       this.CheckBox20 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox20, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtOOwner;
       this.txtOOwner = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtOOwner, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtOArtist;
       this.txtOArtist = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtOArtist, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtOAlbum;
       this.txtOAlbum = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtOAlbum, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtOLyWriter;
       this.txtOLyWriter = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtOLyWriter, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtOFilename;
       this.txtOFilename = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtOFilename, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox16;
       this.CheckBox16 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox16, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox15;
       this.CheckBox15 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox15, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtContent;
       this.txtContent = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtContent, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtSubTitle;
       this.txtSubTitle = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtSubTitle, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox14;
       this.CheckBox14 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox14, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox13;
       this.CheckBox13 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox13, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox12;
       this.CheckBox12 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox12, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox11;
       this.CheckBox11 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox11, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtComposer;
       this.txtComposer = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtComposer, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtBand;
       this.txtBand = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtBand, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtModified;
       this.txtModified = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtModified, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtConductor;
       this.txtConductor = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtConductor, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox40;
       this.CheckBox40 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox40, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtCopyright;
       this.txtCopyright = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtCopyright, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox19;
       this.CheckBox19 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox19, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox18;
       this.CheckBox18 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox18, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox17;
       this.CheckBox17 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox17, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtLyWriter;
       this.txtLyWriter = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtLyWriter, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtEncoded;
       this.txtEncoded = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtEncoded, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtPublisher;
       this.txtPublisher = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtPublisher, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox45;
       this.CheckBox45 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox45, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtMusicianName;
       this.txtMusicianName = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtMusicianName, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnRemoveMusician;
       this.btnRemoveMusician = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnRemoveMusician, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnAddMusician;
       this.btnAddMusician = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnAddMusician, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtMusicianInst;
       this.txtMusicianInst = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtMusicianInst, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox44;
       this.CheckBox44 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox44, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtInvPerson;
       this.txtInvPerson = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtInvPerson, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnRemoveInv;
       this.btnRemoveInv = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnRemoveInv, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnAddInv;
       this.btnAddInv = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnAddInv, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtInvFunction;
       this.txtInvFunction = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtInvFunction, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox34;
       this.CheckBox34 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox34, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnRemovePicture;
       this.btnRemovePicture = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnRemovePicture, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnAddPicture;
       this.btnAddPicture = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnAddPicture, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnGetPic;
       this.btnGetPic = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnGetPic, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.chkPicInclude;
       this.chkPicInclude = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.chkPicInclude, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtPicPath;
       this.txtPicPath = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtPicPath, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.cmbPicType;
       this.cmbPicType = (ComboBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.cmbPicType, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtPDescriptor;
       this.txtPDescriptor = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtPDescriptor, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox35;
       this.CheckBox35 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox35, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.cmbLLanguage;
       this.cmbLLanguage = (ComboBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.cmbLLanguage, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtLDescriptor;
       this.txtLDescriptor = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtLDescriptor, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox33;
       this.CheckBox33 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox33, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnMoveRating;
       this.btnMoveRating = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnMoveRating, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnRemoveRating;
       this.btnRemoveRating = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnRemoveRating, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnAddRating;
       this.btnAddRating = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnAddRating, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtRatingCounter;
       this.txtRatingCounter = (NumericUpDown)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtRatingCounter, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtRatingRating;
       this.txtRatingRating = (NumericUpDown)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtRatingRating, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtRatingUser;
       this.txtRatingUser = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtRatingUser, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox32;
       this.CheckBox32 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox32, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox31;
       this.CheckBox31 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox31, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox30;
       this.CheckBox30 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox30, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox29;
       this.CheckBox29 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox29, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox28;
       this.CheckBox28 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox28, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox27;
       this.CheckBox27 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox27, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox26;
       this.CheckBox26 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox26, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox25;
       this.CheckBox25 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox25, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtCOMMInfURL;
       this.txtCOMMInfURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtCOMMInfURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtPubURL;
       this.txtPubURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtPubURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtPayURL;
       this.txtPayURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtPayURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtINetRadioURL;
       this.txtINetRadioURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtINetRadioURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtAudioSRCURL;
       this.txtAudioSRCURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtAudioSRCURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtCopyInfURL;
       this.txtCopyInfURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtCopyInfURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtArtistURL;
       this.txtArtistURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtArtistURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtAudioFileURL;
       this.txtAudioFileURL = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtAudioFileURL, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox37;
       this.CheckBox37 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox37, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtWXXXContent;
       this.txtWXXXContent = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtWXXXContent, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnRemoveWXXX;
       this.btnRemoveWXXX = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnRemoveWXXX, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnAddWXXX;
       this.btnAddWXXX = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnAddWXXX, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtWXXXDesc;
       this.txtWXXXDesc = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtWXXXDesc, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.CheckBox36;
       this.CheckBox36 = (CheckBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.CheckBox36, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtTXXXContent;
       this.txtTXXXContent = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtTXXXContent, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnRemoveTXXX;
       this.btnRemoveTXXX = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnRemoveTXXX, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnAddTXXX;
       this.btnAddTXXX = (Button)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.btnAddTXXX, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtTXXXDesc;
       this.txtTXXXDesc = (System.Windows.Forms.TextBox)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtTXXXDesc, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.txtDigits;
       this.txtDigits = (NumericUpDown)cmbCDescriptor;
       this.ToolTip.SetToolTip(this.txtDigits, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.chkRemoveAllNOT;
       this.chkRemoveAllNOT = (CheckBox)cmbCDescriptor;
@@ -6847,225 +6945,189 @@ namespace ID3_TagIT
         if (vstrEntry.IndexOf("<A>") >= 0)
         {
           if (V2ReplaceTAG.FrameExists("TPE1"))
-          {
             vstrEntry = vstrEntry.Replace("<A>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPE1"), null, "Content", new object[0], null, null)));
-          }
           else
-          {
             vstrEntry = vstrEntry.Replace("<A>", "");
-          }
         }
+
         if (vstrEntry.IndexOf("<T>") >= 0)
         {
           if (V2ReplaceTAG.FrameExists("TIT2"))
-          {
             vstrEntry = vstrEntry.Replace("<T>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TIT2"), null, "Content", new object[0], null, null)));
-          }
           else
-          {
             vstrEntry = vstrEntry.Replace("<T>", "");
-          }
         }
+
         if (vstrEntry.IndexOf("<B>") >= 0)
         {
           if (V2ReplaceTAG.FrameExists("TALB"))
-          {
             vstrEntry = vstrEntry.Replace("<B>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TALB"), null, "Content", new object[0], null, null)));
-          }
           else
-          {
             vstrEntry = vstrEntry.Replace("<B>", "");
-          }
         }
+
         if ((vstrEntry.IndexOf("<") < 0) || (vstrEntry.IndexOf(">") < 0))
-        {
           return vstrEntry;
-        }
+
         if (vstrEntry.IndexOf("<C>") >= 0)
         {
           if (V2ReplaceTAG.GetFrames("COMM").Count > 0)
-          {
             vstrEntry = vstrEntry.Replace("<C>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrames("COMM")[0], null, "Content", new object[0], null, null)));
-          }
           else
-          {
             vstrEntry = vstrEntry.Replace("<C>", "");
-          }
         }
+
         if (vstrEntry.IndexOf("<E>") >= 0)
         {
           if (V2ReplaceTAG.GetFrames("TBPM").Count > 0)
-          {
             vstrEntry = vstrEntry.Replace("<E>", Conversion.Fix(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(V2ReplaceTAG.GetFrames("TBPM")[0], null, "Content", new object[0], null, null)))).ToString());
-          }
           else
-          {
             vstrEntry = vstrEntry.Replace("<E>", "");
-          }
         }
+
         if (vstrEntry.IndexOf("<U>") >= 0)
         {
           if (V2ReplaceTAG.FrameExists("TIT1"))
-          {
             vstrEntry = vstrEntry.Replace("<U>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TIT1"), null, "Content", new object[0], null, null)));
-          }
           else
-          {
             vstrEntry = vstrEntry.Replace("<U>", "");
-          }
         }
+
         if (vstrEntry.IndexOf("<S>") >= 0)
         {
           if (V2ReplaceTAG.FrameExists("TIT3"))
-          {
             vstrEntry = vstrEntry.Replace("<S>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TIT3"), null, "Content", new object[0], null, null)));
-          }
           else
-          {
             vstrEntry = vstrEntry.Replace("<S>", "");
-          }
         }
+
         if (vstrEntry.IndexOf("<O>") >= 0)
         {
           if (V2ReplaceTAG.FrameExists("TPE2"))
-          {
             vstrEntry = vstrEntry.Replace("<O>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPE2"), null, "Content", new object[0], null, null)));
-          }
           else
-          {
             vstrEntry = vstrEntry.Replace("<O>", "");
-          }
         }
+
         if (vstrEntry.IndexOf("<N>") >= 0)
         {
           if (V2ReplaceTAG.FrameExists("TPE3"))
-          {
             vstrEntry = vstrEntry.Replace("<N>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPE3"), null, "Content", new object[0], null, null)));
-          }
           else
-          {
             vstrEntry = vstrEntry.Replace("<N>", "");
-          }
         }
+
         if (vstrEntry.IndexOf("<M>") >= 0)
         {
           if (V2ReplaceTAG.FrameExists("TPE4"))
-          {
             vstrEntry = vstrEntry.Replace("<M>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPE4"), null, "Content", new object[0], null, null)));
-          }
           else
-          {
             vstrEntry = vstrEntry.Replace("<M>", "");
-          }
         }
+
         if (vstrEntry.IndexOf("<G>") >= 0)
         {
           if (V2ReplaceTAG.FrameExists("TCON"))
           {
             string newValue = StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TCON"), null, "Content", new object[0], null, null));
+
             if (newValue.IndexOf("\0") >= 0)
-            {
               newValue = newValue.Substring(0, newValue.IndexOf("\0"));
-            }
+
             vstrEntry = vstrEntry.Replace("<G>", newValue);
           }
           else
-          {
             vstrEntry = vstrEntry.Replace("<G>", "");
-          }
         }
+
         if (vstrEntry.IndexOf("<R>") >= 0)
         {
           if (V2ReplaceTAG.FrameExists("TCOM"))
-          {
             vstrEntry = vstrEntry.Replace("<R>", StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TCOM"), null, "Content", new object[0], null, null)));
-          }
           else
-          {
             vstrEntry = vstrEntry.Replace("<R>", "");
-          }
         }
+
         if (vstrEntry.IndexOf("<Y>") >= 0)
         {
           if (V2ReplaceTAG.TAGVersion == 3)
           {
             if (V2ReplaceTAG.FrameExists("TYER"))
-            {
               vstrEntry = vstrEntry.Replace("<Y>", StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TYER"), null, "Content", new object[0], null, null), null, "PadLeft", new object[] { 4, "0" }, null, null), null, "Substring", new object[] { 0, 4 }, null, null)));
-            }
             else
-            {
               vstrEntry = vstrEntry.Replace("<Y>", "");
-            }
           }
           else if (V2ReplaceTAG.FrameExists("TDRC"))
-          {
             vstrEntry = vstrEntry.Replace("<Y>", StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TDRC"), null, "Content", new object[0], null, null), null, "PadLeft", new object[] { 4, "0" }, null, null), null, "Substring", new object[] { 0, 4 }, null, null)));
-          }
           else
-          {
             vstrEntry = vstrEntry.Replace("<Y>", "");
-          }
         }
+
         if ((vstrEntry.IndexOf("<K>") >= 0) | (vstrEntry.IndexOf("<k>") >= 0))
         {
           if (V2ReplaceTAG.FrameExists("TRCK"))
           {
             string str3 = "";
             string str4 = "";
+
             str3 = StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TRCK"), null, "Content", new object[0], null, null));
+
             if (str3.IndexOf("/") >= 0)
-            {
               str4 = str3.Substring(str3.IndexOf("/") + 1);
-            }
+
             str3 = str3.Replace("/" + str4, "");
             vstrEntry = vstrEntry.Replace("<K>", str3);
             vstrEntry = vstrEntry.Replace("<k>", str4);
           }
           else
-          {
             vstrEntry = vstrEntry.Replace("<K>", "").Replace("<k>", "");
-          }
         }
+
         if ((vstrEntry.IndexOf("<P>") >= 0) | (vstrEntry.IndexOf("<p>") >= 0))
         {
           if (V2ReplaceTAG.FrameExists("TPOS"))
           {
             string str5 = "";
             string str6 = "";
+
             str5 = StringType.FromObject(LateBinding.LateGet(V2ReplaceTAG.GetFrame("TPOS"), null, "Content", new object[0], null, null));
+
             if (str5.IndexOf("/") >= 0)
-            {
               str6 = str5.Substring(str5.IndexOf("/") + 1);
-            }
+
             str5 = str5.Replace("/" + str6, "");
             vstrEntry = vstrEntry.Replace("<P>", str5);
             vstrEntry = vstrEntry.Replace("<p>", str6);
+
             return vstrEntry;
           }
+
           vstrEntry = vstrEntry.Replace("<P>", "").Replace("<p>", "");
         }
       }
+
       return vstrEntry;
     }
 
     private void CommentList_Click(object sender, EventArgs e)
     {
       if (this.CommentList.FocusedItem == null)
-      {
         return;
-      }
+
       this.cmbCDescriptor.Text = this.CommentList.FocusedItem.Text;
       var enumerator = this.cmbCLanguage.Items.GetEnumerator();
+
       while (enumerator.MoveNext())
       {
         string str = StringType.FromObject(enumerator.Current);
+
         if (str.StartsWith(this.CommentList.FocusedItem.SubItems[2].Text))
         {
           this.cmbCLanguage.SelectedItem = str;
           goto Label_0099;
         }
       }
+
       Label_0099:
       this.txtComment.Text = this.CommentList.FocusedItem.SubItems[1].Text.Replace("\n", "\r\n");
     }
@@ -7075,24 +7137,27 @@ namespace ID3_TagIT
       byte num = 0;
       this.cmbArtist.Autocomplete = false;
       this.cmbGenre.Autocomplete = false;
+
       if (this.MainForm.MP3View.SelectedItems.Count > 0)
       {
         V2TextFrame frame;
         V2TextFrame frame2;
-        MP3 tag = (MP3)this.MainForm.MP3View.SelectedItems[0].Tag;
         string sLeft = "yyyy-MM-dd";
+        MP3 tag = (MP3)this.MainForm.MP3View.SelectedItems[0].Tag;
+
         if (tag.V2TAG.TAGVersion == 3)
         {
           if (tag.V2TAG.FrameExists("TYER"))
           {
             frame = (V2TextFrame)tag.V2TAG.GetFrame("TYER");
+
             if (frame.Content.Length > 4)
-            {
               frame.Content = Conversion.Val(frame.Content.Substring(0, 4)).ToString();
-            }
+
             if (Convert.ToInt32(Conversion.Val(frame.Content)) >= 0)
             {
               sLeft = sLeft.Replace("yyyy", frame.Content.PadLeft(4, '0'));
+
               if (tag.V2TAG.FrameExists("TDAT"))
               {
                 frame2 = (V2TextFrame)tag.V2TAG.GetFrame("TDAT");
@@ -7100,6 +7165,7 @@ namespace ID3_TagIT
                 this.txtYear.Mask = "####-##-##";
                 this.YearFormat.Value = 2;
               }
+
               if (sLeft.IndexOf("MM") >= 0)
               {
                 this.txtYear.Mask = "####";
@@ -7109,6 +7175,7 @@ namespace ID3_TagIT
             else
             {
               sLeft = sLeft.Replace("yyyy", StringType.FromInteger(DateTime.Now.Year));
+
               if (tag.V2TAG.FrameExists("TDAT"))
               {
                 frame2 = (V2TextFrame)tag.V2TAG.GetFrame("TDAT");
@@ -7116,16 +7183,16 @@ namespace ID3_TagIT
                 this.txtYear.Mask = "####-##-##";
                 this.YearFormat.Value = 2;
               }
+
               if (sLeft.IndexOf("MM") >= 0)
               {
                 this.txtYear.Mask = "####";
                 this.YearFormat.Value = 0;
               }
             }
+
             if (sLeft.IndexOf("MM") >= 0)
-            {
               sLeft = sLeft.Substring(0, 4);
-            }
           }
           else
           {
@@ -7136,21 +7203,25 @@ namespace ID3_TagIT
         else if (tag.V2TAG.FrameExists("TDRC"))
         {
           frame = (V2TextFrame)tag.V2TAG.GetFrame("TDRC");
+
           if ((frame.Content.Length >= 4) && (Convert.ToInt32(Conversion.Val(frame.Content.Substring(0, 4))) >= 0))
           {
             if (frame.Content.IndexOf("T") < 0)
             {
               sLeft = frame.Content.PadLeft(4, '0');
+
               if (sLeft.Length == 10)
               {
                 this.txtYear.Mask = "####-##-##";
                 this.YearFormat.Value = 2;
               }
+
               if (sLeft.Length == 7)
               {
                 this.txtYear.Mask = "####-##";
                 this.YearFormat.Value = 1;
               }
+
               if (sLeft.Length == 4)
               {
                 this.txtYear.Mask = "####";
@@ -7170,59 +7241,54 @@ namespace ID3_TagIT
           sLeft = "";
           num = (byte)(num | 8);
         }
+
         foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
         {
           MP3 mp2 = (MP3)item.Tag;
+
           if (tag != mp2)
           {
             if ((((num & 1) == 0) && tag.V2TAG.FrameExists("TPE1")) && mp2.V2TAG.FrameExists("TPE1"))
             {
               if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp2.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp2.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), "", false) == 0)))
-              {
                 num = (byte)(num | 1);
-              }
             }
             else
-            {
               num = (byte)(num | 1);
-            }
+
             if ((((num & 2) == 0) && tag.V2TAG.FrameExists("TIT2")) && mp2.V2TAG.FrameExists("TIT2"))
             {
               if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp2.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp2.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), "", false) == 0)))
-              {
                 num = (byte)(num | 2);
-              }
             }
             else
-            {
               num = (byte)(num | 2);
-            }
+
             if ((((num & 4) == 0) && tag.V2TAG.FrameExists("TALB")) && mp2.V2TAG.FrameExists("TALB"))
             {
               if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp2.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp2.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), "", false) == 0)))
-              {
                 num = (byte)(num | 4);
-              }
             }
             else
-            {
               num = (byte)(num | 4);
-            }
+
             if ((num & 8) == 0)
             {
               string sRight = "yyyy-MM-dd";
+
               if (mp2.V2TAG.TAGVersion == 3)
               {
                 if (mp2.V2TAG.FrameExists("TYER"))
                 {
                   frame = (V2TextFrame)mp2.V2TAG.GetFrame("TYER");
+
                   if (frame.Content.Length > 4)
-                  {
                     frame.Content = Conversion.Val(frame.Content.Substring(0, 4)).ToString();
-                  }
+
                   if (Convert.ToInt32(Conversion.Val(frame.Content)) >= 0x708)
                   {
                     sRight = sRight.Replace("yyyy", frame.Content);
+
                     if (mp2.V2TAG.FrameExists("TDAT"))
                     {
                       frame2 = (V2TextFrame)mp2.V2TAG.GetFrame("TDAT");
@@ -7232,16 +7298,16 @@ namespace ID3_TagIT
                   else
                   {
                     sRight = sRight.Replace("yyyy", StringType.FromInteger(DateTime.Now.Year));
+
                     if (mp2.V2TAG.FrameExists("TDAT"))
                     {
                       frame2 = (V2TextFrame)mp2.V2TAG.GetFrame("TDAT");
                       sRight = sRight.Replace("MM", frame2.Content.Substring(2, 2)).Replace("dd", frame2.Content.Substring(0, 2));
                     }
                   }
+
                   if (sRight.IndexOf("MM") >= 0)
-                  {
                     sRight = sRight.Substring(0, 4);
-                  }
                 }
                 else
                 {
@@ -7252,16 +7318,13 @@ namespace ID3_TagIT
               else if (mp2.V2TAG.FrameExists("TDRC"))
               {
                 frame = (V2TextFrame)mp2.V2TAG.GetFrame("TDRC");
+
                 if ((frame.Content.Length >= 4) && (Convert.ToInt32(Conversion.Val(frame.Content.Substring(0, 4))) >= 0x708))
                 {
                   if (frame.Content.IndexOf("T") < 0)
-                  {
                     sRight = frame.Content;
-                  }
                   else
-                  {
                     sRight = frame.Content.Substring(0, frame.Content.IndexOf("T"));
-                  }
                 }
               }
               else
@@ -7269,42 +7332,35 @@ namespace ID3_TagIT
                 sRight = "";
                 num = (byte)(num | 8);
               }
+
               if (StringType.StrCmp(sLeft, sRight, false) != 0)
-              {
                 num = (byte)(num | 8);
-              }
             }
+
             if ((((num & 0x10) == 0) && tag.V2TAG.FrameExists("TCON")) && mp2.V2TAG.FrameExists("TCON"))
             {
               if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp2.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp2.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null), "", false) == 0)))
-              {
                 num = (byte)(num | 0x10);
-              }
             }
             else
-            {
               num = (byte)(num | 0x10);
-            }
+
             if (num == 0x1f)
-            {
               break;
-            }
           }
         }
+
         if (num != 0x1f)
         {
           if (((num & 1) == 0) & tag.V2TAG.FrameExists("TPE1"))
-          {
             this.cmbArtist.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
-          }
+
           if (((num & 2) == 0) & tag.V2TAG.FrameExists("TIT2"))
-          {
             this.txtTitle.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
-          }
+
           if (((num & 4) == 0) & tag.V2TAG.FrameExists("TALB"))
-          {
             this.txtAlbum.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
-          }
+
           if ((num & 8) == 0)
           {
             switch (this.YearFormat.Value)
@@ -7321,7 +7377,9 @@ namespace ID3_TagIT
                 this.txtYear.Mask = "####-##-##";
                 break;
             }
+
             sLeft = sLeft.Replace("dd", "01").Replace("MM", "01").Replace("yyyy", StringType.FromInteger(DateTime.Now.Year));
+
             try
             {
               this.txtYear.Text = sLeft;
@@ -7333,6 +7391,7 @@ namespace ID3_TagIT
               ProjectData.ClearProjectError();
             }
           }
+
           if (((num & 0x10) == 0) & tag.V2TAG.FrameExists("TCON"))
           {
             foreach (string str3 in Strings.Split(StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null)), "\0", -1, CompareMethod.Binary))
@@ -7357,34 +7416,40 @@ namespace ID3_TagIT
           }
         }
       }
+
       this.CheckBox1.Checked = false;
       this.CheckBox2.Checked = false;
       this.CheckBox3.Checked = false;
       this.CheckBox4.Checked = false;
       this.CheckBox9.Checked = false;
+
       if (!Declarations.objSettings.SingleGC)
         goto Label_0F9C;
+
       if (this.GenreList.Items.Count > 0)
-      {
         this.cmbGenre.Text = StringType.FromObject(this.GenreList.Items[0]);
-      }
+
       if (this.CommentList.Items.Count <= 0)
-      {
         goto Label_0F9C;
-      }
+
       this.cmbCDescriptor.Text = StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Descriptor", new object[0], null, null));
+
       var enumerator = this.cmbCLanguage.Items.GetEnumerator();
+
       while (enumerator.MoveNext())
       {
         string str4 = StringType.FromObject(enumerator.Current);
+
         if (str4.StartsWith(StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Language", new object[0], null, null))))
         {
           this.cmbCLanguage.SelectedItem = str4;
           goto Label_0F63;
         }
       }
+
       Label_0F63:
       this.txtComment.Text = StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Content", new object[0], null, null));
+
       Label_0F9C:
       this.cmbArtist.Autocomplete = true;
       this.cmbGenre.Autocomplete = true;
@@ -7401,16 +7466,42 @@ namespace ID3_TagIT
       progress.List = list;
       progress.ShowDialog(this);
       this.MainForm.MP3View.EndUpdate();
+
       if (list.Count > 0)
       {
         Declarations.UNDOList.Add(list);
         this.MainForm.UnDoEnable(true, true);
       }
+
       ownerForm = this;
       Id3TagIT_Main.SaveFormSettings(ref ownerForm);
       this.Close();
     }
 
     #endregion
+
+    private void txtPOS1_Validating(object sender, CancelEventArgs e)
+    {
+      if ((int)txtPOS1.ValidateText() < 0 || (int)txtPOS1.ValidateText() > 255)
+        e.Cancel = true;
+    }
+
+    private void txtPOS2_Validating(object sender, CancelEventArgs e)
+    {
+      if ((int)txtPOS2.ValidateText() < 0 || (int)txtPOS2.ValidateText() > 255)
+        e.Cancel = true;
+    }
+
+    private void txtTrack1_Validating(object sender, CancelEventArgs e)
+    {
+      if ((int)txtTrack1.ValidateText() < 0 || (int)txtTrack1.ValidateText() > 255)
+        e.Cancel = true;
+    }
+
+    private void txtTrack2_Validating(object sender, CancelEventArgs e)
+    {
+      if ((int)txtTrack2.ValidateText() < 0 || (int)txtTrack2.ValidateText() > 255)
+        e.Cancel = true;
+    }
   }
 }

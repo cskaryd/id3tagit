@@ -44,9 +44,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ID3_TagIT.ComboBoxAutoComplete.resources" />
-    <Reference Include="AMS.TextBox">
-      <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\AMS.TextBox.dll</HintPath>
-    </Reference>
     <Reference Include="DevComponents.DotNetBar">
       <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\DevComponents.DotNetBar.dll</HintPath>
     </Reference>
@@ -406,6 +403,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ID3_TagIT\icons\CopyFiles.png" />
+    <None Include="ID3_TagIT\icons\Next.png" />
+    <None Include="ID3_TagIT\icons\Previous.png" />
+    <None Include="Resources\btnPrev.Icon1.ico" />
+    <None Include="Resources\btnPrev.Icon.ico" />
+    <None Include="ID3_TagIT\icons\Previous.ico" />
+    <None Include="ID3_TagIT\icons\Next.ico" />
     <None Include="ID3_TagIT_Logo.gif" />
   </ItemGroup>
 </Project>
