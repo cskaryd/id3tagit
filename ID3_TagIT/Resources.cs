@@ -67,9 +67,9 @@
 
     public void ReadResources()
     {
-      string str;
-      string str2;
-      string str3;
+      string str = string.Empty;
+      string str2 = string.Empty;
+      string str3 = string.Empty;
       this.ID3TagITRes = new DataSet("ID3TagITResources");
       this.ID3TagITToolTips = new DataSet("ID3TagITToolTips");
       this.ID3TagITMenus = new DataSet("ID3TagITMenus");

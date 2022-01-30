@@ -1,60 +1,282 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.ComponentModel;
-  using System.Data;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.Runtime.CompilerServices;
-  using System.Windows.Forms;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class frmTransfer : Form
   {
-    [AccessedThroughProperty("btnCancel")]
-    private Button _btnCancel;
-    [AccessedThroughProperty("btnDeselectAll")]
-    private Button _btnDeselectAll;
-    [AccessedThroughProperty("btnOK")]
-    private Button _btnOK;
-    [AccessedThroughProperty("btnSelectAll")]
-    private Button _btnSelectAll;
-    [AccessedThroughProperty("chkAlbum")]
-    private CheckBox _chkAlbum;
-    [AccessedThroughProperty("chkArtist")]
-    private CheckBox _chkArtist;
-    [AccessedThroughProperty("chkComment")]
-    private CheckBox _chkComment;
-    [AccessedThroughProperty("chkExists")]
-    private CheckBox _chkExists;
-    [AccessedThroughProperty("chkGenre")]
-    private CheckBox _chkGenre;
-    [AccessedThroughProperty("chkTitle")]
-    private CheckBox _chkTitle;
-    [AccessedThroughProperty("chkTrack")]
-    private CheckBox _chkTrack;
-    [AccessedThroughProperty("chkYear")]
-    private CheckBox _chkYear;
-    [AccessedThroughProperty("GroupBox")]
-    private System.Windows.Forms.GroupBox _GroupBox;
-    [AccessedThroughProperty("lblComment")]
-    private Label _lblComment;
-    [AccessedThroughProperty("opt12")]
-    private RadioButton _opt12;
-    [AccessedThroughProperty("opt21")]
-    private RadioButton _opt21;
-    [AccessedThroughProperty("optConvert34")]
-    private RadioButton _optConvert34;
-    [AccessedThroughProperty("optConvert43")]
-    private RadioButton _optConvert43;
-    [AccessedThroughProperty("ToolTip")]
-    private System.Windows.Forms.ToolTip _ToolTip;
-    [AccessedThroughProperty("txtCommentD")]
-    private TextBox _txtCommentD;
+    private Button btnCancel;
+    private Button btnDeselectAll;
+    private Button btnOK;
+    private Button btnSelectAll;
+    private CheckBox chkAlbum;
+    private CheckBox chkArtist;
+    private CheckBox chkComment;
+    private CheckBox chkExists;
+    private CheckBox chkGenre;
+    private CheckBox chkTitle;
+    private CheckBox chkTrack;
+    private CheckBox chkYear;
+    private System.Windows.Forms.GroupBox GroupBox;
+    private Label lblComment;
+    private RadioButton opt12;
+    private RadioButton opt21;
+    private RadioButton optConvert34;
+    private RadioButton optConvert43;
+    private System.Windows.Forms.ToolTip ToolTip;
+    private TextBox txtCommentD;
     private IContainer components;
     private frmMain MainForm;
+
+    [DebuggerStepThrough]
+    private void InitializeComponent()
+    {
+      this.components = new System.ComponentModel.Container();
+      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new System.Windows.Forms.Button();
+      this.opt12 = new System.Windows.Forms.RadioButton();
+      this.opt21 = new System.Windows.Forms.RadioButton();
+      this.optConvert34 = new System.Windows.Forms.RadioButton();
+      this.optConvert43 = new System.Windows.Forms.RadioButton();
+      this.GroupBox = new System.Windows.Forms.GroupBox();
+      this.chkExists = new System.Windows.Forms.CheckBox();
+      this.txtCommentD = new System.Windows.Forms.TextBox();
+      this.lblComment = new System.Windows.Forms.Label();
+      this.chkYear = new System.Windows.Forms.CheckBox();
+      this.chkGenre = new System.Windows.Forms.CheckBox();
+      this.chkTrack = new System.Windows.Forms.CheckBox();
+      this.chkComment = new System.Windows.Forms.CheckBox();
+      this.chkAlbum = new System.Windows.Forms.CheckBox();
+      this.chkTitle = new System.Windows.Forms.CheckBox();
+      this.chkArtist = new System.Windows.Forms.CheckBox();
+      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+      this.btnSelectAll = new System.Windows.Forms.Button();
+      this.btnDeselectAll = new System.Windows.Forms.Button();
+      this.GroupBox.SuspendLayout();
+      this.SuspendLayout();
+      // 
+      // btnCancel
+      // 
+      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+      this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCancel.Location = new System.Drawing.Point(352, 232);
+      this.btnCancel.Name = "btnCancel";
+      this.btnCancel.Size = new System.Drawing.Size(112, 24);
+      this.btnCancel.TabIndex = 4;
+      this.btnCancel.Text = "&Cancel";
+      // 
+      // btnOK
+      // 
+      this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnOK.Location = new System.Drawing.Point(232, 232);
+      this.btnOK.Name = "btnOK";
+      this.btnOK.Size = new System.Drawing.Size(112, 24);
+      this.btnOK.TabIndex = 3;
+      this.btnOK.Text = "&OK";
+      this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+      // 
+      // opt12
+      // 
+      this.opt12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.opt12.Location = new System.Drawing.Point(16, 16);
+      this.opt12.Name = "opt12";
+      this.opt12.Size = new System.Drawing.Size(232, 16);
+      this.opt12.TabIndex = 5;
+      this.opt12.Text = "Transfer TAG Ver 1. -> Ver. 2";
+      this.opt12.CheckedChanged += new System.EventHandler(this.opt12_CheckedChanged);
+      // 
+      // opt21
+      // 
+      this.opt21.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.opt21.Location = new System.Drawing.Point(248, 16);
+      this.opt21.Name = "opt21";
+      this.opt21.Size = new System.Drawing.Size(224, 16);
+      this.opt21.TabIndex = 6;
+      this.opt21.Text = "Transfer TAG Ver 2. -> Ver. 1";
+      this.opt21.CheckedChanged += new System.EventHandler(this.opt21_CheckedChanged);
+      // 
+      // optConvert34
+      // 
+      this.optConvert34.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optConvert34.Location = new System.Drawing.Point(16, 40);
+      this.optConvert34.Name = "optConvert34";
+      this.optConvert34.Size = new System.Drawing.Size(232, 16);
+      this.optConvert34.TabIndex = 7;
+      this.optConvert34.Text = "Convert TAG Ver. 2.3 to Ver. 2.4";
+      this.optConvert34.CheckedChanged += new System.EventHandler(this.optConvert_CheckedChanged);
+      // 
+      // optConvert43
+      // 
+      this.optConvert43.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optConvert43.Location = new System.Drawing.Point(248, 40);
+      this.optConvert43.Name = "optConvert43";
+      this.optConvert43.Size = new System.Drawing.Size(224, 16);
+      this.optConvert43.TabIndex = 8;
+      this.optConvert43.Text = "Convert TAG Ver. 2.4 to Ver. 2.3";
+      this.optConvert43.CheckedChanged += new System.EventHandler(this.optConvert_CheckedChanged);
+      // 
+      // GroupBox
+      // 
+      this.GroupBox.Controls.Add(this.chkExists);
+      this.GroupBox.Controls.Add(this.txtCommentD);
+      this.GroupBox.Controls.Add(this.lblComment);
+      this.GroupBox.Controls.Add(this.chkYear);
+      this.GroupBox.Controls.Add(this.chkGenre);
+      this.GroupBox.Controls.Add(this.chkTrack);
+      this.GroupBox.Controls.Add(this.chkComment);
+      this.GroupBox.Controls.Add(this.chkAlbum);
+      this.GroupBox.Controls.Add(this.chkTitle);
+      this.GroupBox.Controls.Add(this.chkArtist);
+      this.GroupBox.Location = new System.Drawing.Point(8, 72);
+      this.GroupBox.Name = "GroupBox";
+      this.GroupBox.Size = new System.Drawing.Size(456, 152);
+      this.GroupBox.TabIndex = 9;
+      this.GroupBox.TabStop = false;
+      this.GroupBox.Text = "TAG fields to transfer";
+      // 
+      // chkExists
+      // 
+      this.chkExists.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkExists.Location = new System.Drawing.Point(16, 128);
+      this.chkExists.Name = "chkExists";
+      this.chkExists.Size = new System.Drawing.Size(400, 16);
+      this.chkExists.TabIndex = 9;
+      this.chkExists.Text = "Do not overwrite existing TAG entries";
+      // 
+      // txtCommentD
+      // 
+      this.txtCommentD.Location = new System.Drawing.Point(168, 94);
+      this.txtCommentD.Name = "txtCommentD";
+      this.txtCommentD.Size = new System.Drawing.Size(272, 20);
+      this.txtCommentD.TabIndex = 8;
+      // 
+      // lblComment
+      // 
+      this.lblComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblComment.Location = new System.Drawing.Point(16, 96);
+      this.lblComment.Name = "lblComment";
+      this.lblComment.Size = new System.Drawing.Size(152, 16);
+      this.lblComment.TabIndex = 7;
+      this.lblComment.Text = "Comment &descriptor:";
+      // 
+      // chkYear
+      // 
+      this.chkYear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkYear.Location = new System.Drawing.Point(16, 72);
+      this.chkYear.Name = "chkYear";
+      this.chkYear.Size = new System.Drawing.Size(120, 16);
+      this.chkYear.TabIndex = 6;
+      this.chkYear.Text = "Year";
+      // 
+      // chkGenre
+      // 
+      this.chkGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkGenre.Location = new System.Drawing.Point(312, 48);
+      this.chkGenre.Name = "chkGenre";
+      this.chkGenre.Size = new System.Drawing.Size(128, 16);
+      this.chkGenre.TabIndex = 5;
+      this.chkGenre.Text = "Genre";
+      // 
+      // chkTrack
+      // 
+      this.chkTrack.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkTrack.Location = new System.Drawing.Point(160, 48);
+      this.chkTrack.Name = "chkTrack";
+      this.chkTrack.Size = new System.Drawing.Size(128, 16);
+      this.chkTrack.TabIndex = 4;
+      this.chkTrack.Text = "Track number";
+      // 
+      // chkComment
+      // 
+      this.chkComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkComment.Location = new System.Drawing.Point(16, 48);
+      this.chkComment.Name = "chkComment";
+      this.chkComment.Size = new System.Drawing.Size(120, 16);
+      this.chkComment.TabIndex = 3;
+      this.chkComment.Text = "Comment";
+      // 
+      // chkAlbum
+      // 
+      this.chkAlbum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkAlbum.Location = new System.Drawing.Point(312, 24);
+      this.chkAlbum.Name = "chkAlbum";
+      this.chkAlbum.Size = new System.Drawing.Size(128, 16);
+      this.chkAlbum.TabIndex = 2;
+      this.chkAlbum.Text = "Album";
+      // 
+      // chkTitle
+      // 
+      this.chkTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkTitle.Location = new System.Drawing.Point(160, 24);
+      this.chkTitle.Name = "chkTitle";
+      this.chkTitle.Size = new System.Drawing.Size(128, 16);
+      this.chkTitle.TabIndex = 1;
+      this.chkTitle.Text = "Title";
+      // 
+      // chkArtist
+      // 
+      this.chkArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkArtist.Location = new System.Drawing.Point(16, 24);
+      this.chkArtist.Name = "chkArtist";
+      this.chkArtist.Size = new System.Drawing.Size(120, 16);
+      this.chkArtist.TabIndex = 0;
+      this.chkArtist.Text = "Artist";
+      // 
+      // btnSelectAll
+      // 
+      this.btnSelectAll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnSelectAll.Location = new System.Drawing.Point(8, 232);
+      this.btnSelectAll.Name = "btnSelectAll";
+      this.btnSelectAll.Size = new System.Drawing.Size(96, 23);
+      this.btnSelectAll.TabIndex = 5;
+      this.btnSelectAll.Text = "Select all";
+      this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
+      // 
+      // btnDeselectAll
+      // 
+      this.btnDeselectAll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnDeselectAll.Location = new System.Drawing.Point(112, 232);
+      this.btnDeselectAll.Name = "btnDeselectAll";
+      this.btnDeselectAll.Size = new System.Drawing.Size(96, 23);
+      this.btnDeselectAll.TabIndex = 6;
+      this.btnDeselectAll.Text = "Deselect all";
+      this.btnDeselectAll.Click += new System.EventHandler(this.btnDeSelectAll_Click);
+      // 
+      // frmTransfer
+      // 
+      this.AcceptButton = this.btnOK;
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+      this.CancelButton = this.btnCancel;
+      this.ClientSize = new System.Drawing.Size(474, 262);
+      this.ControlBox = false;
+      this.Controls.Add(this.btnDeselectAll);
+      this.Controls.Add(this.btnSelectAll);
+      this.Controls.Add(this.GroupBox);
+      this.Controls.Add(this.optConvert43);
+      this.Controls.Add(this.optConvert34);
+      this.Controls.Add(this.opt21);
+      this.Controls.Add(this.opt12);
+      this.Controls.Add(this.btnCancel);
+      this.Controls.Add(this.btnOK);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
+      this.Name = "frmTransfer";
+      this.ShowInTaskbar = false;
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+      this.Text = "Transfer / Convert TAGs";
+      this.GroupBox.ResumeLayout(false);
+      this.GroupBox.PerformLayout();
+      this.ResumeLayout(false);
+
+    }
 
     public frmTransfer(ref frmMain FormMain)
     {
@@ -134,16 +356,16 @@
     {
       frmProgress.Callback callback;
       ArrayList list = new ArrayList();
+
       Form form = this;
       Main.SaveFormSettings(ref form);
+
       if (this.optConvert34.Checked)
-      {
         Declarations.objSettings.TransferMethod = 3;
-      }
+
       if (this.optConvert43.Checked)
-      {
         Declarations.objSettings.TransferMethod = 4;
-      }
+
       if (this.opt12.Checked)
       {
         Declarations.objSettings.TransferMethod = 1;
@@ -157,6 +379,7 @@
         Declarations.objSettings.TransferYear12 = this.chkYear.Checked;
         Declarations.objSettings.TransferKeep12 = this.chkExists.Checked;
       }
+
       if (this.opt21.Checked)
       {
         Declarations.objSettings.TransferMethod = 2;
@@ -169,7 +392,9 @@
         Declarations.objSettings.TransferYear21 = this.chkYear.Checked;
         Declarations.objSettings.TransferKeep21 = this.chkExists.Checked;
       }
+
       this.MainForm.MP3View.BeginUpdate();
+
       if (this.opt12.Checked)
       {
         form = this;
@@ -179,6 +404,7 @@
         progress.List = list;
         progress.ShowDialog(this);
       }
+
       if (this.opt21.Checked)
       {
         form = this;
@@ -188,6 +414,7 @@
         progress2.List = list;
         progress2.ShowDialog(this);
       }
+
       if (this.optConvert34.Checked)
       {
         form = this;
@@ -197,6 +424,7 @@
         progress3.List = list;
         progress3.ShowDialog(this);
       }
+
       if (this.optConvert43.Checked)
       {
         form = this;
@@ -206,12 +434,15 @@
         progress4.List = list;
         progress4.ShowDialog(this);
       }
+
       this.MainForm.MP3View.EndUpdate();
+
       if (list.Count > 0)
       {
         Declarations.UNDOList.Add(list);
         this.MainForm.UnDoEnable(true, true);
       }
+
       this.Close();
     }
 
@@ -231,54 +462,53 @@
       foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
       {
         Application.DoEvents();
+
         if (frmProg.Canceled)
-        {
           break;
-        }
+
         MP3 tag = (MP3)item.Tag;
         frmProg.Infos.Text = tag.CurrentFullName;
+
         if ((tag.V2TAG.TAGVersion == 2) || !tag.V1TAG.TAGPresent)
-        {
           goto Label_05DD;
-        }
+
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
         frmProg.List.Add(@do);
+
         if (this.chkArtist.Checked && (!this.chkExists.Checked || !tag.V2TAG.FrameExists("TPE1")))
         {
           V2TextFrame frame = ID3Functions.CreateTextFrame("TPE1", tag.V1TAG.Artist);
+
           if (StringType.StrCmp(tag.V1TAG.Artist, "", false) == 0)
-          {
             frame.Remove = true;
-          }
+
           tag.V2TAG.AddFrame(frame);
         }
+
         if (this.chkTitle.Checked && (!this.chkExists.Checked || !tag.V2TAG.FrameExists("TIT2")))
         {
           V2TextFrame frame2 = ID3Functions.CreateTextFrame("TIT2", tag.V1TAG.Title);
           if (StringType.StrCmp(tag.V1TAG.Title, "", false) == 0)
-          {
             frame2.Remove = true;
-          }
           tag.V2TAG.AddFrame(frame2);
         }
+
         if (this.chkAlbum.Checked && (!this.chkExists.Checked || !tag.V2TAG.FrameExists("TALB")))
         {
           V2TextFrame frame3 = ID3Functions.CreateTextFrame("TALB", tag.V1TAG.Album);
           if (StringType.StrCmp(tag.V1TAG.Album, "", false) == 0)
-          {
             frame3.Remove = true;
-          }
           tag.V2TAG.AddFrame(frame3);
         }
+
         if (this.chkTrack.Checked && (!this.chkExists.Checked || !tag.V2TAG.FrameExists("TRCK")))
         {
           V2TextFrame frame4 = ID3Functions.CreateTextFrame("TRCK", tag.V1TAG.Tracknumber.ToString().PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'));
           if (tag.V1TAG.Tracknumber == 0)
-          {
             frame4.Remove = true;
-          }
           tag.V2TAG.AddFrame(frame4);
         }
+
         if (this.chkComment.Checked)
         {
           V2LDCFrame frame5 = new V2LDCFrame
@@ -289,17 +519,15 @@
             Content = tag.V1TAG.Comment
           };
           if (StringType.StrCmp(tag.V1TAG.Comment, "", false) == 0)
-          {
             frame5.Remove = true;
-          }
           if (!this.chkExists.Checked || !tag.V2TAG.FrameExistsExact(frame5))
-          {
             tag.V2TAG.AddFrame(frame5);
-          }
         }
+
         if (this.chkGenre.Checked && (!this.chkExists.Checked || !tag.V2TAG.FrameExists("TCON")))
         {
           string genreText = tag.V1TAG.GenreText;
+
           foreach (DataRow row in Declarations.objSettings.Genres.Rows)
           {
             if (ObjectType.ObjTst(row["V1V2"], tag.V1TAG.GenreByte, false) == 0)
@@ -308,25 +536,24 @@
               break;
             }
           }
+
           V2TextFrame frame6 = ID3Functions.CreateTextFrame("TCON", genreText);
+
           if (tag.V1TAG.GenreByte > 0x93)
-          {
             frame6.Remove = true;
-          }
           tag.V2TAG.AddFrame(frame6);
         }
+
         if (!this.chkYear.Checked || (this.chkExists.Checked && (tag.V2TAG.FrameExists("TYER") | tag.V2TAG.FrameExists("TDRC"))))
-        {
           goto Label_05DD;
-        }
+
         V2TextFrame frame7 = new V2TextFrame();
+
         switch (tag.V2TAG.TAGVersion)
         {
           case 0:
             if (Declarations.objSettings.NewV2Version != 3)
-            {
               break;
-            }
             frame7 = ID3Functions.CreateTextFrame("TYER", tag.V1TAG.Year.ToString());
             goto Label_05B6;
 
@@ -341,26 +568,23 @@
           default:
             goto Label_05B6;
         }
+
         frame7 = ID3Functions.CreateTextFrame("TDRC", tag.V1TAG.Year.ToString());
+
         Label_05B6:
         if (tag.V1TAG.Year < 0x6d9)
-        {
           frame7.Remove = true;
-        }
+
         tag.V2TAG.AddFrame(frame7);
+
         Label_05DD:
         if (tag.V2TAG.Changed & !tag.V2TAG.TAGHeaderPresent)
-        {
           tag.V2TAG.TAGHeaderPresent = true;
-        }
         if (tag.V2TAG.Changed)
-        {
           tag.V2TAG.TAGHeaderPresent = true;
-        }
         if (tag.V2TAG.Changed)
-        {
           tag.Changed = true;
-        }
+
         this.MainForm.UpdateListItem(item, false);
         frmProg.ProgressBar.PerformStep();
       }
@@ -371,17 +595,19 @@
       foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
       {
         Application.DoEvents();
+
         if (frmProg.Canceled)
-        {
           break;
-        }
+
         bool flag = false;
         MP3 tag = (MP3)item.Tag;
         frmProg.Infos.Text = tag.CurrentFullName;
+
         if ((tag.V2TAG.TAGVersion != 2) && tag.V2TAG.TAGHeaderPresent)
         {
           Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
           frmProg.List.Add(@do);
+
           if (this.chkArtist.Checked && (!this.chkExists.Checked || (StringType.StrCmp(tag.V1TAG.Artist, "", false) == 0)))
           {
             if (tag.V2TAG.FrameExists("TPE1"))
@@ -395,12 +621,12 @@
             else
             {
               if (StringType.StrCmp(tag.V1TAG.Artist, "", false) != 0)
-              {
                 flag = true;
-              }
+
               tag.V1TAG.Artist = "";
             }
           }
+
           if (this.chkTitle.Checked && (!this.chkExists.Checked || (StringType.StrCmp(tag.V1TAG.Title, "", false) == 0)))
           {
             if (tag.V2TAG.FrameExists("TIT2"))
@@ -414,12 +640,12 @@
             else
             {
               if (StringType.StrCmp(tag.V1TAG.Title, "", false) != 0)
-              {
                 flag = true;
-              }
+
               tag.V1TAG.Title = "";
             }
           }
+
           if (this.chkAlbum.Checked && (!this.chkExists.Checked || (StringType.StrCmp(tag.V1TAG.Album, "", false) == 0)))
           {
             if (tag.V2TAG.FrameExists("TALB"))
@@ -433,12 +659,12 @@
             else
             {
               if (StringType.StrCmp(tag.V1TAG.Album, "", false) != 0)
-              {
                 flag = true;
-              }
+
               tag.V1TAG.Album = "";
             }
           }
+
           if (this.chkTrack.Checked && (!this.chkExists.Checked || (tag.V1TAG.Tracknumber == 0)))
           {
             if (tag.V2TAG.FrameExists("TRCK"))
@@ -464,10 +690,10 @@
                 objArray13[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(o, null, "Content", args, paramnames, null), null, "IndexOf", objArray14, null, null));
                 object[] objArray12 = objArray13;
                 bool[] copyBack = new bool[] { false, true };
+
                 if (copyBack[1])
-                {
                   LateBinding.LateSetComplex(LateBinding.LateGet(o, null, "Content", args, paramnames, null), null, "IndexOf", new object[] { str4, RuntimeHelpers.GetObjectValue(objArray12[1]) }, null, true, true);
-                }
+
                 if (Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null), null, "Substring", objArray12, null, copyBack))) <= 255.0)
                 {
                   object[] objArray8 = new object[2];
@@ -481,10 +707,10 @@
                   objArray8[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj3, null, "Content", objArray10, strArray2, null), null, "IndexOf", objArray9, null, null));
                   object[] objArray7 = objArray8;
                   bool[] flagArray2 = new bool[] { false, true };
+
                   if (flagArray2[1])
-                  {
                     LateBinding.LateSetComplex(LateBinding.LateGet(obj3, null, "Content", objArray10, strArray2, null), null, "IndexOf", new object[] { str3, RuntimeHelpers.GetObjectValue(objArray7[1]) }, null, true, true);
-                  }
+
                   if (tag.V1TAG.Tracknumber != Convert.ToByte(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null), null, "Substring", objArray7, null, flagArray2)))))
                   {
                     object[] objArray3 = new object[2];
@@ -511,12 +737,12 @@
             else
             {
               if (tag.V1TAG.Tracknumber != 0)
-              {
                 flag = true;
-              }
+
               tag.V1TAG.Tracknumber = 0;
             }
           }
+
           if (this.chkComment.Checked && (!this.chkExists.Checked || (StringType.StrCmp(tag.V1TAG.Comment, "", false) == 0)))
           {
             if (tag.V2TAG.FrameExists("COMM"))
@@ -534,22 +760,22 @@
             else
             {
               if (StringType.StrCmp(tag.V1TAG.Comment, "", false) != 0)
-              {
                 flag = true;
-              }
+
               tag.V1TAG.Comment = "";
             }
           }
+
           if (this.chkGenre.Checked && (!this.chkExists.Checked || (tag.V1TAG.GenreByte == 0xff)))
           {
             if (tag.V2TAG.FrameExists("TCON"))
             {
               string sRight = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TCON"), null, "Content", new object[0], null, null));
               bool flag2 = false;
+
               if (sRight.IndexOf('\0') > 0)
-              {
                 sRight = sRight.Substring(0, sRight.IndexOf('\0'));
-              }
+
               foreach (DataRow row in Declarations.objSettings.Genres.Rows)
               {
                 if (StringType.StrCmp(row["Name"].ToString().ToLower(), sRight.ToLower(), false) == 0)
@@ -563,6 +789,7 @@
                   break;
                 }
               }
+
               if (!flag2 & (StringType.StrCmp(tag.V1TAG.GenreText, sRight, false) != 0))
               {
                 tag.V1TAG.GenreText = sRight;
@@ -572,12 +799,12 @@
             else
             {
               if (tag.V1TAG.GenreByte != 0xff)
-              {
                 flag = true;
-              }
+
               tag.V1TAG.GenreByte = 0xff;
             }
           }
+
           if (this.chkYear.Checked && (!this.chkExists.Checked || (tag.V1TAG.Year == 0)))
           {
             if (tag.V2TAG.FrameExists("TYER"))
@@ -599,21 +826,19 @@
             else
             {
               if (tag.V1TAG.Year != 0)
-              {
                 flag = true;
-              }
+
               tag.V1TAG.Year = 0;
             }
           }
         }
+
         if (flag & !tag.V1TAG.TAGPresent)
-        {
           tag.V1TAG.TAGPresent = true;
-        }
+
         if (flag)
-        {
           tag.Changed = true;
-        }
+
         this.MainForm.UpdateListItem(item, false);
         frmProg.ProgressBar.PerformStep();
       }
@@ -622,22 +847,24 @@
     private void CB34(ref frmProgress frmProg)
     {
       bool flag = false;
+
       foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
       {
         Application.DoEvents();
+
         if (frmProg.Canceled)
-        {
           break;
-        }
+
         MP3 tag = (MP3)item.Tag;
         frmProg.Infos.Text = tag.CurrentFullName;
+
         if (!tag.V2TAG.TAGHeaderPresent || (tag.V2TAG.TAGVersion != 3))
-        {
           goto Label_0715;
-        }
+
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
         frmProg.List.Add(@do);
         bool flag2 = false;
+
         if (!tag.V2TAG.FrameExists("TSIZ") && !tag.V2TAG.FrameExists("TRDA"))
         {
           using (IEnumerator enumerator = tag.V2TAG.GetAllNotSupportedFrames().GetEnumerator())
@@ -654,19 +881,19 @@
           }
         }
         else
-        {
           flag2 = true;
-        }
+
         Label_01FE:
+
         if ((flag2 && !flag) && (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["Convert2324"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Exclamation | MsgBoxStyle.YesNo, null) == MsgBoxResult.No))
-        {
           break;
-        }
+
         flag = true;
         tag.V2TAG.TAGVersion = 4;
         tag.Changed = true;
         tag.V2TAG.Changed = true;
         string sDest = "XXXX-XX-XXXXX:XX:XX";
+
         if (tag.V2TAG.FrameExists("TYER"))
         {
           try
@@ -680,6 +907,7 @@
           }
           tag.V2TAG.RemoveFrame("TYER");
         }
+
         if (tag.V2TAG.FrameExists("TDAT"))
         {
           try
@@ -694,6 +922,7 @@
           }
           tag.V2TAG.RemoveFrame("TDAT");
         }
+
         if (tag.V2TAG.FrameExists("TIME"))
         {
           try
@@ -708,28 +937,30 @@
           }
           tag.V2TAG.RemoveFrame("TIME");
         }
+
         if (tag.V2TAG.FrameExists("TSIZ"))
-        {
           tag.V2TAG.RemoveFrame("TSIZ");
-        }
+
         if (tag.V2TAG.FrameExists("TRDA"))
-        {
           tag.V2TAG.RemoveFrame("TRDA");
-        }
+
         if (tag.V2TAG.FrameExists("TORY"))
         {
           LateBinding.LateSetComplex(tag.V2TAG.GetFrame("TORY"), null, "FID", new object[] { "TDOR" }, null, false, true);
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TORY")));
           tag.V2TAG.RemoveFrame("TORY");
         }
+
         if (tag.V2TAG.FrameExists("IPLS"))
         {
           LateBinding.LateSetComplex(tag.V2TAG.GetFrame("IPLS"), null, "FID", new object[] { "TIPL" }, null, false, true);
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("IPLS")));
           tag.V2TAG.RemoveFrame("IPLS");
         }
+
         tag.V2TAG.RemoveFrames("EQUA");
         tag.V2TAG.RemoveFrames("RVAD");
+
         if ((StringType.StrCmp(sDest, "XXXX-XX-XXXXX:XX:XX", false) != 0) & !sDest.StartsWith("X"))
         {
           V2TextFrame frame = new V2TextFrame
@@ -737,12 +968,12 @@
             FID = "TDRC",
             Content = sDest.Substring(0, sDest.IndexOf("X"))
           };
+
           if ((frame.Content.EndsWith("-") | frame.Content.EndsWith(":")) | frame.Content.EndsWith("T"))
-          {
             frame.Content = frame.Content.Substring(0, frame.Content.Length - 1);
-          }
           tag.V2TAG.AddFrame(frame);
         }
+
         this.MainForm.UpdateListItem(item, false);
         Label_0715:
         frmProg.ProgressBar.PerformStep();
@@ -756,19 +987,20 @@
       {
         object objectValue;
         Application.DoEvents();
+
         if (frmProg.Canceled)
-        {
           break;
-        }
+
         MP3 tag = (MP3)item.Tag;
         frmProg.Infos.Text = tag.CurrentFullName;
+
         if (!tag.V2TAG.TAGHeaderPresent || (tag.V2TAG.TAGVersion != 4))
-        {
           goto Label_0889;
-        }
+
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
         frmProg.List.Add(@do);
         bool flag2 = false;
+
         if ((((!tag.V2TAG.FrameExists("TDEN") && !tag.V2TAG.FrameExists("TDRL")) && (!tag.V2TAG.FrameExists("TDTG") && !tag.V2TAG.FrameExists("TSST"))) && ((!tag.V2TAG.FrameExists("TMCL") && !tag.V2TAG.FrameExists("TMOO")) && (!tag.V2TAG.FrameExists("TPRO") && !tag.V2TAG.FrameExists("TSOA")))) && (!tag.V2TAG.FrameExists("TSOP") && !tag.V2TAG.FrameExists("TSOT")))
         {
           using (IEnumerator enumerator2 = tag.V2TAG.GetAllNotSupportedFrames().GetEnumerator())
@@ -785,14 +1017,12 @@
           }
         }
         else
-        {
           flag2 = true;
-        }
+
         Label_0315:
         if ((flag2 && !flag) && (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["Convert2423"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Exclamation | MsgBoxStyle.YesNo, null) == MsgBoxResult.No))
-        {
           break;
-        }
+
         flag = true;
         tag.V2TAG.TAGVersion = 3;
         tag.V2TAG.FooterPresent = false;
@@ -815,6 +1045,7 @@
           }
           tag.V2TAG.RemoveFrame("TDRC");
         }
+
         if (tag.V2TAG.FrameExists("TDOR"))
         {
           LateBinding.LateSetComplex(tag.V2TAG.GetFrame("TDOR"), null, "FID", new object[] { "TORY" }, null, false, true);
@@ -822,58 +1053,50 @@
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TDOR")));
           tag.V2TAG.RemoveFrame("TDOR");
         }
+
         if (tag.V2TAG.FrameExists("TIPL"))
         {
           LateBinding.LateSetComplex(tag.V2TAG.GetFrame("TIPL"), null, "FID", new object[] { "IPLS" }, null, false, true);
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TIPL")));
           tag.V2TAG.RemoveFrame("TIPL");
         }
+
         if (tag.V2TAG.FrameExists("TDEN"))
-        {
           tag.V2TAG.RemoveFrame("TDEN");
-        }
+
         if (tag.V2TAG.FrameExists("TDRL"))
-        {
+
           tag.V2TAG.RemoveFrame("TDRL");
-        }
-        if (tag.V2TAG.FrameExists("TDTG"))
-        {
-          tag.V2TAG.RemoveFrame("TDTG");
-        }
+        tag.V2TAG.RemoveFrame("TDTG");
+
         if (tag.V2TAG.FrameExists("TMCL"))
-        {
           tag.V2TAG.RemoveFrame("TMCL");
-        }
+
         if (tag.V2TAG.FrameExists("TMOO"))
-        {
           tag.V2TAG.RemoveFrame("TMOO");
-        }
+
         if (tag.V2TAG.FrameExists("TPRO"))
-        {
           tag.V2TAG.RemoveFrame("TPRO");
-        }
+
         if (tag.V2TAG.FrameExists("TSOA"))
-        {
           tag.V2TAG.RemoveFrame("TSOA");
-        }
+
         if (tag.V2TAG.FrameExists("TSOP"))
-        {
           tag.V2TAG.RemoveFrame("TSOP");
-        }
+
         if (tag.V2TAG.FrameExists("TSOT"))
-        {
           tag.V2TAG.RemoveFrame("TSOT");
-        }
+
         if (tag.V2TAG.FrameExists("TSST"))
-        {
           tag.V2TAG.RemoveFrame("TSST");
-        }
+
         tag.V2TAG.RemoveFrames("ASPI");
         tag.V2TAG.RemoveFrames("RVA2");
         tag.V2TAG.RemoveFrames("SIGN");
         tag.V2TAG.RemoveFrames("EQU2");
         tag.V2TAG.RemoveFrames("SEEK");
-        using (IEnumerator enumerator = tag.V2TAG.GetAllSupportedFrames().GetEnumerator())
+
+        using (var enumerator = tag.V2TAG.GetAllSupportedFrames().GetEnumerator())
         {
           while (enumerator.MoveNext())
           {
@@ -904,9 +1127,8 @@
     protected override void Dispose(bool disposing)
     {
       if (disposing && (this.components != null))
-      {
         this.components.Dispose();
-      }
+
       base.Dispose(disposing);
     }
 
@@ -953,221 +1175,6 @@
           this.optConvert43.Checked = true;
           break;
       }
-    }
-
-    [DebuggerStepThrough]
-    private void InitializeComponent()
-    {
-      this.components = new Container();
-      this.btnCancel = new Button();
-      this.btnOK = new Button();
-      this.opt12 = new RadioButton();
-      this.opt21 = new RadioButton();
-      this.optConvert34 = new RadioButton();
-      this.optConvert43 = new RadioButton();
-      this.GroupBox = new System.Windows.Forms.GroupBox();
-      this.chkExists = new CheckBox();
-      this.txtCommentD = new TextBox();
-      this.lblComment = new Label();
-      this.chkYear = new CheckBox();
-      this.chkGenre = new CheckBox();
-      this.chkTrack = new CheckBox();
-      this.chkComment = new CheckBox();
-      this.chkAlbum = new CheckBox();
-      this.chkTitle = new CheckBox();
-      this.chkArtist = new CheckBox();
-      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.btnSelectAll = new Button();
-      this.btnDeselectAll = new Button();
-      this.GroupBox.SuspendLayout();
-      this.SuspendLayout();
-      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnCancel.ImeMode = ImeMode.NoControl;
-      Point point = new Point(0x160, 0xe8);
-      this.btnCancel.Location = point;
-      this.btnCancel.Name = "btnCancel";
-      Size size = new Size(0x70, 0x18);
-      this.btnCancel.Size = size;
-      this.btnCancel.TabIndex = 4;
-      this.btnCancel.Text = "&Cancel";
-      this.btnOK.ImeMode = ImeMode.NoControl;
-      point = new Point(0xe8, 0xe8);
-      this.btnOK.Location = point;
-      this.btnOK.Name = "btnOK";
-      size = new Size(0x70, 0x18);
-      this.btnOK.Size = size;
-      this.btnOK.TabIndex = 3;
-      this.btnOK.Text = "&OK";
-      this.opt12.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x10);
-      this.opt12.Location = point;
-      this.opt12.Name = "opt12";
-      size = new Size(0xe8, 0x10);
-      this.opt12.Size = size;
-      this.opt12.TabIndex = 5;
-      this.opt12.Text = "Transfer TAG Ver 1. -> Ver. 2";
-      this.opt21.ImeMode = ImeMode.NoControl;
-      point = new Point(0xf8, 0x10);
-      this.opt21.Location = point;
-      this.opt21.Name = "opt21";
-      size = new Size(0xe0, 0x10);
-      this.opt21.Size = size;
-      this.opt21.TabIndex = 6;
-      this.opt21.Text = "Transfer TAG Ver 2. -> Ver. 1";
-      this.optConvert34.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 40);
-      this.optConvert34.Location = point;
-      this.optConvert34.Name = "optConvert34";
-      size = new Size(0xe8, 0x10);
-      this.optConvert34.Size = size;
-      this.optConvert34.TabIndex = 7;
-      this.optConvert34.Text = "Convert TAG Ver. 2.3 to Ver. 2.4";
-      this.optConvert43.ImeMode = ImeMode.NoControl;
-      point = new Point(0xf8, 40);
-      this.optConvert43.Location = point;
-      this.optConvert43.Name = "optConvert43";
-      size = new Size(0xe0, 0x10);
-      this.optConvert43.Size = size;
-      this.optConvert43.TabIndex = 8;
-      this.optConvert43.Text = "Convert TAG Ver. 2.4 to Ver. 2.3";
-      this.GroupBox.Controls.Add(this.chkExists);
-      this.GroupBox.Controls.Add(this.txtCommentD);
-      this.GroupBox.Controls.Add(this.lblComment);
-      this.GroupBox.Controls.Add(this.chkYear);
-      this.GroupBox.Controls.Add(this.chkGenre);
-      this.GroupBox.Controls.Add(this.chkTrack);
-      this.GroupBox.Controls.Add(this.chkComment);
-      this.GroupBox.Controls.Add(this.chkAlbum);
-      this.GroupBox.Controls.Add(this.chkTitle);
-      this.GroupBox.Controls.Add(this.chkArtist);
-      point = new Point(8, 0x48);
-      this.GroupBox.Location = point;
-      this.GroupBox.Name = "GroupBox";
-      size = new Size(0x1c8, 0x98);
-      this.GroupBox.Size = size;
-      this.GroupBox.TabIndex = 9;
-      this.GroupBox.TabStop = false;
-      this.GroupBox.Text = "TAG fields to transfer";
-      this.chkExists.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x80);
-      this.chkExists.Location = point;
-      this.chkExists.Name = "chkExists";
-      size = new Size(400, 0x10);
-      this.chkExists.Size = size;
-      this.chkExists.TabIndex = 9;
-      this.chkExists.Text = "Do not overwrite existing TAG entries";
-      point = new Point(0xa8, 0x5e);
-      this.txtCommentD.Location = point;
-      this.txtCommentD.Name = "txtCommentD";
-      size = new Size(0x110, 20);
-      this.txtCommentD.Size = size;
-      this.txtCommentD.TabIndex = 8;
-      this.txtCommentD.Text = "";
-      this.lblComment.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x60);
-      this.lblComment.Location = point;
-      this.lblComment.Name = "lblComment";
-      size = new Size(0x98, 0x10);
-      this.lblComment.Size = size;
-      this.lblComment.TabIndex = 7;
-      this.lblComment.Text = "Comment &descriptor:";
-      this.chkYear.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x48);
-      this.chkYear.Location = point;
-      this.chkYear.Name = "chkYear";
-      size = new Size(120, 0x10);
-      this.chkYear.Size = size;
-      this.chkYear.TabIndex = 6;
-      this.chkYear.Text = "Year";
-      this.chkGenre.ImeMode = ImeMode.NoControl;
-      point = new Point(0x138, 0x30);
-      this.chkGenre.Location = point;
-      this.chkGenre.Name = "chkGenre";
-      size = new Size(0x80, 0x10);
-      this.chkGenre.Size = size;
-      this.chkGenre.TabIndex = 5;
-      this.chkGenre.Text = "Genre";
-      this.chkTrack.ImeMode = ImeMode.NoControl;
-      point = new Point(160, 0x30);
-      this.chkTrack.Location = point;
-      this.chkTrack.Name = "chkTrack";
-      size = new Size(0x80, 0x10);
-      this.chkTrack.Size = size;
-      this.chkTrack.TabIndex = 4;
-      this.chkTrack.Text = "Track number";
-      this.chkComment.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x30);
-      this.chkComment.Location = point;
-      this.chkComment.Name = "chkComment";
-      size = new Size(120, 0x10);
-      this.chkComment.Size = size;
-      this.chkComment.TabIndex = 3;
-      this.chkComment.Text = "Comment";
-      this.chkAlbum.ImeMode = ImeMode.NoControl;
-      point = new Point(0x138, 0x18);
-      this.chkAlbum.Location = point;
-      this.chkAlbum.Name = "chkAlbum";
-      size = new Size(0x80, 0x10);
-      this.chkAlbum.Size = size;
-      this.chkAlbum.TabIndex = 2;
-      this.chkAlbum.Text = "Album";
-      this.chkTitle.ImeMode = ImeMode.NoControl;
-      point = new Point(160, 0x18);
-      this.chkTitle.Location = point;
-      this.chkTitle.Name = "chkTitle";
-      size = new Size(0x80, 0x10);
-      this.chkTitle.Size = size;
-      this.chkTitle.TabIndex = 1;
-      this.chkTitle.Text = "Title";
-      this.chkArtist.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x18);
-      this.chkArtist.Location = point;
-      this.chkArtist.Name = "chkArtist";
-      size = new Size(120, 0x10);
-      this.chkArtist.Size = size;
-      this.chkArtist.TabIndex = 0;
-      this.chkArtist.Text = "Artist";
-      this.btnSelectAll.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0xe8);
-      this.btnSelectAll.Location = point;
-      this.btnSelectAll.Name = "btnSelectAll";
-      size = new Size(0x60, 0x17);
-      this.btnSelectAll.Size = size;
-      this.btnSelectAll.TabIndex = 5;
-      this.btnSelectAll.Text = "Select all";
-      this.btnDeselectAll.ImeMode = ImeMode.NoControl;
-      point = new Point(0x70, 0xe8);
-      this.btnDeselectAll.Location = point;
-      this.btnDeselectAll.Name = "btnDeselectAll";
-      size = new Size(0x60, 0x17);
-      this.btnDeselectAll.Size = size;
-      this.btnDeselectAll.TabIndex = 6;
-      this.btnDeselectAll.Text = "Deselect all";
-      this.AcceptButton = this.btnOK;
-      size = new Size(5, 13);
-      this.AutoScaleBaseSize = size;
-      this.CancelButton = this.btnCancel;
-      size = new Size(0x1da, 0x106);
-      this.ClientSize = size;
-      this.ControlBox = false;
-      this.Controls.Add(this.btnDeselectAll);
-      this.Controls.Add(this.btnSelectAll);
-      this.Controls.Add(this.GroupBox);
-      this.Controls.Add(this.optConvert43);
-      this.Controls.Add(this.optConvert34);
-      this.Controls.Add(this.opt21);
-      this.Controls.Add(this.opt12);
-      this.Controls.Add(this.btnCancel);
-      this.Controls.Add(this.btnOK);
-      this.FormBorderStyle = FormBorderStyle.FixedDialog;
-      this.MaximizeBox = false;
-      this.MinimizeBox = false;
-      this.Name = "frmTransfer";
-      this.ShowInTaskbar = false;
-      this.StartPosition = FormStartPosition.CenterParent;
-      this.Text = "Transfer / Convert TAGs";
-      this.GroupBox.ResumeLayout(false);
-      this.ResumeLayout(false);
     }
 
     private void opt12_CheckedChanged(object sender, EventArgs e)
@@ -1229,400 +1236,6 @@
     private void optConvert_CheckedChanged(object sender, EventArgs e)
     {
       this.GroupBox.Enabled = false;
-    }
-
-    internal virtual Button btnCancel
-    {
-      get
-      {
-        return this._btnCancel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnCancel != null)
-        {
-        }
-        this._btnCancel = value;
-        if (this._btnCancel != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Button btnDeselectAll
-    {
-      get
-      {
-        return this._btnDeselectAll;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnDeselectAll != null)
-        {
-          this._btnDeselectAll.Click -= new EventHandler(this.btnDeSelectAll_Click);
-        }
-        this._btnDeselectAll = value;
-        if (this._btnDeselectAll != null)
-        {
-          this._btnDeselectAll.Click += new EventHandler(this.btnDeSelectAll_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnOK
-    {
-      get
-      {
-        return this._btnOK;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click -= new EventHandler(this.btnOK_Click);
-        }
-        this._btnOK = value;
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click += new EventHandler(this.btnOK_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnSelectAll
-    {
-      get
-      {
-        return this._btnSelectAll;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnSelectAll != null)
-        {
-          this._btnSelectAll.Click -= new EventHandler(this.btnSelectAll_Click);
-        }
-        this._btnSelectAll = value;
-        if (this._btnSelectAll != null)
-        {
-          this._btnSelectAll.Click += new EventHandler(this.btnSelectAll_Click);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkAlbum
-    {
-      get
-      {
-        return this._chkAlbum;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkAlbum != null)
-        {
-        }
-        this._chkAlbum = value;
-        if (this._chkAlbum != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkArtist
-    {
-      get
-      {
-        return this._chkArtist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkArtist != null)
-        {
-        }
-        this._chkArtist = value;
-        if (this._chkArtist != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkComment
-    {
-      get
-      {
-        return this._chkComment;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkComment != null)
-        {
-        }
-        this._chkComment = value;
-        if (this._chkComment != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkExists
-    {
-      get
-      {
-        return this._chkExists;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkExists != null)
-        {
-        }
-        this._chkExists = value;
-        if (this._chkExists != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkGenre
-    {
-      get
-      {
-        return this._chkGenre;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkGenre != null)
-        {
-        }
-        this._chkGenre = value;
-        if (this._chkGenre != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkTitle
-    {
-      get
-      {
-        return this._chkTitle;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkTitle != null)
-        {
-        }
-        this._chkTitle = value;
-        if (this._chkTitle != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkTrack
-    {
-      get
-      {
-        return this._chkTrack;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkTrack != null)
-        {
-        }
-        this._chkTrack = value;
-        if (this._chkTrack != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkYear
-    {
-      get
-      {
-        return this._chkYear;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkYear != null)
-        {
-        }
-        this._chkYear = value;
-        if (this._chkYear != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.GroupBox GroupBox
-    {
-      get
-      {
-        return this._GroupBox;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._GroupBox != null)
-        {
-        }
-        this._GroupBox = value;
-        if (this._GroupBox != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblComment
-    {
-      get
-      {
-        return this._lblComment;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblComment != null)
-        {
-        }
-        this._lblComment = value;
-        if (this._lblComment != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton opt12
-    {
-      get
-      {
-        return this._opt12;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._opt12 != null)
-        {
-          this._opt12.CheckedChanged -= new EventHandler(this.opt12_CheckedChanged);
-        }
-        this._opt12 = value;
-        if (this._opt12 != null)
-        {
-          this._opt12.CheckedChanged += new EventHandler(this.opt12_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual RadioButton opt21
-    {
-      get
-      {
-        return this._opt21;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._opt21 != null)
-        {
-          this._opt21.CheckedChanged -= new EventHandler(this.opt21_CheckedChanged);
-        }
-        this._opt21 = value;
-        if (this._opt21 != null)
-        {
-          this._opt21.CheckedChanged += new EventHandler(this.opt21_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual RadioButton optConvert34
-    {
-      get
-      {
-        return this._optConvert34;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optConvert34 != null)
-        {
-          this._optConvert34.CheckedChanged -= new EventHandler(this.optConvert_CheckedChanged);
-        }
-        this._optConvert34 = value;
-        if (this._optConvert34 != null)
-        {
-          this._optConvert34.CheckedChanged += new EventHandler(this.optConvert_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual RadioButton optConvert43
-    {
-      get
-      {
-        return this._optConvert43;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optConvert43 != null)
-        {
-          this._optConvert43.CheckedChanged -= new EventHandler(this.optConvert_CheckedChanged);
-        }
-        this._optConvert43 = value;
-        if (this._optConvert43 != null)
-        {
-          this._optConvert43.CheckedChanged += new EventHandler(this.optConvert_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.ToolTip ToolTip
-    {
-      get
-      {
-        return this._ToolTip;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ToolTip != null)
-        {
-        }
-        this._ToolTip = value;
-        if (this._ToolTip != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TextBox txtCommentD
-    {
-      get
-      {
-        return this._txtCommentD;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtCommentD != null)
-        {
-        }
-        this._txtCommentD = value;
-        if (this._txtCommentD != null)
-        {
-        }
-      }
     }
   }
 }

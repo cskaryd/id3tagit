@@ -25,11 +25,11 @@
 
     public byte[] CreateFrame(MP3 MP3)
     {
-      byte[] buffer;
-      byte[] buffer2;
-      byte[] buffer3;
-      byte[] buffer4;
-      byte[] bytes;
+      byte[] buffer = null;
+      byte[] buffer2 = null;
+      byte[] buffer3 = null;
+      byte[] buffer4 = null;
+      byte[] bytes = null;
       int length;
       switch (MP3.V2TAG.TAGVersion)
       {
@@ -157,7 +157,7 @@
       {
         try
         {
-          byte[] buffer2;
+          byte[] buffer2 = null;
           Encoding encoding;
           int num;
           if (this.FUnsyncUsed)

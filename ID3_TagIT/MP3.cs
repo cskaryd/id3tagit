@@ -118,7 +118,7 @@
 
     public void GetMP3Header(int vintStartPos)
     {
-      MP3Frame frame;
+      MP3Frame frame = null;
       byte samplerateValue;
       if (vintStartPos >= (this.FI.Length - 4L))
       {
@@ -153,22 +153,23 @@
         samplerateValue = frame.SamplerateValue;
         goto Label_011B;
       }
+
       this.FStream.Seek(-3L, SeekOrigin.Current);
+
       if (this.FStream.Read(array, 0, 4) < 4)
-      {
         return;
-      }
+
       Label_010C:
       index++;
+
       if (index <= 0x1000)
-      {
         goto Label_0046;
-      }
+
       Label_011B:
+
       if (!flag)
-      {
         return;
-      }
+
       if (frame.VBR)
       {
         this.vbooVBR = true;
@@ -432,7 +433,8 @@
     {
       get
       {
-        string str;
+        string str = string.Empty;
+
         switch (this.vbytChannel)
         {
           case 0:
@@ -447,6 +449,7 @@
           case 3:
             return "Mono";
         }
+
         return str;
       }
     }
@@ -516,7 +519,8 @@
     {
       get
       {
-        string str;
+        string str = string.Empty;
+
         switch (this.vbytLayer)
         {
           case 1:
@@ -528,6 +532,7 @@
           case 3:
             return "Layer I";
         }
+
         return str;
       }
     }
@@ -580,7 +585,8 @@
     {
       get
       {
-        string str;
+        string str = string.Empty;
+
         switch (this.vbytVersion)
         {
           case 0:
@@ -595,6 +601,7 @@
           case 3:
             return "MPEG-1.0";
         }
+
         return str;
       }
     }

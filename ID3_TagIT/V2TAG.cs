@@ -255,9 +255,7 @@
       finally
       {
         if (enumerator is IDisposable)
-        {
           ((IDisposable)enumerator).Dispose();
-        }
       }
     }
 
@@ -1305,10 +1303,10 @@
         MP3.OpenBinaryReader();
         if (header.GetTAGHeader(ref MP3))
         {
-          byte[] buffer;
-          byte[] buffer2;
-          byte[] buffer3;
-          byte[] buffer4;
+          byte[] buffer = null;
+          byte[] buffer2 = null;
+          byte[] buffer3 = null;
+          byte[] buffer4 = null;
           MP3.CloseBinaryReader();
           if (header.TAGHeaderPresent)
           {
@@ -1375,8 +1373,9 @@
           }
           if (flag)
           {
-            BinaryWriter writer;
-            FileStream stream;
+            BinaryWriter writer = null;
+            FileStream stream = null;
+
             try
             {
               byte[] buffer5;
