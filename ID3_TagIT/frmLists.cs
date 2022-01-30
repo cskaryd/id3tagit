@@ -1,138 +1,862 @@
-﻿namespace ID3_TagIT
-{
-  using DevComponents.DotNetBar;
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.ComponentModel;
-  using System.Data;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.IO;
-  using System.Runtime.CompilerServices;
-  using System.Runtime.InteropServices;
-  using System.Text;
-  using System.Windows.Forms;
+﻿using DevComponents.DotNetBar;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class frmLists : Form
   {
-    [AccessedThroughProperty("barBottomDockSite")]
-    private DockSite _barBottomDockSite;
-    [AccessedThroughProperty("barLeftDockSite")]
-    private DockSite _barLeftDockSite;
-    [AccessedThroughProperty("barRightDockSite")]
-    private DockSite _barRightDockSite;
-    [AccessedThroughProperty("barTopDockSite")]
-    private DockSite _barTopDockSite;
-    [AccessedThroughProperty("btnClose")]
-    private Button _btnClose;
-    [AccessedThroughProperty("btnCreateFromTemp")]
-    private Button _btnCreateFromTemp;
-    [AccessedThroughProperty("btnCreatePlaylist")]
-    private Button _btnCreatePlaylist;
-    [AccessedThroughProperty("btnCreateQuickLists")]
-    private Button _btnCreateQuickLists;
-    [AccessedThroughProperty("btnDown")]
-    private Button _btnDown;
-    [AccessedThroughProperty("btnPath")]
-    private Button _btnPath;
-    [AccessedThroughProperty("btnUp")]
-    private Button _btnUp;
-    [AccessedThroughProperty("ButtomPanel")]
-    private PanelEx _ButtomPanel;
-    [AccessedThroughProperty("chkColor")]
-    private CheckBox _chkColor;
-    [AccessedThroughProperty("chkCreateCSV")]
-    private CheckBox _chkCreateCSV;
-    [AccessedThroughProperty("chkCreateHTML")]
-    private CheckBox _chkCreateHTML;
-    [AccessedThroughProperty("chkGridlines")]
-    private CheckBox _chkGridlines;
-    [AccessedThroughProperty("chkRelativ")]
-    private CheckBox _chkRelativ;
-    [AccessedThroughProperty("cmbWidth")]
-    private ComboBox _cmbWidth;
-    [AccessedThroughProperty("ColumnsList")]
-    private ListView _ColumnsList;
-    [AccessedThroughProperty("DotNetBarManager1")]
-    private DotNetBarManager _DotNetBarManager1;
-    [AccessedThroughProperty("frameColumns")]
-    private GroupBox _frameColumns;
-    [AccessedThroughProperty("frameOptions")]
-    private GroupBox _frameOptions;
-    [AccessedThroughProperty("framePara")]
-    private GroupBox _framePara;
-    [AccessedThroughProperty("frameTAGInfo")]
-    private GroupBox _frameTAGInfo;
-    [AccessedThroughProperty("L1")]
-    private Label _L1;
-    [AccessedThroughProperty("L2")]
-    private Label _L2;
-    [AccessedThroughProperty("L3")]
-    private Label _L3;
-    [AccessedThroughProperty("L4")]
-    private Label _L4;
-    [AccessedThroughProperty("L5")]
-    private Label _L5;
-    [AccessedThroughProperty("L6")]
-    private Label _L6;
-    [AccessedThroughProperty("L7")]
-    private Label _L7;
-    [AccessedThroughProperty("lblInfo1")]
-    private Label _lblInfo1;
-    [AccessedThroughProperty("lblInfo2")]
-    private Label _lblInfo2;
-    [AccessedThroughProperty("lblInfo3")]
-    private Label _lblInfo3;
-    [AccessedThroughProperty("lblListWidth")]
-    private Label _lblListWidth;
-    [AccessedThroughProperty("lblPath")]
-    private Label _lblPath;
-    [AccessedThroughProperty("lblPlaylist")]
-    private Label _lblPlaylist;
-    [AccessedThroughProperty("lblTitleHTML")]
-    private Label _lblTitleHTML;
-    [AccessedThroughProperty("optID3V1")]
-    private RadioButton _optID3V1;
-    [AccessedThroughProperty("optID3V2")]
-    private RadioButton _optID3V2;
-    [AccessedThroughProperty("ProgressBar")]
-    private System.Windows.Forms.ProgressBar _ProgressBar;
-    [AccessedThroughProperty("SaveFileDialog")]
-    private System.Windows.Forms.SaveFileDialog _SaveFileDialog;
-    [AccessedThroughProperty("TabControl1")]
-    private DevComponents.DotNetBar.TabControl _TabControl1;
-    [AccessedThroughProperty("TabControlPanel1")]
-    private TabControlPanel _TabControlPanel1;
-    [AccessedThroughProperty("TabControlPanel2")]
-    private TabControlPanel _TabControlPanel2;
-    [AccessedThroughProperty("TabControlPanel3")]
-    private TabControlPanel _TabControlPanel3;
-    [AccessedThroughProperty("tabFilelist")]
-    private TabItem _tabFilelist;
-    [AccessedThroughProperty("tabPlaylist")]
-    private TabItem _tabPlaylist;
-    [AccessedThroughProperty("tabTemp")]
-    private TabItem _tabTemp;
-    [AccessedThroughProperty("TemplatesList")]
-    private ListBox _TemplatesList;
-    [AccessedThroughProperty("ToolTip")]
-    private System.Windows.Forms.ToolTip _ToolTip;
-    [AccessedThroughProperty("TopPanel")]
-    private PanelEx _TopPanel;
-    [AccessedThroughProperty("txtExtInfo")]
-    private TextBox _txtExtInfo;
-    [AccessedThroughProperty("txtPath")]
-    private TextBox _txtPath;
-    [AccessedThroughProperty("txtTitleHTML")]
-    private TextBox _txtTitleHTML;
-    [AccessedThroughProperty("txtWidth")]
-    private NumericUpDown _txtWidth;
+    private DockSite barBottomDockSite;
+    private DockSite barLeftDockSite;
+    private DockSite barRightDockSite;
+    private DockSite barTopDockSite;
+    private Button btnClose;
+    private Button btnCreateFromTemp;
+    private Button btnCreatePlaylist;
+    private Button btnCreateQuickLists;
+    private Button btnDown;
+    private Button btnPath;
+    private Button btnUp;
+    private PanelEx ButtomPanel;
+    private CheckBox chkColor;
+    private CheckBox chkCreateCSV;
+    private CheckBox chkCreateHTML;
+    private CheckBox chkGridlines;
+    private CheckBox chkRelativ;
+    private ComboBox cmbWidth;
+    private ListView ColumnsList;
+    private DotNetBarManager DotNetBarManager1;
+    private GroupBox frameColumns;
+    private GroupBox frameOptions;
+    private GroupBox framePara;
+    private GroupBox frameTAGInfo;
+    private Label L1;
+    private Label L2;
+    private Label L3;
+    private Label L4;
+    private Label L5;
+    private Label L6;
+    private Label L7;
+    private Label lblInfo1;
+    private Label lblInfo2;
+    private Label lblInfo3;
+    private Label lblListWidth;
+    private Label lblPath;
+    private Label lblPlaylist;
+    private Label lblTitleHTML;
+    private RadioButton optID3V1;
+    private RadioButton optID3V2;
+    private System.Windows.Forms.ProgressBar ProgressBar;
+    private System.Windows.Forms.SaveFileDialog SaveFileDialog;
+    private DevComponents.DotNetBar.TabControl TabControl1;
+    private TabControlPanel TabControlPanel1;
+    private TabControlPanel TabControlPanel2;
+    private TabControlPanel TabControlPanel3;
+    private TabItem tabFilelist;
+    private TabItem tabPlaylist;
+    private TabItem tabTemp;
+    private ListBox TemplatesList;
+    private System.Windows.Forms.ToolTip ToolTip;
+    private PanelEx TopPanel;
+    private TextBox txtExtInfo;
+    private TextBox txtPath;
+    private TextBox txtTitleHTML;
+    private NumericUpDown txtWidth;
     private IContainer components;
     public frmMain MainForm;
     private string vstrComparePath;
     private string vstrTemplatesPath;
+
+    [DebuggerStepThrough]
+    private void InitializeComponent()
+    {
+      this.components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLists));
+      this.btnClose = new System.Windows.Forms.Button();
+      this.btnPath = new System.Windows.Forms.Button();
+      this.txtPath = new System.Windows.Forms.TextBox();
+      this.lblPath = new System.Windows.Forms.Label();
+      this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+      this.ProgressBar = new System.Windows.Forms.ProgressBar();
+      this.ButtomPanel = new DevComponents.DotNetBar.PanelEx();
+      this.TopPanel = new DevComponents.DotNetBar.PanelEx();
+      this.DotNetBarManager1 = new DevComponents.DotNetBar.DotNetBarManager(this.components);
+      this.barBottomDockSite = new DevComponents.DotNetBar.DockSite();
+      this.barLeftDockSite = new DevComponents.DotNetBar.DockSite();
+      this.barRightDockSite = new DevComponents.DotNetBar.DockSite();
+      this.barTopDockSite = new DevComponents.DotNetBar.DockSite();
+      this.TabControl1 = new DevComponents.DotNetBar.TabControl();
+      this.TabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
+      this.btnCreatePlaylist = new System.Windows.Forms.Button();
+      this.lblInfo1 = new System.Windows.Forms.Label();
+      this.framePara = new System.Windows.Forms.GroupBox();
+      this.L7 = new System.Windows.Forms.Label();
+      this.L6 = new System.Windows.Forms.Label();
+      this.L5 = new System.Windows.Forms.Label();
+      this.L4 = new System.Windows.Forms.Label();
+      this.L3 = new System.Windows.Forms.Label();
+      this.L2 = new System.Windows.Forms.Label();
+      this.L1 = new System.Windows.Forms.Label();
+      this.chkRelativ = new System.Windows.Forms.CheckBox();
+      this.txtExtInfo = new System.Windows.Forms.TextBox();
+      this.lblPlaylist = new System.Windows.Forms.Label();
+      this.tabPlaylist = new DevComponents.DotNetBar.TabItem(this.components);
+      this.TabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
+      this.TemplatesList = new System.Windows.Forms.ListBox();
+      this.lblInfo2 = new System.Windows.Forms.Label();
+      this.btnCreateFromTemp = new System.Windows.Forms.Button();
+      this.tabTemp = new DevComponents.DotNetBar.TabItem(this.components);
+      this.TabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
+      this.lblInfo3 = new System.Windows.Forms.Label();
+      this.chkCreateHTML = new System.Windows.Forms.CheckBox();
+      this.chkCreateCSV = new System.Windows.Forms.CheckBox();
+      this.frameOptions = new System.Windows.Forms.GroupBox();
+      this.chkColor = new System.Windows.Forms.CheckBox();
+      this.chkGridlines = new System.Windows.Forms.CheckBox();
+      this.txtWidth = new System.Windows.Forms.NumericUpDown();
+      this.cmbWidth = new System.Windows.Forms.ComboBox();
+      this.lblListWidth = new System.Windows.Forms.Label();
+      this.lblTitleHTML = new System.Windows.Forms.Label();
+      this.frameTAGInfo = new System.Windows.Forms.GroupBox();
+      this.optID3V1 = new System.Windows.Forms.RadioButton();
+      this.optID3V2 = new System.Windows.Forms.RadioButton();
+      this.txtTitleHTML = new System.Windows.Forms.TextBox();
+      this.frameColumns = new System.Windows.Forms.GroupBox();
+      this.ColumnsList = new System.Windows.Forms.ListView();
+      this.btnUp = new System.Windows.Forms.Button();
+      this.btnDown = new System.Windows.Forms.Button();
+      this.btnCreateQuickLists = new System.Windows.Forms.Button();
+      this.tabFilelist = new DevComponents.DotNetBar.TabItem(this.components);
+      this.ButtomPanel.SuspendLayout();
+      this.TopPanel.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.TabControl1)).BeginInit();
+      this.TabControl1.SuspendLayout();
+      this.TabControlPanel1.SuspendLayout();
+      this.framePara.SuspendLayout();
+      this.TabControlPanel2.SuspendLayout();
+      this.TabControlPanel3.SuspendLayout();
+      this.frameOptions.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.txtWidth)).BeginInit();
+      this.frameTAGInfo.SuspendLayout();
+      this.frameColumns.SuspendLayout();
+      this.SuspendLayout();
+      // 
+      // btnClose
+      // 
+      this.btnClose.BackColor = System.Drawing.SystemColors.Control;
+      this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+      this.btnClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnClose.Location = new System.Drawing.Point(440, 8);
+      this.btnClose.Name = "btnClose";
+      this.btnClose.Size = new System.Drawing.Size(160, 24);
+      this.btnClose.TabIndex = 16;
+      this.btnClose.Text = "&Close";
+      this.btnClose.UseVisualStyleBackColor = false;
+      this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+      // 
+      // btnPath
+      // 
+      this.btnPath.BackColor = System.Drawing.SystemColors.Control;
+      this.btnPath.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnPath.Location = new System.Drawing.Point(448, 30);
+      this.btnPath.Name = "btnPath";
+      this.btnPath.Size = new System.Drawing.Size(152, 24);
+      this.btnPath.TabIndex = 2;
+      this.btnPath.Text = "&Select filename ...";
+      this.btnPath.UseVisualStyleBackColor = false;
+      this.btnPath.Click += new System.EventHandler(this.btnPath_Click);
+      // 
+      // txtPath
+      // 
+      this.txtPath.Location = new System.Drawing.Point(8, 32);
+      this.txtPath.MaxLength = 255;
+      this.txtPath.Name = "txtPath";
+      this.txtPath.Size = new System.Drawing.Size(432, 20);
+      this.txtPath.TabIndex = 1;
+      // 
+      // lblPath
+      // 
+      this.lblPath.BackColor = System.Drawing.Color.White;
+      this.lblPath.ForeColor = System.Drawing.Color.Black;
+      this.lblPath.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPath.Location = new System.Drawing.Point(8, 8);
+      this.lblPath.Name = "lblPath";
+      this.lblPath.Size = new System.Drawing.Size(320, 16);
+      this.lblPath.TabIndex = 0;
+      this.lblPath.Text = "&Path and Filename of the list(s) (without extension): ";
+      // 
+      // SaveFileDialog
+      // 
+      this.SaveFileDialog.Title = "Select the path and filename for the list";
+      // 
+      // ProgressBar
+      // 
+      this.ProgressBar.BackColor = System.Drawing.SystemColors.Control;
+      this.ProgressBar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.ProgressBar.Location = new System.Drawing.Point(8, 12);
+      this.ProgressBar.Name = "ProgressBar";
+      this.ProgressBar.Size = new System.Drawing.Size(424, 16);
+      this.ProgressBar.Step = 1;
+      this.ProgressBar.TabIndex = 17;
+      // 
+      // ButtomPanel
+      // 
+      this.ButtomPanel.AntiAlias = true;
+      this.ButtomPanel.Controls.Add(this.btnClose);
+      this.ButtomPanel.Controls.Add(this.ProgressBar);
+      this.ButtomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.ButtomPanel.Location = new System.Drawing.Point(0, 464);
+      this.ButtomPanel.Name = "ButtomPanel";
+      this.ButtomPanel.Size = new System.Drawing.Size(610, 40);
+      this.ButtomPanel.Style.BackColor1.Color = System.Drawing.Color.White;
+      this.ButtomPanel.Style.BackColor2.Color = System.Drawing.Color.White;
+      this.ButtomPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.ButtomPanel.Style.BorderWidth = 0;
+      this.ButtomPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ButtomPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
+      this.ButtomPanel.Style.GradientAngle = 90;
+      this.ButtomPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
+      this.ButtomPanel.Style.MarginBottom = 2;
+      this.ButtomPanel.Style.MarginLeft = 7;
+      this.ButtomPanel.Style.MarginRight = 2;
+      this.ButtomPanel.Style.MarginTop = 2;
+      this.ButtomPanel.TabIndex = 119;
+      // 
+      // TopPanel
+      // 
+      this.TopPanel.AntiAlias = true;
+      this.TopPanel.Controls.Add(this.btnPath);
+      this.TopPanel.Controls.Add(this.txtPath);
+      this.TopPanel.Controls.Add(this.lblPath);
+      this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
+      this.TopPanel.Location = new System.Drawing.Point(0, 0);
+      this.TopPanel.Name = "TopPanel";
+      this.TopPanel.Size = new System.Drawing.Size(610, 64);
+      this.TopPanel.Style.BackColor1.Color = System.Drawing.Color.White;
+      this.TopPanel.Style.BackColor2.Color = System.Drawing.Color.White;
+      this.TopPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.TopPanel.Style.BorderWidth = 0;
+      this.TopPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.TopPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
+      this.TopPanel.Style.GradientAngle = 90;
+      this.TopPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
+      this.TopPanel.Style.MarginBottom = 2;
+      this.TopPanel.Style.MarginLeft = 7;
+      this.TopPanel.Style.MarginRight = 2;
+      this.TopPanel.Style.MarginTop = 2;
+      this.TopPanel.TabIndex = 120;
+      // 
+      // DotNetBarManager1
+      // 
+      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.F1);
+      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlC);
+      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlA);
+      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlV);
+      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlX);
+      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlZ);
+      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.Del);
+      this.DotNetBarManager1.AutoDispatchShortcuts.Add(DevComponents.DotNetBar.eShortcut.Ins);
+      this.DotNetBarManager1.BottomDockSite = this.barBottomDockSite;
+      this.DotNetBarManager1.DefinitionName = "";
+      this.DotNetBarManager1.LeftDockSite = this.barLeftDockSite;
+      this.DotNetBarManager1.ParentForm = this;
+      this.DotNetBarManager1.RightDockSite = this.barRightDockSite;
+      this.DotNetBarManager1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003;
+      this.DotNetBarManager1.TopDockSite = this.barTopDockSite;
+      // 
+      // barBottomDockSite
+      // 
+      this.barBottomDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+      this.barBottomDockSite.BackgroundImageAlpha = ((byte)(255));
+      this.barBottomDockSite.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.barBottomDockSite.Location = new System.Drawing.Point(0, 504);
+      this.barBottomDockSite.Name = "barBottomDockSite";
+      this.barBottomDockSite.Size = new System.Drawing.Size(610, 0);
+      this.barBottomDockSite.TabIndex = 124;
+      this.barBottomDockSite.TabStop = false;
+      // 
+      // barLeftDockSite
+      // 
+      this.barLeftDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+      this.barLeftDockSite.BackgroundImageAlpha = ((byte)(255));
+      this.barLeftDockSite.Dock = System.Windows.Forms.DockStyle.Left;
+      this.barLeftDockSite.Location = new System.Drawing.Point(0, 0);
+      this.barLeftDockSite.Name = "barLeftDockSite";
+      this.barLeftDockSite.Size = new System.Drawing.Size(0, 504);
+      this.barLeftDockSite.TabIndex = 121;
+      this.barLeftDockSite.TabStop = false;
+      // 
+      // barRightDockSite
+      // 
+      this.barRightDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+      this.barRightDockSite.BackgroundImageAlpha = ((byte)(255));
+      this.barRightDockSite.Dock = System.Windows.Forms.DockStyle.Right;
+      this.barRightDockSite.Location = new System.Drawing.Point(610, 0);
+      this.barRightDockSite.Name = "barRightDockSite";
+      this.barRightDockSite.Size = new System.Drawing.Size(0, 504);
+      this.barRightDockSite.TabIndex = 122;
+      this.barRightDockSite.TabStop = false;
+      // 
+      // barTopDockSite
+      // 
+      this.barTopDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+      this.barTopDockSite.BackgroundImageAlpha = ((byte)(255));
+      this.barTopDockSite.Dock = System.Windows.Forms.DockStyle.Top;
+      this.barTopDockSite.Location = new System.Drawing.Point(0, 0);
+      this.barTopDockSite.Name = "barTopDockSite";
+      this.barTopDockSite.Size = new System.Drawing.Size(610, 0);
+      this.barTopDockSite.TabIndex = 123;
+      this.barTopDockSite.TabStop = false;
+      // 
+      // TabControl1
+      // 
+      this.TabControl1.CanReorderTabs = true;
+      this.TabControl1.Controls.Add(this.TabControlPanel1);
+      this.TabControl1.Controls.Add(this.TabControlPanel2);
+      this.TabControl1.Controls.Add(this.TabControlPanel3);
+      this.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TabControl1.Location = new System.Drawing.Point(0, 64);
+      this.TabControl1.Name = "TabControl1";
+      this.TabControl1.SelectedTabFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+      this.TabControl1.SelectedTabIndex = 0;
+      this.TabControl1.Size = new System.Drawing.Size(610, 400);
+      this.TabControl1.Style = DevComponents.DotNetBar.eTabStripStyle.VS2005Document;
+      this.TabControl1.TabIndex = 125;
+      this.TabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
+      this.TabControl1.Tabs.Add(this.tabPlaylist);
+      this.TabControl1.Tabs.Add(this.tabTemp);
+      this.TabControl1.Tabs.Add(this.tabFilelist);
+      // 
+      // TabControlPanel1
+      // 
+      this.TabControlPanel1.AntiAlias = true;
+      this.TabControlPanel1.Controls.Add(this.btnCreatePlaylist);
+      this.TabControlPanel1.Controls.Add(this.lblInfo1);
+      this.TabControlPanel1.Controls.Add(this.framePara);
+      this.TabControlPanel1.Controls.Add(this.chkRelativ);
+      this.TabControlPanel1.Controls.Add(this.txtExtInfo);
+      this.TabControlPanel1.Controls.Add(this.lblPlaylist);
+      this.TabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TabControlPanel1.Location = new System.Drawing.Point(0, 26);
+      this.TabControlPanel1.Name = "TabControlPanel1";
+      this.TabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
+      this.TabControlPanel1.Size = new System.Drawing.Size(610, 374);
+      this.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.TabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
+      this.TabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+      this.TabControlPanel1.Style.GradientAngle = 90;
+      this.TabControlPanel1.TabIndex = 1;
+      this.TabControlPanel1.TabItem = this.tabPlaylist;
+      // 
+      // btnCreatePlaylist
+      // 
+      this.btnCreatePlaylist.BackColor = System.Drawing.SystemColors.Control;
+      this.btnCreatePlaylist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCreatePlaylist.Location = new System.Drawing.Point(8, 343);
+      this.btnCreatePlaylist.Name = "btnCreatePlaylist";
+      this.btnCreatePlaylist.Size = new System.Drawing.Size(592, 24);
+      this.btnCreatePlaylist.TabIndex = 11;
+      this.btnCreatePlaylist.Text = "Create Playlist";
+      this.btnCreatePlaylist.UseVisualStyleBackColor = false;
+      this.btnCreatePlaylist.Click += new System.EventHandler(this.btnCreatePlaylist_Click);
+      // 
+      // lblInfo1
+      // 
+      this.lblInfo1.BackColor = System.Drawing.Color.Transparent;
+      this.lblInfo1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblInfo1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInfo1.Location = new System.Drawing.Point(472, 24);
+      this.lblInfo1.Name = "lblInfo1";
+      this.lblInfo1.Size = new System.Drawing.Size(128, 128);
+      this.lblInfo1.TabIndex = 9;
+      this.lblInfo1.Text = "M3U playlists can include some extended information with the format above you can" +
+    " choose which information should be put into the playlist.";
+      this.lblInfo1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // framePara
+      // 
+      this.framePara.BackColor = System.Drawing.Color.Transparent;
+      this.framePara.Controls.Add(this.L7);
+      this.framePara.Controls.Add(this.L6);
+      this.framePara.Controls.Add(this.L5);
+      this.framePara.Controls.Add(this.L4);
+      this.framePara.Controls.Add(this.L3);
+      this.framePara.Controls.Add(this.L2);
+      this.framePara.Controls.Add(this.L1);
+      this.framePara.Location = new System.Drawing.Point(16, 56);
+      this.framePara.Name = "framePara";
+      this.framePara.Size = new System.Drawing.Size(440, 96);
+      this.framePara.TabIndex = 8;
+      this.framePara.TabStop = false;
+      this.framePara.Text = "Parameters (Tip: click the label to add the parameter to the format)";
+      // 
+      // L7
+      // 
+      this.L7.BackColor = System.Drawing.Color.Transparent;
+      this.L7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L7.Location = new System.Drawing.Point(8, 72);
+      this.L7.Name = "L7";
+      this.L7.Size = new System.Drawing.Size(160, 16);
+      this.L7.TabIndex = 6;
+      this.L7.Text = "<K> = Track number";
+      this.L7.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L6
+      // 
+      this.L6.BackColor = System.Drawing.Color.Transparent;
+      this.L6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L6.Location = new System.Drawing.Point(192, 40);
+      this.L6.Name = "L6";
+      this.L6.Size = new System.Drawing.Size(160, 16);
+      this.L6.TabIndex = 5;
+      this.L6.Text = "<G> = Genre";
+      this.L6.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L5
+      // 
+      this.L5.BackColor = System.Drawing.Color.Transparent;
+      this.L5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L5.Location = new System.Drawing.Point(192, 56);
+      this.L5.Name = "L5";
+      this.L5.Size = new System.Drawing.Size(160, 16);
+      this.L5.TabIndex = 4;
+      this.L5.Text = "<Y> = Year";
+      this.L5.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L4
+      // 
+      this.L4.BackColor = System.Drawing.Color.Transparent;
+      this.L4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L4.Location = new System.Drawing.Point(8, 56);
+      this.L4.Name = "L4";
+      this.L4.Size = new System.Drawing.Size(160, 16);
+      this.L4.TabIndex = 3;
+      this.L4.Text = "<C> = Comment";
+      this.L4.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L3
+      // 
+      this.L3.BackColor = System.Drawing.Color.Transparent;
+      this.L3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L3.Location = new System.Drawing.Point(8, 40);
+      this.L3.Name = "L3";
+      this.L3.Size = new System.Drawing.Size(160, 16);
+      this.L3.TabIndex = 2;
+      this.L3.Text = "<B> = Album";
+      this.L3.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L2
+      // 
+      this.L2.BackColor = System.Drawing.Color.Transparent;
+      this.L2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L2.Location = new System.Drawing.Point(192, 24);
+      this.L2.Name = "L2";
+      this.L2.Size = new System.Drawing.Size(160, 16);
+      this.L2.TabIndex = 1;
+      this.L2.Text = "<T> = Title";
+      this.L2.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L1
+      // 
+      this.L1.BackColor = System.Drawing.Color.Transparent;
+      this.L1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L1.Location = new System.Drawing.Point(8, 24);
+      this.L1.Name = "L1";
+      this.L1.Size = new System.Drawing.Size(160, 16);
+      this.L1.TabIndex = 0;
+      this.L1.Text = "<A> = Artist";
+      this.L1.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // chkRelativ
+      // 
+      this.chkRelativ.BackColor = System.Drawing.Color.Transparent;
+      this.chkRelativ.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkRelativ.Location = new System.Drawing.Point(16, 168);
+      this.chkRelativ.Name = "chkRelativ";
+      this.chkRelativ.Size = new System.Drawing.Size(584, 16);
+      this.chkRelativ.TabIndex = 10;
+      this.chkRelativ.Text = "Use &relative paths in playlist";
+      this.chkRelativ.UseVisualStyleBackColor = false;
+      // 
+      // txtExtInfo
+      // 
+      this.txtExtInfo.Location = new System.Drawing.Point(16, 24);
+      this.txtExtInfo.Name = "txtExtInfo";
+      this.txtExtInfo.Size = new System.Drawing.Size(440, 20);
+      this.txtExtInfo.TabIndex = 7;
+      this.txtExtInfo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtExtInfo_KeyPress);
+      // 
+      // lblPlaylist
+      // 
+      this.lblPlaylist.BackColor = System.Drawing.Color.Transparent;
+      this.lblPlaylist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPlaylist.Location = new System.Drawing.Point(16, 8);
+      this.lblPlaylist.Name = "lblPlaylist";
+      this.lblPlaylist.Size = new System.Drawing.Size(320, 16);
+      this.lblPlaylist.TabIndex = 6;
+      this.lblPlaylist.Text = "Format of extended playlist info:";
+      // 
+      // tabPlaylist
+      // 
+      this.tabPlaylist.AttachedControl = this.TabControlPanel1;
+      this.tabPlaylist.Name = "tabPlaylist";
+      this.tabPlaylist.Text = "M3U Playlist";
+      // 
+      // TabControlPanel2
+      // 
+      this.TabControlPanel2.AntiAlias = true;
+      this.TabControlPanel2.Controls.Add(this.TemplatesList);
+      this.TabControlPanel2.Controls.Add(this.lblInfo2);
+      this.TabControlPanel2.Controls.Add(this.btnCreateFromTemp);
+      this.TabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TabControlPanel2.Location = new System.Drawing.Point(0, 26);
+      this.TabControlPanel2.Name = "TabControlPanel2";
+      this.TabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
+      this.TabControlPanel2.Size = new System.Drawing.Size(610, 374);
+      this.TabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.TabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
+      this.TabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+      this.TabControlPanel2.Style.GradientAngle = 90;
+      this.TabControlPanel2.TabIndex = 2;
+      this.TabControlPanel2.TabItem = this.tabTemp;
+      // 
+      // TemplatesList
+      // 
+      this.TemplatesList.Location = new System.Drawing.Point(8, 72);
+      this.TemplatesList.Name = "TemplatesList";
+      this.TemplatesList.Size = new System.Drawing.Size(240, 264);
+      this.TemplatesList.Sorted = true;
+      this.TemplatesList.TabIndex = 27;
+      // 
+      // lblInfo2
+      // 
+      this.lblInfo2.BackColor = System.Drawing.Color.Transparent;
+      this.lblInfo2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblInfo2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInfo2.Location = new System.Drawing.Point(8, 8);
+      this.lblInfo2.Name = "lblInfo2";
+      this.lblInfo2.Size = new System.Drawing.Size(592, 56);
+      this.lblInfo2.TabIndex = 26;
+      this.lblInfo2.Text = resources.GetString("lblInfo2.Text");
+      this.lblInfo2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // btnCreateFromTemp
+      // 
+      this.btnCreateFromTemp.BackColor = System.Drawing.SystemColors.Control;
+      this.btnCreateFromTemp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCreateFromTemp.Location = new System.Drawing.Point(8, 343);
+      this.btnCreateFromTemp.Name = "btnCreateFromTemp";
+      this.btnCreateFromTemp.Size = new System.Drawing.Size(592, 24);
+      this.btnCreateFromTemp.TabIndex = 25;
+      this.btnCreateFromTemp.Text = "Create from template";
+      this.btnCreateFromTemp.UseVisualStyleBackColor = false;
+      this.btnCreateFromTemp.Click += new System.EventHandler(this.btnCreateFromTemp_Click);
+      // 
+      // tabTemp
+      // 
+      this.tabTemp.AttachedControl = this.TabControlPanel2;
+      this.tabTemp.Name = "tabTemp";
+      this.tabTemp.Text = "Filelist from template";
+      // 
+      // TabControlPanel3
+      // 
+      this.TabControlPanel3.AntiAlias = true;
+      this.TabControlPanel3.Controls.Add(this.lblInfo3);
+      this.TabControlPanel3.Controls.Add(this.chkCreateHTML);
+      this.TabControlPanel3.Controls.Add(this.chkCreateCSV);
+      this.TabControlPanel3.Controls.Add(this.frameOptions);
+      this.TabControlPanel3.Controls.Add(this.lblTitleHTML);
+      this.TabControlPanel3.Controls.Add(this.frameTAGInfo);
+      this.TabControlPanel3.Controls.Add(this.txtTitleHTML);
+      this.TabControlPanel3.Controls.Add(this.frameColumns);
+      this.TabControlPanel3.Controls.Add(this.btnCreateQuickLists);
+      this.TabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TabControlPanel3.Location = new System.Drawing.Point(0, 26);
+      this.TabControlPanel3.Name = "TabControlPanel3";
+      this.TabControlPanel3.Padding = new System.Windows.Forms.Padding(1);
+      this.TabControlPanel3.Size = new System.Drawing.Size(610, 374);
+      this.TabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.TabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
+      this.TabControlPanel3.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+      this.TabControlPanel3.Style.GradientAngle = 90;
+      this.TabControlPanel3.TabIndex = 3;
+      this.TabControlPanel3.TabItem = this.tabFilelist;
+      // 
+      // lblInfo3
+      // 
+      this.lblInfo3.BackColor = System.Drawing.Color.Transparent;
+      this.lblInfo3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblInfo3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInfo3.Location = new System.Drawing.Point(8, 7);
+      this.lblInfo3.Name = "lblInfo3";
+      this.lblInfo3.Size = new System.Drawing.Size(592, 40);
+      this.lblInfo3.TabIndex = 31;
+      this.lblInfo3.Text = "This option allows to cretae a HTML or CSV file without a template. Select the fi" +
+    "le format(s) and choose the columns. ";
+      this.lblInfo3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // chkCreateHTML
+      // 
+      this.chkCreateHTML.BackColor = System.Drawing.Color.Transparent;
+      this.chkCreateHTML.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkCreateHTML.Location = new System.Drawing.Point(8, 63);
+      this.chkCreateHTML.Name = "chkCreateHTML";
+      this.chkCreateHTML.Size = new System.Drawing.Size(152, 16);
+      this.chkCreateHTML.TabIndex = 29;
+      this.chkCreateHTML.Text = "Create HTML list";
+      this.chkCreateHTML.UseVisualStyleBackColor = false;
+      // 
+      // chkCreateCSV
+      // 
+      this.chkCreateCSV.BackColor = System.Drawing.Color.Transparent;
+      this.chkCreateCSV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkCreateCSV.Location = new System.Drawing.Point(176, 63);
+      this.chkCreateCSV.Name = "chkCreateCSV";
+      this.chkCreateCSV.Size = new System.Drawing.Size(176, 16);
+      this.chkCreateCSV.TabIndex = 30;
+      this.chkCreateCSV.Text = "Create CSV list";
+      this.chkCreateCSV.UseVisualStyleBackColor = false;
+      // 
+      // frameOptions
+      // 
+      this.frameOptions.BackColor = System.Drawing.Color.Transparent;
+      this.frameOptions.Controls.Add(this.chkColor);
+      this.frameOptions.Controls.Add(this.chkGridlines);
+      this.frameOptions.Controls.Add(this.txtWidth);
+      this.frameOptions.Controls.Add(this.cmbWidth);
+      this.frameOptions.Controls.Add(this.lblListWidth);
+      this.frameOptions.Location = new System.Drawing.Point(368, 175);
+      this.frameOptions.Name = "frameOptions";
+      this.frameOptions.Size = new System.Drawing.Size(232, 112);
+      this.frameOptions.TabIndex = 25;
+      this.frameOptions.TabStop = false;
+      this.frameOptions.Text = "Options (HTML-List only)";
+      // 
+      // chkColor
+      // 
+      this.chkColor.BackColor = System.Drawing.Color.Transparent;
+      this.chkColor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkColor.Location = new System.Drawing.Point(16, 80);
+      this.chkColor.Name = "chkColor";
+      this.chkColor.Size = new System.Drawing.Size(208, 16);
+      this.chkColor.TabIndex = 13;
+      this.chkColor.Text = "&Color odd and even rows";
+      this.chkColor.UseVisualStyleBackColor = false;
+      // 
+      // chkGridlines
+      // 
+      this.chkGridlines.BackColor = System.Drawing.Color.Transparent;
+      this.chkGridlines.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkGridlines.Location = new System.Drawing.Point(16, 56);
+      this.chkGridlines.Name = "chkGridlines";
+      this.chkGridlines.Size = new System.Drawing.Size(208, 16);
+      this.chkGridlines.TabIndex = 12;
+      this.chkGridlines.Text = "Show &gridlines";
+      this.chkGridlines.UseVisualStyleBackColor = false;
+      // 
+      // txtWidth
+      // 
+      this.txtWidth.Location = new System.Drawing.Point(88, 24);
+      this.txtWidth.Maximum = new decimal(new int[] {
+            4096,
+            0,
+            0,
+            0});
+      this.txtWidth.Name = "txtWidth";
+      this.txtWidth.Size = new System.Drawing.Size(72, 20);
+      this.txtWidth.TabIndex = 10;
+      // 
+      // cmbWidth
+      // 
+      this.cmbWidth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.cmbWidth.ItemHeight = 13;
+      this.cmbWidth.Items.AddRange(new object[] {
+            "px",
+            "%"});
+      this.cmbWidth.Location = new System.Drawing.Point(168, 24);
+      this.cmbWidth.Name = "cmbWidth";
+      this.cmbWidth.Size = new System.Drawing.Size(56, 21);
+      this.cmbWidth.TabIndex = 11;
+      this.cmbWidth.SelectedIndexChanged += new System.EventHandler(this.cmbWidth_SelectedIndexChanged);
+      // 
+      // lblListWidth
+      // 
+      this.lblListWidth.BackColor = System.Drawing.Color.Transparent;
+      this.lblListWidth.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblListWidth.Location = new System.Drawing.Point(8, 26);
+      this.lblListWidth.Name = "lblListWidth";
+      this.lblListWidth.Size = new System.Drawing.Size(80, 16);
+      this.lblListWidth.TabIndex = 9;
+      this.lblListWidth.Text = "List &width";
+      // 
+      // lblTitleHTML
+      // 
+      this.lblTitleHTML.BackColor = System.Drawing.Color.Transparent;
+      this.lblTitleHTML.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTitleHTML.Location = new System.Drawing.Point(8, 295);
+      this.lblTitleHTML.Name = "lblTitleHTML";
+      this.lblTitleHTML.Size = new System.Drawing.Size(576, 16);
+      this.lblTitleHTML.TabIndex = 26;
+      this.lblTitleHTML.Text = "&Title of the list (HTML-List only)";
+      // 
+      // frameTAGInfo
+      // 
+      this.frameTAGInfo.BackColor = System.Drawing.Color.Transparent;
+      this.frameTAGInfo.Controls.Add(this.optID3V1);
+      this.frameTAGInfo.Controls.Add(this.optID3V2);
+      this.frameTAGInfo.Location = new System.Drawing.Point(368, 87);
+      this.frameTAGInfo.Name = "frameTAGInfo";
+      this.frameTAGInfo.Size = new System.Drawing.Size(232, 80);
+      this.frameTAGInfo.TabIndex = 24;
+      this.frameTAGInfo.TabStop = false;
+      this.frameTAGInfo.Text = "Choose TAG Ver. for creating list";
+      // 
+      // optID3V1
+      // 
+      this.optID3V1.BackColor = System.Drawing.Color.Transparent;
+      this.optID3V1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optID3V1.Location = new System.Drawing.Point(16, 24);
+      this.optID3V1.Name = "optID3V1";
+      this.optID3V1.Size = new System.Drawing.Size(208, 16);
+      this.optID3V1.TabIndex = 7;
+      this.optID3V1.Text = "Use TAG Ver. &1 for creating the list";
+      this.optID3V1.UseVisualStyleBackColor = false;
+      // 
+      // optID3V2
+      // 
+      this.optID3V2.BackColor = System.Drawing.Color.Transparent;
+      this.optID3V2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optID3V2.Location = new System.Drawing.Point(16, 48);
+      this.optID3V2.Name = "optID3V2";
+      this.optID3V2.Size = new System.Drawing.Size(208, 16);
+      this.optID3V2.TabIndex = 8;
+      this.optID3V2.Text = "Use TAG Ver. &2 for creating the list";
+      this.optID3V2.UseVisualStyleBackColor = false;
+      // 
+      // txtTitleHTML
+      // 
+      this.txtTitleHTML.Location = new System.Drawing.Point(8, 311);
+      this.txtTitleHTML.Name = "txtTitleHTML";
+      this.txtTitleHTML.Size = new System.Drawing.Size(592, 20);
+      this.txtTitleHTML.TabIndex = 27;
+      // 
+      // frameColumns
+      // 
+      this.frameColumns.BackColor = System.Drawing.Color.Transparent;
+      this.frameColumns.Controls.Add(this.ColumnsList);
+      this.frameColumns.Controls.Add(this.btnUp);
+      this.frameColumns.Controls.Add(this.btnDown);
+      this.frameColumns.Location = new System.Drawing.Point(8, 87);
+      this.frameColumns.Name = "frameColumns";
+      this.frameColumns.Size = new System.Drawing.Size(352, 200);
+      this.frameColumns.TabIndex = 23;
+      this.frameColumns.TabStop = false;
+      this.frameColumns.Text = "Select columns of the list";
+      // 
+      // ColumnsList
+      // 
+      this.ColumnsList.CheckBoxes = true;
+      this.ColumnsList.FullRowSelect = true;
+      this.ColumnsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+      this.ColumnsList.Location = new System.Drawing.Point(8, 24);
+      this.ColumnsList.MultiSelect = false;
+      this.ColumnsList.Name = "ColumnsList";
+      this.ColumnsList.Size = new System.Drawing.Size(216, 168);
+      this.ColumnsList.TabIndex = 4;
+      this.ColumnsList.UseCompatibleStateImageBehavior = false;
+      this.ColumnsList.View = System.Windows.Forms.View.Details;
+      // 
+      // btnUp
+      // 
+      this.btnUp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnUp.Location = new System.Drawing.Point(232, 80);
+      this.btnUp.Name = "btnUp";
+      this.btnUp.Size = new System.Drawing.Size(112, 24);
+      this.btnUp.TabIndex = 5;
+      this.btnUp.Text = "Column &up";
+      this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+      // 
+      // btnDown
+      // 
+      this.btnDown.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnDown.Location = new System.Drawing.Point(232, 112);
+      this.btnDown.Name = "btnDown";
+      this.btnDown.Size = new System.Drawing.Size(112, 24);
+      this.btnDown.TabIndex = 6;
+      this.btnDown.Text = "Column &down";
+      this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+      // 
+      // btnCreateQuickLists
+      // 
+      this.btnCreateQuickLists.BackColor = System.Drawing.Color.Transparent;
+      this.btnCreateQuickLists.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCreateQuickLists.Location = new System.Drawing.Point(8, 343);
+      this.btnCreateQuickLists.Name = "btnCreateQuickLists";
+      this.btnCreateQuickLists.Size = new System.Drawing.Size(592, 24);
+      this.btnCreateQuickLists.TabIndex = 28;
+      this.btnCreateQuickLists.Text = "Create &lists";
+      this.btnCreateQuickLists.UseVisualStyleBackColor = false;
+      this.btnCreateQuickLists.Click += new System.EventHandler(this.btnCreateQuickLists_Click);
+      // 
+      // tabFilelist
+      // 
+      this.tabFilelist.AttachedControl = this.TabControlPanel3;
+      this.tabFilelist.Name = "tabFilelist";
+      this.tabFilelist.Text = "Quick HTML/CSV Filelist";
+      // 
+      // frmLists
+      // 
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+      this.ClientSize = new System.Drawing.Size(610, 504);
+      this.ControlBox = false;
+      this.Controls.Add(this.TabControl1);
+      this.Controls.Add(this.TopPanel);
+      this.Controls.Add(this.ButtomPanel);
+      this.Controls.Add(this.barLeftDockSite);
+      this.Controls.Add(this.barRightDockSite);
+      this.Controls.Add(this.barTopDockSite);
+      this.Controls.Add(this.barBottomDockSite);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
+      this.Name = "frmLists";
+      this.ShowInTaskbar = false;
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+      this.Text = "Create lists of selected files";
+      this.ButtomPanel.ResumeLayout(false);
+      this.TopPanel.ResumeLayout(false);
+      this.TopPanel.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.TabControl1)).EndInit();
+      this.TabControl1.ResumeLayout(false);
+      this.TabControlPanel1.ResumeLayout(false);
+      this.TabControlPanel1.PerformLayout();
+      this.framePara.ResumeLayout(false);
+      this.TabControlPanel2.ResumeLayout(false);
+      this.TabControlPanel3.ResumeLayout(false);
+      this.TabControlPanel3.PerformLayout();
+      this.frameOptions.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.txtWidth)).EndInit();
+      this.frameTAGInfo.ResumeLayout(false);
+      this.frameColumns.ResumeLayout(false);
+      this.ResumeLayout(false);
+    }
 
     public frmLists()
     {
@@ -767,9 +1491,8 @@
     protected override void Dispose(bool disposing)
     {
       if (disposing && (this.components != null))
-      {
         this.components.Dispose();
-      }
+
       base.Dispose(disposing);
     }
 
@@ -998,60 +1721,39 @@
 
     private string GetTempData(ListViewItem lstItem, string vstrVar, [Optional, DefaultParameterValue("")] string vstrPath)
     {
-      MP3 tag = (MP3)lstItem.Tag;
       string sLeft = vstrVar;
+      MP3 tag = (MP3)lstItem.Tag;
+
       if (StringType.StrCmp(sLeft, "%Filename%", false) == 0)
-      {
         return tag.CurrentName;
-      }
       if (StringType.StrCmp(sLeft, "%FullFilename%", false) == 0)
-      {
         return tag.CurrentFullName;
-      }
       if (StringType.StrCmp(sLeft, "%Subdirectory%", false) == 0)
-      {
         return StringType.FromObject(Interaction.IIf(Declarations.objSettings.CurrentPath.EndsWith(":"), tag.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath + @"\", ""), tag.FI.DirectoryName.Replace(Declarations.objSettings.CurrentPath, "")));
-      }
       if (StringType.StrCmp(sLeft, "%Ver1%", false) == 0)
-      {
         return tag.V1TAG.TAGVersion.ToString().Replace("0", "-").Replace("1-", "1.0").Replace("11", "1.1");
-      }
       if (StringType.StrCmp(sLeft, "%Ver2%", false) == 0)
-      {
         return tag.V2TAG.TAGVersion.ToString().Replace("2", "2.2").Replace("3", "2.3").Replace("4", "2.4").Replace("0", "-");
-      }
       if (StringType.StrCmp(sLeft, "%Artist%", false) == 0)
       {
         if (!this.optID3V2.Checked)
-        {
           return tag.V1TAG.Artist;
-        }
         if (tag.V2TAG.FrameExists("TPE1"))
-        {
           return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TPE1")), null, "Content", new object[0], null, null));
-        }
       }
       else if (StringType.StrCmp(sLeft, "%Title%", false) == 0)
       {
         if (!this.optID3V2.Checked)
-        {
           return tag.V1TAG.Title;
-        }
         if (tag.V2TAG.FrameExists("TIT2"))
-        {
           return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TIT2")), null, "Content", new object[0], null, null));
-        }
       }
       else if (StringType.StrCmp(sLeft, "%Album%", false) == 0)
       {
         if (!this.optID3V2.Checked)
-        {
           return tag.V1TAG.Album;
-        }
         if (tag.V2TAG.FrameExists("TALB"))
-        {
           return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TALB")), null, "Content", new object[0], null, null));
-        }
       }
       else if (StringType.StrCmp(sLeft, "%Track%", false) == 0)
       {
@@ -1079,13 +1781,9 @@
       else if (StringType.StrCmp(sLeft, "%Genre%", false) == 0)
       {
         if (!this.optID3V2.Checked)
-        {
           return tag.V1TAG.GenreText;
-        }
         if (tag.V2TAG.FrameExists("TCON"))
-        {
           return StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TCON")), null, "Content", new object[0], null, null));
-        }
       }
       else if (StringType.StrCmp(sLeft, "%Year%", false) == 0)
       {
@@ -1162,700 +1860,21 @@
           else
           {
             if (StringType.StrCmp(sLeft, "%RelFilename%", false) == 0)
-            {
               return Id3TagIT_Main.GetRelativePath(vstrPath.Substring(0, vstrPath.LastIndexOf(@"\")), tag.FI.FullName);
-            }
+
             if (StringType.StrCmp(sLeft, "%CRC%", false) == 0)
             {
               if (tag.AudioCheckSum == 0)
-              {
                 tag.CalcAudioCheckSum();
-              }
               if (tag.AudioCheckSum != 0)
-              {
                 return tag.AudioCheckSum.ToString();
-              }
+
               return "";
             }
           }
         }
       }
       return "";
-    }
-
-    [DebuggerStepThrough]
-    private void InitializeComponent()
-    {
-      this.components = new Container();
-      this.btnClose = new Button();
-      this.btnPath = new Button();
-      this.txtPath = new TextBox();
-      this.lblPath = new Label();
-      this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
-      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.ProgressBar = new System.Windows.Forms.ProgressBar();
-      this.ButtomPanel = new PanelEx();
-      this.TopPanel = new PanelEx();
-      this.DotNetBarManager1 = new DotNetBarManager(this.components);
-      this.barBottomDockSite = new DockSite();
-      this.barLeftDockSite = new DockSite();
-      this.barRightDockSite = new DockSite();
-      this.barTopDockSite = new DockSite();
-      this.TabControl1 = new DevComponents.DotNetBar.TabControl();
-      this.TabControlPanel1 = new TabControlPanel();
-      this.btnCreatePlaylist = new Button();
-      this.lblInfo1 = new Label();
-      this.framePara = new GroupBox();
-      this.L7 = new Label();
-      this.L6 = new Label();
-      this.L5 = new Label();
-      this.L4 = new Label();
-      this.L3 = new Label();
-      this.L2 = new Label();
-      this.L1 = new Label();
-      this.chkRelativ = new CheckBox();
-      this.txtExtInfo = new TextBox();
-      this.lblPlaylist = new Label();
-      this.tabPlaylist = new TabItem(this.components);
-      this.TabControlPanel2 = new TabControlPanel();
-      this.TemplatesList = new ListBox();
-      this.lblInfo2 = new Label();
-      this.btnCreateFromTemp = new Button();
-      this.tabTemp = new TabItem(this.components);
-      this.TabControlPanel3 = new TabControlPanel();
-      this.lblInfo3 = new Label();
-      this.chkCreateHTML = new CheckBox();
-      this.chkCreateCSV = new CheckBox();
-      this.frameOptions = new GroupBox();
-      this.chkColor = new CheckBox();
-      this.chkGridlines = new CheckBox();
-      this.txtWidth = new NumericUpDown();
-      this.cmbWidth = new ComboBox();
-      this.lblListWidth = new Label();
-      this.lblTitleHTML = new Label();
-      this.frameTAGInfo = new GroupBox();
-      this.optID3V1 = new RadioButton();
-      this.optID3V2 = new RadioButton();
-      this.txtTitleHTML = new TextBox();
-      this.frameColumns = new GroupBox();
-      this.ColumnsList = new ListView();
-      this.btnUp = new Button();
-      this.btnDown = new Button();
-      this.btnCreateQuickLists = new Button();
-      this.tabFilelist = new TabItem(this.components);
-      this.ButtomPanel.SuspendLayout();
-      this.TopPanel.SuspendLayout();
-      ((ISupportInitialize)this.TabControl1).BeginInit();
-      this.TabControl1.SuspendLayout();
-      this.TabControlPanel1.SuspendLayout();
-      this.framePara.SuspendLayout();
-      this.TabControlPanel2.SuspendLayout();
-      this.TabControlPanel3.SuspendLayout();
-      this.frameOptions.SuspendLayout();
-      this.txtWidth.BeginInit();
-      this.frameTAGInfo.SuspendLayout();
-      this.frameColumns.SuspendLayout();
-      this.SuspendLayout();
-      this.btnClose.BackColor = SystemColors.Control;
-      this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnClose.ImeMode = ImeMode.NoControl;
-      Point point = new Point(440, 8);
-      this.btnClose.Location = point;
-      this.btnClose.Name = "btnClose";
-      Size size = new Size(160, 0x18);
-      this.btnClose.Size = size;
-      this.btnClose.TabIndex = 0x10;
-      this.btnClose.Text = "&Close";
-      this.btnPath.BackColor = SystemColors.Control;
-      this.btnPath.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1c0, 30);
-      this.btnPath.Location = point;
-      this.btnPath.Name = "btnPath";
-      size = new Size(0x98, 0x18);
-      this.btnPath.Size = size;
-      this.btnPath.TabIndex = 2;
-      this.btnPath.Text = "&Select filename ...";
-      point = new Point(8, 0x20);
-      this.txtPath.Location = point;
-      this.txtPath.MaxLength = 0xff;
-      this.txtPath.Name = "txtPath";
-      size = new Size(0x1b0, 20);
-      this.txtPath.Size = size;
-      this.txtPath.TabIndex = 1;
-      this.txtPath.Text = "";
-      this.lblPath.BackColor = Color.White;
-      this.lblPath.ForeColor = Color.Black;
-      this.lblPath.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblPath.Location = point;
-      this.lblPath.Name = "lblPath";
-      size = new Size(320, 0x10);
-      this.lblPath.Size = size;
-      this.lblPath.TabIndex = 0;
-      this.lblPath.Text = "&Path and Filename of the list(s) (without extension): ";
-      this.SaveFileDialog.Title = "Select the path and filename for the list";
-      this.ProgressBar.BackColor = SystemColors.Control;
-      this.ProgressBar.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 12);
-      this.ProgressBar.Location = point;
-      this.ProgressBar.Name = "ProgressBar";
-      size = new Size(0x1a8, 0x10);
-      this.ProgressBar.Size = size;
-      this.ProgressBar.Step = 1;
-      this.ProgressBar.TabIndex = 0x11;
-      this.ButtomPanel.AntiAlias = true;
-      this.ButtomPanel.Controls.Add(this.btnClose);
-      this.ButtomPanel.Controls.Add(this.ProgressBar);
-      this.ButtomPanel.Dock = DockStyle.Bottom;
-      point = new Point(0, 0x1d0);
-      this.ButtomPanel.Location = point;
-      this.ButtomPanel.Name = "ButtomPanel";
-      size = new Size(610, 40);
-      this.ButtomPanel.Size = size;
-      this.ButtomPanel.Style.BackColor1.Color = Color.White;
-      this.ButtomPanel.Style.BackColor2.Color = Color.White;
-      this.ButtomPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this.ButtomPanel.Style.BorderWidth = 0;
-      this.ButtomPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.ButtomPanel.Style.ForeColor.Color = Color.Black;
-      this.ButtomPanel.Style.GradientAngle = 90;
-      this.ButtomPanel.Style.LineAlignment = StringAlignment.Near;
-      this.ButtomPanel.Style.MarginBottom = 2;
-      this.ButtomPanel.Style.MarginLeft = 7;
-      this.ButtomPanel.Style.MarginRight = 2;
-      this.ButtomPanel.Style.MarginTop = 2;
-      this.ButtomPanel.TabIndex = 0x77;
-      this.TopPanel.AntiAlias = true;
-      this.TopPanel.Controls.Add(this.btnPath);
-      this.TopPanel.Controls.Add(this.txtPath);
-      this.TopPanel.Controls.Add(this.lblPath);
-      this.TopPanel.Dock = DockStyle.Top;
-      point = new Point(0, 0);
-      this.TopPanel.Location = point;
-      this.TopPanel.Name = "TopPanel";
-      size = new Size(610, 0x40);
-      this.TopPanel.Size = size;
-      this.TopPanel.Style.BackColor1.Color = Color.White;
-      this.TopPanel.Style.BackColor2.Color = Color.White;
-      this.TopPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this.TopPanel.Style.BorderWidth = 0;
-      this.TopPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.TopPanel.Style.ForeColor.Color = Color.Black;
-      this.TopPanel.Style.GradientAngle = 90;
-      this.TopPanel.Style.LineAlignment = StringAlignment.Near;
-      this.TopPanel.Style.MarginBottom = 2;
-      this.TopPanel.Style.MarginLeft = 7;
-      this.TopPanel.Style.MarginRight = 2;
-      this.TopPanel.Style.MarginTop = 2;
-      this.TopPanel.TabIndex = 120;
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(eShortcut.F1);
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(eShortcut.CtrlC);
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(eShortcut.CtrlA);
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(eShortcut.CtrlV);
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(eShortcut.CtrlX);
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(eShortcut.CtrlZ);
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(eShortcut.Del);
-      this.DotNetBarManager1.AutoDispatchShortcuts.Add(eShortcut.Ins);
-      this.DotNetBarManager1.BottomDockSite = this.barBottomDockSite;
-      this.DotNetBarManager1.DefinitionName = "";
-      this.DotNetBarManager1.LeftDockSite = this.barLeftDockSite;
-      this.DotNetBarManager1.ParentForm = this;
-      this.DotNetBarManager1.RightDockSite = this.barRightDockSite;
-      this.DotNetBarManager1.Style = eDotNetBarStyle.Office2003;
-      this.DotNetBarManager1.TopDockSite = this.barTopDockSite;
-      this.barBottomDockSite.AccessibleRole = AccessibleRole.Window;
-      this.barBottomDockSite.BackgroundImageAlpha = 0xff;
-      this.barBottomDockSite.Dock = DockStyle.Bottom;
-      point = new Point(0, 0x1f8);
-      this.barBottomDockSite.Location = point;
-      this.barBottomDockSite.Name = "barBottomDockSite";
-      size = new Size(610, 0);
-      this.barBottomDockSite.Size = size;
-      this.barBottomDockSite.TabIndex = 0x7c;
-      this.barBottomDockSite.TabStop = false;
-      this.barLeftDockSite.AccessibleRole = AccessibleRole.Window;
-      this.barLeftDockSite.BackgroundImageAlpha = 0xff;
-      this.barLeftDockSite.Dock = DockStyle.Left;
-      point = new Point(0, 0);
-      this.barLeftDockSite.Location = point;
-      this.barLeftDockSite.Name = "barLeftDockSite";
-      size = new Size(0, 0x1f8);
-      this.barLeftDockSite.Size = size;
-      this.barLeftDockSite.TabIndex = 0x79;
-      this.barLeftDockSite.TabStop = false;
-      this.barRightDockSite.AccessibleRole = AccessibleRole.Window;
-      this.barRightDockSite.BackgroundImageAlpha = 0xff;
-      this.barRightDockSite.Dock = DockStyle.Right;
-      point = new Point(610, 0);
-      this.barRightDockSite.Location = point;
-      this.barRightDockSite.Name = "barRightDockSite";
-      size = new Size(0, 0x1f8);
-      this.barRightDockSite.Size = size;
-      this.barRightDockSite.TabIndex = 0x7a;
-      this.barRightDockSite.TabStop = false;
-      this.barTopDockSite.AccessibleRole = AccessibleRole.Window;
-      this.barTopDockSite.BackgroundImageAlpha = 0xff;
-      this.barTopDockSite.Dock = DockStyle.Top;
-      point = new Point(0, 0);
-      this.barTopDockSite.Location = point;
-      this.barTopDockSite.Name = "barTopDockSite";
-      size = new Size(610, 0);
-      this.barTopDockSite.Size = size;
-      this.barTopDockSite.TabIndex = 0x7b;
-      this.barTopDockSite.TabStop = false;
-      this.TabControl1.CanReorderTabs = true;
-      this.TabControl1.Controls.Add(this.TabControlPanel1);
-      this.TabControl1.Controls.Add(this.TabControlPanel2);
-      this.TabControl1.Controls.Add(this.TabControlPanel3);
-      this.TabControl1.Dock = DockStyle.Fill;
-      point = new Point(0, 0x40);
-      this.TabControl1.Location = point;
-      this.TabControl1.Name = "TabControl1";
-      this.TabControl1.SelectedTabFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
-      this.TabControl1.SelectedTabIndex = 0;
-      size = new Size(610, 400);
-      this.TabControl1.Size = size;
-      this.TabControl1.Style = eTabStripStyle.VS2005Document;
-      this.TabControl1.TabIndex = 0x7d;
-      this.TabControl1.TabLayoutType = eTabLayoutType.FixedWithNavigationBox;
-      this.TabControl1.Tabs.Add(this.tabPlaylist);
-      this.TabControl1.Tabs.Add(this.tabTemp);
-      this.TabControl1.Tabs.Add(this.tabFilelist);
-      this.TabControlPanel1.AntiAlias = true;
-      this.TabControlPanel1.Controls.Add(this.btnCreatePlaylist);
-      this.TabControlPanel1.Controls.Add(this.lblInfo1);
-      this.TabControlPanel1.Controls.Add(this.framePara);
-      this.TabControlPanel1.Controls.Add(this.chkRelativ);
-      this.TabControlPanel1.Controls.Add(this.txtExtInfo);
-      this.TabControlPanel1.Controls.Add(this.lblPlaylist);
-      this.TabControlPanel1.Dock = DockStyle.Fill;
-      this.TabControlPanel1.DockPadding.All = 1;
-      point = new Point(0, 0x1a);
-      this.TabControlPanel1.Location = point;
-      this.TabControlPanel1.Name = "TabControlPanel1";
-      size = new Size(610, 0x176);
-      this.TabControlPanel1.Size = size;
-      this.TabControlPanel1.Style.BackColor2.Color = Color.FromArgb(0xfb, 250, 0xf7);
-      this.TabControlPanel1.Style.Border = eBorderType.SingleLine;
-      this.TabControlPanel1.Style.BorderColor.Color = Color.FromArgb(0x7f, 0x9d, 0xb9);
-      this.TabControlPanel1.Style.BorderSide = eBorderSide.Bottom | eBorderSide.Right | eBorderSide.Left;
-      this.TabControlPanel1.Style.GradientAngle = 90;
-      this.TabControlPanel1.TabIndex = 1;
-      this.TabControlPanel1.TabItem = this.tabPlaylist;
-      this.btnCreatePlaylist.BackColor = SystemColors.Control;
-      this.btnCreatePlaylist.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x157);
-      this.btnCreatePlaylist.Location = point;
-      this.btnCreatePlaylist.Name = "btnCreatePlaylist";
-      size = new Size(0x250, 0x18);
-      this.btnCreatePlaylist.Size = size;
-      this.btnCreatePlaylist.TabIndex = 11;
-      this.btnCreatePlaylist.Text = "Create Playlist";
-      this.lblInfo1.BackColor = Color.Transparent;
-      this.lblInfo1.BorderStyle = BorderStyle.Fixed3D;
-      this.lblInfo1.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1d8, 0x18);
-      this.lblInfo1.Location = point;
-      this.lblInfo1.Name = "lblInfo1";
-      size = new Size(0x80, 0x80);
-      this.lblInfo1.Size = size;
-      this.lblInfo1.TabIndex = 9;
-      this.lblInfo1.Text = "M3U playlists can include some extended information with the format above you can choose which information should be put into the playlist.";
-      this.lblInfo1.TextAlign = ContentAlignment.MiddleCenter;
-      this.framePara.BackColor = Color.Transparent;
-      this.framePara.Controls.Add(this.L7);
-      this.framePara.Controls.Add(this.L6);
-      this.framePara.Controls.Add(this.L5);
-      this.framePara.Controls.Add(this.L4);
-      this.framePara.Controls.Add(this.L3);
-      this.framePara.Controls.Add(this.L2);
-      this.framePara.Controls.Add(this.L1);
-      point = new Point(0x10, 0x38);
-      this.framePara.Location = point;
-      this.framePara.Name = "framePara";
-      size = new Size(440, 0x60);
-      this.framePara.Size = size;
-      this.framePara.TabIndex = 8;
-      this.framePara.TabStop = false;
-      this.framePara.Text = "Parameters (Tip: click the label to add the parameter to the format)";
-      this.L7.BackColor = Color.Transparent;
-      this.L7.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x48);
-      this.L7.Location = point;
-      this.L7.Name = "L7";
-      size = new Size(160, 0x10);
-      this.L7.Size = size;
-      this.L7.TabIndex = 6;
-      this.L7.Text = "<K> = Track number";
-      this.L6.BackColor = Color.Transparent;
-      this.L6.ImeMode = ImeMode.NoControl;
-      point = new Point(0xc0, 40);
-      this.L6.Location = point;
-      this.L6.Name = "L6";
-      size = new Size(160, 0x10);
-      this.L6.Size = size;
-      this.L6.TabIndex = 5;
-      this.L6.Text = "<G> = Genre";
-      this.L5.BackColor = Color.Transparent;
-      this.L5.ImeMode = ImeMode.NoControl;
-      point = new Point(0xc0, 0x38);
-      this.L5.Location = point;
-      this.L5.Name = "L5";
-      size = new Size(160, 0x10);
-      this.L5.Size = size;
-      this.L5.TabIndex = 4;
-      this.L5.Text = "<Y> = Year";
-      this.L4.BackColor = Color.Transparent;
-      this.L4.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x38);
-      this.L4.Location = point;
-      this.L4.Name = "L4";
-      size = new Size(160, 0x10);
-      this.L4.Size = size;
-      this.L4.TabIndex = 3;
-      this.L4.Text = "<C> = Comment";
-      this.L3.BackColor = Color.Transparent;
-      this.L3.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 40);
-      this.L3.Location = point;
-      this.L3.Name = "L3";
-      size = new Size(160, 0x10);
-      this.L3.Size = size;
-      this.L3.TabIndex = 2;
-      this.L3.Text = "<B> = Album";
-      this.L2.BackColor = Color.Transparent;
-      this.L2.ImeMode = ImeMode.NoControl;
-      point = new Point(0xc0, 0x18);
-      this.L2.Location = point;
-      this.L2.Name = "L2";
-      size = new Size(160, 0x10);
-      this.L2.Size = size;
-      this.L2.TabIndex = 1;
-      this.L2.Text = "<T> = Title";
-      this.L1.BackColor = Color.Transparent;
-      this.L1.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x18);
-      this.L1.Location = point;
-      this.L1.Name = "L1";
-      size = new Size(160, 0x10);
-      this.L1.Size = size;
-      this.L1.TabIndex = 0;
-      this.L1.Text = "<A> = Artist";
-      this.chkRelativ.BackColor = Color.Transparent;
-      this.chkRelativ.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0xa8);
-      this.chkRelativ.Location = point;
-      this.chkRelativ.Name = "chkRelativ";
-      size = new Size(0x248, 0x10);
-      this.chkRelativ.Size = size;
-      this.chkRelativ.TabIndex = 10;
-      this.chkRelativ.Text = "Use &relative paths in playlist";
-      point = new Point(0x10, 0x18);
-      this.txtExtInfo.Location = point;
-      this.txtExtInfo.Name = "txtExtInfo";
-      size = new Size(440, 20);
-      this.txtExtInfo.Size = size;
-      this.txtExtInfo.TabIndex = 7;
-      this.txtExtInfo.Text = "";
-      this.lblPlaylist.BackColor = Color.Transparent;
-      this.lblPlaylist.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 8);
-      this.lblPlaylist.Location = point;
-      this.lblPlaylist.Name = "lblPlaylist";
-      size = new Size(320, 0x10);
-      this.lblPlaylist.Size = size;
-      this.lblPlaylist.TabIndex = 6;
-      this.lblPlaylist.Text = "Format of extended playlist info:";
-      this.tabPlaylist.AttachedControl = this.TabControlPanel1;
-      this.tabPlaylist.Name = "tabPlaylist";
-      this.tabPlaylist.Text = "M3U Playlist";
-      this.TabControlPanel2.AntiAlias = true;
-      this.TabControlPanel2.Controls.Add(this.TemplatesList);
-      this.TabControlPanel2.Controls.Add(this.lblInfo2);
-      this.TabControlPanel2.Controls.Add(this.btnCreateFromTemp);
-      this.TabControlPanel2.Dock = DockStyle.Fill;
-      this.TabControlPanel2.DockPadding.All = 1;
-      point = new Point(0, 0x1a);
-      this.TabControlPanel2.Location = point;
-      this.TabControlPanel2.Name = "TabControlPanel2";
-      size = new Size(610, 0x176);
-      this.TabControlPanel2.Size = size;
-      this.TabControlPanel2.Style.BackColor2.Color = Color.FromArgb(0xfb, 250, 0xf7);
-      this.TabControlPanel2.Style.Border = eBorderType.SingleLine;
-      this.TabControlPanel2.Style.BorderColor.Color = Color.FromArgb(0x7f, 0x9d, 0xb9);
-      this.TabControlPanel2.Style.BorderSide = eBorderSide.Bottom | eBorderSide.Right | eBorderSide.Left;
-      this.TabControlPanel2.Style.GradientAngle = 90;
-      this.TabControlPanel2.TabIndex = 2;
-      this.TabControlPanel2.TabItem = this.tabTemp;
-      point = new Point(8, 0x48);
-      this.TemplatesList.Location = point;
-      this.TemplatesList.Name = "TemplatesList";
-      size = new Size(240, 0x108);
-      this.TemplatesList.Size = size;
-      this.TemplatesList.Sorted = true;
-      this.TemplatesList.TabIndex = 0x1b;
-      this.lblInfo2.BackColor = Color.Transparent;
-      this.lblInfo2.BorderStyle = BorderStyle.Fixed3D;
-      this.lblInfo2.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 8);
-      this.lblInfo2.Location = point;
-      this.lblInfo2.Name = "lblInfo2";
-      size = new Size(0x250, 0x38);
-      this.lblInfo2.Size = size;
-      this.lblInfo2.TabIndex = 0x1a;
-      this.lblInfo2.Text = "This functions makes it possible to create a filelist in a user defined format which is defined by a template. The templates listed below can be found and edited in the ID3-TagIT installation folder under Templates. There you will also find a textfile with all necessary instructions to edit or create templates.";
-      this.lblInfo2.TextAlign = ContentAlignment.MiddleCenter;
-      this.btnCreateFromTemp.BackColor = SystemColors.Control;
-      this.btnCreateFromTemp.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x157);
-      this.btnCreateFromTemp.Location = point;
-      this.btnCreateFromTemp.Name = "btnCreateFromTemp";
-      size = new Size(0x250, 0x18);
-      this.btnCreateFromTemp.Size = size;
-      this.btnCreateFromTemp.TabIndex = 0x19;
-      this.btnCreateFromTemp.Text = "Create from template";
-      this.tabTemp.AttachedControl = this.TabControlPanel2;
-      this.tabTemp.Name = "tabTemp";
-      this.tabTemp.Text = "Filelist from template";
-      this.TabControlPanel3.AntiAlias = true;
-      this.TabControlPanel3.Controls.Add(this.lblInfo3);
-      this.TabControlPanel3.Controls.Add(this.chkCreateHTML);
-      this.TabControlPanel3.Controls.Add(this.chkCreateCSV);
-      this.TabControlPanel3.Controls.Add(this.frameOptions);
-      this.TabControlPanel3.Controls.Add(this.lblTitleHTML);
-      this.TabControlPanel3.Controls.Add(this.frameTAGInfo);
-      this.TabControlPanel3.Controls.Add(this.txtTitleHTML);
-      this.TabControlPanel3.Controls.Add(this.frameColumns);
-      this.TabControlPanel3.Controls.Add(this.btnCreateQuickLists);
-      this.TabControlPanel3.Dock = DockStyle.Fill;
-      this.TabControlPanel3.DockPadding.All = 1;
-      point = new Point(0, 0x1a);
-      this.TabControlPanel3.Location = point;
-      this.TabControlPanel3.Name = "TabControlPanel3";
-      size = new Size(610, 0x176);
-      this.TabControlPanel3.Size = size;
-      this.TabControlPanel3.Style.BackColor2.Color = Color.FromArgb(0xfb, 250, 0xf7);
-      this.TabControlPanel3.Style.Border = eBorderType.SingleLine;
-      this.TabControlPanel3.Style.BorderColor.Color = Color.FromArgb(0x7f, 0x9d, 0xb9);
-      this.TabControlPanel3.Style.BorderSide = eBorderSide.Bottom | eBorderSide.Right | eBorderSide.Left;
-      this.TabControlPanel3.Style.GradientAngle = 90;
-      this.TabControlPanel3.TabIndex = 3;
-      this.TabControlPanel3.TabItem = this.tabFilelist;
-      this.lblInfo3.BackColor = Color.Transparent;
-      this.lblInfo3.BorderStyle = BorderStyle.Fixed3D;
-      this.lblInfo3.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 7);
-      this.lblInfo3.Location = point;
-      this.lblInfo3.Name = "lblInfo3";
-      size = new Size(0x250, 40);
-      this.lblInfo3.Size = size;
-      this.lblInfo3.TabIndex = 0x1f;
-      this.lblInfo3.Text = "This option allows to cretae a HTML or CSV file without a template. Select the file format(s) and choose the columns. ";
-      this.lblInfo3.TextAlign = ContentAlignment.MiddleCenter;
-      this.chkCreateHTML.BackColor = Color.Transparent;
-      this.chkCreateHTML.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x3f);
-      this.chkCreateHTML.Location = point;
-      this.chkCreateHTML.Name = "chkCreateHTML";
-      size = new Size(0x98, 0x10);
-      this.chkCreateHTML.Size = size;
-      this.chkCreateHTML.TabIndex = 0x1d;
-      this.chkCreateHTML.Text = "Create HTML list";
-      this.chkCreateCSV.BackColor = Color.Transparent;
-      this.chkCreateCSV.ImeMode = ImeMode.NoControl;
-      point = new Point(0xb0, 0x3f);
-      this.chkCreateCSV.Location = point;
-      this.chkCreateCSV.Name = "chkCreateCSV";
-      size = new Size(0xb0, 0x10);
-      this.chkCreateCSV.Size = size;
-      this.chkCreateCSV.TabIndex = 30;
-      this.chkCreateCSV.Text = "Create CSV list";
-      this.frameOptions.BackColor = Color.Transparent;
-      this.frameOptions.Controls.Add(this.chkColor);
-      this.frameOptions.Controls.Add(this.chkGridlines);
-      this.frameOptions.Controls.Add(this.txtWidth);
-      this.frameOptions.Controls.Add(this.cmbWidth);
-      this.frameOptions.Controls.Add(this.lblListWidth);
-      point = new Point(0x170, 0xaf);
-      this.frameOptions.Location = point;
-      this.frameOptions.Name = "frameOptions";
-      size = new Size(0xe8, 0x70);
-      this.frameOptions.Size = size;
-      this.frameOptions.TabIndex = 0x19;
-      this.frameOptions.TabStop = false;
-      this.frameOptions.Text = "Options (HTML-List only)";
-      this.chkColor.BackColor = Color.Transparent;
-      this.chkColor.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 80);
-      this.chkColor.Location = point;
-      this.chkColor.Name = "chkColor";
-      size = new Size(0xd0, 0x10);
-      this.chkColor.Size = size;
-      this.chkColor.TabIndex = 13;
-      this.chkColor.Text = "&Color odd and even rows";
-      this.chkGridlines.BackColor = Color.Transparent;
-      this.chkGridlines.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x38);
-      this.chkGridlines.Location = point;
-      this.chkGridlines.Name = "chkGridlines";
-      size = new Size(0xd0, 0x10);
-      this.chkGridlines.Size = size;
-      this.chkGridlines.TabIndex = 12;
-      this.chkGridlines.Text = "Show &gridlines";
-      point = new Point(0x58, 0x18);
-      this.txtWidth.Location = point;
-      decimal num = new decimal(new int[] { 0x1000, 0, 0, 0 });
-      this.txtWidth.Maximum = num;
-      this.txtWidth.Name = "txtWidth";
-      size = new Size(0x48, 20);
-      this.txtWidth.Size = size;
-      this.txtWidth.TabIndex = 10;
-      this.cmbWidth.DropDownStyle = ComboBoxStyle.DropDownList;
-      this.cmbWidth.ItemHeight = 13;
-      this.cmbWidth.Items.AddRange(new object[] { "px", "%" });
-      point = new Point(0xa8, 0x18);
-      this.cmbWidth.Location = point;
-      this.cmbWidth.Name = "cmbWidth";
-      size = new Size(0x38, 0x15);
-      this.cmbWidth.Size = size;
-      this.cmbWidth.TabIndex = 11;
-      this.lblListWidth.BackColor = Color.Transparent;
-      this.lblListWidth.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x1a);
-      this.lblListWidth.Location = point;
-      this.lblListWidth.Name = "lblListWidth";
-      size = new Size(80, 0x10);
-      this.lblListWidth.Size = size;
-      this.lblListWidth.TabIndex = 9;
-      this.lblListWidth.Text = "List &width";
-      this.lblTitleHTML.BackColor = Color.Transparent;
-      this.lblTitleHTML.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x127);
-      this.lblTitleHTML.Location = point;
-      this.lblTitleHTML.Name = "lblTitleHTML";
-      size = new Size(0x240, 0x10);
-      this.lblTitleHTML.Size = size;
-      this.lblTitleHTML.TabIndex = 0x1a;
-      this.lblTitleHTML.Text = "&Title of the list (HTML-List only)";
-      this.frameTAGInfo.BackColor = Color.Transparent;
-      this.frameTAGInfo.Controls.Add(this.optID3V1);
-      this.frameTAGInfo.Controls.Add(this.optID3V2);
-      point = new Point(0x170, 0x57);
-      this.frameTAGInfo.Location = point;
-      this.frameTAGInfo.Name = "frameTAGInfo";
-      size = new Size(0xe8, 80);
-      this.frameTAGInfo.Size = size;
-      this.frameTAGInfo.TabIndex = 0x18;
-      this.frameTAGInfo.TabStop = false;
-      this.frameTAGInfo.Text = "Choose TAG Ver. for creating list";
-      this.optID3V1.BackColor = Color.Transparent;
-      this.optID3V1.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x18);
-      this.optID3V1.Location = point;
-      this.optID3V1.Name = "optID3V1";
-      size = new Size(0xd0, 0x10);
-      this.optID3V1.Size = size;
-      this.optID3V1.TabIndex = 7;
-      this.optID3V1.Text = "Use TAG Ver. &1 for creating the list";
-      this.optID3V2.BackColor = Color.Transparent;
-      this.optID3V2.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x30);
-      this.optID3V2.Location = point;
-      this.optID3V2.Name = "optID3V2";
-      size = new Size(0xd0, 0x10);
-      this.optID3V2.Size = size;
-      this.optID3V2.TabIndex = 8;
-      this.optID3V2.Text = "Use TAG Ver. &2 for creating the list";
-      point = new Point(8, 0x137);
-      this.txtTitleHTML.Location = point;
-      this.txtTitleHTML.Name = "txtTitleHTML";
-      size = new Size(0x250, 20);
-      this.txtTitleHTML.Size = size;
-      this.txtTitleHTML.TabIndex = 0x1b;
-      this.txtTitleHTML.Text = "";
-      this.frameColumns.BackColor = Color.Transparent;
-      this.frameColumns.Controls.Add(this.ColumnsList);
-      this.frameColumns.Controls.Add(this.btnUp);
-      this.frameColumns.Controls.Add(this.btnDown);
-      point = new Point(8, 0x57);
-      this.frameColumns.Location = point;
-      this.frameColumns.Name = "frameColumns";
-      size = new Size(0x160, 200);
-      this.frameColumns.Size = size;
-      this.frameColumns.TabIndex = 0x17;
-      this.frameColumns.TabStop = false;
-      this.frameColumns.Text = "Select columns of the list";
-      this.ColumnsList.CheckBoxes = true;
-      this.ColumnsList.FullRowSelect = true;
-      this.ColumnsList.HeaderStyle = ColumnHeaderStyle.None;
-      point = new Point(8, 0x18);
-      this.ColumnsList.Location = point;
-      this.ColumnsList.MultiSelect = false;
-      this.ColumnsList.Name = "ColumnsList";
-      size = new Size(0xd8, 0xa8);
-      this.ColumnsList.Size = size;
-      this.ColumnsList.TabIndex = 4;
-      this.ColumnsList.View = View.Details;
-      this.btnUp.ImeMode = ImeMode.NoControl;
-      point = new Point(0xe8, 80);
-      this.btnUp.Location = point;
-      this.btnUp.Name = "btnUp";
-      size = new Size(0x70, 0x18);
-      this.btnUp.Size = size;
-      this.btnUp.TabIndex = 5;
-      this.btnUp.Text = "Column &up";
-      this.btnDown.ImeMode = ImeMode.NoControl;
-      point = new Point(0xe8, 0x70);
-      this.btnDown.Location = point;
-      this.btnDown.Name = "btnDown";
-      size = new Size(0x70, 0x18);
-      this.btnDown.Size = size;
-      this.btnDown.TabIndex = 6;
-      this.btnDown.Text = "Column &down";
-      this.btnCreateQuickLists.BackColor = Color.Transparent;
-      this.btnCreateQuickLists.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x157);
-      this.btnCreateQuickLists.Location = point;
-      this.btnCreateQuickLists.Name = "btnCreateQuickLists";
-      size = new Size(0x250, 0x18);
-      this.btnCreateQuickLists.Size = size;
-      this.btnCreateQuickLists.TabIndex = 0x1c;
-      this.btnCreateQuickLists.Text = "Create &lists";
-      this.tabFilelist.AttachedControl = this.TabControlPanel3;
-      this.tabFilelist.Name = "tabFilelist";
-      this.tabFilelist.Text = "Quick HTML/CSV Filelist";
-      size = new Size(5, 13);
-      this.AutoScaleBaseSize = size;
-      size = new Size(610, 0x1f8);
-      this.ClientSize = size;
-      this.ControlBox = false;
-      this.Controls.Add(this.TabControl1);
-      this.Controls.Add(this.TopPanel);
-      this.Controls.Add(this.ButtomPanel);
-      this.Controls.Add(this.barLeftDockSite);
-      this.Controls.Add(this.barRightDockSite);
-      this.Controls.Add(this.barTopDockSite);
-      this.Controls.Add(this.barBottomDockSite);
-      this.FormBorderStyle = FormBorderStyle.FixedDialog;
-      this.MaximizeBox = false;
-      this.MinimizeBox = false;
-      this.Name = "frmLists";
-      this.ShowInTaskbar = false;
-      this.StartPosition = FormStartPosition.CenterParent;
-      this.Text = "Create lists of selected files";
-      this.ButtomPanel.ResumeLayout(false);
-      this.TopPanel.ResumeLayout(false);
-      ((ISupportInitialize)this.TabControl1).EndInit();
-      this.TabControl1.ResumeLayout(false);
-      this.TabControlPanel1.ResumeLayout(false);
-      this.framePara.ResumeLayout(false);
-      this.TabControlPanel2.ResumeLayout(false);
-      this.TabControlPanel3.ResumeLayout(false);
-      this.frameOptions.ResumeLayout(false);
-      this.txtWidth.EndInit();
-      this.frameTAGInfo.ResumeLayout(false);
-      this.frameColumns.ResumeLayout(false);
-      this.ResumeLayout(false);
     }
 
     private bool IsEven(int vintNum)
@@ -1867,6 +1886,7 @@
     {
       string selectedText = this.txtExtInfo.SelectedText;
       int selectionStart = this.txtExtInfo.SelectionStart;
+
       if (this.txtExtInfo.SelectionLength == 0)
       {
         this.txtExtInfo.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(this.txtExtInfo.Text.Substring(0, this.txtExtInfo.SelectionStart), LateBinding.LateGet(LateBinding.LateGet(sender, null, "Text", new object[0], null, null), null, "Substring", new object[] { 0, 3 }, null, null)), this.txtExtInfo.Text.Substring(this.txtExtInfo.SelectionStart)));
@@ -1895,1102 +1915,6 @@
           e.Handled = true;
           this.txtExtInfo.SelectionStart = this.txtExtInfo.Text.Length;
           break;
-      }
-    }
-
-    internal virtual DockSite barBottomDockSite
-    {
-      get
-      {
-        return this._barBottomDockSite;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._barBottomDockSite != null)
-        {
-        }
-        this._barBottomDockSite = value;
-        if (this._barBottomDockSite != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DockSite barLeftDockSite
-    {
-      get
-      {
-        return this._barLeftDockSite;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._barLeftDockSite != null)
-        {
-        }
-        this._barLeftDockSite = value;
-        if (this._barLeftDockSite != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DockSite barRightDockSite
-    {
-      get
-      {
-        return this._barRightDockSite;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._barRightDockSite != null)
-        {
-        }
-        this._barRightDockSite = value;
-        if (this._barRightDockSite != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DockSite barTopDockSite
-    {
-      get
-      {
-        return this._barTopDockSite;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._barTopDockSite != null)
-        {
-        }
-        this._barTopDockSite = value;
-        if (this._barTopDockSite != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Button btnClose
-    {
-      get
-      {
-        return this._btnClose;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnClose != null)
-        {
-          this._btnClose.Click -= new EventHandler(this.btnClose_Click);
-        }
-        this._btnClose = value;
-        if (this._btnClose != null)
-        {
-          this._btnClose.Click += new EventHandler(this.btnClose_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnCreateFromTemp
-    {
-      get
-      {
-        return this._btnCreateFromTemp;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnCreateFromTemp != null)
-        {
-          this._btnCreateFromTemp.Click -= new EventHandler(this.btnCreateFromTemp_Click);
-        }
-        this._btnCreateFromTemp = value;
-        if (this._btnCreateFromTemp != null)
-        {
-          this._btnCreateFromTemp.Click += new EventHandler(this.btnCreateFromTemp_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnCreatePlaylist
-    {
-      get
-      {
-        return this._btnCreatePlaylist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnCreatePlaylist != null)
-        {
-          this._btnCreatePlaylist.Click -= new EventHandler(this.btnCreatePlaylist_Click);
-        }
-        this._btnCreatePlaylist = value;
-        if (this._btnCreatePlaylist != null)
-        {
-          this._btnCreatePlaylist.Click += new EventHandler(this.btnCreatePlaylist_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnCreateQuickLists
-    {
-      get
-      {
-        return this._btnCreateQuickLists;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnCreateQuickLists != null)
-        {
-          this._btnCreateQuickLists.Click -= new EventHandler(this.btnCreateQuickLists_Click);
-        }
-        this._btnCreateQuickLists = value;
-        if (this._btnCreateQuickLists != null)
-        {
-          this._btnCreateQuickLists.Click += new EventHandler(this.btnCreateQuickLists_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnDown
-    {
-      get
-      {
-        return this._btnDown;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnDown != null)
-        {
-          this._btnDown.Click -= new EventHandler(this.btnDown_Click);
-        }
-        this._btnDown = value;
-        if (this._btnDown != null)
-        {
-          this._btnDown.Click += new EventHandler(this.btnDown_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnPath
-    {
-      get
-      {
-        return this._btnPath;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnPath != null)
-        {
-          this._btnPath.Click -= new EventHandler(this.btnPath_Click);
-        }
-        this._btnPath = value;
-        if (this._btnPath != null)
-        {
-          this._btnPath.Click += new EventHandler(this.btnPath_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnUp
-    {
-      get
-      {
-        return this._btnUp;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnUp != null)
-        {
-          this._btnUp.Click -= new EventHandler(this.btnUp_Click);
-        }
-        this._btnUp = value;
-        if (this._btnUp != null)
-        {
-          this._btnUp.Click += new EventHandler(this.btnUp_Click);
-        }
-      }
-    }
-
-    internal virtual PanelEx ButtomPanel
-    {
-      get
-      {
-        return this._ButtomPanel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ButtomPanel != null)
-        {
-        }
-        this._ButtomPanel = value;
-        if (this._ButtomPanel != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkColor
-    {
-      get
-      {
-        return this._chkColor;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkColor != null)
-        {
-        }
-        this._chkColor = value;
-        if (this._chkColor != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkCreateCSV
-    {
-      get
-      {
-        return this._chkCreateCSV;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkCreateCSV != null)
-        {
-        }
-        this._chkCreateCSV = value;
-        if (this._chkCreateCSV != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkCreateHTML
-    {
-      get
-      {
-        return this._chkCreateHTML;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkCreateHTML != null)
-        {
-        }
-        this._chkCreateHTML = value;
-        if (this._chkCreateHTML != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkGridlines
-    {
-      get
-      {
-        return this._chkGridlines;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkGridlines != null)
-        {
-        }
-        this._chkGridlines = value;
-        if (this._chkGridlines != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkRelativ
-    {
-      get
-      {
-        return this._chkRelativ;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkRelativ != null)
-        {
-        }
-        this._chkRelativ = value;
-        if (this._chkRelativ != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ComboBox cmbWidth
-    {
-      get
-      {
-        return this._cmbWidth;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbWidth != null)
-        {
-          this._cmbWidth.SelectedIndexChanged -= new EventHandler(this.cmbWidth_SelectedIndexChanged);
-        }
-        this._cmbWidth = value;
-        if (this._cmbWidth != null)
-        {
-          this._cmbWidth.SelectedIndexChanged += new EventHandler(this.cmbWidth_SelectedIndexChanged);
-        }
-      }
-    }
-
-    internal virtual ListView ColumnsList
-    {
-      get
-      {
-        return this._ColumnsList;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnsList != null)
-        {
-        }
-        this._ColumnsList = value;
-        if (this._ColumnsList != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DotNetBarManager DotNetBarManager1
-    {
-      get
-      {
-        return this._DotNetBarManager1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._DotNetBarManager1 != null)
-        {
-        }
-        this._DotNetBarManager1 = value;
-        if (this._DotNetBarManager1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox frameColumns
-    {
-      get
-      {
-        return this._frameColumns;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._frameColumns != null)
-        {
-        }
-        this._frameColumns = value;
-        if (this._frameColumns != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox frameOptions
-    {
-      get
-      {
-        return this._frameOptions;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._frameOptions != null)
-        {
-        }
-        this._frameOptions = value;
-        if (this._frameOptions != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox framePara
-    {
-      get
-      {
-        return this._framePara;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._framePara != null)
-        {
-        }
-        this._framePara = value;
-        if (this._framePara != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox frameTAGInfo
-    {
-      get
-      {
-        return this._frameTAGInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._frameTAGInfo != null)
-        {
-        }
-        this._frameTAGInfo = value;
-        if (this._frameTAGInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label L1
-    {
-      get
-      {
-        return this._L1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L1 != null)
-        {
-          this._L1.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L1 = value;
-        if (this._L1 != null)
-        {
-          this._L1.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L2
-    {
-      get
-      {
-        return this._L2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L2 != null)
-        {
-          this._L2.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L2 = value;
-        if (this._L2 != null)
-        {
-          this._L2.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L3
-    {
-      get
-      {
-        return this._L3;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L3 != null)
-        {
-          this._L3.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L3 = value;
-        if (this._L3 != null)
-        {
-          this._L3.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L4
-    {
-      get
-      {
-        return this._L4;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L4 != null)
-        {
-          this._L4.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L4 = value;
-        if (this._L4 != null)
-        {
-          this._L4.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L5
-    {
-      get
-      {
-        return this._L5;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L5 != null)
-        {
-          this._L5.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L5 = value;
-        if (this._L5 != null)
-        {
-          this._L5.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L6
-    {
-      get
-      {
-        return this._L6;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L6 != null)
-        {
-          this._L6.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L6 = value;
-        if (this._L6 != null)
-        {
-          this._L6.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label L7
-    {
-      get
-      {
-        return this._L7;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L7 != null)
-        {
-          this._L7.Click -= new EventHandler(this.Label_Click);
-        }
-        this._L7 = value;
-        if (this._L7 != null)
-        {
-          this._L7.Click += new EventHandler(this.Label_Click);
-        }
-      }
-    }
-
-    internal virtual Label lblInfo1
-    {
-      get
-      {
-        return this._lblInfo1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblInfo1 != null)
-        {
-        }
-        this._lblInfo1 = value;
-        if (this._lblInfo1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblInfo2
-    {
-      get
-      {
-        return this._lblInfo2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblInfo2 != null)
-        {
-        }
-        this._lblInfo2 = value;
-        if (this._lblInfo2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblInfo3
-    {
-      get
-      {
-        return this._lblInfo3;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblInfo3 != null)
-        {
-        }
-        this._lblInfo3 = value;
-        if (this._lblInfo3 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblListWidth
-    {
-      get
-      {
-        return this._lblListWidth;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblListWidth != null)
-        {
-        }
-        this._lblListWidth = value;
-        if (this._lblListWidth != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblPath
-    {
-      get
-      {
-        return this._lblPath;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblPath != null)
-        {
-        }
-        this._lblPath = value;
-        if (this._lblPath != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblPlaylist
-    {
-      get
-      {
-        return this._lblPlaylist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblPlaylist != null)
-        {
-        }
-        this._lblPlaylist = value;
-        if (this._lblPlaylist != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblTitleHTML
-    {
-      get
-      {
-        return this._lblTitleHTML;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblTitleHTML != null)
-        {
-        }
-        this._lblTitleHTML = value;
-        if (this._lblTitleHTML != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optID3V1
-    {
-      get
-      {
-        return this._optID3V1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optID3V1 != null)
-        {
-        }
-        this._optID3V1 = value;
-        if (this._optID3V1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optID3V2
-    {
-      get
-      {
-        return this._optID3V2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optID3V2 != null)
-        {
-        }
-        this._optID3V2 = value;
-        if (this._optID3V2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.ProgressBar ProgressBar
-    {
-      get
-      {
-        return this._ProgressBar;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ProgressBar != null)
-        {
-        }
-        this._ProgressBar = value;
-        if (this._ProgressBar != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.SaveFileDialog SaveFileDialog
-    {
-      get
-      {
-        return this._SaveFileDialog;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._SaveFileDialog != null)
-        {
-        }
-        this._SaveFileDialog = value;
-        if (this._SaveFileDialog != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DevComponents.DotNetBar.TabControl TabControl1
-    {
-      get
-      {
-        return this._TabControl1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabControl1 != null)
-        {
-        }
-        this._TabControl1 = value;
-        if (this._TabControl1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabControlPanel TabControlPanel1
-    {
-      get
-      {
-        return this._TabControlPanel1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabControlPanel1 != null)
-        {
-        }
-        this._TabControlPanel1 = value;
-        if (this._TabControlPanel1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabControlPanel TabControlPanel2
-    {
-      get
-      {
-        return this._TabControlPanel2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabControlPanel2 != null)
-        {
-        }
-        this._TabControlPanel2 = value;
-        if (this._TabControlPanel2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabControlPanel TabControlPanel3
-    {
-      get
-      {
-        return this._TabControlPanel3;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabControlPanel3 != null)
-        {
-        }
-        this._TabControlPanel3 = value;
-        if (this._TabControlPanel3 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabItem tabFilelist
-    {
-      get
-      {
-        return this._tabFilelist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._tabFilelist != null)
-        {
-        }
-        this._tabFilelist = value;
-        if (this._tabFilelist != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabItem tabPlaylist
-    {
-      get
-      {
-        return this._tabPlaylist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._tabPlaylist != null)
-        {
-        }
-        this._tabPlaylist = value;
-        if (this._tabPlaylist != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabItem tabTemp
-    {
-      get
-      {
-        return this._tabTemp;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._tabTemp != null)
-        {
-        }
-        this._tabTemp = value;
-        if (this._tabTemp != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ListBox TemplatesList
-    {
-      get
-      {
-        return this._TemplatesList;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TemplatesList != null)
-        {
-        }
-        this._TemplatesList = value;
-        if (this._TemplatesList != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.ToolTip ToolTip
-    {
-      get
-      {
-        return this._ToolTip;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ToolTip != null)
-        {
-        }
-        this._ToolTip = value;
-        if (this._ToolTip != null)
-        {
-        }
-      }
-    }
-
-    internal virtual PanelEx TopPanel
-    {
-      get
-      {
-        return this._TopPanel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TopPanel != null)
-        {
-        }
-        this._TopPanel = value;
-        if (this._TopPanel != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TextBox txtExtInfo
-    {
-      get
-      {
-        return this._txtExtInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtExtInfo != null)
-        {
-          this._txtExtInfo.KeyPress -= new KeyPressEventHandler(this.txtExtInfo_KeyPress);
-        }
-        this._txtExtInfo = value;
-        if (this._txtExtInfo != null)
-        {
-          this._txtExtInfo.KeyPress += new KeyPressEventHandler(this.txtExtInfo_KeyPress);
-        }
-      }
-    }
-
-    internal virtual TextBox txtPath
-    {
-      get
-      {
-        return this._txtPath;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtPath != null)
-        {
-        }
-        this._txtPath = value;
-        if (this._txtPath != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TextBox txtTitleHTML
-    {
-      get
-      {
-        return this._txtTitleHTML;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtTitleHTML != null)
-        {
-        }
-        this._txtTitleHTML = value;
-        if (this._txtTitleHTML != null)
-        {
-        }
-      }
-    }
-
-    internal virtual NumericUpDown txtWidth
-    {
-      get
-      {
-        return this._txtWidth;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtWidth != null)
-        {
-        }
-        this._txtWidth = value;
-        if (this._txtWidth != null)
-        {
-        }
       }
     }
   }

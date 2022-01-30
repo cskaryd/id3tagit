@@ -7,7 +7,7 @@ namespace ID3_TagIT
   public class frmAbout : Form
   {
     private Button btnOK;
-    private Label lblCopyRight;
+    private Label lblCopyright;
     private Label lblHome;
     private LinkLabel lblLink;
     private Label lblVersion;
@@ -34,8 +34,9 @@ namespace ID3_TagIT
     [DebuggerStepThrough]
     private void InitializeComponent()
     {
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAbout));
       this.lblVersion = new System.Windows.Forms.Label();
-      this.lblCopyRight = new System.Windows.Forms.Label();
+      this.lblCopyright = new System.Windows.Forms.Label();
       this.lblHome = new System.Windows.Forms.Label();
       this.btnOK = new System.Windows.Forms.Button();
       this.lblLink = new System.Windows.Forms.LinkLabel();
@@ -47,28 +48,28 @@ namespace ID3_TagIT
       // 
       this.lblVersion.BackColor = System.Drawing.Color.Transparent;
       this.lblVersion.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblVersion.Location = new System.Drawing.Point(40, 104);
+      this.lblVersion.Location = new System.Drawing.Point(40, 120);
       this.lblVersion.Name = "lblVersion";
       this.lblVersion.Size = new System.Drawing.Size(304, 16);
       this.lblVersion.TabIndex = 1;
       this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
-      // lblCopyRight
+      // lblCopyright
       // 
-      this.lblCopyRight.BackColor = System.Drawing.Color.Transparent;
-      this.lblCopyRight.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblCopyRight.Location = new System.Drawing.Point(40, 160);
-      this.lblCopyRight.Name = "lblCopyRight";
-      this.lblCopyRight.Size = new System.Drawing.Size(304, 16);
-      this.lblCopyRight.TabIndex = 2;
-      this.lblCopyRight.Text = "Copyright 2000-2004 by Michael Pluemper";
-      this.lblCopyRight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.lblCopyright.BackColor = System.Drawing.Color.Transparent;
+      this.lblCopyright.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCopyright.Location = new System.Drawing.Point(40, 165);
+      this.lblCopyright.Name = "lblCopyright";
+      this.lblCopyright.Size = new System.Drawing.Size(304, 16);
+      this.lblCopyright.TabIndex = 2;
+      this.lblCopyright.Text = "Copyright 2000-2004 by Michael Pluemper";
+      this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // lblHome
       // 
       this.lblHome.BackColor = System.Drawing.Color.Transparent;
       this.lblHome.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblHome.Location = new System.Drawing.Point(96, 136);
+      this.lblHome.Location = new System.Drawing.Point(96, 141);
       this.lblHome.Name = "lblHome";
       this.lblHome.Size = new System.Drawing.Size(68, 16);
       this.lblHome.TabIndex = 3;
@@ -92,7 +93,7 @@ namespace ID3_TagIT
       this.lblLink.BackColor = System.Drawing.Color.Transparent;
       this.lblLink.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.lblLink.LinkArea = new System.Windows.Forms.LinkArea(0, 23);
-      this.lblLink.Location = new System.Drawing.Point(168, 136);
+      this.lblLink.Location = new System.Drawing.Point(170, 143);
       this.lblLink.Name = "lblLink";
       this.lblLink.Size = new System.Drawing.Size(120, 16);
       this.lblLink.TabIndex = 17;
@@ -103,6 +104,7 @@ namespace ID3_TagIT
       // PictureBox
       // 
       this.PictureBox.BackColor = System.Drawing.Color.White;
+      this.PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox.Image")));
       this.PictureBox.Location = new System.Drawing.Point(0, 0);
       this.PictureBox.Name = "PictureBox";
       this.PictureBox.Size = new System.Drawing.Size(376, 112);
@@ -121,7 +123,7 @@ namespace ID3_TagIT
       this.Controls.Add(this.lblLink);
       this.Controls.Add(this.btnOK);
       this.Controls.Add(this.lblHome);
-      this.Controls.Add(this.lblCopyRight);
+      this.Controls.Add(this.lblCopyright);
       this.Controls.Add(this.lblVersion);
       this.Controls.Add(this.PictureBox);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

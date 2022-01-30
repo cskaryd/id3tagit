@@ -48,7 +48,6 @@
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="SkySoftware.FolderView">
       <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\SkySoftware.FolderView.dll</HintPath>
     </Reference>
@@ -73,6 +72,15 @@
     <EmbeddedResource Include="ID3_TagIT\frmLibraries.resx">
       <DependentUpon>frmLibraries.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmLists.resx">
+      <DependentUpon>frmLists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmOrganize.resx">
+      <DependentUpon>frmOrganize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmPreferences.resx">
+      <DependentUpon>frmPreferences.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ID3_TagIT\frmRemoveFolders.resx">
       <DependentUpon>frmRemoveFolders.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +93,15 @@
     <EmbeddedResource Include="ID3_TagIT\frmTAG1.resx">
       <DependentUpon>frmTAG1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmTAG1ToFilename.resx">
+      <DependentUpon>frmTAG1ToFilename.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmTAG2.resx">
+      <DependentUpon>frmTAG2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3_TagIT\frmTAG2Multi.resx">
+      <DependentUpon>frmTAG2Multi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ID3_TagIT\frmTAG2ToFilename.resx">
       <DependentUpon>frmTAG2ToFilename.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +112,7 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />

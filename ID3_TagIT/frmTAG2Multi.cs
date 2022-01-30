@@ -306,40 +306,50 @@ namespace ID3_TagIT
     private bool vbooLyricsMoved;
     private bool vbooRatingMoved;
 
+    //ResourceManager manager = new ResourceManager(typeof(frmTAG2Multi));
+    //this.TAGV2ButtonItem1.Icon = (Icon)manager.GetObject("TAGV2ButtonItem1.Icon");
+    //this.TAGV2ButtonItem2.Icon = (Icon)manager.GetObject("TAGV2ButtonItem2.Icon");
+    //this.TAGV2ButtonItem3.Icon = (Icon)manager.GetObject("TAGV2ButtonItem3.Icon");
+    //this.TAGV2ButtonItem4.Icon = (Icon)manager.GetObject("TAGV2ButtonItem4.Icon");
+    //this.TAGV2ButtonItem5.Icon = (Icon)manager.GetObject("TAGV2ButtonItem5.Icon");
+    //this.TAGV2ButtonItem6.Icon = (Icon)manager.GetObject("TAGV2ButtonItem6.Icon");
+    //this.TAGV2ButtonItem7.Icon = (Icon)manager.GetObject("TAGV2ButtonItem7.Icon");
+    //this.TAGV2ButtonItem9.Icon = (Icon)manager.GetObject("TAGV2ButtonItem9.Icon");
+    //this.TAGV2ButtonItem8.Icon = (Icon)manager.GetObject("TAGV2ButtonItem8.Icon");
+
     [DebuggerStepThrough]
     private void InitializeComponent()
     {
-      this.components = new Container();
-      ResourceManager manager = new ResourceManager(typeof(frmTAG2Multi));
-      this.panDetail = new Panel();
-      this.Panel9 = new Panel();
-      this.cmbMedia = new ComboBox();
+      this.components = new System.ComponentModel.Container();
+      this.panDetail = new System.Windows.Forms.Panel();
+      this.Panel9 = new System.Windows.Forms.Panel();
+      this.cmbMedia = new System.Windows.Forms.ComboBox();
       this.lblMediaTyp = new System.Windows.Forms.Label();
-      this.chkTLEN = new CheckBox();
+      this.chkTLEN = new System.Windows.Forms.CheckBox();
       this.lblTLEN = new System.Windows.Forms.Label();
-      this.CheckBox5 = new CheckBox();
-      this.Panel5 = new Panel();
-      this.CheckBox16 = new CheckBox();
-      this.CheckBox15 = new CheckBox();
+      this.CheckBox5 = new System.Windows.Forms.CheckBox();
+      this.Panel5 = new System.Windows.Forms.Panel();
+      this.CheckBox16 = new System.Windows.Forms.CheckBox();
+      this.CheckBox15 = new System.Windows.Forms.CheckBox();
       this.txtContent = new System.Windows.Forms.TextBox();
       this.txtSubTitle = new System.Windows.Forms.TextBox();
       this.lblSubTitle = new System.Windows.Forms.Label();
       this.lblContent = new System.Windows.Forms.Label();
-      this.Panel14 = new Panel();
-      this.CheckBox41 = new CheckBox();
-      this.CheckBox42 = new CheckBox();
-      this.CheckBox43 = new CheckBox();
+      this.Panel14 = new System.Windows.Forms.Panel();
+      this.CheckBox41 = new System.Windows.Forms.CheckBox();
+      this.CheckBox42 = new System.Windows.Forms.CheckBox();
+      this.CheckBox43 = new System.Windows.Forms.CheckBox();
       this.txtSortArtist = new System.Windows.Forms.TextBox();
       this.txtSortTitle = new System.Windows.Forms.TextBox();
       this.txtSortAlbum = new System.Windows.Forms.TextBox();
       this.lblAlbumSort = new System.Windows.Forms.Label();
       this.lblTitleSort = new System.Windows.Forms.Label();
       this.lblArtistSort = new System.Windows.Forms.Label();
-      this.Panel4 = new Panel();
-      this.CheckBox14 = new CheckBox();
-      this.CheckBox13 = new CheckBox();
-      this.CheckBox12 = new CheckBox();
-      this.CheckBox11 = new CheckBox();
+      this.Panel4 = new System.Windows.Forms.Panel();
+      this.CheckBox14 = new System.Windows.Forms.CheckBox();
+      this.CheckBox13 = new System.Windows.Forms.CheckBox();
+      this.CheckBox12 = new System.Windows.Forms.CheckBox();
+      this.CheckBox11 = new System.Windows.Forms.CheckBox();
       this.txtComposer = new System.Windows.Forms.TextBox();
       this.lblComposer = new System.Windows.Forms.Label();
       this.txtBand = new System.Windows.Forms.TextBox();
@@ -348,30 +358,30 @@ namespace ID3_TagIT
       this.lblConductor = new System.Windows.Forms.Label();
       this.lblModified = new System.Windows.Forms.Label();
       this.lblBand = new System.Windows.Forms.Label();
-      this.CheckBox40 = new CheckBox();
+      this.CheckBox40 = new System.Windows.Forms.CheckBox();
       this.txtCopyright = new System.Windows.Forms.TextBox();
       this.lblCopyright = new System.Windows.Forms.Label();
-      this.CheckBox19 = new CheckBox();
-      this.CheckBox18 = new CheckBox();
-      this.CheckBox17 = new CheckBox();
+      this.CheckBox19 = new System.Windows.Forms.CheckBox();
+      this.CheckBox18 = new System.Windows.Forms.CheckBox();
+      this.CheckBox17 = new System.Windows.Forms.CheckBox();
       this.txtLyWriter = new System.Windows.Forms.TextBox();
       this.txtEncoded = new System.Windows.Forms.TextBox();
       this.txtPublisher = new System.Windows.Forms.TextBox();
       this.lblPublisher = new System.Windows.Forms.Label();
       this.lblEncoded = new System.Windows.Forms.Label();
       this.lblLyWriter = new System.Windows.Forms.Label();
-      this.panOriginal = new Panel();
-      this.Panel6 = new Panel();
+      this.panOriginal = new System.Windows.Forms.Panel();
+      this.Panel6 = new System.Windows.Forms.Panel();
       this.txtTORY = new AMS.TextBox.MaskedTextBox();
-      this.CheckBox39 = new CheckBox();
+      this.CheckBox39 = new System.Windows.Forms.CheckBox();
       this.lblOYearInfo = new System.Windows.Forms.Label();
-      this.TORYFormat = new HScrollBar();
+      this.TORYFormat = new System.Windows.Forms.HScrollBar();
       this.lblOYear = new System.Windows.Forms.Label();
-      this.CheckBox24 = new CheckBox();
-      this.CheckBox23 = new CheckBox();
-      this.CheckBox22 = new CheckBox();
-      this.CheckBox21 = new CheckBox();
-      this.CheckBox20 = new CheckBox();
+      this.CheckBox24 = new System.Windows.Forms.CheckBox();
+      this.CheckBox23 = new System.Windows.Forms.CheckBox();
+      this.CheckBox22 = new System.Windows.Forms.CheckBox();
+      this.CheckBox21 = new System.Windows.Forms.CheckBox();
+      this.CheckBox20 = new System.Windows.Forms.CheckBox();
       this.txtOOwner = new System.Windows.Forms.TextBox();
       this.lblOOwner = new System.Windows.Forms.Label();
       this.txtOArtist = new System.Windows.Forms.TextBox();
@@ -382,41 +392,41 @@ namespace ID3_TagIT
       this.lblOFilename = new System.Windows.Forms.Label();
       this.lblOLyWriter = new System.Windows.Forms.Label();
       this.lblOAlbum = new System.Windows.Forms.Label();
-      this.panMain = new Panel();
-      this.Panel3 = new Panel();
+      this.panMain = new System.Windows.Forms.Panel();
+      this.Panel3 = new System.Windows.Forms.Panel();
       this.lblCommDescInfo = new System.Windows.Forms.Label();
-      this.cmbCDescriptor = new ComboBoxAutoComplete();
-      this.CheckBox38 = new CheckBox();
-      this.CheckBox10 = new CheckBox();
-      this.btnMoveComment = new Button();
-      this.btnRemoveComment = new Button();
-      this.btnAddComment = new Button();
+      this.cmbCDescriptor = new ID3_TagIT.ComboBoxAutoComplete();
+      this.CheckBox38 = new System.Windows.Forms.CheckBox();
+      this.CheckBox10 = new System.Windows.Forms.CheckBox();
+      this.btnMoveComment = new System.Windows.Forms.Button();
+      this.btnRemoveComment = new System.Windows.Forms.Button();
+      this.btnAddComment = new System.Windows.Forms.Button();
       this.lblCOMM = new System.Windows.Forms.Label();
       this.lblCOMMLan = new System.Windows.Forms.Label();
       this.lblCOMMDesc = new System.Windows.Forms.Label();
-      this.cmbCLanguage = new ComboBox();
+      this.cmbCLanguage = new System.Windows.Forms.ComboBox();
       this.txtComment = new System.Windows.Forms.TextBox();
-      this.CommentList = new ListView();
-      this.colDescriptor = new ColumnHeader();
-      this.colComment = new ColumnHeader();
-      this.colLanguage = new ColumnHeader();
-      this.Panel1 = new Panel();
-      this.txtPOS2 = new IntegerTextBox();
-      this.txtPOS1 = new IntegerTextBox();
-      this.txtTrack2 = new IntegerTextBox();
-      this.txtTrack1 = new IntegerTextBox();
+      this.CommentList = new System.Windows.Forms.ListView();
+      this.colDescriptor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.colComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.colLanguage = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.Panel1 = new System.Windows.Forms.Panel();
+      this.txtPOS2 = new AMS.TextBox.IntegerTextBox();
+      this.txtPOS1 = new AMS.TextBox.IntegerTextBox();
+      this.txtTrack2 = new AMS.TextBox.IntegerTextBox();
+      this.txtTrack1 = new AMS.TextBox.IntegerTextBox();
       this.txtYear = new AMS.TextBox.MaskedTextBox();
-      this.txtBPM = new NumericTextBox();
-      this.cmbArtist = new ComboBoxAutoComplete();
-      this.CheckBox8 = new CheckBox();
-      this.CheckBox7 = new CheckBox();
-      this.CheckBox6 = new CheckBox();
-      this.CheckBox4 = new CheckBox();
-      this.CheckBox3 = new CheckBox();
-      this.CheckBox2 = new CheckBox();
-      this.CheckBox1 = new CheckBox();
+      this.txtBPM = new AMS.TextBox.NumericTextBox();
+      this.cmbArtist = new ID3_TagIT.ComboBoxAutoComplete();
+      this.CheckBox8 = new System.Windows.Forms.CheckBox();
+      this.CheckBox7 = new System.Windows.Forms.CheckBox();
+      this.CheckBox6 = new System.Windows.Forms.CheckBox();
+      this.CheckBox4 = new System.Windows.Forms.CheckBox();
+      this.CheckBox3 = new System.Windows.Forms.CheckBox();
+      this.CheckBox2 = new System.Windows.Forms.CheckBox();
+      this.CheckBox1 = new System.Windows.Forms.CheckBox();
       this.lblBPM = new System.Windows.Forms.Label();
-      this.YearFormat = new HScrollBar();
+      this.YearFormat = new System.Windows.Forms.HScrollBar();
       this.lblOf2 = new System.Windows.Forms.Label();
       this.lblOf1 = new System.Windows.Forms.Label();
       this.txtAlbum = new System.Windows.Forms.TextBox();
@@ -427,25 +437,25 @@ namespace ID3_TagIT
       this.lblYear = new System.Windows.Forms.Label();
       this.lblTrack = new System.Windows.Forms.Label();
       this.lblArtist = new System.Windows.Forms.Label();
-      this.Panel2 = new Panel();
-      this.cmbGenre = new ComboBoxAutoComplete();
+      this.Panel2 = new System.Windows.Forms.Panel();
+      this.cmbGenre = new ID3_TagIT.ComboBoxAutoComplete();
       this.lblGenreInfo = new System.Windows.Forms.Label();
-      this.CheckBox9 = new CheckBox();
-      this.btnMoveGenre = new Button();
-      this.btnRemoveGenre = new Button();
-      this.btnAddGenre = new Button();
+      this.CheckBox9 = new System.Windows.Forms.CheckBox();
+      this.btnMoveGenre = new System.Windows.Forms.Button();
+      this.btnRemoveGenre = new System.Windows.Forms.Button();
+      this.btnAddGenre = new System.Windows.Forms.Button();
       this.lblGenre = new System.Windows.Forms.Label();
-      this.GenreList = new ListBox();
-      this.panWeb = new Panel();
-      this.Panel10 = new Panel();
-      this.CheckBox32 = new CheckBox();
-      this.CheckBox31 = new CheckBox();
-      this.CheckBox30 = new CheckBox();
-      this.CheckBox29 = new CheckBox();
-      this.CheckBox28 = new CheckBox();
-      this.CheckBox27 = new CheckBox();
-      this.CheckBox26 = new CheckBox();
-      this.CheckBox25 = new CheckBox();
+      this.GenreList = new System.Windows.Forms.ListBox();
+      this.panWeb = new System.Windows.Forms.Panel();
+      this.Panel10 = new System.Windows.Forms.Panel();
+      this.CheckBox32 = new System.Windows.Forms.CheckBox();
+      this.CheckBox31 = new System.Windows.Forms.CheckBox();
+      this.CheckBox30 = new System.Windows.Forms.CheckBox();
+      this.CheckBox29 = new System.Windows.Forms.CheckBox();
+      this.CheckBox28 = new System.Windows.Forms.CheckBox();
+      this.CheckBox27 = new System.Windows.Forms.CheckBox();
+      this.CheckBox26 = new System.Windows.Forms.CheckBox();
+      this.CheckBox25 = new System.Windows.Forms.CheckBox();
       this.txtCOMMInfURL = new System.Windows.Forms.TextBox();
       this.lblCOMMInfURL = new System.Windows.Forms.Label();
       this.txtPubURL = new System.Windows.Forms.TextBox();
@@ -462,136 +472,136 @@ namespace ID3_TagIT
       this.lblAudioFileURL = new System.Windows.Forms.Label();
       this.lblArtistURL = new System.Windows.Forms.Label();
       this.lblCopyInfURL = new System.Windows.Forms.Label();
-      this.panRating = new Panel();
-      this.Panel11 = new Panel();
-      this.CheckBox33 = new CheckBox();
+      this.panRating = new System.Windows.Forms.Panel();
+      this.Panel11 = new System.Windows.Forms.Panel();
+      this.CheckBox33 = new System.Windows.Forms.CheckBox();
       this.lblInfo = new System.Windows.Forms.Label();
-      this.btnMoveRating = new Button();
-      this.btnRemoveRating = new Button();
-      this.btnAddRating = new Button();
-      this.RatingList = new ListView();
-      this.ColumnHeader8 = new ColumnHeader();
-      this.ColumnHeader9 = new ColumnHeader();
-      this.ColumnHeader10 = new ColumnHeader();
-      this.txtRatingCounter = new NumericUpDown();
-      this.txtRatingRating = new NumericUpDown();
+      this.btnMoveRating = new System.Windows.Forms.Button();
+      this.btnRemoveRating = new System.Windows.Forms.Button();
+      this.btnAddRating = new System.Windows.Forms.Button();
+      this.RatingList = new System.Windows.Forms.ListView();
+      this.ColumnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.txtRatingCounter = new System.Windows.Forms.NumericUpDown();
+      this.txtRatingRating = new System.Windows.Forms.NumericUpDown();
       this.txtRatingUser = new System.Windows.Forms.TextBox();
       this.lblRatingRating = new System.Windows.Forms.Label();
       this.lblRatingCounter = new System.Windows.Forms.Label();
       this.lblRatingUser = new System.Windows.Forms.Label();
-      this.panInvolved = new Panel();
-      this.Panel15 = new Panel();
-      this.CheckBox45 = new CheckBox();
+      this.panInvolved = new System.Windows.Forms.Panel();
+      this.Panel15 = new System.Windows.Forms.Panel();
+      this.CheckBox45 = new System.Windows.Forms.CheckBox();
       this.lblMusicianInfo = new System.Windows.Forms.Label();
       this.txtMusicianName = new System.Windows.Forms.TextBox();
-      this.btnRemoveMusician = new Button();
-      this.btnAddMusician = new Button();
+      this.btnRemoveMusician = new System.Windows.Forms.Button();
+      this.btnAddMusician = new System.Windows.Forms.Button();
       this.lblMusicianName = new System.Windows.Forms.Label();
       this.lblMusicianInst = new System.Windows.Forms.Label();
       this.txtMusicianInst = new System.Windows.Forms.TextBox();
-      this.TMCLList = new ListView();
-      this.ColumnHeader15 = new ColumnHeader();
-      this.ColumnHeader16 = new ColumnHeader();
-      this.Panel16 = new Panel();
-      this.CheckBox44 = new CheckBox();
+      this.TMCLList = new System.Windows.Forms.ListView();
+      this.ColumnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.Panel16 = new System.Windows.Forms.Panel();
+      this.CheckBox44 = new System.Windows.Forms.CheckBox();
       this.txtInvPerson = new System.Windows.Forms.TextBox();
-      this.btnRemoveInv = new Button();
-      this.btnAddInv = new Button();
+      this.btnRemoveInv = new System.Windows.Forms.Button();
+      this.btnAddInv = new System.Windows.Forms.Button();
       this.lblInvPerson = new System.Windows.Forms.Label();
       this.lblInvFunction = new System.Windows.Forms.Label();
       this.txtInvFunction = new System.Windows.Forms.TextBox();
-      this.TIPLList = new ListView();
-      this.ColumnHeader17 = new ColumnHeader();
-      this.ColumnHeader18 = new ColumnHeader();
-      this.panPic = new Panel();
-      this.Panel7 = new Panel();
-      this.chkPicRelativPath = new CheckBox();
-      this.CheckBox34 = new CheckBox();
-      this.btnRemovePicture = new Button();
-      this.btnAddPicture = new Button();
-      this.btnGetPic = new Button();
-      this.chkPicInclude = new CheckBox();
+      this.TIPLList = new System.Windows.Forms.ListView();
+      this.ColumnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.panPic = new System.Windows.Forms.Panel();
+      this.Panel7 = new System.Windows.Forms.Panel();
+      this.chkPicRelativPath = new System.Windows.Forms.CheckBox();
+      this.CheckBox34 = new System.Windows.Forms.CheckBox();
+      this.btnRemovePicture = new System.Windows.Forms.Button();
+      this.btnAddPicture = new System.Windows.Forms.Button();
+      this.btnGetPic = new System.Windows.Forms.Button();
+      this.chkPicInclude = new System.Windows.Forms.CheckBox();
       this.lblPicPath = new System.Windows.Forms.Label();
       this.txtPicPath = new System.Windows.Forms.TextBox();
-      this.PicList = new ListView();
-      this.ColumnHeader4 = new ColumnHeader();
-      this.ColumnHeader5 = new ColumnHeader();
-      this.ColumnHeader6 = new ColumnHeader();
-      this.ColumnHeader7 = new ColumnHeader();
+      this.PicList = new System.Windows.Forms.ListView();
+      this.ColumnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.lblPicType = new System.Windows.Forms.Label();
       this.lblPicDesc = new System.Windows.Forms.Label();
-      this.cmbPicType = new ComboBox();
+      this.cmbPicType = new System.Windows.Forms.ComboBox();
       this.txtPDescriptor = new System.Windows.Forms.TextBox();
-      this.APICView = new PictureBox();
-      this.panLyrics = new Panel();
-      this.Panel8 = new Panel();
-      this.txtLyrics = new RichTextBox();
-      this.btnLyricsFile = new Button();
-      this.CheckBox35 = new CheckBox();
-      this.btnMoveLyrics = new Button();
-      this.btnRemoveLyrics = new Button();
-      this.btnAddLyrics = new Button();
+      this.APICView = new System.Windows.Forms.PictureBox();
+      this.panLyrics = new System.Windows.Forms.Panel();
+      this.Panel8 = new System.Windows.Forms.Panel();
+      this.txtLyrics = new System.Windows.Forms.RichTextBox();
+      this.btnLyricsFile = new System.Windows.Forms.Button();
+      this.CheckBox35 = new System.Windows.Forms.CheckBox();
+      this.btnMoveLyrics = new System.Windows.Forms.Button();
+      this.btnRemoveLyrics = new System.Windows.Forms.Button();
+      this.btnAddLyrics = new System.Windows.Forms.Button();
       this.lblLyrics = new System.Windows.Forms.Label();
       this.lblLyLan = new System.Windows.Forms.Label();
       this.lblLyDesc = new System.Windows.Forms.Label();
-      this.cmbLLanguage = new ComboBox();
+      this.cmbLLanguage = new System.Windows.Forms.ComboBox();
       this.txtLDescriptor = new System.Windows.Forms.TextBox();
-      this.LyricsList = new ListView();
-      this.ColumnHeader1 = new ColumnHeader();
-      this.ColumnHeader2 = new ColumnHeader();
-      this.ColumnHeader3 = new ColumnHeader();
-      this.panUser = new Panel();
-      this.Panel12 = new Panel();
-      this.CheckBox36 = new CheckBox();
+      this.LyricsList = new System.Windows.Forms.ListView();
+      this.ColumnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.panUser = new System.Windows.Forms.Panel();
+      this.Panel12 = new System.Windows.Forms.Panel();
+      this.CheckBox36 = new System.Windows.Forms.CheckBox();
       this.txtTXXXContent = new System.Windows.Forms.TextBox();
-      this.btnRemoveTXXX = new Button();
-      this.btnAddTXXX = new Button();
+      this.btnRemoveTXXX = new System.Windows.Forms.Button();
+      this.btnAddTXXX = new System.Windows.Forms.Button();
       this.lblTXXXContent = new System.Windows.Forms.Label();
       this.lblTXXXDesc = new System.Windows.Forms.Label();
       this.txtTXXXDesc = new System.Windows.Forms.TextBox();
-      this.TXXXList = new ListView();
-      this.ColumnHeader11 = new ColumnHeader();
-      this.ColumnHeader12 = new ColumnHeader();
-      this.Panel13 = new Panel();
-      this.CheckBox37 = new CheckBox();
+      this.TXXXList = new System.Windows.Forms.ListView();
+      this.ColumnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.Panel13 = new System.Windows.Forms.Panel();
+      this.CheckBox37 = new System.Windows.Forms.CheckBox();
       this.txtWXXXContent = new System.Windows.Forms.TextBox();
-      this.btnRemoveWXXX = new Button();
-      this.btnAddWXXX = new Button();
+      this.btnRemoveWXXX = new System.Windows.Forms.Button();
+      this.btnAddWXXX = new System.Windows.Forms.Button();
       this.lblWXXXContent = new System.Windows.Forms.Label();
       this.lblWXXXDesc = new System.Windows.Forms.Label();
       this.txtWXXXDesc = new System.Windows.Forms.TextBox();
-      this.WXXXList = new ListView();
-      this.ColumnHeader13 = new ColumnHeader();
-      this.ColumnHeader14 = new ColumnHeader();
+      this.WXXXList = new System.Windows.Forms.ListView();
+      this.ColumnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.lblDigits = new System.Windows.Forms.Label();
-      this.txtDigits = new NumericUpDown();
+      this.txtDigits = new System.Windows.Forms.NumericUpDown();
       this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
       this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.chkRemoveAllNOT = new CheckBox();
+      this.chkRemoveAllNOT = new System.Windows.Forms.CheckBox();
       this.lblInfoStar = new System.Windows.Forms.Label();
-      this.SelectionBar = new ExplorerBar();
-      this.TAGV2grpTAG = new ExplorerBarGroupItem();
-      this.TAGV2ButtonItem1 = new ButtonItem();
-      this.TAGV2ButtonItem2 = new ButtonItem();
-      this.TAGV2ButtonItem3 = new ButtonItem();
-      this.TAGV2ButtonItem4 = new ButtonItem();
-      this.TAGV2ButtonItem5 = new ButtonItem();
-      this.TAGV2ButtonItem6 = new ButtonItem();
-      this.TAGV2ButtonItem7 = new ButtonItem();
-      this.TAGV2ButtonItem8 = new ButtonItem();
-      this.TAGV2ButtonItem9 = new ButtonItem();
-      this.TAGV2grpCommands = new ExplorerBarGroupItem();
-      this.btnSwapAT = new ButtonItem();
-      this.btnSwapAA = new ButtonItem();
-      this.btnSwapTA = new ButtonItem();
-      this.btnImport = new ButtonItem();
-      this.btnExport = new ButtonItem();
-      this.btnGet = new ButtonItem();
-      this.TopPanel = new PanelEx();
-      this.btnOK = new Button();
-      this.btnCancel = new Button();
-      this.ButtomPanel = new PanelEx();
-      this.Label = new ButtonItem();
+      this.SelectionBar = new DevComponents.DotNetBar.ExplorerBar();
+      this.TAGV2grpTAG = new DevComponents.DotNetBar.ExplorerBarGroupItem();
+      this.TAGV2ButtonItem1 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem2 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem3 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem4 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem5 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem6 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem7 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem8 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem9 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2grpCommands = new DevComponents.DotNetBar.ExplorerBarGroupItem();
+      this.btnSwapAT = new DevComponents.DotNetBar.ButtonItem();
+      this.btnSwapAA = new DevComponents.DotNetBar.ButtonItem();
+      this.btnSwapTA = new DevComponents.DotNetBar.ButtonItem();
+      this.btnImport = new DevComponents.DotNetBar.ButtonItem();
+      this.btnExport = new DevComponents.DotNetBar.ButtonItem();
+      this.btnGet = new DevComponents.DotNetBar.ButtonItem();
+      this.TopPanel = new DevComponents.DotNetBar.PanelEx();
+      this.btnOK = new System.Windows.Forms.Button();
+      this.btnCancel = new System.Windows.Forms.Button();
+      this.ButtomPanel = new DevComponents.DotNetBar.PanelEx();
+      this.Label = new DevComponents.DotNetBar.ButtonItem();
       this.panDetail.SuspendLayout();
       this.Panel9.SuspendLayout();
       this.Panel5.SuspendLayout();
@@ -607,113 +617,181 @@ namespace ID3_TagIT
       this.Panel10.SuspendLayout();
       this.panRating.SuspendLayout();
       this.Panel11.SuspendLayout();
-      this.txtRatingCounter.BeginInit();
-      this.txtRatingRating.BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtRatingCounter)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtRatingRating)).BeginInit();
       this.panInvolved.SuspendLayout();
       this.Panel15.SuspendLayout();
       this.Panel16.SuspendLayout();
       this.panPic.SuspendLayout();
       this.Panel7.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.APICView)).BeginInit();
       this.panLyrics.SuspendLayout();
       this.Panel8.SuspendLayout();
       this.panUser.SuspendLayout();
       this.Panel12.SuspendLayout();
       this.Panel13.SuspendLayout();
-      this.txtDigits.BeginInit();
-      ((ISupportInitialize)this.SelectionBar).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).BeginInit();
       this.ButtomPanel.SuspendLayout();
       this.SuspendLayout();
+      // 
+      // panDetail
+      // 
       this.panDetail.Controls.Add(this.Panel9);
       this.panDetail.Controls.Add(this.Panel5);
       this.panDetail.Controls.Add(this.Panel14);
       this.panDetail.Controls.Add(this.Panel4);
-      this.panDetail.Location = new Point(0xa8, 0x18);
+      this.panDetail.Location = new System.Drawing.Point(168, 24);
       this.panDetail.Name = "panDetail";
-      this.panDetail.Size = new Size(0x2b0, 0x1c8);
+      this.panDetail.Size = new System.Drawing.Size(688, 456);
       this.panDetail.TabIndex = 4;
-      this.Panel9.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel9
+      // 
+      this.Panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel9.Controls.Add(this.cmbMedia);
       this.Panel9.Controls.Add(this.lblMediaTyp);
       this.Panel9.Controls.Add(this.chkTLEN);
       this.Panel9.Controls.Add(this.lblTLEN);
       this.Panel9.Controls.Add(this.CheckBox5);
-      this.Panel9.Location = new Point(8, 0x178);
+      this.Panel9.Location = new System.Drawing.Point(8, 376);
       this.Panel9.Name = "Panel9";
-      this.Panel9.Size = new Size(0x2a0, 0x40);
+      this.Panel9.Size = new System.Drawing.Size(672, 64);
       this.Panel9.TabIndex = 3;
+      // 
+      // cmbMedia
+      // 
       this.cmbMedia.ItemHeight = 13;
-      this.cmbMedia.Items.AddRange(new object[] { "ANA (Other analogue media)", "CD (CD)", "DAT (DAT)", "DCC (DCC)", "DIG (Other digital media)", "DVD (DVD)", "LD (LaserDisc)", "MC (Music Cassette)", "MD (MiniDisc)", "RAD (Radio)", "REE (Reel)", "TEL (Telephone)", "TT (Turntable records)", "TV (Television)", "VID (Video)" });
-      this.cmbMedia.Location = new Point(0xa7, 8);
+      this.cmbMedia.Items.AddRange(new object[] {
+            "ANA (Other analogue media)",
+            "CD (CD)",
+            "DAT (DAT)",
+            "DCC (DCC)",
+            "DIG (Other digital media)",
+            "DVD (DVD)",
+            "LD (LaserDisc)",
+            "MC (Music Cassette)",
+            "MD (MiniDisc)",
+            "RAD (Radio)",
+            "REE (Reel)",
+            "TEL (Telephone)",
+            "TT (Turntable records)",
+            "TV (Television)",
+            "VID (Video)"});
+      this.cmbMedia.Location = new System.Drawing.Point(167, 8);
       this.cmbMedia.Name = "cmbMedia";
-      this.cmbMedia.Size = new Size(0xd1, 0x15);
-      this.cmbMedia.TabIndex = 0x13;
-      this.lblMediaTyp.ImeMode = ImeMode.NoControl;
-      this.lblMediaTyp.Location = new Point(8, 10);
+      this.cmbMedia.Size = new System.Drawing.Size(209, 21);
+      this.cmbMedia.TabIndex = 19;
+      this.cmbMedia.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.cmbMedia.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbMedia.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblMediaTyp
+      // 
+      this.lblMediaTyp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblMediaTyp.Location = new System.Drawing.Point(8, 10);
       this.lblMediaTyp.Name = "lblMediaTyp";
-      this.lblMediaTyp.Size = new Size(120, 0x10);
-      this.lblMediaTyp.TabIndex = 0x12;
+      this.lblMediaTyp.Size = new System.Drawing.Size(120, 16);
+      this.lblMediaTyp.TabIndex = 18;
       this.lblMediaTyp.Text = "M&edia type:";
-      this.chkTLEN.ImeMode = ImeMode.NoControl;
-      this.chkTLEN.Location = new Point(0xa7, 40);
+      // 
+      // chkTLEN
+      // 
+      this.chkTLEN.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkTLEN.Location = new System.Drawing.Point(167, 40);
       this.chkTLEN.Name = "chkTLEN";
-      this.chkTLEN.Size = new Size(0xe8, 0x10);
-      this.chkTLEN.TabIndex = 0x21;
+      this.chkTLEN.Size = new System.Drawing.Size(232, 16);
+      this.chkTLEN.TabIndex = 33;
       this.chkTLEN.Text = "Create track length entry from file";
-      this.lblTLEN.ImeMode = ImeMode.NoControl;
-      this.lblTLEN.Location = new Point(8, 40);
+      // 
+      // lblTLEN
+      // 
+      this.lblTLEN.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTLEN.Location = new System.Drawing.Point(8, 40);
       this.lblTLEN.Name = "lblTLEN";
-      this.lblTLEN.Size = new Size(0x70, 0x10);
-      this.lblTLEN.TabIndex = 0x20;
+      this.lblTLEN.Size = new System.Drawing.Size(112, 16);
+      this.lblTLEN.TabIndex = 32;
       this.lblTLEN.Text = "Track length (msec):";
-      this.CheckBox5.ImeMode = ImeMode.NoControl;
-      this.CheckBox5.Location = new Point(0x180, 10);
+      // 
+      // CheckBox5
+      // 
+      this.CheckBox5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox5.Location = new System.Drawing.Point(384, 10);
       this.CheckBox5.Name = "CheckBox5";
-      this.CheckBox5.Size = new Size(0x10, 0x10);
+      this.CheckBox5.Size = new System.Drawing.Size(16, 16);
       this.CheckBox5.TabIndex = 20;
-      this.Panel5.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel5
+      // 
+      this.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel5.Controls.Add(this.CheckBox16);
       this.Panel5.Controls.Add(this.CheckBox15);
       this.Panel5.Controls.Add(this.txtContent);
       this.Panel5.Controls.Add(this.txtSubTitle);
       this.Panel5.Controls.Add(this.lblSubTitle);
       this.Panel5.Controls.Add(this.lblContent);
-      this.Panel5.Location = new Point(8, 0xe0);
+      this.Panel5.Location = new System.Drawing.Point(8, 224);
       this.Panel5.Name = "Panel5";
-      this.Panel5.Size = new Size(0x2a0, 0x38);
+      this.Panel5.Size = new System.Drawing.Size(672, 56);
       this.Panel5.TabIndex = 1;
-      this.CheckBox16.ImeMode = ImeMode.NoControl;
-      this.CheckBox16.Location = new Point(0x288, 0x20);
+      // 
+      // CheckBox16
+      // 
+      this.CheckBox16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox16.Location = new System.Drawing.Point(648, 32);
       this.CheckBox16.Name = "CheckBox16";
-      this.CheckBox16.Size = new Size(0x10, 0x10);
-      this.CheckBox16.TabIndex = 0x15;
-      this.CheckBox15.ImeMode = ImeMode.NoControl;
-      this.CheckBox15.Location = new Point(0x288, 8);
+      this.CheckBox16.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox16.TabIndex = 21;
+      // 
+      // CheckBox15
+      // 
+      this.CheckBox15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox15.Location = new System.Drawing.Point(648, 8);
       this.CheckBox15.Name = "CheckBox15";
-      this.CheckBox15.Size = new Size(0x10, 0x10);
-      this.CheckBox15.TabIndex = 0x12;
-      this.txtContent.Location = new Point(0xa8, 6);
+      this.CheckBox15.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox15.TabIndex = 18;
+      // 
+      // txtContent
+      // 
+      this.txtContent.Location = new System.Drawing.Point(168, 6);
       this.txtContent.Name = "txtContent";
-      this.txtContent.Size = new Size(0x1d8, 20);
-      this.txtContent.TabIndex = 0x11;
-      this.txtContent.Text = "";
-      this.txtSubTitle.Location = new Point(0xa8, 30);
+      this.txtContent.Size = new System.Drawing.Size(472, 20);
+      this.txtContent.TabIndex = 17;
+      this.txtContent.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtContent.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtContent.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtSubTitle
+      // 
+      this.txtSubTitle.Location = new System.Drawing.Point(168, 30);
       this.txtSubTitle.Name = "txtSubTitle";
-      this.txtSubTitle.Size = new Size(0x1d8, 20);
+      this.txtSubTitle.Size = new System.Drawing.Size(472, 20);
       this.txtSubTitle.TabIndex = 20;
-      this.txtSubTitle.Text = "";
-      this.lblSubTitle.ImeMode = ImeMode.NoControl;
-      this.lblSubTitle.Location = new Point(8, 0x20);
+      this.txtSubTitle.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtSubTitle.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtSubTitle.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblSubTitle
+      // 
+      this.lblSubTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblSubTitle.Location = new System.Drawing.Point(8, 32);
       this.lblSubTitle.Name = "lblSubTitle";
-      this.lblSubTitle.Size = new Size(0x80, 0x10);
-      this.lblSubTitle.TabIndex = 0x13;
+      this.lblSubTitle.Size = new System.Drawing.Size(128, 16);
+      this.lblSubTitle.TabIndex = 19;
       this.lblSubTitle.Text = "&Sub Title:";
-      this.lblContent.ImeMode = ImeMode.NoControl;
-      this.lblContent.Location = new Point(8, 8);
+      // 
+      // lblContent
+      // 
+      this.lblContent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblContent.Location = new System.Drawing.Point(8, 8);
       this.lblContent.Name = "lblContent";
-      this.lblContent.Size = new Size(0x80, 0x10);
-      this.lblContent.TabIndex = 0x10;
+      this.lblContent.Size = new System.Drawing.Size(128, 16);
+      this.lblContent.TabIndex = 16;
       this.lblContent.Text = "Con&tent Group:";
-      this.Panel14.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel14
+      // 
+      this.Panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel14.Controls.Add(this.CheckBox41);
       this.Panel14.Controls.Add(this.CheckBox42);
       this.Panel14.Controls.Add(this.CheckBox43);
@@ -723,59 +801,95 @@ namespace ID3_TagIT
       this.Panel14.Controls.Add(this.lblAlbumSort);
       this.Panel14.Controls.Add(this.lblTitleSort);
       this.Panel14.Controls.Add(this.lblArtistSort);
-      this.Panel14.Location = new Point(8, 0x120);
+      this.Panel14.Location = new System.Drawing.Point(8, 288);
       this.Panel14.Name = "Panel14";
-      this.Panel14.Size = new Size(0x2a0, 80);
+      this.Panel14.Size = new System.Drawing.Size(672, 80);
       this.Panel14.TabIndex = 2;
-      this.CheckBox41.ImeMode = ImeMode.NoControl;
-      this.CheckBox41.Location = new Point(0x288, 0x38);
+      // 
+      // CheckBox41
+      // 
+      this.CheckBox41.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox41.Location = new System.Drawing.Point(648, 56);
       this.CheckBox41.Name = "CheckBox41";
-      this.CheckBox41.Size = new Size(0x10, 0x10);
+      this.CheckBox41.Size = new System.Drawing.Size(16, 16);
       this.CheckBox41.TabIndex = 30;
-      this.CheckBox42.ImeMode = ImeMode.NoControl;
-      this.CheckBox42.Location = new Point(0x288, 0x20);
+      // 
+      // CheckBox42
+      // 
+      this.CheckBox42.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox42.Location = new System.Drawing.Point(648, 32);
       this.CheckBox42.Name = "CheckBox42";
-      this.CheckBox42.Size = new Size(0x10, 0x10);
-      this.CheckBox42.TabIndex = 0x1b;
-      this.CheckBox43.ImeMode = ImeMode.NoControl;
-      this.CheckBox43.Location = new Point(0x288, 8);
+      this.CheckBox42.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox42.TabIndex = 27;
+      // 
+      // CheckBox43
+      // 
+      this.CheckBox43.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox43.Location = new System.Drawing.Point(648, 8);
       this.CheckBox43.Name = "CheckBox43";
-      this.CheckBox43.Size = new Size(0x10, 0x10);
-      this.CheckBox43.TabIndex = 0x18;
-      this.txtSortArtist.Location = new Point(0xa8, 6);
+      this.CheckBox43.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox43.TabIndex = 24;
+      // 
+      // txtSortArtist
+      // 
+      this.txtSortArtist.Location = new System.Drawing.Point(168, 6);
       this.txtSortArtist.Name = "txtSortArtist";
-      this.txtSortArtist.Size = new Size(0x1d8, 20);
-      this.txtSortArtist.TabIndex = 0x17;
-      this.txtSortArtist.Text = "";
-      this.txtSortTitle.Location = new Point(0xa8, 0x36);
+      this.txtSortArtist.Size = new System.Drawing.Size(472, 20);
+      this.txtSortArtist.TabIndex = 23;
+      this.txtSortArtist.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtSortArtist.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtSortArtist.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtSortTitle
+      // 
+      this.txtSortTitle.Location = new System.Drawing.Point(168, 54);
       this.txtSortTitle.Name = "txtSortTitle";
-      this.txtSortTitle.Size = new Size(0x1d8, 20);
-      this.txtSortTitle.TabIndex = 0x1d;
-      this.txtSortTitle.Text = "";
-      this.txtSortAlbum.Location = new Point(0xa8, 30);
+      this.txtSortTitle.Size = new System.Drawing.Size(472, 20);
+      this.txtSortTitle.TabIndex = 29;
+      this.txtSortTitle.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtSortTitle.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtSortTitle.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtSortAlbum
+      // 
+      this.txtSortAlbum.Location = new System.Drawing.Point(168, 30);
       this.txtSortAlbum.Name = "txtSortAlbum";
-      this.txtSortAlbum.Size = new Size(0x1d8, 20);
-      this.txtSortAlbum.TabIndex = 0x1a;
-      this.txtSortAlbum.Text = "";
-      this.lblAlbumSort.ImeMode = ImeMode.NoControl;
-      this.lblAlbumSort.Location = new Point(8, 0x20);
+      this.txtSortAlbum.Size = new System.Drawing.Size(472, 20);
+      this.txtSortAlbum.TabIndex = 26;
+      this.txtSortAlbum.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtSortAlbum.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtSortAlbum.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblAlbumSort
+      // 
+      this.lblAlbumSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblAlbumSort.Location = new System.Drawing.Point(8, 32);
       this.lblAlbumSort.Name = "lblAlbumSort";
-      this.lblAlbumSort.Size = new Size(0xa8, 0x10);
-      this.lblAlbumSort.TabIndex = 0x19;
+      this.lblAlbumSort.Size = new System.Drawing.Size(168, 16);
+      this.lblAlbumSort.TabIndex = 25;
       this.lblAlbumSort.Text = "Al&bum sort name (Ver. 2.4 only):";
-      this.lblTitleSort.ImeMode = ImeMode.NoControl;
-      this.lblTitleSort.Location = new Point(8, 0x38);
+      // 
+      // lblTitleSort
+      // 
+      this.lblTitleSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTitleSort.Location = new System.Drawing.Point(8, 56);
       this.lblTitleSort.Name = "lblTitleSort";
-      this.lblTitleSort.Size = new Size(160, 0x10);
-      this.lblTitleSort.TabIndex = 0x1c;
+      this.lblTitleSort.Size = new System.Drawing.Size(160, 16);
+      this.lblTitleSort.TabIndex = 28;
       this.lblTitleSort.Text = "&Title sort name (Ver. 2.4 only):";
-      this.lblArtistSort.ImeMode = ImeMode.NoControl;
-      this.lblArtistSort.Location = new Point(8, 8);
+      // 
+      // lblArtistSort
+      // 
+      this.lblArtistSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblArtistSort.Location = new System.Drawing.Point(8, 8);
       this.lblArtistSort.Name = "lblArtistSort";
-      this.lblArtistSort.Size = new Size(0xa8, 0x10);
-      this.lblArtistSort.TabIndex = 0x16;
+      this.lblArtistSort.Size = new System.Drawing.Size(168, 16);
+      this.lblArtistSort.TabIndex = 22;
       this.lblArtistSort.Text = "&Artist sort name (Ver. 2.4 only):";
-      this.Panel4.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel4
+      // 
+      this.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel4.Controls.Add(this.CheckBox14);
       this.Panel4.Controls.Add(this.CheckBox13);
       this.Panel4.Controls.Add(this.CheckBox12);
@@ -800,144 +914,238 @@ namespace ID3_TagIT
       this.Panel4.Controls.Add(this.lblPublisher);
       this.Panel4.Controls.Add(this.lblEncoded);
       this.Panel4.Controls.Add(this.lblLyWriter);
-      this.Panel4.Location = new Point(8, 8);
+      this.Panel4.Location = new System.Drawing.Point(8, 8);
       this.Panel4.Name = "Panel4";
-      this.Panel4.Size = new Size(0x2a0, 0xd0);
+      this.Panel4.Size = new System.Drawing.Size(672, 208);
       this.Panel4.TabIndex = 0;
-      this.CheckBox14.ImeMode = ImeMode.NoControl;
-      this.CheckBox14.Location = new Point(0x288, 0x51);
+      // 
+      // CheckBox14
+      // 
+      this.CheckBox14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox14.Location = new System.Drawing.Point(648, 81);
       this.CheckBox14.Name = "CheckBox14";
-      this.CheckBox14.Size = new Size(0x10, 0x10);
+      this.CheckBox14.Size = new System.Drawing.Size(16, 16);
       this.CheckBox14.TabIndex = 15;
-      this.CheckBox13.ImeMode = ImeMode.NoControl;
-      this.CheckBox13.Location = new Point(0x288, 0x39);
+      // 
+      // CheckBox13
+      // 
+      this.CheckBox13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox13.Location = new System.Drawing.Point(648, 57);
       this.CheckBox13.Name = "CheckBox13";
-      this.CheckBox13.Size = new Size(0x10, 0x10);
+      this.CheckBox13.Size = new System.Drawing.Size(16, 16);
       this.CheckBox13.TabIndex = 12;
-      this.CheckBox12.ImeMode = ImeMode.NoControl;
-      this.CheckBox12.Location = new Point(0x288, 0x21);
+      // 
+      // CheckBox12
+      // 
+      this.CheckBox12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox12.Location = new System.Drawing.Point(648, 33);
       this.CheckBox12.Name = "CheckBox12";
-      this.CheckBox12.Size = new Size(0x10, 0x10);
+      this.CheckBox12.Size = new System.Drawing.Size(16, 16);
       this.CheckBox12.TabIndex = 9;
-      this.CheckBox11.ImeMode = ImeMode.NoControl;
-      this.CheckBox11.Location = new Point(0x288, 9);
+      // 
+      // CheckBox11
+      // 
+      this.CheckBox11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox11.Location = new System.Drawing.Point(648, 9);
       this.CheckBox11.Name = "CheckBox11";
-      this.CheckBox11.Size = new Size(0x10, 0x10);
+      this.CheckBox11.Size = new System.Drawing.Size(16, 16);
       this.CheckBox11.TabIndex = 6;
-      this.txtComposer.Location = new Point(0xa8, 0x4e);
+      // 
+      // txtComposer
+      // 
+      this.txtComposer.Location = new System.Drawing.Point(168, 78);
       this.txtComposer.Name = "txtComposer";
-      this.txtComposer.Size = new Size(0x1d8, 20);
+      this.txtComposer.Size = new System.Drawing.Size(472, 20);
       this.txtComposer.TabIndex = 14;
-      this.txtComposer.Text = "";
-      this.lblComposer.ImeMode = ImeMode.NoControl;
-      this.lblComposer.Location = new Point(8, 80);
+      this.txtComposer.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtComposer.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtComposer.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblComposer
+      // 
+      this.lblComposer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblComposer.Location = new System.Drawing.Point(8, 80);
       this.lblComposer.Name = "lblComposer";
-      this.lblComposer.Size = new Size(0x80, 0x10);
+      this.lblComposer.Size = new System.Drawing.Size(128, 16);
       this.lblComposer.TabIndex = 13;
       this.lblComposer.Text = "Co&mposer:";
-      this.txtBand.Location = new Point(0xa8, 6);
+      // 
+      // txtBand
+      // 
+      this.txtBand.Location = new System.Drawing.Point(168, 6);
       this.txtBand.Name = "txtBand";
-      this.txtBand.Size = new Size(0x1d8, 20);
+      this.txtBand.Size = new System.Drawing.Size(472, 20);
       this.txtBand.TabIndex = 5;
-      this.txtBand.Text = "";
-      this.txtModified.Location = new Point(0xa8, 0x36);
+      this.txtBand.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtBand.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtBand.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtModified
+      // 
+      this.txtModified.Location = new System.Drawing.Point(168, 54);
       this.txtModified.Name = "txtModified";
-      this.txtModified.Size = new Size(0x1d8, 20);
+      this.txtModified.Size = new System.Drawing.Size(472, 20);
       this.txtModified.TabIndex = 11;
-      this.txtModified.Text = "";
-      this.txtConductor.Location = new Point(0xa8, 30);
+      this.txtModified.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtModified.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtModified.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtConductor
+      // 
+      this.txtConductor.Location = new System.Drawing.Point(168, 30);
       this.txtConductor.Name = "txtConductor";
-      this.txtConductor.Size = new Size(0x1d8, 20);
+      this.txtConductor.Size = new System.Drawing.Size(472, 20);
       this.txtConductor.TabIndex = 8;
-      this.txtConductor.Text = "";
-      this.lblConductor.ImeMode = ImeMode.NoControl;
-      this.lblConductor.Location = new Point(8, 0x20);
+      this.txtConductor.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtConductor.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtConductor.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblConductor
+      // 
+      this.lblConductor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblConductor.Location = new System.Drawing.Point(8, 32);
       this.lblConductor.Name = "lblConductor";
-      this.lblConductor.Size = new Size(0x80, 0x10);
+      this.lblConductor.Size = new System.Drawing.Size(128, 16);
       this.lblConductor.TabIndex = 7;
       this.lblConductor.Text = "&Conductor:";
-      this.lblModified.ImeMode = ImeMode.NoControl;
-      this.lblModified.Location = new Point(8, 0x38);
+      // 
+      // lblModified
+      // 
+      this.lblModified.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblModified.Location = new System.Drawing.Point(8, 56);
       this.lblModified.Name = "lblModified";
-      this.lblModified.Size = new Size(0x80, 0x10);
+      this.lblModified.Size = new System.Drawing.Size(128, 16);
       this.lblModified.TabIndex = 10;
       this.lblModified.Text = "Modified / Remixed b&y:";
-      this.lblBand.ImeMode = ImeMode.NoControl;
-      this.lblBand.Location = new Point(8, 8);
+      // 
+      // lblBand
+      // 
+      this.lblBand.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblBand.Location = new System.Drawing.Point(8, 8);
       this.lblBand.Name = "lblBand";
-      this.lblBand.Size = new Size(0x80, 0x10);
+      this.lblBand.Size = new System.Drawing.Size(128, 16);
       this.lblBand.TabIndex = 4;
       this.lblBand.Text = "&Band / Orchestra:";
-      this.CheckBox40.ImeMode = ImeMode.NoControl;
-      this.CheckBox40.Location = new Point(0x288, 0xb0);
+      // 
+      // CheckBox40
+      // 
+      this.CheckBox40.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox40.Location = new System.Drawing.Point(648, 176);
       this.CheckBox40.Name = "CheckBox40";
-      this.CheckBox40.Size = new Size(0x10, 0x10);
+      this.CheckBox40.Size = new System.Drawing.Size(16, 16);
       this.CheckBox40.TabIndex = 11;
-      this.txtCopyright.Location = new Point(0xa8, 0xaf);
+      // 
+      // txtCopyright
+      // 
+      this.txtCopyright.Location = new System.Drawing.Point(168, 175);
       this.txtCopyright.Name = "txtCopyright";
-      this.txtCopyright.Size = new Size(0x1d8, 20);
+      this.txtCopyright.Size = new System.Drawing.Size(472, 20);
       this.txtCopyright.TabIndex = 10;
-      this.txtCopyright.Text = "";
-      this.lblCopyright.ImeMode = ImeMode.NoControl;
-      this.lblCopyright.Location = new Point(8, 0xaf);
+      this.txtCopyright.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtCopyright.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtCopyright.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblCopyright
+      // 
+      this.lblCopyright.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCopyright.Location = new System.Drawing.Point(8, 175);
       this.lblCopyright.Name = "lblCopyright";
-      this.lblCopyright.Size = new Size(0x80, 0x10);
+      this.lblCopyright.Size = new System.Drawing.Size(128, 16);
       this.lblCopyright.TabIndex = 9;
       this.lblCopyright.Text = "Copyright:";
-      this.CheckBox19.ImeMode = ImeMode.NoControl;
-      this.CheckBox19.Location = new Point(0x288, 0x98);
+      // 
+      // CheckBox19
+      // 
+      this.CheckBox19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox19.Location = new System.Drawing.Point(648, 152);
       this.CheckBox19.Name = "CheckBox19";
-      this.CheckBox19.Size = new Size(0x10, 0x10);
+      this.CheckBox19.Size = new System.Drawing.Size(16, 16);
       this.CheckBox19.TabIndex = 8;
-      this.CheckBox18.ImeMode = ImeMode.NoControl;
-      this.CheckBox18.Location = new Point(0x288, 0x80);
+      // 
+      // CheckBox18
+      // 
+      this.CheckBox18.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox18.Location = new System.Drawing.Point(648, 128);
       this.CheckBox18.Name = "CheckBox18";
-      this.CheckBox18.Size = new Size(0x10, 0x10);
+      this.CheckBox18.Size = new System.Drawing.Size(16, 16);
       this.CheckBox18.TabIndex = 5;
-      this.CheckBox17.ImeMode = ImeMode.NoControl;
-      this.CheckBox17.Location = new Point(0x288, 0x68);
+      // 
+      // CheckBox17
+      // 
+      this.CheckBox17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox17.Location = new System.Drawing.Point(648, 104);
       this.CheckBox17.Name = "CheckBox17";
-      this.CheckBox17.Size = new Size(0x10, 0x10);
+      this.CheckBox17.Size = new System.Drawing.Size(16, 16);
       this.CheckBox17.TabIndex = 2;
-      this.txtLyWriter.Location = new Point(0xa8, 0x67);
+      // 
+      // txtLyWriter
+      // 
+      this.txtLyWriter.Location = new System.Drawing.Point(168, 103);
       this.txtLyWriter.Name = "txtLyWriter";
-      this.txtLyWriter.Size = new Size(0x1d8, 20);
+      this.txtLyWriter.Size = new System.Drawing.Size(472, 20);
       this.txtLyWriter.TabIndex = 1;
-      this.txtLyWriter.Text = "";
-      this.txtEncoded.Location = new Point(0xa8, 0x97);
+      this.txtLyWriter.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtLyWriter.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtLyWriter.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtEncoded
+      // 
+      this.txtEncoded.Location = new System.Drawing.Point(168, 151);
       this.txtEncoded.Name = "txtEncoded";
-      this.txtEncoded.Size = new Size(0x1d8, 20);
+      this.txtEncoded.Size = new System.Drawing.Size(472, 20);
       this.txtEncoded.TabIndex = 7;
-      this.txtEncoded.Text = "";
-      this.txtPublisher.Location = new Point(0xa8, 0x7f);
+      this.txtEncoded.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtEncoded.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtEncoded.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtPublisher
+      // 
+      this.txtPublisher.Location = new System.Drawing.Point(168, 127);
       this.txtPublisher.Name = "txtPublisher";
-      this.txtPublisher.Size = new Size(0x1d8, 20);
+      this.txtPublisher.Size = new System.Drawing.Size(472, 20);
       this.txtPublisher.TabIndex = 4;
-      this.txtPublisher.Text = "";
-      this.lblPublisher.ImeMode = ImeMode.NoControl;
-      this.lblPublisher.Location = new Point(8, 0x7f);
+      this.txtPublisher.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtPublisher.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtPublisher.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblPublisher
+      // 
+      this.lblPublisher.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPublisher.Location = new System.Drawing.Point(8, 127);
       this.lblPublisher.Name = "lblPublisher";
-      this.lblPublisher.Size = new Size(0x80, 0x10);
+      this.lblPublisher.Size = new System.Drawing.Size(128, 16);
       this.lblPublisher.TabIndex = 3;
       this.lblPublisher.Text = "Publis&her:";
-      this.lblEncoded.ImeMode = ImeMode.NoControl;
-      this.lblEncoded.Location = new Point(8, 0x97);
+      // 
+      // lblEncoded
+      // 
+      this.lblEncoded.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblEncoded.Location = new System.Drawing.Point(8, 151);
       this.lblEncoded.Name = "lblEncoded";
-      this.lblEncoded.Size = new Size(0x80, 0x10);
+      this.lblEncoded.Size = new System.Drawing.Size(128, 16);
       this.lblEncoded.TabIndex = 6;
       this.lblEncoded.Text = "&Encoded by:";
-      this.lblLyWriter.ImeMode = ImeMode.NoControl;
-      this.lblLyWriter.Location = new Point(8, 0x67);
+      // 
+      // lblLyWriter
+      // 
+      this.lblLyWriter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblLyWriter.Location = new System.Drawing.Point(8, 103);
       this.lblLyWriter.Name = "lblLyWriter";
-      this.lblLyWriter.Size = new Size(0x80, 0x10);
+      this.lblLyWriter.Size = new System.Drawing.Size(128, 16);
       this.lblLyWriter.TabIndex = 0;
       this.lblLyWriter.Text = "Lyr&ics / Text Writer:";
+      // 
+      // panOriginal
+      // 
       this.panOriginal.Controls.Add(this.Panel6);
-      this.panOriginal.Location = new Point(0xa8, 0x18);
+      this.panOriginal.Location = new System.Drawing.Point(168, 24);
       this.panOriginal.Name = "panOriginal";
-      this.panOriginal.Size = new Size(0x2b0, 240);
+      this.panOriginal.Size = new System.Drawing.Size(688, 240);
       this.panOriginal.TabIndex = 5;
-      this.Panel6.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel6
+      // 
+      this.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel6.Controls.Add(this.txtTORY);
       this.Panel6.Controls.Add(this.CheckBox39);
       this.Panel6.Controls.Add(this.lblOYearInfo);
@@ -958,128 +1166,208 @@ namespace ID3_TagIT
       this.Panel6.Controls.Add(this.lblOFilename);
       this.Panel6.Controls.Add(this.lblOLyWriter);
       this.Panel6.Controls.Add(this.lblOAlbum);
-      this.Panel6.Location = new Point(8, 8);
+      this.Panel6.Location = new System.Drawing.Point(8, 8);
       this.Panel6.Name = "Panel6";
-      this.Panel6.Size = new Size(0x2a0, 0xb0);
+      this.Panel6.Size = new System.Drawing.Size(672, 176);
       this.Panel6.TabIndex = 3;
+      // 
+      // txtTORY
+      // 
       this.txtTORY.Flags = 0;
-      this.txtTORY.Location = new Point(0xa8, 0x7e);
+      this.txtTORY.Location = new System.Drawing.Point(168, 126);
       this.txtTORY.Mask = "####-##-##";
       this.txtTORY.Name = "txtTORY";
-      this.txtTORY.Size = new Size(0x70, 20);
-      this.txtTORY.TabIndex = 0x2f;
-      this.CheckBox39.ImeMode = ImeMode.NoControl;
-      this.CheckBox39.Location = new Point(0x150, 0x80);
+      this.txtTORY.Size = new System.Drawing.Size(112, 20);
+      this.txtTORY.TabIndex = 47;
+      this.txtTORY.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtTORY.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTORY.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // CheckBox39
+      // 
+      this.CheckBox39.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox39.Location = new System.Drawing.Point(336, 128);
       this.CheckBox39.Name = "CheckBox39";
-      this.CheckBox39.Size = new Size(0x10, 0x10);
-      this.CheckBox39.TabIndex = 0x33;
-      this.lblOYearInfo.ImeMode = ImeMode.NoControl;
-      this.lblOYearInfo.Location = new Point(0xa8, 0x98);
+      this.CheckBox39.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox39.TabIndex = 51;
+      // 
+      // lblOYearInfo
+      // 
+      this.lblOYearInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOYearInfo.Location = new System.Drawing.Point(168, 152);
       this.lblOYearInfo.Name = "lblOYearInfo";
-      this.lblOYearInfo.Size = new Size(0x150, 0x10);
+      this.lblOYearInfo.Size = new System.Drawing.Size(336, 16);
       this.lblOYearInfo.TabIndex = 50;
       this.lblOYearInfo.Text = "(In TAG Ver. 2.3 only the year entry will be saved)";
-      this.TORYFormat.ImeMode = ImeMode.NoControl;
+      // 
+      // TORYFormat
+      // 
+      this.TORYFormat.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.TORYFormat.LargeChange = 1;
-      this.TORYFormat.Location = new Point(0x120, 0x80);
+      this.TORYFormat.Location = new System.Drawing.Point(288, 128);
       this.TORYFormat.Maximum = 2;
       this.TORYFormat.Name = "TORYFormat";
-      this.TORYFormat.Size = new Size(0x20, 0x10);
-      this.TORYFormat.TabIndex = 0x30;
-      this.lblOYear.ImeMode = ImeMode.NoControl;
-      this.lblOYear.Location = new Point(8, 0x80);
+      this.TORYFormat.Size = new System.Drawing.Size(32, 16);
+      this.TORYFormat.TabIndex = 48;
+      this.TORYFormat.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TORYFormat_Scroll);
+      // 
+      // lblOYear
+      // 
+      this.lblOYear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOYear.Location = new System.Drawing.Point(8, 128);
       this.lblOYear.Name = "lblOYear";
-      this.lblOYear.Size = new Size(0x90, 0x10);
-      this.lblOYear.TabIndex = 0x2e;
+      this.lblOYear.Size = new System.Drawing.Size(144, 16);
+      this.lblOYear.TabIndex = 46;
       this.lblOYear.Text = "Original release &year (date):";
-      this.CheckBox24.ImeMode = ImeMode.NoControl;
-      this.CheckBox24.Location = new Point(0x288, 0x68);
+      // 
+      // CheckBox24
+      // 
+      this.CheckBox24.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox24.Location = new System.Drawing.Point(648, 104);
       this.CheckBox24.Name = "CheckBox24";
-      this.CheckBox24.Size = new Size(0x10, 0x10);
-      this.CheckBox24.TabIndex = 0x2d;
-      this.CheckBox23.ImeMode = ImeMode.NoControl;
-      this.CheckBox23.Location = new Point(0x288, 80);
+      this.CheckBox24.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox24.TabIndex = 45;
+      // 
+      // CheckBox23
+      // 
+      this.CheckBox23.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox23.Location = new System.Drawing.Point(648, 80);
       this.CheckBox23.Name = "CheckBox23";
-      this.CheckBox23.Size = new Size(0x10, 0x10);
-      this.CheckBox23.TabIndex = 0x2a;
-      this.CheckBox22.ImeMode = ImeMode.NoControl;
-      this.CheckBox22.Location = new Point(0x288, 0x38);
+      this.CheckBox23.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox23.TabIndex = 42;
+      // 
+      // CheckBox22
+      // 
+      this.CheckBox22.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox22.Location = new System.Drawing.Point(648, 56);
       this.CheckBox22.Name = "CheckBox22";
-      this.CheckBox22.Size = new Size(0x10, 0x10);
-      this.CheckBox22.TabIndex = 0x27;
-      this.CheckBox21.ImeMode = ImeMode.NoControl;
-      this.CheckBox21.Location = new Point(0x288, 0x20);
+      this.CheckBox22.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox22.TabIndex = 39;
+      // 
+      // CheckBox21
+      // 
+      this.CheckBox21.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox21.Location = new System.Drawing.Point(648, 32);
       this.CheckBox21.Name = "CheckBox21";
-      this.CheckBox21.Size = new Size(0x10, 0x10);
-      this.CheckBox21.TabIndex = 0x24;
-      this.CheckBox20.ImeMode = ImeMode.NoControl;
-      this.CheckBox20.Location = new Point(0x288, 8);
+      this.CheckBox21.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox21.TabIndex = 36;
+      // 
+      // CheckBox20
+      // 
+      this.CheckBox20.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox20.Location = new System.Drawing.Point(648, 8);
       this.CheckBox20.Name = "CheckBox20";
-      this.CheckBox20.Size = new Size(0x10, 0x10);
-      this.CheckBox20.TabIndex = 0x21;
-      this.txtOOwner.Location = new Point(0xa8, 0x66);
+      this.CheckBox20.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox20.TabIndex = 33;
+      // 
+      // txtOOwner
+      // 
+      this.txtOOwner.Location = new System.Drawing.Point(168, 102);
       this.txtOOwner.Name = "txtOOwner";
-      this.txtOOwner.Size = new Size(0x1d8, 20);
-      this.txtOOwner.TabIndex = 0x2c;
-      this.txtOOwner.Text = "";
-      this.lblOOwner.ImeMode = ImeMode.NoControl;
-      this.lblOOwner.Location = new Point(8, 0x68);
+      this.txtOOwner.Size = new System.Drawing.Size(472, 20);
+      this.txtOOwner.TabIndex = 44;
+      this.txtOOwner.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtOOwner.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOOwner.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblOOwner
+      // 
+      this.lblOOwner.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOOwner.Location = new System.Drawing.Point(8, 104);
       this.lblOOwner.Name = "lblOOwner";
-      this.lblOOwner.Size = new Size(0x80, 0x10);
-      this.lblOOwner.TabIndex = 0x2b;
+      this.lblOOwner.Size = new System.Drawing.Size(128, 16);
+      this.lblOOwner.TabIndex = 43;
       this.lblOOwner.Text = "Original &owner:";
-      this.txtOArtist.Location = new Point(0xa8, 0x4e);
+      // 
+      // txtOArtist
+      // 
+      this.txtOArtist.Location = new System.Drawing.Point(168, 78);
       this.txtOArtist.Name = "txtOArtist";
-      this.txtOArtist.Size = new Size(0x1d8, 20);
-      this.txtOArtist.TabIndex = 0x29;
-      this.txtOArtist.Text = "";
-      this.lblOArtist.ImeMode = ImeMode.NoControl;
-      this.lblOArtist.Location = new Point(8, 80);
+      this.txtOArtist.Size = new System.Drawing.Size(472, 20);
+      this.txtOArtist.TabIndex = 41;
+      this.txtOArtist.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtOArtist.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOArtist.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblOArtist
+      // 
+      this.lblOArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOArtist.Location = new System.Drawing.Point(8, 80);
       this.lblOArtist.Name = "lblOArtist";
-      this.lblOArtist.Size = new Size(0x80, 0x10);
+      this.lblOArtist.Size = new System.Drawing.Size(128, 16);
       this.lblOArtist.TabIndex = 40;
       this.lblOArtist.Text = "Original &artist:";
-      this.txtOAlbum.Location = new Point(0xa8, 6);
+      // 
+      // txtOAlbum
+      // 
+      this.txtOAlbum.Location = new System.Drawing.Point(168, 6);
       this.txtOAlbum.Name = "txtOAlbum";
-      this.txtOAlbum.Size = new Size(0x1d8, 20);
-      this.txtOAlbum.TabIndex = 0x20;
-      this.txtOAlbum.Text = "";
-      this.txtOLyWriter.Location = new Point(0xa8, 0x36);
+      this.txtOAlbum.Size = new System.Drawing.Size(472, 20);
+      this.txtOAlbum.TabIndex = 32;
+      this.txtOAlbum.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtOAlbum.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOAlbum.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtOLyWriter
+      // 
+      this.txtOLyWriter.Location = new System.Drawing.Point(168, 54);
       this.txtOLyWriter.Name = "txtOLyWriter";
-      this.txtOLyWriter.Size = new Size(0x1d8, 20);
-      this.txtOLyWriter.TabIndex = 0x26;
-      this.txtOLyWriter.Text = "";
-      this.txtOFilename.Location = new Point(0xa8, 30);
+      this.txtOLyWriter.Size = new System.Drawing.Size(472, 20);
+      this.txtOLyWriter.TabIndex = 38;
+      this.txtOLyWriter.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtOLyWriter.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOLyWriter.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtOFilename
+      // 
+      this.txtOFilename.Location = new System.Drawing.Point(168, 30);
       this.txtOFilename.Name = "txtOFilename";
-      this.txtOFilename.Size = new Size(0x1d8, 20);
-      this.txtOFilename.TabIndex = 0x23;
-      this.txtOFilename.Text = "";
-      this.lblOFilename.ImeMode = ImeMode.NoControl;
-      this.lblOFilename.Location = new Point(8, 0x20);
+      this.txtOFilename.Size = new System.Drawing.Size(472, 20);
+      this.txtOFilename.TabIndex = 35;
+      this.txtOFilename.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtOFilename.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOFilename.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblOFilename
+      // 
+      this.lblOFilename.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOFilename.Location = new System.Drawing.Point(8, 32);
       this.lblOFilename.Name = "lblOFilename";
-      this.lblOFilename.Size = new Size(0x80, 0x10);
-      this.lblOFilename.TabIndex = 0x22;
+      this.lblOFilename.Size = new System.Drawing.Size(128, 16);
+      this.lblOFilename.TabIndex = 34;
       this.lblOFilename.Text = "Original &filename:";
-      this.lblOLyWriter.ImeMode = ImeMode.NoControl;
-      this.lblOLyWriter.Location = new Point(8, 0x38);
+      // 
+      // lblOLyWriter
+      // 
+      this.lblOLyWriter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOLyWriter.Location = new System.Drawing.Point(8, 56);
       this.lblOLyWriter.Name = "lblOLyWriter";
-      this.lblOLyWriter.Size = new Size(0x80, 0x10);
-      this.lblOLyWriter.TabIndex = 0x25;
+      this.lblOLyWriter.Size = new System.Drawing.Size(128, 16);
+      this.lblOLyWriter.TabIndex = 37;
       this.lblOLyWriter.Text = "Original lyrics &writer:";
-      this.lblOAlbum.ImeMode = ImeMode.NoControl;
-      this.lblOAlbum.Location = new Point(8, 8);
+      // 
+      // lblOAlbum
+      // 
+      this.lblOAlbum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOAlbum.Location = new System.Drawing.Point(8, 8);
       this.lblOAlbum.Name = "lblOAlbum";
-      this.lblOAlbum.Size = new Size(0x80, 0x10);
-      this.lblOAlbum.TabIndex = 0x1f;
+      this.lblOAlbum.Size = new System.Drawing.Size(128, 16);
+      this.lblOAlbum.TabIndex = 31;
       this.lblOAlbum.Text = "Original a&lbum title:";
+      // 
+      // panMain
+      // 
       this.panMain.Controls.Add(this.Panel3);
       this.panMain.Controls.Add(this.Panel1);
       this.panMain.Controls.Add(this.Panel2);
-      this.panMain.Location = new Point(0xa8, 0x18);
+      this.panMain.Location = new System.Drawing.Point(168, 24);
       this.panMain.Name = "panMain";
-      this.panMain.Size = new Size(0x2b0, 0x1c8);
+      this.panMain.Size = new System.Drawing.Size(688, 456);
       this.panMain.TabIndex = 4;
-      this.Panel3.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel3
+      // 
+      this.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel3.Controls.Add(this.lblCommDescInfo);
       this.Panel3.Controls.Add(this.cmbCDescriptor);
       this.Panel3.Controls.Add(this.CheckBox38);
@@ -1093,102 +1381,169 @@ namespace ID3_TagIT
       this.Panel3.Controls.Add(this.cmbCLanguage);
       this.Panel3.Controls.Add(this.txtComment);
       this.Panel3.Controls.Add(this.CommentList);
-      this.Panel3.Location = new Point(8, 0x108);
+      this.Panel3.Location = new System.Drawing.Point(8, 264);
       this.Panel3.Name = "Panel3";
-      this.Panel3.Size = new Size(0x2a0, 0xb8);
+      this.Panel3.Size = new System.Drawing.Size(672, 184);
       this.Panel3.TabIndex = 3;
-      this.lblCommDescInfo.BorderStyle = BorderStyle.Fixed3D;
-      this.lblCommDescInfo.ImeMode = ImeMode.NoControl;
-      this.lblCommDescInfo.Location = new Point(8, 0x70);
+      // 
+      // lblCommDescInfo
+      // 
+      this.lblCommDescInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblCommDescInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCommDescInfo.Location = new System.Drawing.Point(8, 112);
       this.lblCommDescInfo.Name = "lblCommDescInfo";
-      this.lblCommDescInfo.Size = new Size(120, 0x40);
-      this.lblCommDescInfo.TabIndex = 0x33;
+      this.lblCommDescInfo.Size = new System.Drawing.Size(120, 64);
+      this.lblCommDescInfo.TabIndex = 51;
       this.lblCommDescInfo.Text = "Predefined comment descriptors can be set under Edit Libraries (Options menu)";
-      this.lblCommDescInfo.TextAlign = ContentAlignment.MiddleCenter;
+      this.lblCommDescInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // cmbCDescriptor
+      // 
       this.cmbCDescriptor.Autocomplete = true;
       this.cmbCDescriptor.ItemHeight = 13;
-      this.cmbCDescriptor.Location = new Point(0x88, 6);
+      this.cmbCDescriptor.Location = new System.Drawing.Point(136, 6);
       this.cmbCDescriptor.Name = "cmbCDescriptor";
-      this.cmbCDescriptor.Size = new Size(0x100, 0x15);
+      this.cmbCDescriptor.Size = new System.Drawing.Size(256, 21);
       this.cmbCDescriptor.TabIndex = 40;
-      this.CheckBox38.ImeMode = ImeMode.NoControl;
-      this.CheckBox38.Location = new Point(400, 0x38);
+      this.cmbCDescriptor.EnabledChanged += new System.EventHandler(this.Select_Enter);
+      this.cmbCDescriptor.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // CheckBox38
+      // 
+      this.CheckBox38.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox38.Location = new System.Drawing.Point(400, 56);
       this.CheckBox38.Name = "CheckBox38";
-      this.CheckBox38.Size = new Size(0x10, 0x10);
-      this.CheckBox38.TabIndex = 0x2d;
+      this.CheckBox38.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox38.TabIndex = 45;
       this.CheckBox38.Visible = false;
-      this.CheckBox10.ImeMode = ImeMode.NoControl;
-      this.CheckBox10.Location = new Point(0x1a8, 0x58);
+      // 
+      // CheckBox10
+      // 
+      this.CheckBox10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox10.Location = new System.Drawing.Point(424, 88);
       this.CheckBox10.Name = "CheckBox10";
-      this.CheckBox10.Size = new Size(0xe0, 0x10);
-      this.CheckBox10.TabIndex = 0x30;
+      this.CheckBox10.Size = new System.Drawing.Size(224, 16);
+      this.CheckBox10.TabIndex = 48;
       this.CheckBox10.Text = "Remove all existing comments first";
-      this.btnMoveComment.ImeMode = ImeMode.NoControl;
-      this.btnMoveComment.Location = new Point(0x1a8, 0x38);
+      // 
+      // btnMoveComment
+      // 
+      this.btnMoveComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnMoveComment.Location = new System.Drawing.Point(424, 56);
       this.btnMoveComment.Name = "btnMoveComment";
-      this.btnMoveComment.Size = new Size(240, 20);
-      this.btnMoveComment.TabIndex = 0x2f;
+      this.btnMoveComment.Size = new System.Drawing.Size(240, 20);
+      this.btnMoveComment.TabIndex = 47;
       this.btnMoveComment.Text = "Move Comment to top";
-      this.btnRemoveComment.ImeMode = ImeMode.NoControl;
-      this.btnRemoveComment.Location = new Point(0x1a8, 0x20);
+      this.btnMoveComment.Click += new System.EventHandler(this.btnMoveComment_Click);
+      // 
+      // btnRemoveComment
+      // 
+      this.btnRemoveComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveComment.Location = new System.Drawing.Point(424, 32);
       this.btnRemoveComment.Name = "btnRemoveComment";
-      this.btnRemoveComment.Size = new Size(240, 20);
-      this.btnRemoveComment.TabIndex = 0x2e;
+      this.btnRemoveComment.Size = new System.Drawing.Size(240, 20);
+      this.btnRemoveComment.TabIndex = 46;
       this.btnRemoveComment.Text = "Remove Comment";
-      this.btnAddComment.ImeMode = ImeMode.NoControl;
-      this.btnAddComment.Location = new Point(0x1a8, 8);
+      this.btnRemoveComment.Click += new System.EventHandler(this.btnRemoveComment_Click);
+      // 
+      // btnAddComment
+      // 
+      this.btnAddComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddComment.Location = new System.Drawing.Point(424, 8);
       this.btnAddComment.Name = "btnAddComment";
-      this.btnAddComment.Size = new Size(240, 20);
-      this.btnAddComment.TabIndex = 0x2d;
+      this.btnAddComment.Size = new System.Drawing.Size(240, 20);
+      this.btnAddComment.TabIndex = 45;
       this.btnAddComment.Text = "Add Comment";
-      this.lblCOMM.ImeMode = ImeMode.NoControl;
-      this.lblCOMM.Location = new Point(8, 0x38);
+      this.btnAddComment.Click += new System.EventHandler(this.btnAddComment_Click);
+      // 
+      // lblCOMM
+      // 
+      this.lblCOMM.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCOMM.Location = new System.Drawing.Point(8, 56);
       this.lblCOMM.Name = "lblCOMM";
-      this.lblCOMM.Size = new Size(0x80, 0x10);
-      this.lblCOMM.TabIndex = 0x2b;
+      this.lblCOMM.Size = new System.Drawing.Size(128, 16);
+      this.lblCOMM.TabIndex = 43;
       this.lblCOMM.Text = "&Comment:";
-      this.lblCOMMLan.ImeMode = ImeMode.NoControl;
-      this.lblCOMMLan.Location = new Point(8, 0x20);
+      // 
+      // lblCOMMLan
+      // 
+      this.lblCOMMLan.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCOMMLan.Location = new System.Drawing.Point(8, 32);
       this.lblCOMMLan.Name = "lblCOMMLan";
-      this.lblCOMMLan.Size = new Size(0x80, 0x10);
-      this.lblCOMMLan.TabIndex = 0x29;
+      this.lblCOMMLan.Size = new System.Drawing.Size(128, 16);
+      this.lblCOMMLan.TabIndex = 41;
       this.lblCOMMLan.Text = "Comment &Language:";
-      this.lblCOMMDesc.ImeMode = ImeMode.NoControl;
-      this.lblCOMMDesc.Location = new Point(8, 8);
+      // 
+      // lblCOMMDesc
+      // 
+      this.lblCOMMDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCOMMDesc.Location = new System.Drawing.Point(8, 8);
       this.lblCOMMDesc.Name = "lblCOMMDesc";
-      this.lblCOMMDesc.Size = new Size(0x80, 0x10);
-      this.lblCOMMDesc.TabIndex = 0x27;
+      this.lblCOMMDesc.Size = new System.Drawing.Size(128, 16);
+      this.lblCOMMDesc.TabIndex = 39;
       this.lblCOMMDesc.Text = "Comment &Descriptor:";
-      this.cmbCLanguage.DropDownStyle = ComboBoxStyle.DropDownList;
+      // 
+      // cmbCLanguage
+      // 
+      this.cmbCLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cmbCLanguage.ItemHeight = 13;
-      this.cmbCLanguage.Location = new Point(0x88, 30);
+      this.cmbCLanguage.Location = new System.Drawing.Point(136, 30);
       this.cmbCLanguage.Name = "cmbCLanguage";
-      this.cmbCLanguage.Size = new Size(0x100, 0x15);
-      this.cmbCLanguage.TabIndex = 0x2a;
+      this.cmbCLanguage.Size = new System.Drawing.Size(256, 21);
+      this.cmbCLanguage.TabIndex = 42;
+      this.cmbCLanguage.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.cmbCLanguage.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbCLanguage.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtComment
+      // 
       this.txtComment.AcceptsReturn = true;
-      this.txtComment.Location = new Point(0x88, 0x38);
+      this.txtComment.Location = new System.Drawing.Point(136, 56);
       this.txtComment.Multiline = true;
       this.txtComment.Name = "txtComment";
-      this.txtComment.Size = new Size(0x100, 0x30);
-      this.txtComment.TabIndex = 0x2c;
-      this.txtComment.Text = "";
+      this.txtComment.Size = new System.Drawing.Size(256, 48);
+      this.txtComment.TabIndex = 44;
+      this.txtComment.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtComment.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtComment.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // CommentList
+      // 
       this.CommentList.CheckBoxes = true;
-      this.CommentList.Columns.AddRange(new ColumnHeader[] { this.colDescriptor, this.colComment, this.colLanguage });
+      this.CommentList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colDescriptor,
+            this.colComment,
+            this.colLanguage});
       this.CommentList.FullRowSelect = true;
-      this.CommentList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.CommentList.Location = new Point(0x88, 0x70);
+      this.CommentList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.CommentList.Location = new System.Drawing.Point(136, 112);
       this.CommentList.MultiSelect = false;
       this.CommentList.Name = "CommentList";
-      this.CommentList.Size = new Size(0x210, 0x40);
-      this.CommentList.TabIndex = 0x31;
-      this.CommentList.View = View.Details;
+      this.CommentList.Size = new System.Drawing.Size(528, 64);
+      this.CommentList.TabIndex = 49;
+      this.CommentList.UseCompatibleStateImageBehavior = false;
+      this.CommentList.View = System.Windows.Forms.View.Details;
+      this.CommentList.Click += new System.EventHandler(this.CommentList_Click);
+      this.CommentList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // colDescriptor
+      // 
       this.colDescriptor.Text = "Descriptor";
-      this.colDescriptor.Width = 0x7c;
+      this.colDescriptor.Width = 124;
+      // 
+      // colComment
+      // 
       this.colComment.Text = "Comment";
-      this.colComment.Width = 0x108;
+      this.colComment.Width = 264;
+      // 
+      // colLanguage
+      // 
       this.colLanguage.Text = "Language";
-      this.colLanguage.Width = 0x5f;
-      this.Panel1.BorderStyle = BorderStyle.FixedSingle;
+      this.colLanguage.Width = 95;
+      // 
+      // Panel1
+      // 
+      this.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel1.Controls.Add(this.txtPOS2);
       this.Panel1.Controls.Add(this.txtPOS1);
       this.Panel1.Controls.Add(this.txtTrack2);
@@ -1215,194 +1570,301 @@ namespace ID3_TagIT
       this.Panel1.Controls.Add(this.lblYear);
       this.Panel1.Controls.Add(this.lblTrack);
       this.Panel1.Controls.Add(this.lblArtist);
-      this.Panel1.Location = new Point(8, 8);
+      this.Panel1.Location = new System.Drawing.Point(8, 8);
       this.Panel1.Name = "Panel1";
-      this.Panel1.Size = new Size(0x2a0, 0x80);
+      this.Panel1.Size = new System.Drawing.Size(672, 128);
       this.Panel1.TabIndex = 1;
+      // 
+      // txtPOS2
+      // 
       this.txtPOS2.AllowNegative = false;
       this.txtPOS2.DigitsInGroup = 0;
-      this.txtPOS2.Flags = 0x10000;
-      this.txtPOS2.Location = new Point(560, 0x66);
+      this.txtPOS2.Flags = 65536;
+      this.txtPOS2.Location = new System.Drawing.Point(560, 102);
       this.txtPOS2.MaxDecimalPlaces = 0;
       this.txtPOS2.MaxLength = 6;
       this.txtPOS2.MaxWholeDigits = 6;
       this.txtPOS2.Name = "txtPOS2";
       this.txtPOS2.Prefix = "";
-      this.txtPOS2.RangeMax = 999999.0;
-      this.txtPOS2.RangeMin = 0.0;
-      this.txtPOS2.Size = new Size(0x40, 20);
-      this.txtPOS2.TabIndex = 0x1a;
+      this.txtPOS2.RangeMax = 999999D;
+      this.txtPOS2.RangeMin = 0D;
+      this.txtPOS2.Size = new System.Drawing.Size(64, 20);
+      this.txtPOS2.TabIndex = 26;
+      this.txtPOS2.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtPOS2.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtPOS2.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtPOS1
+      // 
       this.txtPOS1.AllowNegative = false;
       this.txtPOS1.DigitsInGroup = 0;
-      this.txtPOS1.Flags = 0x10000;
-      this.txtPOS1.Location = new Point(0x1d8, 0x66);
+      this.txtPOS1.Flags = 65536;
+      this.txtPOS1.Location = new System.Drawing.Point(472, 102);
       this.txtPOS1.MaxDecimalPlaces = 0;
       this.txtPOS1.MaxLength = 6;
       this.txtPOS1.MaxWholeDigits = 6;
       this.txtPOS1.Name = "txtPOS1";
       this.txtPOS1.Prefix = "";
-      this.txtPOS1.RangeMax = 999999.0;
-      this.txtPOS1.RangeMin = 0.0;
-      this.txtPOS1.Size = new Size(0x40, 20);
-      this.txtPOS1.TabIndex = 0x19;
+      this.txtPOS1.RangeMax = 999999D;
+      this.txtPOS1.RangeMin = 0D;
+      this.txtPOS1.Size = new System.Drawing.Size(64, 20);
+      this.txtPOS1.TabIndex = 25;
+      this.txtPOS1.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtPOS1.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtPOS1.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtTrack2
+      // 
       this.txtTrack2.AllowNegative = false;
       this.txtTrack2.DigitsInGroup = 0;
-      this.txtTrack2.Flags = 0x10000;
-      this.txtTrack2.Location = new Point(0xe0, 0x66);
+      this.txtTrack2.Flags = 65536;
+      this.txtTrack2.Location = new System.Drawing.Point(224, 102);
       this.txtTrack2.MaxDecimalPlaces = 0;
       this.txtTrack2.MaxLength = 6;
       this.txtTrack2.MaxWholeDigits = 6;
       this.txtTrack2.Name = "txtTrack2";
       this.txtTrack2.Prefix = "";
-      this.txtTrack2.RangeMax = 999999.0;
-      this.txtTrack2.RangeMin = 0.0;
-      this.txtTrack2.Size = new Size(0x40, 20);
-      this.txtTrack2.TabIndex = 0x17;
+      this.txtTrack2.RangeMax = 999999D;
+      this.txtTrack2.RangeMin = 0D;
+      this.txtTrack2.Size = new System.Drawing.Size(64, 20);
+      this.txtTrack2.TabIndex = 23;
+      this.txtTrack2.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtTrack2.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTrack2.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtTrack1
+      // 
       this.txtTrack1.AllowNegative = false;
       this.txtTrack1.DigitsInGroup = 0;
-      this.txtTrack1.Flags = 0x10000;
-      this.txtTrack1.Location = new Point(0x88, 0x66);
+      this.txtTrack1.Flags = 65536;
+      this.txtTrack1.Location = new System.Drawing.Point(136, 102);
       this.txtTrack1.MaxDecimalPlaces = 0;
       this.txtTrack1.MaxLength = 6;
       this.txtTrack1.MaxWholeDigits = 6;
       this.txtTrack1.Name = "txtTrack1";
       this.txtTrack1.Prefix = "";
-      this.txtTrack1.RangeMax = 999999.0;
-      this.txtTrack1.RangeMin = 0.0;
-      this.txtTrack1.Size = new Size(0x40, 20);
-      this.txtTrack1.TabIndex = 0x16;
+      this.txtTrack1.RangeMax = 999999D;
+      this.txtTrack1.RangeMin = 0D;
+      this.txtTrack1.Size = new System.Drawing.Size(64, 20);
+      this.txtTrack1.TabIndex = 22;
+      this.txtTrack1.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtTrack1.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTrack1.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtYear
+      // 
       this.txtYear.Flags = 0;
-      this.txtYear.Location = new Point(0x88, 0x4e);
+      this.txtYear.Location = new System.Drawing.Point(136, 78);
       this.txtYear.Mask = "####-##-##";
       this.txtYear.Name = "txtYear";
-      this.txtYear.Size = new Size(0x70, 20);
+      this.txtYear.Size = new System.Drawing.Size(112, 20);
       this.txtYear.TabIndex = 14;
+      this.txtYear.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtYear.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtYear.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtBPM
+      // 
       this.txtBPM.AllowNegative = false;
       this.txtBPM.DigitsInGroup = 0;
-      this.txtBPM.Flags = 0x10000;
-      this.txtBPM.Location = new Point(0x1d8, 80);
+      this.txtBPM.Flags = 65536;
+      this.txtBPM.Location = new System.Drawing.Point(472, 80);
       this.txtBPM.MaxDecimalPlaces = 0;
       this.txtBPM.MaxLength = 3;
       this.txtBPM.MaxWholeDigits = 3;
       this.txtBPM.Name = "txtBPM";
       this.txtBPM.Prefix = "";
-      this.txtBPM.RangeMax = 999999.0;
-      this.txtBPM.RangeMin = 1.0;
-      this.txtBPM.Size = new Size(0x98, 20);
-      this.txtBPM.TabIndex = 0x13;
+      this.txtBPM.RangeMax = 999999D;
+      this.txtBPM.RangeMin = 1D;
+      this.txtBPM.Size = new System.Drawing.Size(152, 20);
+      this.txtBPM.TabIndex = 19;
+      this.txtBPM.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtBPM.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtBPM.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // cmbArtist
+      // 
       this.cmbArtist.Autocomplete = true;
       this.cmbArtist.ItemHeight = 13;
-      this.cmbArtist.Location = new Point(0x88, 6);
+      this.cmbArtist.Location = new System.Drawing.Point(136, 6);
       this.cmbArtist.Name = "cmbArtist";
-      this.cmbArtist.Size = new Size(0x1e8, 0x15);
+      this.cmbArtist.Size = new System.Drawing.Size(488, 21);
       this.cmbArtist.TabIndex = 5;
-      this.CheckBox8.ImeMode = ImeMode.NoControl;
-      this.CheckBox8.Location = new Point(0x278, 80);
+      this.cmbArtist.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.cmbArtist.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbArtist.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // CheckBox8
+      // 
+      this.CheckBox8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox8.Location = new System.Drawing.Point(632, 80);
       this.CheckBox8.Name = "CheckBox8";
-      this.CheckBox8.Size = new Size(0x10, 0x10);
+      this.CheckBox8.Size = new System.Drawing.Size(16, 16);
       this.CheckBox8.TabIndex = 20;
-      this.CheckBox7.ImeMode = ImeMode.NoControl;
-      this.CheckBox7.Location = new Point(0x278, 0x68);
+      // 
+      // CheckBox7
+      // 
+      this.CheckBox7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox7.Location = new System.Drawing.Point(632, 104);
       this.CheckBox7.Name = "CheckBox7";
-      this.CheckBox7.Size = new Size(0x10, 0x10);
-      this.CheckBox7.TabIndex = 0x1c;
-      this.CheckBox6.ImeMode = ImeMode.NoControl;
-      this.CheckBox6.Location = new Point(0x130, 0x68);
+      this.CheckBox7.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox7.TabIndex = 28;
+      // 
+      // CheckBox6
+      // 
+      this.CheckBox6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox6.Location = new System.Drawing.Point(304, 104);
       this.CheckBox6.Name = "CheckBox6";
-      this.CheckBox6.Size = new Size(0x10, 0x10);
-      this.CheckBox6.TabIndex = 0x18;
-      this.CheckBox4.ImeMode = ImeMode.NoControl;
-      this.CheckBox4.Location = new Point(0x130, 80);
+      this.CheckBox6.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox6.TabIndex = 24;
+      // 
+      // CheckBox4
+      // 
+      this.CheckBox4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox4.Location = new System.Drawing.Point(304, 80);
       this.CheckBox4.Name = "CheckBox4";
-      this.CheckBox4.Size = new Size(0x10, 0x10);
-      this.CheckBox4.TabIndex = 0x11;
-      this.CheckBox3.ImeMode = ImeMode.NoControl;
-      this.CheckBox3.Location = new Point(0x278, 0x38);
+      this.CheckBox4.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox4.TabIndex = 17;
+      // 
+      // CheckBox3
+      // 
+      this.CheckBox3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox3.Location = new System.Drawing.Point(632, 56);
       this.CheckBox3.Name = "CheckBox3";
-      this.CheckBox3.Size = new Size(0x10, 0x10);
+      this.CheckBox3.Size = new System.Drawing.Size(16, 16);
       this.CheckBox3.TabIndex = 12;
-      this.CheckBox2.ImeMode = ImeMode.NoControl;
-      this.CheckBox2.Location = new Point(0x278, 0x20);
+      // 
+      // CheckBox2
+      // 
+      this.CheckBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox2.Location = new System.Drawing.Point(632, 32);
       this.CheckBox2.Name = "CheckBox2";
-      this.CheckBox2.Size = new Size(0x10, 0x10);
+      this.CheckBox2.Size = new System.Drawing.Size(16, 16);
       this.CheckBox2.TabIndex = 9;
-      this.CheckBox1.ImeMode = ImeMode.NoControl;
-      this.CheckBox1.Location = new Point(0x278, 8);
+      // 
+      // CheckBox1
+      // 
+      this.CheckBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox1.Location = new System.Drawing.Point(632, 8);
       this.CheckBox1.Name = "CheckBox1";
-      this.CheckBox1.Size = new Size(0x10, 0x10);
+      this.CheckBox1.Size = new System.Drawing.Size(16, 16);
       this.CheckBox1.TabIndex = 6;
-      this.lblBPM.ImeMode = ImeMode.NoControl;
-      this.lblBPM.Location = new Point(0x160, 80);
+      // 
+      // lblBPM
+      // 
+      this.lblBPM.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblBPM.Location = new System.Drawing.Point(352, 80);
       this.lblBPM.Name = "lblBPM";
-      this.lblBPM.Size = new Size(0x68, 0x10);
-      this.lblBPM.TabIndex = 0x12;
+      this.lblBPM.Size = new System.Drawing.Size(104, 16);
+      this.lblBPM.TabIndex = 18;
       this.lblBPM.Text = "BP&M:";
-      this.YearFormat.ImeMode = ImeMode.NoControl;
+      // 
+      // YearFormat
+      // 
+      this.YearFormat.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.YearFormat.LargeChange = 1;
-      this.YearFormat.Location = new Point(0x100, 80);
+      this.YearFormat.Location = new System.Drawing.Point(256, 80);
       this.YearFormat.Maximum = 2;
       this.YearFormat.Name = "YearFormat";
-      this.YearFormat.Size = new Size(0x20, 0x10);
+      this.YearFormat.Size = new System.Drawing.Size(32, 16);
       this.YearFormat.TabIndex = 15;
-      this.lblOf2.ImeMode = ImeMode.NoControl;
-      this.lblOf2.Location = new Point(0x220, 0x68);
+      this.YearFormat.Scroll += new System.Windows.Forms.ScrollEventHandler(this.YearFormat_Scroll);
+      // 
+      // lblOf2
+      // 
+      this.lblOf2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOf2.Location = new System.Drawing.Point(544, 104);
       this.lblOf2.Name = "lblOf2";
-      this.lblOf2.Size = new Size(0x10, 0x10);
-      this.lblOf2.TabIndex = 0x15;
+      this.lblOf2.Size = new System.Drawing.Size(16, 16);
+      this.lblOf2.TabIndex = 21;
       this.lblOf2.Text = "/";
-      this.lblOf1.ImeMode = ImeMode.NoControl;
-      this.lblOf1.Location = new Point(0xd0, 0x68);
+      // 
+      // lblOf1
+      // 
+      this.lblOf1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOf1.Location = new System.Drawing.Point(208, 104);
       this.lblOf1.Name = "lblOf1";
-      this.lblOf1.Size = new Size(0x10, 0x10);
-      this.lblOf1.TabIndex = 0x10;
+      this.lblOf1.Size = new System.Drawing.Size(16, 16);
+      this.lblOf1.TabIndex = 16;
       this.lblOf1.Text = "/";
-      this.txtAlbum.Location = new Point(0x88, 0x36);
+      // 
+      // txtAlbum
+      // 
+      this.txtAlbum.Location = new System.Drawing.Point(136, 54);
       this.txtAlbum.Name = "txtAlbum";
-      this.txtAlbum.Size = new Size(0x1e8, 20);
+      this.txtAlbum.Size = new System.Drawing.Size(488, 20);
       this.txtAlbum.TabIndex = 11;
-      this.txtAlbum.Text = "";
-      this.txtTitle.Location = new Point(0x88, 30);
+      this.txtAlbum.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtAlbum.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtAlbum.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtTitle
+      // 
+      this.txtTitle.Location = new System.Drawing.Point(136, 30);
       this.txtTitle.Name = "txtTitle";
-      this.txtTitle.Size = new Size(0x1e8, 20);
+      this.txtTitle.Size = new System.Drawing.Size(488, 20);
       this.txtTitle.TabIndex = 8;
-      this.txtTitle.Text = "";
-      this.lblTitle.ImeMode = ImeMode.NoControl;
-      this.lblTitle.Location = new Point(8, 0x20);
+      this.txtTitle.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtTitle.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTitle.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblTitle
+      // 
+      this.lblTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTitle.Location = new System.Drawing.Point(8, 32);
       this.lblTitle.Name = "lblTitle";
-      this.lblTitle.Size = new Size(0x80, 0x10);
+      this.lblTitle.Size = new System.Drawing.Size(128, 16);
       this.lblTitle.TabIndex = 7;
       this.lblTitle.Text = "&Title:";
-      this.lblAlbum.ImeMode = ImeMode.NoControl;
-      this.lblAlbum.Location = new Point(8, 0x38);
+      // 
+      // lblAlbum
+      // 
+      this.lblAlbum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblAlbum.Location = new System.Drawing.Point(8, 56);
       this.lblAlbum.Name = "lblAlbum";
-      this.lblAlbum.Size = new Size(0x80, 0x10);
+      this.lblAlbum.Size = new System.Drawing.Size(128, 16);
       this.lblAlbum.TabIndex = 10;
       this.lblAlbum.Text = "Al&bum:";
-      this.lblPosMedia.ImeMode = ImeMode.NoControl;
-      this.lblPosMedia.Location = new Point(0x160, 0x68);
+      // 
+      // lblPosMedia
+      // 
+      this.lblPosMedia.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPosMedia.Location = new System.Drawing.Point(352, 104);
       this.lblPosMedia.Name = "lblPosMedia";
-      this.lblPosMedia.Size = new Size(120, 0x10);
-      this.lblPosMedia.TabIndex = 0x19;
+      this.lblPosMedia.Size = new System.Drawing.Size(120, 16);
+      this.lblPosMedia.TabIndex = 25;
       this.lblPosMedia.Text = "Position in media &set:";
-      this.lblYear.ImeMode = ImeMode.NoControl;
-      this.lblYear.Location = new Point(8, 80);
+      // 
+      // lblYear
+      // 
+      this.lblYear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblYear.Location = new System.Drawing.Point(8, 80);
       this.lblYear.Name = "lblYear";
-      this.lblYear.Size = new Size(0x80, 0x10);
+      this.lblYear.Size = new System.Drawing.Size(128, 16);
       this.lblYear.TabIndex = 13;
       this.lblYear.Text = "&Year (date) of recording:";
-      this.lblTrack.ImeMode = ImeMode.NoControl;
-      this.lblTrack.Location = new Point(8, 0x68);
+      // 
+      // lblTrack
+      // 
+      this.lblTrack.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTrack.Location = new System.Drawing.Point(8, 104);
       this.lblTrack.Name = "lblTrack";
-      this.lblTrack.Size = new Size(0x80, 0x10);
-      this.lblTrack.TabIndex = 0x15;
+      this.lblTrack.Size = new System.Drawing.Size(128, 16);
+      this.lblTrack.TabIndex = 21;
       this.lblTrack.Text = "Trac&k number:";
-      this.lblArtist.ImeMode = ImeMode.NoControl;
-      this.lblArtist.Location = new Point(8, 8);
+      // 
+      // lblArtist
+      // 
+      this.lblArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblArtist.Location = new System.Drawing.Point(8, 8);
       this.lblArtist.Name = "lblArtist";
-      this.lblArtist.Size = new Size(0x80, 0x10);
+      this.lblArtist.Size = new System.Drawing.Size(128, 16);
       this.lblArtist.TabIndex = 4;
       this.lblArtist.Text = "Lead &Artist:";
-      this.Panel2.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel2
+      // 
+      this.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel2.Controls.Add(this.cmbGenre);
       this.Panel2.Controls.Add(this.lblGenreInfo);
       this.Panel2.Controls.Add(this.CheckBox9);
@@ -1411,62 +1873,100 @@ namespace ID3_TagIT
       this.Panel2.Controls.Add(this.btnAddGenre);
       this.Panel2.Controls.Add(this.lblGenre);
       this.Panel2.Controls.Add(this.GenreList);
-      this.Panel2.Location = new Point(8, 0x90);
+      this.Panel2.Location = new System.Drawing.Point(8, 144);
       this.Panel2.Name = "Panel2";
-      this.Panel2.Size = new Size(0x2a0, 0x70);
+      this.Panel2.Size = new System.Drawing.Size(672, 112);
       this.Panel2.TabIndex = 2;
+      // 
+      // cmbGenre
+      // 
       this.cmbGenre.Autocomplete = true;
       this.cmbGenre.ItemHeight = 13;
-      this.cmbGenre.Location = new Point(0x88, 6);
+      this.cmbGenre.Location = new System.Drawing.Point(136, 6);
       this.cmbGenre.Name = "cmbGenre";
-      this.cmbGenre.Size = new Size(0x100, 0x15);
-      this.cmbGenre.TabIndex = 0x21;
-      this.lblGenreInfo.BorderStyle = BorderStyle.Fixed3D;
-      this.lblGenreInfo.ImeMode = ImeMode.NoControl;
-      this.lblGenreInfo.Location = new Point(400, 0x40);
+      this.cmbGenre.Size = new System.Drawing.Size(256, 21);
+      this.cmbGenre.TabIndex = 33;
+      this.cmbGenre.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.cmbGenre.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbGenre.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblGenreInfo
+      // 
+      this.lblGenreInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblGenreInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblGenreInfo.Location = new System.Drawing.Point(400, 64);
       this.lblGenreInfo.Name = "lblGenreInfo";
-      this.lblGenreInfo.Size = new Size(0x108, 40);
-      this.lblGenreInfo.TabIndex = 0x22;
-      this.lblGenreInfo.Text = "Note: Many programs only show the first genre entered. So move the important genre to the top of the list.";
-      this.CheckBox9.ImeMode = ImeMode.NoControl;
-      this.CheckBox9.Location = new Point(0x178, 0x20);
+      this.lblGenreInfo.Size = new System.Drawing.Size(264, 40);
+      this.lblGenreInfo.TabIndex = 34;
+      this.lblGenreInfo.Text = "Note: Many programs only show the first genre entered. So move the important genr" +
+    "e to the top of the list.";
+      // 
+      // CheckBox9
+      // 
+      this.CheckBox9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox9.Location = new System.Drawing.Point(376, 32);
       this.CheckBox9.Name = "CheckBox9";
-      this.CheckBox9.Size = new Size(0x10, 0x10);
-      this.CheckBox9.TabIndex = 0x26;
-      this.btnMoveGenre.ImeMode = ImeMode.NoControl;
-      this.btnMoveGenre.Location = new Point(400, 0x20);
+      this.CheckBox9.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox9.TabIndex = 38;
+      // 
+      // btnMoveGenre
+      // 
+      this.btnMoveGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnMoveGenre.Location = new System.Drawing.Point(400, 32);
       this.btnMoveGenre.Name = "btnMoveGenre";
-      this.btnMoveGenre.Size = new Size(0x80, 20);
-      this.btnMoveGenre.TabIndex = 0x24;
+      this.btnMoveGenre.Size = new System.Drawing.Size(128, 20);
+      this.btnMoveGenre.TabIndex = 36;
       this.btnMoveGenre.Text = "Move Genre to top";
-      this.btnRemoveGenre.ImeMode = ImeMode.NoControl;
-      this.btnRemoveGenre.Location = new Point(0x218, 8);
+      this.btnMoveGenre.Click += new System.EventHandler(this.btnMoveGenre_Click);
+      // 
+      // btnRemoveGenre
+      // 
+      this.btnRemoveGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveGenre.Location = new System.Drawing.Point(536, 8);
       this.btnRemoveGenre.Name = "btnRemoveGenre";
-      this.btnRemoveGenre.Size = new Size(0x80, 20);
-      this.btnRemoveGenre.TabIndex = 0x23;
+      this.btnRemoveGenre.Size = new System.Drawing.Size(128, 20);
+      this.btnRemoveGenre.TabIndex = 35;
       this.btnRemoveGenre.Text = "Remove Genre";
-      this.btnAddGenre.ImeMode = ImeMode.NoControl;
-      this.btnAddGenre.Location = new Point(400, 8);
+      this.btnRemoveGenre.Click += new System.EventHandler(this.btnRemoveGenre_Click);
+      // 
+      // btnAddGenre
+      // 
+      this.btnAddGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddGenre.Location = new System.Drawing.Point(400, 8);
       this.btnAddGenre.Name = "btnAddGenre";
-      this.btnAddGenre.Size = new Size(0x80, 20);
-      this.btnAddGenre.TabIndex = 0x22;
+      this.btnAddGenre.Size = new System.Drawing.Size(128, 20);
+      this.btnAddGenre.TabIndex = 34;
       this.btnAddGenre.Text = "Add Genre";
-      this.lblGenre.ImeMode = ImeMode.NoControl;
-      this.lblGenre.Location = new Point(8, 8);
+      this.btnAddGenre.Click += new System.EventHandler(this.btnAddGenre_Click);
+      // 
+      // lblGenre
+      // 
+      this.lblGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblGenre.Location = new System.Drawing.Point(8, 8);
       this.lblGenre.Name = "lblGenre";
-      this.lblGenre.Size = new Size(0x80, 0x10);
-      this.lblGenre.TabIndex = 0x20;
+      this.lblGenre.Size = new System.Drawing.Size(128, 16);
+      this.lblGenre.TabIndex = 32;
       this.lblGenre.Text = "&Genre:";
-      this.GenreList.Location = new Point(0x88, 0x20);
+      // 
+      // GenreList
+      // 
+      this.GenreList.Location = new System.Drawing.Point(136, 32);
       this.GenreList.Name = "GenreList";
-      this.GenreList.Size = new Size(0xe8, 0x45);
-      this.GenreList.TabIndex = 0x25;
+      this.GenreList.Size = new System.Drawing.Size(232, 69);
+      this.GenreList.TabIndex = 37;
+      this.GenreList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // panWeb
+      // 
       this.panWeb.Controls.Add(this.Panel10);
-      this.panWeb.Location = new Point(0xa8, 0x20);
+      this.panWeb.Location = new System.Drawing.Point(168, 32);
       this.panWeb.Name = "panWeb";
-      this.panWeb.Size = new Size(0x2b0, 0x130);
+      this.panWeb.Size = new System.Drawing.Size(688, 304);
       this.panWeb.TabIndex = 3;
-      this.Panel10.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel10
+      // 
+      this.Panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel10.Controls.Add(this.CheckBox32);
       this.Panel10.Controls.Add(this.CheckBox31);
       this.Panel10.Controls.Add(this.CheckBox30);
@@ -1491,144 +1991,238 @@ namespace ID3_TagIT
       this.Panel10.Controls.Add(this.lblAudioFileURL);
       this.Panel10.Controls.Add(this.lblArtistURL);
       this.Panel10.Controls.Add(this.lblCopyInfURL);
-      this.Panel10.Location = new Point(8, 8);
+      this.Panel10.Location = new System.Drawing.Point(8, 8);
       this.Panel10.Name = "Panel10";
-      this.Panel10.Size = new Size(0x2a0, 200);
+      this.Panel10.Size = new System.Drawing.Size(672, 200);
       this.Panel10.TabIndex = 0;
-      this.CheckBox32.ImeMode = ImeMode.NoControl;
-      this.CheckBox32.Location = new Point(0x288, 0xb0);
+      // 
+      // CheckBox32
+      // 
+      this.CheckBox32.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox32.Location = new System.Drawing.Point(648, 176);
       this.CheckBox32.Name = "CheckBox32";
-      this.CheckBox32.Size = new Size(0x10, 0x10);
-      this.CheckBox32.TabIndex = 0x19;
-      this.CheckBox31.ImeMode = ImeMode.NoControl;
-      this.CheckBox31.Location = new Point(0x288, 0x98);
+      this.CheckBox32.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox32.TabIndex = 25;
+      // 
+      // CheckBox31
+      // 
+      this.CheckBox31.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox31.Location = new System.Drawing.Point(648, 152);
       this.CheckBox31.Name = "CheckBox31";
-      this.CheckBox31.Size = new Size(0x10, 0x10);
-      this.CheckBox31.TabIndex = 0x16;
-      this.CheckBox30.ImeMode = ImeMode.NoControl;
-      this.CheckBox30.Location = new Point(0x288, 0x80);
+      this.CheckBox31.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox31.TabIndex = 22;
+      // 
+      // CheckBox30
+      // 
+      this.CheckBox30.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox30.Location = new System.Drawing.Point(648, 128);
       this.CheckBox30.Name = "CheckBox30";
-      this.CheckBox30.Size = new Size(0x10, 0x10);
-      this.CheckBox30.TabIndex = 0x13;
-      this.CheckBox29.ImeMode = ImeMode.NoControl;
-      this.CheckBox29.Location = new Point(0x288, 0x68);
+      this.CheckBox30.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox30.TabIndex = 19;
+      // 
+      // CheckBox29
+      // 
+      this.CheckBox29.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox29.Location = new System.Drawing.Point(648, 104);
       this.CheckBox29.Name = "CheckBox29";
-      this.CheckBox29.Size = new Size(0x10, 0x10);
-      this.CheckBox29.TabIndex = 0x10;
-      this.CheckBox28.ImeMode = ImeMode.NoControl;
-      this.CheckBox28.Location = new Point(0x288, 80);
+      this.CheckBox29.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox29.TabIndex = 16;
+      // 
+      // CheckBox28
+      // 
+      this.CheckBox28.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox28.Location = new System.Drawing.Point(648, 80);
       this.CheckBox28.Name = "CheckBox28";
-      this.CheckBox28.Size = new Size(0x10, 0x10);
+      this.CheckBox28.Size = new System.Drawing.Size(16, 16);
       this.CheckBox28.TabIndex = 13;
-      this.CheckBox27.ImeMode = ImeMode.NoControl;
-      this.CheckBox27.Location = new Point(0x288, 0x38);
+      // 
+      // CheckBox27
+      // 
+      this.CheckBox27.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox27.Location = new System.Drawing.Point(648, 56);
       this.CheckBox27.Name = "CheckBox27";
-      this.CheckBox27.Size = new Size(0x10, 0x10);
+      this.CheckBox27.Size = new System.Drawing.Size(16, 16);
       this.CheckBox27.TabIndex = 10;
-      this.CheckBox26.ImeMode = ImeMode.NoControl;
-      this.CheckBox26.Location = new Point(0x288, 0x20);
+      // 
+      // CheckBox26
+      // 
+      this.CheckBox26.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox26.Location = new System.Drawing.Point(648, 32);
       this.CheckBox26.Name = "CheckBox26";
-      this.CheckBox26.Size = new Size(0x10, 0x10);
+      this.CheckBox26.Size = new System.Drawing.Size(16, 16);
       this.CheckBox26.TabIndex = 7;
-      this.CheckBox25.ImeMode = ImeMode.NoControl;
-      this.CheckBox25.Location = new Point(0x288, 8);
+      // 
+      // CheckBox25
+      // 
+      this.CheckBox25.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox25.Location = new System.Drawing.Point(648, 8);
       this.CheckBox25.Name = "CheckBox25";
-      this.CheckBox25.Size = new Size(0x10, 0x10);
+      this.CheckBox25.Size = new System.Drawing.Size(16, 16);
       this.CheckBox25.TabIndex = 4;
-      this.txtCOMMInfURL.Location = new Point(200, 0xae);
+      // 
+      // txtCOMMInfURL
+      // 
+      this.txtCOMMInfURL.Location = new System.Drawing.Point(200, 174);
       this.txtCOMMInfURL.Name = "txtCOMMInfURL";
-      this.txtCOMMInfURL.Size = new Size(440, 20);
-      this.txtCOMMInfURL.TabIndex = 0x18;
-      this.txtCOMMInfURL.Text = "";
-      this.lblCOMMInfURL.ImeMode = ImeMode.NoControl;
-      this.lblCOMMInfURL.Location = new Point(8, 0xb0);
+      this.txtCOMMInfURL.Size = new System.Drawing.Size(440, 20);
+      this.txtCOMMInfURL.TabIndex = 24;
+      this.txtCOMMInfURL.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtCOMMInfURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtCOMMInfURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblCOMMInfURL
+      // 
+      this.lblCOMMInfURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCOMMInfURL.Location = new System.Drawing.Point(8, 176);
       this.lblCOMMInfURL.Name = "lblCOMMInfURL";
-      this.lblCOMMInfURL.Size = new Size(0xb8, 0x10);
-      this.lblCOMMInfURL.TabIndex = 0x17;
+      this.lblCOMMInfURL.Size = new System.Drawing.Size(184, 16);
+      this.lblCOMMInfURL.TabIndex = 23;
       this.lblCOMMInfURL.Text = "Commercial information URL:";
-      this.txtPubURL.Location = new Point(200, 150);
+      // 
+      // txtPubURL
+      // 
+      this.txtPubURL.Location = new System.Drawing.Point(200, 150);
       this.txtPubURL.Name = "txtPubURL";
-      this.txtPubURL.Size = new Size(440, 20);
-      this.txtPubURL.TabIndex = 0x15;
-      this.txtPubURL.Text = "";
-      this.lblPubURL.ImeMode = ImeMode.NoControl;
-      this.lblPubURL.Location = new Point(8, 0x98);
+      this.txtPubURL.Size = new System.Drawing.Size(440, 20);
+      this.txtPubURL.TabIndex = 21;
+      this.txtPubURL.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtPubURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtPubURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblPubURL
+      // 
+      this.lblPubURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPubURL.Location = new System.Drawing.Point(8, 152);
       this.lblPubURL.Name = "lblPubURL";
-      this.lblPubURL.Size = new Size(0xb8, 0x10);
+      this.lblPubURL.Size = new System.Drawing.Size(184, 16);
       this.lblPubURL.TabIndex = 20;
       this.lblPubURL.Text = "Offical publisher URL:";
-      this.txtPayURL.Location = new Point(200, 0x7e);
+      // 
+      // txtPayURL
+      // 
+      this.txtPayURL.Location = new System.Drawing.Point(200, 126);
       this.txtPayURL.Name = "txtPayURL";
-      this.txtPayURL.Size = new Size(440, 20);
-      this.txtPayURL.TabIndex = 0x12;
-      this.txtPayURL.Text = "";
-      this.lblPayURL.ImeMode = ImeMode.NoControl;
-      this.lblPayURL.Location = new Point(8, 0x80);
+      this.txtPayURL.Size = new System.Drawing.Size(440, 20);
+      this.txtPayURL.TabIndex = 18;
+      this.txtPayURL.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtPayURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtPayURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblPayURL
+      // 
+      this.lblPayURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPayURL.Location = new System.Drawing.Point(8, 128);
       this.lblPayURL.Name = "lblPayURL";
-      this.lblPayURL.Size = new Size(0xb8, 0x10);
-      this.lblPayURL.TabIndex = 0x11;
+      this.lblPayURL.Size = new System.Drawing.Size(184, 16);
+      this.lblPayURL.TabIndex = 17;
       this.lblPayURL.Text = "Offical payment URL:";
-      this.txtINetRadioURL.Location = new Point(200, 0x66);
+      // 
+      // txtINetRadioURL
+      // 
+      this.txtINetRadioURL.Location = new System.Drawing.Point(200, 102);
       this.txtINetRadioURL.Name = "txtINetRadioURL";
-      this.txtINetRadioURL.Size = new Size(440, 20);
+      this.txtINetRadioURL.Size = new System.Drawing.Size(440, 20);
       this.txtINetRadioURL.TabIndex = 15;
-      this.txtINetRadioURL.Text = "";
-      this.lblINetRadioURL.ImeMode = ImeMode.NoControl;
-      this.lblINetRadioURL.Location = new Point(8, 0x68);
+      this.txtINetRadioURL.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtINetRadioURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtINetRadioURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblINetRadioURL
+      // 
+      this.lblINetRadioURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblINetRadioURL.Location = new System.Drawing.Point(8, 104);
       this.lblINetRadioURL.Name = "lblINetRadioURL";
-      this.lblINetRadioURL.Size = new Size(0xb8, 0x10);
+      this.lblINetRadioURL.Size = new System.Drawing.Size(184, 16);
       this.lblINetRadioURL.TabIndex = 14;
       this.lblINetRadioURL.Text = "Offical internet radio station URL:";
-      this.txtAudioSRCURL.Location = new Point(200, 0x4e);
+      // 
+      // txtAudioSRCURL
+      // 
+      this.txtAudioSRCURL.Location = new System.Drawing.Point(200, 78);
       this.txtAudioSRCURL.Name = "txtAudioSRCURL";
-      this.txtAudioSRCURL.Size = new Size(440, 20);
+      this.txtAudioSRCURL.Size = new System.Drawing.Size(440, 20);
       this.txtAudioSRCURL.TabIndex = 12;
-      this.txtAudioSRCURL.Text = "";
-      this.lblAudioSRCURL.ImeMode = ImeMode.NoControl;
-      this.lblAudioSRCURL.Location = new Point(8, 80);
+      this.txtAudioSRCURL.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtAudioSRCURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtAudioSRCURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblAudioSRCURL
+      // 
+      this.lblAudioSRCURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblAudioSRCURL.Location = new System.Drawing.Point(8, 80);
       this.lblAudioSRCURL.Name = "lblAudioSRCURL";
-      this.lblAudioSRCURL.Size = new Size(0xb8, 0x10);
+      this.lblAudioSRCURL.Size = new System.Drawing.Size(184, 16);
       this.lblAudioSRCURL.TabIndex = 11;
       this.lblAudioSRCURL.Text = "Offical audio source URL:";
-      this.txtCopyInfURL.Location = new Point(200, 6);
+      // 
+      // txtCopyInfURL
+      // 
+      this.txtCopyInfURL.Location = new System.Drawing.Point(200, 6);
       this.txtCopyInfURL.Name = "txtCopyInfURL";
-      this.txtCopyInfURL.Size = new Size(440, 20);
+      this.txtCopyInfURL.Size = new System.Drawing.Size(440, 20);
       this.txtCopyInfURL.TabIndex = 3;
-      this.txtCopyInfURL.Text = "";
-      this.txtArtistURL.Location = new Point(200, 0x36);
+      this.txtCopyInfURL.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtCopyInfURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtCopyInfURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtArtistURL
+      // 
+      this.txtArtistURL.Location = new System.Drawing.Point(200, 54);
       this.txtArtistURL.Name = "txtArtistURL";
-      this.txtArtistURL.Size = new Size(440, 20);
+      this.txtArtistURL.Size = new System.Drawing.Size(440, 20);
       this.txtArtistURL.TabIndex = 9;
-      this.txtArtistURL.Text = "";
-      this.txtAudioFileURL.Location = new Point(200, 30);
+      this.txtArtistURL.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtArtistURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtArtistURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtAudioFileURL
+      // 
+      this.txtAudioFileURL.Location = new System.Drawing.Point(200, 30);
       this.txtAudioFileURL.Name = "txtAudioFileURL";
-      this.txtAudioFileURL.Size = new Size(440, 20);
+      this.txtAudioFileURL.Size = new System.Drawing.Size(440, 20);
       this.txtAudioFileURL.TabIndex = 6;
-      this.txtAudioFileURL.Text = "";
-      this.lblAudioFileURL.ImeMode = ImeMode.NoControl;
-      this.lblAudioFileURL.Location = new Point(8, 0x20);
+      this.txtAudioFileURL.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtAudioFileURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtAudioFileURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblAudioFileURL
+      // 
+      this.lblAudioFileURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblAudioFileURL.Location = new System.Drawing.Point(8, 32);
       this.lblAudioFileURL.Name = "lblAudioFileURL";
-      this.lblAudioFileURL.Size = new Size(0xb8, 0x10);
+      this.lblAudioFileURL.Size = new System.Drawing.Size(184, 16);
       this.lblAudioFileURL.TabIndex = 5;
       this.lblAudioFileURL.Text = "Offical audio file URL:";
-      this.lblArtistURL.ImeMode = ImeMode.NoControl;
-      this.lblArtistURL.Location = new Point(8, 0x38);
+      // 
+      // lblArtistURL
+      // 
+      this.lblArtistURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblArtistURL.Location = new System.Drawing.Point(8, 56);
       this.lblArtistURL.Name = "lblArtistURL";
-      this.lblArtistURL.Size = new Size(0xb8, 0x10);
+      this.lblArtistURL.Size = new System.Drawing.Size(184, 16);
       this.lblArtistURL.TabIndex = 8;
       this.lblArtistURL.Text = "Offical artist URL:";
-      this.lblCopyInfURL.ImeMode = ImeMode.NoControl;
-      this.lblCopyInfURL.Location = new Point(8, 8);
+      // 
+      // lblCopyInfURL
+      // 
+      this.lblCopyInfURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCopyInfURL.Location = new System.Drawing.Point(8, 8);
       this.lblCopyInfURL.Name = "lblCopyInfURL";
-      this.lblCopyInfURL.Size = new Size(0xb8, 0x10);
+      this.lblCopyInfURL.Size = new System.Drawing.Size(184, 16);
       this.lblCopyInfURL.TabIndex = 2;
       this.lblCopyInfURL.Text = "Copyright information URL:";
+      // 
+      // panRating
+      // 
       this.panRating.Controls.Add(this.Panel11);
-      this.panRating.Location = new Point(0xa8, 0x18);
+      this.panRating.Location = new System.Drawing.Point(168, 24);
       this.panRating.Name = "panRating";
-      this.panRating.Size = new Size(0x2b0, 0x1c0);
+      this.panRating.Size = new System.Drawing.Size(688, 448);
       this.panRating.TabIndex = 2;
-      this.Panel11.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel11
+      // 
+      this.Panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel11.Controls.Add(this.CheckBox33);
       this.Panel11.Controls.Add(this.lblInfo);
       this.Panel11.Controls.Add(this.btnMoveRating);
@@ -1641,98 +2235,175 @@ namespace ID3_TagIT
       this.Panel11.Controls.Add(this.lblRatingRating);
       this.Panel11.Controls.Add(this.lblRatingCounter);
       this.Panel11.Controls.Add(this.lblRatingUser);
-      this.Panel11.Location = new Point(8, 8);
+      this.Panel11.Location = new System.Drawing.Point(8, 8);
       this.Panel11.Name = "Panel11";
-      this.Panel11.Size = new Size(0x2a0, 0x130);
+      this.Panel11.Size = new System.Drawing.Size(672, 304);
       this.Panel11.TabIndex = 1;
-      this.CheckBox33.ImeMode = ImeMode.NoControl;
-      this.CheckBox33.Location = new Point(0x88, 0xe8);
+      // 
+      // CheckBox33
+      // 
+      this.CheckBox33.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox33.Location = new System.Drawing.Point(136, 232);
       this.CheckBox33.Name = "CheckBox33";
-      this.CheckBox33.Size = new Size(0x210, 0x10);
-      this.CheckBox33.TabIndex = 0x23;
+      this.CheckBox33.Size = new System.Drawing.Size(528, 16);
+      this.CheckBox33.TabIndex = 35;
       this.CheckBox33.Text = "Remove all existing ratings first";
-      this.lblInfo.BorderStyle = BorderStyle.Fixed3D;
-      this.lblInfo.ImeMode = ImeMode.NoControl;
-      this.lblInfo.Location = new Point(0x88, 0x100);
+      // 
+      // lblInfo
+      // 
+      this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInfo.Location = new System.Drawing.Point(136, 256);
       this.lblInfo.Name = "lblInfo";
-      this.lblInfo.Size = new Size(0x210, 40);
-      this.lblInfo.TabIndex = 0x2b;
-      this.lblInfo.Text = "The rating is 1-255 where 1 is worst and 255 is best. Note that many programs have their own rating scale. The scale 1-255 is given by the ID3 standard and the other programs rescale it.";
-      this.lblInfo.TextAlign = ContentAlignment.MiddleCenter;
-      this.btnMoveRating.ImeMode = ImeMode.NoControl;
-      this.btnMoveRating.Location = new Point(0x1e8, 0x58);
+      this.lblInfo.Size = new System.Drawing.Size(528, 40);
+      this.lblInfo.TabIndex = 43;
+      this.lblInfo.Text = "The rating is 1-255 where 1 is worst and 255 is best. Note that many programs hav" +
+    "e their own rating scale. The scale 1-255 is given by the ID3 standard and the o" +
+    "ther programs rescale it.";
+      this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // btnMoveRating
+      // 
+      this.btnMoveRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnMoveRating.Location = new System.Drawing.Point(488, 88);
       this.btnMoveRating.Name = "btnMoveRating";
-      this.btnMoveRating.Size = new Size(0xb0, 0x18);
-      this.btnMoveRating.TabIndex = 0x22;
+      this.btnMoveRating.Size = new System.Drawing.Size(176, 24);
+      this.btnMoveRating.TabIndex = 34;
       this.btnMoveRating.Text = "Move Rating to top";
-      this.btnRemoveRating.ImeMode = ImeMode.NoControl;
-      this.btnRemoveRating.Location = new Point(0x138, 0x58);
+      this.btnMoveRating.Click += new System.EventHandler(this.btnMoveRating_Click);
+      // 
+      // btnRemoveRating
+      // 
+      this.btnRemoveRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveRating.Location = new System.Drawing.Point(312, 88);
       this.btnRemoveRating.Name = "btnRemoveRating";
-      this.btnRemoveRating.Size = new Size(0xa8, 0x18);
-      this.btnRemoveRating.TabIndex = 0x21;
+      this.btnRemoveRating.Size = new System.Drawing.Size(168, 24);
+      this.btnRemoveRating.TabIndex = 33;
       this.btnRemoveRating.Text = "Remove Rating";
-      this.btnAddRating.ImeMode = ImeMode.NoControl;
-      this.btnAddRating.Location = new Point(0x88, 0x58);
+      this.btnRemoveRating.Click += new System.EventHandler(this.btnRemoveRating_Click);
+      // 
+      // btnAddRating
+      // 
+      this.btnAddRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddRating.Location = new System.Drawing.Point(136, 88);
       this.btnAddRating.Name = "btnAddRating";
-      this.btnAddRating.Size = new Size(0xa8, 0x18);
-      this.btnAddRating.TabIndex = 0x20;
+      this.btnAddRating.Size = new System.Drawing.Size(168, 24);
+      this.btnAddRating.TabIndex = 32;
       this.btnAddRating.Text = "Add Rating";
+      this.btnAddRating.Click += new System.EventHandler(this.btnAddRating_Click);
+      // 
+      // RatingList
+      // 
       this.RatingList.CheckBoxes = true;
-      this.RatingList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader8, this.ColumnHeader9, this.ColumnHeader10 });
+      this.RatingList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader8,
+            this.ColumnHeader9,
+            this.ColumnHeader10});
       this.RatingList.FullRowSelect = true;
-      this.RatingList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.RatingList.Location = new Point(0x88, 120);
+      this.RatingList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.RatingList.Location = new System.Drawing.Point(136, 120);
       this.RatingList.MultiSelect = false;
       this.RatingList.Name = "RatingList";
-      this.RatingList.Size = new Size(0x210, 0x68);
-      this.RatingList.TabIndex = 0x24;
-      this.RatingList.View = View.Details;
+      this.RatingList.Size = new System.Drawing.Size(528, 104);
+      this.RatingList.TabIndex = 36;
+      this.RatingList.UseCompatibleStateImageBehavior = false;
+      this.RatingList.View = System.Windows.Forms.View.Details;
+      this.RatingList.Click += new System.EventHandler(this.RatingList_Click);
+      // 
+      // ColumnHeader8
+      // 
       this.ColumnHeader8.Text = "User";
-      this.ColumnHeader8.Width = 0x121;
+      this.ColumnHeader8.Width = 289;
+      // 
+      // ColumnHeader9
+      // 
       this.ColumnHeader9.Text = "Rating";
       this.ColumnHeader9.Width = 100;
+      // 
+      // ColumnHeader10
+      // 
       this.ColumnHeader10.Text = "Play Counter";
       this.ColumnHeader10.Width = 80;
-      this.txtRatingCounter.Location = new Point(0x88, 0x36);
-      this.txtRatingCounter.Maximum = new decimal(new int[] { 0xf4240, 0, 0, 0 });
+      // 
+      // txtRatingCounter
+      // 
+      this.txtRatingCounter.Location = new System.Drawing.Point(136, 54);
+      this.txtRatingCounter.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
       this.txtRatingCounter.Name = "txtRatingCounter";
-      this.txtRatingCounter.Size = new Size(80, 20);
-      this.txtRatingCounter.TabIndex = 0x1f;
-      this.txtRatingRating.Location = new Point(0x88, 30);
-      this.txtRatingRating.Maximum = new decimal(new int[] { 0xff, 0, 0, 0 });
+      this.txtRatingCounter.Size = new System.Drawing.Size(80, 20);
+      this.txtRatingCounter.TabIndex = 31;
+      this.txtRatingCounter.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtRatingCounter.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtRatingCounter.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtRatingRating
+      // 
+      this.txtRatingRating.Location = new System.Drawing.Point(136, 30);
+      this.txtRatingRating.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
       this.txtRatingRating.Name = "txtRatingRating";
-      this.txtRatingRating.Size = new Size(80, 20);
-      this.txtRatingRating.TabIndex = 0x1d;
-      this.txtRatingUser.Location = new Point(0x88, 6);
+      this.txtRatingRating.Size = new System.Drawing.Size(80, 20);
+      this.txtRatingRating.TabIndex = 29;
+      this.txtRatingRating.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtRatingRating.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtRatingRating.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtRatingUser
+      // 
+      this.txtRatingUser.Location = new System.Drawing.Point(136, 6);
       this.txtRatingUser.Name = "txtRatingUser";
-      this.txtRatingUser.Size = new Size(0xe0, 20);
-      this.txtRatingUser.TabIndex = 0x1b;
-      this.txtRatingUser.Text = "";
-      this.lblRatingRating.ImeMode = ImeMode.NoControl;
-      this.lblRatingRating.Location = new Point(8, 0x20);
+      this.txtRatingUser.Size = new System.Drawing.Size(224, 20);
+      this.txtRatingUser.TabIndex = 27;
+      this.txtRatingUser.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtRatingUser.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtRatingUser.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblRatingRating
+      // 
+      this.lblRatingRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblRatingRating.Location = new System.Drawing.Point(8, 32);
       this.lblRatingRating.Name = "lblRatingRating";
-      this.lblRatingRating.Size = new Size(120, 0x10);
-      this.lblRatingRating.TabIndex = 0x1c;
+      this.lblRatingRating.Size = new System.Drawing.Size(120, 16);
+      this.lblRatingRating.TabIndex = 28;
       this.lblRatingRating.Text = "Rating:";
-      this.lblRatingCounter.ImeMode = ImeMode.NoControl;
-      this.lblRatingCounter.Location = new Point(8, 0x38);
+      // 
+      // lblRatingCounter
+      // 
+      this.lblRatingCounter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblRatingCounter.Location = new System.Drawing.Point(8, 56);
       this.lblRatingCounter.Name = "lblRatingCounter";
-      this.lblRatingCounter.Size = new Size(120, 0x10);
+      this.lblRatingCounter.Size = new System.Drawing.Size(120, 16);
       this.lblRatingCounter.TabIndex = 30;
       this.lblRatingCounter.Text = "Play counter:";
-      this.lblRatingUser.ImeMode = ImeMode.NoControl;
-      this.lblRatingUser.Location = new Point(8, 8);
+      // 
+      // lblRatingUser
+      // 
+      this.lblRatingUser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblRatingUser.Location = new System.Drawing.Point(8, 8);
       this.lblRatingUser.Name = "lblRatingUser";
-      this.lblRatingUser.Size = new Size(120, 0x10);
-      this.lblRatingUser.TabIndex = 0x1a;
+      this.lblRatingUser.Size = new System.Drawing.Size(120, 16);
+      this.lblRatingUser.TabIndex = 26;
       this.lblRatingUser.Text = "User (email):";
+      // 
+      // panInvolved
+      // 
       this.panInvolved.Controls.Add(this.Panel15);
       this.panInvolved.Controls.Add(this.Panel16);
-      this.panInvolved.Location = new Point(0xa8, 0x20);
+      this.panInvolved.Location = new System.Drawing.Point(168, 32);
       this.panInvolved.Name = "panInvolved";
-      this.panInvolved.Size = new Size(0x2b0, 0x198);
+      this.panInvolved.Size = new System.Drawing.Size(688, 408);
       this.panInvolved.TabIndex = 3;
-      this.Panel15.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel15
+      // 
+      this.Panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel15.Controls.Add(this.CheckBox45);
       this.Panel15.Controls.Add(this.lblMusicianInfo);
       this.Panel15.Controls.Add(this.txtMusicianName);
@@ -1742,69 +2413,113 @@ namespace ID3_TagIT
       this.Panel15.Controls.Add(this.lblMusicianInst);
       this.Panel15.Controls.Add(this.txtMusicianInst);
       this.Panel15.Controls.Add(this.TMCLList);
-      this.Panel15.Location = new Point(8, 160);
+      this.Panel15.Location = new System.Drawing.Point(8, 160);
       this.Panel15.Name = "Panel15";
-      this.Panel15.Size = new Size(0x2a0, 0x90);
+      this.Panel15.Size = new System.Drawing.Size(672, 144);
       this.Panel15.TabIndex = 2;
-      this.CheckBox45.ImeMode = ImeMode.NoControl;
-      this.CheckBox45.Location = new Point(0x288, 0x40);
+      // 
+      // CheckBox45
+      // 
+      this.CheckBox45.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox45.Location = new System.Drawing.Point(648, 64);
       this.CheckBox45.Name = "CheckBox45";
-      this.CheckBox45.Size = new Size(0x10, 0x10);
-      this.CheckBox45.TabIndex = 0x1a;
-      this.lblMusicianInfo.ImeMode = ImeMode.NoControl;
-      this.lblMusicianInfo.Location = new Point(8, 120);
+      this.CheckBox45.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox45.TabIndex = 26;
+      // 
+      // lblMusicianInfo
+      // 
+      this.lblMusicianInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblMusicianInfo.Location = new System.Drawing.Point(8, 120);
       this.lblMusicianInfo.Name = "lblMusicianInfo";
-      this.lblMusicianInfo.Size = new Size(0x80, 0x10);
-      this.lblMusicianInfo.TabIndex = 0x10;
+      this.lblMusicianInfo.Size = new System.Drawing.Size(128, 16);
+      this.lblMusicianInfo.TabIndex = 16;
       this.lblMusicianInfo.Text = "(TAG Ver. 2.4 only)";
-      this.txtMusicianName.Location = new Point(160, 30);
+      // 
+      // txtMusicianName
+      // 
+      this.txtMusicianName.Location = new System.Drawing.Point(160, 30);
       this.txtMusicianName.Name = "txtMusicianName";
-      this.txtMusicianName.Size = new Size(0x158, 20);
-      this.txtMusicianName.TabIndex = 0x16;
-      this.txtMusicianName.Text = "";
-      this.btnRemoveMusician.ImeMode = ImeMode.NoControl;
-      this.btnRemoveMusician.Location = new Point(0x200, 0x20);
+      this.txtMusicianName.Size = new System.Drawing.Size(344, 20);
+      this.txtMusicianName.TabIndex = 22;
+      this.txtMusicianName.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtMusicianName.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // btnRemoveMusician
+      // 
+      this.btnRemoveMusician.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveMusician.Location = new System.Drawing.Point(512, 32);
       this.btnRemoveMusician.Name = "btnRemoveMusician";
-      this.btnRemoveMusician.Size = new Size(0x98, 20);
-      this.btnRemoveMusician.TabIndex = 0x18;
+      this.btnRemoveMusician.Size = new System.Drawing.Size(152, 20);
+      this.btnRemoveMusician.TabIndex = 24;
       this.btnRemoveMusician.Text = "Remove musician";
-      this.btnAddMusician.ImeMode = ImeMode.NoControl;
-      this.btnAddMusician.Location = new Point(0x200, 8);
+      this.btnRemoveMusician.Click += new System.EventHandler(this.btnRemoveMusican_Click);
+      // 
+      // btnAddMusician
+      // 
+      this.btnAddMusician.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddMusician.Location = new System.Drawing.Point(512, 8);
       this.btnAddMusician.Name = "btnAddMusician";
-      this.btnAddMusician.Size = new Size(0x98, 20);
-      this.btnAddMusician.TabIndex = 0x17;
+      this.btnAddMusician.Size = new System.Drawing.Size(152, 20);
+      this.btnAddMusician.TabIndex = 23;
       this.btnAddMusician.Text = "Add musician";
-      this.lblMusicianName.ImeMode = ImeMode.NoControl;
-      this.lblMusicianName.Location = new Point(8, 0x20);
+      this.btnAddMusician.Click += new System.EventHandler(this.btnAddMusican_Click);
+      // 
+      // lblMusicianName
+      // 
+      this.lblMusicianName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblMusicianName.Location = new System.Drawing.Point(8, 32);
       this.lblMusicianName.Name = "lblMusicianName";
-      this.lblMusicianName.Size = new Size(0x80, 0x10);
-      this.lblMusicianName.TabIndex = 0x15;
+      this.lblMusicianName.Size = new System.Drawing.Size(128, 16);
+      this.lblMusicianName.TabIndex = 21;
       this.lblMusicianName.Text = "Musician name:";
-      this.lblMusicianInst.ImeMode = ImeMode.NoControl;
-      this.lblMusicianInst.Location = new Point(8, 8);
+      // 
+      // lblMusicianInst
+      // 
+      this.lblMusicianInst.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblMusicianInst.Location = new System.Drawing.Point(8, 8);
       this.lblMusicianInst.Name = "lblMusicianInst";
-      this.lblMusicianInst.Size = new Size(0x80, 0x10);
-      this.lblMusicianInst.TabIndex = 0x13;
+      this.lblMusicianInst.Size = new System.Drawing.Size(128, 16);
+      this.lblMusicianInst.TabIndex = 19;
       this.lblMusicianInst.Text = "Musician instrument:";
-      this.txtMusicianInst.Location = new Point(160, 6);
+      // 
+      // txtMusicianInst
+      // 
+      this.txtMusicianInst.Location = new System.Drawing.Point(160, 6);
       this.txtMusicianInst.Name = "txtMusicianInst";
-      this.txtMusicianInst.Size = new Size(0x158, 20);
+      this.txtMusicianInst.Size = new System.Drawing.Size(344, 20);
       this.txtMusicianInst.TabIndex = 20;
-      this.txtMusicianInst.Text = "";
-      this.TMCLList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader15, this.ColumnHeader16 });
+      this.txtMusicianInst.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtMusicianInst.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // TMCLList
+      // 
+      this.TMCLList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader15,
+            this.ColumnHeader16});
       this.TMCLList.FullRowSelect = true;
-      this.TMCLList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.TMCLList.Location = new Point(160, 0x40);
+      this.TMCLList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.TMCLList.Location = new System.Drawing.Point(160, 64);
       this.TMCLList.MultiSelect = false;
       this.TMCLList.Name = "TMCLList";
-      this.TMCLList.Size = new Size(480, 0x48);
-      this.TMCLList.TabIndex = 0x19;
-      this.TMCLList.View = View.Details;
+      this.TMCLList.Size = new System.Drawing.Size(480, 72);
+      this.TMCLList.TabIndex = 25;
+      this.TMCLList.UseCompatibleStateImageBehavior = false;
+      this.TMCLList.View = System.Windows.Forms.View.Details;
+      this.TMCLList.Click += new System.EventHandler(this.TMCLList_Click);
+      // 
+      // ColumnHeader15
+      // 
       this.ColumnHeader15.Text = "Instrument";
       this.ColumnHeader15.Width = 200;
+      // 
+      // ColumnHeader16
+      // 
       this.ColumnHeader16.Text = "Name";
-      this.ColumnHeader16.Width = 0xf7;
-      this.Panel16.BorderStyle = BorderStyle.FixedSingle;
+      this.ColumnHeader16.Width = 247;
+      // 
+      // Panel16
+      // 
+      this.Panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel16.Controls.Add(this.CheckBox44);
       this.Panel16.Controls.Add(this.txtInvPerson);
       this.Panel16.Controls.Add(this.btnRemoveInv);
@@ -1813,68 +2528,112 @@ namespace ID3_TagIT
       this.Panel16.Controls.Add(this.lblInvFunction);
       this.Panel16.Controls.Add(this.txtInvFunction);
       this.Panel16.Controls.Add(this.TIPLList);
-      this.Panel16.Location = new Point(8, 8);
+      this.Panel16.Location = new System.Drawing.Point(8, 8);
       this.Panel16.Name = "Panel16";
-      this.Panel16.Size = new Size(0x2a0, 0x90);
+      this.Panel16.Size = new System.Drawing.Size(672, 144);
       this.Panel16.TabIndex = 1;
-      this.CheckBox44.ImeMode = ImeMode.NoControl;
-      this.CheckBox44.Location = new Point(0x288, 0x40);
+      // 
+      // CheckBox44
+      // 
+      this.CheckBox44.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox44.Location = new System.Drawing.Point(648, 64);
       this.CheckBox44.Name = "CheckBox44";
-      this.CheckBox44.Size = new Size(0x10, 0x10);
-      this.CheckBox44.TabIndex = 0x13;
-      this.txtInvPerson.Location = new Point(160, 30);
+      this.CheckBox44.Size = new System.Drawing.Size(16, 16);
+      this.CheckBox44.TabIndex = 19;
+      // 
+      // txtInvPerson
+      // 
+      this.txtInvPerson.Location = new System.Drawing.Point(160, 30);
       this.txtInvPerson.Name = "txtInvPerson";
-      this.txtInvPerson.Size = new Size(0x158, 20);
+      this.txtInvPerson.Size = new System.Drawing.Size(344, 20);
       this.txtInvPerson.TabIndex = 15;
-      this.txtInvPerson.Text = "";
-      this.btnRemoveInv.ImeMode = ImeMode.NoControl;
-      this.btnRemoveInv.Location = new Point(0x200, 0x20);
+      this.txtInvPerson.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtInvPerson.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // btnRemoveInv
+      // 
+      this.btnRemoveInv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveInv.Location = new System.Drawing.Point(512, 32);
       this.btnRemoveInv.Name = "btnRemoveInv";
-      this.btnRemoveInv.Size = new Size(0x98, 20);
-      this.btnRemoveInv.TabIndex = 0x11;
+      this.btnRemoveInv.Size = new System.Drawing.Size(152, 20);
+      this.btnRemoveInv.TabIndex = 17;
       this.btnRemoveInv.Text = "Remove involved person";
-      this.btnAddInv.ImeMode = ImeMode.NoControl;
-      this.btnAddInv.Location = new Point(0x200, 8);
+      this.btnRemoveInv.Click += new System.EventHandler(this.btnRemoveInv_Click);
+      // 
+      // btnAddInv
+      // 
+      this.btnAddInv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddInv.Location = new System.Drawing.Point(512, 8);
       this.btnAddInv.Name = "btnAddInv";
-      this.btnAddInv.Size = new Size(0x98, 20);
-      this.btnAddInv.TabIndex = 0x10;
+      this.btnAddInv.Size = new System.Drawing.Size(152, 20);
+      this.btnAddInv.TabIndex = 16;
       this.btnAddInv.Text = "Add involved person";
-      this.lblInvPerson.ImeMode = ImeMode.NoControl;
-      this.lblInvPerson.Location = new Point(8, 0x20);
+      this.btnAddInv.Click += new System.EventHandler(this.btnAddInv_Click);
+      // 
+      // lblInvPerson
+      // 
+      this.lblInvPerson.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInvPerson.Location = new System.Drawing.Point(8, 32);
       this.lblInvPerson.Name = "lblInvPerson";
-      this.lblInvPerson.Size = new Size(0x90, 0x10);
+      this.lblInvPerson.Size = new System.Drawing.Size(144, 16);
       this.lblInvPerson.TabIndex = 14;
       this.lblInvPerson.Text = "Involved person name:";
-      this.lblInvFunction.ImeMode = ImeMode.NoControl;
-      this.lblInvFunction.Location = new Point(8, 8);
+      // 
+      // lblInvFunction
+      // 
+      this.lblInvFunction.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInvFunction.Location = new System.Drawing.Point(8, 8);
       this.lblInvFunction.Name = "lblInvFunction";
-      this.lblInvFunction.Size = new Size(0x90, 0x10);
+      this.lblInvFunction.Size = new System.Drawing.Size(144, 16);
       this.lblInvFunction.TabIndex = 12;
       this.lblInvFunction.Text = "Involved person function:";
-      this.txtInvFunction.Location = new Point(160, 6);
+      // 
+      // txtInvFunction
+      // 
+      this.txtInvFunction.Location = new System.Drawing.Point(160, 6);
       this.txtInvFunction.Name = "txtInvFunction";
-      this.txtInvFunction.Size = new Size(0x158, 20);
+      this.txtInvFunction.Size = new System.Drawing.Size(344, 20);
       this.txtInvFunction.TabIndex = 13;
-      this.txtInvFunction.Text = "";
-      this.TIPLList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader17, this.ColumnHeader18 });
+      this.txtInvFunction.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtInvFunction.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // TIPLList
+      // 
+      this.TIPLList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader17,
+            this.ColumnHeader18});
       this.TIPLList.FullRowSelect = true;
-      this.TIPLList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.TIPLList.Location = new Point(160, 0x40);
+      this.TIPLList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.TIPLList.Location = new System.Drawing.Point(160, 64);
       this.TIPLList.MultiSelect = false;
       this.TIPLList.Name = "TIPLList";
-      this.TIPLList.Size = new Size(480, 0x48);
-      this.TIPLList.TabIndex = 0x12;
-      this.TIPLList.View = View.Details;
+      this.TIPLList.Size = new System.Drawing.Size(480, 72);
+      this.TIPLList.TabIndex = 18;
+      this.TIPLList.UseCompatibleStateImageBehavior = false;
+      this.TIPLList.View = System.Windows.Forms.View.Details;
+      this.TIPLList.Click += new System.EventHandler(this.TIPLList_Click);
+      // 
+      // ColumnHeader17
+      // 
       this.ColumnHeader17.Text = "Function";
-      this.ColumnHeader17.Width = 0xb0;
+      this.ColumnHeader17.Width = 176;
+      // 
+      // ColumnHeader18
+      // 
       this.ColumnHeader18.Text = "Name";
-      this.ColumnHeader18.Width = 0x110;
+      this.ColumnHeader18.Width = 272;
+      // 
+      // panPic
+      // 
       this.panPic.Controls.Add(this.Panel7);
-      this.panPic.Location = new Point(0xa8, 0x18);
+      this.panPic.Location = new System.Drawing.Point(168, 24);
       this.panPic.Name = "panPic";
-      this.panPic.Size = new Size(0x2b0, 0x148);
+      this.panPic.Size = new System.Drawing.Size(688, 328);
       this.panPic.TabIndex = 3;
-      this.Panel7.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel7
+      // 
+      this.Panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel7.Controls.Add(this.chkPicRelativPath);
       this.Panel7.Controls.Add(this.CheckBox34);
       this.Panel7.Controls.Add(this.btnRemovePicture);
@@ -1889,116 +2648,213 @@ namespace ID3_TagIT
       this.Panel7.Controls.Add(this.cmbPicType);
       this.Panel7.Controls.Add(this.txtPDescriptor);
       this.Panel7.Controls.Add(this.APICView);
-      this.Panel7.Location = new Point(8, 8);
+      this.Panel7.Location = new System.Drawing.Point(8, 8);
       this.Panel7.Name = "Panel7";
-      this.Panel7.Size = new Size(0x2a0, 0x130);
+      this.Panel7.Size = new System.Drawing.Size(672, 304);
       this.Panel7.TabIndex = 0;
-      this.chkPicRelativPath.Location = new Point(8, 0x70);
+      // 
+      // chkPicRelativPath
+      // 
+      this.chkPicRelativPath.Location = new System.Drawing.Point(8, 112);
       this.chkPicRelativPath.Name = "chkPicRelativPath";
-      this.chkPicRelativPath.Size = new Size(0x1d8, 0x10);
+      this.chkPicRelativPath.Size = new System.Drawing.Size(472, 16);
       this.chkPicRelativPath.TabIndex = 9;
       this.chkPicRelativPath.Text = "Use relativ path if picture is not included";
-      this.CheckBox34.ImeMode = ImeMode.NoControl;
-      this.CheckBox34.Location = new Point(8, 280);
+      this.chkPicRelativPath.CheckedChanged += new System.EventHandler(this.chkPicRelativPath_CheckedChanged);
+      // 
+      // CheckBox34
+      // 
+      this.CheckBox34.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox34.Location = new System.Drawing.Point(8, 280);
       this.CheckBox34.Name = "CheckBox34";
-      this.CheckBox34.Size = new Size(0x290, 0x10);
+      this.CheckBox34.Size = new System.Drawing.Size(656, 16);
       this.CheckBox34.TabIndex = 14;
       this.CheckBox34.Text = "Remove all existing pictures first";
-      this.btnRemovePicture.ImeMode = ImeMode.NoControl;
-      this.btnRemovePicture.Location = new Point(0xa8, 160);
+      // 
+      // btnRemovePicture
+      // 
+      this.btnRemovePicture.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemovePicture.Location = new System.Drawing.Point(168, 160);
       this.btnRemovePicture.Name = "btnRemovePicture";
-      this.btnRemovePicture.Size = new Size(0x98, 0x18);
+      this.btnRemovePicture.Size = new System.Drawing.Size(152, 24);
       this.btnRemovePicture.TabIndex = 11;
       this.btnRemovePicture.Text = "Remove Picture";
+      this.btnRemovePicture.Click += new System.EventHandler(this.btnRemovePicture_Click);
+      // 
+      // btnAddPicture
+      // 
       this.btnAddPicture.Enabled = false;
-      this.btnAddPicture.ImeMode = ImeMode.NoControl;
-      this.btnAddPicture.Location = new Point(8, 160);
+      this.btnAddPicture.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddPicture.Location = new System.Drawing.Point(8, 160);
       this.btnAddPicture.Name = "btnAddPicture";
-      this.btnAddPicture.Size = new Size(0x98, 0x18);
+      this.btnAddPicture.Size = new System.Drawing.Size(152, 24);
       this.btnAddPicture.TabIndex = 10;
       this.btnAddPicture.Text = "Add Picture";
-      this.btnGetPic.ImeMode = ImeMode.NoControl;
-      this.btnGetPic.Location = new Point(0x148, 160);
+      this.btnAddPicture.Click += new System.EventHandler(this.btnAddPicture_Click);
+      // 
+      // btnGetPic
+      // 
+      this.btnGetPic.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnGetPic.Location = new System.Drawing.Point(328, 160);
       this.btnGetPic.Name = "btnGetPic";
-      this.btnGetPic.Size = new Size(0x98, 0x18);
+      this.btnGetPic.Size = new System.Drawing.Size(152, 24);
       this.btnGetPic.TabIndex = 12;
       this.btnGetPic.Text = "Get new picture";
-      this.chkPicInclude.ImeMode = ImeMode.NoControl;
-      this.chkPicInclude.Location = new Point(8, 0x58);
+      this.btnGetPic.Click += new System.EventHandler(this.btnGetPic_Click);
+      // 
+      // chkPicInclude
+      // 
+      this.chkPicInclude.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkPicInclude.Location = new System.Drawing.Point(8, 88);
       this.chkPicInclude.Name = "chkPicInclude";
-      this.chkPicInclude.Size = new Size(0x1d8, 0x10);
+      this.chkPicInclude.Size = new System.Drawing.Size(472, 16);
       this.chkPicInclude.TabIndex = 8;
       this.chkPicInclude.Text = "Include picture within the MP3 file when saving";
-      this.lblPicPath.ImeMode = ImeMode.NoControl;
-      this.lblPicPath.Location = new Point(8, 0x38);
+      this.chkPicInclude.CheckedChanged += new System.EventHandler(this.chkPicInclude_CheckedChanged);
+      // 
+      // lblPicPath
+      // 
+      this.lblPicPath.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPicPath.Location = new System.Drawing.Point(8, 56);
       this.lblPicPath.Name = "lblPicPath";
-      this.lblPicPath.Size = new Size(0x88, 0x10);
+      this.lblPicPath.Size = new System.Drawing.Size(136, 16);
       this.lblPicPath.TabIndex = 6;
       this.lblPicPath.Text = "P&ath containing pic. data:";
-      this.txtPicPath.Location = new Point(0x98, 0x36);
+      // 
+      // txtPicPath
+      // 
+      this.txtPicPath.Location = new System.Drawing.Point(152, 54);
       this.txtPicPath.Name = "txtPicPath";
       this.txtPicPath.ReadOnly = true;
-      this.txtPicPath.Size = new Size(0x148, 20);
+      this.txtPicPath.Size = new System.Drawing.Size(328, 20);
       this.txtPicPath.TabIndex = 7;
-      this.txtPicPath.Text = "";
+      this.txtPicPath.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtPicPath.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtPicPath.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // PicList
+      // 
       this.PicList.CheckBoxes = true;
-      this.PicList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader4, this.ColumnHeader5, this.ColumnHeader6, this.ColumnHeader7 });
+      this.PicList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader4,
+            this.ColumnHeader5,
+            this.ColumnHeader6,
+            this.ColumnHeader7});
       this.PicList.FullRowSelect = true;
-      this.PicList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.PicList.Location = new Point(8, 0xc0);
+      this.PicList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.PicList.Location = new System.Drawing.Point(8, 192);
       this.PicList.MultiSelect = false;
       this.PicList.Name = "PicList";
-      this.PicList.Size = new Size(0x290, 80);
+      this.PicList.Size = new System.Drawing.Size(656, 80);
       this.PicList.TabIndex = 13;
-      this.PicList.View = View.Details;
+      this.PicList.UseCompatibleStateImageBehavior = false;
+      this.PicList.View = System.Windows.Forms.View.Details;
+      this.PicList.Click += new System.EventHandler(this.PicList_Click);
+      this.PicList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // ColumnHeader4
+      // 
       this.ColumnHeader4.Text = "Descriptor";
       this.ColumnHeader4.Width = 160;
+      // 
+      // ColumnHeader5
+      // 
       this.ColumnHeader5.Text = "Picture Type";
       this.ColumnHeader5.Width = 80;
+      // 
+      // ColumnHeader6
+      // 
       this.ColumnHeader6.Text = "Path";
       this.ColumnHeader6.Width = 160;
+      // 
+      // ColumnHeader7
+      // 
       this.ColumnHeader7.Text = "Include";
-      this.lblPicType.ImeMode = ImeMode.NoControl;
-      this.lblPicType.Location = new Point(8, 0x20);
+      // 
+      // lblPicType
+      // 
+      this.lblPicType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPicType.Location = new System.Drawing.Point(8, 32);
       this.lblPicType.Name = "lblPicType";
-      this.lblPicType.Size = new Size(0x88, 0x10);
+      this.lblPicType.Size = new System.Drawing.Size(136, 16);
       this.lblPicType.TabIndex = 4;
       this.lblPicType.Text = "Picture &Type:";
-      this.lblPicDesc.ImeMode = ImeMode.NoControl;
-      this.lblPicDesc.Location = new Point(8, 8);
+      // 
+      // lblPicDesc
+      // 
+      this.lblPicDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPicDesc.Location = new System.Drawing.Point(8, 8);
       this.lblPicDesc.Name = "lblPicDesc";
-      this.lblPicDesc.Size = new Size(0x88, 0x10);
+      this.lblPicDesc.Size = new System.Drawing.Size(136, 16);
       this.lblPicDesc.TabIndex = 2;
       this.lblPicDesc.Text = "&Picture Descriptor:";
-      this.cmbPicType.DropDownStyle = ComboBoxStyle.DropDownList;
+      // 
+      // cmbPicType
+      // 
+      this.cmbPicType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cmbPicType.ItemHeight = 13;
       this.cmbPicType.Items.AddRange(new object[] {
-                "00 - Other", "01 - 32x32 pixels 'file icon' (PNG only)", "02 - Other file icon", "03 - Cover (front)", "04 - Cover (back)", "05 - Leaflet page", "06 - Media (e.g. label side of CD)", "07 - Lead artist/lead performer/soloist", "08 - Artist/performer", "09 - Conductor", "10 - Band/Orchestra", "11 - Composer", "12 - Lyricist/text writer", "13 - Recording Location", "14 - During recording", "15 - During performance",
-                "16 - Movie/video screen capture", "17 - A bright coloured fish", "18 - Illustration", "19 - Band/artist logotype", "20 - Publisher/Studio logotype"
-            });
-      this.cmbPicType.Location = new Point(0x98, 30);
+            "00 - Other",
+            "01 - 32x32 pixels \'file icon\' (PNG only)",
+            "02 - Other file icon",
+            "03 - Cover (front)",
+            "04 - Cover (back)",
+            "05 - Leaflet page",
+            "06 - Media (e.g. label side of CD)",
+            "07 - Lead artist/lead performer/soloist",
+            "08 - Artist/performer",
+            "09 - Conductor",
+            "10 - Band/Orchestra",
+            "11 - Composer",
+            "12 - Lyricist/text writer",
+            "13 - Recording Location",
+            "14 - During recording",
+            "15 - During performance",
+            "16 - Movie/video screen capture",
+            "17 - A bright coloured fish",
+            "18 - Illustration",
+            "19 - Band/artist logotype",
+            "20 - Publisher/Studio logotype"});
+      this.cmbPicType.Location = new System.Drawing.Point(152, 30);
       this.cmbPicType.Name = "cmbPicType";
-      this.cmbPicType.Size = new Size(0x148, 0x15);
+      this.cmbPicType.Size = new System.Drawing.Size(328, 21);
       this.cmbPicType.TabIndex = 5;
-      this.txtPDescriptor.Location = new Point(0x98, 6);
+      this.cmbPicType.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.cmbPicType.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbPicType.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtPDescriptor
+      // 
+      this.txtPDescriptor.Location = new System.Drawing.Point(152, 6);
       this.txtPDescriptor.Name = "txtPDescriptor";
-      this.txtPDescriptor.Size = new Size(0x148, 20);
+      this.txtPDescriptor.Size = new System.Drawing.Size(328, 20);
       this.txtPDescriptor.TabIndex = 3;
-      this.txtPDescriptor.Text = "";
-      this.APICView.BorderStyle = BorderStyle.FixedSingle;
-      this.APICView.ImeMode = ImeMode.NoControl;
-      this.APICView.Location = new Point(0x1e8, 8);
+      this.txtPDescriptor.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtPDescriptor.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtPDescriptor.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // APICView
+      // 
+      this.APICView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.APICView.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.APICView.Location = new System.Drawing.Point(488, 8);
       this.APICView.Name = "APICView";
-      this.APICView.Size = new Size(0xb0, 0xb0);
-      this.APICView.SizeMode = PictureBoxSizeMode.StretchImage;
+      this.APICView.Size = new System.Drawing.Size(176, 176);
+      this.APICView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
       this.APICView.TabIndex = 1;
       this.APICView.TabStop = false;
+      // 
+      // panLyrics
+      // 
       this.panLyrics.Controls.Add(this.Panel8);
-      this.panLyrics.Location = new Point(0xa8, 0x18);
+      this.panLyrics.Location = new System.Drawing.Point(168, 24);
       this.panLyrics.Name = "panLyrics";
-      this.panLyrics.Size = new Size(0x2b0, 0x1c8);
+      this.panLyrics.Size = new System.Drawing.Size(688, 456);
       this.panLyrics.TabIndex = 2;
-      this.Panel8.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel8
+      // 
+      this.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel8.Controls.Add(this.txtLyrics);
       this.Panel8.Controls.Add(this.btnLyricsFile);
       this.Panel8.Controls.Add(this.CheckBox35);
@@ -2011,97 +2867,163 @@ namespace ID3_TagIT
       this.Panel8.Controls.Add(this.cmbLLanguage);
       this.Panel8.Controls.Add(this.txtLDescriptor);
       this.Panel8.Controls.Add(this.LyricsList);
-      this.Panel8.Location = new Point(8, 8);
+      this.Panel8.Location = new System.Drawing.Point(8, 8);
       this.Panel8.Name = "Panel8";
-      this.Panel8.Size = new Size(0x2a0, 440);
+      this.Panel8.Size = new System.Drawing.Size(672, 440);
       this.Panel8.TabIndex = 1;
-      this.txtLyrics.BorderStyle = BorderStyle.FixedSingle;
-      this.txtLyrics.Location = new Point(0x88, 0x38);
+      // 
+      // txtLyrics
+      // 
+      this.txtLyrics.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.txtLyrics.Location = new System.Drawing.Point(136, 56);
       this.txtLyrics.Name = "txtLyrics";
-      this.txtLyrics.Size = new Size(0x210, 0xb8);
-      this.txtLyrics.TabIndex = 0x11;
+      this.txtLyrics.Size = new System.Drawing.Size(528, 184);
+      this.txtLyrics.TabIndex = 17;
       this.txtLyrics.Text = "";
-      this.btnLyricsFile.Location = new Point(0x88, 0xf8);
+      // 
+      // btnLyricsFile
+      // 
+      this.btnLyricsFile.Location = new System.Drawing.Point(136, 248);
       this.btnLyricsFile.Name = "btnLyricsFile";
-      this.btnLyricsFile.Size = new Size(0x210, 0x18);
-      this.btnLyricsFile.TabIndex = 0x12;
+      this.btnLyricsFile.Size = new System.Drawing.Size(528, 24);
+      this.btnLyricsFile.TabIndex = 18;
       this.btnLyricsFile.Text = "Get lyrics from text file";
-      this.CheckBox35.ImeMode = ImeMode.NoControl;
-      this.CheckBox35.Location = new Point(8, 0x1a0);
+      this.btnLyricsFile.Click += new System.EventHandler(this.btnLyricsFile_Click);
+      // 
+      // CheckBox35
+      // 
+      this.CheckBox35.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox35.Location = new System.Drawing.Point(8, 416);
       this.CheckBox35.Name = "CheckBox35";
-      this.CheckBox35.Size = new Size(0x290, 0x10);
-      this.CheckBox35.TabIndex = 0x17;
+      this.CheckBox35.Size = new System.Drawing.Size(656, 16);
+      this.CheckBox35.TabIndex = 23;
       this.CheckBox35.Text = "Remove all existing lyrics first";
-      this.btnMoveLyrics.ImeMode = ImeMode.NoControl;
-      this.btnMoveLyrics.Location = new Point(0x1f0, 280);
+      // 
+      // btnMoveLyrics
+      // 
+      this.btnMoveLyrics.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnMoveLyrics.Location = new System.Drawing.Point(496, 280);
       this.btnMoveLyrics.Name = "btnMoveLyrics";
-      this.btnMoveLyrics.Size = new Size(0xa8, 0x18);
-      this.btnMoveLyrics.TabIndex = 0x15;
+      this.btnMoveLyrics.Size = new System.Drawing.Size(168, 24);
+      this.btnMoveLyrics.TabIndex = 21;
       this.btnMoveLyrics.Text = "Move Lyrics to top";
-      this.btnRemoveLyrics.ImeMode = ImeMode.NoControl;
-      this.btnRemoveLyrics.Location = new Point(0x138, 280);
+      this.btnMoveLyrics.Click += new System.EventHandler(this.btnMoveLyrics_Click);
+      // 
+      // btnRemoveLyrics
+      // 
+      this.btnRemoveLyrics.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveLyrics.Location = new System.Drawing.Point(312, 280);
       this.btnRemoveLyrics.Name = "btnRemoveLyrics";
-      this.btnRemoveLyrics.Size = new Size(0xb0, 0x18);
+      this.btnRemoveLyrics.Size = new System.Drawing.Size(176, 24);
       this.btnRemoveLyrics.TabIndex = 20;
       this.btnRemoveLyrics.Text = "Remove Lyrics";
-      this.btnAddLyrics.ImeMode = ImeMode.NoControl;
-      this.btnAddLyrics.Location = new Point(0x88, 280);
+      this.btnRemoveLyrics.Click += new System.EventHandler(this.btnRemoveLyrics_Click);
+      // 
+      // btnAddLyrics
+      // 
+      this.btnAddLyrics.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddLyrics.Location = new System.Drawing.Point(136, 280);
       this.btnAddLyrics.Name = "btnAddLyrics";
-      this.btnAddLyrics.Size = new Size(0xa8, 0x18);
-      this.btnAddLyrics.TabIndex = 0x13;
+      this.btnAddLyrics.Size = new System.Drawing.Size(168, 24);
+      this.btnAddLyrics.TabIndex = 19;
       this.btnAddLyrics.Text = "Add Lyrics";
-      this.lblLyrics.ImeMode = ImeMode.NoControl;
-      this.lblLyrics.Location = new Point(8, 0x38);
+      this.btnAddLyrics.Click += new System.EventHandler(this.btnAddLyrics_Click);
+      // 
+      // lblLyrics
+      // 
+      this.lblLyrics.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblLyrics.Location = new System.Drawing.Point(8, 56);
       this.lblLyrics.Name = "lblLyrics";
-      this.lblLyrics.Size = new Size(0x80, 0x10);
-      this.lblLyrics.TabIndex = 0x10;
+      this.lblLyrics.Size = new System.Drawing.Size(128, 16);
+      this.lblLyrics.TabIndex = 16;
       this.lblLyrics.Text = "&Lyrics Text:";
-      this.lblLyLan.ImeMode = ImeMode.NoControl;
-      this.lblLyLan.Location = new Point(8, 0x20);
+      // 
+      // lblLyLan
+      // 
+      this.lblLyLan.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblLyLan.Location = new System.Drawing.Point(8, 32);
       this.lblLyLan.Name = "lblLyLan";
-      this.lblLyLan.Size = new Size(0x80, 0x10);
+      this.lblLyLan.Size = new System.Drawing.Size(128, 16);
       this.lblLyLan.TabIndex = 14;
       this.lblLyLan.Text = "Lyrics &Language:";
-      this.lblLyDesc.ImeMode = ImeMode.NoControl;
-      this.lblLyDesc.Location = new Point(8, 8);
+      // 
+      // lblLyDesc
+      // 
+      this.lblLyDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblLyDesc.Location = new System.Drawing.Point(8, 8);
       this.lblLyDesc.Name = "lblLyDesc";
-      this.lblLyDesc.Size = new Size(0x80, 0x10);
+      this.lblLyDesc.Size = new System.Drawing.Size(128, 16);
       this.lblLyDesc.TabIndex = 12;
       this.lblLyDesc.Text = "Lyrics &Descriptor:";
-      this.cmbLLanguage.DropDownStyle = ComboBoxStyle.DropDownList;
+      // 
+      // cmbLLanguage
+      // 
+      this.cmbLLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cmbLLanguage.ItemHeight = 13;
-      this.cmbLLanguage.Location = new Point(0x88, 30);
+      this.cmbLLanguage.Location = new System.Drawing.Point(136, 30);
       this.cmbLLanguage.Name = "cmbLLanguage";
-      this.cmbLLanguage.Size = new Size(0xd0, 0x15);
+      this.cmbLLanguage.Size = new System.Drawing.Size(208, 21);
       this.cmbLLanguage.TabIndex = 15;
-      this.txtLDescriptor.Location = new Point(0x88, 6);
+      this.cmbLLanguage.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.cmbLLanguage.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbLLanguage.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtLDescriptor
+      // 
+      this.txtLDescriptor.Location = new System.Drawing.Point(136, 6);
       this.txtLDescriptor.Name = "txtLDescriptor";
-      this.txtLDescriptor.Size = new Size(0xd0, 20);
+      this.txtLDescriptor.Size = new System.Drawing.Size(208, 20);
       this.txtLDescriptor.TabIndex = 13;
-      this.txtLDescriptor.Text = "";
+      this.txtLDescriptor.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtLDescriptor.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtLDescriptor.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // LyricsList
+      // 
       this.LyricsList.CheckBoxes = true;
-      this.LyricsList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader1, this.ColumnHeader2, this.ColumnHeader3 });
+      this.LyricsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader1,
+            this.ColumnHeader2,
+            this.ColumnHeader3});
       this.LyricsList.FullRowSelect = true;
-      this.LyricsList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.LyricsList.Location = new Point(8, 0x138);
+      this.LyricsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.LyricsList.Location = new System.Drawing.Point(8, 312);
       this.LyricsList.MultiSelect = false;
       this.LyricsList.Name = "LyricsList";
-      this.LyricsList.Size = new Size(0x290, 0x60);
-      this.LyricsList.TabIndex = 0x16;
-      this.LyricsList.View = View.Details;
+      this.LyricsList.Size = new System.Drawing.Size(656, 96);
+      this.LyricsList.TabIndex = 22;
+      this.LyricsList.UseCompatibleStateImageBehavior = false;
+      this.LyricsList.View = System.Windows.Forms.View.Details;
+      this.LyricsList.Click += new System.EventHandler(this.LyricsList_Click);
+      this.LyricsList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // ColumnHeader1
+      // 
       this.ColumnHeader1.Text = "Descriptor";
-      this.ColumnHeader1.Width = 0x8b;
+      this.ColumnHeader1.Width = 139;
+      // 
+      // ColumnHeader2
+      // 
       this.ColumnHeader2.Text = "Text";
-      this.ColumnHeader2.Width = 0x182;
+      this.ColumnHeader2.Width = 386;
+      // 
+      // ColumnHeader3
+      // 
       this.ColumnHeader3.Text = "Language";
-      this.ColumnHeader3.Width = 0x58;
+      this.ColumnHeader3.Width = 88;
+      // 
+      // panUser
+      // 
       this.panUser.Controls.Add(this.Panel12);
       this.panUser.Controls.Add(this.Panel13);
-      this.panUser.Location = new Point(0xa8, 0x18);
+      this.panUser.Location = new System.Drawing.Point(168, 24);
       this.panUser.Name = "panUser";
-      this.panUser.Size = new Size(0x2b0, 0x1c8);
+      this.panUser.Size = new System.Drawing.Size(688, 456);
       this.panUser.TabIndex = 2;
-      this.Panel12.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel12
+      // 
+      this.Panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel12.Controls.Add(this.CheckBox36);
       this.Panel12.Controls.Add(this.txtTXXXContent);
       this.Panel12.Controls.Add(this.btnRemoveTXXX);
@@ -2110,65 +3032,109 @@ namespace ID3_TagIT
       this.Panel12.Controls.Add(this.lblTXXXDesc);
       this.Panel12.Controls.Add(this.txtTXXXDesc);
       this.Panel12.Controls.Add(this.TXXXList);
-      this.Panel12.Location = new Point(8, 8);
+      this.Panel12.Location = new System.Drawing.Point(8, 8);
       this.Panel12.Name = "Panel12";
-      this.Panel12.Size = new Size(0x2a0, 0xd8);
+      this.Panel12.Size = new System.Drawing.Size(672, 216);
       this.Panel12.TabIndex = 0;
-      this.CheckBox36.ImeMode = ImeMode.NoControl;
-      this.CheckBox36.Location = new Point(0x88, 0xc0);
+      // 
+      // CheckBox36
+      // 
+      this.CheckBox36.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox36.Location = new System.Drawing.Point(136, 192);
       this.CheckBox36.Name = "CheckBox36";
-      this.CheckBox36.Size = new Size(520, 0x10);
+      this.CheckBox36.Size = new System.Drawing.Size(520, 16);
       this.CheckBox36.TabIndex = 9;
       this.CheckBox36.Text = "Remove all existing user text frames first";
-      this.txtTXXXContent.Location = new Point(0x88, 30);
+      // 
+      // txtTXXXContent
+      // 
+      this.txtTXXXContent.Location = new System.Drawing.Point(136, 30);
       this.txtTXXXContent.Name = "txtTXXXContent";
-      this.txtTXXXContent.Size = new Size(0x170, 20);
+      this.txtTXXXContent.Size = new System.Drawing.Size(368, 20);
       this.txtTXXXContent.TabIndex = 5;
-      this.txtTXXXContent.Text = "";
-      this.btnRemoveTXXX.ImeMode = ImeMode.NoControl;
-      this.btnRemoveTXXX.Location = new Point(0x200, 30);
+      this.txtTXXXContent.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtTXXXContent.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTXXXContent.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // btnRemoveTXXX
+      // 
+      this.btnRemoveTXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveTXXX.Location = new System.Drawing.Point(512, 30);
       this.btnRemoveTXXX.Name = "btnRemoveTXXX";
-      this.btnRemoveTXXX.Size = new Size(0x98, 20);
+      this.btnRemoveTXXX.Size = new System.Drawing.Size(152, 20);
       this.btnRemoveTXXX.TabIndex = 7;
       this.btnRemoveTXXX.Text = "Remove user text frame";
-      this.btnAddTXXX.ImeMode = ImeMode.NoControl;
-      this.btnAddTXXX.Location = new Point(0x200, 6);
+      this.btnRemoveTXXX.Click += new System.EventHandler(this.btnRemoveTXXX_Click);
+      // 
+      // btnAddTXXX
+      // 
+      this.btnAddTXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddTXXX.Location = new System.Drawing.Point(512, 6);
       this.btnAddTXXX.Name = "btnAddTXXX";
-      this.btnAddTXXX.Size = new Size(0x98, 20);
+      this.btnAddTXXX.Size = new System.Drawing.Size(152, 20);
       this.btnAddTXXX.TabIndex = 6;
       this.btnAddTXXX.Text = "Add user text frame";
-      this.lblTXXXContent.ImeMode = ImeMode.NoControl;
-      this.lblTXXXContent.Location = new Point(8, 0x20);
+      this.btnAddTXXX.Click += new System.EventHandler(this.btnAddTXXX_Click);
+      // 
+      // lblTXXXContent
+      // 
+      this.lblTXXXContent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTXXXContent.Location = new System.Drawing.Point(8, 32);
       this.lblTXXXContent.Name = "lblTXXXContent";
-      this.lblTXXXContent.Size = new Size(0x80, 0x10);
+      this.lblTXXXContent.Size = new System.Drawing.Size(128, 16);
       this.lblTXXXContent.TabIndex = 4;
       this.lblTXXXContent.Text = "Text frame &Content:";
-      this.lblTXXXDesc.ImeMode = ImeMode.NoControl;
-      this.lblTXXXDesc.Location = new Point(8, 8);
+      // 
+      // lblTXXXDesc
+      // 
+      this.lblTXXXDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTXXXDesc.Location = new System.Drawing.Point(8, 8);
       this.lblTXXXDesc.Name = "lblTXXXDesc";
-      this.lblTXXXDesc.Size = new Size(0x80, 0x10);
+      this.lblTXXXDesc.Size = new System.Drawing.Size(128, 16);
       this.lblTXXXDesc.TabIndex = 2;
       this.lblTXXXDesc.Text = "Text frame &Descriptor:";
-      this.txtTXXXDesc.Location = new Point(0x88, 6);
+      // 
+      // txtTXXXDesc
+      // 
+      this.txtTXXXDesc.Location = new System.Drawing.Point(136, 6);
       this.txtTXXXDesc.Name = "txtTXXXDesc";
-      this.txtTXXXDesc.Size = new Size(0x170, 20);
+      this.txtTXXXDesc.Size = new System.Drawing.Size(368, 20);
       this.txtTXXXDesc.TabIndex = 3;
-      this.txtTXXXDesc.Text = "";
+      this.txtTXXXDesc.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtTXXXDesc.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTXXXDesc.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // TXXXList
+      // 
       this.TXXXList.CheckBoxes = true;
-      this.TXXXList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader11, this.ColumnHeader12 });
+      this.TXXXList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader11,
+            this.ColumnHeader12});
       this.TXXXList.FullRowSelect = true;
-      this.TXXXList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.TXXXList.Location = new Point(0x88, 0x38);
+      this.TXXXList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.TXXXList.Location = new System.Drawing.Point(136, 56);
       this.TXXXList.MultiSelect = false;
       this.TXXXList.Name = "TXXXList";
-      this.TXXXList.Size = new Size(0x210, 0x80);
+      this.TXXXList.Size = new System.Drawing.Size(528, 128);
       this.TXXXList.TabIndex = 8;
-      this.TXXXList.View = View.Details;
+      this.TXXXList.UseCompatibleStateImageBehavior = false;
+      this.TXXXList.View = System.Windows.Forms.View.Details;
+      this.TXXXList.Click += new System.EventHandler(this.TXXXList_Click);
+      this.TXXXList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // ColumnHeader11
+      // 
       this.ColumnHeader11.Text = "Descriptor";
       this.ColumnHeader11.Width = 180;
+      // 
+      // ColumnHeader12
+      // 
       this.ColumnHeader12.Text = "Content";
-      this.ColumnHeader12.Width = 0x141;
-      this.Panel13.BorderStyle = BorderStyle.FixedSingle;
+      this.ColumnHeader12.Width = 321;
+      // 
+      // Panel13
+      // 
+      this.Panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel13.Controls.Add(this.CheckBox37);
       this.Panel13.Controls.Add(this.txtWXXXContent);
       this.Panel13.Controls.Add(this.btnRemoveWXXX);
@@ -2177,313 +3143,465 @@ namespace ID3_TagIT
       this.Panel13.Controls.Add(this.lblWXXXDesc);
       this.Panel13.Controls.Add(this.txtWXXXDesc);
       this.Panel13.Controls.Add(this.WXXXList);
-      this.Panel13.Location = new Point(8, 0xe8);
+      this.Panel13.Location = new System.Drawing.Point(8, 232);
       this.Panel13.Name = "Panel13";
-      this.Panel13.Size = new Size(0x2a0, 0xd8);
+      this.Panel13.Size = new System.Drawing.Size(672, 216);
       this.Panel13.TabIndex = 1;
-      this.CheckBox37.ImeMode = ImeMode.NoControl;
-      this.CheckBox37.Location = new Point(0x88, 0xc0);
+      // 
+      // CheckBox37
+      // 
+      this.CheckBox37.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.CheckBox37.Location = new System.Drawing.Point(136, 192);
       this.CheckBox37.Name = "CheckBox37";
-      this.CheckBox37.Size = new Size(0x200, 0x10);
-      this.CheckBox37.TabIndex = 0x11;
+      this.CheckBox37.Size = new System.Drawing.Size(512, 16);
+      this.CheckBox37.TabIndex = 17;
       this.CheckBox37.Text = "Remove all existing user web frames first";
-      this.txtWXXXContent.Location = new Point(0x88, 30);
+      // 
+      // txtWXXXContent
+      // 
+      this.txtWXXXContent.Location = new System.Drawing.Point(136, 30);
       this.txtWXXXContent.Name = "txtWXXXContent";
-      this.txtWXXXContent.Size = new Size(0x170, 20);
+      this.txtWXXXContent.Size = new System.Drawing.Size(368, 20);
       this.txtWXXXContent.TabIndex = 13;
-      this.txtWXXXContent.Text = "";
-      this.btnRemoveWXXX.ImeMode = ImeMode.NoControl;
-      this.btnRemoveWXXX.Location = new Point(0x200, 30);
+      this.txtWXXXContent.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtWXXXContent.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtWXXXContent.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // btnRemoveWXXX
+      // 
+      this.btnRemoveWXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveWXXX.Location = new System.Drawing.Point(512, 30);
       this.btnRemoveWXXX.Name = "btnRemoveWXXX";
-      this.btnRemoveWXXX.Size = new Size(0x98, 20);
+      this.btnRemoveWXXX.Size = new System.Drawing.Size(152, 20);
       this.btnRemoveWXXX.TabIndex = 15;
       this.btnRemoveWXXX.Text = "Remove user web frame";
-      this.btnAddWXXX.ImeMode = ImeMode.NoControl;
-      this.btnAddWXXX.Location = new Point(0x200, 6);
+      this.btnRemoveWXXX.Click += new System.EventHandler(this.btnRemoveWXXX_Click);
+      // 
+      // btnAddWXXX
+      // 
+      this.btnAddWXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddWXXX.Location = new System.Drawing.Point(512, 6);
       this.btnAddWXXX.Name = "btnAddWXXX";
-      this.btnAddWXXX.Size = new Size(0x98, 20);
+      this.btnAddWXXX.Size = new System.Drawing.Size(152, 20);
       this.btnAddWXXX.TabIndex = 14;
       this.btnAddWXXX.Text = "Add user web frame";
-      this.lblWXXXContent.ImeMode = ImeMode.NoControl;
-      this.lblWXXXContent.Location = new Point(8, 0x20);
+      this.btnAddWXXX.Click += new System.EventHandler(this.btnAddWXXX_Click);
+      // 
+      // lblWXXXContent
+      // 
+      this.lblWXXXContent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblWXXXContent.Location = new System.Drawing.Point(8, 32);
       this.lblWXXXContent.Name = "lblWXXXContent";
-      this.lblWXXXContent.Size = new Size(0x80, 0x10);
+      this.lblWXXXContent.Size = new System.Drawing.Size(128, 16);
       this.lblWXXXContent.TabIndex = 12;
       this.lblWXXXContent.Text = "Web frame &Content:";
-      this.lblWXXXDesc.ImeMode = ImeMode.NoControl;
-      this.lblWXXXDesc.Location = new Point(8, 8);
+      // 
+      // lblWXXXDesc
+      // 
+      this.lblWXXXDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblWXXXDesc.Location = new System.Drawing.Point(8, 8);
       this.lblWXXXDesc.Name = "lblWXXXDesc";
-      this.lblWXXXDesc.Size = new Size(0x80, 0x10);
+      this.lblWXXXDesc.Size = new System.Drawing.Size(128, 16);
       this.lblWXXXDesc.TabIndex = 10;
       this.lblWXXXDesc.Text = "Web frame &Descriptor:";
-      this.txtWXXXDesc.Location = new Point(0x88, 6);
+      // 
+      // txtWXXXDesc
+      // 
+      this.txtWXXXDesc.Location = new System.Drawing.Point(136, 6);
       this.txtWXXXDesc.Name = "txtWXXXDesc";
-      this.txtWXXXDesc.Size = new Size(0x170, 20);
+      this.txtWXXXDesc.Size = new System.Drawing.Size(368, 20);
       this.txtWXXXDesc.TabIndex = 11;
-      this.txtWXXXDesc.Text = "";
+      this.txtWXXXDesc.TextChanged += new System.EventHandler(this.Select_TextChanged);
+      this.txtWXXXDesc.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtWXXXDesc.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // WXXXList
+      // 
       this.WXXXList.CheckBoxes = true;
-      this.WXXXList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader13, this.ColumnHeader14 });
+      this.WXXXList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader13,
+            this.ColumnHeader14});
       this.WXXXList.FullRowSelect = true;
-      this.WXXXList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.WXXXList.Location = new Point(0x88, 0x38);
+      this.WXXXList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.WXXXList.Location = new System.Drawing.Point(136, 56);
       this.WXXXList.MultiSelect = false;
       this.WXXXList.Name = "WXXXList";
-      this.WXXXList.Size = new Size(0x210, 0x80);
-      this.WXXXList.TabIndex = 0x10;
-      this.WXXXList.View = View.Details;
+      this.WXXXList.Size = new System.Drawing.Size(528, 128);
+      this.WXXXList.TabIndex = 16;
+      this.WXXXList.UseCompatibleStateImageBehavior = false;
+      this.WXXXList.View = System.Windows.Forms.View.Details;
+      this.WXXXList.Click += new System.EventHandler(this.WXXXList_Click);
+      this.WXXXList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // ColumnHeader13
+      // 
       this.ColumnHeader13.Text = "Descriptor";
-      this.ColumnHeader13.Width = 0xb1;
+      this.ColumnHeader13.Width = 177;
+      // 
+      // ColumnHeader14
+      // 
       this.ColumnHeader14.Text = "Content";
-      this.ColumnHeader14.Width = 0x142;
-      this.lblDigits.BackColor = Color.White;
-      this.lblDigits.ForeColor = Color.Black;
-      this.lblDigits.ImeMode = ImeMode.NoControl;
-      this.lblDigits.Location = new Point(8, 0x44);
+      this.ColumnHeader14.Width = 322;
+      // 
+      // lblDigits
+      // 
+      this.lblDigits.BackColor = System.Drawing.Color.White;
+      this.lblDigits.ForeColor = System.Drawing.Color.Black;
+      this.lblDigits.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblDigits.Location = new System.Drawing.Point(8, 68);
       this.lblDigits.Name = "lblDigits";
-      this.lblDigits.Size = new Size(0xb8, 0x10);
-      this.lblDigits.TabIndex = 0x66;
+      this.lblDigits.Size = new System.Drawing.Size(184, 16);
+      this.lblDigits.TabIndex = 102;
       this.lblDigits.Text = "Number of digits of track numbers:";
-      this.txtDigits.Location = new Point(0xc0, 0x42);
-      this.txtDigits.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+      // 
+      // txtDigits
+      // 
+      this.txtDigits.Location = new System.Drawing.Point(192, 66);
+      this.txtDigits.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
       this.txtDigits.Name = "txtDigits";
-      this.txtDigits.Size = new Size(0x30, 20);
-      this.txtDigits.TabIndex = 0x67;
-      this.txtDigits.Value = new decimal(new int[] { 2, 0, 0, 0 });
+      this.txtDigits.Size = new System.Drawing.Size(48, 20);
+      this.txtDigits.TabIndex = 103;
+      this.txtDigits.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+      // 
+      // OpenFileDialog
+      // 
       this.OpenFileDialog.RestoreDirectory = true;
-      this.chkRemoveAllNOT.BackColor = Color.White;
-      this.chkRemoveAllNOT.ForeColor = Color.Black;
-      this.chkRemoveAllNOT.ImeMode = ImeMode.NoControl;
-      this.chkRemoveAllNOT.Location = new Point(0xf8, 0x44);
+      // 
+      // chkRemoveAllNOT
+      // 
+      this.chkRemoveAllNOT.BackColor = System.Drawing.Color.White;
+      this.chkRemoveAllNOT.ForeColor = System.Drawing.Color.Black;
+      this.chkRemoveAllNOT.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkRemoveAllNOT.Location = new System.Drawing.Point(248, 68);
       this.chkRemoveAllNOT.Name = "chkRemoveAllNOT";
-      this.chkRemoveAllNOT.Size = new Size(0xe8, 0x10);
-      this.chkRemoveAllNOT.TabIndex = 0x68;
+      this.chkRemoveAllNOT.Size = new System.Drawing.Size(232, 16);
+      this.chkRemoveAllNOT.TabIndex = 104;
       this.chkRemoveAllNOT.Text = "Remove all NOT supported entries";
-      this.lblInfoStar.BackColor = Color.White;
-      this.lblInfoStar.BorderStyle = BorderStyle.FixedSingle;
-      this.lblInfoStar.Font = new Font("Microsoft Sans Serif", 7f, FontStyle.Regular, GraphicsUnit.Point, 0);
-      this.lblInfoStar.Location = new Point(8, 8);
+      this.chkRemoveAllNOT.UseVisualStyleBackColor = false;
+      // 
+      // lblInfoStar
+      // 
+      this.lblInfoStar.BackColor = System.Drawing.Color.White;
+      this.lblInfoStar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.lblInfoStar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblInfoStar.Location = new System.Drawing.Point(8, 8);
       this.lblInfoStar.Name = "lblInfoStar";
-      this.lblInfoStar.Size = new Size(0x2a0, 0x30);
-      this.lblInfoStar.TabIndex = 0x65;
+      this.lblInfoStar.Size = new System.Drawing.Size(672, 48);
+      this.lblInfoStar.TabIndex = 101;
       this.lblInfoStar.Text = "Placeholders";
-      this.lblInfoStar.TextAlign = ContentAlignment.MiddleCenter;
-      this.SelectionBar.AccessibleRole = AccessibleRole.ToolBar;
+      this.lblInfoStar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // SelectionBar
+      // 
+      this.SelectionBar.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
       this.SelectionBar.AllowUserCustomize = false;
       this.SelectionBar.AntiAlias = true;
-      this.SelectionBar.BackColor = SystemColors.Control;
-      this.SelectionBar.BackgroundStyle.BackColor1.ColorSchemePart = eColorSchemePart.ExplorerBarBackground;
-      this.SelectionBar.BackgroundStyle.BackColor2.ColorSchemePart = eColorSchemePart.ExplorerBarBackground2;
+      this.SelectionBar.BackColor = System.Drawing.SystemColors.Control;
+      this.SelectionBar.BackgroundStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground;
+      this.SelectionBar.BackgroundStyle.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground2;
       this.SelectionBar.BackgroundStyle.GradientAngle = 90;
-      this.SelectionBar.Dock = DockStyle.Left;
-      this.SelectionBar.Font = new Font("Tahoma", 11f, FontStyle.Regular, GraphicsUnit.World);
+      this.SelectionBar.Dock = System.Windows.Forms.DockStyle.Left;
+      this.SelectionBar.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
       this.SelectionBar.GroupImages = null;
-      this.SelectionBar.Groups.AddRange(new BaseItem[] { this.TAGV2grpTAG, this.TAGV2grpCommands });
+      this.SelectionBar.Groups.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.TAGV2grpTAG,
+            this.TAGV2grpCommands});
       this.SelectionBar.Images = null;
-      this.SelectionBar.Location = new Point(0, 0);
+      this.SelectionBar.Location = new System.Drawing.Point(0, 0);
       this.SelectionBar.Name = "SelectionBar";
-      this.SelectionBar.Size = new Size(0xa8, 0x240);
-      this.SelectionBar.StockStyle = eExplorerBarStockStyle.Blue;
-      this.SelectionBar.TabIndex = 0x6b;
+      this.SelectionBar.Size = new System.Drawing.Size(168, 576);
+      this.SelectionBar.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
+      this.SelectionBar.TabIndex = 107;
       this.SelectionBar.Text = "Select TAG section";
       this.SelectionBar.ThemeAware = true;
-      this.TAGV2grpTAG.BackgroundStyle.BackColor1.Color = Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.TAGV2grpTAG.BackgroundStyle.Border = eBorderType.SingleLine;
-      this.TAGV2grpTAG.BackgroundStyle.BorderColor.Color = Color.White;
+      // 
+      // TAGV2grpTAG
+      // 
+      this.TAGV2grpTAG.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
+      this.TAGV2grpTAG.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TAGV2grpTAG.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
       this.TAGV2grpTAG.CanCustomize = false;
-      this.TAGV2grpTAG.HeaderHotStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpTAG.HeaderHotStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpTAG.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpTAG.HeaderHotStyle.ForeColor.Color = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2grpTAG.HeaderStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpTAG.HeaderStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpTAG.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpTAG.HeaderStyle.ForeColor.Color = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2grpTAG.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.TAGV2grpTAG.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.TAGV2grpTAG.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.TAGV2grpTAG.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2grpTAG.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.TAGV2grpTAG.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.TAGV2grpTAG.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.TAGV2grpTAG.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2grpTAG.Name = "TAGV2grpTAG";
-      this.TAGV2grpTAG.StockStyle = eExplorerBarStockStyle.Blue;
-      this.TAGV2grpTAG.SubItems.AddRange(new BaseItem[] { this.TAGV2ButtonItem1, this.TAGV2ButtonItem2, this.TAGV2ButtonItem3, this.TAGV2ButtonItem4, this.TAGV2ButtonItem5, this.TAGV2ButtonItem6, this.TAGV2ButtonItem7, this.TAGV2ButtonItem8, this.TAGV2ButtonItem9 });
+      this.TAGV2grpTAG.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
+      this.TAGV2grpTAG.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.TAGV2ButtonItem1,
+            this.TAGV2ButtonItem2,
+            this.TAGV2ButtonItem3,
+            this.TAGV2ButtonItem4,
+            this.TAGV2ButtonItem5,
+            this.TAGV2ButtonItem6,
+            this.TAGV2ButtonItem7,
+            this.TAGV2ButtonItem8,
+            this.TAGV2ButtonItem9});
       this.TAGV2grpTAG.Text = "TAG information";
       this.TAGV2grpTAG.ThemeAware = true;
-      this.TAGV2ButtonItem1.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem1.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem1.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // TAGV2ButtonItem1
+      // 
+      this.TAGV2ButtonItem1.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem1.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem1.HotFontUnderline = true;
-      this.TAGV2ButtonItem1.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem1.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem1.Icon = (Icon)manager.GetObject("TAGV2ButtonItem1.Icon");
+      this.TAGV2ButtonItem1.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem1.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem1.Name = "TAGV2ButtonItem1";
       this.TAGV2ButtonItem1.Text = "Main Entries";
-      this.TAGV2ButtonItem2.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem2.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem2.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem1.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem2
+      // 
+      this.TAGV2ButtonItem2.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem2.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem2.HotFontUnderline = true;
-      this.TAGV2ButtonItem2.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem2.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem2.Icon = (Icon)manager.GetObject("TAGV2ButtonItem2.Icon");
+      this.TAGV2ButtonItem2.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem2.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem2.Name = "TAGV2ButtonItem2";
       this.TAGV2ButtonItem2.Text = "Detailed information";
-      this.TAGV2ButtonItem3.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem3.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem3.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem2.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem3
+      // 
+      this.TAGV2ButtonItem3.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem3.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem3.HotFontUnderline = true;
-      this.TAGV2ButtonItem3.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem3.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem3.Icon = (Icon)manager.GetObject("TAGV2ButtonItem3.Icon");
+      this.TAGV2ButtonItem3.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem3.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem3.Name = "TAGV2ButtonItem3";
       this.TAGV2ButtonItem3.Text = "Original information";
-      this.TAGV2ButtonItem4.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem4.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem4.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem3.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem4
+      // 
+      this.TAGV2ButtonItem4.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem4.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem4.HotFontUnderline = true;
-      this.TAGV2ButtonItem4.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem4.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem4.Icon = (Icon)manager.GetObject("TAGV2ButtonItem4.Icon");
+      this.TAGV2ButtonItem4.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem4.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem4.Name = "TAGV2ButtonItem4";
       this.TAGV2ButtonItem4.Text = "Involved people";
-      this.TAGV2ButtonItem5.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem5.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem5.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem4.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem5
+      // 
+      this.TAGV2ButtonItem5.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem5.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem5.HotFontUnderline = true;
-      this.TAGV2ButtonItem5.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem5.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem5.Icon = (Icon)manager.GetObject("TAGV2ButtonItem5.Icon");
+      this.TAGV2ButtonItem5.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem5.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem5.Name = "TAGV2ButtonItem5";
       this.TAGV2ButtonItem5.Text = "Web information";
-      this.TAGV2ButtonItem6.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem6.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem6.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem5.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem6
+      // 
+      this.TAGV2ButtonItem6.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem6.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem6.HotFontUnderline = true;
-      this.TAGV2ButtonItem6.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem6.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem6.Icon = (Icon)manager.GetObject("TAGV2ButtonItem6.Icon");
+      this.TAGV2ButtonItem6.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem6.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem6.Name = "TAGV2ButtonItem6";
       this.TAGV2ButtonItem6.Text = "Pictures";
-      this.TAGV2ButtonItem7.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem7.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem7.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem6.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem7
+      // 
+      this.TAGV2ButtonItem7.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem7.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem7.HotFontUnderline = true;
-      this.TAGV2ButtonItem7.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem7.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem7.Icon = (Icon)manager.GetObject("TAGV2ButtonItem7.Icon");
+      this.TAGV2ButtonItem7.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem7.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem7.Name = "TAGV2ButtonItem7";
       this.TAGV2ButtonItem7.Text = "Lyrics";
-      this.TAGV2ButtonItem8.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem8.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem8.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem7.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem8
+      // 
+      this.TAGV2ButtonItem8.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem8.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem8.HotFontUnderline = true;
-      this.TAGV2ButtonItem8.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem8.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem8.Icon = (Icon)manager.GetObject("TAGV2ButtonItem8.Icon");
+      this.TAGV2ButtonItem8.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem8.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem8.Name = "TAGV2ButtonItem8";
       this.TAGV2ButtonItem8.Text = "Rating";
-      this.TAGV2ButtonItem9.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem9.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem9.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem8.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem9
+      // 
+      this.TAGV2ButtonItem9.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem9.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem9.HotFontUnderline = true;
-      this.TAGV2ButtonItem9.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem9.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem9.Icon = (Icon)manager.GetObject("TAGV2ButtonItem9.Icon");
+      this.TAGV2ButtonItem9.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem9.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem9.Name = "TAGV2ButtonItem9";
       this.TAGV2ButtonItem9.Text = "User defined information";
-      this.TAGV2grpCommands.BackgroundStyle.BackColor1.Color = Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.TAGV2grpCommands.BackgroundStyle.Border = eBorderType.SingleLine;
-      this.TAGV2grpCommands.BackgroundStyle.BorderColor.Color = Color.White;
+      this.TAGV2ButtonItem9.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2grpCommands
+      // 
+      this.TAGV2grpCommands.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
+      this.TAGV2grpCommands.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TAGV2grpCommands.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
       this.TAGV2grpCommands.CanCustomize = false;
-      this.TAGV2grpCommands.HeaderHotStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpCommands.HeaderHotStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpCommands.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpCommands.HeaderHotStyle.ForeColor.Color = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2grpCommands.HeaderStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpCommands.HeaderStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpCommands.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpCommands.HeaderStyle.ForeColor.Color = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2grpCommands.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.TAGV2grpCommands.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.TAGV2grpCommands.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.TAGV2grpCommands.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2grpCommands.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.TAGV2grpCommands.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.TAGV2grpCommands.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.TAGV2grpCommands.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2grpCommands.Name = "TAGV2grpCommands";
-      this.TAGV2grpCommands.StockStyle = eExplorerBarStockStyle.Blue;
-      this.TAGV2grpCommands.SubItems.AddRange(new BaseItem[] { this.btnSwapAT, this.btnSwapAA, this.btnSwapTA });
+      this.TAGV2grpCommands.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
+      this.TAGV2grpCommands.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnSwapAT,
+            this.btnSwapAA,
+            this.btnSwapTA});
       this.TAGV2grpCommands.Text = "Commands";
       this.TAGV2grpCommands.ThemeAware = true;
-      this.btnSwapAT.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnSwapAT.Cursor = Cursors.Hand;
-      this.btnSwapAT.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // btnSwapAT
+      // 
+      this.btnSwapAT.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnSwapAT.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnSwapAT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnSwapAT.HotFontUnderline = true;
-      this.btnSwapAT.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnSwapAT.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnSwapAT.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnSwapAT.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnSwapAT.Name = "btnSwapAT";
       this.btnSwapAT.Text = "Swap Artist-Title";
-      this.btnSwapAA.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnSwapAA.Cursor = Cursors.Hand;
-      this.btnSwapAA.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnSwapAT.Click += new System.EventHandler(this.btnSwapAT_Click);
+      // 
+      // btnSwapAA
+      // 
+      this.btnSwapAA.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnSwapAA.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnSwapAA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnSwapAA.HotFontUnderline = true;
-      this.btnSwapAA.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnSwapAA.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnSwapAA.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnSwapAA.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnSwapAA.Name = "btnSwapAA";
       this.btnSwapAA.Text = "Swap Artist-Album";
-      this.btnSwapTA.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnSwapTA.Cursor = Cursors.Hand;
-      this.btnSwapTA.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnSwapAA.Click += new System.EventHandler(this.btnSwapAA_Click);
+      // 
+      // btnSwapTA
+      // 
+      this.btnSwapTA.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnSwapTA.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnSwapTA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnSwapTA.HotFontUnderline = true;
-      this.btnSwapTA.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnSwapTA.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnSwapTA.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnSwapTA.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnSwapTA.Name = "btnSwapTA";
       this.btnSwapTA.Text = "Swap Title-Album";
-      this.btnImport.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnImport.Cursor = Cursors.Hand;
-      this.btnImport.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnSwapTA.Click += new System.EventHandler(this.btnSwapTA_Click);
+      // 
+      // btnImport
+      // 
+      this.btnImport.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnImport.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnImport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnImport.HotFontUnderline = true;
-      this.btnImport.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnImport.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnImport.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnImport.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnImport.Name = "btnImport";
       this.btnImport.Text = "Transfer from Ver. 1";
-      this.btnExport.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnExport.Cursor = Cursors.Hand;
-      this.btnExport.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // btnExport
+      // 
+      this.btnExport.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnExport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnExport.HotFontUnderline = true;
-      this.btnExport.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnExport.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnExport.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnExport.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnExport.Name = "btnExport";
       this.btnExport.Text = "Transfer to Ver. 1";
-      this.btnGet.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnGet.Cursor = Cursors.Hand;
-      this.btnGet.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // btnGet
+      // 
+      this.btnGet.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnGet.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnGet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnGet.HotFontUnderline = true;
-      this.btnGet.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnGet.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnGet.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnGet.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnGet.Name = "btnGet";
       this.btnGet.Text = "Get from filename";
+      // 
+      // TopPanel
+      // 
       this.TopPanel.AntiAlias = true;
-      this.TopPanel.Dock = DockStyle.Top;
-      this.TopPanel.Location = new Point(0xa8, 0);
+      this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
+      this.TopPanel.Location = new System.Drawing.Point(168, 0);
       this.TopPanel.Name = "TopPanel";
-      this.TopPanel.Size = new Size(690, 0x18);
-      this.TopPanel.Style.BackColor1.Color = Color.White;
-      this.TopPanel.Style.BackColor2.Color = Color.White;
-      this.TopPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
+      this.TopPanel.Size = new System.Drawing.Size(690, 24);
+      this.TopPanel.Style.BackColor1.Color = System.Drawing.Color.White;
+      this.TopPanel.Style.BackColor2.Color = System.Drawing.Color.White;
+      this.TopPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
       this.TopPanel.Style.BorderWidth = 0;
-      this.TopPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.TopPanel.Style.ForeColor.Color = Color.Black;
+      this.TopPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.TopPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
       this.TopPanel.Style.GradientAngle = 90;
-      this.TopPanel.Style.LineAlignment = StringAlignment.Near;
+      this.TopPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
       this.TopPanel.Style.MarginBottom = 2;
       this.TopPanel.Style.MarginLeft = 7;
       this.TopPanel.Style.MarginRight = 2;
       this.TopPanel.Style.MarginTop = 2;
-      this.TopPanel.TabIndex = 0x6c;
+      this.TopPanel.TabIndex = 108;
       this.TopPanel.Text = "TopPanel";
-      this.btnOK.BackColor = SystemColors.Control;
+      // 
+      // btnOK
+      // 
+      this.btnOK.BackColor = System.Drawing.SystemColors.Control;
       this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-      this.btnOK.ImeMode = ImeMode.NoControl;
-      this.btnOK.Location = new Point(480, 0x40);
+      this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnOK.Location = new System.Drawing.Point(480, 64);
       this.btnOK.Name = "btnOK";
-      this.btnOK.Size = new Size(0x60, 0x18);
-      this.btnOK.TabIndex = 0x69;
+      this.btnOK.Size = new System.Drawing.Size(96, 24);
+      this.btnOK.TabIndex = 105;
       this.btnOK.Text = "&OK";
-      this.btnCancel.BackColor = SystemColors.Control;
+      this.btnOK.UseVisualStyleBackColor = false;
+      this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+      // 
+      // btnCancel
+      // 
+      this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
       this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnCancel.ImeMode = ImeMode.NoControl;
-      this.btnCancel.Location = new Point(0x248, 0x40);
+      this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCancel.Location = new System.Drawing.Point(584, 64);
       this.btnCancel.Name = "btnCancel";
-      this.btnCancel.Size = new Size(0x60, 0x18);
-      this.btnCancel.TabIndex = 0x6a;
+      this.btnCancel.Size = new System.Drawing.Size(96, 24);
+      this.btnCancel.TabIndex = 106;
       this.btnCancel.Text = "&Cancel";
+      this.btnCancel.UseVisualStyleBackColor = false;
+      this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+      // 
+      // ButtomPanel
+      // 
       this.ButtomPanel.AntiAlias = true;
       this.ButtomPanel.Controls.Add(this.chkRemoveAllNOT);
       this.ButtomPanel.Controls.Add(this.txtDigits);
@@ -2491,260 +3609,42 @@ namespace ID3_TagIT
       this.ButtomPanel.Controls.Add(this.btnOK);
       this.ButtomPanel.Controls.Add(this.lblDigits);
       this.ButtomPanel.Controls.Add(this.lblInfoStar);
-      this.ButtomPanel.Dock = DockStyle.Bottom;
-      this.ButtomPanel.Location = new Point(0xa8, 480);
+      this.ButtomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.ButtomPanel.Location = new System.Drawing.Point(168, 480);
       this.ButtomPanel.Name = "ButtomPanel";
-      this.ButtomPanel.Size = new Size(690, 0x60);
-      this.ButtomPanel.Style.BackColor1.Color = Color.White;
-      this.ButtomPanel.Style.BackColor2.Color = Color.White;
-      this.ButtomPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
+      this.ButtomPanel.Size = new System.Drawing.Size(690, 96);
+      this.ButtomPanel.Style.BackColor1.Color = System.Drawing.Color.White;
+      this.ButtomPanel.Style.BackColor2.Color = System.Drawing.Color.White;
+      this.ButtomPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
       this.ButtomPanel.Style.BorderWidth = 0;
-      this.ButtomPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.ButtomPanel.Style.ForeColor.Color = Color.Black;
+      this.ButtomPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ButtomPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
       this.ButtomPanel.Style.GradientAngle = 90;
-      this.ButtomPanel.Style.LineAlignment = StringAlignment.Near;
+      this.ButtomPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
       this.ButtomPanel.Style.MarginBottom = 2;
       this.ButtomPanel.Style.MarginLeft = 7;
       this.ButtomPanel.Style.MarginRight = 2;
       this.ButtomPanel.Style.MarginTop = 2;
       this.ButtomPanel.TabIndex = 100;
-      this.Label.ButtonStyle = eButtonStyle.ImageAndText;
-      this.Label.Cursor = Cursors.Hand;
-      this.Label.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // Label
+      // 
+      this.Label.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.Label.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.Label.HotFontUnderline = true;
-      this.Label.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.Label.HotTrackingStyle = eHotTrackingStyle.None;
+      this.Label.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.Label.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.Label.Name = "Label";
-      this.Label.PopupAnimation = ePopupAnimation.None;
+      this.Label.PopupAnimation = DevComponents.DotNetBar.ePopupAnimation.None;
       this.Label.Text = "New Button";
-
-      this.btnAddComment.Click += new EventHandler(this.btnAddComment_Click);
-      this.btnAddGenre.Click += new EventHandler(this.btnAddGenre_Click);
-      this.btnAddInv.Click += new EventHandler(this.btnAddInv_Click);
-      this.btnAddLyrics.Click += new EventHandler(this.btnAddLyrics_Click);
-      this.btnAddMusician.Click += new EventHandler(this.btnAddMusican_Click);
-      this.btnAddPicture.Click += new EventHandler(this.btnAddPicture_Click);
-      this.btnAddRating.Click += new EventHandler(this.btnAddRating_Click);
-      this.btnAddTXXX.Click += new EventHandler(this.btnAddTXXX_Click);
-      this.btnAddWXXX.Click += new EventHandler(this.btnAddWXXX_Click);
-      this.btnCancel.Click += new EventHandler(this.btnCancel_Click);
-      this.btnGetPic.Click += new EventHandler(this.btnGetPic_Click);
-      this.btnLyricsFile.Click += new EventHandler(this.btnLyricsFile_Click);
-      this.btnMoveComment.Click += new EventHandler(this.btnMoveComment_Click);
-      this.btnMoveGenre.Click += new EventHandler(this.btnMoveGenre_Click);
-      this.btnMoveLyrics.Click += new EventHandler(this.btnMoveLyrics_Click);
-      this.btnMoveRating.Click += new EventHandler(this.btnMoveRating_Click);
-      this.btnOK.Click += new EventHandler(this.btnOK_Click);
-      this.btnRemoveComment.Click += new EventHandler(this.btnRemoveComment_Click);
-      this.btnRemoveGenre.Click += new EventHandler(this.btnRemoveGenre_Click);
-      this.btnRemoveInv.Click += new EventHandler(this.btnRemoveInv_Click);
-      this.btnRemoveLyrics.Click += new EventHandler(this.btnRemoveLyrics_Click);
-      this.btnRemoveMusician.Click += new EventHandler(this.btnRemoveMusican_Click);
-      this.btnRemovePicture.Click += new EventHandler(this.btnRemovePicture_Click);
-      this.btnRemoveRating.Click += new EventHandler(this.btnRemoveRating_Click);
-      this.btnRemoveTXXX.Click += new EventHandler(this.btnRemoveTXXX_Click);
-      this.btnRemoveWXXX.Click += new EventHandler(this.btnRemoveWXXX_Click);
-      this.btnSwapAA.Click += new EventHandler(this.btnSwapAA_Click);
-      this.btnSwapAT.Click += new EventHandler(this.btnSwapAT_Click);
-      this.btnSwapTA.Click += new EventHandler(this.btnSwapTA_Click);
-      this.chkPicInclude.CheckedChanged += new EventHandler(this.chkPicInclude_CheckedChanged);
-      this.chkPicRelativPath.CheckedChanged += new EventHandler(this.chkPicRelativPath_CheckedChanged);
-      this.cmbArtist.Leave += new EventHandler(this.Select_Leave);
-      this.cmbArtist.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.cmbArtist.Enter += new EventHandler(this.Select_Enter);
-      this.cmbCDescriptor.Leave += new EventHandler(this.Select_Leave);
-      this.cmbCDescriptor.EnabledChanged += new EventHandler(this.Select_Enter);
-      this.cmbCLanguage.Leave += new EventHandler(this.Select_Leave);
-      this.cmbCLanguage.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.cmbCLanguage.Enter += new EventHandler(this.Select_Enter);
-      this.cmbGenre.Leave += new EventHandler(this.Select_Leave);
-      this.cmbGenre.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.cmbGenre.Enter += new EventHandler(this.Select_Enter);
-      this.cmbLLanguage.Leave += new EventHandler(this.Select_Leave);
-      this.cmbLLanguage.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.cmbLLanguage.Enter += new EventHandler(this.Select_Enter);
-      this.cmbMedia.Leave += new EventHandler(this.Select_Leave);
-      this.cmbMedia.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.cmbMedia.Enter += new EventHandler(this.Select_Enter);
-      this.cmbPicType.Leave += new EventHandler(this.Select_Leave);
-      this.cmbPicType.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.cmbPicType.Enter += new EventHandler(this.Select_Enter);
-      this.CommentList.Leave += new EventHandler(this.Select_Leave);
-      this.CommentList.Click += new EventHandler(this.CommentList_Click);
-      this.GenreList.Leave += new EventHandler(this.Select_Leave);
-      this.LyricsList.Leave += new EventHandler(this.Select_Leave);
-      this.LyricsList.Click += new EventHandler(this.LyricsList_Click);
-      this.PicList.Leave += new EventHandler(this.Select_Leave);
-      this.PicList.Click += new EventHandler(this.PicList_Click);
-      this.RatingList.Click += new EventHandler(this.RatingList_Click);
-      this.TAGV2ButtonItem1.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem2.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem3.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem4.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem5.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem6.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem7.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem8.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem9.Click += new EventHandler(this.btnItem_Click);
-      this.TIPLList.Click += new EventHandler(this.TIPLList_Click);
-      this.TMCLList.Click += new EventHandler(this.TMCLList_Click);
-      this.TORYFormat.Scroll += new ScrollEventHandler(this.TORYFormat_Scroll);
-      this.txtAlbum.Leave += new EventHandler(this.Select_Leave);
-      this.txtAlbum.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtAlbum.Enter += new EventHandler(this.Select_Enter);
-      this.txtArtistURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtArtistURL.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtArtistURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtAudioFileURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtAudioFileURL.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtAudioFileURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtAudioSRCURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtAudioSRCURL.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtAudioSRCURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtBand.Leave += new EventHandler(this.Select_Leave);
-      this.txtBand.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtBand.Enter += new EventHandler(this.Select_Enter);
-      this.txtBPM.Leave += new EventHandler(this.Select_Leave);
-      this.txtBPM.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtBPM.Enter += new EventHandler(this.Select_Enter);
-      this.txtComment.Leave += new EventHandler(this.Select_Leave);
-      this.txtComment.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtComment.Enter += new EventHandler(this.Select_Enter);
-      this.txtCOMMInfURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtCOMMInfURL.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtCOMMInfURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtComposer.Leave += new EventHandler(this.Select_Leave);
-      this.txtComposer.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtComposer.Enter += new EventHandler(this.Select_Enter);
-      this.txtConductor.Leave += new EventHandler(this.Select_Leave);
-      this.txtConductor.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtConductor.Enter += new EventHandler(this.Select_Enter);
-      this.txtContent.Leave += new EventHandler(this.Select_Leave);
-      this.txtContent.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtContent.Enter += new EventHandler(this.Select_Enter);
-      this.txtCopyInfURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtCopyInfURL.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtCopyInfURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtCopyright.Leave += new EventHandler(this.Select_Leave);
-      this.txtCopyright.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtCopyright.Enter += new EventHandler(this.Select_Enter);
-      this.txtEncoded.Leave += new EventHandler(this.Select_Leave);
-      this.txtEncoded.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtEncoded.Enter += new EventHandler(this.Select_Enter);
-      this.txtINetRadioURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtINetRadioURL.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtINetRadioURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtInvFunction.Leave += new EventHandler(this.Select_Leave);
-      this.txtInvFunction.Enter += new EventHandler(this.Select_Enter);
-      this.txtInvPerson.Leave += new EventHandler(this.Select_Leave);
-      this.txtInvPerson.Enter += new EventHandler(this.Select_Enter);
-      this.txtLDescriptor.Leave += new EventHandler(this.Select_Leave);
-      this.txtLDescriptor.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtLDescriptor.Enter += new EventHandler(this.Select_Enter);
-      this.txtLyWriter.Leave += new EventHandler(this.Select_Leave);
-      this.txtLyWriter.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtLyWriter.Enter += new EventHandler(this.Select_Enter);
-      this.txtModified.Leave += new EventHandler(this.Select_Leave);
-      this.txtModified.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtModified.Enter += new EventHandler(this.Select_Enter);
-      this.txtMusicianInst.Leave += new EventHandler(this.Select_Leave);
-      this.txtMusicianInst.Enter += new EventHandler(this.Select_Enter);
-      this.txtMusicianName.Leave += new EventHandler(this.Select_Leave);
-      this.txtMusicianName.Enter += new EventHandler(this.Select_Enter);
-      this.txtOAlbum.Leave += new EventHandler(this.Select_Leave);
-      this.txtOAlbum.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtOAlbum.Enter += new EventHandler(this.Select_Enter);
-      this.txtOArtist.Leave += new EventHandler(this.Select_Leave);
-      this.txtOArtist.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtOArtist.Enter += new EventHandler(this.Select_Enter);
-      this.txtOFilename.Leave += new EventHandler(this.Select_Leave);
-      this.txtOFilename.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtOFilename.Enter += new EventHandler(this.Select_Enter);
-      this.txtOLyWriter.Leave += new EventHandler(this.Select_Leave);
-      this.txtOLyWriter.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtOLyWriter.Enter += new EventHandler(this.Select_Enter);
-      this.txtOOwner.Leave += new EventHandler(this.Select_Leave);
-      this.txtOOwner.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtOOwner.Enter += new EventHandler(this.Select_Enter);
-      this.txtPayURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtPayURL.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtPayURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtPDescriptor.Leave += new EventHandler(this.Select_Leave);
-      this.txtPDescriptor.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtPDescriptor.Enter += new EventHandler(this.Select_Enter);
-      this.txtPicPath.Leave += new EventHandler(this.Select_Leave);
-      this.txtPicPath.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtPicPath.Enter += new EventHandler(this.Select_Enter);
-      this.txtPOS1.Leave += new EventHandler(this.Select_Leave);
-      this.txtPOS1.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtPOS1.Enter += new EventHandler(this.Select_Enter);
-      this.txtPOS2.Leave += new EventHandler(this.Select_Leave);
-      this.txtPOS2.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtPOS2.Enter += new EventHandler(this.Select_Enter);
-      this.txtPublisher.Leave += new EventHandler(this.Select_Leave);
-      this.txtPublisher.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtPublisher.Enter += new EventHandler(this.Select_Enter);
-      this.txtPubURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtPubURL.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtPubURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtRatingCounter.Leave += new EventHandler(this.Select_Leave);
-      this.txtRatingCounter.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtRatingCounter.Enter += new EventHandler(this.Select_Enter);
-      this.txtRatingRating.Leave += new EventHandler(this.Select_Leave);
-      this.txtRatingRating.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtRatingRating.Enter += new EventHandler(this.Select_Enter);
-      this.txtRatingUser.Leave += new EventHandler(this.Select_Leave);
-      this.txtRatingUser.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtRatingUser.Enter += new EventHandler(this.Select_Enter);
-      this.txtSortAlbum.Leave += new EventHandler(this.Select_Leave);
-      this.txtSortAlbum.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtSortAlbum.Enter += new EventHandler(this.Select_Enter);
-      this.txtSortArtist.Leave += new EventHandler(this.Select_Leave);
-      this.txtSortArtist.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtSortArtist.Enter += new EventHandler(this.Select_Enter);
-      this.txtSortTitle.Leave += new EventHandler(this.Select_Leave);
-      this.txtSortTitle.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtSortTitle.Enter += new EventHandler(this.Select_Enter);
-      this.txtSubTitle.Leave += new EventHandler(this.Select_Leave);
-      this.txtSubTitle.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtSubTitle.Enter += new EventHandler(this.Select_Enter);
-      this.txtTitle.Leave += new EventHandler(this.Select_Leave);
-      this.txtTitle.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtTitle.Enter += new EventHandler(this.Select_Enter);
-      this.txtTORY.Leave += new EventHandler(this.Select_Leave);
-      this.txtTORY.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtTORY.Enter += new EventHandler(this.Select_Enter);
-      this.txtTrack1.Leave += new EventHandler(this.Select_Leave);
-      this.txtTrack1.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtTrack1.Enter += new EventHandler(this.Select_Enter);
-      this.txtTrack2.Leave += new EventHandler(this.Select_Leave);
-      this.txtTrack2.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtTrack2.Enter += new EventHandler(this.Select_Enter);
-      this.txtTXXXContent.Leave += new EventHandler(this.Select_Leave);
-      this.txtTXXXContent.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtTXXXContent.Enter += new EventHandler(this.Select_Enter);
-      this.txtTXXXDesc.Leave += new EventHandler(this.Select_Leave);
-      this.txtTXXXDesc.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtTXXXDesc.Enter += new EventHandler(this.Select_Enter);
-      this.txtWXXXContent.Leave += new EventHandler(this.Select_Leave);
-      this.txtWXXXContent.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtWXXXContent.Enter += new EventHandler(this.Select_Enter);
-      this.txtWXXXDesc.Leave += new EventHandler(this.Select_Leave);
-      this.txtWXXXDesc.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtWXXXDesc.Enter += new EventHandler(this.Select_Enter);
-      this.txtYear.Leave += new EventHandler(this.Select_Leave);
-      this.txtYear.TextChanged += new EventHandler(this.Select_TextChanged);
-      this.txtYear.Enter += new EventHandler(this.Select_Enter);
-      this.TXXXList.Leave += new EventHandler(this.Select_Leave);
-      this.TXXXList.Click += new EventHandler(this.TXXXList_Click);
-      this.WXXXList.Leave += new EventHandler(this.Select_Leave);
-      this.WXXXList.Click += new EventHandler(this.WXXXList_Click);
-      this.YearFormat.Scroll += new ScrollEventHandler(this.YearFormat_Scroll);
-
+      // 
+      // frmTAG2Multi
+      // 
       this.AcceptButton = this.btnOK;
-      this.AutoScaleBaseSize = new Size(5, 13);
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
       this.CancelButton = this.btnCancel;
-      this.ClientSize = new Size(0x35a, 0x240);
+      this.ClientSize = new System.Drawing.Size(858, 576);
       this.ControlBox = false;
       this.Controls.Add(this.panMain);
       this.Controls.Add(this.panLyrics);
@@ -2758,7 +3658,7 @@ namespace ID3_TagIT
       this.Controls.Add(this.TopPanel);
       this.Controls.Add(this.ButtomPanel);
       this.Controls.Add(this.SelectionBar);
-      this.FormBorderStyle = FormBorderStyle.FixedDialog;
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
       this.Name = "frmTAG2Multi";
@@ -2767,32 +3667,47 @@ namespace ID3_TagIT
       this.panDetail.ResumeLayout(false);
       this.Panel9.ResumeLayout(false);
       this.Panel5.ResumeLayout(false);
+      this.Panel5.PerformLayout();
       this.Panel14.ResumeLayout(false);
+      this.Panel14.PerformLayout();
       this.Panel4.ResumeLayout(false);
+      this.Panel4.PerformLayout();
       this.panOriginal.ResumeLayout(false);
       this.Panel6.ResumeLayout(false);
+      this.Panel6.PerformLayout();
       this.panMain.ResumeLayout(false);
       this.Panel3.ResumeLayout(false);
+      this.Panel3.PerformLayout();
       this.Panel1.ResumeLayout(false);
+      this.Panel1.PerformLayout();
       this.Panel2.ResumeLayout(false);
       this.panWeb.ResumeLayout(false);
       this.Panel10.ResumeLayout(false);
+      this.Panel10.PerformLayout();
       this.panRating.ResumeLayout(false);
       this.Panel11.ResumeLayout(false);
-      this.txtRatingCounter.EndInit();
-      this.txtRatingRating.EndInit();
+      this.Panel11.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.txtRatingCounter)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtRatingRating)).EndInit();
       this.panInvolved.ResumeLayout(false);
       this.Panel15.ResumeLayout(false);
+      this.Panel15.PerformLayout();
       this.Panel16.ResumeLayout(false);
+      this.Panel16.PerformLayout();
       this.panPic.ResumeLayout(false);
       this.Panel7.ResumeLayout(false);
+      this.Panel7.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.APICView)).EndInit();
       this.panLyrics.ResumeLayout(false);
       this.Panel8.ResumeLayout(false);
+      this.Panel8.PerformLayout();
       this.panUser.ResumeLayout(false);
       this.Panel12.ResumeLayout(false);
+      this.Panel12.PerformLayout();
       this.Panel13.ResumeLayout(false);
-      this.txtDigits.EndInit();
-      ((ISupportInitialize)this.SelectionBar).EndInit();
+      this.Panel13.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).EndInit();
       this.ButtomPanel.ResumeLayout(false);
       this.ResumeLayout(false);
     }

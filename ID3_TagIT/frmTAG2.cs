@@ -1,17 +1,17 @@
-﻿  using AMS.TextBox;
-  using DevComponents.DotNetBar;
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.Collections;
-  using System.ComponentModel;
-  using System.Data;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.IO;
-  using System.Resources;
-  using System.Runtime.CompilerServices;
-  using System.Windows.Forms;
+﻿using AMS.TextBox;
+using DevComponents.DotNetBar;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Resources;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace ID3_TagIT
 {
@@ -290,262 +290,261 @@ namespace ID3_TagIT
     [DebuggerStepThrough]
     private void InitializeComponent()
     {
-      this.components = new Container();
-      ResourceManager manager = new ResourceManager(typeof(frmTAG2));
-      this.lblSelected = new Label();
+      this.components = new System.ComponentModel.Container();
+      this.lblSelected = new System.Windows.Forms.Label();
       this.txtSelected = new System.Windows.Forms.TextBox();
-      this.Panel3 = new Panel();
-      this.lblCommDescInfo = new Label();
-      this.cmbCDescriptor = new ComboBoxAutoComplete();
-      this.btnV1Comment = new Button();
-      this.btnMoveComment = new Button();
-      this.btnRemoveComment = new Button();
-      this.btnAddComment = new Button();
-      this.lblCOMM = new Label();
-      this.lblCOMMLan = new Label();
-      this.lblCOMMDesc = new Label();
-      this.cmbCLanguage = new ComboBox();
+      this.Panel3 = new System.Windows.Forms.Panel();
+      this.lblCommDescInfo = new System.Windows.Forms.Label();
+      this.cmbCDescriptor = new ID3_TagIT.ComboBoxAutoComplete();
+      this.btnV1Comment = new System.Windows.Forms.Button();
+      this.btnMoveComment = new System.Windows.Forms.Button();
+      this.btnRemoveComment = new System.Windows.Forms.Button();
+      this.btnAddComment = new System.Windows.Forms.Button();
+      this.lblCOMM = new System.Windows.Forms.Label();
+      this.lblCOMMLan = new System.Windows.Forms.Label();
+      this.lblCOMMDesc = new System.Windows.Forms.Label();
+      this.cmbCLanguage = new System.Windows.Forms.ComboBox();
       this.txtComment = new System.Windows.Forms.TextBox();
-      this.CommentList = new ListView();
-      this.colDescriptor = new ColumnHeader();
-      this.colComment = new ColumnHeader();
-      this.colLanguage = new ColumnHeader();
-      this.Panel2 = new Panel();
-      this.cmbGenre = new ComboBoxAutoComplete();
-      this.btnV1Genre = new Button();
-      this.lblGenreInfo = new Label();
-      this.btnMoveGenre = new Button();
-      this.btnRemoveGenre = new Button();
-      this.btnAddGenre = new Button();
-      this.lblGenre = new Label();
-      this.GenreList = new ListBox();
-      this.Panel1 = new Panel();
-      this.txtPOS2 = new IntegerTextBox();
-      this.txtPOS1 = new IntegerTextBox();
-      this.txtTrack2 = new IntegerTextBox();
-      this.txtTrack1 = new IntegerTextBox();
+      this.CommentList = new System.Windows.Forms.ListView();
+      this.colDescriptor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.colComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.colLanguage = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.Panel2 = new System.Windows.Forms.Panel();
+      this.cmbGenre = new ID3_TagIT.ComboBoxAutoComplete();
+      this.btnV1Genre = new System.Windows.Forms.Button();
+      this.lblGenreInfo = new System.Windows.Forms.Label();
+      this.btnMoveGenre = new System.Windows.Forms.Button();
+      this.btnRemoveGenre = new System.Windows.Forms.Button();
+      this.btnAddGenre = new System.Windows.Forms.Button();
+      this.lblGenre = new System.Windows.Forms.Label();
+      this.GenreList = new System.Windows.Forms.ListBox();
+      this.Panel1 = new System.Windows.Forms.Panel();
+      this.txtPOS2 = new AMS.TextBox.IntegerTextBox();
+      this.txtPOS1 = new AMS.TextBox.IntegerTextBox();
+      this.txtTrack2 = new AMS.TextBox.IntegerTextBox();
+      this.txtTrack1 = new AMS.TextBox.IntegerTextBox();
       this.txtYear = new AMS.TextBox.MaskedTextBox();
-      this.txtBPM = new NumericTextBox();
-      this.cmbArtist = new ComboBoxAutoComplete();
-      this.lblBPM = new Label();
-      this.YearFormat = new HScrollBar();
-      this.btnV1Title = new Button();
-      this.btnV1Album = new Button();
-      this.btnV1Track = new Button();
-      this.btnV1Year = new Button();
-      this.btnV1Artist = new Button();
-      this.lblOf2 = new Label();
-      this.lblOf1 = new Label();
+      this.txtBPM = new AMS.TextBox.NumericTextBox();
+      this.cmbArtist = new ID3_TagIT.ComboBoxAutoComplete();
+      this.lblBPM = new System.Windows.Forms.Label();
+      this.YearFormat = new System.Windows.Forms.HScrollBar();
+      this.btnV1Title = new System.Windows.Forms.Button();
+      this.btnV1Album = new System.Windows.Forms.Button();
+      this.btnV1Track = new System.Windows.Forms.Button();
+      this.btnV1Year = new System.Windows.Forms.Button();
+      this.btnV1Artist = new System.Windows.Forms.Button();
+      this.lblOf2 = new System.Windows.Forms.Label();
+      this.lblOf1 = new System.Windows.Forms.Label();
       this.txtAlbum = new System.Windows.Forms.TextBox();
       this.txtTitle = new System.Windows.Forms.TextBox();
-      this.lblTitle = new Label();
-      this.lblAlbum = new Label();
-      this.lblPosMedia = new Label();
-      this.lblYear = new Label();
-      this.lblTrack = new Label();
-      this.lblArtist = new Label();
-      this.btnTLEN = new Button();
-      this.txtTLEN = new IntegerTextBox();
-      this.lblTLEN = new Label();
-      this.cmbMedia = new ComboBox();
-      this.lblMediaTyp = new Label();
-      this.Panel9 = new Panel();
+      this.lblTitle = new System.Windows.Forms.Label();
+      this.lblAlbum = new System.Windows.Forms.Label();
+      this.lblPosMedia = new System.Windows.Forms.Label();
+      this.lblYear = new System.Windows.Forms.Label();
+      this.lblTrack = new System.Windows.Forms.Label();
+      this.lblArtist = new System.Windows.Forms.Label();
+      this.btnTLEN = new System.Windows.Forms.Button();
+      this.txtTLEN = new AMS.TextBox.IntegerTextBox();
+      this.lblTLEN = new System.Windows.Forms.Label();
+      this.cmbMedia = new System.Windows.Forms.ComboBox();
+      this.lblMediaTyp = new System.Windows.Forms.Label();
+      this.Panel9 = new System.Windows.Forms.Panel();
       this.txtSortArtist = new System.Windows.Forms.TextBox();
       this.txtSortTitle = new System.Windows.Forms.TextBox();
       this.txtSortAlbum = new System.Windows.Forms.TextBox();
-      this.lblAlbumSort = new Label();
-      this.lblTitleSort = new Label();
-      this.lblArtistSort = new Label();
-      this.Panel6 = new Panel();
+      this.lblAlbumSort = new System.Windows.Forms.Label();
+      this.lblTitleSort = new System.Windows.Forms.Label();
+      this.lblArtistSort = new System.Windows.Forms.Label();
+      this.Panel6 = new System.Windows.Forms.Panel();
       this.txtTORY = new AMS.TextBox.MaskedTextBox();
-      this.lblOYearInfo = new Label();
-      this.TORYFormat = new HScrollBar();
-      this.lblOYear = new Label();
+      this.lblOYearInfo = new System.Windows.Forms.Label();
+      this.TORYFormat = new System.Windows.Forms.HScrollBar();
+      this.lblOYear = new System.Windows.Forms.Label();
       this.txtOOwner = new System.Windows.Forms.TextBox();
-      this.lblOOwner = new Label();
+      this.lblOOwner = new System.Windows.Forms.Label();
       this.txtOArtist = new System.Windows.Forms.TextBox();
-      this.lblOArtist = new Label();
+      this.lblOArtist = new System.Windows.Forms.Label();
       this.txtOAlbum = new System.Windows.Forms.TextBox();
       this.txtOLyWriter = new System.Windows.Forms.TextBox();
       this.txtOFilename = new System.Windows.Forms.TextBox();
-      this.lblOFilename = new Label();
-      this.lblOLyWriter = new Label();
-      this.lblOAlbum = new Label();
-      this.Panel5 = new Panel();
+      this.lblOFilename = new System.Windows.Forms.Label();
+      this.lblOLyWriter = new System.Windows.Forms.Label();
+      this.lblOAlbum = new System.Windows.Forms.Label();
+      this.Panel5 = new System.Windows.Forms.Panel();
       this.txtContent = new System.Windows.Forms.TextBox();
       this.txtSubTitle = new System.Windows.Forms.TextBox();
-      this.lblSubTitle = new Label();
-      this.lblContent = new Label();
-      this.Panel4 = new Panel();
+      this.lblSubTitle = new System.Windows.Forms.Label();
+      this.lblContent = new System.Windows.Forms.Label();
+      this.Panel4 = new System.Windows.Forms.Panel();
       this.txtComposer = new System.Windows.Forms.TextBox();
-      this.lblComposer = new Label();
+      this.lblComposer = new System.Windows.Forms.Label();
       this.txtBand = new System.Windows.Forms.TextBox();
       this.txtModified = new System.Windows.Forms.TextBox();
       this.txtConductor = new System.Windows.Forms.TextBox();
-      this.lblConductor = new Label();
-      this.lblModified = new Label();
-      this.lblBand = new Label();
+      this.lblConductor = new System.Windows.Forms.Label();
+      this.lblModified = new System.Windows.Forms.Label();
+      this.lblBand = new System.Windows.Forms.Label();
       this.txtCopyright = new System.Windows.Forms.TextBox();
-      this.lblCopyright = new Label();
+      this.lblCopyright = new System.Windows.Forms.Label();
       this.txtLyWriter = new System.Windows.Forms.TextBox();
       this.txtEncoded = new System.Windows.Forms.TextBox();
       this.txtPublisher = new System.Windows.Forms.TextBox();
-      this.lblPublisher = new Label();
-      this.lblEncoded = new Label();
-      this.lblLyWriter = new Label();
-      this.Panel15 = new Panel();
-      this.lblMusicianInfo = new Label();
+      this.lblPublisher = new System.Windows.Forms.Label();
+      this.lblEncoded = new System.Windows.Forms.Label();
+      this.lblLyWriter = new System.Windows.Forms.Label();
+      this.Panel15 = new System.Windows.Forms.Panel();
+      this.lblMusicianInfo = new System.Windows.Forms.Label();
       this.txtMusicianName = new System.Windows.Forms.TextBox();
-      this.btnRemoveMusician = new Button();
-      this.btnAddMusician = new Button();
-      this.lblMusicianName = new Label();
-      this.lblMusicianInst = new Label();
+      this.btnRemoveMusician = new System.Windows.Forms.Button();
+      this.btnAddMusician = new System.Windows.Forms.Button();
+      this.lblMusicianName = new System.Windows.Forms.Label();
+      this.lblMusicianInst = new System.Windows.Forms.Label();
       this.txtMusicianInst = new System.Windows.Forms.TextBox();
-      this.TMCLList = new ListView();
-      this.ColumnHeader15 = new ColumnHeader();
-      this.ColumnHeader16 = new ColumnHeader();
-      this.Panel16 = new Panel();
+      this.TMCLList = new System.Windows.Forms.ListView();
+      this.ColumnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.Panel16 = new System.Windows.Forms.Panel();
       this.txtInvPerson = new System.Windows.Forms.TextBox();
-      this.btnRemoveInv = new Button();
-      this.btnAddInv = new Button();
-      this.lblInvPerson = new Label();
-      this.lblInvFunction = new Label();
+      this.btnRemoveInv = new System.Windows.Forms.Button();
+      this.btnAddInv = new System.Windows.Forms.Button();
+      this.lblInvPerson = new System.Windows.Forms.Label();
+      this.lblInvFunction = new System.Windows.Forms.Label();
       this.txtInvFunction = new System.Windows.Forms.TextBox();
-      this.TIPLList = new ListView();
-      this.ColumnHeader17 = new ColumnHeader();
-      this.ColumnHeader18 = new ColumnHeader();
-      this.Panel14 = new Panel();
-      this.Panel7 = new Panel();
-      this.chkPicRelativPath = new CheckBox();
-      this.btnExPic = new Button();
-      this.btnRemovePicture = new Button();
-      this.btnAddPicture = new Button();
-      this.btnGetPic = new Button();
-      this.chkPicInclude = new CheckBox();
-      this.lblPicPath = new Label();
+      this.TIPLList = new System.Windows.Forms.ListView();
+      this.ColumnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.Panel14 = new System.Windows.Forms.Panel();
+      this.Panel7 = new System.Windows.Forms.Panel();
+      this.chkPicRelativPath = new System.Windows.Forms.CheckBox();
+      this.btnExPic = new System.Windows.Forms.Button();
+      this.btnRemovePicture = new System.Windows.Forms.Button();
+      this.btnAddPicture = new System.Windows.Forms.Button();
+      this.btnGetPic = new System.Windows.Forms.Button();
+      this.chkPicInclude = new System.Windows.Forms.CheckBox();
+      this.lblPicPath = new System.Windows.Forms.Label();
       this.txtPicPath = new System.Windows.Forms.TextBox();
-      this.PicList = new ListView();
-      this.ColumnHeader4 = new ColumnHeader();
-      this.ColumnHeader5 = new ColumnHeader();
-      this.ColumnHeader6 = new ColumnHeader();
-      this.ColumnHeader7 = new ColumnHeader();
-      this.lblPicType = new Label();
-      this.lblPicDesc = new Label();
-      this.cmbPicType = new ComboBox();
+      this.PicList = new System.Windows.Forms.ListView();
+      this.ColumnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.lblPicType = new System.Windows.Forms.Label();
+      this.lblPicDesc = new System.Windows.Forms.Label();
+      this.cmbPicType = new System.Windows.Forms.ComboBox();
       this.txtPDescriptor = new System.Windows.Forms.TextBox();
-      this.APICView = new PictureBox();
-      this.Panel8 = new Panel();
-      this.txtLyrics = new RichTextBox();
-      this.btnLyricsFile = new Button();
-      this.btnMoveLyrics = new Button();
-      this.btnRemoveLyrics = new Button();
-      this.btnAddLyrics = new Button();
-      this.lblLyrics = new Label();
-      this.lblLyLan = new Label();
-      this.lblLyDesc = new Label();
-      this.cmbLLanguage = new ComboBox();
+      this.APICView = new System.Windows.Forms.PictureBox();
+      this.Panel8 = new System.Windows.Forms.Panel();
+      this.txtLyrics = new System.Windows.Forms.RichTextBox();
+      this.btnLyricsFile = new System.Windows.Forms.Button();
+      this.btnMoveLyrics = new System.Windows.Forms.Button();
+      this.btnRemoveLyrics = new System.Windows.Forms.Button();
+      this.btnAddLyrics = new System.Windows.Forms.Button();
+      this.lblLyrics = new System.Windows.Forms.Label();
+      this.lblLyLan = new System.Windows.Forms.Label();
+      this.lblLyDesc = new System.Windows.Forms.Label();
+      this.cmbLLanguage = new System.Windows.Forms.ComboBox();
       this.txtLDescriptor = new System.Windows.Forms.TextBox();
-      this.LyricsList = new ListView();
-      this.ColumnHeader1 = new ColumnHeader();
-      this.ColumnHeader2 = new ColumnHeader();
-      this.ColumnHeader3 = new ColumnHeader();
-      this.Panel11 = new Panel();
-      this.lblInfo = new Label();
-      this.btnMoveRating = new Button();
-      this.btnRemoveRating = new Button();
-      this.btnAddRating = new Button();
-      this.RatingList = new ListView();
-      this.ColumnHeader8 = new ColumnHeader();
-      this.ColumnHeader9 = new ColumnHeader();
-      this.ColumnHeader10 = new ColumnHeader();
-      this.txtRatingCounter = new NumericUpDown();
-      this.txtRatingRating = new NumericUpDown();
+      this.LyricsList = new System.Windows.Forms.ListView();
+      this.ColumnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.Panel11 = new System.Windows.Forms.Panel();
+      this.lblInfo = new System.Windows.Forms.Label();
+      this.btnMoveRating = new System.Windows.Forms.Button();
+      this.btnRemoveRating = new System.Windows.Forms.Button();
+      this.btnAddRating = new System.Windows.Forms.Button();
+      this.RatingList = new System.Windows.Forms.ListView();
+      this.ColumnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.txtRatingCounter = new System.Windows.Forms.NumericUpDown();
+      this.txtRatingRating = new System.Windows.Forms.NumericUpDown();
       this.txtRatingUser = new System.Windows.Forms.TextBox();
-      this.lblRatingRating = new Label();
-      this.lblRatingCounter = new Label();
-      this.lblRatingUser = new Label();
-      this.Panel10 = new Panel();
+      this.lblRatingRating = new System.Windows.Forms.Label();
+      this.lblRatingCounter = new System.Windows.Forms.Label();
+      this.lblRatingUser = new System.Windows.Forms.Label();
+      this.Panel10 = new System.Windows.Forms.Panel();
       this.txtCOMMInfURL = new System.Windows.Forms.TextBox();
-      this.lblCOMMInfURL = new Label();
+      this.lblCOMMInfURL = new System.Windows.Forms.Label();
       this.txtPubURL = new System.Windows.Forms.TextBox();
-      this.lblPubURL = new Label();
+      this.lblPubURL = new System.Windows.Forms.Label();
       this.txtPayURL = new System.Windows.Forms.TextBox();
-      this.lblPayURL = new Label();
+      this.lblPayURL = new System.Windows.Forms.Label();
       this.txtINetRadioURL = new System.Windows.Forms.TextBox();
-      this.lblINetRadioURL = new Label();
+      this.lblINetRadioURL = new System.Windows.Forms.Label();
       this.txtAudioSRCURL = new System.Windows.Forms.TextBox();
-      this.lblAudioSRCURL = new Label();
+      this.lblAudioSRCURL = new System.Windows.Forms.Label();
       this.txtCopyInfURL = new System.Windows.Forms.TextBox();
       this.txtArtistURL = new System.Windows.Forms.TextBox();
       this.txtAudioFileURL = new System.Windows.Forms.TextBox();
-      this.lblAudioFileURL = new Label();
-      this.lblArtistURL = new Label();
-      this.lblCopyInfURL = new Label();
-      this.Panel13 = new Panel();
+      this.lblAudioFileURL = new System.Windows.Forms.Label();
+      this.lblArtistURL = new System.Windows.Forms.Label();
+      this.lblCopyInfURL = new System.Windows.Forms.Label();
+      this.Panel13 = new System.Windows.Forms.Panel();
       this.txtWXXXContent = new System.Windows.Forms.TextBox();
-      this.btnRemoveWXXX = new Button();
-      this.btnAddWXXX = new Button();
-      this.lblWXXXContent = new Label();
-      this.lblWXXXDesc = new Label();
+      this.btnRemoveWXXX = new System.Windows.Forms.Button();
+      this.btnAddWXXX = new System.Windows.Forms.Button();
+      this.lblWXXXContent = new System.Windows.Forms.Label();
+      this.lblWXXXDesc = new System.Windows.Forms.Label();
       this.txtWXXXDesc = new System.Windows.Forms.TextBox();
-      this.WXXXList = new ListView();
-      this.ColumnHeader13 = new ColumnHeader();
-      this.ColumnHeader14 = new ColumnHeader();
-      this.Panel12 = new Panel();
+      this.WXXXList = new System.Windows.Forms.ListView();
+      this.ColumnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.Panel12 = new System.Windows.Forms.Panel();
       this.txtTXXXContent = new System.Windows.Forms.TextBox();
-      this.btnRemoveTXXX = new Button();
-      this.btnAddTXXX = new Button();
-      this.lblTXXXContent = new Label();
-      this.lblTXXXDesc = new Label();
+      this.btnRemoveTXXX = new System.Windows.Forms.Button();
+      this.btnAddTXXX = new System.Windows.Forms.Button();
+      this.lblTXXXContent = new System.Windows.Forms.Label();
+      this.lblTXXXDesc = new System.Windows.Forms.Label();
       this.txtTXXXDesc = new System.Windows.Forms.TextBox();
-      this.TXXXList = new ListView();
-      this.ColumnHeader11 = new ColumnHeader();
-      this.ColumnHeader12 = new ColumnHeader();
-      this.lblNot = new Label();
-      this.NotSupportList = new ListView();
-      this.FrameID = new ColumnHeader();
-      this.Content = new ColumnHeader();
-      this.txtDigits = new NumericUpDown();
+      this.TXXXList = new System.Windows.Forms.ListView();
+      this.ColumnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.ColumnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.lblNot = new System.Windows.Forms.Label();
+      this.NotSupportList = new System.Windows.Forms.ListView();
+      this.FrameID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.Content = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.txtDigits = new System.Windows.Forms.NumericUpDown();
       this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
       this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
       this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
-      this.SelectionBar = new ExplorerBar();
-      this.TAGV2grpTAG = new ExplorerBarGroupItem();
-      this.TAGV2ButtonItem1 = new ButtonItem();
-      this.TAGV2ButtonItem2 = new ButtonItem();
-      this.TAGV2ButtonItem3 = new ButtonItem();
-      this.TAGV2ButtonItem4 = new ButtonItem();
-      this.TAGV2ButtonItem5 = new ButtonItem();
-      this.TAGV2ButtonItem6 = new ButtonItem();
-      this.TAGV2ButtonItem7 = new ButtonItem();
-      this.TAGV2ButtonItem8 = new ButtonItem();
-      this.TAGV2ButtonItem9 = new ButtonItem();
-      this.TAGV2ButtonItem10 = new ButtonItem();
-      this.TAGV2grpTransfer = new ExplorerBarGroupItem();
-      this.btnImport = new ButtonItem();
-      this.btnExport = new ButtonItem();
-      this.btnGet = new ButtonItem();
-      this.TAGV2grpCommands = new ExplorerBarGroupItem();
-      this.btnPrev = new ButtonItem();
-      this.btnNext = new ButtonItem();
-      this.btnSwapAT = new ButtonItem();
-      this.btnSwapAA = new ButtonItem();
-      this.btnSwapTA = new ButtonItem();
-      this.btnCancel = new Button();
-      this.btnOK = new Button();
-      this.lblDigits = new Label();
-      this.TopPanel = new PanelEx();
-      this.panDetail = new Panel();
-      this.panMain = new Panel();
-      this.panOriginal = new Panel();
-      this.panInvolved = new Panel();
-      this.panPic = new Panel();
-      this.panLyrics = new Panel();
-      this.panWeb = new Panel();
-      this.panRating = new Panel();
-      this.panUser = new Panel();
-      this.panNot = new Panel();
-      this.ButtomPanel = new PanelEx();
+      this.SelectionBar = new DevComponents.DotNetBar.ExplorerBar();
+      this.TAGV2grpTAG = new DevComponents.DotNetBar.ExplorerBarGroupItem();
+      this.TAGV2ButtonItem1 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem2 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem3 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem4 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem5 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem6 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem7 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem8 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem9 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2ButtonItem10 = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2grpTransfer = new DevComponents.DotNetBar.ExplorerBarGroupItem();
+      this.btnImport = new DevComponents.DotNetBar.ButtonItem();
+      this.btnExport = new DevComponents.DotNetBar.ButtonItem();
+      this.btnGet = new DevComponents.DotNetBar.ButtonItem();
+      this.TAGV2grpCommands = new DevComponents.DotNetBar.ExplorerBarGroupItem();
+      this.btnPrev = new DevComponents.DotNetBar.ButtonItem();
+      this.btnNext = new DevComponents.DotNetBar.ButtonItem();
+      this.btnSwapAT = new DevComponents.DotNetBar.ButtonItem();
+      this.btnSwapAA = new DevComponents.DotNetBar.ButtonItem();
+      this.btnSwapTA = new DevComponents.DotNetBar.ButtonItem();
+      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new System.Windows.Forms.Button();
+      this.lblDigits = new System.Windows.Forms.Label();
+      this.TopPanel = new DevComponents.DotNetBar.PanelEx();
+      this.panDetail = new System.Windows.Forms.Panel();
+      this.panMain = new System.Windows.Forms.Panel();
+      this.panOriginal = new System.Windows.Forms.Panel();
+      this.panInvolved = new System.Windows.Forms.Panel();
+      this.panPic = new System.Windows.Forms.Panel();
+      this.panLyrics = new System.Windows.Forms.Panel();
+      this.panWeb = new System.Windows.Forms.Panel();
+      this.panRating = new System.Windows.Forms.Panel();
+      this.panUser = new System.Windows.Forms.Panel();
+      this.panNot = new System.Windows.Forms.Panel();
+      this.ButtomPanel = new DevComponents.DotNetBar.PanelEx();
       this.Panel3.SuspendLayout();
       this.Panel2.SuspendLayout();
       this.Panel1.SuspendLayout();
@@ -557,15 +556,16 @@ namespace ID3_TagIT
       this.Panel16.SuspendLayout();
       this.Panel14.SuspendLayout();
       this.Panel7.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.APICView)).BeginInit();
       this.Panel8.SuspendLayout();
       this.Panel11.SuspendLayout();
-      this.txtRatingCounter.BeginInit();
-      this.txtRatingRating.BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtRatingCounter)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtRatingRating)).BeginInit();
       this.Panel10.SuspendLayout();
       this.Panel13.SuspendLayout();
       this.Panel12.SuspendLayout();
-      this.txtDigits.BeginInit();
-      ((ISupportInitialize)this.SelectionBar).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).BeginInit();
       this.TopPanel.SuspendLayout();
       this.panDetail.SuspendLayout();
       this.panMain.SuspendLayout();
@@ -579,25 +579,35 @@ namespace ID3_TagIT
       this.panNot.SuspendLayout();
       this.ButtomPanel.SuspendLayout();
       this.SuspendLayout();
-      this.lblSelected.BackColor = Color.White;
-      this.lblSelected.ForeColor = Color.Black;
-      this.lblSelected.ImeMode = ImeMode.NoControl;
-      this.lblSelected.Location = new Point(8, 0x18);
+      // 
+      // lblSelected
+      // 
+      this.lblSelected.BackColor = System.Drawing.Color.White;
+      this.lblSelected.ForeColor = System.Drawing.Color.Black;
+      this.lblSelected.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblSelected.Location = new System.Drawing.Point(8, 24);
       this.lblSelected.Name = "lblSelected";
-      this.lblSelected.Size = new Size(0x68, 0x10);
-      this.lblSelected.TabIndex = 0x6b;
+      this.lblSelected.Size = new System.Drawing.Size(104, 16);
+      this.lblSelected.TabIndex = 107;
       this.lblSelected.Text = "Selected file:";
-      this.txtSelected.BackColor = Color.White;
-      this.txtSelected.BorderStyle = BorderStyle.None;
-      this.txtSelected.ForeColor = Color.Black;
-      this.txtSelected.Location = new Point(0x70, 0x18);
+      // 
+      // txtSelected
+      // 
+      this.txtSelected.BackColor = System.Drawing.Color.White;
+      this.txtSelected.BorderStyle = System.Windows.Forms.BorderStyle.None;
+      this.txtSelected.ForeColor = System.Drawing.Color.Black;
+      this.txtSelected.Location = new System.Drawing.Point(112, 24);
       this.txtSelected.Name = "txtSelected";
       this.txtSelected.ReadOnly = true;
-      this.txtSelected.Size = new Size(0x220, 13);
-      this.txtSelected.TabIndex = 0x6c;
+      this.txtSelected.Size = new System.Drawing.Size(544, 13);
+      this.txtSelected.TabIndex = 108;
       this.txtSelected.TabStop = false;
-      this.txtSelected.Text = "";
-      this.Panel3.BorderStyle = BorderStyle.FixedSingle;
+      this.txtSelected.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtSelected.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // Panel3
+      // 
+      this.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel3.Controls.Add(this.lblCommDescInfo);
       this.Panel3.Controls.Add(this.cmbCDescriptor);
       this.Panel3.Controls.Add(this.btnV1Comment);
@@ -610,95 +620,158 @@ namespace ID3_TagIT
       this.Panel3.Controls.Add(this.cmbCLanguage);
       this.Panel3.Controls.Add(this.txtComment);
       this.Panel3.Controls.Add(this.CommentList);
-      this.Panel3.Location = new Point(8, 0x108);
+      this.Panel3.Location = new System.Drawing.Point(8, 264);
       this.Panel3.Name = "Panel3";
-      this.Panel3.Size = new Size(0x288, 0xb8);
+      this.Panel3.Size = new System.Drawing.Size(648, 184);
       this.Panel3.TabIndex = 2;
-      this.lblCommDescInfo.BorderStyle = BorderStyle.Fixed3D;
-      this.lblCommDescInfo.ImeMode = ImeMode.NoControl;
-      this.lblCommDescInfo.Location = new Point(8, 0x70);
+      // 
+      // lblCommDescInfo
+      // 
+      this.lblCommDescInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblCommDescInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCommDescInfo.Location = new System.Drawing.Point(8, 112);
       this.lblCommDescInfo.Name = "lblCommDescInfo";
-      this.lblCommDescInfo.Size = new Size(120, 0x40);
-      this.lblCommDescInfo.TabIndex = 0x2f;
+      this.lblCommDescInfo.Size = new System.Drawing.Size(120, 64);
+      this.lblCommDescInfo.TabIndex = 47;
       this.lblCommDescInfo.Text = "Predefined comment descriptors can be set under Edit Libraries (Options menu)";
-      this.lblCommDescInfo.TextAlign = ContentAlignment.MiddleCenter;
+      this.lblCommDescInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // cmbCDescriptor
+      // 
       this.cmbCDescriptor.Autocomplete = true;
       this.cmbCDescriptor.ItemHeight = 13;
-      this.cmbCDescriptor.Location = new Point(0x88, 6);
+      this.cmbCDescriptor.Location = new System.Drawing.Point(136, 6);
       this.cmbCDescriptor.Name = "cmbCDescriptor";
-      this.cmbCDescriptor.Size = new Size(0x108, 0x15);
-      this.cmbCDescriptor.TabIndex = 0x24;
-      this.btnV1Comment.ImeMode = ImeMode.NoControl;
-      this.btnV1Comment.Location = new Point(0x198, 80);
+      this.cmbCDescriptor.Size = new System.Drawing.Size(264, 21);
+      this.cmbCDescriptor.TabIndex = 36;
+      this.cmbCDescriptor.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbCDescriptor.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // btnV1Comment
+      // 
+      this.btnV1Comment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnV1Comment.Location = new System.Drawing.Point(408, 80);
       this.btnV1Comment.Name = "btnV1Comment";
-      this.btnV1Comment.Size = new Size(0xe8, 20);
-      this.btnV1Comment.TabIndex = 0x2c;
+      this.btnV1Comment.Size = new System.Drawing.Size(232, 20);
+      this.btnV1Comment.TabIndex = 44;
       this.btnV1Comment.Text = "<- Ver. 1";
-      this.btnMoveComment.ImeMode = ImeMode.NoControl;
-      this.btnMoveComment.Location = new Point(0x198, 0x38);
+      this.btnV1Comment.Click += new System.EventHandler(this.btnV1Comment_Click);
+      // 
+      // btnMoveComment
+      // 
+      this.btnMoveComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnMoveComment.Location = new System.Drawing.Point(408, 56);
       this.btnMoveComment.Name = "btnMoveComment";
-      this.btnMoveComment.Size = new Size(0xe8, 20);
-      this.btnMoveComment.TabIndex = 0x2b;
+      this.btnMoveComment.Size = new System.Drawing.Size(232, 20);
+      this.btnMoveComment.TabIndex = 43;
       this.btnMoveComment.Text = "Move Comment to top";
-      this.btnRemoveComment.ImeMode = ImeMode.NoControl;
-      this.btnRemoveComment.Location = new Point(0x198, 0x20);
+      this.btnMoveComment.Click += new System.EventHandler(this.btnMoveComment_Click);
+      // 
+      // btnRemoveComment
+      // 
+      this.btnRemoveComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveComment.Location = new System.Drawing.Point(408, 32);
       this.btnRemoveComment.Name = "btnRemoveComment";
-      this.btnRemoveComment.Size = new Size(0xe8, 20);
-      this.btnRemoveComment.TabIndex = 0x2a;
+      this.btnRemoveComment.Size = new System.Drawing.Size(232, 20);
+      this.btnRemoveComment.TabIndex = 42;
       this.btnRemoveComment.Text = "Remove Comment";
-      this.btnAddComment.ImeMode = ImeMode.NoControl;
-      this.btnAddComment.Location = new Point(0x198, 8);
+      this.btnRemoveComment.Click += new System.EventHandler(this.btnRemoveComment_Click);
+      // 
+      // btnAddComment
+      // 
+      this.btnAddComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddComment.Location = new System.Drawing.Point(408, 8);
       this.btnAddComment.Name = "btnAddComment";
-      this.btnAddComment.Size = new Size(0xe8, 20);
-      this.btnAddComment.TabIndex = 0x29;
+      this.btnAddComment.Size = new System.Drawing.Size(232, 20);
+      this.btnAddComment.TabIndex = 41;
       this.btnAddComment.Text = "Add Comment";
-      this.lblCOMM.ImeMode = ImeMode.NoControl;
-      this.lblCOMM.Location = new Point(8, 0x38);
+      this.btnAddComment.Click += new System.EventHandler(this.btnAddComment_Click);
+      // 
+      // lblCOMM
+      // 
+      this.lblCOMM.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCOMM.Location = new System.Drawing.Point(8, 56);
       this.lblCOMM.Name = "lblCOMM";
-      this.lblCOMM.Size = new Size(0x80, 0x10);
-      this.lblCOMM.TabIndex = 0x27;
+      this.lblCOMM.Size = new System.Drawing.Size(128, 16);
+      this.lblCOMM.TabIndex = 39;
       this.lblCOMM.Text = "&Comment:";
-      this.lblCOMMLan.ImeMode = ImeMode.NoControl;
-      this.lblCOMMLan.Location = new Point(8, 0x20);
+      // 
+      // lblCOMMLan
+      // 
+      this.lblCOMMLan.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCOMMLan.Location = new System.Drawing.Point(8, 32);
       this.lblCOMMLan.Name = "lblCOMMLan";
-      this.lblCOMMLan.Size = new Size(0x80, 0x10);
-      this.lblCOMMLan.TabIndex = 0x25;
+      this.lblCOMMLan.Size = new System.Drawing.Size(128, 16);
+      this.lblCOMMLan.TabIndex = 37;
       this.lblCOMMLan.Text = "Comment &Language:";
-      this.lblCOMMDesc.ImeMode = ImeMode.NoControl;
-      this.lblCOMMDesc.Location = new Point(8, 8);
+      // 
+      // lblCOMMDesc
+      // 
+      this.lblCOMMDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCOMMDesc.Location = new System.Drawing.Point(8, 8);
       this.lblCOMMDesc.Name = "lblCOMMDesc";
-      this.lblCOMMDesc.Size = new Size(0x80, 0x10);
-      this.lblCOMMDesc.TabIndex = 0x23;
+      this.lblCOMMDesc.Size = new System.Drawing.Size(128, 16);
+      this.lblCOMMDesc.TabIndex = 35;
       this.lblCOMMDesc.Text = "Comment &Descriptor:";
-      this.cmbCLanguage.DropDownStyle = ComboBoxStyle.DropDownList;
+      // 
+      // cmbCLanguage
+      // 
+      this.cmbCLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cmbCLanguage.ItemHeight = 13;
-      this.cmbCLanguage.Location = new Point(0x88, 30);
+      this.cmbCLanguage.Location = new System.Drawing.Point(136, 30);
       this.cmbCLanguage.Name = "cmbCLanguage";
-      this.cmbCLanguage.Size = new Size(0x108, 0x15);
-      this.cmbCLanguage.TabIndex = 0x26;
+      this.cmbCLanguage.Size = new System.Drawing.Size(264, 21);
+      this.cmbCLanguage.TabIndex = 38;
+      this.cmbCLanguage.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbCLanguage.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtComment
+      // 
       this.txtComment.AcceptsReturn = true;
-      this.txtComment.Location = new Point(0x88, 0x38);
+      this.txtComment.Location = new System.Drawing.Point(136, 56);
       this.txtComment.Multiline = true;
       this.txtComment.Name = "txtComment";
-      this.txtComment.Size = new Size(0x108, 0x30);
+      this.txtComment.Size = new System.Drawing.Size(264, 48);
       this.txtComment.TabIndex = 40;
-      this.txtComment.Text = "";
-      this.CommentList.Columns.AddRange(new ColumnHeader[] { this.colDescriptor, this.colComment, this.colLanguage });
+      this.txtComment.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtComment.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // CommentList
+      // 
+      this.CommentList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colDescriptor,
+            this.colComment,
+            this.colLanguage});
       this.CommentList.FullRowSelect = true;
-      this.CommentList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.CommentList.Location = new Point(0x88, 0x70);
+      this.CommentList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.CommentList.Location = new System.Drawing.Point(136, 112);
       this.CommentList.MultiSelect = false;
       this.CommentList.Name = "CommentList";
-      this.CommentList.Size = new Size(0x1f8, 0x40);
-      this.CommentList.TabIndex = 0x2d;
-      this.CommentList.View = View.Details;
+      this.CommentList.Size = new System.Drawing.Size(504, 64);
+      this.CommentList.TabIndex = 45;
+      this.CommentList.UseCompatibleStateImageBehavior = false;
+      this.CommentList.View = System.Windows.Forms.View.Details;
+      this.CommentList.Click += new System.EventHandler(this.CommentList_Click);
+      this.CommentList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // colDescriptor
+      // 
       this.colDescriptor.Text = "Descriptor";
-      this.colDescriptor.Width = 0x7c;
+      this.colDescriptor.Width = 124;
+      // 
+      // colComment
+      // 
       this.colComment.Text = "Comment";
-      this.colComment.Width = 0x106;
+      this.colComment.Width = 262;
+      // 
+      // colLanguage
+      // 
       this.colLanguage.Text = "Language";
-      this.colLanguage.Width = 0x5b;
-      this.Panel2.BorderStyle = BorderStyle.FixedSingle;
+      this.colLanguage.Width = 91;
+      // 
+      // Panel2
+      // 
+      this.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel2.Controls.Add(this.cmbGenre);
       this.Panel2.Controls.Add(this.btnV1Genre);
       this.Panel2.Controls.Add(this.lblGenreInfo);
@@ -707,58 +780,93 @@ namespace ID3_TagIT
       this.Panel2.Controls.Add(this.btnAddGenre);
       this.Panel2.Controls.Add(this.lblGenre);
       this.Panel2.Controls.Add(this.GenreList);
-      this.Panel2.Location = new Point(8, 0x90);
+      this.Panel2.Location = new System.Drawing.Point(8, 144);
       this.Panel2.Name = "Panel2";
-      this.Panel2.Size = new Size(0x288, 0x70);
+      this.Panel2.Size = new System.Drawing.Size(648, 112);
       this.Panel2.TabIndex = 1;
+      // 
+      // cmbGenre
+      // 
       this.cmbGenre.Autocomplete = true;
       this.cmbGenre.ItemHeight = 13;
-      this.cmbGenre.Location = new Point(0x88, 6);
+      this.cmbGenre.Location = new System.Drawing.Point(136, 6);
       this.cmbGenre.Name = "cmbGenre";
-      this.cmbGenre.Size = new Size(0xe8, 0x15);
-      this.cmbGenre.TabIndex = 0x1d;
-      this.btnV1Genre.ImeMode = ImeMode.NoControl;
-      this.btnV1Genre.Location = new Point(0x200, 0x20);
+      this.cmbGenre.Size = new System.Drawing.Size(232, 21);
+      this.cmbGenre.TabIndex = 29;
+      this.cmbGenre.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbGenre.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // btnV1Genre
+      // 
+      this.btnV1Genre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnV1Genre.Location = new System.Drawing.Point(512, 32);
       this.btnV1Genre.Name = "btnV1Genre";
-      this.btnV1Genre.Size = new Size(0x80, 20);
-      this.btnV1Genre.TabIndex = 0x21;
+      this.btnV1Genre.Size = new System.Drawing.Size(128, 20);
+      this.btnV1Genre.TabIndex = 33;
       this.btnV1Genre.Text = "<- Ver. 1";
-      this.lblGenreInfo.BorderStyle = BorderStyle.Fixed3D;
-      this.lblGenreInfo.ImeMode = ImeMode.NoControl;
-      this.lblGenreInfo.Location = new Point(0x178, 0x40);
+      this.btnV1Genre.Click += new System.EventHandler(this.btnV1Genre_Click);
+      // 
+      // lblGenreInfo
+      // 
+      this.lblGenreInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblGenreInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblGenreInfo.Location = new System.Drawing.Point(376, 64);
       this.lblGenreInfo.Name = "lblGenreInfo";
-      this.lblGenreInfo.Size = new Size(0x108, 40);
-      this.lblGenreInfo.TabIndex = 0x1d;
-      this.lblGenreInfo.Text = "Note: Many programs only show the first genre entered. So move the important genre to the top of the list.";
-      this.btnMoveGenre.ImeMode = ImeMode.NoControl;
-      this.btnMoveGenre.Location = new Point(0x178, 0x20);
+      this.lblGenreInfo.Size = new System.Drawing.Size(264, 40);
+      this.lblGenreInfo.TabIndex = 29;
+      this.lblGenreInfo.Text = "Note: Many programs only show the first genre entered. So move the important genr" +
+    "e to the top of the list.";
+      // 
+      // btnMoveGenre
+      // 
+      this.btnMoveGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnMoveGenre.Location = new System.Drawing.Point(376, 32);
       this.btnMoveGenre.Name = "btnMoveGenre";
-      this.btnMoveGenre.Size = new Size(0x80, 20);
-      this.btnMoveGenre.TabIndex = 0x20;
+      this.btnMoveGenre.Size = new System.Drawing.Size(128, 20);
+      this.btnMoveGenre.TabIndex = 32;
       this.btnMoveGenre.Text = "Move Genre to top";
-      this.btnRemoveGenre.ImeMode = ImeMode.NoControl;
-      this.btnRemoveGenre.Location = new Point(0x200, 8);
+      this.btnMoveGenre.Click += new System.EventHandler(this.btnMoveGenre_Click);
+      // 
+      // btnRemoveGenre
+      // 
+      this.btnRemoveGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveGenre.Location = new System.Drawing.Point(512, 8);
       this.btnRemoveGenre.Name = "btnRemoveGenre";
-      this.btnRemoveGenre.Size = new Size(0x80, 20);
-      this.btnRemoveGenre.TabIndex = 0x1f;
+      this.btnRemoveGenre.Size = new System.Drawing.Size(128, 20);
+      this.btnRemoveGenre.TabIndex = 31;
       this.btnRemoveGenre.Text = "Remove Genre";
-      this.btnAddGenre.ImeMode = ImeMode.NoControl;
-      this.btnAddGenre.Location = new Point(0x178, 8);
+      this.btnRemoveGenre.Click += new System.EventHandler(this.btnRemoveGenre_Click);
+      // 
+      // btnAddGenre
+      // 
+      this.btnAddGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddGenre.Location = new System.Drawing.Point(376, 8);
       this.btnAddGenre.Name = "btnAddGenre";
-      this.btnAddGenre.Size = new Size(0x80, 20);
+      this.btnAddGenre.Size = new System.Drawing.Size(128, 20);
       this.btnAddGenre.TabIndex = 30;
       this.btnAddGenre.Text = "Add Genre";
-      this.lblGenre.ImeMode = ImeMode.NoControl;
-      this.lblGenre.Location = new Point(8, 8);
+      this.btnAddGenre.Click += new System.EventHandler(this.btnAddGenre_Click);
+      // 
+      // lblGenre
+      // 
+      this.lblGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblGenre.Location = new System.Drawing.Point(8, 8);
       this.lblGenre.Name = "lblGenre";
-      this.lblGenre.Size = new Size(0x80, 0x10);
-      this.lblGenre.TabIndex = 0x1c;
+      this.lblGenre.Size = new System.Drawing.Size(128, 16);
+      this.lblGenre.TabIndex = 28;
       this.lblGenre.Text = "&Genre:";
-      this.GenreList.Location = new Point(0x88, 0x20);
+      // 
+      // GenreList
+      // 
+      this.GenreList.Location = new System.Drawing.Point(136, 32);
       this.GenreList.Name = "GenreList";
-      this.GenreList.Size = new Size(0xe8, 0x45);
-      this.GenreList.TabIndex = 0x22;
-      this.Panel1.BorderStyle = BorderStyle.FixedSingle;
+      this.GenreList.Size = new System.Drawing.Size(232, 69);
+      this.GenreList.TabIndex = 34;
+      this.GenreList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // Panel1
+      // 
+      this.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel1.Controls.Add(this.txtPOS2);
       this.Panel1.Controls.Add(this.txtPOS1);
       this.Panel1.Controls.Add(this.txtTrack2);
@@ -783,270 +891,416 @@ namespace ID3_TagIT
       this.Panel1.Controls.Add(this.lblYear);
       this.Panel1.Controls.Add(this.lblTrack);
       this.Panel1.Controls.Add(this.lblArtist);
-      this.Panel1.Location = new Point(8, 8);
+      this.Panel1.Location = new System.Drawing.Point(8, 8);
       this.Panel1.Name = "Panel1";
-      this.Panel1.Size = new Size(0x288, 0x80);
+      this.Panel1.Size = new System.Drawing.Size(648, 128);
       this.Panel1.TabIndex = 0;
+      // 
+      // txtPOS2
+      // 
       this.txtPOS2.AllowNegative = false;
       this.txtPOS2.DigitsInGroup = 0;
-      this.txtPOS2.Flags = 0x10000;
-      this.txtPOS2.Location = new Point(0x240, 0x66);
+      this.txtPOS2.Flags = 65536;
+      this.txtPOS2.Location = new System.Drawing.Point(576, 102);
       this.txtPOS2.MaxDecimalPlaces = 0;
       this.txtPOS2.MaxLength = 6;
       this.txtPOS2.MaxWholeDigits = 6;
       this.txtPOS2.Name = "txtPOS2";
       this.txtPOS2.Prefix = "";
-      this.txtPOS2.RangeMax = 999999.0;
-      this.txtPOS2.RangeMin = 0.0;
-      this.txtPOS2.Size = new Size(0x40, 20);
-      this.txtPOS2.TabIndex = 0x19;
+      this.txtPOS2.RangeMax = 999999D;
+      this.txtPOS2.RangeMin = 0D;
+      this.txtPOS2.Size = new System.Drawing.Size(64, 20);
+      this.txtPOS2.TabIndex = 25;
+      // 
+      // txtPOS1
+      // 
       this.txtPOS1.AllowNegative = false;
       this.txtPOS1.DigitsInGroup = 0;
-      this.txtPOS1.Flags = 0x10000;
-      this.txtPOS1.Location = new Point(0x1e8, 0x66);
+      this.txtPOS1.Flags = 65536;
+      this.txtPOS1.Location = new System.Drawing.Point(488, 102);
       this.txtPOS1.MaxDecimalPlaces = 0;
       this.txtPOS1.MaxLength = 6;
       this.txtPOS1.MaxWholeDigits = 6;
       this.txtPOS1.Name = "txtPOS1";
       this.txtPOS1.Prefix = "";
-      this.txtPOS1.RangeMax = 999999.0;
-      this.txtPOS1.RangeMin = 0.0;
-      this.txtPOS1.Size = new Size(0x40, 20);
-      this.txtPOS1.TabIndex = 0x18;
+      this.txtPOS1.RangeMax = 999999D;
+      this.txtPOS1.RangeMin = 0D;
+      this.txtPOS1.Size = new System.Drawing.Size(64, 20);
+      this.txtPOS1.TabIndex = 24;
+      // 
+      // txtTrack2
+      // 
       this.txtTrack2.AllowNegative = false;
       this.txtTrack2.DigitsInGroup = 0;
-      this.txtTrack2.Flags = 0x10000;
-      this.txtTrack2.Location = new Point(0xe0, 0x66);
+      this.txtTrack2.Flags = 65536;
+      this.txtTrack2.Location = new System.Drawing.Point(224, 102);
       this.txtTrack2.MaxDecimalPlaces = 0;
       this.txtTrack2.MaxLength = 6;
       this.txtTrack2.MaxWholeDigits = 6;
       this.txtTrack2.Name = "txtTrack2";
       this.txtTrack2.Prefix = "";
-      this.txtTrack2.RangeMax = 999999.0;
-      this.txtTrack2.RangeMin = 0.0;
-      this.txtTrack2.Size = new Size(0x40, 20);
-      this.txtTrack2.TabIndex = 0x15;
+      this.txtTrack2.RangeMax = 999999D;
+      this.txtTrack2.RangeMin = 0D;
+      this.txtTrack2.Size = new System.Drawing.Size(64, 20);
+      this.txtTrack2.TabIndex = 21;
+      // 
+      // txtTrack1
+      // 
       this.txtTrack1.AllowNegative = false;
       this.txtTrack1.DigitsInGroup = 0;
-      this.txtTrack1.Flags = 0x10000;
-      this.txtTrack1.Location = new Point(0x88, 0x66);
+      this.txtTrack1.Flags = 65536;
+      this.txtTrack1.Location = new System.Drawing.Point(136, 102);
       this.txtTrack1.MaxDecimalPlaces = 0;
       this.txtTrack1.MaxLength = 6;
       this.txtTrack1.MaxWholeDigits = 6;
       this.txtTrack1.Name = "txtTrack1";
       this.txtTrack1.Prefix = "";
-      this.txtTrack1.RangeMax = 999999.0;
-      this.txtTrack1.RangeMin = 0.0;
-      this.txtTrack1.Size = new Size(0x40, 20);
+      this.txtTrack1.RangeMax = 999999D;
+      this.txtTrack1.RangeMin = 0D;
+      this.txtTrack1.Size = new System.Drawing.Size(64, 20);
       this.txtTrack1.TabIndex = 20;
+      // 
+      // txtYear
+      // 
       this.txtYear.Flags = 0;
-      this.txtYear.Location = new Point(0x88, 0x4e);
+      this.txtYear.Location = new System.Drawing.Point(136, 78);
       this.txtYear.Mask = "####-##-##";
       this.txtYear.Name = "txtYear";
-      this.txtYear.Size = new Size(0x70, 20);
+      this.txtYear.Size = new System.Drawing.Size(112, 20);
       this.txtYear.TabIndex = 13;
+      this.txtYear.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtYear.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtBPM
+      // 
       this.txtBPM.AllowNegative = false;
       this.txtBPM.DigitsInGroup = 0;
-      this.txtBPM.Flags = 0x10000;
-      this.txtBPM.Location = new Point(0x1e8, 0x4e);
+      this.txtBPM.Flags = 65536;
+      this.txtBPM.Location = new System.Drawing.Point(488, 78);
       this.txtBPM.MaxDecimalPlaces = 0;
       this.txtBPM.MaxLength = 3;
       this.txtBPM.MaxWholeDigits = 3;
       this.txtBPM.Name = "txtBPM";
       this.txtBPM.Prefix = "";
-      this.txtBPM.RangeMax = 999999.0;
-      this.txtBPM.RangeMin = 1.0;
-      this.txtBPM.Size = new Size(0x98, 20);
-      this.txtBPM.TabIndex = 0x12;
+      this.txtBPM.RangeMax = 999999D;
+      this.txtBPM.RangeMin = 1D;
+      this.txtBPM.Size = new System.Drawing.Size(152, 20);
+      this.txtBPM.TabIndex = 18;
+      this.txtBPM.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtBPM.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // cmbArtist
+      // 
       this.cmbArtist.Autocomplete = true;
       this.cmbArtist.ItemHeight = 13;
-      this.cmbArtist.Location = new Point(0x88, 6);
+      this.cmbArtist.Location = new System.Drawing.Point(136, 6);
       this.cmbArtist.Name = "cmbArtist";
-      this.cmbArtist.Size = new Size(440, 0x15);
+      this.cmbArtist.Size = new System.Drawing.Size(440, 21);
       this.cmbArtist.TabIndex = 4;
-      this.lblBPM.ImeMode = ImeMode.NoControl;
-      this.lblBPM.Location = new Point(0x170, 80);
+      this.cmbArtist.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbArtist.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblBPM
+      // 
+      this.lblBPM.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblBPM.Location = new System.Drawing.Point(368, 80);
       this.lblBPM.Name = "lblBPM";
-      this.lblBPM.Size = new Size(0x80, 0x10);
-      this.lblBPM.TabIndex = 0x75;
+      this.lblBPM.Size = new System.Drawing.Size(128, 16);
+      this.lblBPM.TabIndex = 117;
       this.lblBPM.Text = "BP&M:";
-      this.YearFormat.ImeMode = ImeMode.NoControl;
+      // 
+      // YearFormat
+      // 
+      this.YearFormat.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.YearFormat.LargeChange = 1;
-      this.YearFormat.Location = new Point(0x100, 80);
+      this.YearFormat.Location = new System.Drawing.Point(256, 80);
       this.YearFormat.Maximum = 2;
       this.YearFormat.Name = "YearFormat";
-      this.YearFormat.Size = new Size(0x20, 0x10);
+      this.YearFormat.Size = new System.Drawing.Size(32, 16);
       this.YearFormat.TabIndex = 14;
-      this.btnV1Title.ImeMode = ImeMode.NoControl;
-      this.btnV1Title.Location = new Point(0x248, 30);
+      this.YearFormat.Scroll += new System.Windows.Forms.ScrollEventHandler(this.YearFormat_Scroll);
+      // 
+      // btnV1Title
+      // 
+      this.btnV1Title.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnV1Title.Location = new System.Drawing.Point(584, 30);
       this.btnV1Title.Name = "btnV1Title";
-      this.btnV1Title.Size = new Size(0x38, 20);
+      this.btnV1Title.Size = new System.Drawing.Size(56, 20);
       this.btnV1Title.TabIndex = 8;
       this.btnV1Title.Text = "<- Ver. 1";
-      this.btnV1Album.ImeMode = ImeMode.NoControl;
-      this.btnV1Album.Location = new Point(0x248, 0x36);
+      this.btnV1Title.Click += new System.EventHandler(this.btnV1Title_Click);
+      // 
+      // btnV1Album
+      // 
+      this.btnV1Album.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnV1Album.Location = new System.Drawing.Point(584, 54);
       this.btnV1Album.Name = "btnV1Album";
-      this.btnV1Album.Size = new Size(0x38, 20);
+      this.btnV1Album.Size = new System.Drawing.Size(56, 20);
       this.btnV1Album.TabIndex = 11;
       this.btnV1Album.Text = "<- Ver. 1";
-      this.btnV1Track.ImeMode = ImeMode.NoControl;
-      this.btnV1Track.Location = new Point(0x128, 0x66);
+      this.btnV1Album.Click += new System.EventHandler(this.btnV1Album_Click);
+      // 
+      // btnV1Track
+      // 
+      this.btnV1Track.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnV1Track.Location = new System.Drawing.Point(296, 102);
       this.btnV1Track.Name = "btnV1Track";
-      this.btnV1Track.Size = new Size(0x38, 20);
-      this.btnV1Track.TabIndex = 0x16;
+      this.btnV1Track.Size = new System.Drawing.Size(56, 20);
+      this.btnV1Track.TabIndex = 22;
       this.btnV1Track.Text = "<- Ver. 1";
-      this.btnV1Year.ImeMode = ImeMode.NoControl;
-      this.btnV1Year.Location = new Point(0x128, 0x4e);
+      this.btnV1Track.Click += new System.EventHandler(this.btnV1Track_Click);
+      // 
+      // btnV1Year
+      // 
+      this.btnV1Year.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnV1Year.Location = new System.Drawing.Point(296, 78);
       this.btnV1Year.Name = "btnV1Year";
-      this.btnV1Year.Size = new Size(0x38, 20);
-      this.btnV1Year.TabIndex = 0x10;
+      this.btnV1Year.Size = new System.Drawing.Size(56, 20);
+      this.btnV1Year.TabIndex = 16;
       this.btnV1Year.Text = "<- Ver. 1";
-      this.btnV1Artist.ImeMode = ImeMode.NoControl;
-      this.btnV1Artist.Location = new Point(0x248, 6);
+      this.btnV1Year.Click += new System.EventHandler(this.btnV1Year_Click);
+      // 
+      // btnV1Artist
+      // 
+      this.btnV1Artist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnV1Artist.Location = new System.Drawing.Point(584, 6);
       this.btnV1Artist.Name = "btnV1Artist";
-      this.btnV1Artist.Size = new Size(0x38, 20);
+      this.btnV1Artist.Size = new System.Drawing.Size(56, 20);
       this.btnV1Artist.TabIndex = 5;
       this.btnV1Artist.Text = "<- Ver. 1";
-      this.lblOf2.ImeMode = ImeMode.NoControl;
-      this.lblOf2.Location = new Point(560, 0x68);
+      this.btnV1Artist.Click += new System.EventHandler(this.btnV1Artist_Click);
+      // 
+      // lblOf2
+      // 
+      this.lblOf2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOf2.Location = new System.Drawing.Point(560, 104);
       this.lblOf2.Name = "lblOf2";
-      this.lblOf2.Size = new Size(0x10, 0x10);
-      this.lblOf2.TabIndex = 0x15;
+      this.lblOf2.Size = new System.Drawing.Size(16, 16);
+      this.lblOf2.TabIndex = 21;
       this.lblOf2.Text = "/";
-      this.lblOf1.ImeMode = ImeMode.NoControl;
-      this.lblOf1.Location = new Point(0xd0, 0x68);
+      // 
+      // lblOf1
+      // 
+      this.lblOf1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOf1.Location = new System.Drawing.Point(208, 104);
       this.lblOf1.Name = "lblOf1";
-      this.lblOf1.Size = new Size(0x10, 0x10);
-      this.lblOf1.TabIndex = 0x10;
+      this.lblOf1.Size = new System.Drawing.Size(16, 16);
+      this.lblOf1.TabIndex = 16;
       this.lblOf1.Text = "/";
-      this.txtAlbum.Location = new Point(0x88, 0x36);
+      // 
+      // txtAlbum
+      // 
+      this.txtAlbum.Location = new System.Drawing.Point(136, 54);
       this.txtAlbum.Name = "txtAlbum";
-      this.txtAlbum.Size = new Size(440, 20);
+      this.txtAlbum.Size = new System.Drawing.Size(440, 20);
       this.txtAlbum.TabIndex = 10;
-      this.txtAlbum.Text = "";
-      this.txtTitle.Location = new Point(0x88, 30);
+      this.txtAlbum.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtAlbum.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtTitle
+      // 
+      this.txtTitle.Location = new System.Drawing.Point(136, 30);
       this.txtTitle.Name = "txtTitle";
-      this.txtTitle.Size = new Size(440, 20);
+      this.txtTitle.Size = new System.Drawing.Size(440, 20);
       this.txtTitle.TabIndex = 7;
-      this.txtTitle.Text = "";
-      this.lblTitle.ImeMode = ImeMode.NoControl;
-      this.lblTitle.Location = new Point(8, 0x20);
+      this.txtTitle.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTitle.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblTitle
+      // 
+      this.lblTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTitle.Location = new System.Drawing.Point(8, 32);
       this.lblTitle.Name = "lblTitle";
-      this.lblTitle.Size = new Size(0x80, 0x10);
+      this.lblTitle.Size = new System.Drawing.Size(128, 16);
       this.lblTitle.TabIndex = 6;
       this.lblTitle.Text = "&Title:";
-      this.lblAlbum.ImeMode = ImeMode.NoControl;
-      this.lblAlbum.Location = new Point(8, 0x38);
+      // 
+      // lblAlbum
+      // 
+      this.lblAlbum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblAlbum.Location = new System.Drawing.Point(8, 56);
       this.lblAlbum.Name = "lblAlbum";
-      this.lblAlbum.Size = new Size(0x80, 0x10);
+      this.lblAlbum.Size = new System.Drawing.Size(128, 16);
       this.lblAlbum.TabIndex = 9;
       this.lblAlbum.Text = "Al&bum:";
-      this.lblPosMedia.ImeMode = ImeMode.NoControl;
-      this.lblPosMedia.Location = new Point(0x170, 0x68);
+      // 
+      // lblPosMedia
+      // 
+      this.lblPosMedia.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPosMedia.Location = new System.Drawing.Point(368, 104);
       this.lblPosMedia.Name = "lblPosMedia";
-      this.lblPosMedia.Size = new Size(120, 0x10);
-      this.lblPosMedia.TabIndex = 0x17;
+      this.lblPosMedia.Size = new System.Drawing.Size(120, 16);
+      this.lblPosMedia.TabIndex = 23;
       this.lblPosMedia.Text = "Position in media &set:";
-      this.lblYear.ImeMode = ImeMode.NoControl;
-      this.lblYear.Location = new Point(8, 80);
+      // 
+      // lblYear
+      // 
+      this.lblYear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblYear.Location = new System.Drawing.Point(8, 80);
       this.lblYear.Name = "lblYear";
-      this.lblYear.Size = new Size(0x80, 0x10);
+      this.lblYear.Size = new System.Drawing.Size(128, 16);
       this.lblYear.TabIndex = 12;
       this.lblYear.Text = "&Year (date) of recording:";
-      this.lblTrack.ImeMode = ImeMode.NoControl;
-      this.lblTrack.Location = new Point(8, 0x68);
+      // 
+      // lblTrack
+      // 
+      this.lblTrack.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTrack.Location = new System.Drawing.Point(8, 104);
       this.lblTrack.Name = "lblTrack";
-      this.lblTrack.Size = new Size(0x80, 0x10);
-      this.lblTrack.TabIndex = 0x13;
+      this.lblTrack.Size = new System.Drawing.Size(128, 16);
+      this.lblTrack.TabIndex = 19;
       this.lblTrack.Text = "Trac&k number:";
-      this.lblArtist.ImeMode = ImeMode.NoControl;
-      this.lblArtist.Location = new Point(8, 8);
+      // 
+      // lblArtist
+      // 
+      this.lblArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblArtist.Location = new System.Drawing.Point(8, 8);
       this.lblArtist.Name = "lblArtist";
-      this.lblArtist.Size = new Size(0x80, 0x10);
+      this.lblArtist.Size = new System.Drawing.Size(128, 16);
       this.lblArtist.TabIndex = 3;
       this.lblArtist.Text = "Lead &Artist:";
-      this.btnTLEN.ImeMode = ImeMode.NoControl;
-      this.btnTLEN.Location = new Point(0x138, 0x20);
+      // 
+      // btnTLEN
+      // 
+      this.btnTLEN.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnTLEN.Location = new System.Drawing.Point(312, 32);
       this.btnTLEN.Name = "btnTLEN";
-      this.btnTLEN.Size = new Size(0x70, 20);
+      this.btnTLEN.Size = new System.Drawing.Size(112, 20);
       this.btnTLEN.TabIndex = 30;
       this.btnTLEN.Text = "Length from file";
+      this.btnTLEN.Click += new System.EventHandler(this.btnTLEN_Click);
+      // 
+      // txtTLEN
+      // 
       this.txtTLEN.AllowNegative = false;
       this.txtTLEN.DigitsInGroup = 0;
-      this.txtTLEN.Flags = 0x10000;
-      this.txtTLEN.Location = new Point(0xa8, 0x20);
+      this.txtTLEN.Flags = 65536;
+      this.txtTLEN.Location = new System.Drawing.Point(168, 32);
       this.txtTLEN.MaxDecimalPlaces = 0;
       this.txtTLEN.MaxLength = 10;
       this.txtTLEN.MaxWholeDigits = 10;
       this.txtTLEN.Name = "txtTLEN";
       this.txtTLEN.Prefix = "";
-      this.txtTLEN.RangeMax = 9999999999;
-      this.txtTLEN.RangeMin = 0.0;
-      this.txtTLEN.Size = new Size(0x88, 20);
-      this.txtTLEN.TabIndex = 0x1d;
-      this.lblTLEN.ImeMode = ImeMode.NoControl;
-      this.lblTLEN.Location = new Point(8, 0x20);
+      this.txtTLEN.RangeMax = 9999999999D;
+      this.txtTLEN.RangeMin = 0D;
+      this.txtTLEN.Size = new System.Drawing.Size(136, 20);
+      this.txtTLEN.TabIndex = 29;
+      // 
+      // lblTLEN
+      // 
+      this.lblTLEN.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTLEN.Location = new System.Drawing.Point(8, 32);
       this.lblTLEN.Name = "lblTLEN";
-      this.lblTLEN.Size = new Size(0x98, 0x10);
-      this.lblTLEN.TabIndex = 0x1c;
+      this.lblTLEN.Size = new System.Drawing.Size(152, 16);
+      this.lblTLEN.TabIndex = 28;
       this.lblTLEN.Text = "Track length (msec):";
+      // 
+      // cmbMedia
+      // 
       this.cmbMedia.ItemHeight = 13;
-      this.cmbMedia.Items.AddRange(new object[] { "ANA (Other analogue media)", "CD (CD)", "DAT (DAT)", "DCC (DCC)", "DIG (Other digital media)", "DVD (DVD)", "LD (LaserDisc)", "MC (Music Cassette)", "MD (MiniDisc)", "RAD (Radio)", "REE (Reel)", "TEL (Telephone)", "TT (Turntable records)", "TV (Television)", "VID (Video)" });
-      this.cmbMedia.Location = new Point(0xa8, 6);
+      this.cmbMedia.Items.AddRange(new object[] {
+            "ANA (Other analogue media)",
+            "CD (CD)",
+            "DAT (DAT)",
+            "DCC (DCC)",
+            "DIG (Other digital media)",
+            "DVD (DVD)",
+            "LD (LaserDisc)",
+            "MC (Music Cassette)",
+            "MD (MiniDisc)",
+            "RAD (Radio)",
+            "REE (Reel)",
+            "TEL (Telephone)",
+            "TT (Turntable records)",
+            "TV (Television)",
+            "VID (Video)"});
+      this.cmbMedia.Location = new System.Drawing.Point(168, 6);
       this.cmbMedia.Name = "cmbMedia";
-      this.cmbMedia.Size = new Size(0x100, 0x15);
-      this.cmbMedia.TabIndex = 0x12;
-      this.lblMediaTyp.ImeMode = ImeMode.NoControl;
-      this.lblMediaTyp.Location = new Point(8, 8);
+      this.cmbMedia.Size = new System.Drawing.Size(256, 21);
+      this.cmbMedia.TabIndex = 18;
+      this.cmbMedia.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbMedia.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblMediaTyp
+      // 
+      this.lblMediaTyp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblMediaTyp.Location = new System.Drawing.Point(8, 8);
       this.lblMediaTyp.Name = "lblMediaTyp";
-      this.lblMediaTyp.Size = new Size(0x98, 0x10);
-      this.lblMediaTyp.TabIndex = 0x11;
+      this.lblMediaTyp.Size = new System.Drawing.Size(152, 16);
+      this.lblMediaTyp.TabIndex = 17;
       this.lblMediaTyp.Text = "M&edia type:";
-      this.Panel9.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel9
+      // 
+      this.Panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel9.Controls.Add(this.txtSortArtist);
       this.Panel9.Controls.Add(this.txtSortTitle);
       this.Panel9.Controls.Add(this.txtSortAlbum);
       this.Panel9.Controls.Add(this.lblAlbumSort);
       this.Panel9.Controls.Add(this.lblTitleSort);
       this.Panel9.Controls.Add(this.lblArtistSort);
-      this.Panel9.Location = new Point(8, 280);
+      this.Panel9.Location = new System.Drawing.Point(8, 280);
       this.Panel9.Name = "Panel9";
-      this.Panel9.Size = new Size(0x288, 80);
+      this.Panel9.Size = new System.Drawing.Size(648, 80);
       this.Panel9.TabIndex = 2;
-      this.txtSortArtist.Location = new Point(0xa8, 6);
+      // 
+      // txtSortArtist
+      // 
+      this.txtSortArtist.Location = new System.Drawing.Point(168, 6);
       this.txtSortArtist.Name = "txtSortArtist";
-      this.txtSortArtist.Size = new Size(0x1d8, 20);
-      this.txtSortArtist.TabIndex = 0x11;
-      this.txtSortArtist.Text = "";
-      this.txtSortTitle.Location = new Point(0xa8, 0x36);
+      this.txtSortArtist.Size = new System.Drawing.Size(472, 20);
+      this.txtSortArtist.TabIndex = 17;
+      this.txtSortArtist.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtSortArtist.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtSortTitle
+      // 
+      this.txtSortTitle.Location = new System.Drawing.Point(168, 54);
       this.txtSortTitle.Name = "txtSortTitle";
-      this.txtSortTitle.Size = new Size(0x1d8, 20);
-      this.txtSortTitle.TabIndex = 0x15;
-      this.txtSortTitle.Text = "";
-      this.txtSortAlbum.Location = new Point(0xa8, 30);
+      this.txtSortTitle.Size = new System.Drawing.Size(472, 20);
+      this.txtSortTitle.TabIndex = 21;
+      this.txtSortTitle.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtSortTitle.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtSortAlbum
+      // 
+      this.txtSortAlbum.Location = new System.Drawing.Point(168, 30);
       this.txtSortAlbum.Name = "txtSortAlbum";
-      this.txtSortAlbum.Size = new Size(0x1d8, 20);
-      this.txtSortAlbum.TabIndex = 0x13;
-      this.txtSortAlbum.Text = "";
-      this.lblAlbumSort.ImeMode = ImeMode.NoControl;
-      this.lblAlbumSort.Location = new Point(8, 0x20);
+      this.txtSortAlbum.Size = new System.Drawing.Size(472, 20);
+      this.txtSortAlbum.TabIndex = 19;
+      this.txtSortAlbum.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtSortAlbum.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblAlbumSort
+      // 
+      this.lblAlbumSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblAlbumSort.Location = new System.Drawing.Point(8, 32);
       this.lblAlbumSort.Name = "lblAlbumSort";
-      this.lblAlbumSort.Size = new Size(0xa8, 0x10);
-      this.lblAlbumSort.TabIndex = 0x12;
+      this.lblAlbumSort.Size = new System.Drawing.Size(168, 16);
+      this.lblAlbumSort.TabIndex = 18;
       this.lblAlbumSort.Text = "Al&bum sort name (Ver. 2.4 only):";
-      this.lblTitleSort.ImeMode = ImeMode.NoControl;
-      this.lblTitleSort.Location = new Point(8, 0x38);
+      // 
+      // lblTitleSort
+      // 
+      this.lblTitleSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTitleSort.Location = new System.Drawing.Point(8, 56);
       this.lblTitleSort.Name = "lblTitleSort";
-      this.lblTitleSort.Size = new Size(160, 0x10);
+      this.lblTitleSort.Size = new System.Drawing.Size(160, 16);
       this.lblTitleSort.TabIndex = 20;
       this.lblTitleSort.Text = "&Title sort name (Ver. 2.4 only):";
-      this.lblArtistSort.ImeMode = ImeMode.NoControl;
-      this.lblArtistSort.Location = new Point(8, 8);
+      // 
+      // lblArtistSort
+      // 
+      this.lblArtistSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblArtistSort.Location = new System.Drawing.Point(8, 8);
       this.lblArtistSort.Name = "lblArtistSort";
-      this.lblArtistSort.Size = new Size(0xa8, 0x10);
-      this.lblArtistSort.TabIndex = 0x10;
+      this.lblArtistSort.Size = new System.Drawing.Size(168, 16);
+      this.lblArtistSort.TabIndex = 16;
       this.lblArtistSort.Text = "&Artist sort name (Ver. 2.4 only):";
-      this.Panel6.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel6
+      // 
+      this.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel6.Controls.Add(this.txtTORY);
       this.Panel6.Controls.Add(this.lblOYearInfo);
       this.Panel6.Controls.Add(this.TORYFormat);
@@ -1061,122 +1315,192 @@ namespace ID3_TagIT
       this.Panel6.Controls.Add(this.lblOFilename);
       this.Panel6.Controls.Add(this.lblOLyWriter);
       this.Panel6.Controls.Add(this.lblOAlbum);
-      this.Panel6.Location = new Point(8, 8);
+      this.Panel6.Location = new System.Drawing.Point(8, 8);
       this.Panel6.Name = "Panel6";
-      this.Panel6.Size = new Size(0x288, 0x98);
+      this.Panel6.Size = new System.Drawing.Size(648, 152);
       this.Panel6.TabIndex = 3;
+      // 
+      // txtTORY
+      // 
       this.txtTORY.Flags = 0;
-      this.txtTORY.Location = new Point(0xa8, 0x7e);
+      this.txtTORY.Location = new System.Drawing.Point(168, 126);
       this.txtTORY.Mask = "####-##-##";
       this.txtTORY.Name = "txtTORY";
-      this.txtTORY.Size = new Size(0x70, 20);
-      this.txtTORY.TabIndex = 0x21;
-      this.lblOYearInfo.ImeMode = ImeMode.NoControl;
-      this.lblOYearInfo.Location = new Point(0x150, 0x80);
+      this.txtTORY.Size = new System.Drawing.Size(112, 20);
+      this.txtTORY.TabIndex = 33;
+      this.txtTORY.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTORY.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblOYearInfo
+      // 
+      this.lblOYearInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOYearInfo.Location = new System.Drawing.Point(336, 128);
       this.lblOYearInfo.Name = "lblOYearInfo";
-      this.lblOYearInfo.Size = new Size(0x130, 0x10);
-      this.lblOYearInfo.TabIndex = 0x24;
+      this.lblOYearInfo.Size = new System.Drawing.Size(304, 16);
+      this.lblOYearInfo.TabIndex = 36;
       this.lblOYearInfo.Text = "(In TAG Ver. 2.3 only the year entry will be saved)";
-      this.TORYFormat.ImeMode = ImeMode.NoControl;
+      // 
+      // TORYFormat
+      // 
+      this.TORYFormat.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.TORYFormat.LargeChange = 1;
-      this.TORYFormat.Location = new Point(0x120, 0x80);
+      this.TORYFormat.Location = new System.Drawing.Point(288, 128);
       this.TORYFormat.Maximum = 2;
       this.TORYFormat.Name = "TORYFormat";
-      this.TORYFormat.Size = new Size(0x20, 0x10);
-      this.TORYFormat.TabIndex = 0x22;
-      this.lblOYear.ImeMode = ImeMode.NoControl;
-      this.lblOYear.Location = new Point(8, 0x80);
+      this.TORYFormat.Size = new System.Drawing.Size(32, 16);
+      this.TORYFormat.TabIndex = 34;
+      this.TORYFormat.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TORYFormat_Scroll);
+      // 
+      // lblOYear
+      // 
+      this.lblOYear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOYear.Location = new System.Drawing.Point(8, 128);
       this.lblOYear.Name = "lblOYear";
-      this.lblOYear.Size = new Size(0x90, 0x10);
-      this.lblOYear.TabIndex = 0x20;
+      this.lblOYear.Size = new System.Drawing.Size(144, 16);
+      this.lblOYear.TabIndex = 32;
       this.lblOYear.Text = "Original release &year (date):";
-      this.txtOOwner.Location = new Point(0xa8, 0x66);
+      // 
+      // txtOOwner
+      // 
+      this.txtOOwner.Location = new System.Drawing.Point(168, 102);
       this.txtOOwner.Name = "txtOOwner";
-      this.txtOOwner.Size = new Size(0x1d8, 20);
-      this.txtOOwner.TabIndex = 0x1f;
-      this.txtOOwner.Text = "";
-      this.lblOOwner.ImeMode = ImeMode.NoControl;
-      this.lblOOwner.Location = new Point(8, 0x68);
+      this.txtOOwner.Size = new System.Drawing.Size(472, 20);
+      this.txtOOwner.TabIndex = 31;
+      this.txtOOwner.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOOwner.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblOOwner
+      // 
+      this.lblOOwner.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOOwner.Location = new System.Drawing.Point(8, 104);
       this.lblOOwner.Name = "lblOOwner";
-      this.lblOOwner.Size = new Size(0x80, 0x10);
+      this.lblOOwner.Size = new System.Drawing.Size(128, 16);
       this.lblOOwner.TabIndex = 30;
       this.lblOOwner.Text = "Original &owner:";
-      this.txtOArtist.Location = new Point(0xa8, 0x4e);
+      // 
+      // txtOArtist
+      // 
+      this.txtOArtist.Location = new System.Drawing.Point(168, 78);
       this.txtOArtist.Name = "txtOArtist";
-      this.txtOArtist.Size = new Size(0x1d8, 20);
-      this.txtOArtist.TabIndex = 0x1d;
-      this.txtOArtist.Text = "";
-      this.lblOArtist.ImeMode = ImeMode.NoControl;
-      this.lblOArtist.Location = new Point(8, 80);
+      this.txtOArtist.Size = new System.Drawing.Size(472, 20);
+      this.txtOArtist.TabIndex = 29;
+      this.txtOArtist.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOArtist.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblOArtist
+      // 
+      this.lblOArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOArtist.Location = new System.Drawing.Point(8, 80);
       this.lblOArtist.Name = "lblOArtist";
-      this.lblOArtist.Size = new Size(0x80, 0x10);
-      this.lblOArtist.TabIndex = 0x1c;
+      this.lblOArtist.Size = new System.Drawing.Size(128, 16);
+      this.lblOArtist.TabIndex = 28;
       this.lblOArtist.Text = "Original &artist:";
-      this.txtOAlbum.Location = new Point(0xa8, 6);
+      // 
+      // txtOAlbum
+      // 
+      this.txtOAlbum.Location = new System.Drawing.Point(168, 6);
       this.txtOAlbum.Name = "txtOAlbum";
-      this.txtOAlbum.Size = new Size(0x1d8, 20);
-      this.txtOAlbum.TabIndex = 0x17;
-      this.txtOAlbum.Text = "";
-      this.txtOLyWriter.Location = new Point(0xa8, 0x36);
+      this.txtOAlbum.Size = new System.Drawing.Size(472, 20);
+      this.txtOAlbum.TabIndex = 23;
+      this.txtOAlbum.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOAlbum.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtOLyWriter
+      // 
+      this.txtOLyWriter.Location = new System.Drawing.Point(168, 54);
       this.txtOLyWriter.Name = "txtOLyWriter";
-      this.txtOLyWriter.Size = new Size(0x1d8, 20);
-      this.txtOLyWriter.TabIndex = 0x1b;
-      this.txtOLyWriter.Text = "";
-      this.txtOFilename.Location = new Point(0xa8, 30);
+      this.txtOLyWriter.Size = new System.Drawing.Size(472, 20);
+      this.txtOLyWriter.TabIndex = 27;
+      this.txtOLyWriter.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOLyWriter.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtOFilename
+      // 
+      this.txtOFilename.Location = new System.Drawing.Point(168, 30);
       this.txtOFilename.Name = "txtOFilename";
-      this.txtOFilename.Size = new Size(0x1d8, 20);
-      this.txtOFilename.TabIndex = 0x19;
-      this.txtOFilename.Text = "";
-      this.lblOFilename.ImeMode = ImeMode.NoControl;
-      this.lblOFilename.Location = new Point(8, 0x20);
+      this.txtOFilename.Size = new System.Drawing.Size(472, 20);
+      this.txtOFilename.TabIndex = 25;
+      this.txtOFilename.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOFilename.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblOFilename
+      // 
+      this.lblOFilename.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOFilename.Location = new System.Drawing.Point(8, 32);
       this.lblOFilename.Name = "lblOFilename";
-      this.lblOFilename.Size = new Size(0x80, 0x10);
-      this.lblOFilename.TabIndex = 0x18;
+      this.lblOFilename.Size = new System.Drawing.Size(128, 16);
+      this.lblOFilename.TabIndex = 24;
       this.lblOFilename.Text = "Original &filename:";
-      this.lblOLyWriter.ImeMode = ImeMode.NoControl;
-      this.lblOLyWriter.Location = new Point(8, 0x38);
+      // 
+      // lblOLyWriter
+      // 
+      this.lblOLyWriter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOLyWriter.Location = new System.Drawing.Point(8, 56);
       this.lblOLyWriter.Name = "lblOLyWriter";
-      this.lblOLyWriter.Size = new Size(0x80, 0x10);
-      this.lblOLyWriter.TabIndex = 0x1a;
+      this.lblOLyWriter.Size = new System.Drawing.Size(128, 16);
+      this.lblOLyWriter.TabIndex = 26;
       this.lblOLyWriter.Text = "Original lyrics &writer:";
-      this.lblOAlbum.ImeMode = ImeMode.NoControl;
-      this.lblOAlbum.Location = new Point(8, 8);
+      // 
+      // lblOAlbum
+      // 
+      this.lblOAlbum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOAlbum.Location = new System.Drawing.Point(8, 8);
       this.lblOAlbum.Name = "lblOAlbum";
-      this.lblOAlbum.Size = new Size(0x80, 0x10);
-      this.lblOAlbum.TabIndex = 0x16;
+      this.lblOAlbum.Size = new System.Drawing.Size(128, 16);
+      this.lblOAlbum.TabIndex = 22;
       this.lblOAlbum.Text = "Original a&lbum title:";
-      this.Panel5.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel5
+      // 
+      this.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel5.Controls.Add(this.txtContent);
       this.Panel5.Controls.Add(this.txtSubTitle);
       this.Panel5.Controls.Add(this.lblSubTitle);
       this.Panel5.Controls.Add(this.lblContent);
-      this.Panel5.Location = new Point(8, 0xd8);
+      this.Panel5.Location = new System.Drawing.Point(8, 216);
       this.Panel5.Name = "Panel5";
-      this.Panel5.Size = new Size(0x288, 0x38);
+      this.Panel5.Size = new System.Drawing.Size(648, 56);
       this.Panel5.TabIndex = 1;
-      this.txtContent.Location = new Point(0xa8, 6);
+      // 
+      // txtContent
+      // 
+      this.txtContent.Location = new System.Drawing.Point(168, 6);
       this.txtContent.Name = "txtContent";
-      this.txtContent.Size = new Size(0x1d8, 20);
+      this.txtContent.Size = new System.Drawing.Size(472, 20);
       this.txtContent.TabIndex = 13;
-      this.txtContent.Text = "";
-      this.txtSubTitle.Location = new Point(0xa8, 30);
+      this.txtContent.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtContent.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtSubTitle
+      // 
+      this.txtSubTitle.Location = new System.Drawing.Point(168, 30);
       this.txtSubTitle.Name = "txtSubTitle";
-      this.txtSubTitle.Size = new Size(0x1d8, 20);
+      this.txtSubTitle.Size = new System.Drawing.Size(472, 20);
       this.txtSubTitle.TabIndex = 15;
-      this.txtSubTitle.Text = "";
-      this.lblSubTitle.ImeMode = ImeMode.NoControl;
-      this.lblSubTitle.Location = new Point(8, 0x20);
+      this.txtSubTitle.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtSubTitle.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblSubTitle
+      // 
+      this.lblSubTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblSubTitle.Location = new System.Drawing.Point(8, 32);
       this.lblSubTitle.Name = "lblSubTitle";
-      this.lblSubTitle.Size = new Size(0x80, 0x10);
+      this.lblSubTitle.Size = new System.Drawing.Size(128, 16);
       this.lblSubTitle.TabIndex = 14;
       this.lblSubTitle.Text = "&Sub Title:";
-      this.lblContent.ImeMode = ImeMode.NoControl;
-      this.lblContent.Location = new Point(8, 8);
+      // 
+      // lblContent
+      // 
+      this.lblContent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblContent.Location = new System.Drawing.Point(8, 8);
       this.lblContent.Name = "lblContent";
-      this.lblContent.Size = new Size(0x80, 0x10);
+      this.lblContent.Size = new System.Drawing.Size(128, 16);
       this.lblContent.TabIndex = 12;
       this.lblContent.Text = "Con&tent Group:";
-      this.Panel4.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel4
+      // 
+      this.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel4.Controls.Add(this.txtComposer);
       this.Panel4.Controls.Add(this.lblComposer);
       this.Panel4.Controls.Add(this.txtBand);
@@ -1193,99 +1517,158 @@ namespace ID3_TagIT
       this.Panel4.Controls.Add(this.lblPublisher);
       this.Panel4.Controls.Add(this.lblEncoded);
       this.Panel4.Controls.Add(this.lblLyWriter);
-      this.Panel4.Location = new Point(8, 8);
+      this.Panel4.Location = new System.Drawing.Point(8, 8);
       this.Panel4.Name = "Panel4";
-      this.Panel4.Size = new Size(0x288, 200);
+      this.Panel4.Size = new System.Drawing.Size(648, 200);
       this.Panel4.TabIndex = 0;
-      this.txtComposer.Location = new Point(0xa8, 0x4b);
+      // 
+      // txtComposer
+      // 
+      this.txtComposer.Location = new System.Drawing.Point(168, 75);
       this.txtComposer.Name = "txtComposer";
-      this.txtComposer.Size = new Size(0x1d8, 20);
+      this.txtComposer.Size = new System.Drawing.Size(472, 20);
       this.txtComposer.TabIndex = 11;
-      this.txtComposer.Text = "";
-      this.lblComposer.ImeMode = ImeMode.NoControl;
-      this.lblComposer.Location = new Point(8, 0x4d);
+      this.txtComposer.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtComposer.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblComposer
+      // 
+      this.lblComposer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblComposer.Location = new System.Drawing.Point(8, 77);
       this.lblComposer.Name = "lblComposer";
-      this.lblComposer.Size = new Size(0x80, 0x10);
+      this.lblComposer.Size = new System.Drawing.Size(128, 16);
       this.lblComposer.TabIndex = 10;
       this.lblComposer.Text = "Co&mposer:";
-      this.txtBand.Location = new Point(0xa8, 6);
+      // 
+      // txtBand
+      // 
+      this.txtBand.Location = new System.Drawing.Point(168, 6);
       this.txtBand.Name = "txtBand";
-      this.txtBand.Size = new Size(0x1d8, 20);
+      this.txtBand.Size = new System.Drawing.Size(472, 20);
       this.txtBand.TabIndex = 5;
-      this.txtBand.Text = "";
-      this.txtModified.Location = new Point(0xa8, 0x34);
+      this.txtBand.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtBand.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtModified
+      // 
+      this.txtModified.Location = new System.Drawing.Point(168, 52);
       this.txtModified.Name = "txtModified";
-      this.txtModified.Size = new Size(0x1d8, 20);
+      this.txtModified.Size = new System.Drawing.Size(472, 20);
       this.txtModified.TabIndex = 9;
-      this.txtModified.Text = "";
-      this.txtConductor.Location = new Point(0xa8, 0x1d);
+      this.txtModified.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtModified.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtConductor
+      // 
+      this.txtConductor.Location = new System.Drawing.Point(168, 29);
       this.txtConductor.Name = "txtConductor";
-      this.txtConductor.Size = new Size(0x1d8, 20);
+      this.txtConductor.Size = new System.Drawing.Size(472, 20);
       this.txtConductor.TabIndex = 7;
-      this.txtConductor.Text = "";
-      this.lblConductor.ImeMode = ImeMode.NoControl;
-      this.lblConductor.Location = new Point(8, 0x1f);
+      this.txtConductor.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtConductor.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblConductor
+      // 
+      this.lblConductor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblConductor.Location = new System.Drawing.Point(8, 31);
       this.lblConductor.Name = "lblConductor";
-      this.lblConductor.Size = new Size(0x80, 0x10);
+      this.lblConductor.Size = new System.Drawing.Size(128, 16);
       this.lblConductor.TabIndex = 6;
       this.lblConductor.Text = "&Conductor:";
-      this.lblModified.ImeMode = ImeMode.NoControl;
-      this.lblModified.Location = new Point(8, 0x36);
+      // 
+      // lblModified
+      // 
+      this.lblModified.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblModified.Location = new System.Drawing.Point(8, 54);
       this.lblModified.Name = "lblModified";
-      this.lblModified.Size = new Size(0x80, 0x10);
+      this.lblModified.Size = new System.Drawing.Size(128, 16);
       this.lblModified.TabIndex = 8;
       this.lblModified.Text = "Modified / Remixed b&y:";
-      this.lblBand.ImeMode = ImeMode.NoControl;
-      this.lblBand.Location = new Point(8, 8);
+      // 
+      // lblBand
+      // 
+      this.lblBand.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblBand.Location = new System.Drawing.Point(8, 8);
       this.lblBand.Name = "lblBand";
-      this.lblBand.Size = new Size(0x80, 0x10);
+      this.lblBand.Size = new System.Drawing.Size(128, 16);
       this.lblBand.TabIndex = 4;
       this.lblBand.Text = "&Band / Orchestra:";
-      this.txtCopyright.Location = new Point(0xa8, 0xa7);
+      // 
+      // txtCopyright
+      // 
+      this.txtCopyright.Location = new System.Drawing.Point(168, 167);
       this.txtCopyright.Name = "txtCopyright";
-      this.txtCopyright.Size = new Size(0x1d8, 20);
-      this.txtCopyright.TabIndex = 0x17;
-      this.txtCopyright.Text = "";
-      this.lblCopyright.ImeMode = ImeMode.NoControl;
-      this.lblCopyright.Location = new Point(8, 0xa9);
+      this.txtCopyright.Size = new System.Drawing.Size(472, 20);
+      this.txtCopyright.TabIndex = 23;
+      this.txtCopyright.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtCopyright.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblCopyright
+      // 
+      this.lblCopyright.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCopyright.Location = new System.Drawing.Point(8, 169);
       this.lblCopyright.Name = "lblCopyright";
-      this.lblCopyright.Size = new Size(0x80, 0x10);
-      this.lblCopyright.TabIndex = 0x16;
+      this.lblCopyright.Size = new System.Drawing.Size(128, 16);
+      this.lblCopyright.TabIndex = 22;
       this.lblCopyright.Text = "Copyright:";
-      this.txtLyWriter.Location = new Point(0xa8, 0x62);
+      // 
+      // txtLyWriter
+      // 
+      this.txtLyWriter.Location = new System.Drawing.Point(168, 98);
       this.txtLyWriter.Name = "txtLyWriter";
-      this.txtLyWriter.Size = new Size(0x1d8, 20);
-      this.txtLyWriter.TabIndex = 0x11;
-      this.txtLyWriter.Text = "";
-      this.txtEncoded.Location = new Point(0xa8, 0x90);
+      this.txtLyWriter.Size = new System.Drawing.Size(472, 20);
+      this.txtLyWriter.TabIndex = 17;
+      this.txtLyWriter.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtLyWriter.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtEncoded
+      // 
+      this.txtEncoded.Location = new System.Drawing.Point(168, 144);
       this.txtEncoded.Name = "txtEncoded";
-      this.txtEncoded.Size = new Size(0x1d8, 20);
-      this.txtEncoded.TabIndex = 0x15;
-      this.txtEncoded.Text = "";
-      this.txtPublisher.Location = new Point(0xa8, 0x79);
+      this.txtEncoded.Size = new System.Drawing.Size(472, 20);
+      this.txtEncoded.TabIndex = 21;
+      this.txtEncoded.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtEncoded.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtPublisher
+      // 
+      this.txtPublisher.Location = new System.Drawing.Point(168, 121);
       this.txtPublisher.Name = "txtPublisher";
-      this.txtPublisher.Size = new Size(0x1d8, 20);
-      this.txtPublisher.TabIndex = 0x13;
-      this.txtPublisher.Text = "";
-      this.lblPublisher.ImeMode = ImeMode.NoControl;
-      this.lblPublisher.Location = new Point(8, 0x7b);
+      this.txtPublisher.Size = new System.Drawing.Size(472, 20);
+      this.txtPublisher.TabIndex = 19;
+      this.txtPublisher.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtPublisher.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblPublisher
+      // 
+      this.lblPublisher.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPublisher.Location = new System.Drawing.Point(8, 123);
       this.lblPublisher.Name = "lblPublisher";
-      this.lblPublisher.Size = new Size(0x80, 0x10);
-      this.lblPublisher.TabIndex = 0x12;
+      this.lblPublisher.Size = new System.Drawing.Size(128, 16);
+      this.lblPublisher.TabIndex = 18;
       this.lblPublisher.Text = "Publis&her:";
-      this.lblEncoded.ImeMode = ImeMode.NoControl;
-      this.lblEncoded.Location = new Point(8, 0x92);
+      // 
+      // lblEncoded
+      // 
+      this.lblEncoded.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblEncoded.Location = new System.Drawing.Point(8, 146);
       this.lblEncoded.Name = "lblEncoded";
-      this.lblEncoded.Size = new Size(0x80, 0x10);
+      this.lblEncoded.Size = new System.Drawing.Size(128, 16);
       this.lblEncoded.TabIndex = 20;
       this.lblEncoded.Text = "&Encoded by:";
-      this.lblLyWriter.ImeMode = ImeMode.NoControl;
-      this.lblLyWriter.Location = new Point(8, 100);
+      // 
+      // lblLyWriter
+      // 
+      this.lblLyWriter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblLyWriter.Location = new System.Drawing.Point(8, 100);
       this.lblLyWriter.Name = "lblLyWriter";
-      this.lblLyWriter.Size = new Size(0x80, 0x10);
-      this.lblLyWriter.TabIndex = 0x10;
+      this.lblLyWriter.Size = new System.Drawing.Size(128, 16);
+      this.lblLyWriter.TabIndex = 16;
       this.lblLyWriter.Text = "Lyr&ics / Text Writer:";
-      this.Panel15.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel15
+      // 
+      this.Panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel15.Controls.Add(this.lblMusicianInfo);
       this.Panel15.Controls.Add(this.txtMusicianName);
       this.Panel15.Controls.Add(this.btnRemoveMusician);
@@ -1294,64 +1677,105 @@ namespace ID3_TagIT
       this.Panel15.Controls.Add(this.lblMusicianInst);
       this.Panel15.Controls.Add(this.txtMusicianInst);
       this.Panel15.Controls.Add(this.TMCLList);
-      this.Panel15.Location = new Point(8, 160);
+      this.Panel15.Location = new System.Drawing.Point(8, 160);
       this.Panel15.Name = "Panel15";
-      this.Panel15.Size = new Size(0x288, 0x90);
+      this.Panel15.Size = new System.Drawing.Size(648, 144);
       this.Panel15.TabIndex = 5;
-      this.lblMusicianInfo.ImeMode = ImeMode.NoControl;
-      this.lblMusicianInfo.Location = new Point(8, 120);
+      // 
+      // lblMusicianInfo
+      // 
+      this.lblMusicianInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblMusicianInfo.Location = new System.Drawing.Point(8, 120);
       this.lblMusicianInfo.Name = "lblMusicianInfo";
-      this.lblMusicianInfo.Size = new Size(0x80, 0x10);
-      this.lblMusicianInfo.TabIndex = 0x10;
+      this.lblMusicianInfo.Size = new System.Drawing.Size(128, 16);
+      this.lblMusicianInfo.TabIndex = 16;
       this.lblMusicianInfo.Text = "(TAG Ver. 2.4 only)";
-      this.txtMusicianName.Location = new Point(160, 30);
+      // 
+      // txtMusicianName
+      // 
+      this.txtMusicianName.Location = new System.Drawing.Point(160, 30);
       this.txtMusicianName.Name = "txtMusicianName";
-      this.txtMusicianName.Size = new Size(320, 20);
+      this.txtMusicianName.Size = new System.Drawing.Size(320, 20);
       this.txtMusicianName.TabIndex = 12;
-      this.txtMusicianName.Text = "";
-      this.btnRemoveMusician.ImeMode = ImeMode.NoControl;
-      this.btnRemoveMusician.Location = new Point(0x1e8, 0x20);
+      this.txtMusicianName.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtMusicianName.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // btnRemoveMusician
+      // 
+      this.btnRemoveMusician.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveMusician.Location = new System.Drawing.Point(488, 32);
       this.btnRemoveMusician.Name = "btnRemoveMusician";
-      this.btnRemoveMusician.Size = new Size(0x98, 20);
+      this.btnRemoveMusician.Size = new System.Drawing.Size(152, 20);
       this.btnRemoveMusician.TabIndex = 14;
       this.btnRemoveMusician.Text = "Remove musician";
-      this.btnAddMusician.ImeMode = ImeMode.NoControl;
-      this.btnAddMusician.Location = new Point(0x1e8, 8);
+      this.btnRemoveMusician.Click += new System.EventHandler(this.btnRemoveMusican_Click);
+      // 
+      // btnAddMusician
+      // 
+      this.btnAddMusician.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddMusician.Location = new System.Drawing.Point(488, 8);
       this.btnAddMusician.Name = "btnAddMusician";
-      this.btnAddMusician.Size = new Size(0x98, 20);
+      this.btnAddMusician.Size = new System.Drawing.Size(152, 20);
       this.btnAddMusician.TabIndex = 13;
       this.btnAddMusician.Text = "Add musician";
-      this.lblMusicianName.ImeMode = ImeMode.NoControl;
-      this.lblMusicianName.Location = new Point(8, 0x20);
+      this.btnAddMusician.Click += new System.EventHandler(this.btnAddMusican_Click);
+      // 
+      // lblMusicianName
+      // 
+      this.lblMusicianName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblMusicianName.Location = new System.Drawing.Point(8, 32);
       this.lblMusicianName.Name = "lblMusicianName";
-      this.lblMusicianName.Size = new Size(0x80, 0x10);
+      this.lblMusicianName.Size = new System.Drawing.Size(128, 16);
       this.lblMusicianName.TabIndex = 11;
       this.lblMusicianName.Text = "Musician name:";
-      this.lblMusicianInst.ImeMode = ImeMode.NoControl;
-      this.lblMusicianInst.Location = new Point(8, 8);
+      // 
+      // lblMusicianInst
+      // 
+      this.lblMusicianInst.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblMusicianInst.Location = new System.Drawing.Point(8, 8);
       this.lblMusicianInst.Name = "lblMusicianInst";
-      this.lblMusicianInst.Size = new Size(0x80, 0x10);
+      this.lblMusicianInst.Size = new System.Drawing.Size(128, 16);
       this.lblMusicianInst.TabIndex = 9;
       this.lblMusicianInst.Text = "Musician instrument:";
-      this.txtMusicianInst.Location = new Point(160, 6);
+      // 
+      // txtMusicianInst
+      // 
+      this.txtMusicianInst.Location = new System.Drawing.Point(160, 6);
       this.txtMusicianInst.Name = "txtMusicianInst";
-      this.txtMusicianInst.Size = new Size(320, 20);
+      this.txtMusicianInst.Size = new System.Drawing.Size(320, 20);
       this.txtMusicianInst.TabIndex = 10;
-      this.txtMusicianInst.Text = "";
-      this.TMCLList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader15, this.ColumnHeader16 });
+      this.txtMusicianInst.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtMusicianInst.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // TMCLList
+      // 
+      this.TMCLList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader15,
+            this.ColumnHeader16});
       this.TMCLList.FullRowSelect = true;
-      this.TMCLList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.TMCLList.Location = new Point(160, 0x40);
+      this.TMCLList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.TMCLList.Location = new System.Drawing.Point(160, 64);
       this.TMCLList.MultiSelect = false;
       this.TMCLList.Name = "TMCLList";
-      this.TMCLList.Size = new Size(480, 0x48);
+      this.TMCLList.Size = new System.Drawing.Size(480, 72);
       this.TMCLList.TabIndex = 15;
-      this.TMCLList.View = View.Details;
+      this.TMCLList.UseCompatibleStateImageBehavior = false;
+      this.TMCLList.View = System.Windows.Forms.View.Details;
+      this.TMCLList.Click += new System.EventHandler(this.TMCLList_Click);
+      // 
+      // ColumnHeader15
+      // 
       this.ColumnHeader15.Text = "Instrument";
       this.ColumnHeader15.Width = 200;
+      // 
+      // ColumnHeader16
+      // 
       this.ColumnHeader16.Text = "Name";
-      this.ColumnHeader16.Width = 0xfe;
-      this.Panel16.BorderStyle = BorderStyle.FixedSingle;
+      this.ColumnHeader16.Width = 254;
+      // 
+      // Panel16
+      // 
+      this.Panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel16.Controls.Add(this.txtInvPerson);
       this.Panel16.Controls.Add(this.btnRemoveInv);
       this.Panel16.Controls.Add(this.btnAddInv);
@@ -1359,68 +1783,109 @@ namespace ID3_TagIT
       this.Panel16.Controls.Add(this.lblInvFunction);
       this.Panel16.Controls.Add(this.txtInvFunction);
       this.Panel16.Controls.Add(this.TIPLList);
-      this.Panel16.Location = new Point(8, 8);
+      this.Panel16.Location = new System.Drawing.Point(8, 8);
       this.Panel16.Name = "Panel16";
-      this.Panel16.Size = new Size(0x288, 0x90);
+      this.Panel16.Size = new System.Drawing.Size(648, 144);
       this.Panel16.TabIndex = 4;
-      this.txtInvPerson.Location = new Point(160, 30);
+      // 
+      // txtInvPerson
+      // 
+      this.txtInvPerson.Location = new System.Drawing.Point(160, 30);
       this.txtInvPerson.Name = "txtInvPerson";
-      this.txtInvPerson.Size = new Size(320, 20);
+      this.txtInvPerson.Size = new System.Drawing.Size(320, 20);
       this.txtInvPerson.TabIndex = 5;
-      this.txtInvPerson.Text = "";
-      this.btnRemoveInv.ImeMode = ImeMode.NoControl;
-      this.btnRemoveInv.Location = new Point(0x1e8, 0x20);
+      this.txtInvPerson.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtInvPerson.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // btnRemoveInv
+      // 
+      this.btnRemoveInv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveInv.Location = new System.Drawing.Point(488, 32);
       this.btnRemoveInv.Name = "btnRemoveInv";
-      this.btnRemoveInv.Size = new Size(0x98, 20);
+      this.btnRemoveInv.Size = new System.Drawing.Size(152, 20);
       this.btnRemoveInv.TabIndex = 7;
       this.btnRemoveInv.Text = "Remove involved person";
-      this.btnAddInv.ImeMode = ImeMode.NoControl;
-      this.btnAddInv.Location = new Point(0x1e8, 8);
+      this.btnRemoveInv.Click += new System.EventHandler(this.btnRemoveInv_Click);
+      // 
+      // btnAddInv
+      // 
+      this.btnAddInv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddInv.Location = new System.Drawing.Point(488, 8);
       this.btnAddInv.Name = "btnAddInv";
-      this.btnAddInv.Size = new Size(0x98, 20);
+      this.btnAddInv.Size = new System.Drawing.Size(152, 20);
       this.btnAddInv.TabIndex = 6;
       this.btnAddInv.Text = "Add involved person";
-      this.lblInvPerson.ImeMode = ImeMode.NoControl;
-      this.lblInvPerson.Location = new Point(8, 0x20);
+      this.btnAddInv.Click += new System.EventHandler(this.btnAddInv_Click);
+      // 
+      // lblInvPerson
+      // 
+      this.lblInvPerson.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInvPerson.Location = new System.Drawing.Point(8, 32);
       this.lblInvPerson.Name = "lblInvPerson";
-      this.lblInvPerson.Size = new Size(0x90, 0x10);
+      this.lblInvPerson.Size = new System.Drawing.Size(144, 16);
       this.lblInvPerson.TabIndex = 4;
       this.lblInvPerson.Text = "Involved person name:";
-      this.lblInvFunction.ImeMode = ImeMode.NoControl;
-      this.lblInvFunction.Location = new Point(8, 8);
+      // 
+      // lblInvFunction
+      // 
+      this.lblInvFunction.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInvFunction.Location = new System.Drawing.Point(8, 8);
       this.lblInvFunction.Name = "lblInvFunction";
-      this.lblInvFunction.Size = new Size(0x90, 0x10);
+      this.lblInvFunction.Size = new System.Drawing.Size(144, 16);
       this.lblInvFunction.TabIndex = 2;
       this.lblInvFunction.Text = "Involved person function:";
-      this.txtInvFunction.Location = new Point(160, 6);
+      // 
+      // txtInvFunction
+      // 
+      this.txtInvFunction.Location = new System.Drawing.Point(160, 6);
       this.txtInvFunction.Name = "txtInvFunction";
-      this.txtInvFunction.Size = new Size(320, 20);
+      this.txtInvFunction.Size = new System.Drawing.Size(320, 20);
       this.txtInvFunction.TabIndex = 3;
-      this.txtInvFunction.Text = "";
-      this.TIPLList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader17, this.ColumnHeader18 });
+      this.txtInvFunction.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtInvFunction.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // TIPLList
+      // 
+      this.TIPLList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader17,
+            this.ColumnHeader18});
       this.TIPLList.FullRowSelect = true;
-      this.TIPLList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.TIPLList.Location = new Point(160, 0x40);
+      this.TIPLList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.TIPLList.Location = new System.Drawing.Point(160, 64);
       this.TIPLList.MultiSelect = false;
       this.TIPLList.Name = "TIPLList";
-      this.TIPLList.Size = new Size(480, 0x48);
+      this.TIPLList.Size = new System.Drawing.Size(480, 72);
       this.TIPLList.TabIndex = 8;
-      this.TIPLList.View = View.Details;
+      this.TIPLList.UseCompatibleStateImageBehavior = false;
+      this.TIPLList.View = System.Windows.Forms.View.Details;
+      this.TIPLList.Click += new System.EventHandler(this.TIPLList_Click);
+      // 
+      // ColumnHeader17
+      // 
       this.ColumnHeader17.Text = "Function";
-      this.ColumnHeader17.Width = 0xbf;
+      this.ColumnHeader17.Width = 191;
+      // 
+      // ColumnHeader18
+      // 
       this.ColumnHeader18.Text = "Name";
-      this.ColumnHeader18.Width = 0x108;
-      this.Panel14.BorderStyle = BorderStyle.FixedSingle;
+      this.ColumnHeader18.Width = 264;
+      // 
+      // Panel14
+      // 
+      this.Panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel14.Controls.Add(this.btnTLEN);
       this.Panel14.Controls.Add(this.txtTLEN);
       this.Panel14.Controls.Add(this.lblTLEN);
       this.Panel14.Controls.Add(this.cmbMedia);
       this.Panel14.Controls.Add(this.lblMediaTyp);
-      this.Panel14.Location = new Point(8, 0x170);
+      this.Panel14.Location = new System.Drawing.Point(8, 368);
       this.Panel14.Name = "Panel14";
-      this.Panel14.Size = new Size(0x288, 0x40);
+      this.Panel14.Size = new System.Drawing.Size(648, 64);
       this.Panel14.TabIndex = 3;
-      this.Panel7.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel7
+      // 
+      this.Panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel7.Controls.Add(this.chkPicRelativPath);
       this.Panel7.Controls.Add(this.btnExPic);
       this.Panel7.Controls.Add(this.btnRemovePicture);
@@ -1435,110 +1900,202 @@ namespace ID3_TagIT
       this.Panel7.Controls.Add(this.cmbPicType);
       this.Panel7.Controls.Add(this.txtPDescriptor);
       this.Panel7.Controls.Add(this.APICView);
-      this.Panel7.Location = new Point(8, 8);
+      this.Panel7.Location = new System.Drawing.Point(8, 8);
       this.Panel7.Name = "Panel7";
-      this.Panel7.Size = new Size(0x288, 0x120);
+      this.Panel7.Size = new System.Drawing.Size(648, 288);
       this.Panel7.TabIndex = 0;
-      this.chkPicRelativPath.Location = new Point(8, 0x68);
+      // 
+      // chkPicRelativPath
+      // 
+      this.chkPicRelativPath.Location = new System.Drawing.Point(8, 104);
       this.chkPicRelativPath.Name = "chkPicRelativPath";
-      this.chkPicRelativPath.Size = new Size(0x1c0, 0x10);
+      this.chkPicRelativPath.Size = new System.Drawing.Size(448, 16);
       this.chkPicRelativPath.TabIndex = 9;
       this.chkPicRelativPath.Text = "Use relativ path if picture is not included";
+      this.chkPicRelativPath.CheckedChanged += new System.EventHandler(this.chkPicRelativPath_CheckedChanged);
+      // 
+      // btnExPic
+      // 
       this.btnExPic.Enabled = false;
-      this.btnExPic.Location = new Point(0x138, 160);
+      this.btnExPic.Location = new System.Drawing.Point(312, 160);
       this.btnExPic.Name = "btnExPic";
-      this.btnExPic.Size = new Size(0x90, 0x18);
+      this.btnExPic.Size = new System.Drawing.Size(144, 24);
       this.btnExPic.TabIndex = 13;
       this.btnExPic.Text = "Extract picture";
-      this.btnRemovePicture.ImeMode = ImeMode.NoControl;
-      this.btnRemovePicture.Location = new Point(160, 0x80);
+      this.btnExPic.Click += new System.EventHandler(this.btnExPic_Click);
+      // 
+      // btnRemovePicture
+      // 
+      this.btnRemovePicture.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemovePicture.Location = new System.Drawing.Point(160, 128);
       this.btnRemovePicture.Name = "btnRemovePicture";
-      this.btnRemovePicture.Size = new Size(0x90, 0x18);
+      this.btnRemovePicture.Size = new System.Drawing.Size(144, 24);
       this.btnRemovePicture.TabIndex = 11;
       this.btnRemovePicture.Text = "Remove Picture";
+      this.btnRemovePicture.Click += new System.EventHandler(this.btnRemovePicture_Click);
+      // 
+      // btnAddPicture
+      // 
       this.btnAddPicture.Enabled = false;
-      this.btnAddPicture.ImeMode = ImeMode.NoControl;
-      this.btnAddPicture.Location = new Point(8, 0x80);
+      this.btnAddPicture.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddPicture.Location = new System.Drawing.Point(8, 128);
       this.btnAddPicture.Name = "btnAddPicture";
-      this.btnAddPicture.Size = new Size(0x90, 0x18);
+      this.btnAddPicture.Size = new System.Drawing.Size(144, 24);
       this.btnAddPicture.TabIndex = 10;
       this.btnAddPicture.Text = "Add Picture";
-      this.btnGetPic.ImeMode = ImeMode.NoControl;
-      this.btnGetPic.Location = new Point(0x138, 0x80);
+      this.btnAddPicture.Click += new System.EventHandler(this.btnAddPicture_Click);
+      // 
+      // btnGetPic
+      // 
+      this.btnGetPic.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnGetPic.Location = new System.Drawing.Point(312, 128);
       this.btnGetPic.Name = "btnGetPic";
-      this.btnGetPic.Size = new Size(0x90, 0x18);
+      this.btnGetPic.Size = new System.Drawing.Size(144, 24);
       this.btnGetPic.TabIndex = 12;
       this.btnGetPic.Text = "Get new picture";
-      this.chkPicInclude.ImeMode = ImeMode.NoControl;
-      this.chkPicInclude.Location = new Point(8, 0x54);
+      this.btnGetPic.Click += new System.EventHandler(this.btnGetPic_Click);
+      // 
+      // chkPicInclude
+      // 
+      this.chkPicInclude.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkPicInclude.Location = new System.Drawing.Point(8, 84);
       this.chkPicInclude.Name = "chkPicInclude";
-      this.chkPicInclude.Size = new Size(0x1c0, 0x10);
+      this.chkPicInclude.Size = new System.Drawing.Size(448, 16);
       this.chkPicInclude.TabIndex = 8;
       this.chkPicInclude.Text = "Include picture within the MP3 file when saving";
-      this.lblPicPath.ImeMode = ImeMode.NoControl;
-      this.lblPicPath.Location = new Point(8, 0x38);
+      this.chkPicInclude.CheckedChanged += new System.EventHandler(this.chkPicInclude_CheckedChanged);
+      // 
+      // lblPicPath
+      // 
+      this.lblPicPath.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPicPath.Location = new System.Drawing.Point(8, 56);
       this.lblPicPath.Name = "lblPicPath";
-      this.lblPicPath.Size = new Size(0x88, 0x10);
+      this.lblPicPath.Size = new System.Drawing.Size(136, 16);
       this.lblPicPath.TabIndex = 6;
       this.lblPicPath.Text = "P&ath containing pic. data:";
-      this.txtPicPath.Location = new Point(0x98, 0x36);
+      // 
+      // txtPicPath
+      // 
+      this.txtPicPath.Location = new System.Drawing.Point(152, 54);
       this.txtPicPath.Name = "txtPicPath";
       this.txtPicPath.ReadOnly = true;
-      this.txtPicPath.Size = new Size(0x130, 20);
+      this.txtPicPath.Size = new System.Drawing.Size(304, 20);
       this.txtPicPath.TabIndex = 7;
-      this.txtPicPath.Text = "";
-      this.PicList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader4, this.ColumnHeader5, this.ColumnHeader6, this.ColumnHeader7 });
+      this.txtPicPath.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtPicPath.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // PicList
+      // 
+      this.PicList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader4,
+            this.ColumnHeader5,
+            this.ColumnHeader6,
+            this.ColumnHeader7});
       this.PicList.FullRowSelect = true;
-      this.PicList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.PicList.Location = new Point(8, 200);
+      this.PicList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.PicList.Location = new System.Drawing.Point(8, 200);
       this.PicList.MultiSelect = false;
       this.PicList.Name = "PicList";
-      this.PicList.Size = new Size(0x278, 80);
+      this.PicList.Size = new System.Drawing.Size(632, 80);
       this.PicList.TabIndex = 14;
-      this.PicList.View = View.Details;
+      this.PicList.UseCompatibleStateImageBehavior = false;
+      this.PicList.View = System.Windows.Forms.View.Details;
+      this.PicList.Click += new System.EventHandler(this.PicList_Click);
+      this.PicList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // ColumnHeader4
+      // 
       this.ColumnHeader4.Text = "Descriptor";
       this.ColumnHeader4.Width = 160;
+      // 
+      // ColumnHeader5
+      // 
       this.ColumnHeader5.Text = "Picture Type";
-      this.ColumnHeader5.Width = 0x63;
+      this.ColumnHeader5.Width = 99;
+      // 
+      // ColumnHeader6
+      // 
       this.ColumnHeader6.Text = "Path";
-      this.ColumnHeader6.Width = 0x120;
+      this.ColumnHeader6.Width = 288;
+      // 
+      // ColumnHeader7
+      // 
       this.ColumnHeader7.Text = "Include";
-      this.lblPicType.ImeMode = ImeMode.NoControl;
-      this.lblPicType.Location = new Point(8, 0x20);
+      // 
+      // lblPicType
+      // 
+      this.lblPicType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPicType.Location = new System.Drawing.Point(8, 32);
       this.lblPicType.Name = "lblPicType";
-      this.lblPicType.Size = new Size(0x88, 0x10);
+      this.lblPicType.Size = new System.Drawing.Size(136, 16);
       this.lblPicType.TabIndex = 4;
       this.lblPicType.Text = "Picture &Type:";
-      this.lblPicDesc.ImeMode = ImeMode.NoControl;
-      this.lblPicDesc.Location = new Point(8, 8);
+      // 
+      // lblPicDesc
+      // 
+      this.lblPicDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPicDesc.Location = new System.Drawing.Point(8, 8);
       this.lblPicDesc.Name = "lblPicDesc";
-      this.lblPicDesc.Size = new Size(0x88, 0x10);
+      this.lblPicDesc.Size = new System.Drawing.Size(136, 16);
       this.lblPicDesc.TabIndex = 2;
       this.lblPicDesc.Text = "&Picture Descriptor:";
-      this.cmbPicType.DropDownStyle = ComboBoxStyle.DropDownList;
+      // 
+      // cmbPicType
+      // 
+      this.cmbPicType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cmbPicType.ItemHeight = 13;
       this.cmbPicType.Items.AddRange(new object[] {
-                "00 - Other", "01 - 32x32 pixels 'file icon' (PNG only)", "02 - Other file icon", "03 - Cover (front)", "04 - Cover (back)", "05 - Leaflet page", "06 - Media (e.g. label side of CD)", "07 - Lead artist/lead performer/soloist", "08 - Artist/performer", "09 - Conductor", "10 - Band/Orchestra", "11 - Composer", "12 - Lyricist/text writer", "13 - Recording Location", "14 - During recording", "15 - During performance",
-                "16 - Movie/video screen capture", "17 - A bright coloured fish", "18 - Illustration", "19 - Band/artist logotype", "20 - Publisher/Studio logotype"
-            });
-      this.cmbPicType.Location = new Point(0x98, 30);
+            "00 - Other",
+            "01 - 32x32 pixels \'file icon\' (PNG only)",
+            "02 - Other file icon",
+            "03 - Cover (front)",
+            "04 - Cover (back)",
+            "05 - Leaflet page",
+            "06 - Media (e.g. label side of CD)",
+            "07 - Lead artist/lead performer/soloist",
+            "08 - Artist/performer",
+            "09 - Conductor",
+            "10 - Band/Orchestra",
+            "11 - Composer",
+            "12 - Lyricist/text writer",
+            "13 - Recording Location",
+            "14 - During recording",
+            "15 - During performance",
+            "16 - Movie/video screen capture",
+            "17 - A bright coloured fish",
+            "18 - Illustration",
+            "19 - Band/artist logotype",
+            "20 - Publisher/Studio logotype"});
+      this.cmbPicType.Location = new System.Drawing.Point(152, 30);
       this.cmbPicType.Name = "cmbPicType";
-      this.cmbPicType.Size = new Size(0x130, 0x15);
+      this.cmbPicType.Size = new System.Drawing.Size(304, 21);
       this.cmbPicType.TabIndex = 5;
-      this.txtPDescriptor.Location = new Point(0x98, 6);
+      this.cmbPicType.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbPicType.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtPDescriptor
+      // 
+      this.txtPDescriptor.Location = new System.Drawing.Point(152, 6);
       this.txtPDescriptor.Name = "txtPDescriptor";
-      this.txtPDescriptor.Size = new Size(0x130, 20);
+      this.txtPDescriptor.Size = new System.Drawing.Size(304, 20);
       this.txtPDescriptor.TabIndex = 3;
-      this.txtPDescriptor.Text = "";
-      this.APICView.BorderStyle = BorderStyle.FixedSingle;
-      this.APICView.ImeMode = ImeMode.NoControl;
-      this.APICView.Location = new Point(0x1d0, 8);
+      this.txtPDescriptor.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtPDescriptor.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // APICView
+      // 
+      this.APICView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.APICView.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.APICView.Location = new System.Drawing.Point(464, 8);
       this.APICView.Name = "APICView";
-      this.APICView.Size = new Size(0xb0, 0xb0);
-      this.APICView.SizeMode = PictureBoxSizeMode.StretchImage;
+      this.APICView.Size = new System.Drawing.Size(176, 176);
+      this.APICView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
       this.APICView.TabIndex = 1;
       this.APICView.TabStop = false;
-      this.Panel8.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel8
+      // 
+      this.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel8.Controls.Add(this.txtLyrics);
       this.Panel8.Controls.Add(this.btnLyricsFile);
       this.Panel8.Controls.Add(this.btnMoveLyrics);
@@ -1550,84 +2107,142 @@ namespace ID3_TagIT
       this.Panel8.Controls.Add(this.cmbLLanguage);
       this.Panel8.Controls.Add(this.txtLDescriptor);
       this.Panel8.Controls.Add(this.LyricsList);
-      this.Panel8.Location = new Point(8, 8);
+      this.Panel8.Location = new System.Drawing.Point(8, 8);
       this.Panel8.Name = "Panel8";
-      this.Panel8.Size = new Size(0x288, 440);
+      this.Panel8.Size = new System.Drawing.Size(648, 440);
       this.Panel8.TabIndex = 1;
-      this.txtLyrics.BorderStyle = BorderStyle.FixedSingle;
-      this.txtLyrics.Location = new Point(0x88, 0x38);
+      // 
+      // txtLyrics
+      // 
+      this.txtLyrics.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.txtLyrics.Location = new System.Drawing.Point(136, 56);
       this.txtLyrics.Name = "txtLyrics";
-      this.txtLyrics.Size = new Size(0x1f8, 0xc0);
-      this.txtLyrics.TabIndex = 0x12;
+      this.txtLyrics.Size = new System.Drawing.Size(504, 192);
+      this.txtLyrics.TabIndex = 18;
       this.txtLyrics.Text = "";
-      this.btnLyricsFile.Location = new Point(0x88, 0x100);
+      // 
+      // btnLyricsFile
+      // 
+      this.btnLyricsFile.Location = new System.Drawing.Point(136, 256);
       this.btnLyricsFile.Name = "btnLyricsFile";
-      this.btnLyricsFile.Size = new Size(0x1f8, 0x18);
-      this.btnLyricsFile.TabIndex = 0x13;
+      this.btnLyricsFile.Size = new System.Drawing.Size(504, 24);
+      this.btnLyricsFile.TabIndex = 19;
       this.btnLyricsFile.Text = "Get lyrics from text file";
-      this.btnMoveLyrics.ImeMode = ImeMode.NoControl;
-      this.btnMoveLyrics.Location = new Point(0x1e8, 0x120);
+      this.btnLyricsFile.Click += new System.EventHandler(this.btnLyricsFile_Click);
+      // 
+      // btnMoveLyrics
+      // 
+      this.btnMoveLyrics.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnMoveLyrics.Location = new System.Drawing.Point(488, 288);
       this.btnMoveLyrics.Name = "btnMoveLyrics";
-      this.btnMoveLyrics.Size = new Size(0x98, 0x18);
-      this.btnMoveLyrics.TabIndex = 0x16;
+      this.btnMoveLyrics.Size = new System.Drawing.Size(152, 24);
+      this.btnMoveLyrics.TabIndex = 22;
       this.btnMoveLyrics.Text = "Move Lyrics to top";
-      this.btnRemoveLyrics.ImeMode = ImeMode.NoControl;
-      this.btnRemoveLyrics.Location = new Point(0x138, 0x120);
+      this.btnMoveLyrics.Click += new System.EventHandler(this.btnMoveLyrics_Click);
+      // 
+      // btnRemoveLyrics
+      // 
+      this.btnRemoveLyrics.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveLyrics.Location = new System.Drawing.Point(312, 288);
       this.btnRemoveLyrics.Name = "btnRemoveLyrics";
-      this.btnRemoveLyrics.Size = new Size(0x98, 0x18);
-      this.btnRemoveLyrics.TabIndex = 0x15;
+      this.btnRemoveLyrics.Size = new System.Drawing.Size(152, 24);
+      this.btnRemoveLyrics.TabIndex = 21;
       this.btnRemoveLyrics.Text = "Remove Lyrics";
-      this.btnAddLyrics.ImeMode = ImeMode.NoControl;
-      this.btnAddLyrics.Location = new Point(0x88, 0x120);
+      this.btnRemoveLyrics.Click += new System.EventHandler(this.btnRemoveLyrics_Click);
+      // 
+      // btnAddLyrics
+      // 
+      this.btnAddLyrics.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddLyrics.Location = new System.Drawing.Point(136, 288);
       this.btnAddLyrics.Name = "btnAddLyrics";
-      this.btnAddLyrics.Size = new Size(0x98, 0x18);
+      this.btnAddLyrics.Size = new System.Drawing.Size(152, 24);
       this.btnAddLyrics.TabIndex = 20;
       this.btnAddLyrics.Text = "Add Lyrics";
-      this.lblLyrics.ImeMode = ImeMode.NoControl;
-      this.lblLyrics.Location = new Point(8, 0x38);
+      this.btnAddLyrics.Click += new System.EventHandler(this.btnAddLyrics_Click);
+      // 
+      // lblLyrics
+      // 
+      this.lblLyrics.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblLyrics.Location = new System.Drawing.Point(8, 56);
       this.lblLyrics.Name = "lblLyrics";
-      this.lblLyrics.Size = new Size(0x80, 0x10);
-      this.lblLyrics.TabIndex = 0x11;
+      this.lblLyrics.Size = new System.Drawing.Size(128, 16);
+      this.lblLyrics.TabIndex = 17;
       this.lblLyrics.Text = "&Lyrics Text:";
-      this.lblLyLan.ImeMode = ImeMode.NoControl;
-      this.lblLyLan.Location = new Point(8, 0x20);
+      // 
+      // lblLyLan
+      // 
+      this.lblLyLan.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblLyLan.Location = new System.Drawing.Point(8, 32);
       this.lblLyLan.Name = "lblLyLan";
-      this.lblLyLan.Size = new Size(0x80, 0x10);
+      this.lblLyLan.Size = new System.Drawing.Size(128, 16);
       this.lblLyLan.TabIndex = 15;
       this.lblLyLan.Text = "Lyrics &Language:";
-      this.lblLyDesc.ImeMode = ImeMode.NoControl;
-      this.lblLyDesc.Location = new Point(8, 8);
+      // 
+      // lblLyDesc
+      // 
+      this.lblLyDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblLyDesc.Location = new System.Drawing.Point(8, 8);
       this.lblLyDesc.Name = "lblLyDesc";
-      this.lblLyDesc.Size = new Size(0x80, 0x10);
+      this.lblLyDesc.Size = new System.Drawing.Size(128, 16);
       this.lblLyDesc.TabIndex = 13;
       this.lblLyDesc.Text = "Lyrics &Descriptor:";
-      this.cmbLLanguage.DropDownStyle = ComboBoxStyle.DropDownList;
+      // 
+      // cmbLLanguage
+      // 
+      this.cmbLLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cmbLLanguage.ItemHeight = 13;
-      this.cmbLLanguage.Location = new Point(0x88, 30);
+      this.cmbLLanguage.Location = new System.Drawing.Point(136, 30);
       this.cmbLLanguage.Name = "cmbLLanguage";
-      this.cmbLLanguage.Size = new Size(0xd0, 0x15);
-      this.cmbLLanguage.TabIndex = 0x10;
-      this.txtLDescriptor.Location = new Point(0x88, 6);
+      this.cmbLLanguage.Size = new System.Drawing.Size(208, 21);
+      this.cmbLLanguage.TabIndex = 16;
+      this.cmbLLanguage.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbLLanguage.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtLDescriptor
+      // 
+      this.txtLDescriptor.Location = new System.Drawing.Point(136, 6);
       this.txtLDescriptor.Name = "txtLDescriptor";
-      this.txtLDescriptor.Size = new Size(0xd0, 20);
+      this.txtLDescriptor.Size = new System.Drawing.Size(208, 20);
       this.txtLDescriptor.TabIndex = 14;
-      this.txtLDescriptor.Text = "";
-      this.LyricsList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader1, this.ColumnHeader2, this.ColumnHeader3 });
+      this.txtLDescriptor.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtLDescriptor.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // LyricsList
+      // 
+      this.LyricsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader1,
+            this.ColumnHeader2,
+            this.ColumnHeader3});
       this.LyricsList.FullRowSelect = true;
-      this.LyricsList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.LyricsList.Location = new Point(8, 320);
+      this.LyricsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.LyricsList.Location = new System.Drawing.Point(8, 320);
       this.LyricsList.MultiSelect = false;
       this.LyricsList.Name = "LyricsList";
-      this.LyricsList.Size = new Size(0x278, 0x70);
-      this.LyricsList.TabIndex = 0x17;
-      this.LyricsList.View = View.Details;
+      this.LyricsList.Size = new System.Drawing.Size(632, 112);
+      this.LyricsList.TabIndex = 23;
+      this.LyricsList.UseCompatibleStateImageBehavior = false;
+      this.LyricsList.View = System.Windows.Forms.View.Details;
+      this.LyricsList.Click += new System.EventHandler(this.LyricsList_Click);
+      this.LyricsList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // ColumnHeader1
+      // 
       this.ColumnHeader1.Text = "Descriptor";
-      this.ColumnHeader1.Width = 0x84;
+      this.ColumnHeader1.Width = 132;
+      // 
+      // ColumnHeader2
+      // 
       this.ColumnHeader2.Text = "Text";
-      this.ColumnHeader2.Width = 0x164;
+      this.ColumnHeader2.Width = 356;
+      // 
+      // ColumnHeader3
+      // 
       this.ColumnHeader3.Text = "Language";
-      this.ColumnHeader3.Width = 0x67;
-      this.Panel11.BorderStyle = BorderStyle.FixedSingle;
+      this.ColumnHeader3.Width = 103;
+      // 
+      // Panel11
+      // 
+      this.Panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel11.Controls.Add(this.lblInfo);
       this.Panel11.Controls.Add(this.btnMoveRating);
       this.Panel11.Controls.Add(this.btnRemoveRating);
@@ -1639,85 +2254,153 @@ namespace ID3_TagIT
       this.Panel11.Controls.Add(this.lblRatingRating);
       this.Panel11.Controls.Add(this.lblRatingCounter);
       this.Panel11.Controls.Add(this.lblRatingUser);
-      this.Panel11.Location = new Point(8, 8);
+      this.Panel11.Location = new System.Drawing.Point(8, 8);
       this.Panel11.Name = "Panel11";
-      this.Panel11.Size = new Size(0x288, 280);
+      this.Panel11.Size = new System.Drawing.Size(648, 280);
       this.Panel11.TabIndex = 5;
-      this.lblInfo.BorderStyle = BorderStyle.Fixed3D;
-      this.lblInfo.ImeMode = ImeMode.NoControl;
-      this.lblInfo.Location = new Point(0x88, 0xd0);
+      // 
+      // lblInfo
+      // 
+      this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInfo.Location = new System.Drawing.Point(136, 208);
       this.lblInfo.Name = "lblInfo";
-      this.lblInfo.Size = new Size(0x1f0, 0x38);
-      this.lblInfo.TabIndex = 0x2b;
-      this.lblInfo.Text = "The rating is 1-255 where 1 is worst and 255 is best. Note that many programs have their own rating scale. The scale 1-255 is given by the ID3 standard and the other programs rescale it.";
-      this.lblInfo.TextAlign = ContentAlignment.MiddleCenter;
-      this.btnMoveRating.ImeMode = ImeMode.NoControl;
-      this.btnMoveRating.Location = new Point(0x1d8, 80);
+      this.lblInfo.Size = new System.Drawing.Size(496, 56);
+      this.lblInfo.TabIndex = 43;
+      this.lblInfo.Text = "The rating is 1-255 where 1 is worst and 255 is best. Note that many programs hav" +
+    "e their own rating scale. The scale 1-255 is given by the ID3 standard and the o" +
+    "ther programs rescale it.";
+      this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // btnMoveRating
+      // 
+      this.btnMoveRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnMoveRating.Location = new System.Drawing.Point(472, 80);
       this.btnMoveRating.Name = "btnMoveRating";
-      this.btnMoveRating.Size = new Size(160, 0x18);
-      this.btnMoveRating.TabIndex = 0x1a;
+      this.btnMoveRating.Size = new System.Drawing.Size(160, 24);
+      this.btnMoveRating.TabIndex = 26;
       this.btnMoveRating.Text = "Move Rating to top";
-      this.btnRemoveRating.ImeMode = ImeMode.NoControl;
-      this.btnRemoveRating.Location = new Point(0x130, 80);
+      this.btnMoveRating.Click += new System.EventHandler(this.btnMoveRating_Click);
+      // 
+      // btnRemoveRating
+      // 
+      this.btnRemoveRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveRating.Location = new System.Drawing.Point(304, 80);
       this.btnRemoveRating.Name = "btnRemoveRating";
-      this.btnRemoveRating.Size = new Size(160, 0x18);
-      this.btnRemoveRating.TabIndex = 0x19;
+      this.btnRemoveRating.Size = new System.Drawing.Size(160, 24);
+      this.btnRemoveRating.TabIndex = 25;
       this.btnRemoveRating.Text = "Remove Rating";
-      this.btnAddRating.ImeMode = ImeMode.NoControl;
-      this.btnAddRating.Location = new Point(0x88, 80);
+      this.btnRemoveRating.Click += new System.EventHandler(this.btnRemoveRating_Click);
+      // 
+      // btnAddRating
+      // 
+      this.btnAddRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddRating.Location = new System.Drawing.Point(136, 80);
       this.btnAddRating.Name = "btnAddRating";
-      this.btnAddRating.Size = new Size(160, 0x18);
-      this.btnAddRating.TabIndex = 0x18;
+      this.btnAddRating.Size = new System.Drawing.Size(160, 24);
+      this.btnAddRating.TabIndex = 24;
       this.btnAddRating.Text = "Add Rating";
-      this.RatingList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader8, this.ColumnHeader9, this.ColumnHeader10 });
+      this.btnAddRating.Click += new System.EventHandler(this.btnAddRating_Click);
+      // 
+      // RatingList
+      // 
+      this.RatingList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader8,
+            this.ColumnHeader9,
+            this.ColumnHeader10});
       this.RatingList.FullRowSelect = true;
-      this.RatingList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.RatingList.Location = new Point(0x88, 0x70);
+      this.RatingList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.RatingList.Location = new System.Drawing.Point(136, 112);
       this.RatingList.MultiSelect = false;
       this.RatingList.Name = "RatingList";
-      this.RatingList.Size = new Size(0x1f0, 0x58);
-      this.RatingList.TabIndex = 0x1b;
-      this.RatingList.View = View.Details;
+      this.RatingList.Size = new System.Drawing.Size(496, 88);
+      this.RatingList.TabIndex = 27;
+      this.RatingList.UseCompatibleStateImageBehavior = false;
+      this.RatingList.View = System.Windows.Forms.View.Details;
+      this.RatingList.Click += new System.EventHandler(this.RatingList_Click);
+      // 
+      // ColumnHeader8
+      // 
       this.ColumnHeader8.Text = "User";
-      this.ColumnHeader8.Width = 0xee;
+      this.ColumnHeader8.Width = 238;
+      // 
+      // ColumnHeader9
+      // 
       this.ColumnHeader9.Text = "Rating";
       this.ColumnHeader9.Width = 100;
+      // 
+      // ColumnHeader10
+      // 
       this.ColumnHeader10.Text = "Play Counter";
       this.ColumnHeader10.Width = 80;
-      this.txtRatingCounter.Location = new Point(0x88, 0x36);
-      this.txtRatingCounter.Maximum = new decimal(new int[] { 0xf4240, 0, 0, 0 });
+      // 
+      // txtRatingCounter
+      // 
+      this.txtRatingCounter.Location = new System.Drawing.Point(136, 54);
+      this.txtRatingCounter.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
       this.txtRatingCounter.Name = "txtRatingCounter";
-      this.txtRatingCounter.Size = new Size(80, 20);
-      this.txtRatingCounter.TabIndex = 0x17;
-      this.txtRatingRating.Location = new Point(0x88, 30);
-      this.txtRatingRating.Maximum = new decimal(new int[] { 0xff, 0, 0, 0 });
+      this.txtRatingCounter.Size = new System.Drawing.Size(80, 20);
+      this.txtRatingCounter.TabIndex = 23;
+      this.txtRatingCounter.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtRatingCounter.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtRatingRating
+      // 
+      this.txtRatingRating.Location = new System.Drawing.Point(136, 30);
+      this.txtRatingRating.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
       this.txtRatingRating.Name = "txtRatingRating";
-      this.txtRatingRating.Size = new Size(80, 20);
-      this.txtRatingRating.TabIndex = 0x15;
-      this.txtRatingUser.Location = new Point(0x88, 6);
+      this.txtRatingRating.Size = new System.Drawing.Size(80, 20);
+      this.txtRatingRating.TabIndex = 21;
+      this.txtRatingRating.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtRatingRating.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtRatingUser
+      // 
+      this.txtRatingUser.Location = new System.Drawing.Point(136, 6);
       this.txtRatingUser.Name = "txtRatingUser";
-      this.txtRatingUser.Size = new Size(0xe0, 20);
-      this.txtRatingUser.TabIndex = 0x13;
-      this.txtRatingUser.Text = "";
-      this.lblRatingRating.ImeMode = ImeMode.NoControl;
-      this.lblRatingRating.Location = new Point(8, 0x20);
+      this.txtRatingUser.Size = new System.Drawing.Size(224, 20);
+      this.txtRatingUser.TabIndex = 19;
+      this.txtRatingUser.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtRatingUser.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblRatingRating
+      // 
+      this.lblRatingRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblRatingRating.Location = new System.Drawing.Point(8, 32);
       this.lblRatingRating.Name = "lblRatingRating";
-      this.lblRatingRating.Size = new Size(120, 0x10);
+      this.lblRatingRating.Size = new System.Drawing.Size(120, 16);
       this.lblRatingRating.TabIndex = 20;
       this.lblRatingRating.Text = "Rating:";
-      this.lblRatingCounter.ImeMode = ImeMode.NoControl;
-      this.lblRatingCounter.Location = new Point(8, 0x38);
+      // 
+      // lblRatingCounter
+      // 
+      this.lblRatingCounter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblRatingCounter.Location = new System.Drawing.Point(8, 56);
       this.lblRatingCounter.Name = "lblRatingCounter";
-      this.lblRatingCounter.Size = new Size(120, 0x10);
-      this.lblRatingCounter.TabIndex = 0x16;
+      this.lblRatingCounter.Size = new System.Drawing.Size(120, 16);
+      this.lblRatingCounter.TabIndex = 22;
       this.lblRatingCounter.Text = "Play counter:";
-      this.lblRatingUser.ImeMode = ImeMode.NoControl;
-      this.lblRatingUser.Location = new Point(8, 8);
+      // 
+      // lblRatingUser
+      // 
+      this.lblRatingUser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblRatingUser.Location = new System.Drawing.Point(8, 8);
       this.lblRatingUser.Name = "lblRatingUser";
-      this.lblRatingUser.Size = new Size(120, 0x10);
-      this.lblRatingUser.TabIndex = 0x12;
+      this.lblRatingUser.Size = new System.Drawing.Size(120, 16);
+      this.lblRatingUser.TabIndex = 18;
       this.lblRatingUser.Text = "User (email):";
-      this.Panel10.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel10
+      // 
+      this.Panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel10.Controls.Add(this.txtCOMMInfURL);
       this.Panel10.Controls.Add(this.lblCOMMInfURL);
       this.Panel10.Controls.Add(this.txtPubURL);
@@ -1734,99 +2417,158 @@ namespace ID3_TagIT
       this.Panel10.Controls.Add(this.lblAudioFileURL);
       this.Panel10.Controls.Add(this.lblArtistURL);
       this.Panel10.Controls.Add(this.lblCopyInfURL);
-      this.Panel10.Location = new Point(8, 8);
+      this.Panel10.Location = new System.Drawing.Point(8, 8);
       this.Panel10.Name = "Panel10";
-      this.Panel10.Size = new Size(0x288, 200);
+      this.Panel10.Size = new System.Drawing.Size(648, 200);
       this.Panel10.TabIndex = 4;
-      this.txtCOMMInfURL.Location = new Point(200, 0xae);
+      // 
+      // txtCOMMInfURL
+      // 
+      this.txtCOMMInfURL.Location = new System.Drawing.Point(200, 174);
       this.txtCOMMInfURL.Name = "txtCOMMInfURL";
-      this.txtCOMMInfURL.Size = new Size(440, 20);
-      this.txtCOMMInfURL.TabIndex = 0x11;
-      this.txtCOMMInfURL.Text = "";
-      this.lblCOMMInfURL.ImeMode = ImeMode.NoControl;
-      this.lblCOMMInfURL.Location = new Point(8, 0xb0);
+      this.txtCOMMInfURL.Size = new System.Drawing.Size(440, 20);
+      this.txtCOMMInfURL.TabIndex = 17;
+      this.txtCOMMInfURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtCOMMInfURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblCOMMInfURL
+      // 
+      this.lblCOMMInfURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCOMMInfURL.Location = new System.Drawing.Point(8, 176);
       this.lblCOMMInfURL.Name = "lblCOMMInfURL";
-      this.lblCOMMInfURL.Size = new Size(0xb8, 0x10);
-      this.lblCOMMInfURL.TabIndex = 0x10;
+      this.lblCOMMInfURL.Size = new System.Drawing.Size(184, 16);
+      this.lblCOMMInfURL.TabIndex = 16;
       this.lblCOMMInfURL.Text = "Commercial information URL:";
-      this.txtPubURL.Location = new Point(200, 150);
+      // 
+      // txtPubURL
+      // 
+      this.txtPubURL.Location = new System.Drawing.Point(200, 150);
       this.txtPubURL.Name = "txtPubURL";
-      this.txtPubURL.Size = new Size(440, 20);
+      this.txtPubURL.Size = new System.Drawing.Size(440, 20);
       this.txtPubURL.TabIndex = 15;
-      this.txtPubURL.Text = "";
-      this.lblPubURL.ImeMode = ImeMode.NoControl;
-      this.lblPubURL.Location = new Point(8, 0x98);
+      this.txtPubURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtPubURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblPubURL
+      // 
+      this.lblPubURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPubURL.Location = new System.Drawing.Point(8, 152);
       this.lblPubURL.Name = "lblPubURL";
-      this.lblPubURL.Size = new Size(0xb8, 0x10);
+      this.lblPubURL.Size = new System.Drawing.Size(184, 16);
       this.lblPubURL.TabIndex = 14;
       this.lblPubURL.Text = "Offical publisher URL:";
-      this.txtPayURL.Location = new Point(200, 0x7e);
+      // 
+      // txtPayURL
+      // 
+      this.txtPayURL.Location = new System.Drawing.Point(200, 126);
       this.txtPayURL.Name = "txtPayURL";
-      this.txtPayURL.Size = new Size(440, 20);
+      this.txtPayURL.Size = new System.Drawing.Size(440, 20);
       this.txtPayURL.TabIndex = 13;
-      this.txtPayURL.Text = "";
-      this.lblPayURL.ImeMode = ImeMode.NoControl;
-      this.lblPayURL.Location = new Point(8, 0x80);
+      this.txtPayURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtPayURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblPayURL
+      // 
+      this.lblPayURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPayURL.Location = new System.Drawing.Point(8, 128);
       this.lblPayURL.Name = "lblPayURL";
-      this.lblPayURL.Size = new Size(0xb8, 0x10);
+      this.lblPayURL.Size = new System.Drawing.Size(184, 16);
       this.lblPayURL.TabIndex = 12;
       this.lblPayURL.Text = "Offical payment URL:";
-      this.txtINetRadioURL.Location = new Point(200, 0x66);
+      // 
+      // txtINetRadioURL
+      // 
+      this.txtINetRadioURL.Location = new System.Drawing.Point(200, 102);
       this.txtINetRadioURL.Name = "txtINetRadioURL";
-      this.txtINetRadioURL.Size = new Size(440, 20);
+      this.txtINetRadioURL.Size = new System.Drawing.Size(440, 20);
       this.txtINetRadioURL.TabIndex = 11;
-      this.txtINetRadioURL.Text = "";
-      this.lblINetRadioURL.ImeMode = ImeMode.NoControl;
-      this.lblINetRadioURL.Location = new Point(8, 0x68);
+      this.txtINetRadioURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtINetRadioURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblINetRadioURL
+      // 
+      this.lblINetRadioURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblINetRadioURL.Location = new System.Drawing.Point(8, 104);
       this.lblINetRadioURL.Name = "lblINetRadioURL";
-      this.lblINetRadioURL.Size = new Size(0xb8, 0x10);
+      this.lblINetRadioURL.Size = new System.Drawing.Size(184, 16);
       this.lblINetRadioURL.TabIndex = 10;
       this.lblINetRadioURL.Text = "Offical internet radio station URL:";
-      this.txtAudioSRCURL.Location = new Point(200, 0x4e);
+      // 
+      // txtAudioSRCURL
+      // 
+      this.txtAudioSRCURL.Location = new System.Drawing.Point(200, 78);
       this.txtAudioSRCURL.Name = "txtAudioSRCURL";
-      this.txtAudioSRCURL.Size = new Size(440, 20);
+      this.txtAudioSRCURL.Size = new System.Drawing.Size(440, 20);
       this.txtAudioSRCURL.TabIndex = 9;
-      this.txtAudioSRCURL.Text = "";
-      this.lblAudioSRCURL.ImeMode = ImeMode.NoControl;
-      this.lblAudioSRCURL.Location = new Point(8, 80);
+      this.txtAudioSRCURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtAudioSRCURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblAudioSRCURL
+      // 
+      this.lblAudioSRCURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblAudioSRCURL.Location = new System.Drawing.Point(8, 80);
       this.lblAudioSRCURL.Name = "lblAudioSRCURL";
-      this.lblAudioSRCURL.Size = new Size(0xb8, 0x10);
+      this.lblAudioSRCURL.Size = new System.Drawing.Size(184, 16);
       this.lblAudioSRCURL.TabIndex = 8;
       this.lblAudioSRCURL.Text = "Offical audio source URL:";
-      this.txtCopyInfURL.Location = new Point(200, 6);
+      // 
+      // txtCopyInfURL
+      // 
+      this.txtCopyInfURL.Location = new System.Drawing.Point(200, 6);
       this.txtCopyInfURL.Name = "txtCopyInfURL";
-      this.txtCopyInfURL.Size = new Size(440, 20);
+      this.txtCopyInfURL.Size = new System.Drawing.Size(440, 20);
       this.txtCopyInfURL.TabIndex = 3;
-      this.txtCopyInfURL.Text = "";
-      this.txtArtistURL.Location = new Point(200, 0x36);
+      this.txtCopyInfURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtCopyInfURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtArtistURL
+      // 
+      this.txtArtistURL.Location = new System.Drawing.Point(200, 54);
       this.txtArtistURL.Name = "txtArtistURL";
-      this.txtArtistURL.Size = new Size(440, 20);
+      this.txtArtistURL.Size = new System.Drawing.Size(440, 20);
       this.txtArtistURL.TabIndex = 7;
-      this.txtArtistURL.Text = "";
-      this.txtAudioFileURL.Location = new Point(200, 30);
+      this.txtArtistURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtArtistURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtAudioFileURL
+      // 
+      this.txtAudioFileURL.Location = new System.Drawing.Point(200, 30);
       this.txtAudioFileURL.Name = "txtAudioFileURL";
-      this.txtAudioFileURL.Size = new Size(440, 20);
+      this.txtAudioFileURL.Size = new System.Drawing.Size(440, 20);
       this.txtAudioFileURL.TabIndex = 5;
-      this.txtAudioFileURL.Text = "";
-      this.lblAudioFileURL.ImeMode = ImeMode.NoControl;
-      this.lblAudioFileURL.Location = new Point(8, 0x20);
+      this.txtAudioFileURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtAudioFileURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblAudioFileURL
+      // 
+      this.lblAudioFileURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblAudioFileURL.Location = new System.Drawing.Point(8, 32);
       this.lblAudioFileURL.Name = "lblAudioFileURL";
-      this.lblAudioFileURL.Size = new Size(0xb8, 0x10);
+      this.lblAudioFileURL.Size = new System.Drawing.Size(184, 16);
       this.lblAudioFileURL.TabIndex = 4;
       this.lblAudioFileURL.Text = "Offical audio file URL:";
-      this.lblArtistURL.ImeMode = ImeMode.NoControl;
-      this.lblArtistURL.Location = new Point(8, 0x38);
+      // 
+      // lblArtistURL
+      // 
+      this.lblArtistURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblArtistURL.Location = new System.Drawing.Point(8, 56);
       this.lblArtistURL.Name = "lblArtistURL";
-      this.lblArtistURL.Size = new Size(0xb8, 0x10);
+      this.lblArtistURL.Size = new System.Drawing.Size(184, 16);
       this.lblArtistURL.TabIndex = 6;
       this.lblArtistURL.Text = "Offical artist URL:";
-      this.lblCopyInfURL.ImeMode = ImeMode.NoControl;
-      this.lblCopyInfURL.Location = new Point(8, 8);
+      // 
+      // lblCopyInfURL
+      // 
+      this.lblCopyInfURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCopyInfURL.Location = new System.Drawing.Point(8, 8);
       this.lblCopyInfURL.Name = "lblCopyInfURL";
-      this.lblCopyInfURL.Size = new Size(0xb8, 0x10);
+      this.lblCopyInfURL.Size = new System.Drawing.Size(184, 16);
       this.lblCopyInfURL.TabIndex = 2;
       this.lblCopyInfURL.Text = "Copyright information URL:";
-      this.Panel13.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel13
+      // 
+      this.Panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel13.Controls.Add(this.txtWXXXContent);
       this.Panel13.Controls.Add(this.btnRemoveWXXX);
       this.Panel13.Controls.Add(this.btnAddWXXX);
@@ -1834,58 +2576,97 @@ namespace ID3_TagIT
       this.Panel13.Controls.Add(this.lblWXXXDesc);
       this.Panel13.Controls.Add(this.txtWXXXDesc);
       this.Panel13.Controls.Add(this.WXXXList);
-      this.Panel13.Location = new Point(8, 0xc0);
+      this.Panel13.Location = new System.Drawing.Point(8, 192);
       this.Panel13.Name = "Panel13";
-      this.Panel13.Size = new Size(0x288, 0xb0);
+      this.Panel13.Size = new System.Drawing.Size(648, 176);
       this.Panel13.TabIndex = 1;
-      this.txtWXXXContent.Location = new Point(0x88, 30);
+      // 
+      // txtWXXXContent
+      // 
+      this.txtWXXXContent.Location = new System.Drawing.Point(136, 30);
       this.txtWXXXContent.Name = "txtWXXXContent";
-      this.txtWXXXContent.Size = new Size(0x158, 20);
+      this.txtWXXXContent.Size = new System.Drawing.Size(344, 20);
       this.txtWXXXContent.TabIndex = 12;
-      this.txtWXXXContent.Text = "";
-      this.btnRemoveWXXX.ImeMode = ImeMode.NoControl;
-      this.btnRemoveWXXX.Location = new Point(0x1e8, 0x20);
+      this.txtWXXXContent.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtWXXXContent.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // btnRemoveWXXX
+      // 
+      this.btnRemoveWXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveWXXX.Location = new System.Drawing.Point(488, 32);
       this.btnRemoveWXXX.Name = "btnRemoveWXXX";
-      this.btnRemoveWXXX.Size = new Size(0x98, 20);
+      this.btnRemoveWXXX.Size = new System.Drawing.Size(152, 20);
       this.btnRemoveWXXX.TabIndex = 14;
       this.btnRemoveWXXX.Text = "Remove user web frame";
-      this.btnAddWXXX.ImeMode = ImeMode.NoControl;
-      this.btnAddWXXX.Location = new Point(0x1e8, 8);
+      this.btnRemoveWXXX.Click += new System.EventHandler(this.btnRemoveWXXX_Click);
+      // 
+      // btnAddWXXX
+      // 
+      this.btnAddWXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddWXXX.Location = new System.Drawing.Point(488, 8);
       this.btnAddWXXX.Name = "btnAddWXXX";
-      this.btnAddWXXX.Size = new Size(0x98, 20);
+      this.btnAddWXXX.Size = new System.Drawing.Size(152, 20);
       this.btnAddWXXX.TabIndex = 13;
       this.btnAddWXXX.Text = "Add user web frame";
-      this.lblWXXXContent.ImeMode = ImeMode.NoControl;
-      this.lblWXXXContent.Location = new Point(8, 0x20);
+      this.btnAddWXXX.Click += new System.EventHandler(this.btnAddWXXX_Click);
+      // 
+      // lblWXXXContent
+      // 
+      this.lblWXXXContent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblWXXXContent.Location = new System.Drawing.Point(8, 32);
       this.lblWXXXContent.Name = "lblWXXXContent";
-      this.lblWXXXContent.Size = new Size(0x80, 0x10);
+      this.lblWXXXContent.Size = new System.Drawing.Size(128, 16);
       this.lblWXXXContent.TabIndex = 11;
       this.lblWXXXContent.Text = "Web frame &Content:";
-      this.lblWXXXDesc.ImeMode = ImeMode.NoControl;
-      this.lblWXXXDesc.Location = new Point(8, 8);
+      // 
+      // lblWXXXDesc
+      // 
+      this.lblWXXXDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblWXXXDesc.Location = new System.Drawing.Point(8, 8);
       this.lblWXXXDesc.Name = "lblWXXXDesc";
-      this.lblWXXXDesc.Size = new Size(0x80, 0x10);
+      this.lblWXXXDesc.Size = new System.Drawing.Size(128, 16);
       this.lblWXXXDesc.TabIndex = 9;
       this.lblWXXXDesc.Text = "Web frame &Descriptor:";
-      this.txtWXXXDesc.Location = new Point(0x88, 6);
+      // 
+      // txtWXXXDesc
+      // 
+      this.txtWXXXDesc.Location = new System.Drawing.Point(136, 6);
       this.txtWXXXDesc.Name = "txtWXXXDesc";
-      this.txtWXXXDesc.Size = new Size(0x158, 20);
+      this.txtWXXXDesc.Size = new System.Drawing.Size(344, 20);
       this.txtWXXXDesc.TabIndex = 10;
-      this.txtWXXXDesc.Text = "";
-      this.WXXXList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader13, this.ColumnHeader14 });
+      this.txtWXXXDesc.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtWXXXDesc.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // WXXXList
+      // 
+      this.WXXXList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader13,
+            this.ColumnHeader14});
       this.WXXXList.FullRowSelect = true;
-      this.WXXXList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.WXXXList.Location = new Point(0x88, 0x40);
+      this.WXXXList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.WXXXList.Location = new System.Drawing.Point(136, 64);
       this.WXXXList.MultiSelect = false;
       this.WXXXList.Name = "WXXXList";
-      this.WXXXList.Size = new Size(0x1f8, 0x68);
+      this.WXXXList.Size = new System.Drawing.Size(504, 104);
       this.WXXXList.TabIndex = 15;
-      this.WXXXList.View = View.Details;
+      this.WXXXList.UseCompatibleStateImageBehavior = false;
+      this.WXXXList.View = System.Windows.Forms.View.Details;
+      this.WXXXList.Click += new System.EventHandler(this.WXXXList_Click);
+      this.WXXXList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // ColumnHeader13
+      // 
       this.ColumnHeader13.Text = "Descriptor";
       this.ColumnHeader13.Width = 200;
+      // 
+      // ColumnHeader14
+      // 
       this.ColumnHeader14.Text = "Content";
       this.ColumnHeader14.Width = 260;
-      this.Panel12.BorderStyle = BorderStyle.FixedSingle;
+      // 
+      // Panel12
+      // 
+      this.Panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel12.Controls.Add(this.txtTXXXContent);
       this.Panel12.Controls.Add(this.btnRemoveTXXX);
       this.Panel12.Controls.Add(this.btnAddTXXX);
@@ -1893,622 +2674,654 @@ namespace ID3_TagIT
       this.Panel12.Controls.Add(this.lblTXXXDesc);
       this.Panel12.Controls.Add(this.txtTXXXDesc);
       this.Panel12.Controls.Add(this.TXXXList);
-      this.Panel12.Location = new Point(8, 8);
+      this.Panel12.Location = new System.Drawing.Point(8, 8);
       this.Panel12.Name = "Panel12";
-      this.Panel12.Size = new Size(0x288, 0xb0);
+      this.Panel12.Size = new System.Drawing.Size(648, 176);
       this.Panel12.TabIndex = 0;
-      this.txtTXXXContent.Location = new Point(0x88, 30);
+      // 
+      // txtTXXXContent
+      // 
+      this.txtTXXXContent.Location = new System.Drawing.Point(136, 30);
       this.txtTXXXContent.Name = "txtTXXXContent";
-      this.txtTXXXContent.Size = new Size(0x158, 20);
+      this.txtTXXXContent.Size = new System.Drawing.Size(344, 20);
       this.txtTXXXContent.TabIndex = 5;
-      this.txtTXXXContent.Text = "";
-      this.btnRemoveTXXX.ImeMode = ImeMode.NoControl;
-      this.btnRemoveTXXX.Location = new Point(0x1e8, 0x20);
+      this.txtTXXXContent.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTXXXContent.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // btnRemoveTXXX
+      // 
+      this.btnRemoveTXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveTXXX.Location = new System.Drawing.Point(488, 32);
       this.btnRemoveTXXX.Name = "btnRemoveTXXX";
-      this.btnRemoveTXXX.Size = new Size(0x98, 20);
+      this.btnRemoveTXXX.Size = new System.Drawing.Size(152, 20);
       this.btnRemoveTXXX.TabIndex = 7;
       this.btnRemoveTXXX.Text = "Remove user text frame";
-      this.btnAddTXXX.ImeMode = ImeMode.NoControl;
-      this.btnAddTXXX.Location = new Point(0x1e8, 8);
+      this.btnRemoveTXXX.Click += new System.EventHandler(this.btnRemoveTXXX_Click);
+      // 
+      // btnAddTXXX
+      // 
+      this.btnAddTXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddTXXX.Location = new System.Drawing.Point(488, 8);
       this.btnAddTXXX.Name = "btnAddTXXX";
-      this.btnAddTXXX.Size = new Size(0x98, 20);
+      this.btnAddTXXX.Size = new System.Drawing.Size(152, 20);
       this.btnAddTXXX.TabIndex = 6;
       this.btnAddTXXX.Text = "Add user text frame";
-      this.lblTXXXContent.ImeMode = ImeMode.NoControl;
-      this.lblTXXXContent.Location = new Point(8, 0x20);
+      this.btnAddTXXX.Click += new System.EventHandler(this.btnAddTXXX_Click);
+      // 
+      // lblTXXXContent
+      // 
+      this.lblTXXXContent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTXXXContent.Location = new System.Drawing.Point(8, 32);
       this.lblTXXXContent.Name = "lblTXXXContent";
-      this.lblTXXXContent.Size = new Size(0x80, 0x10);
+      this.lblTXXXContent.Size = new System.Drawing.Size(128, 16);
       this.lblTXXXContent.TabIndex = 4;
       this.lblTXXXContent.Text = "Text frame &Content:";
-      this.lblTXXXDesc.ImeMode = ImeMode.NoControl;
-      this.lblTXXXDesc.Location = new Point(8, 8);
+      // 
+      // lblTXXXDesc
+      // 
+      this.lblTXXXDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTXXXDesc.Location = new System.Drawing.Point(8, 8);
       this.lblTXXXDesc.Name = "lblTXXXDesc";
-      this.lblTXXXDesc.Size = new Size(0x80, 0x10);
+      this.lblTXXXDesc.Size = new System.Drawing.Size(128, 16);
       this.lblTXXXDesc.TabIndex = 2;
       this.lblTXXXDesc.Text = "Text frame &Descriptor:";
-      this.txtTXXXDesc.Location = new Point(0x88, 6);
+      // 
+      // txtTXXXDesc
+      // 
+      this.txtTXXXDesc.Location = new System.Drawing.Point(136, 6);
       this.txtTXXXDesc.Name = "txtTXXXDesc";
-      this.txtTXXXDesc.Size = new Size(0x158, 20);
+      this.txtTXXXDesc.Size = new System.Drawing.Size(344, 20);
       this.txtTXXXDesc.TabIndex = 3;
-      this.txtTXXXDesc.Text = "";
-      this.TXXXList.Columns.AddRange(new ColumnHeader[] { this.ColumnHeader11, this.ColumnHeader12 });
+      this.txtTXXXDesc.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTXXXDesc.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // TXXXList
+      // 
+      this.TXXXList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader11,
+            this.ColumnHeader12});
       this.TXXXList.FullRowSelect = true;
-      this.TXXXList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.TXXXList.Location = new Point(0x88, 0x40);
+      this.TXXXList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.TXXXList.Location = new System.Drawing.Point(136, 64);
       this.TXXXList.MultiSelect = false;
       this.TXXXList.Name = "TXXXList";
-      this.TXXXList.Size = new Size(0x1f8, 0x68);
+      this.TXXXList.Size = new System.Drawing.Size(504, 104);
       this.TXXXList.TabIndex = 8;
-      this.TXXXList.View = View.Details;
+      this.TXXXList.UseCompatibleStateImageBehavior = false;
+      this.TXXXList.View = System.Windows.Forms.View.Details;
+      this.TXXXList.Click += new System.EventHandler(this.TXXXList_Click);
+      this.TXXXList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // ColumnHeader11
+      // 
       this.ColumnHeader11.Text = "Descriptor";
       this.ColumnHeader11.Width = 200;
+      // 
+      // ColumnHeader12
+      // 
       this.ColumnHeader12.Text = "Content";
-      this.ColumnHeader12.Width = 0x102;
-      this.lblNot.BorderStyle = BorderStyle.Fixed3D;
-      this.lblNot.ImeMode = ImeMode.NoControl;
-      this.lblNot.Location = new Point(8, 0x198);
+      this.ColumnHeader12.Width = 258;
+      // 
+      // lblNot
+      // 
+      this.lblNot.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblNot.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblNot.Location = new System.Drawing.Point(8, 408);
       this.lblNot.Name = "lblNot";
-      this.lblNot.Size = new Size(0x288, 40);
-      this.lblNot.TabIndex = 0x2c;
-      this.lblNot.Text = "All frames which are not supported by ID3-TagIT. You cannot edit them but you can remove them by unchecking the checkbox.";
-      this.lblNot.TextAlign = ContentAlignment.MiddleCenter;
+      this.lblNot.Size = new System.Drawing.Size(648, 40);
+      this.lblNot.TabIndex = 44;
+      this.lblNot.Text = "All frames which are not supported by ID3-TagIT. You cannot edit them but you can" +
+    " remove them by unchecking the checkbox.";
+      this.lblNot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // NotSupportList
+      // 
       this.NotSupportList.CheckBoxes = true;
-      this.NotSupportList.Columns.AddRange(new ColumnHeader[] { this.FrameID, this.Content });
-      this.NotSupportList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-      this.NotSupportList.Location = new Point(8, 8);
+      this.NotSupportList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.FrameID,
+            this.Content});
+      this.NotSupportList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.NotSupportList.Location = new System.Drawing.Point(8, 8);
       this.NotSupportList.Name = "NotSupportList";
-      this.NotSupportList.Size = new Size(0x288, 0x188);
+      this.NotSupportList.Size = new System.Drawing.Size(648, 392);
       this.NotSupportList.TabIndex = 0;
-      this.NotSupportList.View = View.Details;
+      this.NotSupportList.UseCompatibleStateImageBehavior = false;
+      this.NotSupportList.View = System.Windows.Forms.View.Details;
+      this.NotSupportList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // FrameID
+      // 
       this.FrameID.Text = "Frame ID";
       this.FrameID.Width = 150;
+      // 
+      // Content
+      // 
       this.Content.Text = "Content";
-      this.Content.Width = 0x1d3;
-      this.txtDigits.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
-      this.txtDigits.Location = new Point(200, 10);
-      this.txtDigits.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+      this.Content.Width = 467;
+      // 
+      // txtDigits
+      // 
+      this.txtDigits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+      this.txtDigits.Location = new System.Drawing.Point(200, 10);
+      this.txtDigits.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
       this.txtDigits.Name = "txtDigits";
-      this.txtDigits.Size = new Size(0x40, 20);
-      this.txtDigits.TabIndex = 0x66;
-      this.txtDigits.Value = new decimal(new int[] { 1, 0, 0, 0 });
+      this.txtDigits.Size = new System.Drawing.Size(64, 20);
+      this.txtDigits.TabIndex = 102;
+      this.txtDigits.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      // 
+      // OpenFileDialog
+      // 
       this.OpenFileDialog.RestoreDirectory = true;
-      this.SelectionBar.AccessibleRole = AccessibleRole.ToolBar;
+      // 
+      // SelectionBar
+      // 
+      this.SelectionBar.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
       this.SelectionBar.AllowUserCustomize = false;
       this.SelectionBar.AntiAlias = true;
-      this.SelectionBar.BackColor = SystemColors.Control;
-      this.SelectionBar.BackgroundStyle.BackColor1.ColorSchemePart = eColorSchemePart.ExplorerBarBackground;
-      this.SelectionBar.BackgroundStyle.BackColor2.ColorSchemePart = eColorSchemePart.ExplorerBarBackground2;
+      this.SelectionBar.BackColor = System.Drawing.SystemColors.Control;
+      this.SelectionBar.BackgroundStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground;
+      this.SelectionBar.BackgroundStyle.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground2;
       this.SelectionBar.BackgroundStyle.GradientAngle = 90;
-      this.SelectionBar.Dock = DockStyle.Left;
-      this.SelectionBar.Font = new Font("Tahoma", 11f, FontStyle.Regular, GraphicsUnit.World);
+      this.SelectionBar.Dock = System.Windows.Forms.DockStyle.Left;
+      this.SelectionBar.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
       this.SelectionBar.GroupImages = null;
-      this.SelectionBar.Groups.AddRange(new BaseItem[] { this.TAGV2grpTAG, this.TAGV2grpTransfer, this.TAGV2grpCommands });
+      this.SelectionBar.Groups.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.TAGV2grpTAG,
+            this.TAGV2grpTransfer,
+            this.TAGV2grpCommands});
       this.SelectionBar.Images = null;
-      this.SelectionBar.Location = new Point(0, 0);
+      this.SelectionBar.Location = new System.Drawing.Point(0, 0);
       this.SelectionBar.Name = "SelectionBar";
-      this.SelectionBar.Size = new Size(0xa8, 0x220);
-      this.SelectionBar.StockStyle = eExplorerBarStockStyle.Silver;
-      this.SelectionBar.TabIndex = 0x69;
+      this.SelectionBar.Size = new System.Drawing.Size(168, 544);
+      this.SelectionBar.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Silver;
+      this.SelectionBar.TabIndex = 105;
       this.SelectionBar.Text = "Select TAG section";
-      this.TAGV2grpTAG.BackgroundStyle.BackColor1.Color = Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.TAGV2grpTAG.BackgroundStyle.Border = eBorderType.SingleLine;
-      this.TAGV2grpTAG.BackgroundStyle.BorderColor.Color = Color.White;
+      // 
+      // TAGV2grpTAG
+      // 
+      this.TAGV2grpTAG.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
+      this.TAGV2grpTAG.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TAGV2grpTAG.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
       this.TAGV2grpTAG.CanCustomize = false;
-      this.TAGV2grpTAG.HeaderHotStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpTAG.HeaderHotStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpTAG.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpTAG.HeaderHotStyle.ForeColor.Color = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2grpTAG.HeaderStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpTAG.HeaderStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpTAG.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpTAG.HeaderStyle.ForeColor.Color = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2grpTAG.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.TAGV2grpTAG.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.TAGV2grpTAG.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.TAGV2grpTAG.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2grpTAG.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.TAGV2grpTAG.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.TAGV2grpTAG.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.TAGV2grpTAG.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2grpTAG.Name = "TAGV2grpTAG";
-      this.TAGV2grpTAG.StockStyle = eExplorerBarStockStyle.Blue;
-      this.TAGV2grpTAG.SubItems.AddRange(new BaseItem[] { this.TAGV2ButtonItem1, this.TAGV2ButtonItem2, this.TAGV2ButtonItem3, this.TAGV2ButtonItem4, this.TAGV2ButtonItem5, this.TAGV2ButtonItem6, this.TAGV2ButtonItem7, this.TAGV2ButtonItem8, this.TAGV2ButtonItem9, this.TAGV2ButtonItem10 });
+      this.TAGV2grpTAG.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
+      this.TAGV2grpTAG.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.TAGV2ButtonItem1,
+            this.TAGV2ButtonItem2,
+            this.TAGV2ButtonItem3,
+            this.TAGV2ButtonItem4,
+            this.TAGV2ButtonItem5,
+            this.TAGV2ButtonItem6,
+            this.TAGV2ButtonItem7,
+            this.TAGV2ButtonItem8,
+            this.TAGV2ButtonItem9,
+            this.TAGV2ButtonItem10});
       this.TAGV2grpTAG.Text = "TAG information";
-      this.TAGV2ButtonItem1.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem1.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem1.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // TAGV2ButtonItem1
+      // 
+      this.TAGV2ButtonItem1.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem1.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem1.HotFontUnderline = true;
-      this.TAGV2ButtonItem1.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem1.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem1.Icon = (Icon)manager.GetObject("TAGV2ButtonItem1.Icon");
+      this.TAGV2ButtonItem1.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem1.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem1.Name = "TAGV2ButtonItem1";
       this.TAGV2ButtonItem1.Text = "Main Entries";
-      this.TAGV2ButtonItem2.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem2.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem2.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem1.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem2
+      // 
+      this.TAGV2ButtonItem2.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem2.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem2.HotFontUnderline = true;
-      this.TAGV2ButtonItem2.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem2.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem2.Icon = (Icon)manager.GetObject("TAGV2ButtonItem2.Icon");
+      this.TAGV2ButtonItem2.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem2.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem2.Name = "TAGV2ButtonItem2";
       this.TAGV2ButtonItem2.Text = "Detailed information";
-      this.TAGV2ButtonItem3.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem3.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem3.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem2.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem3
+      // 
+      this.TAGV2ButtonItem3.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem3.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem3.HotFontUnderline = true;
-      this.TAGV2ButtonItem3.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem3.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem3.Icon = (Icon)manager.GetObject("TAGV2ButtonItem3.Icon");
+      this.TAGV2ButtonItem3.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem3.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem3.Name = "TAGV2ButtonItem3";
       this.TAGV2ButtonItem3.Text = "Original information";
-      this.TAGV2ButtonItem4.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem4.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem4.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem3.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem4
+      // 
+      this.TAGV2ButtonItem4.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem4.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem4.HotFontUnderline = true;
-      this.TAGV2ButtonItem4.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem4.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem4.Icon = (Icon)manager.GetObject("TAGV2ButtonItem4.Icon");
+      this.TAGV2ButtonItem4.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem4.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem4.Name = "TAGV2ButtonItem4";
       this.TAGV2ButtonItem4.Text = "Involved people";
-      this.TAGV2ButtonItem5.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem5.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem5.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem4.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem5
+      // 
+      this.TAGV2ButtonItem5.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem5.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem5.HotFontUnderline = true;
-      this.TAGV2ButtonItem5.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem5.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem5.Icon = (Icon)manager.GetObject("TAGV2ButtonItem5.Icon");
+      this.TAGV2ButtonItem5.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem5.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem5.Name = "TAGV2ButtonItem5";
       this.TAGV2ButtonItem5.Text = "Web information";
-      this.TAGV2ButtonItem6.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem6.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem6.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem5.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem6
+      // 
+      this.TAGV2ButtonItem6.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem6.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem6.HotFontUnderline = true;
-      this.TAGV2ButtonItem6.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem6.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem6.Icon = (Icon)manager.GetObject("TAGV2ButtonItem6.Icon");
+      this.TAGV2ButtonItem6.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem6.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem6.Name = "TAGV2ButtonItem6";
       this.TAGV2ButtonItem6.Text = "Pictures";
-      this.TAGV2ButtonItem7.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem7.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem7.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem6.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem7
+      // 
+      this.TAGV2ButtonItem7.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem7.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem7.HotFontUnderline = true;
-      this.TAGV2ButtonItem7.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem7.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem7.Icon = (Icon)manager.GetObject("TAGV2ButtonItem7.Icon");
+      this.TAGV2ButtonItem7.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem7.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem7.Name = "TAGV2ButtonItem7";
       this.TAGV2ButtonItem7.Text = "Lyrics";
-      this.TAGV2ButtonItem8.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem8.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem8.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem7.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem8
+      // 
+      this.TAGV2ButtonItem8.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem8.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem8.HotFontUnderline = true;
-      this.TAGV2ButtonItem8.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem8.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem8.Icon = (Icon)manager.GetObject("TAGV2ButtonItem8.Icon");
+      this.TAGV2ButtonItem8.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem8.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem8.Name = "TAGV2ButtonItem8";
       this.TAGV2ButtonItem8.Text = "Rating";
-      this.TAGV2ButtonItem9.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem9.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem9.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem8.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem9
+      // 
+      this.TAGV2ButtonItem9.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem9.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem9.HotFontUnderline = true;
-      this.TAGV2ButtonItem9.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem9.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem9.Icon = (Icon)manager.GetObject("TAGV2ButtonItem9.Icon");
+      this.TAGV2ButtonItem9.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem9.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem9.Name = "TAGV2ButtonItem9";
       this.TAGV2ButtonItem9.Text = "User defined information";
-      this.TAGV2ButtonItem10.ButtonStyle = eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem10.Cursor = Cursors.Hand;
-      this.TAGV2ButtonItem10.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2ButtonItem9.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2ButtonItem10
+      // 
+      this.TAGV2ButtonItem10.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.TAGV2ButtonItem10.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.TAGV2ButtonItem10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2ButtonItem10.HotFontUnderline = true;
-      this.TAGV2ButtonItem10.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2ButtonItem10.HotTrackingStyle = eHotTrackingStyle.None;
-      this.TAGV2ButtonItem10.Icon = (Icon)manager.GetObject("TAGV2ButtonItem10.Icon");
+      this.TAGV2ButtonItem10.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2ButtonItem10.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.TAGV2ButtonItem10.Name = "TAGV2ButtonItem10";
       this.TAGV2ButtonItem10.Text = "Not supported frames";
-      this.TAGV2grpTransfer.BackgroundStyle.BackColor1.Color = Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.TAGV2grpTransfer.BackgroundStyle.Border = eBorderType.SingleLine;
-      this.TAGV2grpTransfer.BackgroundStyle.BorderColor.Color = Color.White;
+      this.TAGV2ButtonItem10.Click += new System.EventHandler(this.btnItem_Click);
+      // 
+      // TAGV2grpTransfer
+      // 
+      this.TAGV2grpTransfer.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
+      this.TAGV2grpTransfer.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TAGV2grpTransfer.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
       this.TAGV2grpTransfer.CanCustomize = false;
-      this.TAGV2grpTransfer.HeaderHotStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpTransfer.HeaderHotStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpTransfer.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpTransfer.HeaderHotStyle.ForeColor.Color = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2grpTransfer.HeaderStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpTransfer.HeaderStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpTransfer.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpTransfer.HeaderStyle.ForeColor.Color = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2grpTransfer.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.TAGV2grpTransfer.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.TAGV2grpTransfer.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.TAGV2grpTransfer.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2grpTransfer.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.TAGV2grpTransfer.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.TAGV2grpTransfer.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.TAGV2grpTransfer.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2grpTransfer.Name = "TAGV2grpTransfer";
-      this.TAGV2grpTransfer.StockStyle = eExplorerBarStockStyle.Blue;
-      this.TAGV2grpTransfer.SubItems.AddRange(new BaseItem[] { this.btnImport, this.btnExport, this.btnGet });
+      this.TAGV2grpTransfer.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
+      this.TAGV2grpTransfer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnImport,
+            this.btnExport,
+            this.btnGet});
       this.TAGV2grpTransfer.Text = "Transfer and Import";
-      this.btnImport.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnImport.Cursor = Cursors.Hand;
-      this.btnImport.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // btnImport
+      // 
+      this.btnImport.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnImport.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnImport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnImport.HotFontUnderline = true;
-      this.btnImport.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnImport.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnImport.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnImport.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnImport.Name = "btnImport";
       this.btnImport.Text = "Transfer from Ver. 1";
-      this.btnExport.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnExport.Cursor = Cursors.Hand;
-      this.btnExport.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+      // 
+      // btnExport
+      // 
+      this.btnExport.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnExport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnExport.HotFontUnderline = true;
-      this.btnExport.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnExport.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnExport.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnExport.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnExport.Name = "btnExport";
       this.btnExport.Text = "Transfer to Ver. 1";
-      this.btnGet.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnGet.Cursor = Cursors.Hand;
-      this.btnGet.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+      // 
+      // btnGet
+      // 
+      this.btnGet.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnGet.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnGet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnGet.HotFontUnderline = true;
-      this.btnGet.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnGet.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnGet.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnGet.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnGet.Name = "btnGet";
       this.btnGet.Text = "Get from filename";
-      this.TAGV2grpCommands.BackgroundStyle.BackColor1.Color = Color.FromArgb(0xd6, 0xdf, 0xf7);
-      this.TAGV2grpCommands.BackgroundStyle.Border = eBorderType.SingleLine;
-      this.TAGV2grpCommands.BackgroundStyle.BorderColor.Color = Color.White;
+      this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
+      // 
+      // TAGV2grpCommands
+      // 
+      this.TAGV2grpCommands.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
+      this.TAGV2grpCommands.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TAGV2grpCommands.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
       this.TAGV2grpCommands.CanCustomize = false;
-      this.TAGV2grpCommands.HeaderHotStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpCommands.HeaderHotStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpCommands.HeaderHotStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpCommands.HeaderHotStyle.ForeColor.Color = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.TAGV2grpCommands.HeaderStyle.BackColor1.Color = Color.White;
-      this.TAGV2grpCommands.HeaderStyle.BackColor2.Color = Color.FromArgb(0xc7, 0xd3, 0xf7);
-      this.TAGV2grpCommands.HeaderStyle.Font = new Font("Tahoma", 11f, FontStyle.Bold, GraphicsUnit.World);
-      this.TAGV2grpCommands.HeaderStyle.ForeColor.Color = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.TAGV2grpCommands.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.TAGV2grpCommands.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.TAGV2grpCommands.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.TAGV2grpCommands.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.TAGV2grpCommands.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
+      this.TAGV2grpCommands.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
+      this.TAGV2grpCommands.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.TAGV2grpCommands.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.TAGV2grpCommands.Name = "TAGV2grpCommands";
-      this.TAGV2grpCommands.StockStyle = eExplorerBarStockStyle.Blue;
-      this.TAGV2grpCommands.SubItems.AddRange(new BaseItem[] { this.btnPrev, this.btnNext, this.btnSwapAT, this.btnSwapAA, this.btnSwapTA });
+      this.TAGV2grpCommands.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
+      this.TAGV2grpCommands.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnPrev,
+            this.btnNext,
+            this.btnSwapAT,
+            this.btnSwapAA,
+            this.btnSwapTA});
       this.TAGV2grpCommands.Text = "Commands";
-      this.btnPrev.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnPrev.Cursor = Cursors.Hand;
-      this.btnPrev.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      // 
+      // btnPrev
+      // 
+      this.btnPrev.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnPrev.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnPrev.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnPrev.HotFontUnderline = true;
-      this.btnPrev.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnPrev.HotTrackingStyle = eHotTrackingStyle.None;
-      this.btnPrev.Icon = (Icon)manager.GetObject("btnPrev.Icon");
+      this.btnPrev.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnPrev.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnPrev.Name = "btnPrev";
-      this.btnPrev.Shortcuts.Add(eShortcut.CtrlB);
+      this.btnPrev.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlB);
       this.btnPrev.Text = "Previous File";
-      this.btnNext.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnNext.Cursor = Cursors.Hand;
-      this.btnNext.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+      // 
+      // btnNext
+      // 
+      this.btnNext.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnNext.HotFontUnderline = true;
-      this.btnNext.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnNext.HotTrackingStyle = eHotTrackingStyle.None;
-      this.btnNext.Icon = (Icon)manager.GetObject("btnNext.Icon");
+      this.btnNext.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnNext.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnNext.Name = "btnNext";
-      this.btnNext.Shortcuts.Add(eShortcut.CtrlN);
+      this.btnNext.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlN);
       this.btnNext.Text = "Next File";
-      this.btnSwapAT.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnSwapAT.Cursor = Cursors.Hand;
-      this.btnSwapAT.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+      // 
+      // btnSwapAT
+      // 
+      this.btnSwapAT.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnSwapAT.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnSwapAT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnSwapAT.HotFontUnderline = true;
-      this.btnSwapAT.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnSwapAT.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnSwapAT.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnSwapAT.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnSwapAT.Name = "btnSwapAT";
       this.btnSwapAT.Text = "Swap Artist-Title";
-      this.btnSwapAA.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnSwapAA.Cursor = Cursors.Hand;
-      this.btnSwapAA.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnSwapAT.Click += new System.EventHandler(this.btnSwapAT_Click);
+      // 
+      // btnSwapAA
+      // 
+      this.btnSwapAA.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnSwapAA.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnSwapAA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnSwapAA.HotFontUnderline = true;
-      this.btnSwapAA.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnSwapAA.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnSwapAA.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnSwapAA.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnSwapAA.Name = "btnSwapAA";
       this.btnSwapAA.Text = "Swap Artist-Album";
-      this.btnSwapTA.ButtonStyle = eButtonStyle.ImageAndText;
-      this.btnSwapTA.Cursor = Cursors.Hand;
-      this.btnSwapTA.ForeColor = Color.FromArgb(0x21, 0x5d, 0xc6);
+      this.btnSwapAA.Click += new System.EventHandler(this.btnSwapAA_Click);
+      // 
+      // btnSwapTA
+      // 
+      this.btnSwapTA.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+      this.btnSwapTA.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnSwapTA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
       this.btnSwapTA.HotFontUnderline = true;
-      this.btnSwapTA.HotForeColor = Color.FromArgb(0x42, 0x8e, 0xff);
-      this.btnSwapTA.HotTrackingStyle = eHotTrackingStyle.None;
+      this.btnSwapTA.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.btnSwapTA.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
       this.btnSwapTA.Name = "btnSwapTA";
       this.btnSwapTA.Text = "Swap Title-Album";
-      this.btnCancel.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
-      this.btnCancel.BackColor = SystemColors.Control;
+      this.btnSwapTA.Click += new System.EventHandler(this.btnSwapTA_Click);
+      // 
+      // btnCancel
+      // 
+      this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
       this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnCancel.ImeMode = ImeMode.NoControl;
-      this.btnCancel.Location = new Point(560, 8);
+      this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCancel.Location = new System.Drawing.Point(560, 8);
       this.btnCancel.Name = "btnCancel";
-      this.btnCancel.Size = new Size(0x60, 0x18);
-      this.btnCancel.TabIndex = 0x68;
+      this.btnCancel.Size = new System.Drawing.Size(96, 24);
+      this.btnCancel.TabIndex = 104;
       this.btnCancel.Text = "&Cancel";
-      this.btnOK.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
-      this.btnOK.BackColor = SystemColors.Control;
+      this.btnCancel.UseVisualStyleBackColor = false;
+      this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+      // 
+      // btnOK
+      // 
+      this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnOK.BackColor = System.Drawing.SystemColors.Control;
       this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-      this.btnOK.ImeMode = ImeMode.NoControl;
-      this.btnOK.Location = new Point(0x1c8, 8);
+      this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnOK.Location = new System.Drawing.Point(456, 8);
       this.btnOK.Name = "btnOK";
-      this.btnOK.Size = new Size(0x60, 0x18);
-      this.btnOK.TabIndex = 0x67;
+      this.btnOK.Size = new System.Drawing.Size(96, 24);
+      this.btnOK.TabIndex = 103;
       this.btnOK.Text = "&OK";
-      this.lblDigits.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
-      this.lblDigits.BackColor = Color.White;
-      this.lblDigits.ForeColor = Color.Black;
-      this.lblDigits.ImeMode = ImeMode.NoControl;
-      this.lblDigits.Location = new Point(8, 12);
+      this.btnOK.UseVisualStyleBackColor = false;
+      this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+      // 
+      // lblDigits
+      // 
+      this.lblDigits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+      this.lblDigits.BackColor = System.Drawing.Color.White;
+      this.lblDigits.ForeColor = System.Drawing.Color.Black;
+      this.lblDigits.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblDigits.Location = new System.Drawing.Point(8, 12);
       this.lblDigits.Name = "lblDigits";
-      this.lblDigits.Size = new Size(0xb8, 0x10);
-      this.lblDigits.TabIndex = 0x65;
+      this.lblDigits.Size = new System.Drawing.Size(184, 16);
+      this.lblDigits.TabIndex = 101;
       this.lblDigits.Text = "Number of digits of track numbers:";
+      // 
+      // TopPanel
+      // 
       this.TopPanel.AntiAlias = true;
       this.TopPanel.Controls.Add(this.txtSelected);
       this.TopPanel.Controls.Add(this.lblSelected);
-      this.TopPanel.Dock = DockStyle.Top;
-      this.TopPanel.Location = new Point(0xa8, 0);
+      this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
+      this.TopPanel.Location = new System.Drawing.Point(168, 0);
       this.TopPanel.Name = "TopPanel";
-      this.TopPanel.Size = new Size(0x29a, 0x30);
-      this.TopPanel.Style.BackColor1.Color = Color.White;
-      this.TopPanel.Style.BackColor2.Color = Color.White;
-      this.TopPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
+      this.TopPanel.Size = new System.Drawing.Size(666, 48);
+      this.TopPanel.Style.BackColor1.Color = System.Drawing.Color.White;
+      this.TopPanel.Style.BackColor2.Color = System.Drawing.Color.White;
+      this.TopPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
       this.TopPanel.Style.BorderWidth = 0;
-      this.TopPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.TopPanel.Style.ForeColor.Color = Color.Black;
+      this.TopPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.TopPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
       this.TopPanel.Style.GradientAngle = 90;
-      this.TopPanel.Style.LineAlignment = StringAlignment.Near;
+      this.TopPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
       this.TopPanel.Style.MarginBottom = 2;
       this.TopPanel.Style.MarginLeft = 7;
       this.TopPanel.Style.MarginRight = 2;
       this.TopPanel.Style.MarginTop = 2;
-      this.TopPanel.TabIndex = 0x6a;
+      this.TopPanel.TabIndex = 106;
       this.TopPanel.Text = "TopPanel";
-      this.panDetail.BackColor = SystemColors.Control;
+      // 
+      // panDetail
+      // 
+      this.panDetail.BackColor = System.Drawing.SystemColors.Control;
       this.panDetail.Controls.Add(this.Panel4);
       this.panDetail.Controls.Add(this.Panel5);
       this.panDetail.Controls.Add(this.Panel9);
       this.panDetail.Controls.Add(this.Panel14);
-      this.panDetail.Location = new Point(0xa8, 0x30);
+      this.panDetail.Location = new System.Drawing.Point(168, 48);
       this.panDetail.Name = "panDetail";
-      this.panDetail.Size = new Size(0x298, 0x1b0);
-      this.panDetail.TabIndex = 0x75;
+      this.panDetail.Size = new System.Drawing.Size(664, 432);
+      this.panDetail.TabIndex = 117;
+      // 
+      // panMain
+      // 
       this.panMain.Controls.Add(this.Panel3);
       this.panMain.Controls.Add(this.Panel1);
       this.panMain.Controls.Add(this.Panel2);
-      this.panMain.Location = new Point(0xa8, 0x30);
+      this.panMain.Location = new System.Drawing.Point(168, 48);
       this.panMain.Name = "panMain";
-      this.panMain.Size = new Size(0x298, 0x1c8);
-      this.panMain.TabIndex = 0x74;
+      this.panMain.Size = new System.Drawing.Size(664, 456);
+      this.panMain.TabIndex = 116;
+      // 
+      // panOriginal
+      // 
       this.panOriginal.Controls.Add(this.Panel6);
-      this.panOriginal.Location = new Point(0xa8, 0x30);
+      this.panOriginal.Location = new System.Drawing.Point(168, 48);
       this.panOriginal.Name = "panOriginal";
-      this.panOriginal.Size = new Size(0x298, 0x1a8);
-      this.panOriginal.TabIndex = 0x76;
+      this.panOriginal.Size = new System.Drawing.Size(664, 424);
+      this.panOriginal.TabIndex = 118;
+      // 
+      // panInvolved
+      // 
       this.panInvolved.Controls.Add(this.Panel16);
       this.panInvolved.Controls.Add(this.Panel15);
-      this.panInvolved.Location = new Point(0xa8, 0x30);
+      this.panInvolved.Location = new System.Drawing.Point(168, 48);
       this.panInvolved.Name = "panInvolved";
-      this.panInvolved.Size = new Size(0x298, 320);
-      this.panInvolved.TabIndex = 0x77;
+      this.panInvolved.Size = new System.Drawing.Size(664, 320);
+      this.panInvolved.TabIndex = 119;
+      // 
+      // panPic
+      // 
       this.panPic.Controls.Add(this.Panel7);
-      this.panPic.Location = new Point(0xa8, 0x38);
+      this.panPic.Location = new System.Drawing.Point(168, 56);
       this.panPic.Name = "panPic";
-      this.panPic.Size = new Size(0x298, 0x130);
+      this.panPic.Size = new System.Drawing.Size(664, 304);
       this.panPic.TabIndex = 120;
+      // 
+      // panLyrics
+      // 
       this.panLyrics.Controls.Add(this.Panel8);
-      this.panLyrics.Location = new Point(0xa8, 0x30);
+      this.panLyrics.Location = new System.Drawing.Point(168, 48);
       this.panLyrics.Name = "panLyrics";
-      this.panLyrics.Size = new Size(0x298, 0x1b0);
-      this.panLyrics.TabIndex = 0x79;
+      this.panLyrics.Size = new System.Drawing.Size(664, 432);
+      this.panLyrics.TabIndex = 121;
+      // 
+      // panWeb
+      // 
       this.panWeb.Controls.Add(this.Panel10);
-      this.panWeb.Location = new Point(0xa8, 0x30);
+      this.panWeb.Location = new System.Drawing.Point(168, 48);
       this.panWeb.Name = "panWeb";
-      this.panWeb.Size = new Size(0x298, 360);
-      this.panWeb.TabIndex = 0x7a;
+      this.panWeb.Size = new System.Drawing.Size(664, 360);
+      this.panWeb.TabIndex = 122;
+      // 
+      // panRating
+      // 
       this.panRating.Controls.Add(this.Panel11);
-      this.panRating.Location = new Point(0xa8, 0x30);
+      this.panRating.Location = new System.Drawing.Point(168, 48);
       this.panRating.Name = "panRating";
-      this.panRating.Size = new Size(0x298, 0x1b0);
-      this.panRating.TabIndex = 0x7b;
+      this.panRating.Size = new System.Drawing.Size(664, 432);
+      this.panRating.TabIndex = 123;
+      // 
+      // panUser
+      // 
       this.panUser.Controls.Add(this.Panel13);
       this.panUser.Controls.Add(this.Panel12);
-      this.panUser.Location = new Point(0xa8, 0x38);
+      this.panUser.Location = new System.Drawing.Point(168, 56);
       this.panUser.Name = "panUser";
-      this.panUser.Size = new Size(0x298, 0x1a0);
-      this.panUser.TabIndex = 0x7c;
+      this.panUser.Size = new System.Drawing.Size(664, 416);
+      this.panUser.TabIndex = 124;
+      // 
+      // panNot
+      // 
       this.panNot.Controls.Add(this.lblNot);
       this.panNot.Controls.Add(this.NotSupportList);
-      this.panNot.Location = new Point(0xa8, 0x30);
+      this.panNot.Location = new System.Drawing.Point(168, 48);
       this.panNot.Name = "panNot";
-      this.panNot.Size = new Size(0x298, 440);
-      this.panNot.TabIndex = 0x7d;
+      this.panNot.Size = new System.Drawing.Size(664, 440);
+      this.panNot.TabIndex = 125;
+      // 
+      // ButtomPanel
+      // 
       this.ButtomPanel.AntiAlias = true;
       this.ButtomPanel.Controls.Add(this.btnOK);
       this.ButtomPanel.Controls.Add(this.btnCancel);
       this.ButtomPanel.Controls.Add(this.lblDigits);
       this.ButtomPanel.Controls.Add(this.txtDigits);
-      this.ButtomPanel.Dock = DockStyle.Bottom;
-      this.ButtomPanel.Location = new Point(0xa8, 0x1f8);
+      this.ButtomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.ButtomPanel.Location = new System.Drawing.Point(168, 504);
       this.ButtomPanel.Name = "ButtomPanel";
-      this.ButtomPanel.Size = new Size(0x29a, 40);
-      this.ButtomPanel.Style.BackColor1.Color = Color.White;
-      this.ButtomPanel.Style.BackColor2.Color = Color.White;
-      this.ButtomPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
+      this.ButtomPanel.Size = new System.Drawing.Size(666, 40);
+      this.ButtomPanel.Style.BackColor1.Color = System.Drawing.Color.White;
+      this.ButtomPanel.Style.BackColor2.Color = System.Drawing.Color.White;
+      this.ButtomPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
       this.ButtomPanel.Style.BorderWidth = 0;
-      this.ButtomPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.ButtomPanel.Style.ForeColor.Color = Color.Black;
+      this.ButtomPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ButtomPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
       this.ButtomPanel.Style.GradientAngle = 90;
-      this.ButtomPanel.Style.LineAlignment = StringAlignment.Near;
+      this.ButtomPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
       this.ButtomPanel.Style.MarginBottom = 2;
       this.ButtomPanel.Style.MarginLeft = 7;
       this.ButtomPanel.Style.MarginRight = 2;
       this.ButtomPanel.Style.MarginTop = 2;
       this.ButtomPanel.TabIndex = 100;
-      this.btnAddComment.Click += new EventHandler(this.btnAddComment_Click);
-      this.btnAddGenre.Click += new EventHandler(this.btnAddGenre_Click);
-      this.btnAddInv.Click += new EventHandler(this.btnAddInv_Click);
-      this.btnAddLyrics.Click += new EventHandler(this.btnAddLyrics_Click);
-      this.btnAddMusician.Click += new EventHandler(this.btnAddMusican_Click);
-      this.btnAddPicture.Click += new EventHandler(this.btnAddPicture_Click);
-      this.btnAddRating.Click += new EventHandler(this.btnAddRating_Click);
-      this.btnAddTXXX.Click += new EventHandler(this.btnAddTXXX_Click);
-      this.btnAddWXXX.Click += new EventHandler(this.btnAddWXXX_Click);
-      this.btnCancel.Click += new EventHandler(this.btnCancel_Click);
-      this.btnExPic.Click += new EventHandler(this.btnExPic_Click);
-      this.btnExport.Click += new EventHandler(this.btnExport_Click);
-      this.btnGet.Click += new EventHandler(this.btnGet_Click);
-      this.btnGetPic.Click += new EventHandler(this.btnGetPic_Click);
-      this.btnImport.Click += new EventHandler(this.btnImport_Click);
-      this.btnLyricsFile.Click += new EventHandler(this.btnLyricsFile_Click);
-      this.btnMoveComment.Click += new EventHandler(this.btnMoveComment_Click);
-      this.btnMoveGenre.Click += new EventHandler(this.btnMoveGenre_Click);
-      this.btnMoveLyrics.Click += new EventHandler(this.btnMoveLyrics_Click);
-      this.btnMoveRating.Click += new EventHandler(this.btnMoveRating_Click);
-      this.btnNext.Click += new EventHandler(this.btnNext_Click);
-      this.btnOK.Click += new EventHandler(this.btnOK_Click);
-      this.btnPrev.Click += new EventHandler(this.btnPrev_Click);
-      this.btnRemoveComment.Click += new EventHandler(this.btnRemoveComment_Click);
-      this.btnRemoveGenre.Click += new EventHandler(this.btnRemoveGenre_Click);
-      this.btnRemoveInv.Click += new EventHandler(this.btnRemoveInv_Click);
-      this.btnRemoveLyrics.Click += new EventHandler(this.btnRemoveLyrics_Click);
-      this.btnRemoveMusician.Click += new EventHandler(this.btnRemoveMusican_Click);
-      this.btnRemovePicture.Click += new EventHandler(this.btnRemovePicture_Click);
-      this.btnRemoveRating.Click += new EventHandler(this.btnRemoveRating_Click);
-      this.btnRemoveTXXX.Click += new EventHandler(this.btnRemoveTXXX_Click);
-      this.btnRemoveWXXX.Click += new EventHandler(this.btnRemoveWXXX_Click);
-      this.btnSwapAA.Click += new EventHandler(this.btnSwapAA_Click);
-      this.btnSwapAT.Click += new EventHandler(this.btnSwapAT_Click);
-      this.btnSwapTA.Click += new EventHandler(this.btnSwapTA_Click);
-      this.btnTLEN.Click += new EventHandler(this.btnTLEN_Click);
-      this.btnV1Album.Click += new EventHandler(this.btnV1Album_Click);
-      this.btnV1Artist.Click += new EventHandler(this.btnV1Artist_Click);
-      this.btnV1Comment.Click += new EventHandler(this.btnV1Comment_Click);
-      this.btnV1Genre.Click += new EventHandler(this.btnV1Genre_Click);
-      this.btnV1Title.Click += new EventHandler(this.btnV1Title_Click);
-      this.btnV1Track.Click += new EventHandler(this.btnV1Track_Click);
-      this.btnV1Year.Click += new EventHandler(this.btnV1Year_Click);
-      this.chkPicInclude.CheckedChanged += new EventHandler(this.chkPicInclude_CheckedChanged);
-      this.chkPicRelativPath.CheckedChanged += new EventHandler(this.chkPicRelativPath_CheckedChanged);
-      this.cmbArtist.Leave += new EventHandler(this.Select_Leave);
-      this.cmbArtist.Enter += new EventHandler(this.Select_Enter);
-      this.cmbCDescriptor.Leave += new EventHandler(this.Select_Leave);
-      this.cmbCDescriptor.Enter += new EventHandler(this.Select_Enter);
-      this.cmbCLanguage.Leave += new EventHandler(this.Select_Leave);
-      this.cmbCLanguage.Enter += new EventHandler(this.Select_Enter);
-      this.cmbGenre.Leave += new EventHandler(this.Select_Leave);
-      this.cmbGenre.Enter += new EventHandler(this.Select_Enter);
-      this.cmbLLanguage.Leave += new EventHandler(this.Select_Leave);
-      this.cmbLLanguage.Enter += new EventHandler(this.Select_Enter);
-      this.cmbMedia.Leave += new EventHandler(this.Select_Leave);
-      this.cmbMedia.Enter += new EventHandler(this.Select_Enter);
-      this.cmbPicType.Leave += new EventHandler(this.Select_Leave);
-      this.cmbPicType.Enter += new EventHandler(this.Select_Enter);
-      this.CommentList.Leave += new EventHandler(this.Select_Leave);
-      this.CommentList.Click += new EventHandler(this.CommentList_Click);
-      this.GenreList.Leave += new EventHandler(this.Select_Leave);
-      this.LyricsList.Leave += new EventHandler(this.Select_Leave);
-      this.LyricsList.Click += new EventHandler(this.LyricsList_Click);
-      this.NotSupportList.Leave += new EventHandler(this.Select_Leave);
-      this.PicList.Leave += new EventHandler(this.Select_Leave);
-      this.PicList.Click += new EventHandler(this.PicList_Click);
-      this.RatingList.Click += new EventHandler(this.RatingList_Click);
-      this.TAGV2ButtonItem1.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem10.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem2.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem3.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem4.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem5.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem6.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem7.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem8.Click += new EventHandler(this.btnItem_Click);
-      this.TAGV2ButtonItem9.Click += new EventHandler(this.btnItem_Click);
-      this.TIPLList.Click += new EventHandler(this.TIPLList_Click);
-      this.TMCLList.Click += new EventHandler(this.TMCLList_Click);
-      this.TORYFormat.Scroll += new ScrollEventHandler(this.TORYFormat_Scroll);
-      this.txtAlbum.Leave += new EventHandler(this.Select_Leave);
-      this.txtAlbum.Enter += new EventHandler(this.Select_Enter);
-      this.txtArtistURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtArtistURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtAudioFileURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtAudioFileURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtAudioSRCURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtAudioSRCURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtBand.Leave += new EventHandler(this.Select_Leave);
-      this.txtBand.Enter += new EventHandler(this.Select_Enter);
-      this.txtBPM.Leave += new EventHandler(this.Select_Leave);
-      this.txtBPM.Enter += new EventHandler(this.Select_Enter);
-      this.txtComment.Leave += new EventHandler(this.Select_Leave);
-      this.txtComment.Enter += new EventHandler(this.Select_Enter);
-      this.txtCOMMInfURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtCOMMInfURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtComposer.Leave += new EventHandler(this.Select_Leave);
-      this.txtComposer.Enter += new EventHandler(this.Select_Enter);
-      this.txtConductor.Leave += new EventHandler(this.Select_Leave);
-      this.txtConductor.Enter += new EventHandler(this.Select_Enter);
-      this.txtContent.Leave += new EventHandler(this.Select_Leave);
-      this.txtContent.Enter += new EventHandler(this.Select_Enter);
-      this.txtCopyInfURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtCopyInfURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtCopyright.Leave += new EventHandler(this.Select_Leave);
-      this.txtCopyright.Enter += new EventHandler(this.Select_Enter);
-      this.txtEncoded.Leave += new EventHandler(this.Select_Leave);
-      this.txtEncoded.Enter += new EventHandler(this.Select_Enter);
-      this.txtINetRadioURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtINetRadioURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtInvFunction.Leave += new EventHandler(this.Select_Leave);
-      this.txtInvFunction.Enter += new EventHandler(this.Select_Enter);
-      this.txtInvPerson.Leave += new EventHandler(this.Select_Leave);
-      this.txtInvPerson.Enter += new EventHandler(this.Select_Enter);
-      this.txtLDescriptor.Leave += new EventHandler(this.Select_Leave);
-      this.txtLDescriptor.Enter += new EventHandler(this.Select_Enter);
-      this.txtLyWriter.Leave += new EventHandler(this.Select_Leave);
-      this.txtLyWriter.Enter += new EventHandler(this.Select_Enter);
-      this.txtModified.Leave += new EventHandler(this.Select_Leave);
-      this.txtModified.Enter += new EventHandler(this.Select_Enter);
-      this.txtMusicianInst.Leave += new EventHandler(this.Select_Leave);
-      this.txtMusicianInst.Enter += new EventHandler(this.Select_Enter);
-      this.txtMusicianName.Leave += new EventHandler(this.Select_Leave);
-      this.txtMusicianName.Enter += new EventHandler(this.Select_Enter);
-      this.txtOAlbum.Leave += new EventHandler(this.Select_Leave);
-      this.txtOAlbum.Enter += new EventHandler(this.Select_Enter);
-      this.txtOArtist.Leave += new EventHandler(this.Select_Leave);
-      this.txtOArtist.Enter += new EventHandler(this.Select_Enter);
-      this.txtOFilename.Leave += new EventHandler(this.Select_Leave);
-      this.txtOFilename.Enter += new EventHandler(this.Select_Enter);
-      this.txtOLyWriter.Leave += new EventHandler(this.Select_Leave);
-      this.txtOLyWriter.Enter += new EventHandler(this.Select_Enter);
-      this.txtOOwner.Leave += new EventHandler(this.Select_Leave);
-      this.txtOOwner.Enter += new EventHandler(this.Select_Enter);
-      this.txtPayURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtPayURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtPDescriptor.Leave += new EventHandler(this.Select_Leave);
-      this.txtPDescriptor.Enter += new EventHandler(this.Select_Enter);
-      this.txtPicPath.Leave += new EventHandler(this.Select_Leave);
-      this.txtPicPath.Enter += new EventHandler(this.Select_Enter);
-      this.txtPublisher.Leave += new EventHandler(this.Select_Leave);
-      this.txtPublisher.Enter += new EventHandler(this.Select_Enter);
-      this.txtPubURL.Leave += new EventHandler(this.Select_Leave);
-      this.txtPubURL.Enter += new EventHandler(this.Select_Enter);
-      this.txtRatingCounter.Leave += new EventHandler(this.Select_Leave);
-      this.txtRatingCounter.Enter += new EventHandler(this.Select_Enter);
-      this.txtRatingRating.Leave += new EventHandler(this.Select_Leave);
-      this.txtRatingRating.Enter += new EventHandler(this.Select_Enter);
-      this.txtRatingUser.Leave += new EventHandler(this.Select_Leave);
-      this.txtRatingUser.Enter += new EventHandler(this.Select_Enter);
-      this.txtSelected.Leave += new EventHandler(this.Select_Leave);
-      this.txtSelected.Enter += new EventHandler(this.Select_Enter);
-      this.txtSortAlbum.Leave += new EventHandler(this.Select_Leave);
-      this.txtSortAlbum.Enter += new EventHandler(this.Select_Enter);
-      this.txtSortArtist.Leave += new EventHandler(this.Select_Leave);
-      this.txtSortArtist.Enter += new EventHandler(this.Select_Enter);
-      this.txtSortTitle.Leave += new EventHandler(this.Select_Leave);
-      this.txtSortTitle.Enter += new EventHandler(this.Select_Enter);
-      this.txtSubTitle.Leave += new EventHandler(this.Select_Leave);
-      this.txtSubTitle.Enter += new EventHandler(this.Select_Enter);
-      this.txtTitle.Leave += new EventHandler(this.Select_Leave);
-      this.txtTitle.Enter += new EventHandler(this.Select_Enter);
-      this.txtTORY.Leave += new EventHandler(this.Select_Leave);
-      this.txtTORY.Enter += new EventHandler(this.Select_Enter);
-      this.txtTXXXContent.Leave += new EventHandler(this.Select_Leave);
-      this.txtTXXXContent.Enter += new EventHandler(this.Select_Enter);
-      this.txtTXXXDesc.Leave += new EventHandler(this.Select_Leave);
-      this.txtTXXXDesc.Enter += new EventHandler(this.Select_Enter);
-      this.txtWXXXContent.Leave += new EventHandler(this.Select_Leave);
-      this.txtWXXXContent.Enter += new EventHandler(this.Select_Enter);
-      this.txtWXXXDesc.Leave += new EventHandler(this.Select_Leave);
-      this.txtWXXXDesc.Enter += new EventHandler(this.Select_Enter);
-      this.txtYear.Leave += new EventHandler(this.Select_Leave);
-      this.txtYear.Enter += new EventHandler(this.Select_Enter);
-      this.TXXXList.Leave += new EventHandler(this.Select_Leave);
-      this.TXXXList.Click += new EventHandler(this.TXXXList_Click);
-      this.WXXXList.Leave += new EventHandler(this.Select_Leave);
-      this.WXXXList.Click += new EventHandler(this.WXXXList_Click);
-      this.YearFormat.Scroll += new ScrollEventHandler(this.YearFormat_Scroll);
+      // 
+      // frmTAG2
+      // 
       this.AcceptButton = this.btnOK;
-      this.AutoScaleBaseSize = new Size(5, 13);
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
       this.CancelButton = this.btnCancel;
-      this.ClientSize = new Size(0x342, 0x220);
+      this.ClientSize = new System.Drawing.Size(834, 544);
       this.ControlBox = false;
       this.Controls.Add(this.panMain);
       this.Controls.Add(this.panLyrics);
@@ -2523,7 +3336,7 @@ namespace ID3_TagIT
       this.Controls.Add(this.TopPanel);
       this.Controls.Add(this.ButtomPanel);
       this.Controls.Add(this.SelectionBar);
-      this.FormBorderStyle = FormBorderStyle.FixedDialog;
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.KeyPreview = true;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
@@ -2531,26 +3344,43 @@ namespace ID3_TagIT
       this.ShowInTaskbar = false;
       this.Text = "Edit TAG Ver. 2";
       this.Panel3.ResumeLayout(false);
+      this.Panel3.PerformLayout();
       this.Panel2.ResumeLayout(false);
       this.Panel1.ResumeLayout(false);
+      this.Panel1.PerformLayout();
       this.Panel9.ResumeLayout(false);
+      this.Panel9.PerformLayout();
       this.Panel6.ResumeLayout(false);
+      this.Panel6.PerformLayout();
       this.Panel5.ResumeLayout(false);
+      this.Panel5.PerformLayout();
       this.Panel4.ResumeLayout(false);
+      this.Panel4.PerformLayout();
       this.Panel15.ResumeLayout(false);
+      this.Panel15.PerformLayout();
       this.Panel16.ResumeLayout(false);
+      this.Panel16.PerformLayout();
       this.Panel14.ResumeLayout(false);
+      this.Panel14.PerformLayout();
       this.Panel7.ResumeLayout(false);
+      this.Panel7.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.APICView)).EndInit();
       this.Panel8.ResumeLayout(false);
+      this.Panel8.PerformLayout();
       this.Panel11.ResumeLayout(false);
-      this.txtRatingCounter.EndInit();
-      this.txtRatingRating.EndInit();
+      this.Panel11.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.txtRatingCounter)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtRatingRating)).EndInit();
       this.Panel10.ResumeLayout(false);
+      this.Panel10.PerformLayout();
       this.Panel13.ResumeLayout(false);
+      this.Panel13.PerformLayout();
       this.Panel12.ResumeLayout(false);
-      this.txtDigits.EndInit();
-      ((ISupportInitialize)this.SelectionBar).EndInit();
+      this.Panel12.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).EndInit();
       this.TopPanel.ResumeLayout(false);
+      this.TopPanel.PerformLayout();
       this.panDetail.ResumeLayout(false);
       this.panMain.ResumeLayout(false);
       this.panOriginal.ResumeLayout(false);
@@ -2563,6 +3393,7 @@ namespace ID3_TagIT
       this.panNot.ResumeLayout(false);
       this.ButtomPanel.ResumeLayout(false);
       this.ResumeLayout(false);
+
     }
 
     public frmTAG2(ref frmMain FormMain)
@@ -2621,9 +3452,8 @@ namespace ID3_TagIT
           try
           {
             foreach (ButtonItem item in current.SubItems)
-            {
               item.Text = StringType.FromObject(Declarations.objResources.SelectionBar[item.Name]);
-            }
+
             continue;
           }
           catch (Exception exception1)
@@ -2637,9 +3467,7 @@ namespace ID3_TagIT
       finally
       {
         if (enumerator is IDisposable)
-        {
           ((IDisposable)enumerator).Dispose();
-        }
       }
     }
 
@@ -3564,29 +4392,18 @@ namespace ID3_TagIT
     private void btnImport_Click(object sender, EventArgs e)
     {
       if (StringType.StrCmp(this.MP3.V1TAG.Artist, "", false) != 0)
-      {
         this.cmbArtist.Text = this.MP3.V1TAG.Artist;
-      }
       if (StringType.StrCmp(this.MP3.V1TAG.Title, "", false) != 0)
-      {
         this.txtTitle.Text = this.MP3.V1TAG.Title;
-      }
       if (StringType.StrCmp(this.MP3.V1TAG.Album, "", false) != 0)
-      {
         this.txtAlbum.Text = this.MP3.V1TAG.Album;
-      }
       if (this.MP3.V1TAG.Year != 0)
-      {
         this.txtYear.Text = this.MP3.V1TAG.Year.ToString().Trim(new char[] { ' ' }).PadLeft(4, '0') + "-01-01";
-      }
       if (this.MP3.V1TAG.Tracknumber != 0)
-      {
         this.txtTrack1.Text = this.MP3.V1TAG.Tracknumber.ToString();
-      }
       if ((StringType.StrCmp(this.MP3.V1TAG.GenreText, "< undefined >", false) != 0) & !this.GenreList.Items.Contains(this.MP3.V1TAG.GenreText))
-      {
         this.GenreList.Items.Add(this.MP3.V1TAG.GenreText);
-      }
+
       if (StringType.StrCmp(this.MP3.V1TAG.Comment, "", false) != 0)
       {
         ListViewItem item = new ListViewItem();
@@ -3597,6 +4414,7 @@ namespace ID3_TagIT
           Content = this.MP3.V1TAG.Comment,
           Language = StringType.FromObject(LateBinding.LateGet(this.cmbCLanguage.Items[Declarations.objSettings.V2Language], null, "Substring", new object[] { 0, 3 }, null, null))
         };
+
         foreach (ListViewItem item2 in this.CommentList.Items)
         {
           if ((StringType.StrCmp(item2.Text, frame.Descriptor, false) == 0) & (StringType.StrCmp(item2.SubItems[2].Text, frame.Language, false) == 0))
@@ -3606,6 +4424,7 @@ namespace ID3_TagIT
             return;
           }
         }
+
         item.Text = frame.Descriptor;
         item.SubItems.Add(frame.Content);
         object[] objArray3 = new object[1];
@@ -3619,10 +4438,10 @@ namespace ID3_TagIT
         object[] objArray2 = objArray3;
         bool[] copyBack = new bool[] { true };
         LateBinding.LateCall(item.SubItems, null, "Add", objArray2, null, copyBack);
+
         if (copyBack[0])
-        {
           LateBinding.LateSetComplex(o, null, "Substring", new object[] { num3, num, RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, true);
-        }
+
         item.Tag = frame;
         this.CommentList.Items.Add(item);
       }
@@ -3652,6 +4471,7 @@ namespace ID3_TagIT
       this.panInvolved.Enabled = false;
       this.panUser.Enabled = false;
       object obj2 = LateBinding.LateGet(sender, null, "Name", new object[0], null, null);
+
       if (ObjectType.ObjTst(obj2, "TAGV2ButtonItem1", false) == 0)
       {
         this.panMain.Visible = true;
@@ -4032,17 +4852,13 @@ namespace ID3_TagIT
     private void btnV1Album_Click(object sender, EventArgs e)
     {
       if (StringType.StrCmp(this.MP3.V1TAG.Album, "", false) != 0)
-      {
         this.txtAlbum.Text = this.MP3.V1TAG.Album;
-      }
     }
 
     private void btnV1Artist_Click(object sender, EventArgs e)
     {
       if (StringType.StrCmp(this.MP3.V1TAG.Artist, "", false) != 0)
-      {
         this.cmbArtist.Text = this.MP3.V1TAG.Artist;
-      }
     }
 
     private void btnV1Comment_Click(object sender, EventArgs e)
@@ -4084,10 +4900,10 @@ namespace ID3_TagIT
           object[] objArray2 = objArray3;
           bool[] copyBack = new bool[] { true };
           LateBinding.LateCall(item.SubItems, null, "Add", objArray2, null, copyBack);
+
           if (copyBack[0])
-          {
             LateBinding.LateSetComplex(o, null, "Substring", new object[] { num2, num, RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, true);
-          }
+
           item.Tag = frame;
           this.CommentList.Items.Add(item);
         }
@@ -4104,38 +4920,28 @@ namespace ID3_TagIT
       if (!Declarations.objSettings.SingleGC)
       {
         if ((StringType.StrCmp(this.MP3.V1TAG.GenreText, "< undefined >", false) != 0) & !this.GenreList.Items.Contains(this.MP3.V1TAG.GenreText))
-        {
           this.GenreList.Items.Add(this.MP3.V1TAG.GenreText);
-        }
       }
       else if (StringType.StrCmp(this.MP3.V1TAG.GenreText, "< undefined >", false) != 0)
-      {
         this.cmbGenre.Text = this.MP3.V1TAG.GenreText;
-      }
     }
 
     private void btnV1Title_Click(object sender, EventArgs e)
     {
       if (StringType.StrCmp(this.MP3.V1TAG.Title, "", false) != 0)
-      {
         this.txtTitle.Text = this.MP3.V1TAG.Title;
-      }
     }
 
     private void btnV1Track_Click(object sender, EventArgs e)
     {
       if (this.MP3.V1TAG.Tracknumber != 0)
-      {
         this.txtTrack1.Text = this.MP3.V1TAG.Tracknumber.ToString();
-      }
     }
 
     private void btnV1Year_Click(object sender, EventArgs e)
     {
       if (this.MP3.V1TAG.Year != 0)
-      {
         this.txtYear.Text = this.MP3.V1TAG.Year.ToString().Trim(new char[] { ' ' }).PadLeft(4, '0') + "-01-01";
-      }
     }
 
     private void chkPicInclude_CheckedChanged(object sender, EventArgs e)
@@ -4143,9 +4949,7 @@ namespace ID3_TagIT
       try
       {
         if (this.chkPicInclude.Checked)
-        {
           this.chkPicRelativPath.Checked = false;
-        }
       }
       catch (Exception exception1)
       {
@@ -4165,9 +4969,7 @@ namespace ID3_TagIT
           this.txtPicPath.Text = Id3TagIT_Main.GetRelativePath(Path.GetDirectoryName(this.MP3.FI.FullName), this.txtPicPath.Text);
         }
         else
-        {
           this.txtPicPath.Text = Path.GetFullPath(this.txtPicPath.Text);
-        }
       }
       catch (Exception exception1)
       {
@@ -4269,9 +5071,8 @@ namespace ID3_TagIT
     protected override void Dispose(bool disposing)
     {
       if (disposing && (this.components != null))
-      {
         this.components.Dispose();
-      }
+
       base.Dispose(disposing);
     }
 
@@ -5794,9 +6595,8 @@ namespace ID3_TagIT
       {
         ArrayList alstFrames = new ArrayList();
         foreach (ListViewItem item2 in this.LyricsList.Items)
-        {
           alstFrames.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(item2.Tag, null, "Clone", new object[0], null, null)));
-        }
+
         this.MP3.V2TAG.RemoveFrames("USLT");
         this.MP3.V2TAG.AddFrames(alstFrames);
       }
@@ -5804,9 +6604,8 @@ namespace ID3_TagIT
       {
         ArrayList list3 = new ArrayList();
         foreach (ListViewItem item3 in this.RatingList.Items)
-        {
           list3.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(item3.Tag, null, "Clone", new object[0], null, null)));
-        }
+
         this.MP3.V2TAG.RemoveFrames("POPM");
         this.MP3.V2TAG.AddFrames(list3);
       }
@@ -5851,6 +6650,7 @@ namespace ID3_TagIT
         }
         this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(item.Tag));
       }
+
       var enumerator7 = this.alstRemovedAPICFrames.GetEnumerator();
       while (enumerator7.MoveNext())
       {
@@ -5858,19 +6658,18 @@ namespace ID3_TagIT
         LateBinding.LateSet(o, null, "Remove", new object[] { true }, null);
         this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(o));
       }
+
       foreach (ListViewItem item in this.PicList.Items)
-      {
         this.MP3.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(item.Tag));
-      }
+
       if (!Declarations.objSettings.SingleGC)
       {
         if (this.vbooCommentMoved)
         {
           ArrayList list4 = new ArrayList();
           foreach (ListViewItem item4 in this.CommentList.Items)
-          {
             list4.Add(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(item4.Tag, null, "Clone", new object[0], null, null)));
-          }
+
           this.MP3.V2TAG.RemoveFrames("COMM");
           this.MP3.V2TAG.AddFrames(list4);
         }
@@ -5933,9 +6732,7 @@ namespace ID3_TagIT
             this.MP3.V2TAG.AddFrame(frame);
           }
           else
-          {
             this.MP3.V2TAG.AddFrame(frame);
-          }
         }
         else if (this.MP3.V2TAG.FrameExists("COMM"))
         {
@@ -5965,18 +6762,14 @@ namespace ID3_TagIT
         }
       }
       foreach (ListViewItem item in this.NotSupportList.Items)
-      {
         if (!item.Checked)
-        {
           this.MP3.V2TAG.RemoveFrameExact(RuntimeHelpers.GetObjectValue(item.Tag));
-        }
-      }
+
       if (this.MP3.V2TAG.Changed)
       {
         if (!this.MP3.V2TAG.TAGHeaderPresent)
-        {
           this.MP3.V2TAG.TAGHeaderPresent = true;
-        }
+
         this.MP3.Changed = true;
         Declarations.UNDOList.Add(list);
         this.MainForm.UnDoEnable(true, true);
@@ -6029,9 +6822,8 @@ namespace ID3_TagIT
         if (!this.MP3.V2TAG.FrameExists("TCON"))
         {
           if (this.MP3.V1TAG.GenreByte != 0xff)
-          {
             this.MP3.Changed = true;
-          }
+
           this.MP3.V1TAG.GenreByte = 0xff;
         }
         else
@@ -6076,20 +6868,19 @@ namespace ID3_TagIT
       object[] objArray2 = objArray3;
       bool[] copyBack = new bool[] { false, true };
       LateBinding.LateCall(sender, null, "Select", objArray2, null, copyBack);
+
       if (copyBack[1])
-      {
         LateBinding.LateSetComplex(LateBinding.LateGet(o, null, "Text", args, paramnames, null), null, "Length", new object[] { RuntimeHelpers.GetObjectValue(objArray2[1]) }, null, true, true);
-      }
     }
 
     private void Select_Leave(object sender, EventArgs e)
     {
       AMS.TextBox.MaskedTextBox txtYear;
       this.FocusControl = (Control)sender;
+
       if (((sender == this.txtRatingCounter) | (sender == this.txtRatingRating)) && (ObjectType.ObjTst(LateBinding.LateGet(sender, null, "Text", new object[0], null, null), "", false) == 0))
-      {
         LateBinding.LateSet(sender, null, "Text", new object[] { "0" }, null);
-      }
+
       if (sender == this.txtYear)
       {
         switch (this.YearFormat.Value)
@@ -6107,9 +6898,8 @@ namespace ID3_TagIT
               txtYear.Text = txtYear.Text + str.Substring(this.txtYear.Text.Length);
             }
             if ((Conversion.Val(this.txtYear.Text.Substring(5, 2)) > 12.0) | (Conversion.Val(this.txtYear.Text.Substring(5, 2)) < 1.0))
-            {
               this.txtYear.Text = this.txtYear.Text.Substring(0, 4) + "-01";
-            }
+
             break;
 
           case 2:
@@ -6120,25 +6910,21 @@ namespace ID3_TagIT
               txtYear = this.txtYear;
               txtYear.Text = txtYear.Text + str2.Substring(this.txtYear.Text.Length);
             }
+
             if ((Conversion.Val(this.txtYear.Text.Substring(5, 2)) > 12.0) | (Conversion.Val(this.txtYear.Text.Substring(5, 2)) < 1.0))
-            {
               this.txtYear.Text = this.txtYear.Text.Substring(0, 4) + "-01" + this.txtYear.Text.Substring(7);
-            }
             if ((Conversion.Val(this.txtYear.Text.Substring(8, 2)) > 31.0) | (Conversion.Val(this.txtYear.Text.Substring(8, 2)) < 1.0))
-            {
               this.txtYear.Text = this.txtYear.Text.Substring(0, 7) + "-01";
-            }
+
             break;
         }
         this.txtYear.Text.TrimStart(new char[] { '0' });
+
         if (this.txtYear.Text.Length < 4)
-        {
           this.txtYear.Text = this.txtYear.Text.PadLeft(4, '0');
-        }
+
         if (Conversion.Val(this.txtYear.Text.Substring(0, 4)) <= 0.0)
-        {
           this.txtYear.Text = "";
-        }
       }
       if (sender == this.txtTORY)
       {
@@ -6147,9 +6933,8 @@ namespace ID3_TagIT
           case 0:
             this.txtTORY.Mask = "####";
             if (this.txtTORY.Text.Length < 4)
-            {
               this.txtTORY.Text = this.txtTORY.Text.PadRight(4, '0');
-            }
+
             break;
 
           case 1:
@@ -6161,9 +6946,8 @@ namespace ID3_TagIT
               txtYear.Text = txtYear.Text + str3.Substring(this.txtTORY.Text.Length);
             }
             if ((Conversion.Val(this.txtTORY.Text.Substring(5, 2)) > 12.0) | (Conversion.Val(this.txtTORY.Text.Substring(5, 2)) < 1.0))
-            {
               this.txtTORY.Text = this.txtTORY.Text.Substring(0, 4) + "-01";
-            }
+
             break;
 
           case 2:
@@ -6174,25 +6958,20 @@ namespace ID3_TagIT
               txtYear = this.txtTORY;
               txtYear.Text = txtYear.Text + str4.Substring(this.txtTORY.Text.Length);
             }
+
             if ((Conversion.Val(this.txtTORY.Text.Substring(5, 2)) > 12.0) | (Conversion.Val(this.txtTORY.Text.Substring(5, 2)) < 1.0))
-            {
               this.txtTORY.Text = this.txtTORY.Text.Substring(0, 4) + "-01" + this.txtTORY.Text.Substring(7);
-            }
             if ((Conversion.Val(this.txtTORY.Text.Substring(8, 2)) > 31.0) | (Conversion.Val(this.txtTORY.Text.Substring(8, 2)) < 1.0))
-            {
               this.txtTORY.Text = this.txtTORY.Text.Substring(0, 7) + "-01";
-            }
+
             break;
         }
         this.txtTORY.Text.TrimStart(new char[] { '0' });
+
         if (this.txtTORY.Text.Length < 4)
-        {
           this.txtTORY.Text = this.txtTORY.Text.PadLeft(4, '0');
-        }
         if (Conversion.Val(this.txtTORY.Text.Substring(0, 4)) <= 0.0)
-        {
           this.txtTORY.Text = "";
-        }
       }
     }
 
@@ -6288,5192 +7067,5210 @@ namespace ID3_TagIT
       }
     }
 
-/*
-    internal virtual PictureBox APICView
-    {
-      get
-      {
-        return this._APICView;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._APICView != null)
-        {
-        }
-        this._APICView = value;
-        if (this._APICView != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Button btnAddComment
-    {
-      get
-      {
-        return this._btnAddComment;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnAddComment != null)
-        {
-          this._btnAddComment.Click -= new EventHandler(this.btnAddComment_Click);
-        }
-        this._btnAddComment = value;
-        if (this._btnAddComment != null)
-        {
-          this._btnAddComment.Click += new EventHandler(this.btnAddComment_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnAddGenre
-    {
-      get
-      {
-        return this._btnAddGenre;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnAddGenre != null)
-        {
-          this._btnAddGenre.Click -= new EventHandler(this.btnAddGenre_Click);
-        }
-        this._btnAddGenre = value;
-        if (this._btnAddGenre != null)
-        {
-          this._btnAddGenre.Click += new EventHandler(this.btnAddGenre_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnAddInv
-    {
-      get
-      {
-        return this._btnAddInv;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnAddInv != null)
-        {
-          this._btnAddInv.Click -= new EventHandler(this.btnAddInv_Click);
-        }
-        this._btnAddInv = value;
-        if (this._btnAddInv != null)
-        {
-          this._btnAddInv.Click += new EventHandler(this.btnAddInv_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnAddLyrics
-    {
-      get
-      {
-        return this._btnAddLyrics;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnAddLyrics != null)
-        {
-          this._btnAddLyrics.Click -= new EventHandler(this.btnAddLyrics_Click);
-        }
-        this._btnAddLyrics = value;
-        if (this._btnAddLyrics != null)
-        {
-          this._btnAddLyrics.Click += new EventHandler(this.btnAddLyrics_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnAddMusician
-    {
-      get
-      {
-        return this._btnAddMusician;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnAddMusician != null)
-        {
-          this._btnAddMusician.Click -= new EventHandler(this.btnAddMusican_Click);
-        }
-        this._btnAddMusician = value;
-        if (this._btnAddMusician != null)
-        {
-          this._btnAddMusician.Click += new EventHandler(this.btnAddMusican_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnAddPicture
-    {
-      get
-      {
-        return this._btnAddPicture;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnAddPicture != null)
-        {
-          this._btnAddPicture.Click -= new EventHandler(this.btnAddPicture_Click);
-        }
-        this._btnAddPicture = value;
-        if (this._btnAddPicture != null)
-        {
-          this._btnAddPicture.Click += new EventHandler(this.btnAddPicture_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnAddRating
-    {
-      get
-      {
-        return this._btnAddRating;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnAddRating != null)
-        {
-          this._btnAddRating.Click -= new EventHandler(this.btnAddRating_Click);
-        }
-        this._btnAddRating = value;
-        if (this._btnAddRating != null)
-        {
-          this._btnAddRating.Click += new EventHandler(this.btnAddRating_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnAddTXXX
-    {
-      get
-      {
-        return this._btnAddTXXX;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnAddTXXX != null)
-        {
-          this._btnAddTXXX.Click -= new EventHandler(this.btnAddTXXX_Click);
-        }
-        this._btnAddTXXX = value;
-        if (this._btnAddTXXX != null)
-        {
-          this._btnAddTXXX.Click += new EventHandler(this.btnAddTXXX_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnAddWXXX
-    {
-      get
-      {
-        return this._btnAddWXXX;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnAddWXXX != null)
-        {
-          this._btnAddWXXX.Click -= new EventHandler(this.btnAddWXXX_Click);
-        }
-        this._btnAddWXXX = value;
-        if (this._btnAddWXXX != null)
-        {
-          this._btnAddWXXX.Click += new EventHandler(this.btnAddWXXX_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnCancel
-    {
-      get
-      {
-        return this._btnCancel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnCancel != null)
-        {
-          this._btnCancel.Click -= new EventHandler(this.btnCancel_Click);
-        }
-        this._btnCancel = value;
-        if (this._btnCancel != null)
-        {
-          this._btnCancel.Click += new EventHandler(this.btnCancel_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnExPic
-    {
-      get
-      {
-        return this._btnExPic;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnExPic != null)
-        {
-          this._btnExPic.Click -= new EventHandler(this.btnExPic_Click);
-        }
-        this._btnExPic = value;
-        if (this._btnExPic != null)
-        {
-          this._btnExPic.Click += new EventHandler(this.btnExPic_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem btnExport
-    {
-      get
-      {
-        return this._btnExport;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnExport != null)
-        {
-          this._btnExport.Click -= new EventHandler(this.btnExport_Click);
-        }
-        this._btnExport = value;
-        if (this._btnExport != null)
-        {
-          this._btnExport.Click += new EventHandler(this.btnExport_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem btnGet
-    {
-      get
-      {
-        return this._btnGet;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnGet != null)
-        {
-          this._btnGet.Click -= new EventHandler(this.btnGet_Click);
-        }
-        this._btnGet = value;
-        if (this._btnGet != null)
-        {
-          this._btnGet.Click += new EventHandler(this.btnGet_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnGetPic
-    {
-      get
-      {
-        return this._btnGetPic;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnGetPic != null)
-        {
-          this._btnGetPic.Click -= new EventHandler(this.btnGetPic_Click);
-        }
-        this._btnGetPic = value;
-        if (this._btnGetPic != null)
-        {
-          this._btnGetPic.Click += new EventHandler(this.btnGetPic_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem btnImport
-    {
-      get
-      {
-        return this._btnImport;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnImport != null)
-        {
-          this._btnImport.Click -= new EventHandler(this.btnImport_Click);
-        }
-        this._btnImport = value;
-        if (this._btnImport != null)
-        {
-          this._btnImport.Click += new EventHandler(this.btnImport_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnLyricsFile
-    {
-      get
-      {
-        return this._btnLyricsFile;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnLyricsFile != null)
-        {
-          this._btnLyricsFile.Click -= new EventHandler(this.btnLyricsFile_Click);
-        }
-        this._btnLyricsFile = value;
-        if (this._btnLyricsFile != null)
-        {
-          this._btnLyricsFile.Click += new EventHandler(this.btnLyricsFile_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnMoveComment
-    {
-      get
-      {
-        return this._btnMoveComment;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnMoveComment != null)
-        {
-          this._btnMoveComment.Click -= new EventHandler(this.btnMoveComment_Click);
-        }
-        this._btnMoveComment = value;
-        if (this._btnMoveComment != null)
-        {
-          this._btnMoveComment.Click += new EventHandler(this.btnMoveComment_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnMoveGenre
-    {
-      get
-      {
-        return this._btnMoveGenre;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnMoveGenre != null)
-        {
-          this._btnMoveGenre.Click -= new EventHandler(this.btnMoveGenre_Click);
-        }
-        this._btnMoveGenre = value;
-        if (this._btnMoveGenre != null)
-        {
-          this._btnMoveGenre.Click += new EventHandler(this.btnMoveGenre_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnMoveLyrics
-    {
-      get
-      {
-        return this._btnMoveLyrics;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnMoveLyrics != null)
-        {
-          this._btnMoveLyrics.Click -= new EventHandler(this.btnMoveLyrics_Click);
-        }
-        this._btnMoveLyrics = value;
-        if (this._btnMoveLyrics != null)
-        {
-          this._btnMoveLyrics.Click += new EventHandler(this.btnMoveLyrics_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnMoveRating
-    {
-      get
-      {
-        return this._btnMoveRating;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnMoveRating != null)
-        {
-          this._btnMoveRating.Click -= new EventHandler(this.btnMoveRating_Click);
-        }
-        this._btnMoveRating = value;
-        if (this._btnMoveRating != null)
-        {
-          this._btnMoveRating.Click += new EventHandler(this.btnMoveRating_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem btnNext
-    {
-      get
-      {
-        return this._btnNext;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnNext != null)
-        {
-          this._btnNext.Click -= new EventHandler(this.btnNext_Click);
-        }
-        this._btnNext = value;
-        if (this._btnNext != null)
-        {
-          this._btnNext.Click += new EventHandler(this.btnNext_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnOK
-    {
-      get
-      {
-        return this._btnOK;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click -= new EventHandler(this.btnOK_Click);
-        }
-        this._btnOK = value;
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click += new EventHandler(this.btnOK_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem btnPrev
-    {
-      get
-      {
-        return this._btnPrev;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnPrev != null)
-        {
-          this._btnPrev.Click -= new EventHandler(this.btnPrev_Click);
-        }
-        this._btnPrev = value;
-        if (this._btnPrev != null)
-        {
-          this._btnPrev.Click += new EventHandler(this.btnPrev_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnRemoveComment
-    {
-      get
-      {
-        return this._btnRemoveComment;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnRemoveComment != null)
-        {
-          this._btnRemoveComment.Click -= new EventHandler(this.btnRemoveComment_Click);
-        }
-        this._btnRemoveComment = value;
-        if (this._btnRemoveComment != null)
-        {
-          this._btnRemoveComment.Click += new EventHandler(this.btnRemoveComment_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnRemoveGenre
-    {
-      get
-      {
-        return this._btnRemoveGenre;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnRemoveGenre != null)
-        {
-          this._btnRemoveGenre.Click -= new EventHandler(this.btnRemoveGenre_Click);
-        }
-        this._btnRemoveGenre = value;
-        if (this._btnRemoveGenre != null)
-        {
-          this._btnRemoveGenre.Click += new EventHandler(this.btnRemoveGenre_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnRemoveInv
-    {
-      get
-      {
-        return this._btnRemoveInv;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnRemoveInv != null)
-        {
-          this._btnRemoveInv.Click -= new EventHandler(this.btnRemoveInv_Click);
-        }
-        this._btnRemoveInv = value;
-        if (this._btnRemoveInv != null)
-        {
-          this._btnRemoveInv.Click += new EventHandler(this.btnRemoveInv_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnRemoveLyrics
-    {
-      get
-      {
-        return this._btnRemoveLyrics;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnRemoveLyrics != null)
-        {
-          this._btnRemoveLyrics.Click -= new EventHandler(this.btnRemoveLyrics_Click);
-        }
-        this._btnRemoveLyrics = value;
-        if (this._btnRemoveLyrics != null)
-        {
-          this._btnRemoveLyrics.Click += new EventHandler(this.btnRemoveLyrics_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnRemoveMusician
-    {
-      get
-      {
-        return this._btnRemoveMusician;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnRemoveMusician != null)
-        {
-          this._btnRemoveMusician.Click -= new EventHandler(this.btnRemoveMusican_Click);
-        }
-        this._btnRemoveMusician = value;
-        if (this._btnRemoveMusician != null)
-        {
-          this._btnRemoveMusician.Click += new EventHandler(this.btnRemoveMusican_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnRemovePicture
-    {
-      get
-      {
-        return this._btnRemovePicture;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnRemovePicture != null)
-        {
-          this._btnRemovePicture.Click -= new EventHandler(this.btnRemovePicture_Click);
-        }
-        this._btnRemovePicture = value;
-        if (this._btnRemovePicture != null)
-        {
-          this._btnRemovePicture.Click += new EventHandler(this.btnRemovePicture_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnRemoveRating
-    {
-      get
-      {
-        return this._btnRemoveRating;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnRemoveRating != null)
-        {
-          this._btnRemoveRating.Click -= new EventHandler(this.btnRemoveRating_Click);
-        }
-        this._btnRemoveRating = value;
-        if (this._btnRemoveRating != null)
-        {
-          this._btnRemoveRating.Click += new EventHandler(this.btnRemoveRating_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnRemoveTXXX
-    {
-      get
-      {
-        return this._btnRemoveTXXX;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnRemoveTXXX != null)
-        {
-          this._btnRemoveTXXX.Click -= new EventHandler(this.btnRemoveTXXX_Click);
-        }
-        this._btnRemoveTXXX = value;
-        if (this._btnRemoveTXXX != null)
-        {
-          this._btnRemoveTXXX.Click += new EventHandler(this.btnRemoveTXXX_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnRemoveWXXX
-    {
-      get
-      {
-        return this._btnRemoveWXXX;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnRemoveWXXX != null)
-        {
-          this._btnRemoveWXXX.Click -= new EventHandler(this.btnRemoveWXXX_Click);
-        }
-        this._btnRemoveWXXX = value;
-        if (this._btnRemoveWXXX != null)
-        {
-          this._btnRemoveWXXX.Click += new EventHandler(this.btnRemoveWXXX_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem btnSwapAA
-    {
-      get
-      {
-        return this._btnSwapAA;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnSwapAA != null)
-        {
-          this._btnSwapAA.Click -= new EventHandler(this.btnSwapAA_Click);
-        }
-        this._btnSwapAA = value;
-        if (this._btnSwapAA != null)
-        {
-          this._btnSwapAA.Click += new EventHandler(this.btnSwapAA_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem btnSwapAT
-    {
-      get
-      {
-        return this._btnSwapAT;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnSwapAT != null)
-        {
-          this._btnSwapAT.Click -= new EventHandler(this.btnSwapAT_Click);
-        }
-        this._btnSwapAT = value;
-        if (this._btnSwapAT != null)
-        {
-          this._btnSwapAT.Click += new EventHandler(this.btnSwapAT_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem btnSwapTA
-    {
-      get
-      {
-        return this._btnSwapTA;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnSwapTA != null)
-        {
-          this._btnSwapTA.Click -= new EventHandler(this.btnSwapTA_Click);
-        }
-        this._btnSwapTA = value;
-        if (this._btnSwapTA != null)
-        {
-          this._btnSwapTA.Click += new EventHandler(this.btnSwapTA_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnTLEN
-    {
-      get
-      {
-        return this._btnTLEN;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnTLEN != null)
-        {
-          this._btnTLEN.Click -= new EventHandler(this.btnTLEN_Click);
-        }
-        this._btnTLEN = value;
-        if (this._btnTLEN != null)
-        {
-          this._btnTLEN.Click += new EventHandler(this.btnTLEN_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnV1Album
-    {
-      get
-      {
-        return this._btnV1Album;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnV1Album != null)
-        {
-          this._btnV1Album.Click -= new EventHandler(this.btnV1Album_Click);
-        }
-        this._btnV1Album = value;
-        if (this._btnV1Album != null)
-        {
-          this._btnV1Album.Click += new EventHandler(this.btnV1Album_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnV1Artist
-    {
-      get
-      {
-        return this._btnV1Artist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnV1Artist != null)
-        {
-          this._btnV1Artist.Click -= new EventHandler(this.btnV1Artist_Click);
-        }
-        this._btnV1Artist = value;
-        if (this._btnV1Artist != null)
-        {
-          this._btnV1Artist.Click += new EventHandler(this.btnV1Artist_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnV1Comment
-    {
-      get
-      {
-        return this._btnV1Comment;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnV1Comment != null)
-        {
-          this._btnV1Comment.Click -= new EventHandler(this.btnV1Comment_Click);
-        }
-        this._btnV1Comment = value;
-        if (this._btnV1Comment != null)
-        {
-          this._btnV1Comment.Click += new EventHandler(this.btnV1Comment_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnV1Genre
-    {
-      get
-      {
-        return this._btnV1Genre;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnV1Genre != null)
-        {
-          this._btnV1Genre.Click -= new EventHandler(this.btnV1Genre_Click);
-        }
-        this._btnV1Genre = value;
-        if (this._btnV1Genre != null)
-        {
-          this._btnV1Genre.Click += new EventHandler(this.btnV1Genre_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnV1Title
-    {
-      get
-      {
-        return this._btnV1Title;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnV1Title != null)
-        {
-          this._btnV1Title.Click -= new EventHandler(this.btnV1Title_Click);
-        }
-        this._btnV1Title = value;
-        if (this._btnV1Title != null)
-        {
-          this._btnV1Title.Click += new EventHandler(this.btnV1Title_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnV1Track
-    {
-      get
-      {
-        return this._btnV1Track;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnV1Track != null)
-        {
-          this._btnV1Track.Click -= new EventHandler(this.btnV1Track_Click);
-        }
-        this._btnV1Track = value;
-        if (this._btnV1Track != null)
-        {
-          this._btnV1Track.Click += new EventHandler(this.btnV1Track_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnV1Year
-    {
-      get
-      {
-        return this._btnV1Year;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnV1Year != null)
-        {
-          this._btnV1Year.Click -= new EventHandler(this.btnV1Year_Click);
-        }
-        this._btnV1Year = value;
-        if (this._btnV1Year != null)
-        {
-          this._btnV1Year.Click += new EventHandler(this.btnV1Year_Click);
-        }
-      }
-    }
-
-    internal virtual PanelEx ButtomPanel
-    {
-      get
-      {
-        return this._ButtomPanel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ButtomPanel != null)
-        {
-        }
-        this._ButtomPanel = value;
-        if (this._ButtomPanel != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkPicInclude
-    {
-      get
-      {
-        return this._chkPicInclude;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkPicInclude != null)
-        {
-          this._chkPicInclude.CheckedChanged -= new EventHandler(this.chkPicInclude_CheckedChanged);
-        }
-        this._chkPicInclude = value;
-        if (this._chkPicInclude != null)
-        {
-          this._chkPicInclude.CheckedChanged += new EventHandler(this.chkPicInclude_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkPicRelativPath
-    {
-      get
-      {
-        return this._chkPicRelativPath;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkPicRelativPath != null)
-        {
-          this._chkPicRelativPath.CheckedChanged -= new EventHandler(this.chkPicRelativPath_CheckedChanged);
-        }
-        this._chkPicRelativPath = value;
-        if (this._chkPicRelativPath != null)
-        {
-          this._chkPicRelativPath.CheckedChanged += new EventHandler(this.chkPicRelativPath_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual ComboBoxAutoComplete cmbArtist
-    {
-      get
-      {
-        return this._cmbArtist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbArtist != null)
-        {
-          this._cmbArtist.Leave -= new EventHandler(this.Select_Leave);
-          this._cmbArtist.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._cmbArtist = value;
-        if (this._cmbArtist != null)
-        {
-          this._cmbArtist.Leave += new EventHandler(this.Select_Leave);
-          this._cmbArtist.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual ComboBoxAutoComplete cmbCDescriptor
-    {
-      get
-      {
-        return this._cmbCDescriptor;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbCDescriptor != null)
-        {
-          this._cmbCDescriptor.Leave -= new EventHandler(this.Select_Leave);
-          this._cmbCDescriptor.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._cmbCDescriptor = value;
-        if (this._cmbCDescriptor != null)
-        {
-          this._cmbCDescriptor.Leave += new EventHandler(this.Select_Leave);
-          this._cmbCDescriptor.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual ComboBox cmbCLanguage
-    {
-      get
-      {
-        return this._cmbCLanguage;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbCLanguage != null)
-        {
-          this._cmbCLanguage.Leave -= new EventHandler(this.Select_Leave);
-          this._cmbCLanguage.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._cmbCLanguage = value;
-        if (this._cmbCLanguage != null)
-        {
-          this._cmbCLanguage.Leave += new EventHandler(this.Select_Leave);
-          this._cmbCLanguage.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual ComboBoxAutoComplete cmbGenre
-    {
-      get
-      {
-        return this._cmbGenre;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbGenre != null)
-        {
-          this._cmbGenre.Leave -= new EventHandler(this.Select_Leave);
-          this._cmbGenre.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._cmbGenre = value;
-        if (this._cmbGenre != null)
-        {
-          this._cmbGenre.Leave += new EventHandler(this.Select_Leave);
-          this._cmbGenre.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual ComboBox cmbLLanguage
-    {
-      get
-      {
-        return this._cmbLLanguage;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbLLanguage != null)
-        {
-          this._cmbLLanguage.Leave -= new EventHandler(this.Select_Leave);
-          this._cmbLLanguage.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._cmbLLanguage = value;
-        if (this._cmbLLanguage != null)
-        {
-          this._cmbLLanguage.Leave += new EventHandler(this.Select_Leave);
-          this._cmbLLanguage.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual ComboBox cmbMedia
-    {
-      get
-      {
-        return this._cmbMedia;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbMedia != null)
-        {
-          this._cmbMedia.Leave -= new EventHandler(this.Select_Leave);
-          this._cmbMedia.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._cmbMedia = value;
-        if (this._cmbMedia != null)
-        {
-          this._cmbMedia.Leave += new EventHandler(this.Select_Leave);
-          this._cmbMedia.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual ComboBox cmbPicType
-    {
-      get
-      {
-        return this._cmbPicType;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbPicType != null)
-        {
-          this._cmbPicType.Leave -= new EventHandler(this.Select_Leave);
-          this._cmbPicType.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._cmbPicType = value;
-        if (this._cmbPicType != null)
-        {
-          this._cmbPicType.Leave += new EventHandler(this.Select_Leave);
-          this._cmbPicType.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual ColumnHeader colComment
-    {
-      get
-      {
-        return this._colComment;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._colComment != null)
-        {
-        }
-        this._colComment = value;
-        if (this._colComment != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader colDescriptor
-    {
-      get
-      {
-        return this._colDescriptor;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._colDescriptor != null)
-        {
-        }
-        this._colDescriptor = value;
-        if (this._colDescriptor != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader colLanguage
-    {
-      get
-      {
-        return this._colLanguage;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._colLanguage != null)
-        {
-        }
-        this._colLanguage = value;
-        if (this._colLanguage != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader1
-    {
-      get
-      {
-        return this._ColumnHeader1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader1 != null)
-        {
-        }
-        this._ColumnHeader1 = value;
-        if (this._ColumnHeader1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader10
-    {
-      get
-      {
-        return this._ColumnHeader10;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader10 != null)
-        {
-        }
-        this._ColumnHeader10 = value;
-        if (this._ColumnHeader10 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader11
-    {
-      get
-      {
-        return this._ColumnHeader11;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader11 != null)
-        {
-        }
-        this._ColumnHeader11 = value;
-        if (this._ColumnHeader11 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader12
-    {
-      get
-      {
-        return this._ColumnHeader12;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader12 != null)
-        {
-        }
-        this._ColumnHeader12 = value;
-        if (this._ColumnHeader12 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader13
-    {
-      get
-      {
-        return this._ColumnHeader13;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader13 != null)
-        {
-        }
-        this._ColumnHeader13 = value;
-        if (this._ColumnHeader13 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader14
-    {
-      get
-      {
-        return this._ColumnHeader14;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader14 != null)
-        {
-        }
-        this._ColumnHeader14 = value;
-        if (this._ColumnHeader14 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader15
-    {
-      get
-      {
-        return this._ColumnHeader15;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader15 != null)
-        {
-        }
-        this._ColumnHeader15 = value;
-        if (this._ColumnHeader15 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader16
-    {
-      get
-      {
-        return this._ColumnHeader16;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader16 != null)
-        {
-        }
-        this._ColumnHeader16 = value;
-        if (this._ColumnHeader16 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader17
-    {
-      get
-      {
-        return this._ColumnHeader17;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader17 != null)
-        {
-        }
-        this._ColumnHeader17 = value;
-        if (this._ColumnHeader17 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader18
-    {
-      get
-      {
-        return this._ColumnHeader18;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader18 != null)
-        {
-        }
-        this._ColumnHeader18 = value;
-        if (this._ColumnHeader18 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader2
-    {
-      get
-      {
-        return this._ColumnHeader2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader2 != null)
-        {
-        }
-        this._ColumnHeader2 = value;
-        if (this._ColumnHeader2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader3
-    {
-      get
-      {
-        return this._ColumnHeader3;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader3 != null)
-        {
-        }
-        this._ColumnHeader3 = value;
-        if (this._ColumnHeader3 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader4
-    {
-      get
-      {
-        return this._ColumnHeader4;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader4 != null)
-        {
-        }
-        this._ColumnHeader4 = value;
-        if (this._ColumnHeader4 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader5
-    {
-      get
-      {
-        return this._ColumnHeader5;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader5 != null)
-        {
-        }
-        this._ColumnHeader5 = value;
-        if (this._ColumnHeader5 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader6
-    {
-      get
-      {
-        return this._ColumnHeader6;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader6 != null)
-        {
-        }
-        this._ColumnHeader6 = value;
-        if (this._ColumnHeader6 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader7
-    {
-      get
-      {
-        return this._ColumnHeader7;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader7 != null)
-        {
-        }
-        this._ColumnHeader7 = value;
-        if (this._ColumnHeader7 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader8
-    {
-      get
-      {
-        return this._ColumnHeader8;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader8 != null)
-        {
-        }
-        this._ColumnHeader8 = value;
-        if (this._ColumnHeader8 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader ColumnHeader9
-    {
-      get
-      {
-        return this._ColumnHeader9;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnHeader9 != null)
-        {
-        }
-        this._ColumnHeader9 = value;
-        if (this._ColumnHeader9 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ListView CommentList
-    {
-      get
-      {
-        return this._CommentList;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._CommentList != null)
-        {
-          this._CommentList.Leave -= new EventHandler(this.Select_Leave);
-          this._CommentList.Click -= new EventHandler(this.CommentList_Click);
-        }
-        this._CommentList = value;
-        if (this._CommentList != null)
-        {
-          this._CommentList.Leave += new EventHandler(this.Select_Leave);
-          this._CommentList.Click += new EventHandler(this.CommentList_Click);
-        }
-      }
-    }
-
-    internal virtual ColumnHeader Content
-    {
-      get
-      {
-        return this._Content;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Content != null)
-        {
-        }
-        this._Content = value;
-        if (this._Content != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ColumnHeader FrameID
-    {
-      get
-      {
-        return this._FrameID;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._FrameID != null)
-        {
-        }
-        this._FrameID = value;
-        if (this._FrameID != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ListBox GenreList
-    {
-      get
-      {
-        return this._GenreList;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._GenreList != null)
-        {
-          this._GenreList.Leave -= new EventHandler(this.Select_Leave);
-        }
-        this._GenreList = value;
-        if (this._GenreList != null)
-        {
-          this._GenreList.Leave += new EventHandler(this.Select_Leave);
-        }
-      }
-    }
-
-    internal virtual Label lblAlbum
-    {
-      get
-      {
-        return this._lblAlbum;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblAlbum != null)
-        {
-        }
-        this._lblAlbum = value;
-        if (this._lblAlbum != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblAlbumSort
-    {
-      get
-      {
-        return this._lblAlbumSort;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblAlbumSort != null)
-        {
-        }
-        this._lblAlbumSort = value;
-        if (this._lblAlbumSort != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblArtist
-    {
-      get
-      {
-        return this._lblArtist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblArtist != null)
-        {
-        }
-        this._lblArtist = value;
-        if (this._lblArtist != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblArtistSort
-    {
-      get
-      {
-        return this._lblArtistSort;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblArtistSort != null)
-        {
-        }
-        this._lblArtistSort = value;
-        if (this._lblArtistSort != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblArtistURL
-    {
-      get
-      {
-        return this._lblArtistURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblArtistURL != null)
-        {
-        }
-        this._lblArtistURL = value;
-        if (this._lblArtistURL != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblAudioFileURL
-    {
-      get
-      {
-        return this._lblAudioFileURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblAudioFileURL != null)
-        {
-        }
-        this._lblAudioFileURL = value;
-        if (this._lblAudioFileURL != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblAudioSRCURL
-    {
-      get
-      {
-        return this._lblAudioSRCURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblAudioSRCURL != null)
-        {
-        }
-        this._lblAudioSRCURL = value;
-        if (this._lblAudioSRCURL != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblBand
-    {
-      get
-      {
-        return this._lblBand;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblBand != null)
-        {
-        }
-        this._lblBand = value;
-        if (this._lblBand != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblBPM
-    {
-      get
-      {
-        return this._lblBPM;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblBPM != null)
-        {
-        }
-        this._lblBPM = value;
-        if (this._lblBPM != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblCOMM
-    {
-      get
-      {
-        return this._lblCOMM;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblCOMM != null)
-        {
-        }
-        this._lblCOMM = value;
-        if (this._lblCOMM != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblCOMMDesc
-    {
-      get
-      {
-        return this._lblCOMMDesc;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblCOMMDesc != null)
-        {
-        }
-        this._lblCOMMDesc = value;
-        if (this._lblCOMMDesc != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblCommDescInfo
-    {
-      get
-      {
-        return this._lblCommDescInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblCommDescInfo != null)
-        {
-        }
-        this._lblCommDescInfo = value;
-        if (this._lblCommDescInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblCOMMInfURL
-    {
-      get
-      {
-        return this._lblCOMMInfURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblCOMMInfURL != null)
-        {
-        }
-        this._lblCOMMInfURL = value;
-        if (this._lblCOMMInfURL != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblCOMMLan
-    {
-      get
-      {
-        return this._lblCOMMLan;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblCOMMLan != null)
-        {
-        }
-        this._lblCOMMLan = value;
-        if (this._lblCOMMLan != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblComposer
-    {
-      get
-      {
-        return this._lblComposer;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblComposer != null)
-        {
-        }
-        this._lblComposer = value;
-        if (this._lblComposer != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblConductor
-    {
-      get
-      {
-        return this._lblConductor;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblConductor != null)
-        {
-        }
-        this._lblConductor = value;
-        if (this._lblConductor != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblContent
-    {
-      get
-      {
-        return this._lblContent;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblContent != null)
-        {
-        }
-        this._lblContent = value;
-        if (this._lblContent != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblCopyInfURL
-    {
-      get
-      {
-        return this._lblCopyInfURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblCopyInfURL != null)
-        {
-        }
-        this._lblCopyInfURL = value;
-        if (this._lblCopyInfURL != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblCopyright
-    {
-      get
-      {
-        return this._lblCopyright;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblCopyright != null)
-        {
-        }
-        this._lblCopyright = value;
-        if (this._lblCopyright != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblDigits
-    {
-      get
-      {
-        return this._lblDigits;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblDigits != null)
-        {
-        }
-        this._lblDigits = value;
-        if (this._lblDigits != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblEncoded
-    {
-      get
-      {
-        return this._lblEncoded;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblEncoded != null)
-        {
-        }
-        this._lblEncoded = value;
-        if (this._lblEncoded != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblGenre
-    {
-      get
-      {
-        return this._lblGenre;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblGenre != null)
-        {
-        }
-        this._lblGenre = value;
-        if (this._lblGenre != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblGenreInfo
-    {
-      get
-      {
-        return this._lblGenreInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblGenreInfo != null)
-        {
-        }
-        this._lblGenreInfo = value;
-        if (this._lblGenreInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblINetRadioURL
-    {
-      get
-      {
-        return this._lblINetRadioURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblINetRadioURL != null)
-        {
-        }
-        this._lblINetRadioURL = value;
-        if (this._lblINetRadioURL != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblInfo
-    {
-      get
-      {
-        return this._lblInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblInfo != null)
-        {
-        }
-        this._lblInfo = value;
-        if (this._lblInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblInvFunction
-    {
-      get
-      {
-        return this._lblInvFunction;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblInvFunction != null)
-        {
-        }
-        this._lblInvFunction = value;
-        if (this._lblInvFunction != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblInvPerson
-    {
-      get
-      {
-        return this._lblInvPerson;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblInvPerson != null)
-        {
-        }
-        this._lblInvPerson = value;
-        if (this._lblInvPerson != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblLyDesc
-    {
-      get
-      {
-        return this._lblLyDesc;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblLyDesc != null)
-        {
-        }
-        this._lblLyDesc = value;
-        if (this._lblLyDesc != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblLyLan
-    {
-      get
-      {
-        return this._lblLyLan;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblLyLan != null)
-        {
-        }
-        this._lblLyLan = value;
-        if (this._lblLyLan != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblLyrics
-    {
-      get
-      {
-        return this._lblLyrics;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblLyrics != null)
-        {
-        }
-        this._lblLyrics = value;
-        if (this._lblLyrics != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblLyWriter
-    {
-      get
-      {
-        return this._lblLyWriter;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblLyWriter != null)
-        {
-        }
-        this._lblLyWriter = value;
-        if (this._lblLyWriter != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblMediaTyp
-    {
-      get
-      {
-        return this._lblMediaTyp;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblMediaTyp != null)
-        {
-        }
-        this._lblMediaTyp = value;
-        if (this._lblMediaTyp != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblModified
-    {
-      get
-      {
-        return this._lblModified;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblModified != null)
-        {
-        }
-        this._lblModified = value;
-        if (this._lblModified != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblMusicianInfo
-    {
-      get
-      {
-        return this._lblMusicianInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblMusicianInfo != null)
-        {
-        }
-        this._lblMusicianInfo = value;
-        if (this._lblMusicianInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblMusicianInst
-    {
-      get
-      {
-        return this._lblMusicianInst;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblMusicianInst != null)
-        {
-        }
-        this._lblMusicianInst = value;
-        if (this._lblMusicianInst != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblMusicianName
-    {
-      get
-      {
-        return this._lblMusicianName;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblMusicianName != null)
-        {
-        }
-        this._lblMusicianName = value;
-        if (this._lblMusicianName != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblNot
-    {
-      get
-      {
-        return this._lblNot;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblNot != null)
-        {
-        }
-        this._lblNot = value;
-        if (this._lblNot != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblOAlbum
-    {
-      get
-      {
-        return this._lblOAlbum;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblOAlbum != null)
-        {
-        }
-        this._lblOAlbum = value;
-        if (this._lblOAlbum != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblOArtist
-    {
-      get
-      {
-        return this._lblOArtist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblOArtist != null)
-        {
-        }
-        this._lblOArtist = value;
-        if (this._lblOArtist != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblOf1
-    {
-      get
-      {
-        return this._lblOf1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblOf1 != null)
-        {
-        }
-        this._lblOf1 = value;
-        if (this._lblOf1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblOf2
-    {
-      get
-      {
-        return this._lblOf2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblOf2 != null)
-        {
-        }
-        this._lblOf2 = value;
-        if (this._lblOf2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblOFilename
-    {
-      get
-      {
-        return this._lblOFilename;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblOFilename != null)
-        {
-        }
-        this._lblOFilename = value;
-        if (this._lblOFilename != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblOLyWriter
-    {
-      get
-      {
-        return this._lblOLyWriter;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblOLyWriter != null)
-        {
-        }
-        this._lblOLyWriter = value;
-        if (this._lblOLyWriter != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblOOwner
-    {
-      get
-      {
-        return this._lblOOwner;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblOOwner != null)
-        {
-        }
-        this._lblOOwner = value;
-        if (this._lblOOwner != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblOYear
-    {
-      get
-      {
-        return this._lblOYear;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblOYear != null)
-        {
-        }
-        this._lblOYear = value;
-        if (this._lblOYear != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblOYearInfo
-    {
-      get
-      {
-        return this._lblOYearInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblOYearInfo != null)
-        {
-        }
-        this._lblOYearInfo = value;
-        if (this._lblOYearInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblPayURL
-    {
-      get
-      {
-        return this._lblPayURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblPayURL != null)
-        {
-        }
-        this._lblPayURL = value;
-        if (this._lblPayURL != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblPicDesc
-    {
-      get
-      {
-        return this._lblPicDesc;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblPicDesc != null)
-        {
-        }
-        this._lblPicDesc = value;
-        if (this._lblPicDesc != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblPicPath
-    {
-      get
-      {
-        return this._lblPicPath;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblPicPath != null)
-        {
-        }
-        this._lblPicPath = value;
-        if (this._lblPicPath != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblPicType
-    {
-      get
-      {
-        return this._lblPicType;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblPicType != null)
-        {
-        }
-        this._lblPicType = value;
-        if (this._lblPicType != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblPosMedia
-    {
-      get
-      {
-        return this._lblPosMedia;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblPosMedia != null)
-        {
-        }
-        this._lblPosMedia = value;
-        if (this._lblPosMedia != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblPublisher
-    {
-      get
-      {
-        return this._lblPublisher;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblPublisher != null)
-        {
-        }
-        this._lblPublisher = value;
-        if (this._lblPublisher != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblPubURL
-    {
-      get
-      {
-        return this._lblPubURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblPubURL != null)
-        {
-        }
-        this._lblPubURL = value;
-        if (this._lblPubURL != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblRatingCounter
-    {
-      get
-      {
-        return this._lblRatingCounter;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblRatingCounter != null)
-        {
-        }
-        this._lblRatingCounter = value;
-        if (this._lblRatingCounter != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblRatingRating
-    {
-      get
-      {
-        return this._lblRatingRating;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblRatingRating != null)
-        {
-        }
-        this._lblRatingRating = value;
-        if (this._lblRatingRating != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblRatingUser
-    {
-      get
-      {
-        return this._lblRatingUser;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblRatingUser != null)
-        {
-        }
-        this._lblRatingUser = value;
-        if (this._lblRatingUser != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblSelected
-    {
-      get
-      {
-        return this._lblSelected;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblSelected != null)
-        {
-        }
-        this._lblSelected = value;
-        if (this._lblSelected != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblSubTitle
-    {
-      get
-      {
-        return this._lblSubTitle;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblSubTitle != null)
-        {
-        }
-        this._lblSubTitle = value;
-        if (this._lblSubTitle != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblTitle
-    {
-      get
-      {
-        return this._lblTitle;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblTitle != null)
-        {
-        }
-        this._lblTitle = value;
-        if (this._lblTitle != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblTitleSort
-    {
-      get
-      {
-        return this._lblTitleSort;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblTitleSort != null)
-        {
-        }
-        this._lblTitleSort = value;
-        if (this._lblTitleSort != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblTLEN
-    {
-      get
-      {
-        return this._lblTLEN;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblTLEN != null)
-        {
-        }
-        this._lblTLEN = value;
-        if (this._lblTLEN != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblTrack
-    {
-      get
-      {
-        return this._lblTrack;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblTrack != null)
-        {
-        }
-        this._lblTrack = value;
-        if (this._lblTrack != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblTXXXContent
-    {
-      get
-      {
-        return this._lblTXXXContent;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblTXXXContent != null)
-        {
-        }
-        this._lblTXXXContent = value;
-        if (this._lblTXXXContent != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblTXXXDesc
-    {
-      get
-      {
-        return this._lblTXXXDesc;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblTXXXDesc != null)
-        {
-        }
-        this._lblTXXXDesc = value;
-        if (this._lblTXXXDesc != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblWXXXContent
-    {
-      get
-      {
-        return this._lblWXXXContent;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblWXXXContent != null)
-        {
-        }
-        this._lblWXXXContent = value;
-        if (this._lblWXXXContent != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblWXXXDesc
-    {
-      get
-      {
-        return this._lblWXXXDesc;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblWXXXDesc != null)
-        {
-        }
-        this._lblWXXXDesc = value;
-        if (this._lblWXXXDesc != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblYear
-    {
-      get
-      {
-        return this._lblYear;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblYear != null)
-        {
-        }
-        this._lblYear = value;
-        if (this._lblYear != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ListView LyricsList
-    {
-      get
-      {
-        return this._LyricsList;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._LyricsList != null)
-        {
-          this._LyricsList.Leave -= new EventHandler(this.Select_Leave);
-          this._LyricsList.Click -= new EventHandler(this.LyricsList_Click);
-        }
-        this._LyricsList = value;
-        if (this._LyricsList != null)
-        {
-          this._LyricsList.Leave += new EventHandler(this.Select_Leave);
-          this._LyricsList.Click += new EventHandler(this.LyricsList_Click);
-        }
-      }
-    }
-
-    internal virtual ListView NotSupportList
-    {
-      get
-      {
-        return this._NotSupportList;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._NotSupportList != null)
-        {
-          this._NotSupportList.Leave -= new EventHandler(this.Select_Leave);
-        }
-        this._NotSupportList = value;
-        if (this._NotSupportList != null)
-        {
-          this._NotSupportList.Leave += new EventHandler(this.Select_Leave);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.OpenFileDialog OpenFileDialog
-    {
-      get
-      {
-        return this._OpenFileDialog;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._OpenFileDialog != null)
-        {
-        }
-        this._OpenFileDialog = value;
-        if (this._OpenFileDialog != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel panDetail
-    {
-      get
-      {
-        return this._panDetail;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._panDetail != null)
-        {
-        }
-        this._panDetail = value;
-        if (this._panDetail != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel1
-    {
-      get
-      {
-        return this._Panel1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel1 != null)
-        {
-        }
-        this._Panel1 = value;
-        if (this._Panel1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel10
-    {
-      get
-      {
-        return this._Panel10;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel10 != null)
-        {
-        }
-        this._Panel10 = value;
-        if (this._Panel10 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel11
-    {
-      get
-      {
-        return this._Panel11;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel11 != null)
-        {
-        }
-        this._Panel11 = value;
-        if (this._Panel11 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel12
-    {
-      get
-      {
-        return this._Panel12;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel12 != null)
-        {
-        }
-        this._Panel12 = value;
-        if (this._Panel12 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel13
-    {
-      get
-      {
-        return this._Panel13;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel13 != null)
-        {
-        }
-        this._Panel13 = value;
-        if (this._Panel13 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel14
-    {
-      get
-      {
-        return this._Panel14;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel14 != null)
-        {
-        }
-        this._Panel14 = value;
-        if (this._Panel14 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel15
-    {
-      get
-      {
-        return this._Panel15;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel15 != null)
-        {
-        }
-        this._Panel15 = value;
-        if (this._Panel15 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel16
-    {
-      get
-      {
-        return this._Panel16;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel16 != null)
-        {
-        }
-        this._Panel16 = value;
-        if (this._Panel16 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel2
-    {
-      get
-      {
-        return this._Panel2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel2 != null)
-        {
-        }
-        this._Panel2 = value;
-        if (this._Panel2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel3
-    {
-      get
-      {
-        return this._Panel3;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel3 != null)
-        {
-        }
-        this._Panel3 = value;
-        if (this._Panel3 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel4
-    {
-      get
-      {
-        return this._Panel4;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel4 != null)
-        {
-        }
-        this._Panel4 = value;
-        if (this._Panel4 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel5
-    {
-      get
-      {
-        return this._Panel5;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel5 != null)
-        {
-        }
-        this._Panel5 = value;
-        if (this._Panel5 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel6
-    {
-      get
-      {
-        return this._Panel6;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel6 != null)
-        {
-        }
-        this._Panel6 = value;
-        if (this._Panel6 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel7
-    {
-      get
-      {
-        return this._Panel7;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel7 != null)
-        {
-        }
-        this._Panel7 = value;
-        if (this._Panel7 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel8
-    {
-      get
-      {
-        return this._Panel8;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel8 != null)
-        {
-        }
-        this._Panel8 = value;
-        if (this._Panel8 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel Panel9
-    {
-      get
-      {
-        return this._Panel9;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Panel9 != null)
-        {
-        }
-        this._Panel9 = value;
-        if (this._Panel9 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel panInvolved
-    {
-      get
-      {
-        return this._panInvolved;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._panInvolved != null)
-        {
-        }
-        this._panInvolved = value;
-        if (this._panInvolved != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel panLyrics
-    {
-      get
-      {
-        return this._panLyrics;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._panLyrics != null)
-        {
-        }
-        this._panLyrics = value;
-        if (this._panLyrics != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel panMain
-    {
-      get
-      {
-        return this._panMain;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._panMain != null)
-        {
-        }
-        this._panMain = value;
-        if (this._panMain != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel panNot
-    {
-      get
-      {
-        return this._panNot;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._panNot != null)
-        {
-        }
-        this._panNot = value;
-        if (this._panNot != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel panOriginal
-    {
-      get
-      {
-        return this._panOriginal;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._panOriginal != null)
-        {
-        }
-        this._panOriginal = value;
-        if (this._panOriginal != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel panPic
-    {
-      get
-      {
-        return this._panPic;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._panPic != null)
-        {
-        }
-        this._panPic = value;
-        if (this._panPic != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel panRating
-    {
-      get
-      {
-        return this._panRating;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._panRating != null)
-        {
-        }
-        this._panRating = value;
-        if (this._panRating != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel panUser
-    {
-      get
-      {
-        return this._panUser;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._panUser != null)
-        {
-        }
-        this._panUser = value;
-        if (this._panUser != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Panel panWeb
-    {
-      get
-      {
-        return this._panWeb;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._panWeb != null)
-        {
-        }
-        this._panWeb = value;
-        if (this._panWeb != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ListView PicList
-    {
-      get
-      {
-        return this._PicList;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._PicList != null)
-        {
-          this._PicList.Leave -= new EventHandler(this.Select_Leave);
-          this._PicList.Click -= new EventHandler(this.PicList_Click);
-        }
-        this._PicList = value;
-        if (this._PicList != null)
-        {
-          this._PicList.Leave += new EventHandler(this.Select_Leave);
-          this._PicList.Click += new EventHandler(this.PicList_Click);
-        }
-      }
-    }
-
-    internal virtual ListView RatingList
-    {
-      get
-      {
-        return this._RatingList;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._RatingList != null)
-        {
-          this._RatingList.Click -= new EventHandler(this.RatingList_Click);
-        }
-        this._RatingList = value;
-        if (this._RatingList != null)
-        {
-          this._RatingList.Click += new EventHandler(this.RatingList_Click);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.SaveFileDialog SaveFileDialog
-    {
-      get
-      {
-        return this._SaveFileDialog;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._SaveFileDialog != null)
-        {
-        }
-        this._SaveFileDialog = value;
-        if (this._SaveFileDialog != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ExplorerBar SelectionBar
-    {
-      get
-      {
-        return this._SelectionBar;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._SelectionBar != null)
-        {
-        }
-        this._SelectionBar = value;
-        if (this._SelectionBar != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ButtonItem TAGV2ButtonItem1
-    {
-      get
-      {
-        return this._TAGV2ButtonItem1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TAGV2ButtonItem1 != null)
-        {
-          this._TAGV2ButtonItem1.Click -= new EventHandler(this.btnItem_Click);
-        }
-        this._TAGV2ButtonItem1 = value;
-        if (this._TAGV2ButtonItem1 != null)
-        {
-          this._TAGV2ButtonItem1.Click += new EventHandler(this.btnItem_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem TAGV2ButtonItem10
-    {
-      get
-      {
-        return this._TAGV2ButtonItem10;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TAGV2ButtonItem10 != null)
-        {
-          this._TAGV2ButtonItem10.Click -= new EventHandler(this.btnItem_Click);
-        }
-        this._TAGV2ButtonItem10 = value;
-        if (this._TAGV2ButtonItem10 != null)
-        {
-          this._TAGV2ButtonItem10.Click += new EventHandler(this.btnItem_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem TAGV2ButtonItem2
-    {
-      get
-      {
-        return this._TAGV2ButtonItem2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TAGV2ButtonItem2 != null)
-        {
-          this._TAGV2ButtonItem2.Click -= new EventHandler(this.btnItem_Click);
-        }
-        this._TAGV2ButtonItem2 = value;
-        if (this._TAGV2ButtonItem2 != null)
-        {
-          this._TAGV2ButtonItem2.Click += new EventHandler(this.btnItem_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem TAGV2ButtonItem3
-    {
-      get
-      {
-        return this._TAGV2ButtonItem3;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TAGV2ButtonItem3 != null)
-        {
-          this._TAGV2ButtonItem3.Click -= new EventHandler(this.btnItem_Click);
-        }
-        this._TAGV2ButtonItem3 = value;
-        if (this._TAGV2ButtonItem3 != null)
-        {
-          this._TAGV2ButtonItem3.Click += new EventHandler(this.btnItem_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem TAGV2ButtonItem4
-    {
-      get
-      {
-        return this._TAGV2ButtonItem4;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TAGV2ButtonItem4 != null)
-        {
-          this._TAGV2ButtonItem4.Click -= new EventHandler(this.btnItem_Click);
-        }
-        this._TAGV2ButtonItem4 = value;
-        if (this._TAGV2ButtonItem4 != null)
-        {
-          this._TAGV2ButtonItem4.Click += new EventHandler(this.btnItem_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem TAGV2ButtonItem5
-    {
-      get
-      {
-        return this._TAGV2ButtonItem5;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TAGV2ButtonItem5 != null)
-        {
-          this._TAGV2ButtonItem5.Click -= new EventHandler(this.btnItem_Click);
-        }
-        this._TAGV2ButtonItem5 = value;
-        if (this._TAGV2ButtonItem5 != null)
-        {
-          this._TAGV2ButtonItem5.Click += new EventHandler(this.btnItem_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem TAGV2ButtonItem6
-    {
-      get
-      {
-        return this._TAGV2ButtonItem6;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TAGV2ButtonItem6 != null)
-        {
-          this._TAGV2ButtonItem6.Click -= new EventHandler(this.btnItem_Click);
-        }
-        this._TAGV2ButtonItem6 = value;
-        if (this._TAGV2ButtonItem6 != null)
-        {
-          this._TAGV2ButtonItem6.Click += new EventHandler(this.btnItem_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem TAGV2ButtonItem7
-    {
-      get
-      {
-        return this._TAGV2ButtonItem7;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TAGV2ButtonItem7 != null)
-        {
-          this._TAGV2ButtonItem7.Click -= new EventHandler(this.btnItem_Click);
-        }
-        this._TAGV2ButtonItem7 = value;
-        if (this._TAGV2ButtonItem7 != null)
-        {
-          this._TAGV2ButtonItem7.Click += new EventHandler(this.btnItem_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem TAGV2ButtonItem8
-    {
-      get
-      {
-        return this._TAGV2ButtonItem8;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TAGV2ButtonItem8 != null)
-        {
-          this._TAGV2ButtonItem8.Click -= new EventHandler(this.btnItem_Click);
-        }
-        this._TAGV2ButtonItem8 = value;
-        if (this._TAGV2ButtonItem8 != null)
-        {
-          this._TAGV2ButtonItem8.Click += new EventHandler(this.btnItem_Click);
-        }
-      }
-    }
-
-    internal virtual ButtonItem TAGV2ButtonItem9
-    {
-      get
-      {
-        return this._TAGV2ButtonItem9;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TAGV2ButtonItem9 != null)
-        {
-          this._TAGV2ButtonItem9.Click -= new EventHandler(this.btnItem_Click);
-        }
-        this._TAGV2ButtonItem9 = value;
-        if (this._TAGV2ButtonItem9 != null)
-        {
-          this._TAGV2ButtonItem9.Click += new EventHandler(this.btnItem_Click);
-        }
-      }
-    }
-
-    internal virtual ExplorerBarGroupItem TAGV2grpCommands
-    {
-      get
-      {
-        return this._TAGV2grpCommands;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TAGV2grpCommands != null)
-        {
-        }
-        this._TAGV2grpCommands = value;
-        if (this._TAGV2grpCommands != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ExplorerBarGroupItem TAGV2grpTAG
-    {
-      get
-      {
-        return this._TAGV2grpTAG;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TAGV2grpTAG != null)
-        {
-        }
-        this._TAGV2grpTAG = value;
-        if (this._TAGV2grpTAG != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ExplorerBarGroupItem TAGV2grpTransfer
-    {
-      get
-      {
-        return this._TAGV2grpTransfer;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TAGV2grpTransfer != null)
-        {
-        }
-        this._TAGV2grpTransfer = value;
-        if (this._TAGV2grpTransfer != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ListView TIPLList
-    {
-      get
-      {
-        return this._TIPLList;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TIPLList != null)
-        {
-          this._TIPLList.Click -= new EventHandler(this.TIPLList_Click);
-        }
-        this._TIPLList = value;
-        if (this._TIPLList != null)
-        {
-          this._TIPLList.Click += new EventHandler(this.TIPLList_Click);
-        }
-      }
-    }
-
-    internal virtual ListView TMCLList
-    {
-      get
-      {
-        return this._TMCLList;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TMCLList != null)
-        {
-          this._TMCLList.Click -= new EventHandler(this.TMCLList_Click);
-        }
-        this._TMCLList = value;
-        if (this._TMCLList != null)
-        {
-          this._TMCLList.Click += new EventHandler(this.TMCLList_Click);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.ToolTip ToolTip
-    {
-      get
-      {
-        return this._ToolTip;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ToolTip != null)
-        {
-        }
-        this._ToolTip = value;
-        if (this._ToolTip != null)
-        {
-        }
-      }
-    }
-
-    internal virtual PanelEx TopPanel
-    {
-      get
-      {
-        return this._TopPanel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TopPanel != null)
-        {
-        }
-        this._TopPanel = value;
-        if (this._TopPanel != null)
-        {
-        }
-      }
-    }
-
-    internal virtual HScrollBar TORYFormat
-    {
-      get
-      {
-        return this._TORYFormat;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TORYFormat != null)
-        {
-          this._TORYFormat.Scroll -= new ScrollEventHandler(this.TORYFormat_Scroll);
-        }
-        this._TORYFormat = value;
-        if (this._TORYFormat != null)
-        {
-          this._TORYFormat.Scroll += new ScrollEventHandler(this.TORYFormat_Scroll);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtAlbum
-    {
-      get
-      {
-        return this._txtAlbum;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtAlbum != null)
-        {
-          this._txtAlbum.Leave -= new EventHandler(this.Select_Leave);
-          this._txtAlbum.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtAlbum = value;
-        if (this._txtAlbum != null)
-        {
-          this._txtAlbum.Leave += new EventHandler(this.Select_Leave);
-          this._txtAlbum.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtArtistURL
-    {
-      get
-      {
-        return this._txtArtistURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtArtistURL != null)
-        {
-          this._txtArtistURL.Leave -= new EventHandler(this.Select_Leave);
-          this._txtArtistURL.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtArtistURL = value;
-        if (this._txtArtistURL != null)
-        {
-          this._txtArtistURL.Leave += new EventHandler(this.Select_Leave);
-          this._txtArtistURL.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtAudioFileURL
-    {
-      get
-      {
-        return this._txtAudioFileURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtAudioFileURL != null)
-        {
-          this._txtAudioFileURL.Leave -= new EventHandler(this.Select_Leave);
-          this._txtAudioFileURL.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtAudioFileURL = value;
-        if (this._txtAudioFileURL != null)
-        {
-          this._txtAudioFileURL.Leave += new EventHandler(this.Select_Leave);
-          this._txtAudioFileURL.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtAudioSRCURL
-    {
-      get
-      {
-        return this._txtAudioSRCURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtAudioSRCURL != null)
-        {
-          this._txtAudioSRCURL.Leave -= new EventHandler(this.Select_Leave);
-          this._txtAudioSRCURL.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtAudioSRCURL = value;
-        if (this._txtAudioSRCURL != null)
-        {
-          this._txtAudioSRCURL.Leave += new EventHandler(this.Select_Leave);
-          this._txtAudioSRCURL.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtBand
-    {
-      get
-      {
-        return this._txtBand;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtBand != null)
-        {
-          this._txtBand.Leave -= new EventHandler(this.Select_Leave);
-          this._txtBand.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtBand = value;
-        if (this._txtBand != null)
-        {
-          this._txtBand.Leave += new EventHandler(this.Select_Leave);
-          this._txtBand.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual NumericTextBox txtBPM
-    {
-      get
-      {
-        return this._txtBPM;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtBPM != null)
-        {
-          this._txtBPM.Leave -= new EventHandler(this.Select_Leave);
-          this._txtBPM.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtBPM = value;
-        if (this._txtBPM != null)
-        {
-          this._txtBPM.Leave += new EventHandler(this.Select_Leave);
-          this._txtBPM.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtComment
-    {
-      get
-      {
-        return this._txtComment;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtComment != null)
-        {
-          this._txtComment.Leave -= new EventHandler(this.Select_Leave);
-          this._txtComment.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtComment = value;
-        if (this._txtComment != null)
-        {
-          this._txtComment.Leave += new EventHandler(this.Select_Leave);
-          this._txtComment.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtCOMMInfURL
-    {
-      get
-      {
-        return this._txtCOMMInfURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtCOMMInfURL != null)
-        {
-          this._txtCOMMInfURL.Leave -= new EventHandler(this.Select_Leave);
-          this._txtCOMMInfURL.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtCOMMInfURL = value;
-        if (this._txtCOMMInfURL != null)
-        {
-          this._txtCOMMInfURL.Leave += new EventHandler(this.Select_Leave);
-          this._txtCOMMInfURL.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtComposer
-    {
-      get
-      {
-        return this._txtComposer;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtComposer != null)
-        {
-          this._txtComposer.Leave -= new EventHandler(this.Select_Leave);
-          this._txtComposer.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtComposer = value;
-        if (this._txtComposer != null)
-        {
-          this._txtComposer.Leave += new EventHandler(this.Select_Leave);
-          this._txtComposer.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtConductor
-    {
-      get
-      {
-        return this._txtConductor;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtConductor != null)
-        {
-          this._txtConductor.Leave -= new EventHandler(this.Select_Leave);
-          this._txtConductor.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtConductor = value;
-        if (this._txtConductor != null)
-        {
-          this._txtConductor.Leave += new EventHandler(this.Select_Leave);
-          this._txtConductor.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtContent
-    {
-      get
-      {
-        return this._txtContent;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtContent != null)
-        {
-          this._txtContent.Leave -= new EventHandler(this.Select_Leave);
-          this._txtContent.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtContent = value;
-        if (this._txtContent != null)
-        {
-          this._txtContent.Leave += new EventHandler(this.Select_Leave);
-          this._txtContent.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtCopyInfURL
-    {
-      get
-      {
-        return this._txtCopyInfURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtCopyInfURL != null)
-        {
-          this._txtCopyInfURL.Leave -= new EventHandler(this.Select_Leave);
-          this._txtCopyInfURL.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtCopyInfURL = value;
-        if (this._txtCopyInfURL != null)
-        {
-          this._txtCopyInfURL.Leave += new EventHandler(this.Select_Leave);
-          this._txtCopyInfURL.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtCopyright
-    {
-      get
-      {
-        return this._txtCopyright;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtCopyright != null)
-        {
-          this._txtCopyright.Leave -= new EventHandler(this.Select_Leave);
-          this._txtCopyright.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtCopyright = value;
-        if (this._txtCopyright != null)
-        {
-          this._txtCopyright.Leave += new EventHandler(this.Select_Leave);
-          this._txtCopyright.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual NumericUpDown txtDigits
-    {
-      get
-      {
-        return this._txtDigits;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtDigits != null)
-        {
-        }
-        this._txtDigits = value;
-        if (this._txtDigits != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtEncoded
-    {
-      get
-      {
-        return this._txtEncoded;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtEncoded != null)
-        {
-          this._txtEncoded.Leave -= new EventHandler(this.Select_Leave);
-          this._txtEncoded.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtEncoded = value;
-        if (this._txtEncoded != null)
-        {
-          this._txtEncoded.Leave += new EventHandler(this.Select_Leave);
-          this._txtEncoded.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtINetRadioURL
-    {
-      get
-      {
-        return this._txtINetRadioURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtINetRadioURL != null)
-        {
-          this._txtINetRadioURL.Leave -= new EventHandler(this.Select_Leave);
-          this._txtINetRadioURL.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtINetRadioURL = value;
-        if (this._txtINetRadioURL != null)
-        {
-          this._txtINetRadioURL.Leave += new EventHandler(this.Select_Leave);
-          this._txtINetRadioURL.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtInvFunction
-    {
-      get
-      {
-        return this._txtInvFunction;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtInvFunction != null)
-        {
-          this._txtInvFunction.Leave -= new EventHandler(this.Select_Leave);
-          this._txtInvFunction.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtInvFunction = value;
-        if (this._txtInvFunction != null)
-        {
-          this._txtInvFunction.Leave += new EventHandler(this.Select_Leave);
-          this._txtInvFunction.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtInvPerson
-    {
-      get
-      {
-        return this._txtInvPerson;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtInvPerson != null)
-        {
-          this._txtInvPerson.Leave -= new EventHandler(this.Select_Leave);
-          this._txtInvPerson.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtInvPerson = value;
-        if (this._txtInvPerson != null)
-        {
-          this._txtInvPerson.Leave += new EventHandler(this.Select_Leave);
-          this._txtInvPerson.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtLDescriptor
-    {
-      get
-      {
-        return this._txtLDescriptor;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtLDescriptor != null)
-        {
-          this._txtLDescriptor.Leave -= new EventHandler(this.Select_Leave);
-          this._txtLDescriptor.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtLDescriptor = value;
-        if (this._txtLDescriptor != null)
-        {
-          this._txtLDescriptor.Leave += new EventHandler(this.Select_Leave);
-          this._txtLDescriptor.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual RichTextBox txtLyrics
-    {
-      get
-      {
-        return this._txtLyrics;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtLyrics != null)
-        {
-        }
-        this._txtLyrics = value;
-        if (this._txtLyrics != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtLyWriter
-    {
-      get
-      {
-        return this._txtLyWriter;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtLyWriter != null)
-        {
-          this._txtLyWriter.Leave -= new EventHandler(this.Select_Leave);
-          this._txtLyWriter.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtLyWriter = value;
-        if (this._txtLyWriter != null)
-        {
-          this._txtLyWriter.Leave += new EventHandler(this.Select_Leave);
-          this._txtLyWriter.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtModified
-    {
-      get
-      {
-        return this._txtModified;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtModified != null)
-        {
-          this._txtModified.Leave -= new EventHandler(this.Select_Leave);
-          this._txtModified.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtModified = value;
-        if (this._txtModified != null)
-        {
-          this._txtModified.Leave += new EventHandler(this.Select_Leave);
-          this._txtModified.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtMusicianInst
-    {
-      get
-      {
-        return this._txtMusicianInst;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtMusicianInst != null)
-        {
-          this._txtMusicianInst.Leave -= new EventHandler(this.Select_Leave);
-          this._txtMusicianInst.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtMusicianInst = value;
-        if (this._txtMusicianInst != null)
-        {
-          this._txtMusicianInst.Leave += new EventHandler(this.Select_Leave);
-          this._txtMusicianInst.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtMusicianName
-    {
-      get
-      {
-        return this._txtMusicianName;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtMusicianName != null)
-        {
-          this._txtMusicianName.Leave -= new EventHandler(this.Select_Leave);
-          this._txtMusicianName.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtMusicianName = value;
-        if (this._txtMusicianName != null)
-        {
-          this._txtMusicianName.Leave += new EventHandler(this.Select_Leave);
-          this._txtMusicianName.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtOAlbum
-    {
-      get
-      {
-        return this._txtOAlbum;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtOAlbum != null)
-        {
-          this._txtOAlbum.Leave -= new EventHandler(this.Select_Leave);
-          this._txtOAlbum.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtOAlbum = value;
-        if (this._txtOAlbum != null)
-        {
-          this._txtOAlbum.Leave += new EventHandler(this.Select_Leave);
-          this._txtOAlbum.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtOArtist
-    {
-      get
-      {
-        return this._txtOArtist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtOArtist != null)
-        {
-          this._txtOArtist.Leave -= new EventHandler(this.Select_Leave);
-          this._txtOArtist.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtOArtist = value;
-        if (this._txtOArtist != null)
-        {
-          this._txtOArtist.Leave += new EventHandler(this.Select_Leave);
-          this._txtOArtist.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtOFilename
-    {
-      get
-      {
-        return this._txtOFilename;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtOFilename != null)
-        {
-          this._txtOFilename.Leave -= new EventHandler(this.Select_Leave);
-          this._txtOFilename.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtOFilename = value;
-        if (this._txtOFilename != null)
-        {
-          this._txtOFilename.Leave += new EventHandler(this.Select_Leave);
-          this._txtOFilename.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtOLyWriter
-    {
-      get
-      {
-        return this._txtOLyWriter;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtOLyWriter != null)
-        {
-          this._txtOLyWriter.Leave -= new EventHandler(this.Select_Leave);
-          this._txtOLyWriter.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtOLyWriter = value;
-        if (this._txtOLyWriter != null)
-        {
-          this._txtOLyWriter.Leave += new EventHandler(this.Select_Leave);
-          this._txtOLyWriter.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtOOwner
-    {
-      get
-      {
-        return this._txtOOwner;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtOOwner != null)
-        {
-          this._txtOOwner.Leave -= new EventHandler(this.Select_Leave);
-          this._txtOOwner.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtOOwner = value;
-        if (this._txtOOwner != null)
-        {
-          this._txtOOwner.Leave += new EventHandler(this.Select_Leave);
-          this._txtOOwner.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtPayURL
-    {
-      get
-      {
-        return this._txtPayURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtPayURL != null)
-        {
-          this._txtPayURL.Leave -= new EventHandler(this.Select_Leave);
-          this._txtPayURL.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtPayURL = value;
-        if (this._txtPayURL != null)
-        {
-          this._txtPayURL.Leave += new EventHandler(this.Select_Leave);
-          this._txtPayURL.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtPDescriptor
-    {
-      get
-      {
-        return this._txtPDescriptor;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtPDescriptor != null)
-        {
-          this._txtPDescriptor.Leave -= new EventHandler(this.Select_Leave);
-          this._txtPDescriptor.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtPDescriptor = value;
-        if (this._txtPDescriptor != null)
-        {
-          this._txtPDescriptor.Leave += new EventHandler(this.Select_Leave);
-          this._txtPDescriptor.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtPicPath
-    {
-      get
-      {
-        return this._txtPicPath;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtPicPath != null)
-        {
-          this._txtPicPath.Leave -= new EventHandler(this.Select_Leave);
-          this._txtPicPath.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtPicPath = value;
-        if (this._txtPicPath != null)
-        {
-          this._txtPicPath.Leave += new EventHandler(this.Select_Leave);
-          this._txtPicPath.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual IntegerTextBox txtPOS1
-    {
-      get
-      {
-        return this._txtPOS1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtPOS1 != null)
-        {
-        }
-        this._txtPOS1 = value;
-        if (this._txtPOS1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual IntegerTextBox txtPOS2
-    {
-      get
-      {
-        return this._txtPOS2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtPOS2 != null)
-        {
-        }
-        this._txtPOS2 = value;
-        if (this._txtPOS2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtPublisher
-    {
-      get
-      {
-        return this._txtPublisher;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtPublisher != null)
-        {
-          this._txtPublisher.Leave -= new EventHandler(this.Select_Leave);
-          this._txtPublisher.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtPublisher = value;
-        if (this._txtPublisher != null)
-        {
-          this._txtPublisher.Leave += new EventHandler(this.Select_Leave);
-          this._txtPublisher.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtPubURL
-    {
-      get
-      {
-        return this._txtPubURL;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtPubURL != null)
-        {
-          this._txtPubURL.Leave -= new EventHandler(this.Select_Leave);
-          this._txtPubURL.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtPubURL = value;
-        if (this._txtPubURL != null)
-        {
-          this._txtPubURL.Leave += new EventHandler(this.Select_Leave);
-          this._txtPubURL.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual NumericUpDown txtRatingCounter
-    {
-      get
-      {
-        return this._txtRatingCounter;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtRatingCounter != null)
-        {
-          this._txtRatingCounter.Leave -= new EventHandler(this.Select_Leave);
-          this._txtRatingCounter.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtRatingCounter = value;
-        if (this._txtRatingCounter != null)
-        {
-          this._txtRatingCounter.Leave += new EventHandler(this.Select_Leave);
-          this._txtRatingCounter.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual NumericUpDown txtRatingRating
-    {
-      get
-      {
-        return this._txtRatingRating;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtRatingRating != null)
-        {
-          this._txtRatingRating.Leave -= new EventHandler(this.Select_Leave);
-          this._txtRatingRating.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtRatingRating = value;
-        if (this._txtRatingRating != null)
-        {
-          this._txtRatingRating.Leave += new EventHandler(this.Select_Leave);
-          this._txtRatingRating.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtRatingUser
-    {
-      get
-      {
-        return this._txtRatingUser;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtRatingUser != null)
-        {
-          this._txtRatingUser.Leave -= new EventHandler(this.Select_Leave);
-          this._txtRatingUser.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtRatingUser = value;
-        if (this._txtRatingUser != null)
-        {
-          this._txtRatingUser.Leave += new EventHandler(this.Select_Leave);
-          this._txtRatingUser.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtSelected
-    {
-      get
-      {
-        return this._txtSelected;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtSelected != null)
-        {
-          this._txtSelected.Leave -= new EventHandler(this.Select_Leave);
-          this._txtSelected.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtSelected = value;
-        if (this._txtSelected != null)
-        {
-          this._txtSelected.Leave += new EventHandler(this.Select_Leave);
-          this._txtSelected.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtSortAlbum
-    {
-      get
-      {
-        return this._txtSortAlbum;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtSortAlbum != null)
-        {
-          this._txtSortAlbum.Leave -= new EventHandler(this.Select_Leave);
-          this._txtSortAlbum.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtSortAlbum = value;
-        if (this._txtSortAlbum != null)
-        {
-          this._txtSortAlbum.Leave += new EventHandler(this.Select_Leave);
-          this._txtSortAlbum.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtSortArtist
-    {
-      get
-      {
-        return this._txtSortArtist;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtSortArtist != null)
-        {
-          this._txtSortArtist.Leave -= new EventHandler(this.Select_Leave);
-          this._txtSortArtist.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtSortArtist = value;
-        if (this._txtSortArtist != null)
-        {
-          this._txtSortArtist.Leave += new EventHandler(this.Select_Leave);
-          this._txtSortArtist.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtSortTitle
-    {
-      get
-      {
-        return this._txtSortTitle;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtSortTitle != null)
-        {
-          this._txtSortTitle.Leave -= new EventHandler(this.Select_Leave);
-          this._txtSortTitle.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtSortTitle = value;
-        if (this._txtSortTitle != null)
-        {
-          this._txtSortTitle.Leave += new EventHandler(this.Select_Leave);
-          this._txtSortTitle.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtSubTitle
-    {
-      get
-      {
-        return this._txtSubTitle;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtSubTitle != null)
-        {
-          this._txtSubTitle.Leave -= new EventHandler(this.Select_Leave);
-          this._txtSubTitle.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtSubTitle = value;
-        if (this._txtSubTitle != null)
-        {
-          this._txtSubTitle.Leave += new EventHandler(this.Select_Leave);
-          this._txtSubTitle.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtTitle
-    {
-      get
-      {
-        return this._txtTitle;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtTitle != null)
-        {
-          this._txtTitle.Leave -= new EventHandler(this.Select_Leave);
-          this._txtTitle.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtTitle = value;
-        if (this._txtTitle != null)
-        {
-          this._txtTitle.Leave += new EventHandler(this.Select_Leave);
-          this._txtTitle.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual IntegerTextBox txtTLEN
-    {
-      get
-      {
-        return this._txtTLEN;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtTLEN != null)
-        {
-        }
-        this._txtTLEN = value;
-        if (this._txtTLEN != null)
-        {
-        }
-      }
-    }
-
-    internal virtual AMS.TextBox.MaskedTextBox txtTORY
-    {
-      get
-      {
-        return this._txtTORY;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtTORY != null)
-        {
-          this._txtTORY.Leave -= new EventHandler(this.Select_Leave);
-          this._txtTORY.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtTORY = value;
-        if (this._txtTORY != null)
-        {
-          this._txtTORY.Leave += new EventHandler(this.Select_Leave);
-          this._txtTORY.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual IntegerTextBox txtTrack1
-    {
-      get
-      {
-        return this._txtTrack1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtTrack1 != null)
-        {
-        }
-        this._txtTrack1 = value;
-        if (this._txtTrack1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual IntegerTextBox txtTrack2
-    {
-      get
-      {
-        return this._txtTrack2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtTrack2 != null)
-        {
-        }
-        this._txtTrack2 = value;
-        if (this._txtTrack2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtTXXXContent
-    {
-      get
-      {
-        return this._txtTXXXContent;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtTXXXContent != null)
-        {
-          this._txtTXXXContent.Leave -= new EventHandler(this.Select_Leave);
-          this._txtTXXXContent.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtTXXXContent = value;
-        if (this._txtTXXXContent != null)
-        {
-          this._txtTXXXContent.Leave += new EventHandler(this.Select_Leave);
-          this._txtTXXXContent.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtTXXXDesc
-    {
-      get
-      {
-        return this._txtTXXXDesc;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtTXXXDesc != null)
-        {
-          this._txtTXXXDesc.Leave -= new EventHandler(this.Select_Leave);
-          this._txtTXXXDesc.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtTXXXDesc = value;
-        if (this._txtTXXXDesc != null)
-        {
-          this._txtTXXXDesc.Leave += new EventHandler(this.Select_Leave);
-          this._txtTXXXDesc.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtWXXXContent
-    {
-      get
-      {
-        return this._txtWXXXContent;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtWXXXContent != null)
-        {
-          this._txtWXXXContent.Leave -= new EventHandler(this.Select_Leave);
-          this._txtWXXXContent.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtWXXXContent = value;
-        if (this._txtWXXXContent != null)
-        {
-          this._txtWXXXContent.Leave += new EventHandler(this.Select_Leave);
-          this._txtWXXXContent.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtWXXXDesc
-    {
-      get
-      {
-        return this._txtWXXXDesc;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtWXXXDesc != null)
-        {
-          this._txtWXXXDesc.Leave -= new EventHandler(this.Select_Leave);
-          this._txtWXXXDesc.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtWXXXDesc = value;
-        if (this._txtWXXXDesc != null)
-        {
-          this._txtWXXXDesc.Leave += new EventHandler(this.Select_Leave);
-          this._txtWXXXDesc.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual AMS.TextBox.MaskedTextBox txtYear
-    {
-      get
-      {
-        return this._txtYear;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtYear != null)
-        {
-          this._txtYear.Leave -= new EventHandler(this.Select_Leave);
-          this._txtYear.Enter -= new EventHandler(this.Select_Enter);
-        }
-        this._txtYear = value;
-        if (this._txtYear != null)
-        {
-          this._txtYear.Leave += new EventHandler(this.Select_Leave);
-          this._txtYear.Enter += new EventHandler(this.Select_Enter);
-        }
-      }
-    }
-
-    internal virtual ListView TXXXList
-    {
-      get
-      {
-        return this._TXXXList;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TXXXList != null)
-        {
-          this._TXXXList.Leave -= new EventHandler(this.Select_Leave);
-          this._TXXXList.Click -= new EventHandler(this.TXXXList_Click);
-        }
-        this._TXXXList = value;
-        if (this._TXXXList != null)
-        {
-          this._TXXXList.Leave += new EventHandler(this.Select_Leave);
-          this._TXXXList.Click += new EventHandler(this.TXXXList_Click);
-        }
-      }
-    }
-
-    internal virtual ListView WXXXList
-    {
-      get
-      {
-        return this._WXXXList;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._WXXXList != null)
-        {
-          this._WXXXList.Leave -= new EventHandler(this.Select_Leave);
-          this._WXXXList.Click -= new EventHandler(this.WXXXList_Click);
-        }
-        this._WXXXList = value;
-        if (this._WXXXList != null)
-        {
-          this._WXXXList.Leave += new EventHandler(this.Select_Leave);
-          this._WXXXList.Click += new EventHandler(this.WXXXList_Click);
-        }
-      }
-    }
-
-    internal virtual HScrollBar YearFormat
-    {
-      get
-      {
-        return this._YearFormat;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._YearFormat != null)
-        {
-          this._YearFormat.Scroll -= new ScrollEventHandler(this.YearFormat_Scroll);
-        }
-        this._YearFormat = value;
-        if (this._YearFormat != null)
-        {
-          this._YearFormat.Scroll += new ScrollEventHandler(this.YearFormat_Scroll);
-        }
-      }
-    }
-*/
+    /*
+
+    //ResourceManager manager = new ResourceManager(typeof(frmTAG2));
+    //  this.TAGV2ButtonItem1.Icon = (Icon)manager.GetObject("TAGV2ButtonItem1.Icon");
+    //  this.TAGV2ButtonItem2.Icon = (Icon)manager.GetObject("TAGV2ButtonItem2.Icon");
+    //  this.TAGV2ButtonItem3.Icon = (Icon)manager.GetObject("TAGV2ButtonItem3.Icon");
+    //  this.TAGV2ButtonItem4.Icon = (Icon)manager.GetObject("TAGV2ButtonItem4.Icon");
+    //  this.TAGV2ButtonItem5.Icon = (Icon)manager.GetObject("TAGV2ButtonItem5.Icon");
+    //  this.TAGV2ButtonItem6.Icon = (Icon)manager.GetObject("TAGV2ButtonItem6.Icon");
+    //  this.TAGV2ButtonItem7.Icon = (Icon)manager.GetObject("TAGV2ButtonItem7.Icon");
+    //  this.TAGV2ButtonItem8.Icon = (Icon)manager.GetObject("TAGV2ButtonItem8.Icon");
+    //  this.TAGV2ButtonItem9.Icon = (Icon)manager.GetObject("TAGV2ButtonItem9.Icon");
+    //  this.TAGV2ButtonItem10.Icon = (Icon)manager.GetObject("TAGV2ButtonItem10.Icon");
+    //  this.btnPrev.Icon = (Icon)manager.GetObject("btnPrev.Icon");
+    //  this.btnNext.Icon = (Icon)manager.GetObject("btnNext.Icon");
+
+
+
+
+        internal virtual PictureBox APICView
+        {
+          get
+          {
+            return this._APICView;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._APICView != null)
+            {
+            }
+            this._APICView = value;
+            if (this._APICView != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Button btnAddComment
+        {
+          get
+          {
+            return this._btnAddComment;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnAddComment != null)
+            {
+              this._btnAddComment.Click -= new EventHandler(this.btnAddComment_Click);
+            }
+            this._btnAddComment = value;
+            if (this._btnAddComment != null)
+            {
+              this._btnAddComment.Click += new EventHandler(this.btnAddComment_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnAddGenre
+        {
+          get
+          {
+            return this._btnAddGenre;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnAddGenre != null)
+            {
+              this._btnAddGenre.Click -= new EventHandler(this.btnAddGenre_Click);
+            }
+            this._btnAddGenre = value;
+            if (this._btnAddGenre != null)
+            {
+              this._btnAddGenre.Click += new EventHandler(this.btnAddGenre_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnAddInv
+        {
+          get
+          {
+            return this._btnAddInv;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnAddInv != null)
+            {
+              this._btnAddInv.Click -= new EventHandler(this.btnAddInv_Click);
+            }
+            this._btnAddInv = value;
+            if (this._btnAddInv != null)
+            {
+              this._btnAddInv.Click += new EventHandler(this.btnAddInv_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnAddLyrics
+        {
+          get
+          {
+            return this._btnAddLyrics;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnAddLyrics != null)
+            {
+              this._btnAddLyrics.Click -= new EventHandler(this.btnAddLyrics_Click);
+            }
+            this._btnAddLyrics = value;
+            if (this._btnAddLyrics != null)
+            {
+              this._btnAddLyrics.Click += new EventHandler(this.btnAddLyrics_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnAddMusician
+        {
+          get
+          {
+            return this._btnAddMusician;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnAddMusician != null)
+            {
+              this._btnAddMusician.Click -= new EventHandler(this.btnAddMusican_Click);
+            }
+            this._btnAddMusician = value;
+            if (this._btnAddMusician != null)
+            {
+              this._btnAddMusician.Click += new EventHandler(this.btnAddMusican_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnAddPicture
+        {
+          get
+          {
+            return this._btnAddPicture;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnAddPicture != null)
+            {
+              this._btnAddPicture.Click -= new EventHandler(this.btnAddPicture_Click);
+            }
+            this._btnAddPicture = value;
+            if (this._btnAddPicture != null)
+            {
+              this._btnAddPicture.Click += new EventHandler(this.btnAddPicture_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnAddRating
+        {
+          get
+          {
+            return this._btnAddRating;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnAddRating != null)
+            {
+              this._btnAddRating.Click -= new EventHandler(this.btnAddRating_Click);
+            }
+            this._btnAddRating = value;
+            if (this._btnAddRating != null)
+            {
+              this._btnAddRating.Click += new EventHandler(this.btnAddRating_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnAddTXXX
+        {
+          get
+          {
+            return this._btnAddTXXX;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnAddTXXX != null)
+            {
+              this._btnAddTXXX.Click -= new EventHandler(this.btnAddTXXX_Click);
+            }
+            this._btnAddTXXX = value;
+            if (this._btnAddTXXX != null)
+            {
+              this._btnAddTXXX.Click += new EventHandler(this.btnAddTXXX_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnAddWXXX
+        {
+          get
+          {
+            return this._btnAddWXXX;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnAddWXXX != null)
+            {
+              this._btnAddWXXX.Click -= new EventHandler(this.btnAddWXXX_Click);
+            }
+            this._btnAddWXXX = value;
+            if (this._btnAddWXXX != null)
+            {
+              this._btnAddWXXX.Click += new EventHandler(this.btnAddWXXX_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnCancel
+        {
+          get
+          {
+            return this._btnCancel;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnCancel != null)
+            {
+              this._btnCancel.Click -= new EventHandler(this.btnCancel_Click);
+            }
+            this._btnCancel = value;
+            if (this._btnCancel != null)
+            {
+              this._btnCancel.Click += new EventHandler(this.btnCancel_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnExPic
+        {
+          get
+          {
+            return this._btnExPic;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnExPic != null)
+            {
+              this._btnExPic.Click -= new EventHandler(this.btnExPic_Click);
+            }
+            this._btnExPic = value;
+            if (this._btnExPic != null)
+            {
+              this._btnExPic.Click += new EventHandler(this.btnExPic_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem btnExport
+        {
+          get
+          {
+            return this._btnExport;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnExport != null)
+            {
+              this._btnExport.Click -= new EventHandler(this.btnExport_Click);
+            }
+            this._btnExport = value;
+            if (this._btnExport != null)
+            {
+              this._btnExport.Click += new EventHandler(this.btnExport_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem btnGet
+        {
+          get
+          {
+            return this._btnGet;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnGet != null)
+            {
+              this._btnGet.Click -= new EventHandler(this.btnGet_Click);
+            }
+            this._btnGet = value;
+            if (this._btnGet != null)
+            {
+              this._btnGet.Click += new EventHandler(this.btnGet_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnGetPic
+        {
+          get
+          {
+            return this._btnGetPic;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnGetPic != null)
+            {
+              this._btnGetPic.Click -= new EventHandler(this.btnGetPic_Click);
+            }
+            this._btnGetPic = value;
+            if (this._btnGetPic != null)
+            {
+              this._btnGetPic.Click += new EventHandler(this.btnGetPic_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem btnImport
+        {
+          get
+          {
+            return this._btnImport;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnImport != null)
+            {
+              this._btnImport.Click -= new EventHandler(this.btnImport_Click);
+            }
+            this._btnImport = value;
+            if (this._btnImport != null)
+            {
+              this._btnImport.Click += new EventHandler(this.btnImport_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnLyricsFile
+        {
+          get
+          {
+            return this._btnLyricsFile;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnLyricsFile != null)
+            {
+              this._btnLyricsFile.Click -= new EventHandler(this.btnLyricsFile_Click);
+            }
+            this._btnLyricsFile = value;
+            if (this._btnLyricsFile != null)
+            {
+              this._btnLyricsFile.Click += new EventHandler(this.btnLyricsFile_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnMoveComment
+        {
+          get
+          {
+            return this._btnMoveComment;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnMoveComment != null)
+            {
+              this._btnMoveComment.Click -= new EventHandler(this.btnMoveComment_Click);
+            }
+            this._btnMoveComment = value;
+            if (this._btnMoveComment != null)
+            {
+              this._btnMoveComment.Click += new EventHandler(this.btnMoveComment_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnMoveGenre
+        {
+          get
+          {
+            return this._btnMoveGenre;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnMoveGenre != null)
+            {
+              this._btnMoveGenre.Click -= new EventHandler(this.btnMoveGenre_Click);
+            }
+            this._btnMoveGenre = value;
+            if (this._btnMoveGenre != null)
+            {
+              this._btnMoveGenre.Click += new EventHandler(this.btnMoveGenre_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnMoveLyrics
+        {
+          get
+          {
+            return this._btnMoveLyrics;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnMoveLyrics != null)
+            {
+              this._btnMoveLyrics.Click -= new EventHandler(this.btnMoveLyrics_Click);
+            }
+            this._btnMoveLyrics = value;
+            if (this._btnMoveLyrics != null)
+            {
+              this._btnMoveLyrics.Click += new EventHandler(this.btnMoveLyrics_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnMoveRating
+        {
+          get
+          {
+            return this._btnMoveRating;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnMoveRating != null)
+            {
+              this._btnMoveRating.Click -= new EventHandler(this.btnMoveRating_Click);
+            }
+            this._btnMoveRating = value;
+            if (this._btnMoveRating != null)
+            {
+              this._btnMoveRating.Click += new EventHandler(this.btnMoveRating_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem btnNext
+        {
+          get
+          {
+            return this._btnNext;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnNext != null)
+            {
+              this._btnNext.Click -= new EventHandler(this.btnNext_Click);
+            }
+            this._btnNext = value;
+            if (this._btnNext != null)
+            {
+              this._btnNext.Click += new EventHandler(this.btnNext_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnOK
+        {
+          get
+          {
+            return this._btnOK;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnOK != null)
+            {
+              this._btnOK.Click -= new EventHandler(this.btnOK_Click);
+            }
+            this._btnOK = value;
+            if (this._btnOK != null)
+            {
+              this._btnOK.Click += new EventHandler(this.btnOK_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem btnPrev
+        {
+          get
+          {
+            return this._btnPrev;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnPrev != null)
+            {
+              this._btnPrev.Click -= new EventHandler(this.btnPrev_Click);
+            }
+            this._btnPrev = value;
+            if (this._btnPrev != null)
+            {
+              this._btnPrev.Click += new EventHandler(this.btnPrev_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnRemoveComment
+        {
+          get
+          {
+            return this._btnRemoveComment;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnRemoveComment != null)
+            {
+              this._btnRemoveComment.Click -= new EventHandler(this.btnRemoveComment_Click);
+            }
+            this._btnRemoveComment = value;
+            if (this._btnRemoveComment != null)
+            {
+              this._btnRemoveComment.Click += new EventHandler(this.btnRemoveComment_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnRemoveGenre
+        {
+          get
+          {
+            return this._btnRemoveGenre;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnRemoveGenre != null)
+            {
+              this._btnRemoveGenre.Click -= new EventHandler(this.btnRemoveGenre_Click);
+            }
+            this._btnRemoveGenre = value;
+            if (this._btnRemoveGenre != null)
+            {
+              this._btnRemoveGenre.Click += new EventHandler(this.btnRemoveGenre_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnRemoveInv
+        {
+          get
+          {
+            return this._btnRemoveInv;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnRemoveInv != null)
+            {
+              this._btnRemoveInv.Click -= new EventHandler(this.btnRemoveInv_Click);
+            }
+            this._btnRemoveInv = value;
+            if (this._btnRemoveInv != null)
+            {
+              this._btnRemoveInv.Click += new EventHandler(this.btnRemoveInv_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnRemoveLyrics
+        {
+          get
+          {
+            return this._btnRemoveLyrics;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnRemoveLyrics != null)
+            {
+              this._btnRemoveLyrics.Click -= new EventHandler(this.btnRemoveLyrics_Click);
+            }
+            this._btnRemoveLyrics = value;
+            if (this._btnRemoveLyrics != null)
+            {
+              this._btnRemoveLyrics.Click += new EventHandler(this.btnRemoveLyrics_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnRemoveMusician
+        {
+          get
+          {
+            return this._btnRemoveMusician;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnRemoveMusician != null)
+            {
+              this._btnRemoveMusician.Click -= new EventHandler(this.btnRemoveMusican_Click);
+            }
+            this._btnRemoveMusician = value;
+            if (this._btnRemoveMusician != null)
+            {
+              this._btnRemoveMusician.Click += new EventHandler(this.btnRemoveMusican_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnRemovePicture
+        {
+          get
+          {
+            return this._btnRemovePicture;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnRemovePicture != null)
+            {
+              this._btnRemovePicture.Click -= new EventHandler(this.btnRemovePicture_Click);
+            }
+            this._btnRemovePicture = value;
+            if (this._btnRemovePicture != null)
+            {
+              this._btnRemovePicture.Click += new EventHandler(this.btnRemovePicture_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnRemoveRating
+        {
+          get
+          {
+            return this._btnRemoveRating;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnRemoveRating != null)
+            {
+              this._btnRemoveRating.Click -= new EventHandler(this.btnRemoveRating_Click);
+            }
+            this._btnRemoveRating = value;
+            if (this._btnRemoveRating != null)
+            {
+              this._btnRemoveRating.Click += new EventHandler(this.btnRemoveRating_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnRemoveTXXX
+        {
+          get
+          {
+            return this._btnRemoveTXXX;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnRemoveTXXX != null)
+            {
+              this._btnRemoveTXXX.Click -= new EventHandler(this.btnRemoveTXXX_Click);
+            }
+            this._btnRemoveTXXX = value;
+            if (this._btnRemoveTXXX != null)
+            {
+              this._btnRemoveTXXX.Click += new EventHandler(this.btnRemoveTXXX_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnRemoveWXXX
+        {
+          get
+          {
+            return this._btnRemoveWXXX;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnRemoveWXXX != null)
+            {
+              this._btnRemoveWXXX.Click -= new EventHandler(this.btnRemoveWXXX_Click);
+            }
+            this._btnRemoveWXXX = value;
+            if (this._btnRemoveWXXX != null)
+            {
+              this._btnRemoveWXXX.Click += new EventHandler(this.btnRemoveWXXX_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem btnSwapAA
+        {
+          get
+          {
+            return this._btnSwapAA;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnSwapAA != null)
+            {
+              this._btnSwapAA.Click -= new EventHandler(this.btnSwapAA_Click);
+            }
+            this._btnSwapAA = value;
+            if (this._btnSwapAA != null)
+            {
+              this._btnSwapAA.Click += new EventHandler(this.btnSwapAA_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem btnSwapAT
+        {
+          get
+          {
+            return this._btnSwapAT;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnSwapAT != null)
+            {
+              this._btnSwapAT.Click -= new EventHandler(this.btnSwapAT_Click);
+            }
+            this._btnSwapAT = value;
+            if (this._btnSwapAT != null)
+            {
+              this._btnSwapAT.Click += new EventHandler(this.btnSwapAT_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem btnSwapTA
+        {
+          get
+          {
+            return this._btnSwapTA;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnSwapTA != null)
+            {
+              this._btnSwapTA.Click -= new EventHandler(this.btnSwapTA_Click);
+            }
+            this._btnSwapTA = value;
+            if (this._btnSwapTA != null)
+            {
+              this._btnSwapTA.Click += new EventHandler(this.btnSwapTA_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnTLEN
+        {
+          get
+          {
+            return this._btnTLEN;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnTLEN != null)
+            {
+              this._btnTLEN.Click -= new EventHandler(this.btnTLEN_Click);
+            }
+            this._btnTLEN = value;
+            if (this._btnTLEN != null)
+            {
+              this._btnTLEN.Click += new EventHandler(this.btnTLEN_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnV1Album
+        {
+          get
+          {
+            return this._btnV1Album;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnV1Album != null)
+            {
+              this._btnV1Album.Click -= new EventHandler(this.btnV1Album_Click);
+            }
+            this._btnV1Album = value;
+            if (this._btnV1Album != null)
+            {
+              this._btnV1Album.Click += new EventHandler(this.btnV1Album_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnV1Artist
+        {
+          get
+          {
+            return this._btnV1Artist;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnV1Artist != null)
+            {
+              this._btnV1Artist.Click -= new EventHandler(this.btnV1Artist_Click);
+            }
+            this._btnV1Artist = value;
+            if (this._btnV1Artist != null)
+            {
+              this._btnV1Artist.Click += new EventHandler(this.btnV1Artist_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnV1Comment
+        {
+          get
+          {
+            return this._btnV1Comment;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnV1Comment != null)
+            {
+              this._btnV1Comment.Click -= new EventHandler(this.btnV1Comment_Click);
+            }
+            this._btnV1Comment = value;
+            if (this._btnV1Comment != null)
+            {
+              this._btnV1Comment.Click += new EventHandler(this.btnV1Comment_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnV1Genre
+        {
+          get
+          {
+            return this._btnV1Genre;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnV1Genre != null)
+            {
+              this._btnV1Genre.Click -= new EventHandler(this.btnV1Genre_Click);
+            }
+            this._btnV1Genre = value;
+            if (this._btnV1Genre != null)
+            {
+              this._btnV1Genre.Click += new EventHandler(this.btnV1Genre_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnV1Title
+        {
+          get
+          {
+            return this._btnV1Title;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnV1Title != null)
+            {
+              this._btnV1Title.Click -= new EventHandler(this.btnV1Title_Click);
+            }
+            this._btnV1Title = value;
+            if (this._btnV1Title != null)
+            {
+              this._btnV1Title.Click += new EventHandler(this.btnV1Title_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnV1Track
+        {
+          get
+          {
+            return this._btnV1Track;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnV1Track != null)
+            {
+              this._btnV1Track.Click -= new EventHandler(this.btnV1Track_Click);
+            }
+            this._btnV1Track = value;
+            if (this._btnV1Track != null)
+            {
+              this._btnV1Track.Click += new EventHandler(this.btnV1Track_Click);
+            }
+          }
+        }
+
+        internal virtual Button btnV1Year
+        {
+          get
+          {
+            return this._btnV1Year;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._btnV1Year != null)
+            {
+              this._btnV1Year.Click -= new EventHandler(this.btnV1Year_Click);
+            }
+            this._btnV1Year = value;
+            if (this._btnV1Year != null)
+            {
+              this._btnV1Year.Click += new EventHandler(this.btnV1Year_Click);
+            }
+          }
+        }
+
+        internal virtual PanelEx ButtomPanel
+        {
+          get
+          {
+            return this._ButtomPanel;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ButtomPanel != null)
+            {
+            }
+            this._ButtomPanel = value;
+            if (this._ButtomPanel != null)
+            {
+            }
+          }
+        }
+
+        internal virtual CheckBox chkPicInclude
+        {
+          get
+          {
+            return this._chkPicInclude;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._chkPicInclude != null)
+            {
+              this._chkPicInclude.CheckedChanged -= new EventHandler(this.chkPicInclude_CheckedChanged);
+            }
+            this._chkPicInclude = value;
+            if (this._chkPicInclude != null)
+            {
+              this._chkPicInclude.CheckedChanged += new EventHandler(this.chkPicInclude_CheckedChanged);
+            }
+          }
+        }
+
+        internal virtual CheckBox chkPicRelativPath
+        {
+          get
+          {
+            return this._chkPicRelativPath;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._chkPicRelativPath != null)
+            {
+              this._chkPicRelativPath.CheckedChanged -= new EventHandler(this.chkPicRelativPath_CheckedChanged);
+            }
+            this._chkPicRelativPath = value;
+            if (this._chkPicRelativPath != null)
+            {
+              this._chkPicRelativPath.CheckedChanged += new EventHandler(this.chkPicRelativPath_CheckedChanged);
+            }
+          }
+        }
+
+        internal virtual ComboBoxAutoComplete cmbArtist
+        {
+          get
+          {
+            return this._cmbArtist;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._cmbArtist != null)
+            {
+              this._cmbArtist.Leave -= new EventHandler(this.Select_Leave);
+              this._cmbArtist.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._cmbArtist = value;
+            if (this._cmbArtist != null)
+            {
+              this._cmbArtist.Leave += new EventHandler(this.Select_Leave);
+              this._cmbArtist.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual ComboBoxAutoComplete cmbCDescriptor
+        {
+          get
+          {
+            return this._cmbCDescriptor;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._cmbCDescriptor != null)
+            {
+              this._cmbCDescriptor.Leave -= new EventHandler(this.Select_Leave);
+              this._cmbCDescriptor.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._cmbCDescriptor = value;
+            if (this._cmbCDescriptor != null)
+            {
+              this._cmbCDescriptor.Leave += new EventHandler(this.Select_Leave);
+              this._cmbCDescriptor.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual ComboBox cmbCLanguage
+        {
+          get
+          {
+            return this._cmbCLanguage;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._cmbCLanguage != null)
+            {
+              this._cmbCLanguage.Leave -= new EventHandler(this.Select_Leave);
+              this._cmbCLanguage.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._cmbCLanguage = value;
+            if (this._cmbCLanguage != null)
+            {
+              this._cmbCLanguage.Leave += new EventHandler(this.Select_Leave);
+              this._cmbCLanguage.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual ComboBoxAutoComplete cmbGenre
+        {
+          get
+          {
+            return this._cmbGenre;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._cmbGenre != null)
+            {
+              this._cmbGenre.Leave -= new EventHandler(this.Select_Leave);
+              this._cmbGenre.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._cmbGenre = value;
+            if (this._cmbGenre != null)
+            {
+              this._cmbGenre.Leave += new EventHandler(this.Select_Leave);
+              this._cmbGenre.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual ComboBox cmbLLanguage
+        {
+          get
+          {
+            return this._cmbLLanguage;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._cmbLLanguage != null)
+            {
+              this._cmbLLanguage.Leave -= new EventHandler(this.Select_Leave);
+              this._cmbLLanguage.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._cmbLLanguage = value;
+            if (this._cmbLLanguage != null)
+            {
+              this._cmbLLanguage.Leave += new EventHandler(this.Select_Leave);
+              this._cmbLLanguage.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual ComboBox cmbMedia
+        {
+          get
+          {
+            return this._cmbMedia;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._cmbMedia != null)
+            {
+              this._cmbMedia.Leave -= new EventHandler(this.Select_Leave);
+              this._cmbMedia.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._cmbMedia = value;
+            if (this._cmbMedia != null)
+            {
+              this._cmbMedia.Leave += new EventHandler(this.Select_Leave);
+              this._cmbMedia.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual ComboBox cmbPicType
+        {
+          get
+          {
+            return this._cmbPicType;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._cmbPicType != null)
+            {
+              this._cmbPicType.Leave -= new EventHandler(this.Select_Leave);
+              this._cmbPicType.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._cmbPicType = value;
+            if (this._cmbPicType != null)
+            {
+              this._cmbPicType.Leave += new EventHandler(this.Select_Leave);
+              this._cmbPicType.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual ColumnHeader colComment
+        {
+          get
+          {
+            return this._colComment;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._colComment != null)
+            {
+            }
+            this._colComment = value;
+            if (this._colComment != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader colDescriptor
+        {
+          get
+          {
+            return this._colDescriptor;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._colDescriptor != null)
+            {
+            }
+            this._colDescriptor = value;
+            if (this._colDescriptor != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader colLanguage
+        {
+          get
+          {
+            return this._colLanguage;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._colLanguage != null)
+            {
+            }
+            this._colLanguage = value;
+            if (this._colLanguage != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader1
+        {
+          get
+          {
+            return this._ColumnHeader1;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader1 != null)
+            {
+            }
+            this._ColumnHeader1 = value;
+            if (this._ColumnHeader1 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader10
+        {
+          get
+          {
+            return this._ColumnHeader10;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader10 != null)
+            {
+            }
+            this._ColumnHeader10 = value;
+            if (this._ColumnHeader10 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader11
+        {
+          get
+          {
+            return this._ColumnHeader11;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader11 != null)
+            {
+            }
+            this._ColumnHeader11 = value;
+            if (this._ColumnHeader11 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader12
+        {
+          get
+          {
+            return this._ColumnHeader12;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader12 != null)
+            {
+            }
+            this._ColumnHeader12 = value;
+            if (this._ColumnHeader12 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader13
+        {
+          get
+          {
+            return this._ColumnHeader13;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader13 != null)
+            {
+            }
+            this._ColumnHeader13 = value;
+            if (this._ColumnHeader13 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader14
+        {
+          get
+          {
+            return this._ColumnHeader14;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader14 != null)
+            {
+            }
+            this._ColumnHeader14 = value;
+            if (this._ColumnHeader14 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader15
+        {
+          get
+          {
+            return this._ColumnHeader15;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader15 != null)
+            {
+            }
+            this._ColumnHeader15 = value;
+            if (this._ColumnHeader15 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader16
+        {
+          get
+          {
+            return this._ColumnHeader16;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader16 != null)
+            {
+            }
+            this._ColumnHeader16 = value;
+            if (this._ColumnHeader16 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader17
+        {
+          get
+          {
+            return this._ColumnHeader17;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader17 != null)
+            {
+            }
+            this._ColumnHeader17 = value;
+            if (this._ColumnHeader17 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader18
+        {
+          get
+          {
+            return this._ColumnHeader18;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader18 != null)
+            {
+            }
+            this._ColumnHeader18 = value;
+            if (this._ColumnHeader18 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader2
+        {
+          get
+          {
+            return this._ColumnHeader2;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader2 != null)
+            {
+            }
+            this._ColumnHeader2 = value;
+            if (this._ColumnHeader2 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader3
+        {
+          get
+          {
+            return this._ColumnHeader3;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader3 != null)
+            {
+            }
+            this._ColumnHeader3 = value;
+            if (this._ColumnHeader3 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader4
+        {
+          get
+          {
+            return this._ColumnHeader4;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader4 != null)
+            {
+            }
+            this._ColumnHeader4 = value;
+            if (this._ColumnHeader4 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader5
+        {
+          get
+          {
+            return this._ColumnHeader5;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader5 != null)
+            {
+            }
+            this._ColumnHeader5 = value;
+            if (this._ColumnHeader5 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader6
+        {
+          get
+          {
+            return this._ColumnHeader6;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader6 != null)
+            {
+            }
+            this._ColumnHeader6 = value;
+            if (this._ColumnHeader6 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader7
+        {
+          get
+          {
+            return this._ColumnHeader7;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader7 != null)
+            {
+            }
+            this._ColumnHeader7 = value;
+            if (this._ColumnHeader7 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader8
+        {
+          get
+          {
+            return this._ColumnHeader8;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader8 != null)
+            {
+            }
+            this._ColumnHeader8 = value;
+            if (this._ColumnHeader8 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader ColumnHeader9
+        {
+          get
+          {
+            return this._ColumnHeader9;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ColumnHeader9 != null)
+            {
+            }
+            this._ColumnHeader9 = value;
+            if (this._ColumnHeader9 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ListView CommentList
+        {
+          get
+          {
+            return this._CommentList;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._CommentList != null)
+            {
+              this._CommentList.Leave -= new EventHandler(this.Select_Leave);
+              this._CommentList.Click -= new EventHandler(this.CommentList_Click);
+            }
+            this._CommentList = value;
+            if (this._CommentList != null)
+            {
+              this._CommentList.Leave += new EventHandler(this.Select_Leave);
+              this._CommentList.Click += new EventHandler(this.CommentList_Click);
+            }
+          }
+        }
+
+        internal virtual ColumnHeader Content
+        {
+          get
+          {
+            return this._Content;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Content != null)
+            {
+            }
+            this._Content = value;
+            if (this._Content != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ColumnHeader FrameID
+        {
+          get
+          {
+            return this._FrameID;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._FrameID != null)
+            {
+            }
+            this._FrameID = value;
+            if (this._FrameID != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ListBox GenreList
+        {
+          get
+          {
+            return this._GenreList;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._GenreList != null)
+            {
+              this._GenreList.Leave -= new EventHandler(this.Select_Leave);
+            }
+            this._GenreList = value;
+            if (this._GenreList != null)
+            {
+              this._GenreList.Leave += new EventHandler(this.Select_Leave);
+            }
+          }
+        }
+
+        internal virtual Label lblAlbum
+        {
+          get
+          {
+            return this._lblAlbum;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblAlbum != null)
+            {
+            }
+            this._lblAlbum = value;
+            if (this._lblAlbum != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblAlbumSort
+        {
+          get
+          {
+            return this._lblAlbumSort;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblAlbumSort != null)
+            {
+            }
+            this._lblAlbumSort = value;
+            if (this._lblAlbumSort != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblArtist
+        {
+          get
+          {
+            return this._lblArtist;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblArtist != null)
+            {
+            }
+            this._lblArtist = value;
+            if (this._lblArtist != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblArtistSort
+        {
+          get
+          {
+            return this._lblArtistSort;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblArtistSort != null)
+            {
+            }
+            this._lblArtistSort = value;
+            if (this._lblArtistSort != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblArtistURL
+        {
+          get
+          {
+            return this._lblArtistURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblArtistURL != null)
+            {
+            }
+            this._lblArtistURL = value;
+            if (this._lblArtistURL != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblAudioFileURL
+        {
+          get
+          {
+            return this._lblAudioFileURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblAudioFileURL != null)
+            {
+            }
+            this._lblAudioFileURL = value;
+            if (this._lblAudioFileURL != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblAudioSRCURL
+        {
+          get
+          {
+            return this._lblAudioSRCURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblAudioSRCURL != null)
+            {
+            }
+            this._lblAudioSRCURL = value;
+            if (this._lblAudioSRCURL != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblBand
+        {
+          get
+          {
+            return this._lblBand;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblBand != null)
+            {
+            }
+            this._lblBand = value;
+            if (this._lblBand != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblBPM
+        {
+          get
+          {
+            return this._lblBPM;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblBPM != null)
+            {
+            }
+            this._lblBPM = value;
+            if (this._lblBPM != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblCOMM
+        {
+          get
+          {
+            return this._lblCOMM;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblCOMM != null)
+            {
+            }
+            this._lblCOMM = value;
+            if (this._lblCOMM != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblCOMMDesc
+        {
+          get
+          {
+            return this._lblCOMMDesc;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblCOMMDesc != null)
+            {
+            }
+            this._lblCOMMDesc = value;
+            if (this._lblCOMMDesc != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblCommDescInfo
+        {
+          get
+          {
+            return this._lblCommDescInfo;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblCommDescInfo != null)
+            {
+            }
+            this._lblCommDescInfo = value;
+            if (this._lblCommDescInfo != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblCOMMInfURL
+        {
+          get
+          {
+            return this._lblCOMMInfURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblCOMMInfURL != null)
+            {
+            }
+            this._lblCOMMInfURL = value;
+            if (this._lblCOMMInfURL != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblCOMMLan
+        {
+          get
+          {
+            return this._lblCOMMLan;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblCOMMLan != null)
+            {
+            }
+            this._lblCOMMLan = value;
+            if (this._lblCOMMLan != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblComposer
+        {
+          get
+          {
+            return this._lblComposer;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblComposer != null)
+            {
+            }
+            this._lblComposer = value;
+            if (this._lblComposer != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblConductor
+        {
+          get
+          {
+            return this._lblConductor;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblConductor != null)
+            {
+            }
+            this._lblConductor = value;
+            if (this._lblConductor != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblContent
+        {
+          get
+          {
+            return this._lblContent;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblContent != null)
+            {
+            }
+            this._lblContent = value;
+            if (this._lblContent != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblCopyInfURL
+        {
+          get
+          {
+            return this._lblCopyInfURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblCopyInfURL != null)
+            {
+            }
+            this._lblCopyInfURL = value;
+            if (this._lblCopyInfURL != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblCopyright
+        {
+          get
+          {
+            return this._lblCopyright;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblCopyright != null)
+            {
+            }
+            this._lblCopyright = value;
+            if (this._lblCopyright != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblDigits
+        {
+          get
+          {
+            return this._lblDigits;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblDigits != null)
+            {
+            }
+            this._lblDigits = value;
+            if (this._lblDigits != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblEncoded
+        {
+          get
+          {
+            return this._lblEncoded;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblEncoded != null)
+            {
+            }
+            this._lblEncoded = value;
+            if (this._lblEncoded != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblGenre
+        {
+          get
+          {
+            return this._lblGenre;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblGenre != null)
+            {
+            }
+            this._lblGenre = value;
+            if (this._lblGenre != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblGenreInfo
+        {
+          get
+          {
+            return this._lblGenreInfo;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblGenreInfo != null)
+            {
+            }
+            this._lblGenreInfo = value;
+            if (this._lblGenreInfo != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblINetRadioURL
+        {
+          get
+          {
+            return this._lblINetRadioURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblINetRadioURL != null)
+            {
+            }
+            this._lblINetRadioURL = value;
+            if (this._lblINetRadioURL != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblInfo
+        {
+          get
+          {
+            return this._lblInfo;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblInfo != null)
+            {
+            }
+            this._lblInfo = value;
+            if (this._lblInfo != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblInvFunction
+        {
+          get
+          {
+            return this._lblInvFunction;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblInvFunction != null)
+            {
+            }
+            this._lblInvFunction = value;
+            if (this._lblInvFunction != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblInvPerson
+        {
+          get
+          {
+            return this._lblInvPerson;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblInvPerson != null)
+            {
+            }
+            this._lblInvPerson = value;
+            if (this._lblInvPerson != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblLyDesc
+        {
+          get
+          {
+            return this._lblLyDesc;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblLyDesc != null)
+            {
+            }
+            this._lblLyDesc = value;
+            if (this._lblLyDesc != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblLyLan
+        {
+          get
+          {
+            return this._lblLyLan;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblLyLan != null)
+            {
+            }
+            this._lblLyLan = value;
+            if (this._lblLyLan != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblLyrics
+        {
+          get
+          {
+            return this._lblLyrics;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblLyrics != null)
+            {
+            }
+            this._lblLyrics = value;
+            if (this._lblLyrics != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblLyWriter
+        {
+          get
+          {
+            return this._lblLyWriter;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblLyWriter != null)
+            {
+            }
+            this._lblLyWriter = value;
+            if (this._lblLyWriter != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblMediaTyp
+        {
+          get
+          {
+            return this._lblMediaTyp;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblMediaTyp != null)
+            {
+            }
+            this._lblMediaTyp = value;
+            if (this._lblMediaTyp != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblModified
+        {
+          get
+          {
+            return this._lblModified;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblModified != null)
+            {
+            }
+            this._lblModified = value;
+            if (this._lblModified != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblMusicianInfo
+        {
+          get
+          {
+            return this._lblMusicianInfo;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblMusicianInfo != null)
+            {
+            }
+            this._lblMusicianInfo = value;
+            if (this._lblMusicianInfo != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblMusicianInst
+        {
+          get
+          {
+            return this._lblMusicianInst;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblMusicianInst != null)
+            {
+            }
+            this._lblMusicianInst = value;
+            if (this._lblMusicianInst != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblMusicianName
+        {
+          get
+          {
+            return this._lblMusicianName;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblMusicianName != null)
+            {
+            }
+            this._lblMusicianName = value;
+            if (this._lblMusicianName != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblNot
+        {
+          get
+          {
+            return this._lblNot;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblNot != null)
+            {
+            }
+            this._lblNot = value;
+            if (this._lblNot != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblOAlbum
+        {
+          get
+          {
+            return this._lblOAlbum;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblOAlbum != null)
+            {
+            }
+            this._lblOAlbum = value;
+            if (this._lblOAlbum != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblOArtist
+        {
+          get
+          {
+            return this._lblOArtist;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblOArtist != null)
+            {
+            }
+            this._lblOArtist = value;
+            if (this._lblOArtist != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblOf1
+        {
+          get
+          {
+            return this._lblOf1;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblOf1 != null)
+            {
+            }
+            this._lblOf1 = value;
+            if (this._lblOf1 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblOf2
+        {
+          get
+          {
+            return this._lblOf2;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblOf2 != null)
+            {
+            }
+            this._lblOf2 = value;
+            if (this._lblOf2 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblOFilename
+        {
+          get
+          {
+            return this._lblOFilename;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblOFilename != null)
+            {
+            }
+            this._lblOFilename = value;
+            if (this._lblOFilename != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblOLyWriter
+        {
+          get
+          {
+            return this._lblOLyWriter;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblOLyWriter != null)
+            {
+            }
+            this._lblOLyWriter = value;
+            if (this._lblOLyWriter != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblOOwner
+        {
+          get
+          {
+            return this._lblOOwner;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblOOwner != null)
+            {
+            }
+            this._lblOOwner = value;
+            if (this._lblOOwner != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblOYear
+        {
+          get
+          {
+            return this._lblOYear;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblOYear != null)
+            {
+            }
+            this._lblOYear = value;
+            if (this._lblOYear != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblOYearInfo
+        {
+          get
+          {
+            return this._lblOYearInfo;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblOYearInfo != null)
+            {
+            }
+            this._lblOYearInfo = value;
+            if (this._lblOYearInfo != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblPayURL
+        {
+          get
+          {
+            return this._lblPayURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblPayURL != null)
+            {
+            }
+            this._lblPayURL = value;
+            if (this._lblPayURL != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblPicDesc
+        {
+          get
+          {
+            return this._lblPicDesc;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblPicDesc != null)
+            {
+            }
+            this._lblPicDesc = value;
+            if (this._lblPicDesc != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblPicPath
+        {
+          get
+          {
+            return this._lblPicPath;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblPicPath != null)
+            {
+            }
+            this._lblPicPath = value;
+            if (this._lblPicPath != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblPicType
+        {
+          get
+          {
+            return this._lblPicType;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblPicType != null)
+            {
+            }
+            this._lblPicType = value;
+            if (this._lblPicType != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblPosMedia
+        {
+          get
+          {
+            return this._lblPosMedia;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblPosMedia != null)
+            {
+            }
+            this._lblPosMedia = value;
+            if (this._lblPosMedia != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblPublisher
+        {
+          get
+          {
+            return this._lblPublisher;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblPublisher != null)
+            {
+            }
+            this._lblPublisher = value;
+            if (this._lblPublisher != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblPubURL
+        {
+          get
+          {
+            return this._lblPubURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblPubURL != null)
+            {
+            }
+            this._lblPubURL = value;
+            if (this._lblPubURL != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblRatingCounter
+        {
+          get
+          {
+            return this._lblRatingCounter;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblRatingCounter != null)
+            {
+            }
+            this._lblRatingCounter = value;
+            if (this._lblRatingCounter != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblRatingRating
+        {
+          get
+          {
+            return this._lblRatingRating;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblRatingRating != null)
+            {
+            }
+            this._lblRatingRating = value;
+            if (this._lblRatingRating != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblRatingUser
+        {
+          get
+          {
+            return this._lblRatingUser;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblRatingUser != null)
+            {
+            }
+            this._lblRatingUser = value;
+            if (this._lblRatingUser != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblSelected
+        {
+          get
+          {
+            return this._lblSelected;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblSelected != null)
+            {
+            }
+            this._lblSelected = value;
+            if (this._lblSelected != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblSubTitle
+        {
+          get
+          {
+            return this._lblSubTitle;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblSubTitle != null)
+            {
+            }
+            this._lblSubTitle = value;
+            if (this._lblSubTitle != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblTitle
+        {
+          get
+          {
+            return this._lblTitle;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblTitle != null)
+            {
+            }
+            this._lblTitle = value;
+            if (this._lblTitle != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblTitleSort
+        {
+          get
+          {
+            return this._lblTitleSort;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblTitleSort != null)
+            {
+            }
+            this._lblTitleSort = value;
+            if (this._lblTitleSort != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblTLEN
+        {
+          get
+          {
+            return this._lblTLEN;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblTLEN != null)
+            {
+            }
+            this._lblTLEN = value;
+            if (this._lblTLEN != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblTrack
+        {
+          get
+          {
+            return this._lblTrack;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblTrack != null)
+            {
+            }
+            this._lblTrack = value;
+            if (this._lblTrack != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblTXXXContent
+        {
+          get
+          {
+            return this._lblTXXXContent;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblTXXXContent != null)
+            {
+            }
+            this._lblTXXXContent = value;
+            if (this._lblTXXXContent != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblTXXXDesc
+        {
+          get
+          {
+            return this._lblTXXXDesc;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblTXXXDesc != null)
+            {
+            }
+            this._lblTXXXDesc = value;
+            if (this._lblTXXXDesc != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblWXXXContent
+        {
+          get
+          {
+            return this._lblWXXXContent;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblWXXXContent != null)
+            {
+            }
+            this._lblWXXXContent = value;
+            if (this._lblWXXXContent != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblWXXXDesc
+        {
+          get
+          {
+            return this._lblWXXXDesc;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblWXXXDesc != null)
+            {
+            }
+            this._lblWXXXDesc = value;
+            if (this._lblWXXXDesc != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Label lblYear
+        {
+          get
+          {
+            return this._lblYear;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._lblYear != null)
+            {
+            }
+            this._lblYear = value;
+            if (this._lblYear != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ListView LyricsList
+        {
+          get
+          {
+            return this._LyricsList;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._LyricsList != null)
+            {
+              this._LyricsList.Leave -= new EventHandler(this.Select_Leave);
+              this._LyricsList.Click -= new EventHandler(this.LyricsList_Click);
+            }
+            this._LyricsList = value;
+            if (this._LyricsList != null)
+            {
+              this._LyricsList.Leave += new EventHandler(this.Select_Leave);
+              this._LyricsList.Click += new EventHandler(this.LyricsList_Click);
+            }
+          }
+        }
+
+        internal virtual ListView NotSupportList
+        {
+          get
+          {
+            return this._NotSupportList;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._NotSupportList != null)
+            {
+              this._NotSupportList.Leave -= new EventHandler(this.Select_Leave);
+            }
+            this._NotSupportList = value;
+            if (this._NotSupportList != null)
+            {
+              this._NotSupportList.Leave += new EventHandler(this.Select_Leave);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.OpenFileDialog OpenFileDialog
+        {
+          get
+          {
+            return this._OpenFileDialog;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._OpenFileDialog != null)
+            {
+            }
+            this._OpenFileDialog = value;
+            if (this._OpenFileDialog != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel panDetail
+        {
+          get
+          {
+            return this._panDetail;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._panDetail != null)
+            {
+            }
+            this._panDetail = value;
+            if (this._panDetail != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel1
+        {
+          get
+          {
+            return this._Panel1;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel1 != null)
+            {
+            }
+            this._Panel1 = value;
+            if (this._Panel1 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel10
+        {
+          get
+          {
+            return this._Panel10;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel10 != null)
+            {
+            }
+            this._Panel10 = value;
+            if (this._Panel10 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel11
+        {
+          get
+          {
+            return this._Panel11;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel11 != null)
+            {
+            }
+            this._Panel11 = value;
+            if (this._Panel11 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel12
+        {
+          get
+          {
+            return this._Panel12;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel12 != null)
+            {
+            }
+            this._Panel12 = value;
+            if (this._Panel12 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel13
+        {
+          get
+          {
+            return this._Panel13;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel13 != null)
+            {
+            }
+            this._Panel13 = value;
+            if (this._Panel13 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel14
+        {
+          get
+          {
+            return this._Panel14;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel14 != null)
+            {
+            }
+            this._Panel14 = value;
+            if (this._Panel14 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel15
+        {
+          get
+          {
+            return this._Panel15;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel15 != null)
+            {
+            }
+            this._Panel15 = value;
+            if (this._Panel15 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel16
+        {
+          get
+          {
+            return this._Panel16;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel16 != null)
+            {
+            }
+            this._Panel16 = value;
+            if (this._Panel16 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel2
+        {
+          get
+          {
+            return this._Panel2;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel2 != null)
+            {
+            }
+            this._Panel2 = value;
+            if (this._Panel2 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel3
+        {
+          get
+          {
+            return this._Panel3;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel3 != null)
+            {
+            }
+            this._Panel3 = value;
+            if (this._Panel3 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel4
+        {
+          get
+          {
+            return this._Panel4;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel4 != null)
+            {
+            }
+            this._Panel4 = value;
+            if (this._Panel4 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel5
+        {
+          get
+          {
+            return this._Panel5;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel5 != null)
+            {
+            }
+            this._Panel5 = value;
+            if (this._Panel5 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel6
+        {
+          get
+          {
+            return this._Panel6;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel6 != null)
+            {
+            }
+            this._Panel6 = value;
+            if (this._Panel6 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel7
+        {
+          get
+          {
+            return this._Panel7;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel7 != null)
+            {
+            }
+            this._Panel7 = value;
+            if (this._Panel7 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel8
+        {
+          get
+          {
+            return this._Panel8;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel8 != null)
+            {
+            }
+            this._Panel8 = value;
+            if (this._Panel8 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel Panel9
+        {
+          get
+          {
+            return this._Panel9;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._Panel9 != null)
+            {
+            }
+            this._Panel9 = value;
+            if (this._Panel9 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel panInvolved
+        {
+          get
+          {
+            return this._panInvolved;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._panInvolved != null)
+            {
+            }
+            this._panInvolved = value;
+            if (this._panInvolved != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel panLyrics
+        {
+          get
+          {
+            return this._panLyrics;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._panLyrics != null)
+            {
+            }
+            this._panLyrics = value;
+            if (this._panLyrics != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel panMain
+        {
+          get
+          {
+            return this._panMain;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._panMain != null)
+            {
+            }
+            this._panMain = value;
+            if (this._panMain != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel panNot
+        {
+          get
+          {
+            return this._panNot;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._panNot != null)
+            {
+            }
+            this._panNot = value;
+            if (this._panNot != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel panOriginal
+        {
+          get
+          {
+            return this._panOriginal;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._panOriginal != null)
+            {
+            }
+            this._panOriginal = value;
+            if (this._panOriginal != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel panPic
+        {
+          get
+          {
+            return this._panPic;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._panPic != null)
+            {
+            }
+            this._panPic = value;
+            if (this._panPic != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel panRating
+        {
+          get
+          {
+            return this._panRating;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._panRating != null)
+            {
+            }
+            this._panRating = value;
+            if (this._panRating != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel panUser
+        {
+          get
+          {
+            return this._panUser;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._panUser != null)
+            {
+            }
+            this._panUser = value;
+            if (this._panUser != null)
+            {
+            }
+          }
+        }
+
+        internal virtual Panel panWeb
+        {
+          get
+          {
+            return this._panWeb;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._panWeb != null)
+            {
+            }
+            this._panWeb = value;
+            if (this._panWeb != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ListView PicList
+        {
+          get
+          {
+            return this._PicList;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._PicList != null)
+            {
+              this._PicList.Leave -= new EventHandler(this.Select_Leave);
+              this._PicList.Click -= new EventHandler(this.PicList_Click);
+            }
+            this._PicList = value;
+            if (this._PicList != null)
+            {
+              this._PicList.Leave += new EventHandler(this.Select_Leave);
+              this._PicList.Click += new EventHandler(this.PicList_Click);
+            }
+          }
+        }
+
+        internal virtual ListView RatingList
+        {
+          get
+          {
+            return this._RatingList;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._RatingList != null)
+            {
+              this._RatingList.Click -= new EventHandler(this.RatingList_Click);
+            }
+            this._RatingList = value;
+            if (this._RatingList != null)
+            {
+              this._RatingList.Click += new EventHandler(this.RatingList_Click);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.SaveFileDialog SaveFileDialog
+        {
+          get
+          {
+            return this._SaveFileDialog;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._SaveFileDialog != null)
+            {
+            }
+            this._SaveFileDialog = value;
+            if (this._SaveFileDialog != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ExplorerBar SelectionBar
+        {
+          get
+          {
+            return this._SelectionBar;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._SelectionBar != null)
+            {
+            }
+            this._SelectionBar = value;
+            if (this._SelectionBar != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ButtonItem TAGV2ButtonItem1
+        {
+          get
+          {
+            return this._TAGV2ButtonItem1;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TAGV2ButtonItem1 != null)
+            {
+              this._TAGV2ButtonItem1.Click -= new EventHandler(this.btnItem_Click);
+            }
+            this._TAGV2ButtonItem1 = value;
+            if (this._TAGV2ButtonItem1 != null)
+            {
+              this._TAGV2ButtonItem1.Click += new EventHandler(this.btnItem_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem TAGV2ButtonItem10
+        {
+          get
+          {
+            return this._TAGV2ButtonItem10;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TAGV2ButtonItem10 != null)
+            {
+              this._TAGV2ButtonItem10.Click -= new EventHandler(this.btnItem_Click);
+            }
+            this._TAGV2ButtonItem10 = value;
+            if (this._TAGV2ButtonItem10 != null)
+            {
+              this._TAGV2ButtonItem10.Click += new EventHandler(this.btnItem_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem TAGV2ButtonItem2
+        {
+          get
+          {
+            return this._TAGV2ButtonItem2;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TAGV2ButtonItem2 != null)
+            {
+              this._TAGV2ButtonItem2.Click -= new EventHandler(this.btnItem_Click);
+            }
+            this._TAGV2ButtonItem2 = value;
+            if (this._TAGV2ButtonItem2 != null)
+            {
+              this._TAGV2ButtonItem2.Click += new EventHandler(this.btnItem_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem TAGV2ButtonItem3
+        {
+          get
+          {
+            return this._TAGV2ButtonItem3;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TAGV2ButtonItem3 != null)
+            {
+              this._TAGV2ButtonItem3.Click -= new EventHandler(this.btnItem_Click);
+            }
+            this._TAGV2ButtonItem3 = value;
+            if (this._TAGV2ButtonItem3 != null)
+            {
+              this._TAGV2ButtonItem3.Click += new EventHandler(this.btnItem_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem TAGV2ButtonItem4
+        {
+          get
+          {
+            return this._TAGV2ButtonItem4;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TAGV2ButtonItem4 != null)
+            {
+              this._TAGV2ButtonItem4.Click -= new EventHandler(this.btnItem_Click);
+            }
+            this._TAGV2ButtonItem4 = value;
+            if (this._TAGV2ButtonItem4 != null)
+            {
+              this._TAGV2ButtonItem4.Click += new EventHandler(this.btnItem_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem TAGV2ButtonItem5
+        {
+          get
+          {
+            return this._TAGV2ButtonItem5;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TAGV2ButtonItem5 != null)
+            {
+              this._TAGV2ButtonItem5.Click -= new EventHandler(this.btnItem_Click);
+            }
+            this._TAGV2ButtonItem5 = value;
+            if (this._TAGV2ButtonItem5 != null)
+            {
+              this._TAGV2ButtonItem5.Click += new EventHandler(this.btnItem_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem TAGV2ButtonItem6
+        {
+          get
+          {
+            return this._TAGV2ButtonItem6;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TAGV2ButtonItem6 != null)
+            {
+              this._TAGV2ButtonItem6.Click -= new EventHandler(this.btnItem_Click);
+            }
+            this._TAGV2ButtonItem6 = value;
+            if (this._TAGV2ButtonItem6 != null)
+            {
+              this._TAGV2ButtonItem6.Click += new EventHandler(this.btnItem_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem TAGV2ButtonItem7
+        {
+          get
+          {
+            return this._TAGV2ButtonItem7;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TAGV2ButtonItem7 != null)
+            {
+              this._TAGV2ButtonItem7.Click -= new EventHandler(this.btnItem_Click);
+            }
+            this._TAGV2ButtonItem7 = value;
+            if (this._TAGV2ButtonItem7 != null)
+            {
+              this._TAGV2ButtonItem7.Click += new EventHandler(this.btnItem_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem TAGV2ButtonItem8
+        {
+          get
+          {
+            return this._TAGV2ButtonItem8;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TAGV2ButtonItem8 != null)
+            {
+              this._TAGV2ButtonItem8.Click -= new EventHandler(this.btnItem_Click);
+            }
+            this._TAGV2ButtonItem8 = value;
+            if (this._TAGV2ButtonItem8 != null)
+            {
+              this._TAGV2ButtonItem8.Click += new EventHandler(this.btnItem_Click);
+            }
+          }
+        }
+
+        internal virtual ButtonItem TAGV2ButtonItem9
+        {
+          get
+          {
+            return this._TAGV2ButtonItem9;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TAGV2ButtonItem9 != null)
+            {
+              this._TAGV2ButtonItem9.Click -= new EventHandler(this.btnItem_Click);
+            }
+            this._TAGV2ButtonItem9 = value;
+            if (this._TAGV2ButtonItem9 != null)
+            {
+              this._TAGV2ButtonItem9.Click += new EventHandler(this.btnItem_Click);
+            }
+          }
+        }
+
+        internal virtual ExplorerBarGroupItem TAGV2grpCommands
+        {
+          get
+          {
+            return this._TAGV2grpCommands;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TAGV2grpCommands != null)
+            {
+            }
+            this._TAGV2grpCommands = value;
+            if (this._TAGV2grpCommands != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ExplorerBarGroupItem TAGV2grpTAG
+        {
+          get
+          {
+            return this._TAGV2grpTAG;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TAGV2grpTAG != null)
+            {
+            }
+            this._TAGV2grpTAG = value;
+            if (this._TAGV2grpTAG != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ExplorerBarGroupItem TAGV2grpTransfer
+        {
+          get
+          {
+            return this._TAGV2grpTransfer;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TAGV2grpTransfer != null)
+            {
+            }
+            this._TAGV2grpTransfer = value;
+            if (this._TAGV2grpTransfer != null)
+            {
+            }
+          }
+        }
+
+        internal virtual ListView TIPLList
+        {
+          get
+          {
+            return this._TIPLList;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TIPLList != null)
+            {
+              this._TIPLList.Click -= new EventHandler(this.TIPLList_Click);
+            }
+            this._TIPLList = value;
+            if (this._TIPLList != null)
+            {
+              this._TIPLList.Click += new EventHandler(this.TIPLList_Click);
+            }
+          }
+        }
+
+        internal virtual ListView TMCLList
+        {
+          get
+          {
+            return this._TMCLList;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TMCLList != null)
+            {
+              this._TMCLList.Click -= new EventHandler(this.TMCLList_Click);
+            }
+            this._TMCLList = value;
+            if (this._TMCLList != null)
+            {
+              this._TMCLList.Click += new EventHandler(this.TMCLList_Click);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.ToolTip ToolTip
+        {
+          get
+          {
+            return this._ToolTip;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._ToolTip != null)
+            {
+            }
+            this._ToolTip = value;
+            if (this._ToolTip != null)
+            {
+            }
+          }
+        }
+
+        internal virtual PanelEx TopPanel
+        {
+          get
+          {
+            return this._TopPanel;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TopPanel != null)
+            {
+            }
+            this._TopPanel = value;
+            if (this._TopPanel != null)
+            {
+            }
+          }
+        }
+
+        internal virtual HScrollBar TORYFormat
+        {
+          get
+          {
+            return this._TORYFormat;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TORYFormat != null)
+            {
+              this._TORYFormat.Scroll -= new ScrollEventHandler(this.TORYFormat_Scroll);
+            }
+            this._TORYFormat = value;
+            if (this._TORYFormat != null)
+            {
+              this._TORYFormat.Scroll += new ScrollEventHandler(this.TORYFormat_Scroll);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtAlbum
+        {
+          get
+          {
+            return this._txtAlbum;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtAlbum != null)
+            {
+              this._txtAlbum.Leave -= new EventHandler(this.Select_Leave);
+              this._txtAlbum.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtAlbum = value;
+            if (this._txtAlbum != null)
+            {
+              this._txtAlbum.Leave += new EventHandler(this.Select_Leave);
+              this._txtAlbum.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtArtistURL
+        {
+          get
+          {
+            return this._txtArtistURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtArtistURL != null)
+            {
+              this._txtArtistURL.Leave -= new EventHandler(this.Select_Leave);
+              this._txtArtistURL.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtArtistURL = value;
+            if (this._txtArtistURL != null)
+            {
+              this._txtArtistURL.Leave += new EventHandler(this.Select_Leave);
+              this._txtArtistURL.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtAudioFileURL
+        {
+          get
+          {
+            return this._txtAudioFileURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtAudioFileURL != null)
+            {
+              this._txtAudioFileURL.Leave -= new EventHandler(this.Select_Leave);
+              this._txtAudioFileURL.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtAudioFileURL = value;
+            if (this._txtAudioFileURL != null)
+            {
+              this._txtAudioFileURL.Leave += new EventHandler(this.Select_Leave);
+              this._txtAudioFileURL.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtAudioSRCURL
+        {
+          get
+          {
+            return this._txtAudioSRCURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtAudioSRCURL != null)
+            {
+              this._txtAudioSRCURL.Leave -= new EventHandler(this.Select_Leave);
+              this._txtAudioSRCURL.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtAudioSRCURL = value;
+            if (this._txtAudioSRCURL != null)
+            {
+              this._txtAudioSRCURL.Leave += new EventHandler(this.Select_Leave);
+              this._txtAudioSRCURL.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtBand
+        {
+          get
+          {
+            return this._txtBand;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtBand != null)
+            {
+              this._txtBand.Leave -= new EventHandler(this.Select_Leave);
+              this._txtBand.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtBand = value;
+            if (this._txtBand != null)
+            {
+              this._txtBand.Leave += new EventHandler(this.Select_Leave);
+              this._txtBand.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual NumericTextBox txtBPM
+        {
+          get
+          {
+            return this._txtBPM;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtBPM != null)
+            {
+              this._txtBPM.Leave -= new EventHandler(this.Select_Leave);
+              this._txtBPM.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtBPM = value;
+            if (this._txtBPM != null)
+            {
+              this._txtBPM.Leave += new EventHandler(this.Select_Leave);
+              this._txtBPM.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtComment
+        {
+          get
+          {
+            return this._txtComment;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtComment != null)
+            {
+              this._txtComment.Leave -= new EventHandler(this.Select_Leave);
+              this._txtComment.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtComment = value;
+            if (this._txtComment != null)
+            {
+              this._txtComment.Leave += new EventHandler(this.Select_Leave);
+              this._txtComment.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtCOMMInfURL
+        {
+          get
+          {
+            return this._txtCOMMInfURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtCOMMInfURL != null)
+            {
+              this._txtCOMMInfURL.Leave -= new EventHandler(this.Select_Leave);
+              this._txtCOMMInfURL.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtCOMMInfURL = value;
+            if (this._txtCOMMInfURL != null)
+            {
+              this._txtCOMMInfURL.Leave += new EventHandler(this.Select_Leave);
+              this._txtCOMMInfURL.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtComposer
+        {
+          get
+          {
+            return this._txtComposer;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtComposer != null)
+            {
+              this._txtComposer.Leave -= new EventHandler(this.Select_Leave);
+              this._txtComposer.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtComposer = value;
+            if (this._txtComposer != null)
+            {
+              this._txtComposer.Leave += new EventHandler(this.Select_Leave);
+              this._txtComposer.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtConductor
+        {
+          get
+          {
+            return this._txtConductor;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtConductor != null)
+            {
+              this._txtConductor.Leave -= new EventHandler(this.Select_Leave);
+              this._txtConductor.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtConductor = value;
+            if (this._txtConductor != null)
+            {
+              this._txtConductor.Leave += new EventHandler(this.Select_Leave);
+              this._txtConductor.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtContent
+        {
+          get
+          {
+            return this._txtContent;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtContent != null)
+            {
+              this._txtContent.Leave -= new EventHandler(this.Select_Leave);
+              this._txtContent.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtContent = value;
+            if (this._txtContent != null)
+            {
+              this._txtContent.Leave += new EventHandler(this.Select_Leave);
+              this._txtContent.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtCopyInfURL
+        {
+          get
+          {
+            return this._txtCopyInfURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtCopyInfURL != null)
+            {
+              this._txtCopyInfURL.Leave -= new EventHandler(this.Select_Leave);
+              this._txtCopyInfURL.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtCopyInfURL = value;
+            if (this._txtCopyInfURL != null)
+            {
+              this._txtCopyInfURL.Leave += new EventHandler(this.Select_Leave);
+              this._txtCopyInfURL.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtCopyright
+        {
+          get
+          {
+            return this._txtCopyright;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtCopyright != null)
+            {
+              this._txtCopyright.Leave -= new EventHandler(this.Select_Leave);
+              this._txtCopyright.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtCopyright = value;
+            if (this._txtCopyright != null)
+            {
+              this._txtCopyright.Leave += new EventHandler(this.Select_Leave);
+              this._txtCopyright.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual NumericUpDown txtDigits
+        {
+          get
+          {
+            return this._txtDigits;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtDigits != null)
+            {
+            }
+            this._txtDigits = value;
+            if (this._txtDigits != null)
+            {
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtEncoded
+        {
+          get
+          {
+            return this._txtEncoded;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtEncoded != null)
+            {
+              this._txtEncoded.Leave -= new EventHandler(this.Select_Leave);
+              this._txtEncoded.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtEncoded = value;
+            if (this._txtEncoded != null)
+            {
+              this._txtEncoded.Leave += new EventHandler(this.Select_Leave);
+              this._txtEncoded.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtINetRadioURL
+        {
+          get
+          {
+            return this._txtINetRadioURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtINetRadioURL != null)
+            {
+              this._txtINetRadioURL.Leave -= new EventHandler(this.Select_Leave);
+              this._txtINetRadioURL.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtINetRadioURL = value;
+            if (this._txtINetRadioURL != null)
+            {
+              this._txtINetRadioURL.Leave += new EventHandler(this.Select_Leave);
+              this._txtINetRadioURL.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtInvFunction
+        {
+          get
+          {
+            return this._txtInvFunction;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtInvFunction != null)
+            {
+              this._txtInvFunction.Leave -= new EventHandler(this.Select_Leave);
+              this._txtInvFunction.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtInvFunction = value;
+            if (this._txtInvFunction != null)
+            {
+              this._txtInvFunction.Leave += new EventHandler(this.Select_Leave);
+              this._txtInvFunction.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtInvPerson
+        {
+          get
+          {
+            return this._txtInvPerson;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtInvPerson != null)
+            {
+              this._txtInvPerson.Leave -= new EventHandler(this.Select_Leave);
+              this._txtInvPerson.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtInvPerson = value;
+            if (this._txtInvPerson != null)
+            {
+              this._txtInvPerson.Leave += new EventHandler(this.Select_Leave);
+              this._txtInvPerson.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtLDescriptor
+        {
+          get
+          {
+            return this._txtLDescriptor;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtLDescriptor != null)
+            {
+              this._txtLDescriptor.Leave -= new EventHandler(this.Select_Leave);
+              this._txtLDescriptor.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtLDescriptor = value;
+            if (this._txtLDescriptor != null)
+            {
+              this._txtLDescriptor.Leave += new EventHandler(this.Select_Leave);
+              this._txtLDescriptor.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual RichTextBox txtLyrics
+        {
+          get
+          {
+            return this._txtLyrics;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtLyrics != null)
+            {
+            }
+            this._txtLyrics = value;
+            if (this._txtLyrics != null)
+            {
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtLyWriter
+        {
+          get
+          {
+            return this._txtLyWriter;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtLyWriter != null)
+            {
+              this._txtLyWriter.Leave -= new EventHandler(this.Select_Leave);
+              this._txtLyWriter.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtLyWriter = value;
+            if (this._txtLyWriter != null)
+            {
+              this._txtLyWriter.Leave += new EventHandler(this.Select_Leave);
+              this._txtLyWriter.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtModified
+        {
+          get
+          {
+            return this._txtModified;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtModified != null)
+            {
+              this._txtModified.Leave -= new EventHandler(this.Select_Leave);
+              this._txtModified.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtModified = value;
+            if (this._txtModified != null)
+            {
+              this._txtModified.Leave += new EventHandler(this.Select_Leave);
+              this._txtModified.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtMusicianInst
+        {
+          get
+          {
+            return this._txtMusicianInst;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtMusicianInst != null)
+            {
+              this._txtMusicianInst.Leave -= new EventHandler(this.Select_Leave);
+              this._txtMusicianInst.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtMusicianInst = value;
+            if (this._txtMusicianInst != null)
+            {
+              this._txtMusicianInst.Leave += new EventHandler(this.Select_Leave);
+              this._txtMusicianInst.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtMusicianName
+        {
+          get
+          {
+            return this._txtMusicianName;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtMusicianName != null)
+            {
+              this._txtMusicianName.Leave -= new EventHandler(this.Select_Leave);
+              this._txtMusicianName.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtMusicianName = value;
+            if (this._txtMusicianName != null)
+            {
+              this._txtMusicianName.Leave += new EventHandler(this.Select_Leave);
+              this._txtMusicianName.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtOAlbum
+        {
+          get
+          {
+            return this._txtOAlbum;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtOAlbum != null)
+            {
+              this._txtOAlbum.Leave -= new EventHandler(this.Select_Leave);
+              this._txtOAlbum.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtOAlbum = value;
+            if (this._txtOAlbum != null)
+            {
+              this._txtOAlbum.Leave += new EventHandler(this.Select_Leave);
+              this._txtOAlbum.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtOArtist
+        {
+          get
+          {
+            return this._txtOArtist;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtOArtist != null)
+            {
+              this._txtOArtist.Leave -= new EventHandler(this.Select_Leave);
+              this._txtOArtist.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtOArtist = value;
+            if (this._txtOArtist != null)
+            {
+              this._txtOArtist.Leave += new EventHandler(this.Select_Leave);
+              this._txtOArtist.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtOFilename
+        {
+          get
+          {
+            return this._txtOFilename;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtOFilename != null)
+            {
+              this._txtOFilename.Leave -= new EventHandler(this.Select_Leave);
+              this._txtOFilename.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtOFilename = value;
+            if (this._txtOFilename != null)
+            {
+              this._txtOFilename.Leave += new EventHandler(this.Select_Leave);
+              this._txtOFilename.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtOLyWriter
+        {
+          get
+          {
+            return this._txtOLyWriter;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtOLyWriter != null)
+            {
+              this._txtOLyWriter.Leave -= new EventHandler(this.Select_Leave);
+              this._txtOLyWriter.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtOLyWriter = value;
+            if (this._txtOLyWriter != null)
+            {
+              this._txtOLyWriter.Leave += new EventHandler(this.Select_Leave);
+              this._txtOLyWriter.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtOOwner
+        {
+          get
+          {
+            return this._txtOOwner;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtOOwner != null)
+            {
+              this._txtOOwner.Leave -= new EventHandler(this.Select_Leave);
+              this._txtOOwner.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtOOwner = value;
+            if (this._txtOOwner != null)
+            {
+              this._txtOOwner.Leave += new EventHandler(this.Select_Leave);
+              this._txtOOwner.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtPayURL
+        {
+          get
+          {
+            return this._txtPayURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtPayURL != null)
+            {
+              this._txtPayURL.Leave -= new EventHandler(this.Select_Leave);
+              this._txtPayURL.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtPayURL = value;
+            if (this._txtPayURL != null)
+            {
+              this._txtPayURL.Leave += new EventHandler(this.Select_Leave);
+              this._txtPayURL.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtPDescriptor
+        {
+          get
+          {
+            return this._txtPDescriptor;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtPDescriptor != null)
+            {
+              this._txtPDescriptor.Leave -= new EventHandler(this.Select_Leave);
+              this._txtPDescriptor.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtPDescriptor = value;
+            if (this._txtPDescriptor != null)
+            {
+              this._txtPDescriptor.Leave += new EventHandler(this.Select_Leave);
+              this._txtPDescriptor.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtPicPath
+        {
+          get
+          {
+            return this._txtPicPath;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtPicPath != null)
+            {
+              this._txtPicPath.Leave -= new EventHandler(this.Select_Leave);
+              this._txtPicPath.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtPicPath = value;
+            if (this._txtPicPath != null)
+            {
+              this._txtPicPath.Leave += new EventHandler(this.Select_Leave);
+              this._txtPicPath.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual IntegerTextBox txtPOS1
+        {
+          get
+          {
+            return this._txtPOS1;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtPOS1 != null)
+            {
+            }
+            this._txtPOS1 = value;
+            if (this._txtPOS1 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual IntegerTextBox txtPOS2
+        {
+          get
+          {
+            return this._txtPOS2;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtPOS2 != null)
+            {
+            }
+            this._txtPOS2 = value;
+            if (this._txtPOS2 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtPublisher
+        {
+          get
+          {
+            return this._txtPublisher;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtPublisher != null)
+            {
+              this._txtPublisher.Leave -= new EventHandler(this.Select_Leave);
+              this._txtPublisher.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtPublisher = value;
+            if (this._txtPublisher != null)
+            {
+              this._txtPublisher.Leave += new EventHandler(this.Select_Leave);
+              this._txtPublisher.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtPubURL
+        {
+          get
+          {
+            return this._txtPubURL;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtPubURL != null)
+            {
+              this._txtPubURL.Leave -= new EventHandler(this.Select_Leave);
+              this._txtPubURL.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtPubURL = value;
+            if (this._txtPubURL != null)
+            {
+              this._txtPubURL.Leave += new EventHandler(this.Select_Leave);
+              this._txtPubURL.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual NumericUpDown txtRatingCounter
+        {
+          get
+          {
+            return this._txtRatingCounter;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtRatingCounter != null)
+            {
+              this._txtRatingCounter.Leave -= new EventHandler(this.Select_Leave);
+              this._txtRatingCounter.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtRatingCounter = value;
+            if (this._txtRatingCounter != null)
+            {
+              this._txtRatingCounter.Leave += new EventHandler(this.Select_Leave);
+              this._txtRatingCounter.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual NumericUpDown txtRatingRating
+        {
+          get
+          {
+            return this._txtRatingRating;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtRatingRating != null)
+            {
+              this._txtRatingRating.Leave -= new EventHandler(this.Select_Leave);
+              this._txtRatingRating.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtRatingRating = value;
+            if (this._txtRatingRating != null)
+            {
+              this._txtRatingRating.Leave += new EventHandler(this.Select_Leave);
+              this._txtRatingRating.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtRatingUser
+        {
+          get
+          {
+            return this._txtRatingUser;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtRatingUser != null)
+            {
+              this._txtRatingUser.Leave -= new EventHandler(this.Select_Leave);
+              this._txtRatingUser.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtRatingUser = value;
+            if (this._txtRatingUser != null)
+            {
+              this._txtRatingUser.Leave += new EventHandler(this.Select_Leave);
+              this._txtRatingUser.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtSelected
+        {
+          get
+          {
+            return this._txtSelected;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtSelected != null)
+            {
+              this._txtSelected.Leave -= new EventHandler(this.Select_Leave);
+              this._txtSelected.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtSelected = value;
+            if (this._txtSelected != null)
+            {
+              this._txtSelected.Leave += new EventHandler(this.Select_Leave);
+              this._txtSelected.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtSortAlbum
+        {
+          get
+          {
+            return this._txtSortAlbum;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtSortAlbum != null)
+            {
+              this._txtSortAlbum.Leave -= new EventHandler(this.Select_Leave);
+              this._txtSortAlbum.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtSortAlbum = value;
+            if (this._txtSortAlbum != null)
+            {
+              this._txtSortAlbum.Leave += new EventHandler(this.Select_Leave);
+              this._txtSortAlbum.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtSortArtist
+        {
+          get
+          {
+            return this._txtSortArtist;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtSortArtist != null)
+            {
+              this._txtSortArtist.Leave -= new EventHandler(this.Select_Leave);
+              this._txtSortArtist.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtSortArtist = value;
+            if (this._txtSortArtist != null)
+            {
+              this._txtSortArtist.Leave += new EventHandler(this.Select_Leave);
+              this._txtSortArtist.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtSortTitle
+        {
+          get
+          {
+            return this._txtSortTitle;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtSortTitle != null)
+            {
+              this._txtSortTitle.Leave -= new EventHandler(this.Select_Leave);
+              this._txtSortTitle.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtSortTitle = value;
+            if (this._txtSortTitle != null)
+            {
+              this._txtSortTitle.Leave += new EventHandler(this.Select_Leave);
+              this._txtSortTitle.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtSubTitle
+        {
+          get
+          {
+            return this._txtSubTitle;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtSubTitle != null)
+            {
+              this._txtSubTitle.Leave -= new EventHandler(this.Select_Leave);
+              this._txtSubTitle.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtSubTitle = value;
+            if (this._txtSubTitle != null)
+            {
+              this._txtSubTitle.Leave += new EventHandler(this.Select_Leave);
+              this._txtSubTitle.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtTitle
+        {
+          get
+          {
+            return this._txtTitle;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtTitle != null)
+            {
+              this._txtTitle.Leave -= new EventHandler(this.Select_Leave);
+              this._txtTitle.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtTitle = value;
+            if (this._txtTitle != null)
+            {
+              this._txtTitle.Leave += new EventHandler(this.Select_Leave);
+              this._txtTitle.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual IntegerTextBox txtTLEN
+        {
+          get
+          {
+            return this._txtTLEN;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtTLEN != null)
+            {
+            }
+            this._txtTLEN = value;
+            if (this._txtTLEN != null)
+            {
+            }
+          }
+        }
+
+        internal virtual AMS.TextBox.MaskedTextBox txtTORY
+        {
+          get
+          {
+            return this._txtTORY;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtTORY != null)
+            {
+              this._txtTORY.Leave -= new EventHandler(this.Select_Leave);
+              this._txtTORY.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtTORY = value;
+            if (this._txtTORY != null)
+            {
+              this._txtTORY.Leave += new EventHandler(this.Select_Leave);
+              this._txtTORY.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual IntegerTextBox txtTrack1
+        {
+          get
+          {
+            return this._txtTrack1;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtTrack1 != null)
+            {
+            }
+            this._txtTrack1 = value;
+            if (this._txtTrack1 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual IntegerTextBox txtTrack2
+        {
+          get
+          {
+            return this._txtTrack2;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtTrack2 != null)
+            {
+            }
+            this._txtTrack2 = value;
+            if (this._txtTrack2 != null)
+            {
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtTXXXContent
+        {
+          get
+          {
+            return this._txtTXXXContent;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtTXXXContent != null)
+            {
+              this._txtTXXXContent.Leave -= new EventHandler(this.Select_Leave);
+              this._txtTXXXContent.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtTXXXContent = value;
+            if (this._txtTXXXContent != null)
+            {
+              this._txtTXXXContent.Leave += new EventHandler(this.Select_Leave);
+              this._txtTXXXContent.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtTXXXDesc
+        {
+          get
+          {
+            return this._txtTXXXDesc;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtTXXXDesc != null)
+            {
+              this._txtTXXXDesc.Leave -= new EventHandler(this.Select_Leave);
+              this._txtTXXXDesc.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtTXXXDesc = value;
+            if (this._txtTXXXDesc != null)
+            {
+              this._txtTXXXDesc.Leave += new EventHandler(this.Select_Leave);
+              this._txtTXXXDesc.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtWXXXContent
+        {
+          get
+          {
+            return this._txtWXXXContent;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtWXXXContent != null)
+            {
+              this._txtWXXXContent.Leave -= new EventHandler(this.Select_Leave);
+              this._txtWXXXContent.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtWXXXContent = value;
+            if (this._txtWXXXContent != null)
+            {
+              this._txtWXXXContent.Leave += new EventHandler(this.Select_Leave);
+              this._txtWXXXContent.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual System.Windows.Forms.TextBox txtWXXXDesc
+        {
+          get
+          {
+            return this._txtWXXXDesc;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtWXXXDesc != null)
+            {
+              this._txtWXXXDesc.Leave -= new EventHandler(this.Select_Leave);
+              this._txtWXXXDesc.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtWXXXDesc = value;
+            if (this._txtWXXXDesc != null)
+            {
+              this._txtWXXXDesc.Leave += new EventHandler(this.Select_Leave);
+              this._txtWXXXDesc.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual AMS.TextBox.MaskedTextBox txtYear
+        {
+          get
+          {
+            return this._txtYear;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._txtYear != null)
+            {
+              this._txtYear.Leave -= new EventHandler(this.Select_Leave);
+              this._txtYear.Enter -= new EventHandler(this.Select_Enter);
+            }
+            this._txtYear = value;
+            if (this._txtYear != null)
+            {
+              this._txtYear.Leave += new EventHandler(this.Select_Leave);
+              this._txtYear.Enter += new EventHandler(this.Select_Enter);
+            }
+          }
+        }
+
+        internal virtual ListView TXXXList
+        {
+          get
+          {
+            return this._TXXXList;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._TXXXList != null)
+            {
+              this._TXXXList.Leave -= new EventHandler(this.Select_Leave);
+              this._TXXXList.Click -= new EventHandler(this.TXXXList_Click);
+            }
+            this._TXXXList = value;
+            if (this._TXXXList != null)
+            {
+              this._TXXXList.Leave += new EventHandler(this.Select_Leave);
+              this._TXXXList.Click += new EventHandler(this.TXXXList_Click);
+            }
+          }
+        }
+
+        internal virtual ListView WXXXList
+        {
+          get
+          {
+            return this._WXXXList;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._WXXXList != null)
+            {
+              this._WXXXList.Leave -= new EventHandler(this.Select_Leave);
+              this._WXXXList.Click -= new EventHandler(this.WXXXList_Click);
+            }
+            this._WXXXList = value;
+            if (this._WXXXList != null)
+            {
+              this._WXXXList.Leave += new EventHandler(this.Select_Leave);
+              this._WXXXList.Click += new EventHandler(this.WXXXList_Click);
+            }
+          }
+        }
+
+        internal virtual HScrollBar YearFormat
+        {
+          get
+          {
+            return this._YearFormat;
+          }
+          [MethodImpl(MethodImplOptions.Synchronized)]
+          set
+          {
+            if (this._YearFormat != null)
+            {
+              this._YearFormat.Scroll -= new ScrollEventHandler(this.YearFormat_Scroll);
+            }
+            this._YearFormat = value;
+            if (this._YearFormat != null)
+            {
+              this._YearFormat.Scroll += new ScrollEventHandler(this.YearFormat_Scroll);
+            }
+          }
+        }
+    */
   }
 }

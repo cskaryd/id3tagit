@@ -13,86 +13,521 @@ namespace ID3_TagIT
 {
   public class frmOrganize : Form
   {
-    [AccessedThroughProperty("btnAdd")]
-    private Button _btnAdd;
-    [AccessedThroughProperty("btnBrowse")]
-    private Button _btnBrowse;
-    [AccessedThroughProperty("btnCancel")]
-    private Button _btnCancel;
-    [AccessedThroughProperty("btnOK")]
-    private Button _btnOK;
-    [AccessedThroughProperty("btnRemove")]
-    private Button _btnRemove;
-    [AccessedThroughProperty("chkCopy")]
-    private CheckBox _chkCopy;
-    [AccessedThroughProperty("chkOverwrite")]
-    private CheckBox _chkOverwrite;
-    [AccessedThroughProperty("cmbFormat")]
-    private ComboBox _cmbFormat;
-    [AccessedThroughProperty("FolderBrowserDialog")]
-    private System.Windows.Forms.FolderBrowserDialog _FolderBrowserDialog;
-    [AccessedThroughProperty("framePara")]
-    private GroupBox _framePara;
-    [AccessedThroughProperty("L1")]
-    private Label _L1;
-    [AccessedThroughProperty("L10")]
-    private Label _L10;
-    [AccessedThroughProperty("L11")]
-    private Label _L11;
-    [AccessedThroughProperty("L12")]
-    private Label _L12;
-    [AccessedThroughProperty("L13")]
-    private Label _L13;
-    [AccessedThroughProperty("L14")]
-    private Label _L14;
-    [AccessedThroughProperty("L15")]
-    private Label _L15;
-    [AccessedThroughProperty("L16")]
-    private Label _L16;
-    [AccessedThroughProperty("L17")]
-    private Label _L17;
-    [AccessedThroughProperty("L18")]
-    private Label _L18;
-    [AccessedThroughProperty("L19")]
-    private Label _L19;
-    [AccessedThroughProperty("L2")]
-    private Label _L2;
-    [AccessedThroughProperty("L20")]
-    private Label _L20;
-    [AccessedThroughProperty("L3")]
-    private Label _L3;
-    [AccessedThroughProperty("L4")]
-    private Label _L4;
-    [AccessedThroughProperty("L5")]
-    private Label _L5;
-    [AccessedThroughProperty("L6")]
-    private Label _L6;
-    [AccessedThroughProperty("L7")]
-    private Label _L7;
-    [AccessedThroughProperty("L8")]
-    private Label _L8;
-    [AccessedThroughProperty("L9")]
-    private Label _L9;
-    [AccessedThroughProperty("lblDigits")]
-    private Label _lblDigits;
-    [AccessedThroughProperty("lblFormat")]
-    private Label _lblFormat;
-    [AccessedThroughProperty("lblInfo")]
-    private Label _lblInfo;
-    [AccessedThroughProperty("lblPath")]
-    private Label _lblPath;
-    [AccessedThroughProperty("optID3V1")]
-    private RadioButton _optID3V1;
-    [AccessedThroughProperty("optID3V2")]
-    private RadioButton _optID3V2;
-    [AccessedThroughProperty("ToolTip")]
-    private System.Windows.Forms.ToolTip _ToolTip;
-    [AccessedThroughProperty("txtDigits")]
-    private NumericUpDown _txtDigits;
-    [AccessedThroughProperty("txtPath")]
-    private TextBox _txtPath;
+    private Button  btnAdd;
+    private Button  btnBrowse;
+    private Button  btnCancel;
+    private Button  btnOK;
+    private Button  btnRemove;
+    private CheckBox  chkCopy;
+    private CheckBox  chkOverwrite;
+    private ComboBox  cmbFormat;
+    private System.Windows.Forms.FolderBrowserDialog  FolderBrowserDialog;
+    private GroupBox  framePara;
+    private Label  L1;
+    private Label  L10;
+    private Label  L11;
+    private Label  L12;
+    private Label  L13;
+    private Label  L14;
+    private Label  L15;
+    private Label  L16;
+    private Label  L17;
+    private Label  L18;
+    private Label  L19;
+    private Label  L2;
+    private Label  L20;
+    private Label  L3;
+    private Label  L4;
+    private Label  L5;
+    private Label  L6;
+    private Label  L7;
+    private Label  L8;
+    private Label  L9;
+    private Label  lblDigits;
+    private Label  lblFormat;
+    private Label  lblInfo;
+    private Label  lblPath;
+    private RadioButton  optID3V1;
+    private RadioButton  optID3V2;
+    private System.Windows.Forms.ToolTip  ToolTip;
+    private NumericUpDown  txtDigits;
+    private TextBox  txtPath;
     private IContainer components;
     private frmMain MainForm;
+
+    [DebuggerStepThrough]
+    private void InitializeComponent()
+    {
+      this.components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrganize));
+      this.lblPath = new System.Windows.Forms.Label();
+      this.lblFormat = new System.Windows.Forms.Label();
+      this.txtPath = new System.Windows.Forms.TextBox();
+      this.btnBrowse = new System.Windows.Forms.Button();
+      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new System.Windows.Forms.Button();
+      this.cmbFormat = new System.Windows.Forms.ComboBox();
+      this.btnAdd = new System.Windows.Forms.Button();
+      this.btnRemove = new System.Windows.Forms.Button();
+      this.framePara = new System.Windows.Forms.GroupBox();
+      this.L19 = new System.Windows.Forms.Label();
+      this.L20 = new System.Windows.Forms.Label();
+      this.L13 = new System.Windows.Forms.Label();
+      this.L16 = new System.Windows.Forms.Label();
+      this.L15 = new System.Windows.Forms.Label();
+      this.L14 = new System.Windows.Forms.Label();
+      this.L17 = new System.Windows.Forms.Label();
+      this.L12 = new System.Windows.Forms.Label();
+      this.L11 = new System.Windows.Forms.Label();
+      this.L10 = new System.Windows.Forms.Label();
+      this.L9 = new System.Windows.Forms.Label();
+      this.L8 = new System.Windows.Forms.Label();
+      this.L7 = new System.Windows.Forms.Label();
+      this.L6 = new System.Windows.Forms.Label();
+      this.L5 = new System.Windows.Forms.Label();
+      this.L4 = new System.Windows.Forms.Label();
+      this.L3 = new System.Windows.Forms.Label();
+      this.L2 = new System.Windows.Forms.Label();
+      this.L1 = new System.Windows.Forms.Label();
+      this.L18 = new System.Windows.Forms.Label();
+      this.lblDigits = new System.Windows.Forms.Label();
+      this.optID3V2 = new System.Windows.Forms.RadioButton();
+      this.optID3V1 = new System.Windows.Forms.RadioButton();
+      this.txtDigits = new System.Windows.Forms.NumericUpDown();
+      this.lblInfo = new System.Windows.Forms.Label();
+      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+      this.chkOverwrite = new System.Windows.Forms.CheckBox();
+      this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+      this.chkCopy = new System.Windows.Forms.CheckBox();
+      this.framePara.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).BeginInit();
+      this.SuspendLayout();
+      // 
+      // lblPath
+      // 
+      this.lblPath.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPath.Location = new System.Drawing.Point(8, 8);
+      this.lblPath.Name = "lblPath";
+      this.lblPath.Size = new System.Drawing.Size(96, 16);
+      this.lblPath.TabIndex = 0;
+      this.lblPath.Text = "&Root-Path:";
+      // 
+      // lblFormat
+      // 
+      this.lblFormat.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblFormat.Location = new System.Drawing.Point(8, 40);
+      this.lblFormat.Name = "lblFormat";
+      this.lblFormat.Size = new System.Drawing.Size(96, 16);
+      this.lblFormat.TabIndex = 3;
+      this.lblFormat.Text = "&Format:";
+      // 
+      // txtPath
+      // 
+      this.txtPath.Location = new System.Drawing.Point(104, 6);
+      this.txtPath.Name = "txtPath";
+      this.txtPath.Size = new System.Drawing.Size(304, 20);
+      this.txtPath.TabIndex = 1;
+      this.txtPath.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPath_KeyPress);
+      // 
+      // btnBrowse
+      // 
+      this.btnBrowse.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnBrowse.Location = new System.Drawing.Point(416, 4);
+      this.btnBrowse.Name = "btnBrowse";
+      this.btnBrowse.Size = new System.Drawing.Size(88, 24);
+      this.btnBrowse.TabIndex = 2;
+      this.btnBrowse.Text = "&Browse ...";
+      this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+      // 
+      // btnCancel
+      // 
+      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+      this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCancel.Location = new System.Drawing.Point(384, 376);
+      this.btnCancel.Name = "btnCancel";
+      this.btnCancel.Size = new System.Drawing.Size(120, 24);
+      this.btnCancel.TabIndex = 18;
+      this.btnCancel.Text = "&Cancel";
+      // 
+      // btnOK
+      // 
+      this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnOK.Location = new System.Drawing.Point(256, 376);
+      this.btnOK.Name = "btnOK";
+      this.btnOK.Size = new System.Drawing.Size(120, 24);
+      this.btnOK.TabIndex = 17;
+      this.btnOK.Text = "&OK";
+      this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+      // 
+      // cmbFormat
+      // 
+      this.cmbFormat.ItemHeight = 13;
+      this.cmbFormat.Location = new System.Drawing.Point(104, 32);
+      this.cmbFormat.Name = "cmbFormat";
+      this.cmbFormat.Size = new System.Drawing.Size(400, 21);
+      this.cmbFormat.TabIndex = 4;
+      this.cmbFormat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbFormat_KeyPress);
+      // 
+      // btnAdd
+      // 
+      this.btnAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAdd.Location = new System.Drawing.Point(104, 56);
+      this.btnAdd.Name = "btnAdd";
+      this.btnAdd.Size = new System.Drawing.Size(192, 24);
+      this.btnAdd.TabIndex = 5;
+      this.btnAdd.Text = "&Add format to list";
+      this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+      // 
+      // btnRemove
+      // 
+      this.btnRemove.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemove.Location = new System.Drawing.Point(312, 56);
+      this.btnRemove.Name = "btnRemove";
+      this.btnRemove.Size = new System.Drawing.Size(192, 24);
+      this.btnRemove.TabIndex = 6;
+      this.btnRemove.Text = "&Remove format from list";
+      this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+      // 
+      // framePara
+      // 
+      this.framePara.Controls.Add(this.L19);
+      this.framePara.Controls.Add(this.L20);
+      this.framePara.Controls.Add(this.L13);
+      this.framePara.Controls.Add(this.L16);
+      this.framePara.Controls.Add(this.L15);
+      this.framePara.Controls.Add(this.L14);
+      this.framePara.Controls.Add(this.L17);
+      this.framePara.Controls.Add(this.L12);
+      this.framePara.Controls.Add(this.L11);
+      this.framePara.Controls.Add(this.L10);
+      this.framePara.Controls.Add(this.L9);
+      this.framePara.Controls.Add(this.L8);
+      this.framePara.Controls.Add(this.L7);
+      this.framePara.Controls.Add(this.L6);
+      this.framePara.Controls.Add(this.L5);
+      this.framePara.Controls.Add(this.L4);
+      this.framePara.Controls.Add(this.L3);
+      this.framePara.Controls.Add(this.L2);
+      this.framePara.Controls.Add(this.L1);
+      this.framePara.Controls.Add(this.L18);
+      this.framePara.Location = new System.Drawing.Point(8, 144);
+      this.framePara.Name = "framePara";
+      this.framePara.Size = new System.Drawing.Size(496, 136);
+      this.framePara.TabIndex = 11;
+      this.framePara.TabStop = false;
+      this.framePara.Text = "Parameters (Tip: click the label to add the parameter to the format)";
+      // 
+      // L19
+      // 
+      this.L19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L19.Location = new System.Drawing.Point(8, 112);
+      this.L19.Name = "L19";
+      this.L19.Size = new System.Drawing.Size(152, 16);
+      this.L19.TabIndex = 56;
+      this.L19.Text = "<I> = Bitrate";
+      this.L19.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L20
+      // 
+      this.L20.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L20.Location = new System.Drawing.Point(168, 112);
+      this.L20.Name = "L20";
+      this.L20.Size = new System.Drawing.Size(152, 16);
+      this.L20.TabIndex = 55;
+      this.L20.Text = "\\ = Folder";
+      // 
+      // L13
+      // 
+      this.L13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L13.Location = new System.Drawing.Point(8, 80);
+      this.L13.Name = "L13";
+      this.L13.Size = new System.Drawing.Size(152, 16);
+      this.L13.TabIndex = 54;
+      this.L13.Text = "<R> = Composer";
+      this.L13.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L16
+      // 
+      this.L16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L16.Location = new System.Drawing.Point(8, 96);
+      this.L16.Name = "L16";
+      this.L16.Size = new System.Drawing.Size(152, 16);
+      this.L16.TabIndex = 53;
+      this.L16.Text = "<E> = Beats/minute (BPM)";
+      this.L16.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L15
+      // 
+      this.L15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L15.Location = new System.Drawing.Point(328, 80);
+      this.L15.Name = "L15";
+      this.L15.Size = new System.Drawing.Size(160, 16);
+      this.L15.TabIndex = 52;
+      this.L15.Text = "<O> = Band / Orchestra";
+      this.L15.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L14
+      // 
+      this.L14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L14.Location = new System.Drawing.Point(168, 80);
+      this.L14.Name = "L14";
+      this.L14.Size = new System.Drawing.Size(160, 16);
+      this.L14.TabIndex = 51;
+      this.L14.Text = "<S> = Subtitle";
+      this.L14.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L17
+      // 
+      this.L17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L17.Location = new System.Drawing.Point(168, 96);
+      this.L17.Name = "L17";
+      this.L17.Size = new System.Drawing.Size(160, 16);
+      this.L17.TabIndex = 50;
+      this.L17.Text = "<M> = Modified / Remixed by";
+      this.L17.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L12
+      // 
+      this.L12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L12.Location = new System.Drawing.Point(328, 64);
+      this.L12.Name = "L12";
+      this.L12.Size = new System.Drawing.Size(160, 16);
+      this.L12.TabIndex = 49;
+      this.L12.Text = "<N> = Conductor";
+      this.L12.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L11
+      // 
+      this.L11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L11.Location = new System.Drawing.Point(168, 64);
+      this.L11.Name = "L11";
+      this.L11.Size = new System.Drawing.Size(160, 16);
+      this.L11.TabIndex = 48;
+      this.L11.Text = "<p> = Total number of medias";
+      this.L11.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L10
+      // 
+      this.L10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L10.Location = new System.Drawing.Point(8, 64);
+      this.L10.Name = "L10";
+      this.L10.Size = new System.Drawing.Size(160, 16);
+      this.L10.TabIndex = 47;
+      this.L10.Text = "<P> = Position in media set";
+      this.L10.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L9
+      // 
+      this.L9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L9.Location = new System.Drawing.Point(328, 48);
+      this.L9.Name = "L9";
+      this.L9.Size = new System.Drawing.Size(160, 16);
+      this.L9.TabIndex = 46;
+      this.L9.Text = "<U> = Content Group";
+      this.L9.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L8
+      // 
+      this.L8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L8.Location = new System.Drawing.Point(168, 48);
+      this.L8.Name = "L8";
+      this.L8.Size = new System.Drawing.Size(160, 16);
+      this.L8.TabIndex = 45;
+      this.L8.Text = "<k> = Total number of tracks";
+      this.L8.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L7
+      // 
+      this.L7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L7.Location = new System.Drawing.Point(8, 48);
+      this.L7.Name = "L7";
+      this.L7.Size = new System.Drawing.Size(160, 16);
+      this.L7.TabIndex = 44;
+      this.L7.Text = "<K> = Track number";
+      this.L7.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L6
+      // 
+      this.L6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L6.Location = new System.Drawing.Point(328, 32);
+      this.L6.Name = "L6";
+      this.L6.Size = new System.Drawing.Size(160, 16);
+      this.L6.TabIndex = 43;
+      this.L6.Text = "<G> = First Genre";
+      this.L6.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L5
+      // 
+      this.L5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L5.Location = new System.Drawing.Point(168, 32);
+      this.L5.Name = "L5";
+      this.L5.Size = new System.Drawing.Size(160, 16);
+      this.L5.TabIndex = 42;
+      this.L5.Text = "<Y> = Year";
+      this.L5.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L4
+      // 
+      this.L4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L4.Location = new System.Drawing.Point(8, 32);
+      this.L4.Name = "L4";
+      this.L4.Size = new System.Drawing.Size(160, 16);
+      this.L4.TabIndex = 41;
+      this.L4.Text = "<C> = Comment";
+      this.L4.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L3
+      // 
+      this.L3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L3.Location = new System.Drawing.Point(328, 16);
+      this.L3.Name = "L3";
+      this.L3.Size = new System.Drawing.Size(160, 16);
+      this.L3.TabIndex = 40;
+      this.L3.Text = "<B> = Album";
+      this.L3.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L2
+      // 
+      this.L2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L2.Location = new System.Drawing.Point(168, 16);
+      this.L2.Name = "L2";
+      this.L2.Size = new System.Drawing.Size(160, 16);
+      this.L2.TabIndex = 39;
+      this.L2.Text = "<T> = Title";
+      this.L2.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L1
+      // 
+      this.L1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L1.Location = new System.Drawing.Point(8, 16);
+      this.L1.Name = "L1";
+      this.L1.Size = new System.Drawing.Size(160, 16);
+      this.L1.TabIndex = 38;
+      this.L1.Text = "<A> = Artist";
+      this.L1.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // L18
+      // 
+      this.L18.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.L18.Location = new System.Drawing.Point(328, 96);
+      this.L18.Name = "L18";
+      this.L18.Size = new System.Drawing.Size(152, 16);
+      this.L18.TabIndex = 16;
+      this.L18.Text = "<1> = First letter of artist";
+      this.L18.Click += new System.EventHandler(this.Label_Click);
+      // 
+      // lblDigits
+      // 
+      this.lblDigits.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblDigits.Location = new System.Drawing.Point(104, 112);
+      this.lblDigits.Name = "lblDigits";
+      this.lblDigits.Size = new System.Drawing.Size(184, 16);
+      this.lblDigits.TabIndex = 9;
+      this.lblDigits.Text = "&Number of digits of track numbers:";
+      // 
+      // optID3V2
+      // 
+      this.optID3V2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optID3V2.Location = new System.Drawing.Point(312, 88);
+      this.optID3V2.Name = "optID3V2";
+      this.optID3V2.Size = new System.Drawing.Size(168, 16);
+      this.optID3V2.TabIndex = 8;
+      this.optID3V2.Text = "Use Ver. &2 TAG information";
+      // 
+      // optID3V1
+      // 
+      this.optID3V1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optID3V1.Location = new System.Drawing.Point(104, 88);
+      this.optID3V1.Name = "optID3V1";
+      this.optID3V1.Size = new System.Drawing.Size(168, 16);
+      this.optID3V1.TabIndex = 7;
+      this.optID3V1.Text = "Use Ver. &1 TAG information";
+      this.optID3V1.CheckedChanged += new System.EventHandler(this.optID3V1_CheckedChanged);
+      // 
+      // txtDigits
+      // 
+      this.txtDigits.Location = new System.Drawing.Point(312, 110);
+      this.txtDigits.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.txtDigits.Name = "txtDigits";
+      this.txtDigits.Size = new System.Drawing.Size(64, 20);
+      this.txtDigits.TabIndex = 10;
+      this.txtDigits.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.txtDigits.Validated += new System.EventHandler(this.txtDigits_Validated);
+      // 
+      // lblInfo
+      // 
+      this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInfo.Location = new System.Drawing.Point(8, 288);
+      this.lblInfo.Name = "lblInfo";
+      this.lblInfo.Size = new System.Drawing.Size(496, 48);
+      this.lblInfo.TabIndex = 12;
+      this.lblInfo.Text = resources.GetString("lblInfo.Text");
+      this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // chkOverwrite
+      // 
+      this.chkOverwrite.Checked = true;
+      this.chkOverwrite.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.chkOverwrite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkOverwrite.Location = new System.Drawing.Point(16, 348);
+      this.chkOverwrite.Name = "chkOverwrite";
+      this.chkOverwrite.Size = new System.Drawing.Size(224, 16);
+      this.chkOverwrite.TabIndex = 15;
+      this.chkOverwrite.Text = "Overwrite existing files";
+      // 
+      // chkCopy
+      // 
+      this.chkCopy.Location = new System.Drawing.Point(264, 348);
+      this.chkCopy.Name = "chkCopy";
+      this.chkCopy.Size = new System.Drawing.Size(232, 16);
+      this.chkCopy.TabIndex = 16;
+      this.chkCopy.Text = "Copy the files instead of moving them";
+      // 
+      // frmOrganize
+      // 
+      this.AcceptButton = this.btnOK;
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+      this.CancelButton = this.btnCancel;
+      this.ClientSize = new System.Drawing.Size(514, 408);
+      this.ControlBox = false;
+      this.Controls.Add(this.chkCopy);
+      this.Controls.Add(this.chkOverwrite);
+      this.Controls.Add(this.lblInfo);
+      this.Controls.Add(this.lblDigits);
+      this.Controls.Add(this.optID3V2);
+      this.Controls.Add(this.optID3V1);
+      this.Controls.Add(this.txtDigits);
+      this.Controls.Add(this.framePara);
+      this.Controls.Add(this.btnRemove);
+      this.Controls.Add(this.btnAdd);
+      this.Controls.Add(this.cmbFormat);
+      this.Controls.Add(this.btnCancel);
+      this.Controls.Add(this.btnOK);
+      this.Controls.Add(this.btnBrowse);
+      this.Controls.Add(this.txtPath);
+      this.Controls.Add(this.lblPath);
+      this.Controls.Add(this.lblFormat);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
+      this.Name = "frmOrganize";
+      this.ShowInTaskbar = false;
+      this.Text = "Organize files";
+      this.framePara.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).EndInit();
+      this.ResumeLayout(false);
+      this.PerformLayout();
+
+    }
 
     public frmOrganize(ref frmMain FormMain)
     {
@@ -278,407 +713,6 @@ namespace ID3_TagIT
       this.AddToolTips();
     }
 
-    [DebuggerStepThrough]
-    private void InitializeComponent()
-    {
-      this.components = new Container();
-      this.lblPath = new Label();
-      this.lblFormat = new Label();
-      this.txtPath = new TextBox();
-      this.btnBrowse = new Button();
-      this.btnCancel = new Button();
-      this.btnOK = new Button();
-      this.cmbFormat = new ComboBox();
-      this.btnAdd = new Button();
-      this.btnRemove = new Button();
-      this.framePara = new GroupBox();
-      this.L19 = new Label();
-      this.L20 = new Label();
-      this.L13 = new Label();
-      this.L16 = new Label();
-      this.L15 = new Label();
-      this.L14 = new Label();
-      this.L17 = new Label();
-      this.L12 = new Label();
-      this.L11 = new Label();
-      this.L10 = new Label();
-      this.L9 = new Label();
-      this.L8 = new Label();
-      this.L7 = new Label();
-      this.L6 = new Label();
-      this.L5 = new Label();
-      this.L4 = new Label();
-      this.L3 = new Label();
-      this.L2 = new Label();
-      this.L1 = new Label();
-      this.L18 = new Label();
-      this.lblDigits = new Label();
-      this.optID3V2 = new RadioButton();
-      this.optID3V1 = new RadioButton();
-      this.txtDigits = new NumericUpDown();
-      this.lblInfo = new Label();
-      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.chkOverwrite = new CheckBox();
-      this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-      this.chkCopy = new CheckBox();
-      this.framePara.SuspendLayout();
-      this.txtDigits.BeginInit();
-      this.SuspendLayout();
-      this.lblPath.ImeMode = ImeMode.NoControl;
-      Point point = new Point(8, 8);
-      this.lblPath.Location = point;
-      this.lblPath.Name = "lblPath";
-      Size size = new Size(0x60, 0x10);
-      this.lblPath.Size = size;
-      this.lblPath.TabIndex = 0;
-      this.lblPath.Text = "&Root-Path:";
-      this.lblFormat.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 40);
-      this.lblFormat.Location = point;
-      this.lblFormat.Name = "lblFormat";
-      size = new Size(0x60, 0x10);
-      this.lblFormat.Size = size;
-      this.lblFormat.TabIndex = 3;
-      this.lblFormat.Text = "&Format:";
-      point = new Point(0x68, 6);
-      this.txtPath.Location = point;
-      this.txtPath.Name = "txtPath";
-      size = new Size(0x130, 20);
-      this.txtPath.Size = size;
-      this.txtPath.TabIndex = 1;
-      this.txtPath.Text = "";
-      this.btnBrowse.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1a0, 4);
-      this.btnBrowse.Location = point;
-      this.btnBrowse.Name = "btnBrowse";
-      size = new Size(0x58, 0x18);
-      this.btnBrowse.Size = size;
-      this.btnBrowse.TabIndex = 2;
-      this.btnBrowse.Text = "&Browse ...";
-      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnCancel.ImeMode = ImeMode.NoControl;
-      point = new Point(0x180, 0x178);
-      this.btnCancel.Location = point;
-      this.btnCancel.Name = "btnCancel";
-      size = new Size(120, 0x18);
-      this.btnCancel.Size = size;
-      this.btnCancel.TabIndex = 0x12;
-      this.btnCancel.Text = "&Cancel";
-      this.btnOK.ImeMode = ImeMode.NoControl;
-      point = new Point(0x100, 0x178);
-      this.btnOK.Location = point;
-      this.btnOK.Name = "btnOK";
-      size = new Size(120, 0x18);
-      this.btnOK.Size = size;
-      this.btnOK.TabIndex = 0x11;
-      this.btnOK.Text = "&OK";
-      this.cmbFormat.ItemHeight = 13;
-      point = new Point(0x68, 0x20);
-      this.cmbFormat.Location = point;
-      this.cmbFormat.Name = "cmbFormat";
-      size = new Size(400, 0x15);
-      this.cmbFormat.Size = size;
-      this.cmbFormat.TabIndex = 4;
-      this.btnAdd.ImeMode = ImeMode.NoControl;
-      point = new Point(0x68, 0x38);
-      this.btnAdd.Location = point;
-      this.btnAdd.Name = "btnAdd";
-      size = new Size(0xc0, 0x18);
-      this.btnAdd.Size = size;
-      this.btnAdd.TabIndex = 5;
-      this.btnAdd.Text = "&Add format to list";
-      this.btnRemove.ImeMode = ImeMode.NoControl;
-      point = new Point(0x138, 0x38);
-      this.btnRemove.Location = point;
-      this.btnRemove.Name = "btnRemove";
-      size = new Size(0xc0, 0x18);
-      this.btnRemove.Size = size;
-      this.btnRemove.TabIndex = 6;
-      this.btnRemove.Text = "&Remove format from list";
-      this.framePara.Controls.Add(this.L19);
-      this.framePara.Controls.Add(this.L20);
-      this.framePara.Controls.Add(this.L13);
-      this.framePara.Controls.Add(this.L16);
-      this.framePara.Controls.Add(this.L15);
-      this.framePara.Controls.Add(this.L14);
-      this.framePara.Controls.Add(this.L17);
-      this.framePara.Controls.Add(this.L12);
-      this.framePara.Controls.Add(this.L11);
-      this.framePara.Controls.Add(this.L10);
-      this.framePara.Controls.Add(this.L9);
-      this.framePara.Controls.Add(this.L8);
-      this.framePara.Controls.Add(this.L7);
-      this.framePara.Controls.Add(this.L6);
-      this.framePara.Controls.Add(this.L5);
-      this.framePara.Controls.Add(this.L4);
-      this.framePara.Controls.Add(this.L3);
-      this.framePara.Controls.Add(this.L2);
-      this.framePara.Controls.Add(this.L1);
-      this.framePara.Controls.Add(this.L18);
-      point = new Point(8, 0x90);
-      this.framePara.Location = point;
-      this.framePara.Name = "framePara";
-      size = new Size(0x1f0, 0x88);
-      this.framePara.Size = size;
-      this.framePara.TabIndex = 11;
-      this.framePara.TabStop = false;
-      this.framePara.Text = "Parameters (Tip: click the label to add the parameter to the format)";
-      this.L19.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x70);
-      this.L19.Location = point;
-      this.L19.Name = "L19";
-      size = new Size(0x98, 0x10);
-      this.L19.Size = size;
-      this.L19.TabIndex = 0x38;
-      this.L19.Text = "<I> = Bitrate";
-      this.L20.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x70);
-      this.L20.Location = point;
-      this.L20.Name = "L20";
-      size = new Size(0x98, 0x10);
-      this.L20.Size = size;
-      this.L20.TabIndex = 0x37;
-      this.L20.Text = @"\ = Folder";
-      this.L13.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 80);
-      this.L13.Location = point;
-      this.L13.Name = "L13";
-      size = new Size(0x98, 0x10);
-      this.L13.Size = size;
-      this.L13.TabIndex = 0x36;
-      this.L13.Text = "<R> = Composer";
-      this.L16.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x60);
-      this.L16.Location = point;
-      this.L16.Name = "L16";
-      size = new Size(0x98, 0x10);
-      this.L16.Size = size;
-      this.L16.TabIndex = 0x35;
-      this.L16.Text = "<E> = Beats/minute (BPM)";
-      this.L15.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 80);
-      this.L15.Location = point;
-      this.L15.Name = "L15";
-      size = new Size(160, 0x10);
-      this.L15.Size = size;
-      this.L15.TabIndex = 0x34;
-      this.L15.Text = "<O> = Band / Orchestra";
-      this.L14.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 80);
-      this.L14.Location = point;
-      this.L14.Name = "L14";
-      size = new Size(160, 0x10);
-      this.L14.Size = size;
-      this.L14.TabIndex = 0x33;
-      this.L14.Text = "<S> = Subtitle";
-      this.L17.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x60);
-      this.L17.Location = point;
-      this.L17.Name = "L17";
-      size = new Size(160, 0x10);
-      this.L17.Size = size;
-      this.L17.TabIndex = 50;
-      this.L17.Text = "<M> = Modified / Remixed by";
-      this.L12.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x40);
-      this.L12.Location = point;
-      this.L12.Name = "L12";
-      size = new Size(160, 0x10);
-      this.L12.Size = size;
-      this.L12.TabIndex = 0x31;
-      this.L12.Text = "<N> = Conductor";
-      this.L11.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x40);
-      this.L11.Location = point;
-      this.L11.Name = "L11";
-      size = new Size(160, 0x10);
-      this.L11.Size = size;
-      this.L11.TabIndex = 0x30;
-      this.L11.Text = "<p> = Total number of medias";
-      this.L10.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x40);
-      this.L10.Location = point;
-      this.L10.Name = "L10";
-      size = new Size(160, 0x10);
-      this.L10.Size = size;
-      this.L10.TabIndex = 0x2f;
-      this.L10.Text = "<P> = Position in media set";
-      this.L9.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x30);
-      this.L9.Location = point;
-      this.L9.Name = "L9";
-      size = new Size(160, 0x10);
-      this.L9.Size = size;
-      this.L9.TabIndex = 0x2e;
-      this.L9.Text = "<U> = Content Group";
-      this.L8.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x30);
-      this.L8.Location = point;
-      this.L8.Name = "L8";
-      size = new Size(160, 0x10);
-      this.L8.Size = size;
-      this.L8.TabIndex = 0x2d;
-      this.L8.Text = "<k> = Total number of tracks";
-      this.L7.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x30);
-      this.L7.Location = point;
-      this.L7.Name = "L7";
-      size = new Size(160, 0x10);
-      this.L7.Size = size;
-      this.L7.TabIndex = 0x2c;
-      this.L7.Text = "<K> = Track number";
-      this.L6.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x20);
-      this.L6.Location = point;
-      this.L6.Name = "L6";
-      size = new Size(160, 0x10);
-      this.L6.Size = size;
-      this.L6.TabIndex = 0x2b;
-      this.L6.Text = "<G> = First Genre";
-      this.L5.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x20);
-      this.L5.Location = point;
-      this.L5.Name = "L5";
-      size = new Size(160, 0x10);
-      this.L5.Size = size;
-      this.L5.TabIndex = 0x2a;
-      this.L5.Text = "<Y> = Year";
-      this.L4.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x20);
-      this.L4.Location = point;
-      this.L4.Name = "L4";
-      size = new Size(160, 0x10);
-      this.L4.Size = size;
-      this.L4.TabIndex = 0x29;
-      this.L4.Text = "<C> = Comment";
-      this.L3.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x10);
-      this.L3.Location = point;
-      this.L3.Name = "L3";
-      size = new Size(160, 0x10);
-      this.L3.Size = size;
-      this.L3.TabIndex = 40;
-      this.L3.Text = "<B> = Album";
-      this.L2.ImeMode = ImeMode.NoControl;
-      point = new Point(0xa8, 0x10);
-      this.L2.Location = point;
-      this.L2.Name = "L2";
-      size = new Size(160, 0x10);
-      this.L2.Size = size;
-      this.L2.TabIndex = 0x27;
-      this.L2.Text = "<T> = Title";
-      this.L1.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x10);
-      this.L1.Location = point;
-      this.L1.Name = "L1";
-      size = new Size(160, 0x10);
-      this.L1.Size = size;
-      this.L1.TabIndex = 0x26;
-      this.L1.Text = "<A> = Artist";
-      this.L18.ImeMode = ImeMode.NoControl;
-      point = new Point(0x148, 0x60);
-      this.L18.Location = point;
-      this.L18.Name = "L18";
-      size = new Size(0x98, 0x10);
-      this.L18.Size = size;
-      this.L18.TabIndex = 0x10;
-      this.L18.Text = "<1> = First letter of artist";
-      this.lblDigits.ImeMode = ImeMode.NoControl;
-      point = new Point(0x68, 0x70);
-      this.lblDigits.Location = point;
-      this.lblDigits.Name = "lblDigits";
-      size = new Size(0xb8, 0x10);
-      this.lblDigits.Size = size;
-      this.lblDigits.TabIndex = 9;
-      this.lblDigits.Text = "&Number of digits of track numbers:";
-      this.optID3V2.ImeMode = ImeMode.NoControl;
-      point = new Point(0x138, 0x58);
-      this.optID3V2.Location = point;
-      this.optID3V2.Name = "optID3V2";
-      size = new Size(0xa8, 0x10);
-      this.optID3V2.Size = size;
-      this.optID3V2.TabIndex = 8;
-      this.optID3V2.Text = "Use Ver. &2 TAG information";
-      this.optID3V1.ImeMode = ImeMode.NoControl;
-      point = new Point(0x68, 0x58);
-      this.optID3V1.Location = point;
-      this.optID3V1.Name = "optID3V1";
-      size = new Size(0xa8, 0x10);
-      this.optID3V1.Size = size;
-      this.optID3V1.TabIndex = 7;
-      this.optID3V1.Text = "Use Ver. &1 TAG information";
-      point = new Point(0x138, 110);
-      this.txtDigits.Location = point;
-      decimal num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtDigits.Minimum = num;
-      this.txtDigits.Name = "txtDigits";
-      size = new Size(0x40, 20);
-      this.txtDigits.Size = size;
-      this.txtDigits.TabIndex = 10;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtDigits.Value = num;
-      this.lblInfo.BorderStyle = BorderStyle.Fixed3D;
-      this.lblInfo.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x120);
-      this.lblInfo.Location = point;
-      this.lblInfo.Name = "lblInfo";
-      size = new Size(0x1f0, 0x30);
-      this.lblInfo.Size = size;
-      this.lblInfo.TabIndex = 12;
-      this.lblInfo.Text = "With this dialog you can orginze your MP3 files within folders using the TAG information. Enter the format using the parameters above. To save the format give it a description (using the following syntax: \"Description: Format\") and add it to the list.";
-      this.lblInfo.TextAlign = ContentAlignment.MiddleCenter;
-      this.chkOverwrite.Checked = true;
-      this.chkOverwrite.CheckState = CheckState.Checked;
-      this.chkOverwrite.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x15c);
-      this.chkOverwrite.Location = point;
-      this.chkOverwrite.Name = "chkOverwrite";
-      size = new Size(0xe0, 0x10);
-      this.chkOverwrite.Size = size;
-      this.chkOverwrite.TabIndex = 15;
-      this.chkOverwrite.Text = "Overwrite existing files";
-      point = new Point(0x108, 0x15c);
-      this.chkCopy.Location = point;
-      this.chkCopy.Name = "chkCopy";
-      size = new Size(0xe8, 0x10);
-      this.chkCopy.Size = size;
-      this.chkCopy.TabIndex = 0x10;
-      this.chkCopy.Text = "Copy the files instead of moving them";
-      this.AcceptButton = this.btnOK;
-      size = new Size(5, 13);
-      this.AutoScaleBaseSize = size;
-      this.CancelButton = this.btnCancel;
-      size = new Size(0x202, 0x198);
-      this.ClientSize = size;
-      this.ControlBox = false;
-      this.Controls.Add(this.chkCopy);
-      this.Controls.Add(this.chkOverwrite);
-      this.Controls.Add(this.lblInfo);
-      this.Controls.Add(this.lblDigits);
-      this.Controls.Add(this.optID3V2);
-      this.Controls.Add(this.optID3V1);
-      this.Controls.Add(this.txtDigits);
-      this.Controls.Add(this.framePara);
-      this.Controls.Add(this.btnRemove);
-      this.Controls.Add(this.btnAdd);
-      this.Controls.Add(this.cmbFormat);
-      this.Controls.Add(this.btnCancel);
-      this.Controls.Add(this.btnOK);
-      this.Controls.Add(this.btnBrowse);
-      this.Controls.Add(this.txtPath);
-      this.Controls.Add(this.lblPath);
-      this.Controls.Add(this.lblFormat);
-      this.FormBorderStyle = FormBorderStyle.FixedDialog;
-      this.MaximizeBox = false;
-      this.MinimizeBox = false;
-      this.Name = "frmOrganize";
-      this.ShowInTaskbar = false;
-      this.Text = "Organize files";
-      this.framePara.ResumeLayout(false);
-      this.txtDigits.EndInit();
-      this.ResumeLayout(false);
-    }
-
     private void Label_Click(object sender, EventArgs e)
     {
       string selectedText = this.cmbFormat.SelectedText;
@@ -839,675 +873,6 @@ namespace ID3_TagIT
         case '?':
           e.Handled = true;
           break;
-      }
-    }
-
-    internal virtual Button btnAdd
-    {
-      get
-      {
-        return this._btnAdd;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnAdd != null)
-          this._btnAdd.Click -= new EventHandler(this.btnAdd_Click);
-
-        this._btnAdd = value;
-
-        if (this._btnAdd != null)
-          this._btnAdd.Click += new EventHandler(this.btnAdd_Click);
-      }
-    }
-
-    internal virtual Button btnBrowse
-    {
-      get
-      {
-        return this._btnBrowse;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnBrowse != null)
-          this._btnBrowse.Click -= new EventHandler(this.btnBrowse_Click);
-
-        this._btnBrowse = value;
-
-        if (this._btnBrowse != null)
-          this._btnBrowse.Click += new EventHandler(this.btnBrowse_Click);
-      }
-    }
-
-    internal virtual Button btnCancel
-    {
-      get
-      {
-        return this._btnCancel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        this._btnCancel = value;
-      }
-    }
-
-    internal virtual Button btnOK
-    {
-      get
-      {
-        return this._btnOK;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnOK != null)
-          this._btnOK.Click -= new EventHandler(this.btnOK_Click);
-
-        this._btnOK = value;
-
-        if (this._btnOK != null)
-          this._btnOK.Click += new EventHandler(this.btnOK_Click);
-      }
-    }
-
-    internal virtual Button btnRemove
-    {
-      get
-      {
-        return this._btnRemove;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnRemove != null)
-          this._btnRemove.Click -= new EventHandler(this.btnRemove_Click);
-
-        this._btnRemove = value;
-
-        if (this._btnRemove != null)
-          this._btnRemove.Click += new EventHandler(this.btnRemove_Click);
-      }
-    }
-
-    internal virtual CheckBox chkCopy
-    {
-      get
-      {
-        return this._chkCopy;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        this._chkCopy = value;
-      }
-    }
-
-    internal virtual CheckBox chkOverwrite
-    {
-      get
-      {
-        return this._chkOverwrite;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        this._chkOverwrite = value;
-      }
-    }
-
-    internal virtual ComboBox cmbFormat
-    {
-      get
-      {
-        return this._cmbFormat;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbFormat != null)
-          this._cmbFormat.KeyPress -= new KeyPressEventHandler(this.cmbFormat_KeyPress);
-
-        this._cmbFormat = value;
-
-        if (this._cmbFormat != null)
-          this._cmbFormat.KeyPress += new KeyPressEventHandler(this.cmbFormat_KeyPress);
-      }
-    }
-
-    internal virtual System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog
-    {
-      get
-      {
-        return this._FolderBrowserDialog;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        this._FolderBrowserDialog = value;
-      }
-    }
-
-    internal virtual GroupBox framePara
-    {
-      get
-      {
-        return this._framePara;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        this._framePara = value;
-      }
-    }
-
-    internal virtual Label L1
-    {
-      get
-      {
-        return this._L1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L1 != null)
-          this._L1.Click -= new EventHandler(this.Label_Click);
-
-        this._L1 = value;
-
-        if (this._L1 != null)
-          this._L1.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L10
-    {
-      get
-      {
-        return this._L10;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L10 != null)
-          this._L10.Click -= new EventHandler(this.Label_Click);
-
-        this._L10 = value;
-
-        if (this._L10 != null)
-          this._L10.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L11
-    {
-      get
-      {
-        return this._L11;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L11 != null)
-          this._L11.Click -= new EventHandler(this.Label_Click);
-
-        this._L11 = value;
-
-        if (this._L11 != null)
-          this._L11.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L12
-    {
-      get
-      {
-        return this._L12;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L12 != null)
-          this._L12.Click -= new EventHandler(this.Label_Click);
-
-        this._L12 = value;
-
-        if (this._L12 != null)
-          this._L12.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L13
-    {
-      get
-      {
-        return this._L13;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L13 != null)
-          this._L13.Click -= new EventHandler(this.Label_Click);
-
-        this._L13 = value;
-
-        if (this._L13 != null)
-          this._L13.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L14
-    {
-      get
-      {
-        return this._L14;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L14 != null)
-          this._L14.Click -= new EventHandler(this.Label_Click);
-
-        this._L14 = value;
-
-        if (this._L14 != null)
-          this._L14.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L15
-    {
-      get
-      {
-        return this._L15;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L15 != null)
-          this._L15.Click -= new EventHandler(this.Label_Click);
-
-        this._L15 = value;
-
-        if (this._L15 != null)
-          this._L15.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L16
-    {
-      get
-      {
-        return this._L16;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L16 != null)
-          this._L16.Click -= new EventHandler(this.Label_Click);
-
-        this._L16 = value;
-
-        if (this._L16 != null)
-          this._L16.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L17
-    {
-      get
-      {
-        return this._L17;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L17 != null)
-          this._L17.Click -= new EventHandler(this.Label_Click);
-
-        this._L17 = value;
-
-        if (this._L17 != null)
-          this._L17.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L18
-    {
-      get
-      {
-        return this._L18;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L18 != null)
-          this._L18.Click -= new EventHandler(this.Label_Click);
-
-        this._L18 = value;
-
-        if (this._L18 != null)
-          this._L18.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L19
-    {
-      get
-      {
-        return this._L19;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L19 != null)
-          this._L19.Click -= new EventHandler(this.Label_Click);
-
-        this._L19 = value;
-
-        if (this._L19 != null)
-          this._L19.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L2
-    {
-      get
-      {
-        return this._L2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L2 != null)
-          this._L2.Click -= new EventHandler(this.Label_Click);
-
-        this._L2 = value;
-
-        if (this._L2 != null)
-          this._L2.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L20
-    {
-      get
-      {
-        return this._L20;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        this._L20 = value;
-      }
-    }
-
-    internal virtual Label L3
-    {
-      get
-      {
-        return this._L3;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L3 != null)
-          this._L3.Click -= new EventHandler(this.Label_Click);
-
-        this._L3 = value;
-
-        if (this._L3 != null)
-          this._L3.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L4
-    {
-      get
-      {
-        return this._L4;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L4 != null)
-          this._L4.Click -= new EventHandler(this.Label_Click);
-
-        this._L4 = value;
-
-        if (this._L4 != null)
-          this._L4.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L5
-    {
-      get
-      {
-        return this._L5;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L5 != null)
-          this._L5.Click -= new EventHandler(this.Label_Click);
-
-        this._L5 = value;
-
-        if (this._L5 != null)
-          this._L5.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L6
-    {
-      get
-      {
-        return this._L6;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L6 != null)
-          this._L6.Click -= new EventHandler(this.Label_Click);
-
-        this._L6 = value;
-
-        if (this._L6 != null)
-          this._L6.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L7
-    {
-      get
-      {
-        return this._L7;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L7 != null)
-          this._L7.Click -= new EventHandler(this.Label_Click);
-
-        this._L7 = value;
-
-        if (this._L7 != null)
-          this._L7.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L8
-    {
-      get
-      {
-        return this._L8;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L8 != null)
-          this._L8.Click -= new EventHandler(this.Label_Click);
-
-        this._L8 = value;
-
-        if (this._L8 != null)
-          this._L8.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label L9
-    {
-      get
-      {
-        return this._L9;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._L9 != null)
-          this._L9.Click -= new EventHandler(this.Label_Click);
-
-        this._L9 = value;
-
-        if (this._L9 != null)
-          this._L9.Click += new EventHandler(this.Label_Click);
-      }
-    }
-
-    internal virtual Label lblDigits
-    {
-      get
-      {
-        return this._lblDigits;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        this._lblDigits = value;
-      }
-    }
-
-    internal virtual Label lblFormat
-    {
-      get
-      {
-        return this._lblFormat;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        this._lblFormat = value;
-      }
-    }
-
-    internal virtual Label lblInfo
-    {
-      get
-      {
-        return this._lblInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        this._lblInfo = value;
-      }
-    }
-
-    internal virtual Label lblPath
-    {
-      get
-      {
-        return this._lblPath;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        this._lblPath = value;
-      }
-    }
-
-    internal virtual RadioButton optID3V1
-    {
-      get
-      {
-        return this._optID3V1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optID3V1 != null)
-          this._optID3V1.CheckedChanged -= new EventHandler(this.optID3V1_CheckedChanged);
-
-        this._optID3V1 = value;
-
-        if (this._optID3V1 != null)
-          this._optID3V1.CheckedChanged += new EventHandler(this.optID3V1_CheckedChanged);
-      }
-    }
-
-    internal virtual RadioButton optID3V2
-    {
-      get
-      {
-        return this._optID3V2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        this._optID3V2 = value;
-      }
-    }
-
-    internal virtual System.Windows.Forms.ToolTip ToolTip
-    {
-      get
-      {
-        return this._ToolTip;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        this._ToolTip = value;
-      }
-    }
-
-    internal virtual NumericUpDown txtDigits
-    {
-      get
-      {
-        return this._txtDigits;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtDigits != null)
-          this._txtDigits.Validated -= new EventHandler(this.txtDigits_Validated);
-
-        this._txtDigits = value;
-
-        if (this._txtDigits != null)
-          this._txtDigits.Validated += new EventHandler(this.txtDigits_Validated);
-      }
-    }
-
-    private TextBox txtPath
-    {
-      get
-      {
-        return this._txtPath;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtPath != null)
-          this._txtPath.KeyPress -= new KeyPressEventHandler(this.txtPath_KeyPress);
-
-        this._txtPath = value;
-
-        if (this._txtPath != null)
-          this._txtPath.KeyPress += new KeyPressEventHandler(this.txtPath_KeyPress);
       }
     }
   }

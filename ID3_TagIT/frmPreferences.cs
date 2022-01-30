@@ -1,242 +1,1564 @@
-﻿namespace ID3_TagIT
-{
-  using AMS.TextBox;
-  using DevComponents.DotNetBar;
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using Microsoft.Win32;
-  using System;
-  using System.Collections;
-  using System.ComponentModel;
-  using System.Data;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.Resources;
-  using System.Runtime.CompilerServices;
-  using System.Windows.Forms;
+﻿using AMS.TextBox;
+using DevComponents.DotNetBar;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using Microsoft.Win32;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.Resources;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   public class frmPreferences : Form
   {
-    [AccessedThroughProperty("btnAdd")]
-    private Button _btnAdd;
-    [AccessedThroughProperty("btnBrowse")]
-    private Button _btnBrowse;
-    [AccessedThroughProperty("btnCancel")]
-    private Button _btnCancel;
-    [AccessedThroughProperty("btnDown")]
-    private Button _btnDown;
-    [AccessedThroughProperty("btnOK")]
-    private Button _btnOK;
-    [AccessedThroughProperty("btnRemove")]
-    private Button _btnRemove;
-    [AccessedThroughProperty("btnUp")]
-    private Button _btnUp;
-    [AccessedThroughProperty("ButtomPanel")]
-    private PanelEx _ButtomPanel;
-    [AccessedThroughProperty("C1")]
-    private DataGridTextBoxColumn _C1;
-    [AccessedThroughProperty("C2")]
-    private DataGridTextBoxColumn _C2;
-    [AccessedThroughProperty("C3")]
-    private DataGridTextBoxColumn _C3;
-    [AccessedThroughProperty("C4")]
-    private DataGridBoolColumn _C4;
-    [AccessedThroughProperty("C5")]
-    private DataGridTextBoxColumn _C5;
-    [AccessedThroughProperty("chkAudioChecksumCalc")]
-    private CheckBox _chkAudioChecksumCalc;
-    [AccessedThroughProperty("chkDefault")]
-    private CheckBox _chkDefault;
-    [AccessedThroughProperty("chkExplorerContext")]
-    private CheckBox _chkExplorerContext;
-    [AccessedThroughProperty("chkIgnoreWrite")]
-    private CheckBox _chkIgnoreWrite;
-    [AccessedThroughProperty("chkMouseRenaming")]
-    private CheckBox _chkMouseRenaming;
-    [AccessedThroughProperty("chkProxy")]
-    private CheckBox _chkProxy;
-    [AccessedThroughProperty("chkRestore")]
-    private CheckBox _chkRestore;
-    [AccessedThroughProperty("chkSaveOnExit")]
-    private CheckBox _chkSaveOnExit;
-    [AccessedThroughProperty("chkSingle")]
-    private CheckBox _chkSingle;
-    [AccessedThroughProperty("chkUnSync")]
-    private CheckBox _chkUnSync;
-    [AccessedThroughProperty("chkWinXPThemes")]
-    private CheckBox _chkWinXPThemes;
-    [AccessedThroughProperty("cmbPlay")]
-    private ComboBox _cmbPlay;
-    [AccessedThroughProperty("cmbShell")]
-    private ComboBox _cmbShell;
-    [AccessedThroughProperty("cmbV23Enc")]
-    private ComboBox _cmbV23Enc;
-    [AccessedThroughProperty("cmbV24Enc")]
-    private ComboBox _cmbV24Enc;
-    [AccessedThroughProperty("cmbYearFormat")]
-    private ComboBox _cmbYearFormat;
-    [AccessedThroughProperty("ColorChangedBack")]
-    private Button _ColorChangedBack;
-    [AccessedThroughProperty("ColorChangedText")]
-    private Button _ColorChangedText;
-    [AccessedThroughProperty("ColorCompareBack")]
-    private Button _ColorCompareBack;
-    [AccessedThroughProperty("ColorCompareText")]
-    private Button _ColorCompareText;
-    [AccessedThroughProperty("ColorDialog")]
-    private System.Windows.Forms.ColorDialog _ColorDialog;
-    [AccessedThroughProperty("ColorDoubleBack")]
-    private Button _ColorDoubleBack;
-    [AccessedThroughProperty("ColorDoubleText")]
-    private Button _ColorDoubleText;
-    [AccessedThroughProperty("Colors")]
-    private TabItem _Colors;
-    [AccessedThroughProperty("Columns")]
-    private TabItem _Columns;
-    [AccessedThroughProperty("ColumnsList")]
-    private ListView _ColumnsList;
-    [AccessedThroughProperty("frameDoubleClick")]
-    private GroupBox _frameDoubleClick;
-    [AccessedThroughProperty("frameEnum")]
-    private GroupBox _frameEnum;
-    [AccessedThroughProperty("frameSelection")]
-    private GroupBox _frameSelection;
-    [AccessedThroughProperty("FreeDB")]
-    private TabItem _FreeDB;
-    [AccessedThroughProperty("grpProxy")]
-    private GroupBox _grpProxy;
-    [AccessedThroughProperty("Label1")]
-    private Label _Label1;
-    [AccessedThroughProperty("Label10")]
-    private Label _Label10;
-    [AccessedThroughProperty("Label2")]
-    private Label _Label2;
-    [AccessedThroughProperty("Label3")]
-    private Label _Label3;
-    [AccessedThroughProperty("Label4")]
-    private Label _Label4;
-    [AccessedThroughProperty("Label5")]
-    private Label _Label5;
-    [AccessedThroughProperty("Label6")]
-    private Label _Label6;
-    [AccessedThroughProperty("Label7")]
-    private Label _Label7;
-    [AccessedThroughProperty("Label8")]
-    private Label _Label8;
-    [AccessedThroughProperty("Label9")]
-    private Label _Label9;
-    [AccessedThroughProperty("lbl1")]
-    private Label _lbl1;
-    [AccessedThroughProperty("lbl2")]
-    private Label _lbl2;
-    [AccessedThroughProperty("lblDescript")]
-    private Label _lblDescript;
-    [AccessedThroughProperty("lblDescription")]
-    private Label _lblDescription;
-    [AccessedThroughProperty("lblDigits")]
-    private Label _lblDigits;
-    [AccessedThroughProperty("lblEnumSep")]
-    private Label _lblEnumSep;
-    [AccessedThroughProperty("lblFormat")]
-    private Label _lblFormat;
-    [AccessedThroughProperty("lblP")]
-    private Label _lblP;
-    [AccessedThroughProperty("lblParameters")]
-    private Label _lblParameters;
-    [AccessedThroughProperty("lblPath")]
-    private Label _lblPath;
-    [AccessedThroughProperty("lblPlay")]
-    private Label _lblPlay;
-    [AccessedThroughProperty("lblPort")]
-    private Label _lblPort;
-    [AccessedThroughProperty("lblServer")]
-    private Label _lblServer;
-    [AccessedThroughProperty("lblTextEncInfo")]
-    private Label _lblTextEncInfo;
-    [AccessedThroughProperty("lblTracknumbers")]
-    private Label _lblTracknumbers;
-    [AccessedThroughProperty("lblUsername")]
-    private Label _lblUsername;
-    [AccessedThroughProperty("lblV23")]
-    private Label _lblV23;
-    [AccessedThroughProperty("lblV24")]
-    private Label _lblV24;
-    [AccessedThroughProperty("OpenFileDialog")]
-    private System.Windows.Forms.OpenFileDialog _OpenFileDialog;
-    [AccessedThroughProperty("optAdd")]
-    private RadioButton _optAdd;
-    [AccessedThroughProperty("optEditCur")]
-    private RadioButton _optEditCur;
-    [AccessedThroughProperty("optEditV1")]
-    private RadioButton _optEditV1;
-    [AccessedThroughProperty("optEditV2")]
-    private RadioButton _optEditV2;
-    [AccessedThroughProperty("optSingle")]
-    private RadioButton _optSingle;
-    [AccessedThroughProperty("optUse23")]
-    private RadioButton _optUse23;
-    [AccessedThroughProperty("optUse24")]
-    private RadioButton _optUse24;
-    [AccessedThroughProperty("Port")]
-    private NumericTextBox _Port;
-    [AccessedThroughProperty("Server")]
-    private System.Windows.Forms.TextBox _Server;
-    [AccessedThroughProperty("Settings")]
-    private TabItem _Settings;
-    [AccessedThroughProperty("Style")]
-    private DataGridTableStyle _Style;
-    [AccessedThroughProperty("TabControl")]
-    private DevComponents.DotNetBar.TabControl _TabControl;
-    [AccessedThroughProperty("TabControlPanel1")]
-    private TabControlPanel _TabControlPanel1;
-    [AccessedThroughProperty("TabControlPanel2")]
-    private TabControlPanel _TabControlPanel2;
-    [AccessedThroughProperty("TabControlPanel3")]
-    private TabControlPanel _TabControlPanel3;
-    [AccessedThroughProperty("TabControlPanel4")]
-    private TabControlPanel _TabControlPanel4;
-    [AccessedThroughProperty("TabControlPanel5")]
-    private TabControlPanel _TabControlPanel5;
-    [AccessedThroughProperty("TabControlPanel6")]
-    private TabControlPanel _TabControlPanel6;
-    [AccessedThroughProperty("ToolGrid")]
-    private DataGrid _ToolGrid;
-    [AccessedThroughProperty("Tools")]
-    private TabItem _Tools;
-    [AccessedThroughProperty("ToolTip")]
-    private System.Windows.Forms.ToolTip _ToolTip;
-    [AccessedThroughProperty("txtDescription")]
-    private System.Windows.Forms.TextBox _txtDescription;
-    [AccessedThroughProperty("txtEnumSep")]
-    private System.Windows.Forms.TextBox _txtEnumSep;
-    [AccessedThroughProperty("txtFDigits")]
-    private NumericUpDown _txtFDigits;
-    [AccessedThroughProperty("txtParameters")]
-    private System.Windows.Forms.TextBox _txtParameters;
-    [AccessedThroughProperty("txtPath")]
-    private System.Windows.Forms.TextBox _txtPath;
-    [AccessedThroughProperty("txtProxyPassword")]
-    private System.Windows.Forms.TextBox _txtProxyPassword;
-    [AccessedThroughProperty("txtProxyPort")]
-    private NumericTextBox _txtProxyPort;
-    [AccessedThroughProperty("txtProxyServer")]
-    private System.Windows.Forms.TextBox _txtProxyServer;
-    [AccessedThroughProperty("txtProxyUser")]
-    private System.Windows.Forms.TextBox _txtProxyUser;
-    [AccessedThroughProperty("txtStartNr")]
-    private NumericUpDown _txtStartNr;
-    [AccessedThroughProperty("txtTFDigits")]
-    private NumericUpDown _txtTFDigits;
-    [AccessedThroughProperty("txtTTDigits")]
-    private NumericUpDown _txtTTDigits;
-    [AccessedThroughProperty("Username")]
-    private System.Windows.Forms.TextBox _Username;
-    [AccessedThroughProperty("Ver2")]
-    private TabItem _Ver2;
+    private Button btnAdd;
+    private Button btnBrowse;
+    private Button btnCancel;
+    private Button btnDown;
+    private Button btnOK;
+    private Button btnRemove;
+    private Button btnUp;
+    private PanelEx ButtomPanel;
+    private DataGridTextBoxColumn C1;
+    private DataGridTextBoxColumn C2;
+    private DataGridTextBoxColumn C3;
+    private DataGridBoolColumn C4;
+    private DataGridTextBoxColumn C5;
+    private CheckBox chkAudioChecksumCalc;
+    private CheckBox chkDefault;
+    private CheckBox chkExplorerContext;
+    private CheckBox chkIgnoreWrite;
+    private CheckBox chkMouseRenaming;
+    private CheckBox chkProxy;
+    private CheckBox chkRestore;
+    private CheckBox chkSaveOnExit;
+    private CheckBox chkSingle;
+    private CheckBox chkUnSync;
+    private CheckBox chkWinXPThemes;
+    private ComboBox cmbPlay;
+    private ComboBox cmbShell;
+    private ComboBox cmbV23Enc;
+    private ComboBox cmbV24Enc;
+    private ComboBox cmbYearFormat;
+    private Button ColorChangedBack;
+    private Button ColorChangedText;
+    private Button ColorCompareBack;
+    private Button ColorCompareText;
+    private System.Windows.Forms.ColorDialog ColorDialog;
+    private Button ColorDoubleBack;
+    private Button ColorDoubleText;
+    private TabItem Colors;
+    private TabItem Columns;
+    private ListView ColumnsList;
+    private GroupBox frameDoubleClick;
+    private GroupBox frameEnum;
+    private GroupBox frameSelection;
+    private TabItem FreeDB;
+    private GroupBox grpProxy;
+    private Label Label1;
+    private Label Label10;
+    private Label Label2;
+    private Label Label3;
+    private Label Label4;
+    private Label Label5;
+    private Label Label6;
+    private Label Label7;
+    private Label Label8;
+    private Label Label9;
+    private Label lbl1;
+    private Label lbl2;
+    private Label lblDescript;
+    private Label lblDescription;
+    private Label lblDigits;
+    private Label lblEnumSep;
+    private Label lblFormat;
+    private Label lblP;
+    private Label lblParameters;
+    private Label lblPath;
+    private Label lblPlay;
+    private Label lblPort;
+    private Label lblServer;
+    private Label lblTextEncInfo;
+    private Label lblTracknumbers;
+    private Label lblUsername;
+    private Label lblV23;
+    private Label lblV24;
+    private System.Windows.Forms.OpenFileDialog OpenFileDialog;
+    private RadioButton optAdd;
+    private RadioButton optEditCur;
+    private RadioButton optEditV1;
+    private RadioButton optEditV2;
+    private RadioButton optSingle;
+    private RadioButton optUse23;
+    private RadioButton optUse24;
+    private NumericTextBox Port;
+    private System.Windows.Forms.TextBox Server;
+    private TabItem Settings;
+    private DataGridTableStyle Style;
+    private DevComponents.DotNetBar.TabControl TabControl;
+    private TabControlPanel TabControlPanel1;
+    private TabControlPanel TabControlPanel2;
+    private TabControlPanel TabControlPanel3;
+    private TabControlPanel TabControlPanel4;
+    private TabControlPanel TabControlPanel5;
+    private TabControlPanel TabControlPanel6;
+    private DataGrid ToolGrid;
+    private TabItem Tools;
+    private System.Windows.Forms.ToolTip ToolTip;
+    private System.Windows.Forms.TextBox txtDescription;
+    private System.Windows.Forms.TextBox txtEnumSep;
+    private NumericUpDown txtFDigits;
+    private System.Windows.Forms.TextBox txtParameters;
+    private System.Windows.Forms.TextBox txtPath;
+    private System.Windows.Forms.TextBox txtProxyPassword;
+    private NumericTextBox txtProxyPort;
+    private System.Windows.Forms.TextBox txtProxyServer;
+    private System.Windows.Forms.TextBox txtProxyUser;
+    private NumericUpDown txtStartNr;
+    private NumericUpDown txtTFDigits;
+    private NumericUpDown txtTTDigits;
+    private System.Windows.Forms.TextBox Username;
+    private TabItem Ver2;
     private bool ColumnSettingsChanged;
     private IContainer components;
     private frmMain MainForm;
     private bool vbooChecking;
+
+    //ResourceManager manager = new ResourceManager(typeof(frmPreferences));
+    //this.C4.NullValue = RuntimeHelpers.GetObjectValue(manager.GetObject("C4.NullValue"));
+    //this.Settings.Icon = (Icon)manager.GetObject("Settings.Icon");
+    //this.Columns.Icon = (Icon)manager.GetObject("Columns.Icon");
+    //this.Tools.Icon = (Icon)manager.GetObject("Tools.Icon");
+    //this.Colors.Icon = (Icon)manager.GetObject("Colors.Icon");
+    //this.FreeDB.Icon = (Icon)manager.GetObject("FreeDB.Icon");
+
+    [DebuggerStepThrough]
+    private void InitializeComponent()
+    {
+      this.components = new System.ComponentModel.Container();
+      this.lblPlay = new System.Windows.Forms.Label();
+      this.cmbPlay = new System.Windows.Forms.ComboBox();
+      this.chkExplorerContext = new System.Windows.Forms.CheckBox();
+      this.frameEnum = new System.Windows.Forms.GroupBox();
+      this.lbl2 = new System.Windows.Forms.Label();
+      this.txtFDigits = new System.Windows.Forms.NumericUpDown();
+      this.lblEnumSep = new System.Windows.Forms.Label();
+      this.txtEnumSep = new System.Windows.Forms.TextBox();
+      this.lbl1 = new System.Windows.Forms.Label();
+      this.txtStartNr = new System.Windows.Forms.NumericUpDown();
+      this.chkMouseRenaming = new System.Windows.Forms.CheckBox();
+      this.chkRestore = new System.Windows.Forms.CheckBox();
+      this.lblTracknumbers = new System.Windows.Forms.Label();
+      this.txtTFDigits = new System.Windows.Forms.NumericUpDown();
+      this.frameSelection = new System.Windows.Forms.GroupBox();
+      this.optAdd = new System.Windows.Forms.RadioButton();
+      this.optSingle = new System.Windows.Forms.RadioButton();
+      this.chkSaveOnExit = new System.Windows.Forms.CheckBox();
+      this.frameDoubleClick = new System.Windows.Forms.GroupBox();
+      this.optEditCur = new System.Windows.Forms.RadioButton();
+      this.optEditV1 = new System.Windows.Forms.RadioButton();
+      this.optEditV2 = new System.Windows.Forms.RadioButton();
+      this.chkIgnoreWrite = new System.Windows.Forms.CheckBox();
+      this.lblDescript = new System.Windows.Forms.Label();
+      this.ColumnsList = new System.Windows.Forms.ListView();
+      this.btnUp = new System.Windows.Forms.Button();
+      this.btnDown = new System.Windows.Forms.Button();
+      this.lblTextEncInfo = new System.Windows.Forms.Label();
+      this.lblFormat = new System.Windows.Forms.Label();
+      this.cmbYearFormat = new System.Windows.Forms.ComboBox();
+      this.lblDigits = new System.Windows.Forms.Label();
+      this.txtTTDigits = new System.Windows.Forms.NumericUpDown();
+      this.lblV24 = new System.Windows.Forms.Label();
+      this.lblV23 = new System.Windows.Forms.Label();
+      this.cmbV24Enc = new System.Windows.Forms.ComboBox();
+      this.cmbV23Enc = new System.Windows.Forms.ComboBox();
+      this.chkSingle = new System.Windows.Forms.CheckBox();
+      this.chkUnSync = new System.Windows.Forms.CheckBox();
+      this.optUse24 = new System.Windows.Forms.RadioButton();
+      this.optUse23 = new System.Windows.Forms.RadioButton();
+      this.Port = new AMS.TextBox.NumericTextBox();
+      this.grpProxy = new System.Windows.Forms.GroupBox();
+      this.txtProxyPort = new AMS.TextBox.NumericTextBox();
+      this.txtProxyPassword = new System.Windows.Forms.TextBox();
+      this.Label10 = new System.Windows.Forms.Label();
+      this.txtProxyUser = new System.Windows.Forms.TextBox();
+      this.Label9 = new System.Windows.Forms.Label();
+      this.Label8 = new System.Windows.Forms.Label();
+      this.txtProxyServer = new System.Windows.Forms.TextBox();
+      this.Label7 = new System.Windows.Forms.Label();
+      this.chkProxy = new System.Windows.Forms.CheckBox();
+      this.lblUsername = new System.Windows.Forms.Label();
+      this.Username = new System.Windows.Forms.TextBox();
+      this.lblPort = new System.Windows.Forms.Label();
+      this.lblServer = new System.Windows.Forms.Label();
+      this.Server = new System.Windows.Forms.TextBox();
+      this.chkWinXPThemes = new System.Windows.Forms.CheckBox();
+      this.Label5 = new System.Windows.Forms.Label();
+      this.Label6 = new System.Windows.Forms.Label();
+      this.ColorCompareText = new System.Windows.Forms.Button();
+      this.ColorCompareBack = new System.Windows.Forms.Button();
+      this.Label4 = new System.Windows.Forms.Label();
+      this.Label3 = new System.Windows.Forms.Label();
+      this.Label2 = new System.Windows.Forms.Label();
+      this.Label1 = new System.Windows.Forms.Label();
+      this.ColorChangedBack = new System.Windows.Forms.Button();
+      this.ColorDoubleText = new System.Windows.Forms.Button();
+      this.ColorDoubleBack = new System.Windows.Forms.Button();
+      this.ColorChangedText = new System.Windows.Forms.Button();
+      this.ToolGrid = new System.Windows.Forms.DataGrid();
+      this.Style = new System.Windows.Forms.DataGridTableStyle();
+      this.C1 = new System.Windows.Forms.DataGridTextBoxColumn();
+      this.C2 = new System.Windows.Forms.DataGridTextBoxColumn();
+      this.C3 = new System.Windows.Forms.DataGridTextBoxColumn();
+      this.C4 = new System.Windows.Forms.DataGridBoolColumn();
+      this.C5 = new System.Windows.Forms.DataGridTextBoxColumn();
+      this.btnRemove = new System.Windows.Forms.Button();
+      this.btnAdd = new System.Windows.Forms.Button();
+      this.lblP = new System.Windows.Forms.Label();
+      this.btnBrowse = new System.Windows.Forms.Button();
+      this.cmbShell = new System.Windows.Forms.ComboBox();
+      this.txtParameters = new System.Windows.Forms.TextBox();
+      this.txtPath = new System.Windows.Forms.TextBox();
+      this.txtDescription = new System.Windows.Forms.TextBox();
+      this.chkDefault = new System.Windows.Forms.CheckBox();
+      this.lblParameters = new System.Windows.Forms.Label();
+      this.lblPath = new System.Windows.Forms.Label();
+      this.lblDescription = new System.Windows.Forms.Label();
+      this.btnOK = new System.Windows.Forms.Button();
+      this.btnCancel = new System.Windows.Forms.Button();
+      this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+      this.ColorDialog = new System.Windows.Forms.ColorDialog();
+      this.ButtomPanel = new DevComponents.DotNetBar.PanelEx();
+      this.TabControl = new DevComponents.DotNetBar.TabControl();
+      this.TabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
+      this.chkAudioChecksumCalc = new System.Windows.Forms.CheckBox();
+      this.Settings = new DevComponents.DotNetBar.TabItem(this.components);
+      this.TabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
+      this.Ver2 = new DevComponents.DotNetBar.TabItem(this.components);
+      this.TabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
+      this.Columns = new DevComponents.DotNetBar.TabItem(this.components);
+      this.TabControlPanel6 = new DevComponents.DotNetBar.TabControlPanel();
+      this.Tools = new DevComponents.DotNetBar.TabItem(this.components);
+      this.TabControlPanel5 = new DevComponents.DotNetBar.TabControlPanel();
+      this.Colors = new DevComponents.DotNetBar.TabItem(this.components);
+      this.TabControlPanel4 = new DevComponents.DotNetBar.TabControlPanel();
+      this.FreeDB = new DevComponents.DotNetBar.TabItem(this.components);
+      this.frameEnum.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.txtFDigits)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtStartNr)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtTFDigits)).BeginInit();
+      this.frameSelection.SuspendLayout();
+      this.frameDoubleClick.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.txtTTDigits)).BeginInit();
+      this.grpProxy.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.ToolGrid)).BeginInit();
+      this.ButtomPanel.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
+      this.TabControl.SuspendLayout();
+      this.TabControlPanel1.SuspendLayout();
+      this.TabControlPanel3.SuspendLayout();
+      this.TabControlPanel2.SuspendLayout();
+      this.TabControlPanel6.SuspendLayout();
+      this.TabControlPanel5.SuspendLayout();
+      this.TabControlPanel4.SuspendLayout();
+      this.SuspendLayout();
+      // 
+      // lblPlay
+      // 
+      this.lblPlay.BackColor = System.Drawing.Color.Transparent;
+      this.lblPlay.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPlay.Location = new System.Drawing.Point(16, 306);
+      this.lblPlay.Name = "lblPlay";
+      this.lblPlay.Size = new System.Drawing.Size(272, 16);
+      this.lblPlay.TabIndex = 18;
+      this.lblPlay.Text = "Shell command for PLA&Y function:";
+      // 
+      // cmbPlay
+      // 
+      this.cmbPlay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.cmbPlay.ItemHeight = 13;
+      this.cmbPlay.Location = new System.Drawing.Point(288, 304);
+      this.cmbPlay.Name = "cmbPlay";
+      this.cmbPlay.Size = new System.Drawing.Size(248, 21);
+      this.cmbPlay.TabIndex = 19;
+      // 
+      // chkExplorerContext
+      // 
+      this.chkExplorerContext.BackColor = System.Drawing.Color.Transparent;
+      this.chkExplorerContext.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkExplorerContext.Location = new System.Drawing.Point(16, 252);
+      this.chkExplorerContext.Name = "chkExplorerContext";
+      this.chkExplorerContext.Size = new System.Drawing.Size(520, 16);
+      this.chkExplorerContext.TabIndex = 16;
+      this.chkExplorerContext.Text = "Show \"ID3-TagIT\" in the folder context menu of the Windows &Explorer";
+      this.chkExplorerContext.UseVisualStyleBackColor = false;
+      // 
+      // frameEnum
+      // 
+      this.frameEnum.BackColor = System.Drawing.Color.Transparent;
+      this.frameEnum.Controls.Add(this.lbl2);
+      this.frameEnum.Controls.Add(this.txtFDigits);
+      this.frameEnum.Controls.Add(this.lblEnumSep);
+      this.frameEnum.Controls.Add(this.txtEnumSep);
+      this.frameEnum.Controls.Add(this.lbl1);
+      this.frameEnum.Controls.Add(this.txtStartNr);
+      this.frameEnum.Location = new System.Drawing.Point(224, 88);
+      this.frameEnum.Name = "frameEnum";
+      this.frameEnum.Size = new System.Drawing.Size(312, 104);
+      this.frameEnum.TabIndex = 10;
+      this.frameEnum.TabStop = false;
+      this.frameEnum.Text = "Enumerating mode";
+      // 
+      // lbl2
+      // 
+      this.lbl2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lbl2.Location = new System.Drawing.Point(8, 72);
+      this.lbl2.Name = "lbl2";
+      this.lbl2.Size = new System.Drawing.Size(224, 16);
+      this.lbl2.TabIndex = 7;
+      this.lbl2.Text = "Number of digits of filename enumeration:";
+      // 
+      // txtFDigits
+      // 
+      this.txtFDigits.Location = new System.Drawing.Point(239, 70);
+      this.txtFDigits.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.txtFDigits.Name = "txtFDigits";
+      this.txtFDigits.Size = new System.Drawing.Size(64, 20);
+      this.txtFDigits.TabIndex = 8;
+      this.txtFDigits.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      // 
+      // lblEnumSep
+      // 
+      this.lblEnumSep.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblEnumSep.Location = new System.Drawing.Point(8, 48);
+      this.lblEnumSep.Name = "lblEnumSep";
+      this.lblEnumSep.Size = new System.Drawing.Size(224, 16);
+      this.lblEnumSep.TabIndex = 5;
+      this.lblEnumSep.Text = "Separator:";
+      // 
+      // txtEnumSep
+      // 
+      this.txtEnumSep.Location = new System.Drawing.Point(239, 46);
+      this.txtEnumSep.Name = "txtEnumSep";
+      this.txtEnumSep.Size = new System.Drawing.Size(64, 20);
+      this.txtEnumSep.TabIndex = 6;
+      this.txtEnumSep.Text = " - ";
+      // 
+      // lbl1
+      // 
+      this.lbl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lbl1.Location = new System.Drawing.Point(8, 24);
+      this.lbl1.Name = "lbl1";
+      this.lbl1.Size = new System.Drawing.Size(224, 16);
+      this.lbl1.TabIndex = 0;
+      this.lbl1.Text = "Number to start with:";
+      // 
+      // txtStartNr
+      // 
+      this.txtStartNr.Location = new System.Drawing.Point(239, 22);
+      this.txtStartNr.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+      this.txtStartNr.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.txtStartNr.Name = "txtStartNr";
+      this.txtStartNr.Size = new System.Drawing.Size(64, 20);
+      this.txtStartNr.TabIndex = 1;
+      this.txtStartNr.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      // 
+      // chkMouseRenaming
+      // 
+      this.chkMouseRenaming.BackColor = System.Drawing.Color.Transparent;
+      this.chkMouseRenaming.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkMouseRenaming.Location = new System.Drawing.Point(16, 204);
+      this.chkMouseRenaming.Name = "chkMouseRenaming";
+      this.chkMouseRenaming.Size = new System.Drawing.Size(248, 16);
+      this.chkMouseRenaming.TabIndex = 12;
+      this.chkMouseRenaming.Text = "Enable &Renaming by mouse click";
+      this.chkMouseRenaming.UseVisualStyleBackColor = false;
+      // 
+      // chkRestore
+      // 
+      this.chkRestore.BackColor = System.Drawing.Color.Transparent;
+      this.chkRestore.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkRestore.Location = new System.Drawing.Point(16, 228);
+      this.chkRestore.Name = "chkRestore";
+      this.chkRestore.Size = new System.Drawing.Size(248, 16);
+      this.chkRestore.TabIndex = 14;
+      this.chkRestore.Text = "&Restore date of file after tagging";
+      this.chkRestore.UseVisualStyleBackColor = false;
+      // 
+      // lblTracknumbers
+      // 
+      this.lblTracknumbers.BackColor = System.Drawing.Color.Transparent;
+      this.lblTracknumbers.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTracknumbers.Location = new System.Drawing.Point(16, 338);
+      this.lblTracknumbers.Name = "lblTracknumbers";
+      this.lblTracknumbers.Size = new System.Drawing.Size(272, 16);
+      this.lblTracknumbers.TabIndex = 20;
+      this.lblTracknumbers.Text = "Number of &digits of track numbers in filenames:";
+      // 
+      // txtTFDigits
+      // 
+      this.txtTFDigits.Location = new System.Drawing.Point(288, 336);
+      this.txtTFDigits.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.txtTFDigits.Name = "txtTFDigits";
+      this.txtTFDigits.Size = new System.Drawing.Size(64, 20);
+      this.txtTFDigits.TabIndex = 21;
+      this.txtTFDigits.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      // 
+      // frameSelection
+      // 
+      this.frameSelection.BackColor = System.Drawing.Color.Transparent;
+      this.frameSelection.Controls.Add(this.optAdd);
+      this.frameSelection.Controls.Add(this.optSingle);
+      this.frameSelection.Location = new System.Drawing.Point(8, 88);
+      this.frameSelection.Name = "frameSelection";
+      this.frameSelection.Size = new System.Drawing.Size(200, 104);
+      this.frameSelection.TabIndex = 5;
+      this.frameSelection.TabStop = false;
+      this.frameSelection.Text = "Selection mode";
+      // 
+      // optAdd
+      // 
+      this.optAdd.BackColor = System.Drawing.Color.Transparent;
+      this.optAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optAdd.Location = new System.Drawing.Point(16, 48);
+      this.optAdd.Name = "optAdd";
+      this.optAdd.Size = new System.Drawing.Size(176, 16);
+      this.optAdd.TabIndex = 1;
+      this.optAdd.Text = "&Add to selection";
+      this.optAdd.UseVisualStyleBackColor = false;
+      // 
+      // optSingle
+      // 
+      this.optSingle.BackColor = System.Drawing.Color.Transparent;
+      this.optSingle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optSingle.Location = new System.Drawing.Point(16, 24);
+      this.optSingle.Name = "optSingle";
+      this.optSingle.Size = new System.Drawing.Size(176, 16);
+      this.optSingle.TabIndex = 3;
+      this.optSingle.Text = "&New selection";
+      this.optSingle.UseVisualStyleBackColor = false;
+      // 
+      // chkSaveOnExit
+      // 
+      this.chkSaveOnExit.BackColor = System.Drawing.Color.Transparent;
+      this.chkSaveOnExit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkSaveOnExit.Location = new System.Drawing.Point(280, 228);
+      this.chkSaveOnExit.Name = "chkSaveOnExit";
+      this.chkSaveOnExit.Size = new System.Drawing.Size(256, 16);
+      this.chkSaveOnExit.TabIndex = 15;
+      this.chkSaveOnExit.Text = "&Save folder on exit";
+      this.chkSaveOnExit.UseVisualStyleBackColor = false;
+      // 
+      // frameDoubleClick
+      // 
+      this.frameDoubleClick.BackColor = System.Drawing.Color.Transparent;
+      this.frameDoubleClick.Controls.Add(this.optEditCur);
+      this.frameDoubleClick.Controls.Add(this.optEditV1);
+      this.frameDoubleClick.Controls.Add(this.optEditV2);
+      this.frameDoubleClick.Location = new System.Drawing.Point(8, 8);
+      this.frameDoubleClick.Name = "frameDoubleClick";
+      this.frameDoubleClick.Size = new System.Drawing.Size(528, 72);
+      this.frameDoubleClick.TabIndex = 0;
+      this.frameDoubleClick.TabStop = false;
+      this.frameDoubleClick.Text = " Double click open command ";
+      // 
+      // optEditCur
+      // 
+      this.optEditCur.BackColor = System.Drawing.Color.Transparent;
+      this.optEditCur.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optEditCur.Location = new System.Drawing.Point(16, 48);
+      this.optEditCur.Name = "optEditCur";
+      this.optEditCur.Size = new System.Drawing.Size(496, 16);
+      this.optEditCur.TabIndex = 2;
+      this.optEditCur.Text = "Open \'Edit TAG Ver. &X\' dialog corresponding to current view";
+      this.optEditCur.UseVisualStyleBackColor = false;
+      // 
+      // optEditV1
+      // 
+      this.optEditV1.BackColor = System.Drawing.Color.Transparent;
+      this.optEditV1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optEditV1.Location = new System.Drawing.Point(16, 24);
+      this.optEditV1.Name = "optEditV1";
+      this.optEditV1.Size = new System.Drawing.Size(240, 16);
+      this.optEditV1.TabIndex = 0;
+      this.optEditV1.Text = "Open \'Edit TAG Ver. &1\' dialog";
+      this.optEditV1.UseVisualStyleBackColor = false;
+      // 
+      // optEditV2
+      // 
+      this.optEditV2.BackColor = System.Drawing.Color.Transparent;
+      this.optEditV2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optEditV2.Location = new System.Drawing.Point(272, 24);
+      this.optEditV2.Name = "optEditV2";
+      this.optEditV2.Size = new System.Drawing.Size(240, 16);
+      this.optEditV2.TabIndex = 1;
+      this.optEditV2.Text = "Open \'Edit TAG Ver. &2\' dialog";
+      this.optEditV2.UseVisualStyleBackColor = false;
+      // 
+      // chkIgnoreWrite
+      // 
+      this.chkIgnoreWrite.BackColor = System.Drawing.Color.Transparent;
+      this.chkIgnoreWrite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkIgnoreWrite.Location = new System.Drawing.Point(280, 204);
+      this.chkIgnoreWrite.Name = "chkIgnoreWrite";
+      this.chkIgnoreWrite.Size = new System.Drawing.Size(256, 16);
+      this.chkIgnoreWrite.TabIndex = 13;
+      this.chkIgnoreWrite.Text = "&Ignore write protection";
+      this.chkIgnoreWrite.UseVisualStyleBackColor = false;
+      // 
+      // lblDescript
+      // 
+      this.lblDescript.BackColor = System.Drawing.Color.Transparent;
+      this.lblDescript.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblDescript.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblDescript.Location = new System.Drawing.Point(280, 272);
+      this.lblDescript.Name = "lblDescript";
+      this.lblDescript.Size = new System.Drawing.Size(256, 88);
+      this.lblDescript.TabIndex = 3;
+      this.lblDescript.Text = "Only checked columns will be displayed . You can reorder the columns by moving th" +
+    "em  up or down. The filename column will always be visible.";
+      this.lblDescript.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // ColumnsList
+      // 
+      this.ColumnsList.CheckBoxes = true;
+      this.ColumnsList.FullRowSelect = true;
+      this.ColumnsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+      this.ColumnsList.Location = new System.Drawing.Point(8, 8);
+      this.ColumnsList.MultiSelect = false;
+      this.ColumnsList.Name = "ColumnsList";
+      this.ColumnsList.Size = new System.Drawing.Size(256, 352);
+      this.ColumnsList.TabIndex = 2;
+      this.ColumnsList.UseCompatibleStateImageBehavior = false;
+      this.ColumnsList.View = System.Windows.Forms.View.Details;
+      this.ColumnsList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ColumnsList_ItemCheck);
+      // 
+      // btnUp
+      // 
+      this.btnUp.BackColor = System.Drawing.SystemColors.Control;
+      this.btnUp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnUp.Location = new System.Drawing.Point(280, 160);
+      this.btnUp.Name = "btnUp";
+      this.btnUp.Size = new System.Drawing.Size(128, 24);
+      this.btnUp.TabIndex = 1;
+      this.btnUp.Text = "Column &up";
+      this.btnUp.UseVisualStyleBackColor = false;
+      this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+      // 
+      // btnDown
+      // 
+      this.btnDown.BackColor = System.Drawing.SystemColors.Control;
+      this.btnDown.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnDown.Location = new System.Drawing.Point(280, 192);
+      this.btnDown.Name = "btnDown";
+      this.btnDown.Size = new System.Drawing.Size(128, 24);
+      this.btnDown.TabIndex = 1;
+      this.btnDown.Text = "Column &down";
+      this.btnDown.UseVisualStyleBackColor = false;
+      this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+      // 
+      // lblTextEncInfo
+      // 
+      this.lblTextEncInfo.BackColor = System.Drawing.Color.Transparent;
+      this.lblTextEncInfo.Location = new System.Drawing.Point(8, 263);
+      this.lblTextEncInfo.Name = "lblTextEncInfo";
+      this.lblTextEncInfo.Size = new System.Drawing.Size(528, 48);
+      this.lblTextEncInfo.TabIndex = 16;
+      this.lblTextEncInfo.Text = "NOTE: The text encoding will only be used for new TAG Ver. 2 frames. Already pres" +
+    "ent frames will not be changed when the TAG is saved.";
+      // 
+      // lblFormat
+      // 
+      this.lblFormat.BackColor = System.Drawing.Color.Transparent;
+      this.lblFormat.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblFormat.Location = new System.Drawing.Point(8, 138);
+      this.lblFormat.Name = "lblFormat";
+      this.lblFormat.Size = new System.Drawing.Size(200, 16);
+      this.lblFormat.TabIndex = 8;
+      this.lblFormat.Text = "&Format of year entry:";
+      // 
+      // cmbYearFormat
+      // 
+      this.cmbYearFormat.ItemHeight = 13;
+      this.cmbYearFormat.Items.AddRange(new object[] {
+            "YYYY",
+            "YYYY-MM",
+            "YYYY-MM-DD"});
+      this.cmbYearFormat.Location = new System.Drawing.Point(216, 136);
+      this.cmbYearFormat.Name = "cmbYearFormat";
+      this.cmbYearFormat.Size = new System.Drawing.Size(320, 21);
+      this.cmbYearFormat.TabIndex = 9;
+      // 
+      // lblDigits
+      // 
+      this.lblDigits.BackColor = System.Drawing.Color.Transparent;
+      this.lblDigits.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblDigits.Location = new System.Drawing.Point(8, 175);
+      this.lblDigits.Name = "lblDigits";
+      this.lblDigits.Size = new System.Drawing.Size(296, 16);
+      this.lblDigits.TabIndex = 10;
+      this.lblDigits.Text = "Number of digits of track numbers in Ver. 2 TAGs:";
+      // 
+      // txtTTDigits
+      // 
+      this.txtTTDigits.Location = new System.Drawing.Point(312, 173);
+      this.txtTTDigits.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.txtTTDigits.Name = "txtTTDigits";
+      this.txtTTDigits.Size = new System.Drawing.Size(64, 20);
+      this.txtTTDigits.TabIndex = 11;
+      this.txtTTDigits.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      // 
+      // lblV24
+      // 
+      this.lblV24.BackColor = System.Drawing.Color.Transparent;
+      this.lblV24.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblV24.Location = new System.Drawing.Point(8, 234);
+      this.lblV24.Name = "lblV24";
+      this.lblV24.Size = new System.Drawing.Size(200, 16);
+      this.lblV24.TabIndex = 14;
+      this.lblV24.Text = "Text encoding for TAG Ver. 2.4:";
+      // 
+      // lblV23
+      // 
+      this.lblV23.BackColor = System.Drawing.Color.Transparent;
+      this.lblV23.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblV23.Location = new System.Drawing.Point(8, 210);
+      this.lblV23.Name = "lblV23";
+      this.lblV23.Size = new System.Drawing.Size(200, 16);
+      this.lblV23.TabIndex = 12;
+      this.lblV23.Text = "Text encoding for TAG Ver. 2.3:";
+      // 
+      // cmbV24Enc
+      // 
+      this.cmbV24Enc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.cmbV24Enc.ItemHeight = 13;
+      this.cmbV24Enc.Items.AddRange(new object[] {
+            "ANSI-Encoding (Default)",
+            "UTF-16 (LE) Encoding with BOM (Default for Unicode Encoding)",
+            "UTF-16 (BE) Encoding without BOM",
+            "UTF-8 Encoding"});
+      this.cmbV24Enc.Location = new System.Drawing.Point(216, 232);
+      this.cmbV24Enc.Name = "cmbV24Enc";
+      this.cmbV24Enc.Size = new System.Drawing.Size(320, 21);
+      this.cmbV24Enc.TabIndex = 15;
+      // 
+      // cmbV23Enc
+      // 
+      this.cmbV23Enc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.cmbV23Enc.ItemHeight = 13;
+      this.cmbV23Enc.Items.AddRange(new object[] {
+            "ANSI-Encoding (Default)",
+            "UTF-16 (LE) Encoding with BOM (Default for Unicode Encoding)"});
+      this.cmbV23Enc.Location = new System.Drawing.Point(216, 208);
+      this.cmbV23Enc.Name = "cmbV23Enc";
+      this.cmbV23Enc.Size = new System.Drawing.Size(320, 21);
+      this.cmbV23Enc.TabIndex = 13;
+      // 
+      // chkSingle
+      // 
+      this.chkSingle.BackColor = System.Drawing.Color.Transparent;
+      this.chkSingle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkSingle.Location = new System.Drawing.Point(8, 97);
+      this.chkSingle.Name = "chkSingle";
+      this.chkSingle.Size = new System.Drawing.Size(240, 16);
+      this.chkSingle.TabIndex = 7;
+      this.chkSingle.Text = "Allow onl&y one genre / comment";
+      this.chkSingle.UseVisualStyleBackColor = false;
+      // 
+      // chkUnSync
+      // 
+      this.chkUnSync.BackColor = System.Drawing.Color.Transparent;
+      this.chkUnSync.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkUnSync.Location = new System.Drawing.Point(8, 73);
+      this.chkUnSync.Name = "chkUnSync";
+      this.chkUnSync.Size = new System.Drawing.Size(240, 16);
+      this.chkUnSync.TabIndex = 6;
+      this.chkUnSync.Text = "Write &unsync. version 2 TAGs";
+      this.chkUnSync.UseVisualStyleBackColor = false;
+      // 
+      // optUse24
+      // 
+      this.optUse24.BackColor = System.Drawing.Color.Transparent;
+      this.optUse24.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optUse24.Location = new System.Drawing.Point(8, 40);
+      this.optUse24.Name = "optUse24";
+      this.optUse24.Size = new System.Drawing.Size(464, 16);
+      this.optUse24.TabIndex = 5;
+      this.optUse24.Text = "Use Ver. 2.&4 for new TAGs of TAG Ver. 2";
+      this.optUse24.UseVisualStyleBackColor = false;
+      // 
+      // optUse23
+      // 
+      this.optUse23.BackColor = System.Drawing.Color.Transparent;
+      this.optUse23.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.optUse23.Location = new System.Drawing.Point(8, 16);
+      this.optUse23.Name = "optUse23";
+      this.optUse23.Size = new System.Drawing.Size(464, 16);
+      this.optUse23.TabIndex = 4;
+      this.optUse23.Text = "Use Ver. 2.&3 for new TAGs of TAG Ver. 2";
+      this.optUse23.UseVisualStyleBackColor = false;
+      // 
+      // Port
+      // 
+      this.Port.AllowNegative = false;
+      this.Port.DigitsInGroup = 0;
+      this.Port.Flags = 65552;
+      this.Port.Location = new System.Drawing.Point(105, 33);
+      this.Port.MaxDecimalPlaces = 0;
+      this.Port.MaxLength = 5;
+      this.Port.MaxWholeDigits = 5;
+      this.Port.Name = "Port";
+      this.Port.Prefix = "";
+      this.Port.RangeMax = 65535D;
+      this.Port.RangeMin = 0D;
+      this.Port.Size = new System.Drawing.Size(100, 20);
+      this.Port.TabIndex = 9;
+      this.Port.Text = "8880";
+      // 
+      // grpProxy
+      // 
+      this.grpProxy.BackColor = System.Drawing.Color.Transparent;
+      this.grpProxy.Controls.Add(this.txtProxyPort);
+      this.grpProxy.Controls.Add(this.txtProxyPassword);
+      this.grpProxy.Controls.Add(this.Label10);
+      this.grpProxy.Controls.Add(this.txtProxyUser);
+      this.grpProxy.Controls.Add(this.Label9);
+      this.grpProxy.Controls.Add(this.Label8);
+      this.grpProxy.Controls.Add(this.txtProxyServer);
+      this.grpProxy.Controls.Add(this.Label7);
+      this.grpProxy.Enabled = false;
+      this.grpProxy.Location = new System.Drawing.Point(9, 121);
+      this.grpProxy.Name = "grpProxy";
+      this.grpProxy.Size = new System.Drawing.Size(527, 128);
+      this.grpProxy.TabIndex = 13;
+      this.grpProxy.TabStop = false;
+      this.grpProxy.Text = "Proxy settings ";
+      // 
+      // txtProxyPort
+      // 
+      this.txtProxyPort.AllowNegative = false;
+      this.txtProxyPort.DigitsInGroup = 0;
+      this.txtProxyPort.Flags = 65552;
+      this.txtProxyPort.Location = new System.Drawing.Point(128, 46);
+      this.txtProxyPort.MaxDecimalPlaces = 0;
+      this.txtProxyPort.MaxLength = 5;
+      this.txtProxyPort.MaxWholeDigits = 5;
+      this.txtProxyPort.Name = "txtProxyPort";
+      this.txtProxyPort.Prefix = "";
+      this.txtProxyPort.RangeMax = 65535D;
+      this.txtProxyPort.RangeMin = 0D;
+      this.txtProxyPort.Size = new System.Drawing.Size(100, 20);
+      this.txtProxyPort.TabIndex = 3;
+      // 
+      // txtProxyPassword
+      // 
+      this.txtProxyPassword.Location = new System.Drawing.Point(128, 94);
+      this.txtProxyPassword.Name = "txtProxyPassword";
+      this.txtProxyPassword.Size = new System.Drawing.Size(392, 20);
+      this.txtProxyPassword.TabIndex = 7;
+      // 
+      // Label10
+      // 
+      this.Label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.Label10.Location = new System.Drawing.Point(16, 96);
+      this.Label10.Name = "Label10";
+      this.Label10.Size = new System.Drawing.Size(104, 16);
+      this.Label10.TabIndex = 6;
+      this.Label10.Text = "Pa&ssword:";
+      // 
+      // txtProxyUser
+      // 
+      this.txtProxyUser.Location = new System.Drawing.Point(128, 70);
+      this.txtProxyUser.Name = "txtProxyUser";
+      this.txtProxyUser.Size = new System.Drawing.Size(392, 20);
+      this.txtProxyUser.TabIndex = 5;
+      // 
+      // Label9
+      // 
+      this.Label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.Label9.Location = new System.Drawing.Point(16, 72);
+      this.Label9.Name = "Label9";
+      this.Label9.Size = new System.Drawing.Size(104, 16);
+      this.Label9.TabIndex = 4;
+      this.Label9.Text = "User&name:";
+      // 
+      // Label8
+      // 
+      this.Label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.Label8.Location = new System.Drawing.Point(16, 48);
+      this.Label8.Name = "Label8";
+      this.Label8.Size = new System.Drawing.Size(104, 16);
+      this.Label8.TabIndex = 2;
+      this.Label8.Text = "P&ort:";
+      // 
+      // txtProxyServer
+      // 
+      this.txtProxyServer.Location = new System.Drawing.Point(128, 22);
+      this.txtProxyServer.Name = "txtProxyServer";
+      this.txtProxyServer.Size = new System.Drawing.Size(392, 20);
+      this.txtProxyServer.TabIndex = 1;
+      // 
+      // Label7
+      // 
+      this.Label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.Label7.Location = new System.Drawing.Point(16, 24);
+      this.Label7.Name = "Label7";
+      this.Label7.Size = new System.Drawing.Size(104, 16);
+      this.Label7.TabIndex = 0;
+      this.Label7.Text = "Pro&xy Server:";
+      // 
+      // chkProxy
+      // 
+      this.chkProxy.BackColor = System.Drawing.Color.Transparent;
+      this.chkProxy.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkProxy.Location = new System.Drawing.Point(8, 96);
+      this.chkProxy.Name = "chkProxy";
+      this.chkProxy.Size = new System.Drawing.Size(176, 16);
+      this.chkProxy.TabIndex = 12;
+      this.chkProxy.Text = "Use Proxy server";
+      this.chkProxy.UseVisualStyleBackColor = false;
+      this.chkProxy.CheckedChanged += new System.EventHandler(this.chkProxy_CheckedChanged);
+      // 
+      // lblUsername
+      // 
+      this.lblUsername.BackColor = System.Drawing.Color.Transparent;
+      this.lblUsername.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblUsername.Location = new System.Drawing.Point(9, 59);
+      this.lblUsername.Name = "lblUsername";
+      this.lblUsername.Size = new System.Drawing.Size(96, 16);
+      this.lblUsername.TabIndex = 10;
+      this.lblUsername.Text = "&Username:";
+      // 
+      // Username
+      // 
+      this.Username.Location = new System.Drawing.Point(105, 57);
+      this.Username.Name = "Username";
+      this.Username.Size = new System.Drawing.Size(431, 20);
+      this.Username.TabIndex = 11;
+      // 
+      // lblPort
+      // 
+      this.lblPort.BackColor = System.Drawing.Color.Transparent;
+      this.lblPort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPort.Location = new System.Drawing.Point(9, 35);
+      this.lblPort.Name = "lblPort";
+      this.lblPort.Size = new System.Drawing.Size(96, 16);
+      this.lblPort.TabIndex = 8;
+      this.lblPort.Text = "&Port:";
+      // 
+      // lblServer
+      // 
+      this.lblServer.BackColor = System.Drawing.Color.Transparent;
+      this.lblServer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblServer.Location = new System.Drawing.Point(9, 11);
+      this.lblServer.Name = "lblServer";
+      this.lblServer.Size = new System.Drawing.Size(96, 16);
+      this.lblServer.TabIndex = 6;
+      this.lblServer.Text = "&Server:";
+      // 
+      // Server
+      // 
+      this.Server.Location = new System.Drawing.Point(105, 9);
+      this.Server.Name = "Server";
+      this.Server.Size = new System.Drawing.Size(431, 20);
+      this.Server.TabIndex = 7;
+      // 
+      // chkWinXPThemes
+      // 
+      this.chkWinXPThemes.BackColor = System.Drawing.Color.Transparent;
+      this.chkWinXPThemes.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkWinXPThemes.Location = new System.Drawing.Point(16, 344);
+      this.chkWinXPThemes.Name = "chkWinXPThemes";
+      this.chkWinXPThemes.Size = new System.Drawing.Size(480, 16);
+      this.chkWinXPThemes.TabIndex = 12;
+      this.chkWinXPThemes.Text = "Use Windows XP menu style";
+      this.chkWinXPThemes.UseVisualStyleBackColor = false;
+      // 
+      // Label5
+      // 
+      this.Label5.BackColor = System.Drawing.Color.Transparent;
+      this.Label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.Label5.Location = new System.Drawing.Point(8, 172);
+      this.Label5.Name = "Label5";
+      this.Label5.Size = new System.Drawing.Size(336, 16);
+      this.Label5.TabIndex = 11;
+      this.Label5.Text = "Text color of mismatches Filename<->TAG  files:";
+      // 
+      // Label6
+      // 
+      this.Label6.BackColor = System.Drawing.Color.Transparent;
+      this.Label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.Label6.Location = new System.Drawing.Point(8, 140);
+      this.Label6.Name = "Label6";
+      this.Label6.Size = new System.Drawing.Size(336, 16);
+      this.Label6.TabIndex = 10;
+      this.Label6.Text = "Background color of mismatches Filename<->TAG  files:";
+      // 
+      // ColorCompareText
+      // 
+      this.ColorCompareText.BackColor = System.Drawing.SystemColors.Control;
+      this.ColorCompareText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.ColorCompareText.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.ColorCompareText.Location = new System.Drawing.Point(368, 168);
+      this.ColorCompareText.Name = "ColorCompareText";
+      this.ColorCompareText.Size = new System.Drawing.Size(24, 24);
+      this.ColorCompareText.TabIndex = 9;
+      this.ColorCompareText.UseVisualStyleBackColor = false;
+      this.ColorCompareText.Click += new System.EventHandler(this.ColorChangedBack_Click);
+      // 
+      // ColorCompareBack
+      // 
+      this.ColorCompareBack.BackColor = System.Drawing.SystemColors.Control;
+      this.ColorCompareBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.ColorCompareBack.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.ColorCompareBack.Location = new System.Drawing.Point(368, 136);
+      this.ColorCompareBack.Name = "ColorCompareBack";
+      this.ColorCompareBack.Size = new System.Drawing.Size(24, 24);
+      this.ColorCompareBack.TabIndex = 8;
+      this.ColorCompareBack.UseVisualStyleBackColor = false;
+      this.ColorCompareBack.Click += new System.EventHandler(this.ColorChangedBack_Click);
+      // 
+      // Label4
+      // 
+      this.Label4.BackColor = System.Drawing.Color.Transparent;
+      this.Label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.Label4.Location = new System.Drawing.Point(8, 108);
+      this.Label4.Name = "Label4";
+      this.Label4.Size = new System.Drawing.Size(336, 16);
+      this.Label4.TabIndex = 7;
+      this.Label4.Text = "Text color of duplicate files:";
+      // 
+      // Label3
+      // 
+      this.Label3.BackColor = System.Drawing.Color.Transparent;
+      this.Label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.Label3.Location = new System.Drawing.Point(8, 76);
+      this.Label3.Name = "Label3";
+      this.Label3.Size = new System.Drawing.Size(336, 16);
+      this.Label3.TabIndex = 6;
+      this.Label3.Text = "Background color of duplicate files:";
+      // 
+      // Label2
+      // 
+      this.Label2.BackColor = System.Drawing.Color.Transparent;
+      this.Label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.Label2.Location = new System.Drawing.Point(8, 44);
+      this.Label2.Name = "Label2";
+      this.Label2.Size = new System.Drawing.Size(336, 16);
+      this.Label2.TabIndex = 5;
+      this.Label2.Text = "Text color of changed files:";
+      // 
+      // Label1
+      // 
+      this.Label1.BackColor = System.Drawing.Color.Transparent;
+      this.Label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.Label1.Location = new System.Drawing.Point(8, 12);
+      this.Label1.Name = "Label1";
+      this.Label1.Size = new System.Drawing.Size(336, 16);
+      this.Label1.TabIndex = 4;
+      this.Label1.Text = "Background color of changed files:";
+      // 
+      // ColorChangedBack
+      // 
+      this.ColorChangedBack.BackColor = System.Drawing.SystemColors.Control;
+      this.ColorChangedBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.ColorChangedBack.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.ColorChangedBack.Location = new System.Drawing.Point(368, 8);
+      this.ColorChangedBack.Name = "ColorChangedBack";
+      this.ColorChangedBack.Size = new System.Drawing.Size(24, 24);
+      this.ColorChangedBack.TabIndex = 0;
+      this.ColorChangedBack.UseVisualStyleBackColor = false;
+      this.ColorChangedBack.Click += new System.EventHandler(this.ColorChangedBack_Click);
+      // 
+      // ColorDoubleText
+      // 
+      this.ColorDoubleText.BackColor = System.Drawing.SystemColors.Control;
+      this.ColorDoubleText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.ColorDoubleText.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.ColorDoubleText.Location = new System.Drawing.Point(368, 104);
+      this.ColorDoubleText.Name = "ColorDoubleText";
+      this.ColorDoubleText.Size = new System.Drawing.Size(24, 24);
+      this.ColorDoubleText.TabIndex = 3;
+      this.ColorDoubleText.UseVisualStyleBackColor = false;
+      this.ColorDoubleText.Click += new System.EventHandler(this.ColorChangedBack_Click);
+      // 
+      // ColorDoubleBack
+      // 
+      this.ColorDoubleBack.BackColor = System.Drawing.SystemColors.Control;
+      this.ColorDoubleBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.ColorDoubleBack.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.ColorDoubleBack.Location = new System.Drawing.Point(368, 72);
+      this.ColorDoubleBack.Name = "ColorDoubleBack";
+      this.ColorDoubleBack.Size = new System.Drawing.Size(24, 24);
+      this.ColorDoubleBack.TabIndex = 2;
+      this.ColorDoubleBack.UseVisualStyleBackColor = false;
+      this.ColorDoubleBack.Click += new System.EventHandler(this.ColorChangedBack_Click);
+      // 
+      // ColorChangedText
+      // 
+      this.ColorChangedText.BackColor = System.Drawing.SystemColors.Control;
+      this.ColorChangedText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.ColorChangedText.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.ColorChangedText.Location = new System.Drawing.Point(368, 40);
+      this.ColorChangedText.Name = "ColorChangedText";
+      this.ColorChangedText.Size = new System.Drawing.Size(24, 24);
+      this.ColorChangedText.TabIndex = 1;
+      this.ColorChangedText.UseVisualStyleBackColor = false;
+      this.ColorChangedText.Click += new System.EventHandler(this.ColorChangedBack_Click);
+      // 
+      // ToolGrid
+      // 
+      this.ToolGrid.AllowNavigation = false;
+      this.ToolGrid.CaptionVisible = false;
+      this.ToolGrid.DataMember = "";
+      this.ToolGrid.HeaderForeColor = System.Drawing.SystemColors.ControlText;
+      this.ToolGrid.Location = new System.Drawing.Point(8, 176);
+      this.ToolGrid.Name = "ToolGrid";
+      this.ToolGrid.ParentRowsVisible = false;
+      this.ToolGrid.ReadOnly = true;
+      this.ToolGrid.RowHeadersVisible = false;
+      this.ToolGrid.Size = new System.Drawing.Size(528, 184);
+      this.ToolGrid.TabIndex = 11;
+      this.ToolGrid.TableStyles.AddRange(new System.Windows.Forms.DataGridTableStyle[] {
+            this.Style});
+      // 
+      // Style
+      // 
+      this.Style.DataGrid = this.ToolGrid;
+      this.Style.GridColumnStyles.AddRange(new System.Windows.Forms.DataGridColumnStyle[] {
+            this.C1,
+            this.C2,
+            this.C3,
+            this.C4,
+            this.C5});
+      this.Style.HeaderForeColor = System.Drawing.SystemColors.ControlText;
+      // 
+      // C1
+      // 
+      this.C1.Format = "";
+      this.C1.FormatInfo = null;
+      this.C1.HeaderText = "Tool description";
+      this.C1.MappingName = "ToolDescription";
+      this.C1.Width = 75;
+      // 
+      // C2
+      // 
+      this.C2.Format = "";
+      this.C2.FormatInfo = null;
+      this.C2.HeaderText = "Tool path";
+      this.C2.MappingName = "ToolPath";
+      this.C2.Width = 75;
+      // 
+      // C3
+      // 
+      this.C3.Format = "";
+      this.C3.FormatInfo = null;
+      this.C3.HeaderText = "Tool parameters";
+      this.C3.MappingName = "ToolParameter";
+      this.C3.Width = 85;
+      // 
+      // C4
+      // 
+      this.C4.HeaderText = "Default Player";
+      this.C4.MappingName = "DefaultPlayer";
+      this.C4.Width = 75;
+      // 
+      // C5
+      // 
+      this.C5.Format = "";
+      this.C5.FormatInfo = null;
+      this.C5.HeaderText = "Shell command";
+      this.C5.MappingName = "ShellCommand";
+      this.C5.Width = 85;
+      // 
+      // btnRemove
+      // 
+      this.btnRemove.BackColor = System.Drawing.SystemColors.Control;
+      this.btnRemove.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemove.Location = new System.Drawing.Point(280, 144);
+      this.btnRemove.Name = "btnRemove";
+      this.btnRemove.Size = new System.Drawing.Size(256, 24);
+      this.btnRemove.TabIndex = 10;
+      this.btnRemove.Text = "Remove tool from list";
+      this.btnRemove.UseVisualStyleBackColor = false;
+      this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+      // 
+      // btnAdd
+      // 
+      this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
+      this.btnAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAdd.Location = new System.Drawing.Point(8, 144);
+      this.btnAdd.Name = "btnAdd";
+      this.btnAdd.Size = new System.Drawing.Size(256, 24);
+      this.btnAdd.TabIndex = 9;
+      this.btnAdd.Text = "Add tool to list";
+      this.btnAdd.UseVisualStyleBackColor = false;
+      this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+      // 
+      // lblP
+      // 
+      this.lblP.BackColor = System.Drawing.Color.Transparent;
+      this.lblP.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblP.Location = new System.Drawing.Point(136, 80);
+      this.lblP.Name = "lblP";
+      this.lblP.Size = new System.Drawing.Size(312, 16);
+      this.lblP.TabIndex = 8;
+      this.lblP.Text = "%P = MP3-Path";
+      // 
+      // btnBrowse
+      // 
+      this.btnBrowse.BackColor = System.Drawing.SystemColors.Control;
+      this.btnBrowse.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnBrowse.Location = new System.Drawing.Point(456, 32);
+      this.btnBrowse.Name = "btnBrowse";
+      this.btnBrowse.Size = new System.Drawing.Size(80, 20);
+      this.btnBrowse.TabIndex = 4;
+      this.btnBrowse.Text = "&Browse";
+      this.btnBrowse.UseVisualStyleBackColor = false;
+      this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+      // 
+      // cmbShell
+      // 
+      this.cmbShell.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.cmbShell.ItemHeight = 13;
+      this.cmbShell.Location = new System.Drawing.Point(232, 104);
+      this.cmbShell.Name = "cmbShell";
+      this.cmbShell.Size = new System.Drawing.Size(208, 21);
+      this.cmbShell.TabIndex = 7;
+      // 
+      // txtParameters
+      // 
+      this.txtParameters.Location = new System.Drawing.Point(138, 56);
+      this.txtParameters.Name = "txtParameters";
+      this.txtParameters.Size = new System.Drawing.Size(304, 20);
+      this.txtParameters.TabIndex = 5;
+      // 
+      // txtPath
+      // 
+      this.txtPath.Location = new System.Drawing.Point(138, 32);
+      this.txtPath.Name = "txtPath";
+      this.txtPath.Size = new System.Drawing.Size(304, 20);
+      this.txtPath.TabIndex = 3;
+      // 
+      // txtDescription
+      // 
+      this.txtDescription.Location = new System.Drawing.Point(138, 8);
+      this.txtDescription.Name = "txtDescription";
+      this.txtDescription.Size = new System.Drawing.Size(304, 20);
+      this.txtDescription.TabIndex = 1;
+      // 
+      // chkDefault
+      // 
+      this.chkDefault.BackColor = System.Drawing.Color.Transparent;
+      this.chkDefault.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkDefault.Location = new System.Drawing.Point(8, 106);
+      this.chkDefault.Name = "chkDefault";
+      this.chkDefault.Size = new System.Drawing.Size(216, 16);
+      this.chkDefault.TabIndex = 6;
+      this.chkDefault.Text = "Use &Windows default MP3-Player:";
+      this.chkDefault.UseVisualStyleBackColor = false;
+      this.chkDefault.CheckedChanged += new System.EventHandler(this.chkDefault_CheckedChanged);
+      // 
+      // lblParameters
+      // 
+      this.lblParameters.BackColor = System.Drawing.Color.Transparent;
+      this.lblParameters.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblParameters.Location = new System.Drawing.Point(8, 58);
+      this.lblParameters.Name = "lblParameters";
+      this.lblParameters.Size = new System.Drawing.Size(120, 16);
+      this.lblParameters.TabIndex = 4;
+      this.lblParameters.Text = "Tool &parameters:";
+      // 
+      // lblPath
+      // 
+      this.lblPath.BackColor = System.Drawing.Color.Transparent;
+      this.lblPath.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPath.Location = new System.Drawing.Point(8, 34);
+      this.lblPath.Name = "lblPath";
+      this.lblPath.Size = new System.Drawing.Size(120, 16);
+      this.lblPath.TabIndex = 2;
+      this.lblPath.Text = "Tool &path:";
+      // 
+      // lblDescription
+      // 
+      this.lblDescription.BackColor = System.Drawing.Color.Transparent;
+      this.lblDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblDescription.Location = new System.Drawing.Point(8, 10);
+      this.lblDescription.Name = "lblDescription";
+      this.lblDescription.Size = new System.Drawing.Size(120, 16);
+      this.lblDescription.TabIndex = 0;
+      this.lblDescription.Text = "Tool &description:";
+      // 
+      // btnOK
+      // 
+      this.btnOK.BackColor = System.Drawing.SystemColors.Control;
+      this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnOK.Location = new System.Drawing.Point(288, 8);
+      this.btnOK.Name = "btnOK";
+      this.btnOK.Size = new System.Drawing.Size(120, 24);
+      this.btnOK.TabIndex = 100;
+      this.btnOK.Text = "&OK";
+      this.btnOK.UseVisualStyleBackColor = false;
+      this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+      // 
+      // btnCancel
+      // 
+      this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
+      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+      this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCancel.Location = new System.Drawing.Point(416, 8);
+      this.btnCancel.Name = "btnCancel";
+      this.btnCancel.Size = new System.Drawing.Size(120, 24);
+      this.btnCancel.TabIndex = 101;
+      this.btnCancel.Text = "&Cancel";
+      this.btnCancel.UseVisualStyleBackColor = false;
+      // 
+      // ColorDialog
+      // 
+      this.ColorDialog.AnyColor = true;
+      // 
+      // ButtomPanel
+      // 
+      this.ButtomPanel.AntiAlias = true;
+      this.ButtomPanel.Controls.Add(this.btnOK);
+      this.ButtomPanel.Controls.Add(this.btnCancel);
+      this.ButtomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.ButtomPanel.Location = new System.Drawing.Point(0, 400);
+      this.ButtomPanel.Name = "ButtomPanel";
+      this.ButtomPanel.Size = new System.Drawing.Size(546, 40);
+      this.ButtomPanel.Style.BackColor1.Color = System.Drawing.Color.White;
+      this.ButtomPanel.Style.BackColor2.Color = System.Drawing.Color.White;
+      this.ButtomPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.ButtomPanel.Style.BorderWidth = 0;
+      this.ButtomPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ButtomPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
+      this.ButtomPanel.Style.GradientAngle = 90;
+      this.ButtomPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
+      this.ButtomPanel.Style.MarginBottom = 2;
+      this.ButtomPanel.Style.MarginLeft = 7;
+      this.ButtomPanel.Style.MarginRight = 2;
+      this.ButtomPanel.Style.MarginTop = 2;
+      this.ButtomPanel.TabIndex = 119;
+      // 
+      // TabControl
+      // 
+      this.TabControl.CanReorderTabs = true;
+      this.TabControl.Controls.Add(this.TabControlPanel1);
+      this.TabControl.Controls.Add(this.TabControlPanel3);
+      this.TabControl.Controls.Add(this.TabControlPanel2);
+      this.TabControl.Controls.Add(this.TabControlPanel6);
+      this.TabControl.Controls.Add(this.TabControlPanel5);
+      this.TabControl.Controls.Add(this.TabControlPanel4);
+      this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TabControl.Location = new System.Drawing.Point(0, 0);
+      this.TabControl.Name = "TabControl";
+      this.TabControl.SelectedTabFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+      this.TabControl.SelectedTabIndex = 0;
+      this.TabControl.Size = new System.Drawing.Size(546, 400);
+      this.TabControl.Style = DevComponents.DotNetBar.eTabStripStyle.VS2005Document;
+      this.TabControl.TabIndex = 120;
+      this.TabControl.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
+      this.TabControl.Tabs.Add(this.Settings);
+      this.TabControl.Tabs.Add(this.Ver2);
+      this.TabControl.Tabs.Add(this.Columns);
+      this.TabControl.Tabs.Add(this.FreeDB);
+      this.TabControl.Tabs.Add(this.Colors);
+      this.TabControl.Tabs.Add(this.Tools);
+      // 
+      // TabControlPanel1
+      // 
+      this.TabControlPanel1.AntiAlias = true;
+      this.TabControlPanel1.Controls.Add(this.chkAudioChecksumCalc);
+      this.TabControlPanel1.Controls.Add(this.chkIgnoreWrite);
+      this.TabControlPanel1.Controls.Add(this.chkMouseRenaming);
+      this.TabControlPanel1.Controls.Add(this.chkRestore);
+      this.TabControlPanel1.Controls.Add(this.lblTracknumbers);
+      this.TabControlPanel1.Controls.Add(this.txtTFDigits);
+      this.TabControlPanel1.Controls.Add(this.frameSelection);
+      this.TabControlPanel1.Controls.Add(this.chkSaveOnExit);
+      this.TabControlPanel1.Controls.Add(this.frameDoubleClick);
+      this.TabControlPanel1.Controls.Add(this.lblPlay);
+      this.TabControlPanel1.Controls.Add(this.cmbPlay);
+      this.TabControlPanel1.Controls.Add(this.chkExplorerContext);
+      this.TabControlPanel1.Controls.Add(this.frameEnum);
+      this.TabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TabControlPanel1.Location = new System.Drawing.Point(0, 26);
+      this.TabControlPanel1.Name = "TabControlPanel1";
+      this.TabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
+      this.TabControlPanel1.Size = new System.Drawing.Size(546, 374);
+      this.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.TabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
+      this.TabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+      this.TabControlPanel1.Style.GradientAngle = 90;
+      this.TabControlPanel1.TabIndex = 1;
+      this.TabControlPanel1.TabItem = this.Settings;
+      // 
+      // chkAudioChecksumCalc
+      // 
+      this.chkAudioChecksumCalc.BackColor = System.Drawing.Color.Transparent;
+      this.chkAudioChecksumCalc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkAudioChecksumCalc.Location = new System.Drawing.Point(16, 276);
+      this.chkAudioChecksumCalc.Name = "chkAudioChecksumCalc";
+      this.chkAudioChecksumCalc.Size = new System.Drawing.Size(520, 16);
+      this.chkAudioChecksumCalc.TabIndex = 17;
+      this.chkAudioChecksumCalc.Text = "&Calculate Audiochecksum in the background";
+      this.chkAudioChecksumCalc.UseVisualStyleBackColor = false;
+      // 
+      // Settings
+      // 
+      this.Settings.AttachedControl = this.TabControlPanel1;
+      this.Settings.Name = "Settings";
+      this.Settings.Text = "Settings";
+      // 
+      // TabControlPanel3
+      // 
+      this.TabControlPanel3.AntiAlias = true;
+      this.TabControlPanel3.Controls.Add(this.lblV24);
+      this.TabControlPanel3.Controls.Add(this.lblV23);
+      this.TabControlPanel3.Controls.Add(this.cmbV24Enc);
+      this.TabControlPanel3.Controls.Add(this.lblTextEncInfo);
+      this.TabControlPanel3.Controls.Add(this.chkSingle);
+      this.TabControlPanel3.Controls.Add(this.chkUnSync);
+      this.TabControlPanel3.Controls.Add(this.optUse24);
+      this.TabControlPanel3.Controls.Add(this.lblFormat);
+      this.TabControlPanel3.Controls.Add(this.cmbV23Enc);
+      this.TabControlPanel3.Controls.Add(this.optUse23);
+      this.TabControlPanel3.Controls.Add(this.cmbYearFormat);
+      this.TabControlPanel3.Controls.Add(this.lblDigits);
+      this.TabControlPanel3.Controls.Add(this.txtTTDigits);
+      this.TabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TabControlPanel3.Location = new System.Drawing.Point(0, 26);
+      this.TabControlPanel3.Name = "TabControlPanel3";
+      this.TabControlPanel3.Padding = new System.Windows.Forms.Padding(1);
+      this.TabControlPanel3.Size = new System.Drawing.Size(546, 374);
+      this.TabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.TabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
+      this.TabControlPanel3.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+      this.TabControlPanel3.Style.GradientAngle = 90;
+      this.TabControlPanel3.TabIndex = 3;
+      this.TabControlPanel3.TabItem = this.Ver2;
+      // 
+      // Ver2
+      // 
+      this.Ver2.AttachedControl = this.TabControlPanel3;
+      this.Ver2.Name = "Ver2";
+      this.Ver2.Text = "TAG Ver. 2";
+      // 
+      // TabControlPanel2
+      // 
+      this.TabControlPanel2.AntiAlias = true;
+      this.TabControlPanel2.Controls.Add(this.btnUp);
+      this.TabControlPanel2.Controls.Add(this.btnDown);
+      this.TabControlPanel2.Controls.Add(this.lblDescript);
+      this.TabControlPanel2.Controls.Add(this.ColumnsList);
+      this.TabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TabControlPanel2.Location = new System.Drawing.Point(0, 26);
+      this.TabControlPanel2.Name = "TabControlPanel2";
+      this.TabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
+      this.TabControlPanel2.Size = new System.Drawing.Size(546, 374);
+      this.TabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.TabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
+      this.TabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+      this.TabControlPanel2.Style.GradientAngle = 90;
+      this.TabControlPanel2.TabIndex = 2;
+      this.TabControlPanel2.TabItem = this.Columns;
+      // 
+      // Columns
+      // 
+      this.Columns.AttachedControl = this.TabControlPanel2;
+      this.Columns.Name = "Columns";
+      this.Columns.Text = "Columns";
+      // 
+      // TabControlPanel6
+      // 
+      this.TabControlPanel6.AntiAlias = true;
+      this.TabControlPanel6.Controls.Add(this.btnBrowse);
+      this.TabControlPanel6.Controls.Add(this.cmbShell);
+      this.TabControlPanel6.Controls.Add(this.txtParameters);
+      this.TabControlPanel6.Controls.Add(this.txtPath);
+      this.TabControlPanel6.Controls.Add(this.txtDescription);
+      this.TabControlPanel6.Controls.Add(this.chkDefault);
+      this.TabControlPanel6.Controls.Add(this.ToolGrid);
+      this.TabControlPanel6.Controls.Add(this.lblPath);
+      this.TabControlPanel6.Controls.Add(this.btnRemove);
+      this.TabControlPanel6.Controls.Add(this.lblDescription);
+      this.TabControlPanel6.Controls.Add(this.lblParameters);
+      this.TabControlPanel6.Controls.Add(this.btnAdd);
+      this.TabControlPanel6.Controls.Add(this.lblP);
+      this.TabControlPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TabControlPanel6.Location = new System.Drawing.Point(0, 26);
+      this.TabControlPanel6.Name = "TabControlPanel6";
+      this.TabControlPanel6.Padding = new System.Windows.Forms.Padding(1);
+      this.TabControlPanel6.Size = new System.Drawing.Size(546, 374);
+      this.TabControlPanel6.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.TabControlPanel6.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TabControlPanel6.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
+      this.TabControlPanel6.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+      this.TabControlPanel6.Style.GradientAngle = 90;
+      this.TabControlPanel6.TabIndex = 6;
+      this.TabControlPanel6.TabItem = this.Tools;
+      // 
+      // Tools
+      // 
+      this.Tools.AttachedControl = this.TabControlPanel6;
+      this.Tools.Name = "Tools";
+      this.Tools.Text = "Tools";
+      // 
+      // TabControlPanel5
+      // 
+      this.TabControlPanel5.AntiAlias = true;
+      this.TabControlPanel5.Controls.Add(this.ColorDoubleText);
+      this.TabControlPanel5.Controls.Add(this.ColorDoubleBack);
+      this.TabControlPanel5.Controls.Add(this.chkWinXPThemes);
+      this.TabControlPanel5.Controls.Add(this.Label5);
+      this.TabControlPanel5.Controls.Add(this.Label6);
+      this.TabControlPanel5.Controls.Add(this.ColorCompareText);
+      this.TabControlPanel5.Controls.Add(this.ColorCompareBack);
+      this.TabControlPanel5.Controls.Add(this.Label4);
+      this.TabControlPanel5.Controls.Add(this.Label3);
+      this.TabControlPanel5.Controls.Add(this.Label2);
+      this.TabControlPanel5.Controls.Add(this.Label1);
+      this.TabControlPanel5.Controls.Add(this.ColorChangedBack);
+      this.TabControlPanel5.Controls.Add(this.ColorChangedText);
+      this.TabControlPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TabControlPanel5.Location = new System.Drawing.Point(0, 26);
+      this.TabControlPanel5.Name = "TabControlPanel5";
+      this.TabControlPanel5.Padding = new System.Windows.Forms.Padding(1);
+      this.TabControlPanel5.Size = new System.Drawing.Size(546, 374);
+      this.TabControlPanel5.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.TabControlPanel5.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TabControlPanel5.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
+      this.TabControlPanel5.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+      this.TabControlPanel5.Style.GradientAngle = 90;
+      this.TabControlPanel5.TabIndex = 5;
+      this.TabControlPanel5.TabItem = this.Colors;
+      // 
+      // Colors
+      // 
+      this.Colors.AttachedControl = this.TabControlPanel5;
+      this.Colors.Name = "Colors";
+      this.Colors.Text = "Colors";
+      // 
+      // TabControlPanel4
+      // 
+      this.TabControlPanel4.AntiAlias = true;
+      this.TabControlPanel4.Controls.Add(this.lblUsername);
+      this.TabControlPanel4.Controls.Add(this.Username);
+      this.TabControlPanel4.Controls.Add(this.lblPort);
+      this.TabControlPanel4.Controls.Add(this.lblServer);
+      this.TabControlPanel4.Controls.Add(this.Server);
+      this.TabControlPanel4.Controls.Add(this.Port);
+      this.TabControlPanel4.Controls.Add(this.grpProxy);
+      this.TabControlPanel4.Controls.Add(this.chkProxy);
+      this.TabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.TabControlPanel4.Location = new System.Drawing.Point(0, 26);
+      this.TabControlPanel4.Name = "TabControlPanel4";
+      this.TabControlPanel4.Padding = new System.Windows.Forms.Padding(1);
+      this.TabControlPanel4.Size = new System.Drawing.Size(546, 374);
+      this.TabControlPanel4.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+      this.TabControlPanel4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+      this.TabControlPanel4.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
+      this.TabControlPanel4.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+      this.TabControlPanel4.Style.GradientAngle = 90;
+      this.TabControlPanel4.TabIndex = 4;
+      this.TabControlPanel4.TabItem = this.FreeDB;
+      // 
+      // FreeDB
+      // 
+      this.FreeDB.AttachedControl = this.TabControlPanel4;
+      this.FreeDB.Name = "FreeDB";
+      this.FreeDB.Text = "FreeDB";
+      // 
+      // frmPreferences
+      // 
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+      this.ClientSize = new System.Drawing.Size(546, 440);
+      this.ControlBox = false;
+      this.Controls.Add(this.TabControl);
+      this.Controls.Add(this.ButtomPanel);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
+      this.Name = "frmPreferences";
+      this.ShowInTaskbar = false;
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+      this.Text = "Preferences";
+      this.frameEnum.ResumeLayout(false);
+      this.frameEnum.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.txtFDigits)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtStartNr)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.txtTFDigits)).EndInit();
+      this.frameSelection.ResumeLayout(false);
+      this.frameDoubleClick.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.txtTTDigits)).EndInit();
+      this.grpProxy.ResumeLayout(false);
+      this.grpProxy.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.ToolGrid)).EndInit();
+      this.ButtomPanel.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
+      this.TabControl.ResumeLayout(false);
+      this.TabControlPanel1.ResumeLayout(false);
+      this.TabControlPanel3.ResumeLayout(false);
+      this.TabControlPanel2.ResumeLayout(false);
+      this.TabControlPanel6.ResumeLayout(false);
+      this.TabControlPanel6.PerformLayout();
+      this.TabControlPanel5.ResumeLayout(false);
+      this.TabControlPanel4.ResumeLayout(false);
+      this.TabControlPanel4.PerformLayout();
+      this.ResumeLayout(false);
+    }
 
     public frmPreferences(frmMain Main)
     {
@@ -951,1208 +2273,6 @@
       this.AddToolTips();
     }
 
-    [DebuggerStepThrough]
-    private void InitializeComponent()
-    {
-      this.components = new Container();
-      ResourceManager manager = new ResourceManager(typeof(frmPreferences));
-      this.lblPlay = new Label();
-      this.cmbPlay = new ComboBox();
-      this.chkExplorerContext = new CheckBox();
-      this.frameEnum = new GroupBox();
-      this.lbl2 = new Label();
-      this.txtFDigits = new NumericUpDown();
-      this.lblEnumSep = new Label();
-      this.txtEnumSep = new System.Windows.Forms.TextBox();
-      this.lbl1 = new Label();
-      this.txtStartNr = new NumericUpDown();
-      this.chkMouseRenaming = new CheckBox();
-      this.chkRestore = new CheckBox();
-      this.lblTracknumbers = new Label();
-      this.txtTFDigits = new NumericUpDown();
-      this.frameSelection = new GroupBox();
-      this.optAdd = new RadioButton();
-      this.optSingle = new RadioButton();
-      this.chkSaveOnExit = new CheckBox();
-      this.frameDoubleClick = new GroupBox();
-      this.optEditCur = new RadioButton();
-      this.optEditV1 = new RadioButton();
-      this.optEditV2 = new RadioButton();
-      this.chkIgnoreWrite = new CheckBox();
-      this.lblDescript = new Label();
-      this.ColumnsList = new ListView();
-      this.btnUp = new Button();
-      this.btnDown = new Button();
-      this.lblTextEncInfo = new Label();
-      this.lblFormat = new Label();
-      this.cmbYearFormat = new ComboBox();
-      this.lblDigits = new Label();
-      this.txtTTDigits = new NumericUpDown();
-      this.lblV24 = new Label();
-      this.lblV23 = new Label();
-      this.cmbV24Enc = new ComboBox();
-      this.cmbV23Enc = new ComboBox();
-      this.chkSingle = new CheckBox();
-      this.chkUnSync = new CheckBox();
-      this.optUse24 = new RadioButton();
-      this.optUse23 = new RadioButton();
-      this.Port = new NumericTextBox();
-      this.grpProxy = new GroupBox();
-      this.txtProxyPort = new NumericTextBox();
-      this.txtProxyPassword = new System.Windows.Forms.TextBox();
-      this.Label10 = new Label();
-      this.txtProxyUser = new System.Windows.Forms.TextBox();
-      this.Label9 = new Label();
-      this.Label8 = new Label();
-      this.txtProxyServer = new System.Windows.Forms.TextBox();
-      this.Label7 = new Label();
-      this.chkProxy = new CheckBox();
-      this.lblUsername = new Label();
-      this.Username = new System.Windows.Forms.TextBox();
-      this.lblPort = new Label();
-      this.lblServer = new Label();
-      this.Server = new System.Windows.Forms.TextBox();
-      this.chkWinXPThemes = new CheckBox();
-      this.Label5 = new Label();
-      this.Label6 = new Label();
-      this.ColorCompareText = new Button();
-      this.ColorCompareBack = new Button();
-      this.Label4 = new Label();
-      this.Label3 = new Label();
-      this.Label2 = new Label();
-      this.Label1 = new Label();
-      this.ColorChangedBack = new Button();
-      this.ColorDoubleText = new Button();
-      this.ColorDoubleBack = new Button();
-      this.ColorChangedText = new Button();
-      this.ToolGrid = new DataGrid();
-      this.Style = new DataGridTableStyle();
-      this.C1 = new DataGridTextBoxColumn();
-      this.C2 = new DataGridTextBoxColumn();
-      this.C3 = new DataGridTextBoxColumn();
-      this.C4 = new DataGridBoolColumn();
-      this.C5 = new DataGridTextBoxColumn();
-      this.btnRemove = new Button();
-      this.btnAdd = new Button();
-      this.lblP = new Label();
-      this.btnBrowse = new Button();
-      this.cmbShell = new ComboBox();
-      this.txtParameters = new System.Windows.Forms.TextBox();
-      this.txtPath = new System.Windows.Forms.TextBox();
-      this.txtDescription = new System.Windows.Forms.TextBox();
-      this.chkDefault = new CheckBox();
-      this.lblParameters = new Label();
-      this.lblPath = new Label();
-      this.lblDescription = new Label();
-      this.btnOK = new Button();
-      this.btnCancel = new Button();
-      this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
-      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.ColorDialog = new System.Windows.Forms.ColorDialog();
-      this.ButtomPanel = new PanelEx();
-      this.TabControl = new DevComponents.DotNetBar.TabControl();
-      this.TabControlPanel1 = new TabControlPanel();
-      this.chkAudioChecksumCalc = new CheckBox();
-      this.Settings = new TabItem(this.components);
-      this.TabControlPanel3 = new TabControlPanel();
-      this.Ver2 = new TabItem(this.components);
-      this.TabControlPanel2 = new TabControlPanel();
-      this.Columns = new TabItem(this.components);
-      this.TabControlPanel6 = new TabControlPanel();
-      this.Tools = new TabItem(this.components);
-      this.TabControlPanel5 = new TabControlPanel();
-      this.Colors = new TabItem(this.components);
-      this.TabControlPanel4 = new TabControlPanel();
-      this.FreeDB = new TabItem(this.components);
-      this.frameEnum.SuspendLayout();
-      this.txtFDigits.BeginInit();
-      this.txtStartNr.BeginInit();
-      this.txtTFDigits.BeginInit();
-      this.frameSelection.SuspendLayout();
-      this.frameDoubleClick.SuspendLayout();
-      this.txtTTDigits.BeginInit();
-      this.grpProxy.SuspendLayout();
-      this.ToolGrid.BeginInit();
-      this.ButtomPanel.SuspendLayout();
-      ((ISupportInitialize)this.TabControl).BeginInit();
-      this.TabControl.SuspendLayout();
-      this.TabControlPanel1.SuspendLayout();
-      this.TabControlPanel3.SuspendLayout();
-      this.TabControlPanel2.SuspendLayout();
-      this.TabControlPanel6.SuspendLayout();
-      this.TabControlPanel5.SuspendLayout();
-      this.TabControlPanel4.SuspendLayout();
-      this.SuspendLayout();
-      this.lblPlay.BackColor = System.Drawing.Color.Transparent;
-      this.lblPlay.ImeMode = ImeMode.NoControl;
-      Point point = new Point(0x10, 0x132);
-      this.lblPlay.Location = point;
-      this.lblPlay.Name = "lblPlay";
-      Size size = new Size(0x110, 0x10);
-      this.lblPlay.Size = size;
-      this.lblPlay.TabIndex = 0x12;
-      this.lblPlay.Text = "Shell command for PLA&Y function:";
-      this.cmbPlay.DropDownStyle = ComboBoxStyle.DropDownList;
-      this.cmbPlay.ItemHeight = 13;
-      point = new Point(0x120, 0x130);
-      this.cmbPlay.Location = point;
-      this.cmbPlay.Name = "cmbPlay";
-      size = new Size(0xf8, 0x15);
-      this.cmbPlay.Size = size;
-      this.cmbPlay.TabIndex = 0x13;
-      this.chkExplorerContext.BackColor = System.Drawing.Color.Transparent;
-      this.chkExplorerContext.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0xfc);
-      this.chkExplorerContext.Location = point;
-      this.chkExplorerContext.Name = "chkExplorerContext";
-      size = new Size(520, 0x10);
-      this.chkExplorerContext.Size = size;
-      this.chkExplorerContext.TabIndex = 0x10;
-      this.chkExplorerContext.Text = "Show \"ID3-TagIT\" in the folder context menu of the Windows &Explorer";
-      this.frameEnum.BackColor = System.Drawing.Color.Transparent;
-      this.frameEnum.Controls.Add(this.lbl2);
-      this.frameEnum.Controls.Add(this.txtFDigits);
-      this.frameEnum.Controls.Add(this.lblEnumSep);
-      this.frameEnum.Controls.Add(this.txtEnumSep);
-      this.frameEnum.Controls.Add(this.lbl1);
-      this.frameEnum.Controls.Add(this.txtStartNr);
-      point = new Point(0xe0, 0x58);
-      this.frameEnum.Location = point;
-      this.frameEnum.Name = "frameEnum";
-      size = new Size(0x138, 0x68);
-      this.frameEnum.Size = size;
-      this.frameEnum.TabIndex = 10;
-      this.frameEnum.TabStop = false;
-      this.frameEnum.Text = "Enumerating mode";
-      this.lbl2.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x48);
-      this.lbl2.Location = point;
-      this.lbl2.Name = "lbl2";
-      size = new Size(0xe0, 0x10);
-      this.lbl2.Size = size;
-      this.lbl2.TabIndex = 7;
-      this.lbl2.Text = "Number of digits of filename enumeration:";
-      point = new Point(0xef, 70);
-      this.txtFDigits.Location = point;
-      decimal num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtFDigits.Minimum = num;
-      this.txtFDigits.Name = "txtFDigits";
-      size = new Size(0x40, 20);
-      this.txtFDigits.Size = size;
-      this.txtFDigits.TabIndex = 8;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtFDigits.Value = num;
-      this.lblEnumSep.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x30);
-      this.lblEnumSep.Location = point;
-      this.lblEnumSep.Name = "lblEnumSep";
-      size = new Size(0xe0, 0x10);
-      this.lblEnumSep.Size = size;
-      this.lblEnumSep.TabIndex = 5;
-      this.lblEnumSep.Text = "Separator:";
-      point = new Point(0xef, 0x2e);
-      this.txtEnumSep.Location = point;
-      this.txtEnumSep.Name = "txtEnumSep";
-      size = new Size(0x40, 20);
-      this.txtEnumSep.Size = size;
-      this.txtEnumSep.TabIndex = 6;
-      this.txtEnumSep.Text = " - ";
-      this.lbl1.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x18);
-      this.lbl1.Location = point;
-      this.lbl1.Name = "lbl1";
-      size = new Size(0xe0, 0x10);
-      this.lbl1.Size = size;
-      this.lbl1.TabIndex = 0;
-      this.lbl1.Text = "Number to start with:";
-      point = new Point(0xef, 0x16);
-      this.txtStartNr.Location = point;
-      num = new decimal(new int[] { 0x989680, 0, 0, 0 });
-      this.txtStartNr.Maximum = num;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtStartNr.Minimum = num;
-      this.txtStartNr.Name = "txtStartNr";
-      size = new Size(0x40, 20);
-      this.txtStartNr.Size = size;
-      this.txtStartNr.TabIndex = 1;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtStartNr.Value = num;
-      this.chkMouseRenaming.BackColor = System.Drawing.Color.Transparent;
-      this.chkMouseRenaming.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0xcc);
-      this.chkMouseRenaming.Location = point;
-      this.chkMouseRenaming.Name = "chkMouseRenaming";
-      size = new Size(0xf8, 0x10);
-      this.chkMouseRenaming.Size = size;
-      this.chkMouseRenaming.TabIndex = 12;
-      this.chkMouseRenaming.Text = "Enable &Renaming by mouse click";
-      this.chkRestore.BackColor = System.Drawing.Color.Transparent;
-      this.chkRestore.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0xe4);
-      this.chkRestore.Location = point;
-      this.chkRestore.Name = "chkRestore";
-      size = new Size(0xf8, 0x10);
-      this.chkRestore.Size = size;
-      this.chkRestore.TabIndex = 14;
-      this.chkRestore.Text = "&Restore date of file after tagging";
-      this.lblTracknumbers.BackColor = System.Drawing.Color.Transparent;
-      this.lblTracknumbers.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x152);
-      this.lblTracknumbers.Location = point;
-      this.lblTracknumbers.Name = "lblTracknumbers";
-      size = new Size(0x110, 0x10);
-      this.lblTracknumbers.Size = size;
-      this.lblTracknumbers.TabIndex = 20;
-      this.lblTracknumbers.Text = "Number of &digits of track numbers in filenames:";
-      point = new Point(0x120, 0x150);
-      this.txtTFDigits.Location = point;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtTFDigits.Minimum = num;
-      this.txtTFDigits.Name = "txtTFDigits";
-      size = new Size(0x40, 20);
-      this.txtTFDigits.Size = size;
-      this.txtTFDigits.TabIndex = 0x15;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtTFDigits.Value = num;
-      this.frameSelection.BackColor = System.Drawing.Color.Transparent;
-      this.frameSelection.Controls.Add(this.optAdd);
-      this.frameSelection.Controls.Add(this.optSingle);
-      point = new Point(8, 0x58);
-      this.frameSelection.Location = point;
-      this.frameSelection.Name = "frameSelection";
-      size = new Size(200, 0x68);
-      this.frameSelection.Size = size;
-      this.frameSelection.TabIndex = 5;
-      this.frameSelection.TabStop = false;
-      this.frameSelection.Text = "Selection mode";
-      this.optAdd.BackColor = System.Drawing.Color.Transparent;
-      this.optAdd.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x30);
-      this.optAdd.Location = point;
-      this.optAdd.Name = "optAdd";
-      size = new Size(0xb0, 0x10);
-      this.optAdd.Size = size;
-      this.optAdd.TabIndex = 1;
-      this.optAdd.Text = "&Add to selection";
-      this.optSingle.BackColor = System.Drawing.Color.Transparent;
-      this.optSingle.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x18);
-      this.optSingle.Location = point;
-      this.optSingle.Name = "optSingle";
-      size = new Size(0xb0, 0x10);
-      this.optSingle.Size = size;
-      this.optSingle.TabIndex = 3;
-      this.optSingle.Text = "&New selection";
-      this.chkSaveOnExit.BackColor = System.Drawing.Color.Transparent;
-      this.chkSaveOnExit.ImeMode = ImeMode.NoControl;
-      point = new Point(280, 0xe4);
-      this.chkSaveOnExit.Location = point;
-      this.chkSaveOnExit.Name = "chkSaveOnExit";
-      size = new Size(0x100, 0x10);
-      this.chkSaveOnExit.Size = size;
-      this.chkSaveOnExit.TabIndex = 15;
-      this.chkSaveOnExit.Text = "&Save folder on exit";
-      this.frameDoubleClick.BackColor = System.Drawing.Color.Transparent;
-      this.frameDoubleClick.Controls.Add(this.optEditCur);
-      this.frameDoubleClick.Controls.Add(this.optEditV1);
-      this.frameDoubleClick.Controls.Add(this.optEditV2);
-      point = new Point(8, 8);
-      this.frameDoubleClick.Location = point;
-      this.frameDoubleClick.Name = "frameDoubleClick";
-      size = new Size(0x210, 0x48);
-      this.frameDoubleClick.Size = size;
-      this.frameDoubleClick.TabIndex = 0;
-      this.frameDoubleClick.TabStop = false;
-      this.frameDoubleClick.Text = " Double click open command ";
-      this.optEditCur.BackColor = System.Drawing.Color.Transparent;
-      this.optEditCur.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x30);
-      this.optEditCur.Location = point;
-      this.optEditCur.Name = "optEditCur";
-      size = new Size(0x1f0, 0x10);
-      this.optEditCur.Size = size;
-      this.optEditCur.TabIndex = 2;
-      this.optEditCur.Text = "Open 'Edit TAG Ver. &X' dialog corresponding to current view";
-      this.optEditV1.BackColor = System.Drawing.Color.Transparent;
-      this.optEditV1.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x18);
-      this.optEditV1.Location = point;
-      this.optEditV1.Name = "optEditV1";
-      size = new Size(240, 0x10);
-      this.optEditV1.Size = size;
-      this.optEditV1.TabIndex = 0;
-      this.optEditV1.Text = "Open 'Edit TAG Ver. &1' dialog";
-      this.optEditV2.BackColor = System.Drawing.Color.Transparent;
-      this.optEditV2.ImeMode = ImeMode.NoControl;
-      point = new Point(0x110, 0x18);
-      this.optEditV2.Location = point;
-      this.optEditV2.Name = "optEditV2";
-      size = new Size(240, 0x10);
-      this.optEditV2.Size = size;
-      this.optEditV2.TabIndex = 1;
-      this.optEditV2.Text = "Open 'Edit TAG Ver. &2' dialog";
-      this.chkIgnoreWrite.BackColor = System.Drawing.Color.Transparent;
-      this.chkIgnoreWrite.ImeMode = ImeMode.NoControl;
-      point = new Point(280, 0xcc);
-      this.chkIgnoreWrite.Location = point;
-      this.chkIgnoreWrite.Name = "chkIgnoreWrite";
-      size = new Size(0x100, 0x10);
-      this.chkIgnoreWrite.Size = size;
-      this.chkIgnoreWrite.TabIndex = 13;
-      this.chkIgnoreWrite.Text = "&Ignore write protection";
-      this.lblDescript.BackColor = System.Drawing.Color.Transparent;
-      this.lblDescript.BorderStyle = BorderStyle.Fixed3D;
-      this.lblDescript.ImeMode = ImeMode.NoControl;
-      point = new Point(280, 0x110);
-      this.lblDescript.Location = point;
-      this.lblDescript.Name = "lblDescript";
-      size = new Size(0x100, 0x58);
-      this.lblDescript.Size = size;
-      this.lblDescript.TabIndex = 3;
-      this.lblDescript.Text = "Only checked columns will be displayed . You can reorder the columns by moving them  up or down. The filename column will always be visible.";
-      this.lblDescript.TextAlign = ContentAlignment.MiddleCenter;
-      this.ColumnsList.CheckBoxes = true;
-      this.ColumnsList.FullRowSelect = true;
-      this.ColumnsList.HeaderStyle = ColumnHeaderStyle.None;
-      point = new Point(8, 8);
-      this.ColumnsList.Location = point;
-      this.ColumnsList.MultiSelect = false;
-      this.ColumnsList.Name = "ColumnsList";
-      size = new Size(0x100, 0x160);
-      this.ColumnsList.Size = size;
-      this.ColumnsList.TabIndex = 2;
-      this.ColumnsList.View = View.Details;
-      this.btnUp.BackColor = SystemColors.Control;
-      this.btnUp.ImeMode = ImeMode.NoControl;
-      point = new Point(280, 160);
-      this.btnUp.Location = point;
-      this.btnUp.Name = "btnUp";
-      size = new Size(0x80, 0x18);
-      this.btnUp.Size = size;
-      this.btnUp.TabIndex = 1;
-      this.btnUp.Text = "Column &up";
-      this.btnDown.BackColor = SystemColors.Control;
-      this.btnDown.ImeMode = ImeMode.NoControl;
-      point = new Point(280, 0xc0);
-      this.btnDown.Location = point;
-      this.btnDown.Name = "btnDown";
-      size = new Size(0x80, 0x18);
-      this.btnDown.Size = size;
-      this.btnDown.TabIndex = 1;
-      this.btnDown.Text = "Column &down";
-      this.lblTextEncInfo.BackColor = System.Drawing.Color.Transparent;
-      point = new Point(8, 0x107);
-      this.lblTextEncInfo.Location = point;
-      this.lblTextEncInfo.Name = "lblTextEncInfo";
-      size = new Size(0x210, 0x30);
-      this.lblTextEncInfo.Size = size;
-      this.lblTextEncInfo.TabIndex = 0x10;
-      this.lblTextEncInfo.Text = "NOTE: The text encoding will only be used for new TAG Ver. 2 frames. Already present frames will not be changed when the TAG is saved.";
-      this.lblFormat.BackColor = System.Drawing.Color.Transparent;
-      this.lblFormat.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x8a);
-      this.lblFormat.Location = point;
-      this.lblFormat.Name = "lblFormat";
-      size = new Size(200, 0x10);
-      this.lblFormat.Size = size;
-      this.lblFormat.TabIndex = 8;
-      this.lblFormat.Text = "&Format of year entry:";
-      this.cmbYearFormat.ItemHeight = 13;
-      this.cmbYearFormat.Items.AddRange(new object[] { "YYYY", "YYYY-MM", "YYYY-MM-DD" });
-      point = new Point(0xd8, 0x88);
-      this.cmbYearFormat.Location = point;
-      this.cmbYearFormat.Name = "cmbYearFormat";
-      size = new Size(320, 0x15);
-      this.cmbYearFormat.Size = size;
-      this.cmbYearFormat.TabIndex = 9;
-      this.lblDigits.BackColor = System.Drawing.Color.Transparent;
-      this.lblDigits.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0xaf);
-      this.lblDigits.Location = point;
-      this.lblDigits.Name = "lblDigits";
-      size = new Size(0x128, 0x10);
-      this.lblDigits.Size = size;
-      this.lblDigits.TabIndex = 10;
-      this.lblDigits.Text = "Number of digits of track numbers in Ver. 2 TAGs:";
-      point = new Point(0x138, 0xad);
-      this.txtTTDigits.Location = point;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtTTDigits.Minimum = num;
-      this.txtTTDigits.Name = "txtTTDigits";
-      size = new Size(0x40, 20);
-      this.txtTTDigits.Size = size;
-      this.txtTTDigits.TabIndex = 11;
-      num = new decimal(new int[] { 1, 0, 0, 0 });
-      this.txtTTDigits.Value = num;
-      this.lblV24.BackColor = System.Drawing.Color.Transparent;
-      this.lblV24.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0xea);
-      this.lblV24.Location = point;
-      this.lblV24.Name = "lblV24";
-      size = new Size(200, 0x10);
-      this.lblV24.Size = size;
-      this.lblV24.TabIndex = 14;
-      this.lblV24.Text = "Text encoding for TAG Ver. 2.4:";
-      this.lblV23.BackColor = System.Drawing.Color.Transparent;
-      this.lblV23.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 210);
-      this.lblV23.Location = point;
-      this.lblV23.Name = "lblV23";
-      size = new Size(200, 0x10);
-      this.lblV23.Size = size;
-      this.lblV23.TabIndex = 12;
-      this.lblV23.Text = "Text encoding for TAG Ver. 2.3:";
-      this.cmbV24Enc.DropDownStyle = ComboBoxStyle.DropDownList;
-      this.cmbV24Enc.ItemHeight = 13;
-      this.cmbV24Enc.Items.AddRange(new object[] { "ANSI-Encoding (Default)", "UTF-16 (LE) Encoding with BOM (Default for Unicode Encoding)", "UTF-16 (BE) Encoding without BOM", "UTF-8 Encoding" });
-      point = new Point(0xd8, 0xe8);
-      this.cmbV24Enc.Location = point;
-      this.cmbV24Enc.Name = "cmbV24Enc";
-      size = new Size(320, 0x15);
-      this.cmbV24Enc.Size = size;
-      this.cmbV24Enc.TabIndex = 15;
-      this.cmbV23Enc.DropDownStyle = ComboBoxStyle.DropDownList;
-      this.cmbV23Enc.ItemHeight = 13;
-      this.cmbV23Enc.Items.AddRange(new object[] { "ANSI-Encoding (Default)", "UTF-16 (LE) Encoding with BOM (Default for Unicode Encoding)" });
-      point = new Point(0xd8, 0xd0);
-      this.cmbV23Enc.Location = point;
-      this.cmbV23Enc.Name = "cmbV23Enc";
-      size = new Size(320, 0x15);
-      this.cmbV23Enc.Size = size;
-      this.cmbV23Enc.TabIndex = 13;
-      this.chkSingle.BackColor = System.Drawing.Color.Transparent;
-      this.chkSingle.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x61);
-      this.chkSingle.Location = point;
-      this.chkSingle.Name = "chkSingle";
-      size = new Size(240, 0x10);
-      this.chkSingle.Size = size;
-      this.chkSingle.TabIndex = 7;
-      this.chkSingle.Text = "Allow onl&y one genre / comment";
-      this.chkUnSync.BackColor = System.Drawing.Color.Transparent;
-      this.chkUnSync.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x49);
-      this.chkUnSync.Location = point;
-      this.chkUnSync.Name = "chkUnSync";
-      size = new Size(240, 0x10);
-      this.chkUnSync.Size = size;
-      this.chkUnSync.TabIndex = 6;
-      this.chkUnSync.Text = "Write &unsync. version 2 TAGs";
-      this.optUse24.BackColor = System.Drawing.Color.Transparent;
-      this.optUse24.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 40);
-      this.optUse24.Location = point;
-      this.optUse24.Name = "optUse24";
-      size = new Size(0x1d0, 0x10);
-      this.optUse24.Size = size;
-      this.optUse24.TabIndex = 5;
-      this.optUse24.Text = "Use Ver. 2.&4 for new TAGs of TAG Ver. 2";
-      this.optUse23.BackColor = System.Drawing.Color.Transparent;
-      this.optUse23.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x10);
-      this.optUse23.Location = point;
-      this.optUse23.Name = "optUse23";
-      size = new Size(0x1d0, 0x10);
-      this.optUse23.Size = size;
-      this.optUse23.TabIndex = 4;
-      this.optUse23.Text = "Use Ver. 2.&3 for new TAGs of TAG Ver. 2";
-      this.Port.AllowNegative = false;
-      this.Port.DigitsInGroup = 0;
-      this.Port.Flags = 0x10010;
-      point = new Point(0x69, 0x21);
-      this.Port.Location = point;
-      this.Port.MaxDecimalPlaces = 0;
-      this.Port.MaxLength = 5;
-      this.Port.MaxWholeDigits = 5;
-      this.Port.Name = "Port";
-      this.Port.Prefix = "";
-      this.Port.RangeMax = 65535.0;
-      this.Port.RangeMin = 0.0;
-      this.Port.TabIndex = 9;
-      this.Port.Text = "8880";
-      this.grpProxy.BackColor = System.Drawing.Color.Transparent;
-      this.grpProxy.Controls.Add(this.txtProxyPort);
-      this.grpProxy.Controls.Add(this.txtProxyPassword);
-      this.grpProxy.Controls.Add(this.Label10);
-      this.grpProxy.Controls.Add(this.txtProxyUser);
-      this.grpProxy.Controls.Add(this.Label9);
-      this.grpProxy.Controls.Add(this.Label8);
-      this.grpProxy.Controls.Add(this.txtProxyServer);
-      this.grpProxy.Controls.Add(this.Label7);
-      this.grpProxy.Enabled = false;
-      point = new Point(9, 0x79);
-      this.grpProxy.Location = point;
-      this.grpProxy.Name = "grpProxy";
-      size = new Size(0x20f, 0x80);
-      this.grpProxy.Size = size;
-      this.grpProxy.TabIndex = 13;
-      this.grpProxy.TabStop = false;
-      this.grpProxy.Text = "Proxy settings ";
-      this.txtProxyPort.AllowNegative = false;
-      this.txtProxyPort.DigitsInGroup = 0;
-      this.txtProxyPort.Flags = 0x10010;
-      point = new Point(0x80, 0x2e);
-      this.txtProxyPort.Location = point;
-      this.txtProxyPort.MaxDecimalPlaces = 0;
-      this.txtProxyPort.MaxLength = 5;
-      this.txtProxyPort.MaxWholeDigits = 5;
-      this.txtProxyPort.Name = "txtProxyPort";
-      this.txtProxyPort.Prefix = "";
-      this.txtProxyPort.RangeMax = 65535.0;
-      this.txtProxyPort.RangeMin = 0.0;
-      this.txtProxyPort.TabIndex = 3;
-      point = new Point(0x80, 0x5e);
-      this.txtProxyPassword.Location = point;
-      this.txtProxyPassword.Name = "txtProxyPassword";
-      size = new Size(0x188, 20);
-      this.txtProxyPassword.Size = size;
-      this.txtProxyPassword.TabIndex = 7;
-      this.txtProxyPassword.Text = "";
-      this.Label10.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x60);
-      this.Label10.Location = point;
-      this.Label10.Name = "Label10";
-      size = new Size(0x68, 0x10);
-      this.Label10.Size = size;
-      this.Label10.TabIndex = 6;
-      this.Label10.Text = "Pa&ssword:";
-      point = new Point(0x80, 70);
-      this.txtProxyUser.Location = point;
-      this.txtProxyUser.Name = "txtProxyUser";
-      size = new Size(0x188, 20);
-      this.txtProxyUser.Size = size;
-      this.txtProxyUser.TabIndex = 5;
-      this.txtProxyUser.Text = "";
-      this.Label9.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x48);
-      this.Label9.Location = point;
-      this.Label9.Name = "Label9";
-      size = new Size(0x68, 0x10);
-      this.Label9.Size = size;
-      this.Label9.TabIndex = 4;
-      this.Label9.Text = "User&name:";
-      this.Label8.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x30);
-      this.Label8.Location = point;
-      this.Label8.Name = "Label8";
-      size = new Size(0x68, 0x10);
-      this.Label8.Size = size;
-      this.Label8.TabIndex = 2;
-      this.Label8.Text = "P&ort:";
-      point = new Point(0x80, 0x16);
-      this.txtProxyServer.Location = point;
-      this.txtProxyServer.Name = "txtProxyServer";
-      size = new Size(0x188, 20);
-      this.txtProxyServer.Size = size;
-      this.txtProxyServer.TabIndex = 1;
-      this.txtProxyServer.Text = "";
-      this.Label7.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x18);
-      this.Label7.Location = point;
-      this.Label7.Name = "Label7";
-      size = new Size(0x68, 0x10);
-      this.Label7.Size = size;
-      this.Label7.TabIndex = 0;
-      this.Label7.Text = "Pro&xy Server:";
-      this.chkProxy.BackColor = System.Drawing.Color.Transparent;
-      this.chkProxy.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x60);
-      this.chkProxy.Location = point;
-      this.chkProxy.Name = "chkProxy";
-      size = new Size(0xb0, 0x10);
-      this.chkProxy.Size = size;
-      this.chkProxy.TabIndex = 12;
-      this.chkProxy.Text = "Use Proxy server";
-      this.lblUsername.BackColor = System.Drawing.Color.Transparent;
-      this.lblUsername.ImeMode = ImeMode.NoControl;
-      point = new Point(9, 0x3b);
-      this.lblUsername.Location = point;
-      this.lblUsername.Name = "lblUsername";
-      size = new Size(0x60, 0x10);
-      this.lblUsername.Size = size;
-      this.lblUsername.TabIndex = 10;
-      this.lblUsername.Text = "&Username:";
-      point = new Point(0x69, 0x39);
-      this.Username.Location = point;
-      this.Username.Name = "Username";
-      size = new Size(0x1af, 20);
-      this.Username.Size = size;
-      this.Username.TabIndex = 11;
-      this.Username.Text = "";
-      this.lblPort.BackColor = System.Drawing.Color.Transparent;
-      this.lblPort.ImeMode = ImeMode.NoControl;
-      point = new Point(9, 0x23);
-      this.lblPort.Location = point;
-      this.lblPort.Name = "lblPort";
-      size = new Size(0x60, 0x10);
-      this.lblPort.Size = size;
-      this.lblPort.TabIndex = 8;
-      this.lblPort.Text = "&Port:";
-      this.lblServer.BackColor = System.Drawing.Color.Transparent;
-      this.lblServer.ImeMode = ImeMode.NoControl;
-      point = new Point(9, 11);
-      this.lblServer.Location = point;
-      this.lblServer.Name = "lblServer";
-      size = new Size(0x60, 0x10);
-      this.lblServer.Size = size;
-      this.lblServer.TabIndex = 6;
-      this.lblServer.Text = "&Server:";
-      point = new Point(0x69, 9);
-      this.Server.Location = point;
-      this.Server.Name = "Server";
-      size = new Size(0x1af, 20);
-      this.Server.Size = size;
-      this.Server.TabIndex = 7;
-      this.Server.Text = "";
-      this.chkWinXPThemes.BackColor = System.Drawing.Color.Transparent;
-      this.chkWinXPThemes.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x158);
-      this.chkWinXPThemes.Location = point;
-      this.chkWinXPThemes.Name = "chkWinXPThemes";
-      size = new Size(480, 0x10);
-      this.chkWinXPThemes.Size = size;
-      this.chkWinXPThemes.TabIndex = 12;
-      this.chkWinXPThemes.Text = "Use Windows XP menu style";
-      this.Label5.BackColor = System.Drawing.Color.Transparent;
-      this.Label5.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0xac);
-      this.Label5.Location = point;
-      this.Label5.Name = "Label5";
-      size = new Size(0x150, 0x10);
-      this.Label5.Size = size;
-      this.Label5.TabIndex = 11;
-      this.Label5.Text = "Text color of mismatches Filename<->TAG  files:";
-      this.Label6.BackColor = System.Drawing.Color.Transparent;
-      this.Label6.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 140);
-      this.Label6.Location = point;
-      this.Label6.Name = "Label6";
-      size = new Size(0x150, 0x10);
-      this.Label6.Size = size;
-      this.Label6.TabIndex = 10;
-      this.Label6.Text = "Background color of mismatches Filename<->TAG  files:";
-      this.ColorCompareText.BackColor = SystemColors.Control;
-      this.ColorCompareText.FlatStyle = FlatStyle.Flat;
-      this.ColorCompareText.ImeMode = ImeMode.NoControl;
-      point = new Point(0x170, 0xa8);
-      this.ColorCompareText.Location = point;
-      this.ColorCompareText.Name = "ColorCompareText";
-      size = new Size(0x18, 0x18);
-      this.ColorCompareText.Size = size;
-      this.ColorCompareText.TabIndex = 9;
-      this.ColorCompareBack.BackColor = SystemColors.Control;
-      this.ColorCompareBack.FlatStyle = FlatStyle.Flat;
-      this.ColorCompareBack.ImeMode = ImeMode.NoControl;
-      point = new Point(0x170, 0x88);
-      this.ColorCompareBack.Location = point;
-      this.ColorCompareBack.Name = "ColorCompareBack";
-      size = new Size(0x18, 0x18);
-      this.ColorCompareBack.Size = size;
-      this.ColorCompareBack.TabIndex = 8;
-      this.Label4.BackColor = System.Drawing.Color.Transparent;
-      this.Label4.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x6c);
-      this.Label4.Location = point;
-      this.Label4.Name = "Label4";
-      size = new Size(0x150, 0x10);
-      this.Label4.Size = size;
-      this.Label4.TabIndex = 7;
-      this.Label4.Text = "Text color of duplicate files:";
-      this.Label3.BackColor = System.Drawing.Color.Transparent;
-      this.Label3.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x4c);
-      this.Label3.Location = point;
-      this.Label3.Name = "Label3";
-      size = new Size(0x150, 0x10);
-      this.Label3.Size = size;
-      this.Label3.TabIndex = 6;
-      this.Label3.Text = "Background color of duplicate files:";
-      this.Label2.BackColor = System.Drawing.Color.Transparent;
-      this.Label2.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x2c);
-      this.Label2.Location = point;
-      this.Label2.Name = "Label2";
-      size = new Size(0x150, 0x10);
-      this.Label2.Size = size;
-      this.Label2.TabIndex = 5;
-      this.Label2.Text = "Text color of changed files:";
-      this.Label1.BackColor = System.Drawing.Color.Transparent;
-      this.Label1.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 12);
-      this.Label1.Location = point;
-      this.Label1.Name = "Label1";
-      size = new Size(0x150, 0x10);
-      this.Label1.Size = size;
-      this.Label1.TabIndex = 4;
-      this.Label1.Text = "Background color of changed files:";
-      this.ColorChangedBack.BackColor = SystemColors.Control;
-      this.ColorChangedBack.FlatStyle = FlatStyle.Flat;
-      this.ColorChangedBack.ImeMode = ImeMode.NoControl;
-      point = new Point(0x170, 8);
-      this.ColorChangedBack.Location = point;
-      this.ColorChangedBack.Name = "ColorChangedBack";
-      size = new Size(0x18, 0x18);
-      this.ColorChangedBack.Size = size;
-      this.ColorChangedBack.TabIndex = 0;
-      this.ColorDoubleText.BackColor = SystemColors.Control;
-      this.ColorDoubleText.FlatStyle = FlatStyle.Flat;
-      this.ColorDoubleText.ImeMode = ImeMode.NoControl;
-      point = new Point(0x170, 0x68);
-      this.ColorDoubleText.Location = point;
-      this.ColorDoubleText.Name = "ColorDoubleText";
-      size = new Size(0x18, 0x18);
-      this.ColorDoubleText.Size = size;
-      this.ColorDoubleText.TabIndex = 3;
-      this.ColorDoubleBack.BackColor = SystemColors.Control;
-      this.ColorDoubleBack.FlatStyle = FlatStyle.Flat;
-      this.ColorDoubleBack.ImeMode = ImeMode.NoControl;
-      point = new Point(0x170, 0x48);
-      this.ColorDoubleBack.Location = point;
-      this.ColorDoubleBack.Name = "ColorDoubleBack";
-      size = new Size(0x18, 0x18);
-      this.ColorDoubleBack.Size = size;
-      this.ColorDoubleBack.TabIndex = 2;
-      this.ColorChangedText.BackColor = SystemColors.Control;
-      this.ColorChangedText.FlatStyle = FlatStyle.Flat;
-      this.ColorChangedText.ImeMode = ImeMode.NoControl;
-      point = new Point(0x170, 40);
-      this.ColorChangedText.Location = point;
-      this.ColorChangedText.Name = "ColorChangedText";
-      size = new Size(0x18, 0x18);
-      this.ColorChangedText.Size = size;
-      this.ColorChangedText.TabIndex = 1;
-      this.ToolGrid.AllowNavigation = false;
-      this.ToolGrid.CaptionVisible = false;
-      this.ToolGrid.DataMember = "";
-      this.ToolGrid.HeaderForeColor = SystemColors.ControlText;
-      point = new Point(8, 0xb0);
-      this.ToolGrid.Location = point;
-      this.ToolGrid.Name = "ToolGrid";
-      this.ToolGrid.ParentRowsVisible = false;
-      this.ToolGrid.ReadOnly = true;
-      this.ToolGrid.RowHeadersVisible = false;
-      size = new Size(0x210, 0xb8);
-      this.ToolGrid.Size = size;
-      this.ToolGrid.TabIndex = 11;
-      this.ToolGrid.TableStyles.AddRange(new DataGridTableStyle[] { this.Style });
-      this.Style.DataGrid = this.ToolGrid;
-      this.Style.GridColumnStyles.AddRange(new DataGridColumnStyle[] { this.C1, this.C2, this.C3, this.C4, this.C5 });
-      this.Style.HeaderForeColor = SystemColors.ControlText;
-      this.Style.MappingName = "";
-      this.C1.Format = "";
-      this.C1.FormatInfo = null;
-      this.C1.HeaderText = "Tool description";
-      this.C1.MappingName = "ToolDescription";
-      this.C1.Width = 0x4b;
-      this.C2.Format = "";
-      this.C2.FormatInfo = null;
-      this.C2.HeaderText = "Tool path";
-      this.C2.MappingName = "ToolPath";
-      this.C2.Width = 0x4b;
-      this.C3.Format = "";
-      this.C3.FormatInfo = null;
-      this.C3.HeaderText = "Tool parameters";
-      this.C3.MappingName = "ToolParameter";
-      this.C3.Width = 0x55;
-      this.C4.FalseValue = false;
-      this.C4.HeaderText = "Default Player";
-      this.C4.MappingName = "DefaultPlayer";
-      this.C4.NullValue = RuntimeHelpers.GetObjectValue(manager.GetObject("C4.NullValue"));
-      this.C4.TrueValue = true;
-      this.C4.Width = 0x4b;
-      this.C5.Format = "";
-      this.C5.FormatInfo = null;
-      this.C5.HeaderText = "Shell command";
-      this.C5.MappingName = "ShellCommand";
-      this.C5.Width = 0x55;
-      this.btnRemove.BackColor = SystemColors.Control;
-      this.btnRemove.ImeMode = ImeMode.NoControl;
-      point = new Point(280, 0x90);
-      this.btnRemove.Location = point;
-      this.btnRemove.Name = "btnRemove";
-      size = new Size(0x100, 0x18);
-      this.btnRemove.Size = size;
-      this.btnRemove.TabIndex = 10;
-      this.btnRemove.Text = "Remove tool from list";
-      this.btnAdd.BackColor = SystemColors.Control;
-      this.btnAdd.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x90);
-      this.btnAdd.Location = point;
-      this.btnAdd.Name = "btnAdd";
-      size = new Size(0x100, 0x18);
-      this.btnAdd.Size = size;
-      this.btnAdd.TabIndex = 9;
-      this.btnAdd.Text = "Add tool to list";
-      this.lblP.BackColor = System.Drawing.Color.Transparent;
-      this.lblP.ImeMode = ImeMode.NoControl;
-      point = new Point(0x88, 80);
-      this.lblP.Location = point;
-      this.lblP.Name = "lblP";
-      size = new Size(0x138, 0x10);
-      this.lblP.Size = size;
-      this.lblP.TabIndex = 8;
-      this.lblP.Text = "%P = MP3-Path";
-      this.btnBrowse.BackColor = SystemColors.Control;
-      this.btnBrowse.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1c8, 0x20);
-      this.btnBrowse.Location = point;
-      this.btnBrowse.Name = "btnBrowse";
-      size = new Size(80, 20);
-      this.btnBrowse.Size = size;
-      this.btnBrowse.TabIndex = 4;
-      this.btnBrowse.Text = "&Browse";
-      this.cmbShell.DropDownStyle = ComboBoxStyle.DropDownList;
-      this.cmbShell.ItemHeight = 13;
-      point = new Point(0xe8, 0x68);
-      this.cmbShell.Location = point;
-      this.cmbShell.Name = "cmbShell";
-      size = new Size(0xd0, 0x15);
-      this.cmbShell.Size = size;
-      this.cmbShell.TabIndex = 7;
-      point = new Point(0x8a, 0x38);
-      this.txtParameters.Location = point;
-      this.txtParameters.Name = "txtParameters";
-      size = new Size(0x130, 20);
-      this.txtParameters.Size = size;
-      this.txtParameters.TabIndex = 5;
-      this.txtParameters.Text = "";
-      point = new Point(0x8a, 0x20);
-      this.txtPath.Location = point;
-      this.txtPath.Name = "txtPath";
-      size = new Size(0x130, 20);
-      this.txtPath.Size = size;
-      this.txtPath.TabIndex = 3;
-      this.txtPath.Text = "";
-      point = new Point(0x8a, 8);
-      this.txtDescription.Location = point;
-      this.txtDescription.Name = "txtDescription";
-      size = new Size(0x130, 20);
-      this.txtDescription.Size = size;
-      this.txtDescription.TabIndex = 1;
-      this.txtDescription.Text = "";
-      this.chkDefault.BackColor = System.Drawing.Color.Transparent;
-      this.chkDefault.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x6a);
-      this.chkDefault.Location = point;
-      this.chkDefault.Name = "chkDefault";
-      size = new Size(0xd8, 0x10);
-      this.chkDefault.Size = size;
-      this.chkDefault.TabIndex = 6;
-      this.chkDefault.Text = "Use &Windows default MP3-Player:";
-      this.lblParameters.BackColor = System.Drawing.Color.Transparent;
-      this.lblParameters.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x3a);
-      this.lblParameters.Location = point;
-      this.lblParameters.Name = "lblParameters";
-      size = new Size(120, 0x10);
-      this.lblParameters.Size = size;
-      this.lblParameters.TabIndex = 4;
-      this.lblParameters.Text = "Tool &parameters:";
-      this.lblPath.BackColor = System.Drawing.Color.Transparent;
-      this.lblPath.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 0x22);
-      this.lblPath.Location = point;
-      this.lblPath.Name = "lblPath";
-      size = new Size(120, 0x10);
-      this.lblPath.Size = size;
-      this.lblPath.TabIndex = 2;
-      this.lblPath.Text = "Tool &path:";
-      this.lblDescription.BackColor = System.Drawing.Color.Transparent;
-      this.lblDescription.ImeMode = ImeMode.NoControl;
-      point = new Point(8, 10);
-      this.lblDescription.Location = point;
-      this.lblDescription.Name = "lblDescription";
-      size = new Size(120, 0x10);
-      this.lblDescription.Size = size;
-      this.lblDescription.TabIndex = 0;
-      this.lblDescription.Text = "Tool &description:";
-      this.btnOK.BackColor = SystemColors.Control;
-      this.btnOK.ImeMode = ImeMode.NoControl;
-      point = new Point(0x120, 8);
-      this.btnOK.Location = point;
-      this.btnOK.Name = "btnOK";
-      size = new Size(120, 0x18);
-      this.btnOK.Size = size;
-      this.btnOK.TabIndex = 100;
-      this.btnOK.Text = "&OK";
-      this.btnCancel.BackColor = SystemColors.Control;
-      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnCancel.ImeMode = ImeMode.NoControl;
-      point = new Point(0x1a0, 8);
-      this.btnCancel.Location = point;
-      this.btnCancel.Name = "btnCancel";
-      size = new Size(120, 0x18);
-      this.btnCancel.Size = size;
-      this.btnCancel.TabIndex = 0x65;
-      this.btnCancel.Text = "&Cancel";
-      this.ColorDialog.AnyColor = true;
-      this.ButtomPanel.AntiAlias = true;
-      this.ButtomPanel.Controls.Add(this.btnOK);
-      this.ButtomPanel.Controls.Add(this.btnCancel);
-      this.ButtomPanel.Dock = DockStyle.Bottom;
-      point = new Point(0, 400);
-      this.ButtomPanel.Location = point;
-      this.ButtomPanel.Name = "ButtomPanel";
-      size = new Size(0x222, 40);
-      this.ButtomPanel.Size = size;
-      this.ButtomPanel.Style.BackColor1.Color = System.Drawing.Color.White;
-      this.ButtomPanel.Style.BackColor2.Color = System.Drawing.Color.White;
-      this.ButtomPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this.ButtomPanel.Style.BorderWidth = 0;
-      this.ButtomPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this.ButtomPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
-      this.ButtomPanel.Style.GradientAngle = 90;
-      this.ButtomPanel.Style.LineAlignment = StringAlignment.Near;
-      this.ButtomPanel.Style.MarginBottom = 2;
-      this.ButtomPanel.Style.MarginLeft = 7;
-      this.ButtomPanel.Style.MarginRight = 2;
-      this.ButtomPanel.Style.MarginTop = 2;
-      this.ButtomPanel.TabIndex = 0x77;
-      this.TabControl.CanReorderTabs = true;
-      this.TabControl.Controls.Add(this.TabControlPanel1);
-      this.TabControl.Controls.Add(this.TabControlPanel3);
-      this.TabControl.Controls.Add(this.TabControlPanel2);
-      this.TabControl.Controls.Add(this.TabControlPanel6);
-      this.TabControl.Controls.Add(this.TabControlPanel5);
-      this.TabControl.Controls.Add(this.TabControlPanel4);
-      this.TabControl.Dock = DockStyle.Fill;
-      point = new Point(0, 0);
-      this.TabControl.Location = point;
-      this.TabControl.Name = "TabControl";
-      this.TabControl.SelectedTabFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
-      this.TabControl.SelectedTabIndex = 0;
-      size = new Size(0x222, 400);
-      this.TabControl.Size = size;
-      this.TabControl.Style = eTabStripStyle.VS2005Document;
-      this.TabControl.TabIndex = 120;
-      this.TabControl.TabLayoutType = eTabLayoutType.FixedWithNavigationBox;
-      this.TabControl.Tabs.Add(this.Settings);
-      this.TabControl.Tabs.Add(this.Ver2);
-      this.TabControl.Tabs.Add(this.Columns);
-      this.TabControl.Tabs.Add(this.FreeDB);
-      this.TabControl.Tabs.Add(this.Colors);
-      this.TabControl.Tabs.Add(this.Tools);
-      this.TabControlPanel1.AntiAlias = true;
-      this.TabControlPanel1.Controls.Add(this.chkAudioChecksumCalc);
-      this.TabControlPanel1.Controls.Add(this.chkIgnoreWrite);
-      this.TabControlPanel1.Controls.Add(this.chkMouseRenaming);
-      this.TabControlPanel1.Controls.Add(this.chkRestore);
-      this.TabControlPanel1.Controls.Add(this.lblTracknumbers);
-      this.TabControlPanel1.Controls.Add(this.txtTFDigits);
-      this.TabControlPanel1.Controls.Add(this.frameSelection);
-      this.TabControlPanel1.Controls.Add(this.chkSaveOnExit);
-      this.TabControlPanel1.Controls.Add(this.frameDoubleClick);
-      this.TabControlPanel1.Controls.Add(this.lblPlay);
-      this.TabControlPanel1.Controls.Add(this.cmbPlay);
-      this.TabControlPanel1.Controls.Add(this.chkExplorerContext);
-      this.TabControlPanel1.Controls.Add(this.frameEnum);
-      this.TabControlPanel1.Dock = DockStyle.Fill;
-      this.TabControlPanel1.DockPadding.All = 1;
-      point = new Point(0, 0x1a);
-      this.TabControlPanel1.Location = point;
-      this.TabControlPanel1.Name = "TabControlPanel1";
-      size = new Size(0x222, 0x176);
-      this.TabControlPanel1.Size = size;
-      this.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(0xf3, 0xf4, 250);
-      this.TabControlPanel1.Style.Border = eBorderType.SingleLine;
-      this.TabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(0x7f, 0x9d, 0xb9);
-      this.TabControlPanel1.Style.BorderSide = eBorderSide.Bottom | eBorderSide.Right | eBorderSide.Left;
-      this.TabControlPanel1.Style.GradientAngle = 90;
-      this.TabControlPanel1.TabIndex = 1;
-      this.TabControlPanel1.TabItem = this.Settings;
-      this.chkAudioChecksumCalc.BackColor = System.Drawing.Color.Transparent;
-      this.chkAudioChecksumCalc.ImeMode = ImeMode.NoControl;
-      point = new Point(0x10, 0x114);
-      this.chkAudioChecksumCalc.Location = point;
-      this.chkAudioChecksumCalc.Name = "chkAudioChecksumCalc";
-      size = new Size(520, 0x10);
-      this.chkAudioChecksumCalc.Size = size;
-      this.chkAudioChecksumCalc.TabIndex = 0x11;
-      this.chkAudioChecksumCalc.Text = "&Calculate Audiochecksum in the background";
-      this.Settings.AttachedControl = this.TabControlPanel1;
-      this.Settings.Icon = (Icon)manager.GetObject("Settings.Icon");
-      this.Settings.Name = "Settings";
-      this.Settings.Text = "Settings";
-      this.TabControlPanel3.AntiAlias = true;
-      this.TabControlPanel3.Controls.Add(this.lblV24);
-      this.TabControlPanel3.Controls.Add(this.lblV23);
-      this.TabControlPanel3.Controls.Add(this.cmbV24Enc);
-      this.TabControlPanel3.Controls.Add(this.lblTextEncInfo);
-      this.TabControlPanel3.Controls.Add(this.chkSingle);
-      this.TabControlPanel3.Controls.Add(this.chkUnSync);
-      this.TabControlPanel3.Controls.Add(this.optUse24);
-      this.TabControlPanel3.Controls.Add(this.lblFormat);
-      this.TabControlPanel3.Controls.Add(this.cmbV23Enc);
-      this.TabControlPanel3.Controls.Add(this.optUse23);
-      this.TabControlPanel3.Controls.Add(this.cmbYearFormat);
-      this.TabControlPanel3.Controls.Add(this.lblDigits);
-      this.TabControlPanel3.Controls.Add(this.txtTTDigits);
-      this.TabControlPanel3.Dock = DockStyle.Fill;
-      this.TabControlPanel3.DockPadding.All = 1;
-      point = new Point(0, 0x1a);
-      this.TabControlPanel3.Location = point;
-      this.TabControlPanel3.Name = "TabControlPanel3";
-      size = new Size(0x222, 0x176);
-      this.TabControlPanel3.Size = size;
-      this.TabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(0xf3, 0xf4, 250);
-      this.TabControlPanel3.Style.Border = eBorderType.SingleLine;
-      this.TabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(0x7f, 0x9d, 0xb9);
-      this.TabControlPanel3.Style.BorderSide = eBorderSide.Bottom | eBorderSide.Right | eBorderSide.Left;
-      this.TabControlPanel3.Style.GradientAngle = 90;
-      this.TabControlPanel3.TabIndex = 3;
-      this.TabControlPanel3.TabItem = this.Ver2;
-      this.Ver2.AttachedControl = this.TabControlPanel3;
-      this.Ver2.Name = "Ver2";
-      this.Ver2.Text = "TAG Ver. 2";
-      this.TabControlPanel2.AntiAlias = true;
-      this.TabControlPanel2.Controls.Add(this.btnUp);
-      this.TabControlPanel2.Controls.Add(this.btnDown);
-      this.TabControlPanel2.Controls.Add(this.lblDescript);
-      this.TabControlPanel2.Controls.Add(this.ColumnsList);
-      this.TabControlPanel2.Dock = DockStyle.Fill;
-      this.TabControlPanel2.DockPadding.All = 1;
-      point = new Point(0, 0x1a);
-      this.TabControlPanel2.Location = point;
-      this.TabControlPanel2.Name = "TabControlPanel2";
-      size = new Size(0x222, 0x176);
-      this.TabControlPanel2.Size = size;
-      this.TabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(0xf3, 0xf4, 250);
-      this.TabControlPanel2.Style.Border = eBorderType.SingleLine;
-      this.TabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(0x7f, 0x9d, 0xb9);
-      this.TabControlPanel2.Style.BorderSide = eBorderSide.Bottom | eBorderSide.Right | eBorderSide.Left;
-      this.TabControlPanel2.Style.GradientAngle = 90;
-      this.TabControlPanel2.TabIndex = 2;
-      this.TabControlPanel2.TabItem = this.Columns;
-      this.Columns.AttachedControl = this.TabControlPanel2;
-      this.Columns.Icon = (Icon)manager.GetObject("Columns.Icon");
-      this.Columns.Name = "Columns";
-      this.Columns.Text = "Columns";
-      this.TabControlPanel6.AntiAlias = true;
-      this.TabControlPanel6.Controls.Add(this.btnBrowse);
-      this.TabControlPanel6.Controls.Add(this.cmbShell);
-      this.TabControlPanel6.Controls.Add(this.txtParameters);
-      this.TabControlPanel6.Controls.Add(this.txtPath);
-      this.TabControlPanel6.Controls.Add(this.txtDescription);
-      this.TabControlPanel6.Controls.Add(this.chkDefault);
-      this.TabControlPanel6.Controls.Add(this.ToolGrid);
-      this.TabControlPanel6.Controls.Add(this.lblPath);
-      this.TabControlPanel6.Controls.Add(this.btnRemove);
-      this.TabControlPanel6.Controls.Add(this.lblDescription);
-      this.TabControlPanel6.Controls.Add(this.lblParameters);
-      this.TabControlPanel6.Controls.Add(this.btnAdd);
-      this.TabControlPanel6.Controls.Add(this.lblP);
-      this.TabControlPanel6.Dock = DockStyle.Fill;
-      this.TabControlPanel6.DockPadding.All = 1;
-      point = new Point(0, 0x1a);
-      this.TabControlPanel6.Location = point;
-      this.TabControlPanel6.Name = "TabControlPanel6";
-      size = new Size(0x222, 0x176);
-      this.TabControlPanel6.Size = size;
-      this.TabControlPanel6.Style.BackColor2.Color = System.Drawing.Color.FromArgb(0xf3, 0xf4, 250);
-      this.TabControlPanel6.Style.Border = eBorderType.SingleLine;
-      this.TabControlPanel6.Style.BorderColor.Color = System.Drawing.Color.FromArgb(0x7f, 0x9d, 0xb9);
-      this.TabControlPanel6.Style.BorderSide = eBorderSide.Bottom | eBorderSide.Right | eBorderSide.Left;
-      this.TabControlPanel6.Style.GradientAngle = 90;
-      this.TabControlPanel6.TabIndex = 6;
-      this.TabControlPanel6.TabItem = this.Tools;
-      this.Tools.AttachedControl = this.TabControlPanel6;
-      this.Tools.Icon = (Icon)manager.GetObject("Tools.Icon");
-      this.Tools.Name = "Tools";
-      this.Tools.Text = "Tools";
-      this.TabControlPanel5.AntiAlias = true;
-      this.TabControlPanel5.Controls.Add(this.ColorDoubleText);
-      this.TabControlPanel5.Controls.Add(this.ColorDoubleBack);
-      this.TabControlPanel5.Controls.Add(this.chkWinXPThemes);
-      this.TabControlPanel5.Controls.Add(this.Label5);
-      this.TabControlPanel5.Controls.Add(this.Label6);
-      this.TabControlPanel5.Controls.Add(this.ColorCompareText);
-      this.TabControlPanel5.Controls.Add(this.ColorCompareBack);
-      this.TabControlPanel5.Controls.Add(this.Label4);
-      this.TabControlPanel5.Controls.Add(this.Label3);
-      this.TabControlPanel5.Controls.Add(this.Label2);
-      this.TabControlPanel5.Controls.Add(this.Label1);
-      this.TabControlPanel5.Controls.Add(this.ColorChangedBack);
-      this.TabControlPanel5.Controls.Add(this.ColorChangedText);
-      this.TabControlPanel5.Dock = DockStyle.Fill;
-      this.TabControlPanel5.DockPadding.All = 1;
-      point = new Point(0, 0x1a);
-      this.TabControlPanel5.Location = point;
-      this.TabControlPanel5.Name = "TabControlPanel5";
-      size = new Size(0x222, 0x176);
-      this.TabControlPanel5.Size = size;
-      this.TabControlPanel5.Style.BackColor2.Color = System.Drawing.Color.FromArgb(0xf3, 0xf4, 250);
-      this.TabControlPanel5.Style.Border = eBorderType.SingleLine;
-      this.TabControlPanel5.Style.BorderColor.Color = System.Drawing.Color.FromArgb(0x7f, 0x9d, 0xb9);
-      this.TabControlPanel5.Style.BorderSide = eBorderSide.Bottom | eBorderSide.Right | eBorderSide.Left;
-      this.TabControlPanel5.Style.GradientAngle = 90;
-      this.TabControlPanel5.TabIndex = 5;
-      this.TabControlPanel5.TabItem = this.Colors;
-      this.Colors.AttachedControl = this.TabControlPanel5;
-      this.Colors.Icon = (Icon)manager.GetObject("Colors.Icon");
-      this.Colors.Name = "Colors";
-      this.Colors.Text = "Colors";
-      this.TabControlPanel4.AntiAlias = true;
-      this.TabControlPanel4.Controls.Add(this.lblUsername);
-      this.TabControlPanel4.Controls.Add(this.Username);
-      this.TabControlPanel4.Controls.Add(this.lblPort);
-      this.TabControlPanel4.Controls.Add(this.lblServer);
-      this.TabControlPanel4.Controls.Add(this.Server);
-      this.TabControlPanel4.Controls.Add(this.Port);
-      this.TabControlPanel4.Controls.Add(this.grpProxy);
-      this.TabControlPanel4.Controls.Add(this.chkProxy);
-      this.TabControlPanel4.Dock = DockStyle.Fill;
-      this.TabControlPanel4.DockPadding.All = 1;
-      point = new Point(0, 0x1a);
-      this.TabControlPanel4.Location = point;
-      this.TabControlPanel4.Name = "TabControlPanel4";
-      size = new Size(0x222, 0x176);
-      this.TabControlPanel4.Size = size;
-      this.TabControlPanel4.Style.BackColor2.Color = System.Drawing.Color.FromArgb(0xf3, 0xf4, 250);
-      this.TabControlPanel4.Style.Border = eBorderType.SingleLine;
-      this.TabControlPanel4.Style.BorderColor.Color = System.Drawing.Color.FromArgb(0x7f, 0x9d, 0xb9);
-      this.TabControlPanel4.Style.BorderSide = eBorderSide.Bottom | eBorderSide.Right | eBorderSide.Left;
-      this.TabControlPanel4.Style.GradientAngle = 90;
-      this.TabControlPanel4.TabIndex = 4;
-      this.TabControlPanel4.TabItem = this.FreeDB;
-      this.FreeDB.AttachedControl = this.TabControlPanel4;
-      this.FreeDB.Icon = (Icon)manager.GetObject("FreeDB.Icon");
-      this.FreeDB.Name = "FreeDB";
-      this.FreeDB.Text = "FreeDB";
-      size = new Size(5, 13);
-      this.AutoScaleBaseSize = size;
-      size = new Size(0x222, 440);
-      this.ClientSize = size;
-      this.ControlBox = false;
-      this.Controls.Add(this.TabControl);
-      this.Controls.Add(this.ButtomPanel);
-      this.FormBorderStyle = FormBorderStyle.FixedDialog;
-      this.MaximizeBox = false;
-      this.MinimizeBox = false;
-      this.Name = "frmPreferences";
-      this.ShowInTaskbar = false;
-      this.StartPosition = FormStartPosition.CenterParent;
-      this.Text = "Preferences";
-      this.frameEnum.ResumeLayout(false);
-      this.txtFDigits.EndInit();
-      this.txtStartNr.EndInit();
-      this.txtTFDigits.EndInit();
-      this.frameSelection.ResumeLayout(false);
-      this.frameDoubleClick.ResumeLayout(false);
-      this.txtTTDigits.EndInit();
-      this.grpProxy.ResumeLayout(false);
-      this.ToolGrid.EndInit();
-      this.ButtomPanel.ResumeLayout(false);
-      ((ISupportInitialize)this.TabControl).EndInit();
-      this.TabControl.ResumeLayout(false);
-      this.TabControlPanel1.ResumeLayout(false);
-      this.TabControlPanel3.ResumeLayout(false);
-      this.TabControlPanel2.ResumeLayout(false);
-      this.TabControlPanel6.ResumeLayout(false);
-      this.TabControlPanel5.ResumeLayout(false);
-      this.TabControlPanel4.ResumeLayout(false);
-      this.ResumeLayout(false);
-    }
-
     private void txtEnumSept_KeyPress(object sender, KeyPressEventArgs e)
     {
       switch (e.KeyChar)
@@ -2167,2088 +2287,6 @@
         case '>':
           e.Handled = true;
           break;
-      }
-    }
-
-    internal virtual Button btnAdd
-    {
-      get
-      {
-        return this._btnAdd;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnAdd != null)
-        {
-          this._btnAdd.Click -= new EventHandler(this.btnAdd_Click);
-        }
-        this._btnAdd = value;
-        if (this._btnAdd != null)
-        {
-          this._btnAdd.Click += new EventHandler(this.btnAdd_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnBrowse
-    {
-      get
-      {
-        return this._btnBrowse;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnBrowse != null)
-        {
-          this._btnBrowse.Click -= new EventHandler(this.btnBrowse_Click);
-        }
-        this._btnBrowse = value;
-        if (this._btnBrowse != null)
-        {
-          this._btnBrowse.Click += new EventHandler(this.btnBrowse_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnCancel
-    {
-      get
-      {
-        return this._btnCancel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnCancel != null)
-        {
-        }
-        this._btnCancel = value;
-        if (this._btnCancel != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Button btnDown
-    {
-      get
-      {
-        return this._btnDown;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnDown != null)
-        {
-          this._btnDown.Click -= new EventHandler(this.btnDown_Click);
-        }
-        this._btnDown = value;
-        if (this._btnDown != null)
-        {
-          this._btnDown.Click += new EventHandler(this.btnDown_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnOK
-    {
-      get
-      {
-        return this._btnOK;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click -= new EventHandler(this.btnOK_Click);
-        }
-        this._btnOK = value;
-        if (this._btnOK != null)
-        {
-          this._btnOK.Click += new EventHandler(this.btnOK_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnRemove
-    {
-      get
-      {
-        return this._btnRemove;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnRemove != null)
-        {
-          this._btnRemove.Click -= new EventHandler(this.btnRemove_Click);
-        }
-        this._btnRemove = value;
-        if (this._btnRemove != null)
-        {
-          this._btnRemove.Click += new EventHandler(this.btnRemove_Click);
-        }
-      }
-    }
-
-    internal virtual Button btnUp
-    {
-      get
-      {
-        return this._btnUp;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnUp != null)
-        {
-          this._btnUp.Click -= new EventHandler(this.btnUp_Click);
-        }
-        this._btnUp = value;
-        if (this._btnUp != null)
-        {
-          this._btnUp.Click += new EventHandler(this.btnUp_Click);
-        }
-      }
-    }
-
-    internal virtual PanelEx ButtomPanel
-    {
-      get
-      {
-        return this._ButtomPanel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ButtomPanel != null)
-        {
-        }
-        this._ButtomPanel = value;
-        if (this._ButtomPanel != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DataGridTextBoxColumn C1
-    {
-      get
-      {
-        return this._C1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._C1 != null)
-        {
-        }
-        this._C1 = value;
-        if (this._C1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DataGridTextBoxColumn C2
-    {
-      get
-      {
-        return this._C2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._C2 != null)
-        {
-        }
-        this._C2 = value;
-        if (this._C2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DataGridTextBoxColumn C3
-    {
-      get
-      {
-        return this._C3;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._C3 != null)
-        {
-        }
-        this._C3 = value;
-        if (this._C3 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DataGridBoolColumn C4
-    {
-      get
-      {
-        return this._C4;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._C4 != null)
-        {
-        }
-        this._C4 = value;
-        if (this._C4 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DataGridTextBoxColumn C5
-    {
-      get
-      {
-        return this._C5;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._C5 != null)
-        {
-        }
-        this._C5 = value;
-        if (this._C5 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkAudioChecksumCalc
-    {
-      get
-      {
-        return this._chkAudioChecksumCalc;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkAudioChecksumCalc != null)
-        {
-        }
-        this._chkAudioChecksumCalc = value;
-        if (this._chkAudioChecksumCalc != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkDefault
-    {
-      get
-      {
-        return this._chkDefault;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkDefault != null)
-        {
-          this._chkDefault.CheckedChanged -= new EventHandler(this.chkDefault_CheckedChanged);
-        }
-        this._chkDefault = value;
-        if (this._chkDefault != null)
-        {
-          this._chkDefault.CheckedChanged += new EventHandler(this.chkDefault_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkExplorerContext
-    {
-      get
-      {
-        return this._chkExplorerContext;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkExplorerContext != null)
-        {
-        }
-        this._chkExplorerContext = value;
-        if (this._chkExplorerContext != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkIgnoreWrite
-    {
-      get
-      {
-        return this._chkIgnoreWrite;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkIgnoreWrite != null)
-        {
-        }
-        this._chkIgnoreWrite = value;
-        if (this._chkIgnoreWrite != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkMouseRenaming
-    {
-      get
-      {
-        return this._chkMouseRenaming;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkMouseRenaming != null)
-        {
-        }
-        this._chkMouseRenaming = value;
-        if (this._chkMouseRenaming != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkProxy
-    {
-      get
-      {
-        return this._chkProxy;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkProxy != null)
-        {
-          this._chkProxy.CheckedChanged -= new EventHandler(this.chkProxy_CheckedChanged);
-        }
-        this._chkProxy = value;
-        if (this._chkProxy != null)
-        {
-          this._chkProxy.CheckedChanged += new EventHandler(this.chkProxy_CheckedChanged);
-        }
-      }
-    }
-
-    internal virtual CheckBox chkRestore
-    {
-      get
-      {
-        return this._chkRestore;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkRestore != null)
-        {
-        }
-        this._chkRestore = value;
-        if (this._chkRestore != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkSaveOnExit
-    {
-      get
-      {
-        return this._chkSaveOnExit;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkSaveOnExit != null)
-        {
-        }
-        this._chkSaveOnExit = value;
-        if (this._chkSaveOnExit != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkSingle
-    {
-      get
-      {
-        return this._chkSingle;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkSingle != null)
-        {
-        }
-        this._chkSingle = value;
-        if (this._chkSingle != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkUnSync
-    {
-      get
-      {
-        return this._chkUnSync;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkUnSync != null)
-        {
-        }
-        this._chkUnSync = value;
-        if (this._chkUnSync != null)
-        {
-        }
-      }
-    }
-
-    internal virtual CheckBox chkWinXPThemes
-    {
-      get
-      {
-        return this._chkWinXPThemes;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._chkWinXPThemes != null)
-        {
-        }
-        this._chkWinXPThemes = value;
-        if (this._chkWinXPThemes != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ComboBox cmbPlay
-    {
-      get
-      {
-        return this._cmbPlay;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbPlay != null)
-        {
-        }
-        this._cmbPlay = value;
-        if (this._cmbPlay != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ComboBox cmbShell
-    {
-      get
-      {
-        return this._cmbShell;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbShell != null)
-        {
-        }
-        this._cmbShell = value;
-        if (this._cmbShell != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ComboBox cmbV23Enc
-    {
-      get
-      {
-        return this._cmbV23Enc;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbV23Enc != null)
-        {
-        }
-        this._cmbV23Enc = value;
-        if (this._cmbV23Enc != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ComboBox cmbV24Enc
-    {
-      get
-      {
-        return this._cmbV24Enc;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbV24Enc != null)
-        {
-        }
-        this._cmbV24Enc = value;
-        if (this._cmbV24Enc != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ComboBox cmbYearFormat
-    {
-      get
-      {
-        return this._cmbYearFormat;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._cmbYearFormat != null)
-        {
-        }
-        this._cmbYearFormat = value;
-        if (this._cmbYearFormat != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Button ColorChangedBack
-    {
-      get
-      {
-        return this._ColorChangedBack;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColorChangedBack != null)
-        {
-          this._ColorChangedBack.Click -= new EventHandler(this.ColorChangedBack_Click);
-        }
-        this._ColorChangedBack = value;
-        if (this._ColorChangedBack != null)
-        {
-          this._ColorChangedBack.Click += new EventHandler(this.ColorChangedBack_Click);
-        }
-      }
-    }
-
-    internal virtual Button ColorChangedText
-    {
-      get
-      {
-        return this._ColorChangedText;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColorChangedText != null)
-        {
-          this._ColorChangedText.Click -= new EventHandler(this.ColorChangedBack_Click);
-        }
-        this._ColorChangedText = value;
-        if (this._ColorChangedText != null)
-        {
-          this._ColorChangedText.Click += new EventHandler(this.ColorChangedBack_Click);
-        }
-      }
-    }
-
-    internal virtual Button ColorCompareBack
-    {
-      get
-      {
-        return this._ColorCompareBack;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColorCompareBack != null)
-        {
-          this._ColorCompareBack.Click -= new EventHandler(this.ColorChangedBack_Click);
-        }
-        this._ColorCompareBack = value;
-        if (this._ColorCompareBack != null)
-        {
-          this._ColorCompareBack.Click += new EventHandler(this.ColorChangedBack_Click);
-        }
-      }
-    }
-
-    internal virtual Button ColorCompareText
-    {
-      get
-      {
-        return this._ColorCompareText;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColorCompareText != null)
-        {
-          this._ColorCompareText.Click -= new EventHandler(this.ColorChangedBack_Click);
-        }
-        this._ColorCompareText = value;
-        if (this._ColorCompareText != null)
-        {
-          this._ColorCompareText.Click += new EventHandler(this.ColorChangedBack_Click);
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.ColorDialog ColorDialog
-    {
-      get
-      {
-        return this._ColorDialog;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColorDialog != null)
-        {
-        }
-        this._ColorDialog = value;
-        if (this._ColorDialog != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Button ColorDoubleBack
-    {
-      get
-      {
-        return this._ColorDoubleBack;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColorDoubleBack != null)
-        {
-          this._ColorDoubleBack.Click -= new EventHandler(this.ColorChangedBack_Click);
-        }
-        this._ColorDoubleBack = value;
-        if (this._ColorDoubleBack != null)
-        {
-          this._ColorDoubleBack.Click += new EventHandler(this.ColorChangedBack_Click);
-        }
-      }
-    }
-
-    internal virtual Button ColorDoubleText
-    {
-      get
-      {
-        return this._ColorDoubleText;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColorDoubleText != null)
-        {
-          this._ColorDoubleText.Click -= new EventHandler(this.ColorChangedBack_Click);
-        }
-        this._ColorDoubleText = value;
-        if (this._ColorDoubleText != null)
-        {
-          this._ColorDoubleText.Click += new EventHandler(this.ColorChangedBack_Click);
-        }
-      }
-    }
-
-    internal virtual TabItem Colors
-    {
-      get
-      {
-        return this._Colors;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Colors != null)
-        {
-        }
-        this._Colors = value;
-        if (this._Colors != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabItem Columns
-    {
-      get
-      {
-        return this._Columns;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Columns != null)
-        {
-        }
-        this._Columns = value;
-        if (this._Columns != null)
-        {
-        }
-      }
-    }
-
-    internal virtual ListView ColumnsList
-    {
-      get
-      {
-        return this._ColumnsList;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ColumnsList != null)
-        {
-          this._ColumnsList.ItemCheck -= new ItemCheckEventHandler(this.ColumnsList_ItemCheck);
-        }
-        this._ColumnsList = value;
-        if (this._ColumnsList != null)
-        {
-          this._ColumnsList.ItemCheck += new ItemCheckEventHandler(this.ColumnsList_ItemCheck);
-        }
-      }
-    }
-
-    internal virtual GroupBox frameDoubleClick
-    {
-      get
-      {
-        return this._frameDoubleClick;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._frameDoubleClick != null)
-        {
-        }
-        this._frameDoubleClick = value;
-        if (this._frameDoubleClick != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox frameEnum
-    {
-      get
-      {
-        return this._frameEnum;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._frameEnum != null)
-        {
-        }
-        this._frameEnum = value;
-        if (this._frameEnum != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox frameSelection
-    {
-      get
-      {
-        return this._frameSelection;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._frameSelection != null)
-        {
-        }
-        this._frameSelection = value;
-        if (this._frameSelection != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabItem FreeDB
-    {
-      get
-      {
-        return this._FreeDB;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._FreeDB != null)
-        {
-        }
-        this._FreeDB = value;
-        if (this._FreeDB != null)
-        {
-        }
-      }
-    }
-
-    internal virtual GroupBox grpProxy
-    {
-      get
-      {
-        return this._grpProxy;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._grpProxy != null)
-        {
-        }
-        this._grpProxy = value;
-        if (this._grpProxy != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label Label1
-    {
-      get
-      {
-        return this._Label1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Label1 != null)
-        {
-        }
-        this._Label1 = value;
-        if (this._Label1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label Label10
-    {
-      get
-      {
-        return this._Label10;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Label10 != null)
-        {
-        }
-        this._Label10 = value;
-        if (this._Label10 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label Label2
-    {
-      get
-      {
-        return this._Label2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Label2 != null)
-        {
-        }
-        this._Label2 = value;
-        if (this._Label2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label Label3
-    {
-      get
-      {
-        return this._Label3;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Label3 != null)
-        {
-        }
-        this._Label3 = value;
-        if (this._Label3 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label Label4
-    {
-      get
-      {
-        return this._Label4;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Label4 != null)
-        {
-        }
-        this._Label4 = value;
-        if (this._Label4 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label Label5
-    {
-      get
-      {
-        return this._Label5;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Label5 != null)
-        {
-        }
-        this._Label5 = value;
-        if (this._Label5 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label Label6
-    {
-      get
-      {
-        return this._Label6;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Label6 != null)
-        {
-        }
-        this._Label6 = value;
-        if (this._Label6 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label Label7
-    {
-      get
-      {
-        return this._Label7;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Label7 != null)
-        {
-        }
-        this._Label7 = value;
-        if (this._Label7 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label Label8
-    {
-      get
-      {
-        return this._Label8;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Label8 != null)
-        {
-        }
-        this._Label8 = value;
-        if (this._Label8 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label Label9
-    {
-      get
-      {
-        return this._Label9;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Label9 != null)
-        {
-        }
-        this._Label9 = value;
-        if (this._Label9 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lbl1
-    {
-      get
-      {
-        return this._lbl1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lbl1 != null)
-        {
-        }
-        this._lbl1 = value;
-        if (this._lbl1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lbl2
-    {
-      get
-      {
-        return this._lbl2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lbl2 != null)
-        {
-        }
-        this._lbl2 = value;
-        if (this._lbl2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblDescript
-    {
-      get
-      {
-        return this._lblDescript;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblDescript != null)
-        {
-        }
-        this._lblDescript = value;
-        if (this._lblDescript != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblDescription
-    {
-      get
-      {
-        return this._lblDescription;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblDescription != null)
-        {
-        }
-        this._lblDescription = value;
-        if (this._lblDescription != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblDigits
-    {
-      get
-      {
-        return this._lblDigits;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblDigits != null)
-        {
-        }
-        this._lblDigits = value;
-        if (this._lblDigits != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblEnumSep
-    {
-      get
-      {
-        return this._lblEnumSep;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblEnumSep != null)
-        {
-        }
-        this._lblEnumSep = value;
-        if (this._lblEnumSep != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblFormat
-    {
-      get
-      {
-        return this._lblFormat;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblFormat != null)
-        {
-        }
-        this._lblFormat = value;
-        if (this._lblFormat != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblP
-    {
-      get
-      {
-        return this._lblP;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblP != null)
-        {
-        }
-        this._lblP = value;
-        if (this._lblP != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblParameters
-    {
-      get
-      {
-        return this._lblParameters;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblParameters != null)
-        {
-        }
-        this._lblParameters = value;
-        if (this._lblParameters != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblPath
-    {
-      get
-      {
-        return this._lblPath;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblPath != null)
-        {
-        }
-        this._lblPath = value;
-        if (this._lblPath != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblPlay
-    {
-      get
-      {
-        return this._lblPlay;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblPlay != null)
-        {
-        }
-        this._lblPlay = value;
-        if (this._lblPlay != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblPort
-    {
-      get
-      {
-        return this._lblPort;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblPort != null)
-        {
-        }
-        this._lblPort = value;
-        if (this._lblPort != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblServer
-    {
-      get
-      {
-        return this._lblServer;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblServer != null)
-        {
-        }
-        this._lblServer = value;
-        if (this._lblServer != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblTextEncInfo
-    {
-      get
-      {
-        return this._lblTextEncInfo;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblTextEncInfo != null)
-        {
-        }
-        this._lblTextEncInfo = value;
-        if (this._lblTextEncInfo != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblTracknumbers
-    {
-      get
-      {
-        return this._lblTracknumbers;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblTracknumbers != null)
-        {
-        }
-        this._lblTracknumbers = value;
-        if (this._lblTracknumbers != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblUsername
-    {
-      get
-      {
-        return this._lblUsername;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblUsername != null)
-        {
-        }
-        this._lblUsername = value;
-        if (this._lblUsername != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblV23
-    {
-      get
-      {
-        return this._lblV23;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblV23 != null)
-        {
-        }
-        this._lblV23 = value;
-        if (this._lblV23 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual Label lblV24
-    {
-      get
-      {
-        return this._lblV24;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._lblV24 != null)
-        {
-        }
-        this._lblV24 = value;
-        if (this._lblV24 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.OpenFileDialog OpenFileDialog
-    {
-      get
-      {
-        return this._OpenFileDialog;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._OpenFileDialog != null)
-        {
-        }
-        this._OpenFileDialog = value;
-        if (this._OpenFileDialog != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optAdd
-    {
-      get
-      {
-        return this._optAdd;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optAdd != null)
-        {
-        }
-        this._optAdd = value;
-        if (this._optAdd != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optEditCur
-    {
-      get
-      {
-        return this._optEditCur;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optEditCur != null)
-        {
-        }
-        this._optEditCur = value;
-        if (this._optEditCur != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optEditV1
-    {
-      get
-      {
-        return this._optEditV1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optEditV1 != null)
-        {
-        }
-        this._optEditV1 = value;
-        if (this._optEditV1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optEditV2
-    {
-      get
-      {
-        return this._optEditV2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optEditV2 != null)
-        {
-        }
-        this._optEditV2 = value;
-        if (this._optEditV2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optSingle
-    {
-      get
-      {
-        return this._optSingle;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optSingle != null)
-        {
-        }
-        this._optSingle = value;
-        if (this._optSingle != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optUse23
-    {
-      get
-      {
-        return this._optUse23;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optUse23 != null)
-        {
-        }
-        this._optUse23 = value;
-        if (this._optUse23 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual RadioButton optUse24
-    {
-      get
-      {
-        return this._optUse24;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._optUse24 != null)
-        {
-        }
-        this._optUse24 = value;
-        if (this._optUse24 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual NumericTextBox Port
-    {
-      get
-      {
-        return this._Port;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Port != null)
-        {
-        }
-        this._Port = value;
-        if (this._Port != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox Server
-    {
-      get
-      {
-        return this._Server;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Server != null)
-        {
-        }
-        this._Server = value;
-        if (this._Server != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabItem Settings
-    {
-      get
-      {
-        return this._Settings;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Settings != null)
-        {
-        }
-        this._Settings = value;
-        if (this._Settings != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DataGridTableStyle Style
-    {
-      get
-      {
-        return this._Style;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Style != null)
-        {
-        }
-        this._Style = value;
-        if (this._Style != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DevComponents.DotNetBar.TabControl TabControl
-    {
-      get
-      {
-        return this._TabControl;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabControl != null)
-        {
-        }
-        this._TabControl = value;
-        if (this._TabControl != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabControlPanel TabControlPanel1
-    {
-      get
-      {
-        return this._TabControlPanel1;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabControlPanel1 != null)
-        {
-        }
-        this._TabControlPanel1 = value;
-        if (this._TabControlPanel1 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabControlPanel TabControlPanel2
-    {
-      get
-      {
-        return this._TabControlPanel2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabControlPanel2 != null)
-        {
-        }
-        this._TabControlPanel2 = value;
-        if (this._TabControlPanel2 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabControlPanel TabControlPanel3
-    {
-      get
-      {
-        return this._TabControlPanel3;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabControlPanel3 != null)
-        {
-        }
-        this._TabControlPanel3 = value;
-        if (this._TabControlPanel3 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabControlPanel TabControlPanel4
-    {
-      get
-      {
-        return this._TabControlPanel4;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabControlPanel4 != null)
-        {
-        }
-        this._TabControlPanel4 = value;
-        if (this._TabControlPanel4 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabControlPanel TabControlPanel5
-    {
-      get
-      {
-        return this._TabControlPanel5;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabControlPanel5 != null)
-        {
-        }
-        this._TabControlPanel5 = value;
-        if (this._TabControlPanel5 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabControlPanel TabControlPanel6
-    {
-      get
-      {
-        return this._TabControlPanel6;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TabControlPanel6 != null)
-        {
-        }
-        this._TabControlPanel6 = value;
-        if (this._TabControlPanel6 != null)
-        {
-        }
-      }
-    }
-
-    internal virtual DataGrid ToolGrid
-    {
-      get
-      {
-        return this._ToolGrid;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ToolGrid != null)
-        {
-        }
-        this._ToolGrid = value;
-        if (this._ToolGrid != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabItem Tools
-    {
-      get
-      {
-        return this._Tools;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Tools != null)
-        {
-        }
-        this._Tools = value;
-        if (this._Tools != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.ToolTip ToolTip
-    {
-      get
-      {
-        return this._ToolTip;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ToolTip != null)
-        {
-        }
-        this._ToolTip = value;
-        if (this._ToolTip != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtDescription
-    {
-      get
-      {
-        return this._txtDescription;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtDescription != null)
-        {
-        }
-        this._txtDescription = value;
-        if (this._txtDescription != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtEnumSep
-    {
-      get
-      {
-        return this._txtEnumSep;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtEnumSep != null)
-        {
-        }
-        this._txtEnumSep = value;
-        if (this._txtEnumSep != null)
-        {
-        }
-      }
-    }
-
-    internal virtual NumericUpDown txtFDigits
-    {
-      get
-      {
-        return this._txtFDigits;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtFDigits != null)
-        {
-        }
-        this._txtFDigits = value;
-        if (this._txtFDigits != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtParameters
-    {
-      get
-      {
-        return this._txtParameters;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtParameters != null)
-        {
-        }
-        this._txtParameters = value;
-        if (this._txtParameters != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtPath
-    {
-      get
-      {
-        return this._txtPath;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtPath != null)
-        {
-        }
-        this._txtPath = value;
-        if (this._txtPath != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtProxyPassword
-    {
-      get
-      {
-        return this._txtProxyPassword;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtProxyPassword != null)
-        {
-        }
-        this._txtProxyPassword = value;
-        if (this._txtProxyPassword != null)
-        {
-        }
-      }
-    }
-
-    internal virtual NumericTextBox txtProxyPort
-    {
-      get
-      {
-        return this._txtProxyPort;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtProxyPort != null)
-        {
-        }
-        this._txtProxyPort = value;
-        if (this._txtProxyPort != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtProxyServer
-    {
-      get
-      {
-        return this._txtProxyServer;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtProxyServer != null)
-        {
-        }
-        this._txtProxyServer = value;
-        if (this._txtProxyServer != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox txtProxyUser
-    {
-      get
-      {
-        return this._txtProxyUser;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtProxyUser != null)
-        {
-        }
-        this._txtProxyUser = value;
-        if (this._txtProxyUser != null)
-        {
-        }
-      }
-    }
-
-    internal virtual NumericUpDown txtStartNr
-    {
-      get
-      {
-        return this._txtStartNr;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtStartNr != null)
-        {
-        }
-        this._txtStartNr = value;
-        if (this._txtStartNr != null)
-        {
-        }
-      }
-    }
-
-    internal virtual NumericUpDown txtTFDigits
-    {
-      get
-      {
-        return this._txtTFDigits;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtTFDigits != null)
-        {
-        }
-        this._txtTFDigits = value;
-        if (this._txtTFDigits != null)
-        {
-        }
-      }
-    }
-
-    internal virtual NumericUpDown txtTTDigits
-    {
-      get
-      {
-        return this._txtTTDigits;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._txtTTDigits != null)
-        {
-        }
-        this._txtTTDigits = value;
-        if (this._txtTTDigits != null)
-        {
-        }
-      }
-    }
-
-    internal virtual System.Windows.Forms.TextBox Username
-    {
-      get
-      {
-        return this._Username;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Username != null)
-        {
-        }
-        this._Username = value;
-        if (this._Username != null)
-        {
-        }
-      }
-    }
-
-    internal virtual TabItem Ver2
-    {
-      get
-      {
-        return this._Ver2;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Ver2 != null)
-        {
-        }
-        this._Ver2 = value;
-        if (this._Ver2 != null)
-        {
-        }
       }
     }
   }
