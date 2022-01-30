@@ -56,8 +56,8 @@
     <Reference Include="DevComponents.DotNetBar">
       <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\DevComponents.DotNetBar.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\..\Program Files (x86)\ID3-TagIT 3\ICSharpCode.SharpZipLib.dll</HintPath>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.3.11, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>packages\SharpZipLib.1.3.3\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <EmbeddedResource Include="ID3_TagIT\FolderTreeView.resx">
       <DependentUpon>FolderTreeView.cs</DependentUpon>
@@ -282,6 +282,7 @@
     <None Include=".editorconfig" />
     <None Include="app.config" />
     <None Include="ID3_TagIT\icons\RemoveV1.png" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ID3_TagIT\icons\RemoveV2.png" />
