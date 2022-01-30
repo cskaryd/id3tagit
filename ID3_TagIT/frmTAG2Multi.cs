@@ -17,7 +17,7 @@ namespace ID3_TagIT
   {
     #region Designer
 
-    private PictureBox APICView;
+    private PictureBox picViewer;
     private Button btnAddComment;
     private Button btnAddGenre;
     private Button btnAddInv;
@@ -28,10 +28,7 @@ namespace ID3_TagIT
     private Button btnAddTXXX;
     private Button btnAddWXXX;
     private Button btnCancel;
-    private ButtonItem btnExport;
-    private ButtonItem btnGet;
     private Button btnGetPic;
-    private ButtonItem btnImport;
     private Button btnLyricsFile;
     private Button btnMoveComment;
     private Button btnMoveGenre;
@@ -50,9 +47,22 @@ namespace ID3_TagIT
     private ButtonItem btnSwapAA;
     private ButtonItem btnSwapAT;
     private ButtonItem btnSwapTA;
-    private PanelEx ButtomPanel;
+    private PanelEx BottomPanel;
+    private ExplorerBar SelectionBar;
+    private ButtonItem TAGV2ButtonItem1;
+    private ButtonItem TAGV2ButtonItem2;
+    private ButtonItem TAGV2ButtonItem3;
+    private ButtonItem TAGV2ButtonItem4;
+    private ButtonItem TAGV2ButtonItem5;
+    private ButtonItem TAGV2ButtonItem6;
+    private ButtonItem TAGV2ButtonItem7;
+    private ButtonItem TAGV2ButtonItem8;
+    private ButtonItem TAGV2ButtonItem9;
+    private ExplorerBarGroupItem TAGV2grpCommands;
+    private ExplorerBarGroupItem TAGV2grpTAG;
+    private PanelEx TopPanel;
     private CheckBox CheckBox1;
-    private CheckBox CheckBox10;
+    private CheckBox chkRemoveExCmnts;
     private CheckBox CheckBox11;
     private CheckBox CheckBox12;
     private CheckBox CheckBox13;
@@ -130,7 +140,6 @@ namespace ID3_TagIT
     private ColumnHeader ColumnHeader9;
     private ListView CommentList;
     private ListBox GenreList;
-    private ButtonItem Label;
     private System.Windows.Forms.Label lblAlbum;
     private System.Windows.Forms.Label lblAlbumSort;
     private System.Windows.Forms.Label lblArtist;
@@ -226,22 +235,9 @@ namespace ID3_TagIT
     private Panel panWeb;
     private ListView PicList;
     private ListView RatingList;
-    private ExplorerBar SelectionBar;
-    private ButtonItem TAGV2ButtonItem1;
-    private ButtonItem TAGV2ButtonItem2;
-    private ButtonItem TAGV2ButtonItem3;
-    private ButtonItem TAGV2ButtonItem4;
-    private ButtonItem TAGV2ButtonItem5;
-    private ButtonItem TAGV2ButtonItem6;
-    private ButtonItem TAGV2ButtonItem7;
-    private ButtonItem TAGV2ButtonItem8;
-    private ButtonItem TAGV2ButtonItem9;
-    private ExplorerBarGroupItem TAGV2grpCommands;
-    private ExplorerBarGroupItem TAGV2grpTAG;
     private ListView TIPLList;
     private ListView TMCLList;
     private System.Windows.Forms.ToolTip ToolTip;
-    private PanelEx TopPanel;
     private HScrollBar TORYFormat;
     private System.Windows.Forms.TextBox txtAlbum;
     private System.Windows.Forms.TextBox txtArtistURL;
@@ -400,7 +396,7 @@ namespace ID3_TagIT
       this.lblCommDescInfo = new System.Windows.Forms.Label();
       this.cmbCDescriptor = new ID3_TagIT.ComboBoxAutoComplete();
       this.CheckBox38 = new System.Windows.Forms.CheckBox();
-      this.CheckBox10 = new System.Windows.Forms.CheckBox();
+      this.chkRemoveExCmnts = new System.Windows.Forms.CheckBox();
       this.btnMoveComment = new System.Windows.Forms.Button();
       this.btnRemoveComment = new System.Windows.Forms.Button();
       this.btnAddComment = new System.Windows.Forms.Button();
@@ -535,7 +531,7 @@ namespace ID3_TagIT
       this.lblPicDesc = new System.Windows.Forms.Label();
       this.cmbPicType = new System.Windows.Forms.ComboBox();
       this.txtPDescriptor = new System.Windows.Forms.TextBox();
-      this.APICView = new System.Windows.Forms.PictureBox();
+      this.picViewer = new System.Windows.Forms.PictureBox();
       this.panLyrics = new System.Windows.Forms.Panel();
       this.Panel8 = new System.Windows.Forms.Panel();
       this.txtLyrics = new System.Windows.Forms.RichTextBox();
@@ -597,14 +593,10 @@ namespace ID3_TagIT
       this.btnSwapAT = new DevComponents.DotNetBar.ButtonItem();
       this.btnSwapAA = new DevComponents.DotNetBar.ButtonItem();
       this.btnSwapTA = new DevComponents.DotNetBar.ButtonItem();
-      this.btnImport = new DevComponents.DotNetBar.ButtonItem();
-      this.btnExport = new DevComponents.DotNetBar.ButtonItem();
-      this.btnGet = new DevComponents.DotNetBar.ButtonItem();
       this.TopPanel = new DevComponents.DotNetBar.PanelEx();
       this.btnOK = new System.Windows.Forms.Button();
       this.btnCancel = new System.Windows.Forms.Button();
-      this.ButtomPanel = new DevComponents.DotNetBar.PanelEx();
-      this.Label = new DevComponents.DotNetBar.ButtonItem();
+      this.BottomPanel = new DevComponents.DotNetBar.PanelEx();
       this.panDetail.SuspendLayout();
       this.Panel9.SuspendLayout();
       this.Panel5.SuspendLayout();
@@ -627,7 +619,7 @@ namespace ID3_TagIT
       this.Panel16.SuspendLayout();
       this.panPic.SuspendLayout();
       this.Panel7.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.APICView)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picViewer)).BeginInit();
       this.panLyrics.SuspendLayout();
       this.Panel8.SuspendLayout();
       this.panUser.SuspendLayout();
@@ -635,7 +627,7 @@ namespace ID3_TagIT
       this.Panel13.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).BeginInit();
-      this.ButtomPanel.SuspendLayout();
+      this.BottomPanel.SuspendLayout();
       this.SuspendLayout();
       // 
       // panDetail
@@ -1373,7 +1365,7 @@ namespace ID3_TagIT
       this.Panel3.Controls.Add(this.lblCommDescInfo);
       this.Panel3.Controls.Add(this.cmbCDescriptor);
       this.Panel3.Controls.Add(this.CheckBox38);
-      this.Panel3.Controls.Add(this.CheckBox10);
+      this.Panel3.Controls.Add(this.chkRemoveExCmnts);
       this.Panel3.Controls.Add(this.btnMoveComment);
       this.Panel3.Controls.Add(this.btnRemoveComment);
       this.Panel3.Controls.Add(this.btnAddComment);
@@ -1419,14 +1411,14 @@ namespace ID3_TagIT
       this.CheckBox38.TabIndex = 45;
       this.CheckBox38.Visible = false;
       // 
-      // CheckBox10
+      // chkRemoveExCmnts
       // 
-      this.CheckBox10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.CheckBox10.Location = new System.Drawing.Point(424, 88);
-      this.CheckBox10.Name = "CheckBox10";
-      this.CheckBox10.Size = new System.Drawing.Size(224, 16);
-      this.CheckBox10.TabIndex = 48;
-      this.CheckBox10.Text = "Remove all existing comments first";
+      this.chkRemoveExCmnts.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.chkRemoveExCmnts.Location = new System.Drawing.Point(424, 88);
+      this.chkRemoveExCmnts.Name = "chkRemoveExCmnts";
+      this.chkRemoveExCmnts.Size = new System.Drawing.Size(224, 16);
+      this.chkRemoveExCmnts.TabIndex = 48;
+      this.chkRemoveExCmnts.Text = "Remove all existing comments first";
       // 
       // btnMoveComment
       // 
@@ -1518,6 +1510,7 @@ namespace ID3_TagIT
             this.colLanguage});
       this.CommentList.FullRowSelect = true;
       this.CommentList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.CommentList.HideSelection = false;
       this.CommentList.Location = new System.Drawing.Point(136, 112);
       this.CommentList.MultiSelect = false;
       this.CommentList.Name = "CommentList";
@@ -2271,6 +2264,7 @@ namespace ID3_TagIT
             this.ColumnHeader10});
       this.RatingList.FullRowSelect = true;
       this.RatingList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.RatingList.HideSelection = false;
       this.RatingList.Location = new System.Drawing.Point(136, 120);
       this.RatingList.MultiSelect = false;
       this.RatingList.Name = "RatingList";
@@ -2468,6 +2462,7 @@ namespace ID3_TagIT
             this.ColumnHeader16});
       this.TMCLList.FullRowSelect = true;
       this.TMCLList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.TMCLList.HideSelection = false;
       this.TMCLList.Location = new System.Drawing.Point(160, 64);
       this.TMCLList.MultiSelect = false;
       this.TMCLList.Name = "TMCLList";
@@ -2574,6 +2569,7 @@ namespace ID3_TagIT
             this.ColumnHeader18});
       this.TIPLList.FullRowSelect = true;
       this.TIPLList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.TIPLList.HideSelection = false;
       this.TIPLList.Location = new System.Drawing.Point(160, 64);
       this.TIPLList.MultiSelect = false;
       this.TIPLList.Name = "TIPLList";
@@ -2617,7 +2613,7 @@ namespace ID3_TagIT
       this.Panel7.Controls.Add(this.lblPicDesc);
       this.Panel7.Controls.Add(this.cmbPicType);
       this.Panel7.Controls.Add(this.txtPDescriptor);
-      this.Panel7.Controls.Add(this.APICView);
+      this.Panel7.Controls.Add(this.picViewer);
       this.Panel7.Location = new System.Drawing.Point(8, 8);
       this.Panel7.Name = "Panel7";
       this.Panel7.Size = new System.Drawing.Size(672, 304);
@@ -2712,6 +2708,7 @@ namespace ID3_TagIT
             this.ColumnHeader7});
       this.PicList.FullRowSelect = true;
       this.PicList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.PicList.HideSelection = false;
       this.PicList.Location = new System.Drawing.Point(8, 192);
       this.PicList.MultiSelect = false;
       this.PicList.Name = "PicList";
@@ -2803,16 +2800,16 @@ namespace ID3_TagIT
       this.txtPDescriptor.Enter += new System.EventHandler(this.Select_Enter);
       this.txtPDescriptor.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // APICView
+      // picViewer
       // 
-      this.APICView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.APICView.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.APICView.Location = new System.Drawing.Point(488, 8);
-      this.APICView.Name = "APICView";
-      this.APICView.Size = new System.Drawing.Size(176, 176);
-      this.APICView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-      this.APICView.TabIndex = 1;
-      this.APICView.TabStop = false;
+      this.picViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.picViewer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.picViewer.Location = new System.Drawing.Point(488, 8);
+      this.picViewer.Name = "picViewer";
+      this.picViewer.Size = new System.Drawing.Size(176, 176);
+      this.picViewer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.picViewer.TabIndex = 1;
+      this.picViewer.TabStop = false;
       // 
       // panLyrics
       // 
@@ -2957,6 +2954,7 @@ namespace ID3_TagIT
             this.ColumnHeader3});
       this.LyricsList.FullRowSelect = true;
       this.LyricsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.LyricsList.HideSelection = false;
       this.LyricsList.Location = new System.Drawing.Point(8, 312);
       this.LyricsList.MultiSelect = false;
       this.LyricsList.Name = "LyricsList";
@@ -3082,6 +3080,7 @@ namespace ID3_TagIT
             this.ColumnHeader12});
       this.TXXXList.FullRowSelect = true;
       this.TXXXList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.TXXXList.HideSelection = false;
       this.TXXXList.Location = new System.Drawing.Point(136, 56);
       this.TXXXList.MultiSelect = false;
       this.TXXXList.Name = "TXXXList";
@@ -3193,6 +3192,7 @@ namespace ID3_TagIT
             this.ColumnHeader14});
       this.WXXXList.FullRowSelect = true;
       this.WXXXList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.WXXXList.HideSelection = false;
       this.WXXXList.Location = new System.Drawing.Point(136, 56);
       this.WXXXList.MultiSelect = false;
       this.WXXXList.Name = "WXXXList";
@@ -3489,39 +3489,6 @@ namespace ID3_TagIT
       this.btnSwapTA.Text = "Swap Title-Album";
       this.btnSwapTA.Click += new System.EventHandler(this.btnSwapTA_Click);
       // 
-      // btnImport
-      // 
-      this.btnImport.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.btnImport.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.btnImport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.btnImport.HotFontUnderline = true;
-      this.btnImport.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.btnImport.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.btnImport.Name = "btnImport";
-      this.btnImport.Text = "Transfer from Ver. 1";
-      // 
-      // btnExport
-      // 
-      this.btnExport.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.btnExport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.btnExport.HotFontUnderline = true;
-      this.btnExport.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.btnExport.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.btnExport.Name = "btnExport";
-      this.btnExport.Text = "Transfer to Ver. 1";
-      // 
-      // btnGet
-      // 
-      this.btnGet.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.btnGet.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.btnGet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.btnGet.HotFontUnderline = true;
-      this.btnGet.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.btnGet.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.btnGet.Name = "btnGet";
-      this.btnGet.Text = "Get from filename";
-      // 
       // TopPanel
       // 
       this.TopPanel.AntiAlias = true;
@@ -3570,44 +3537,32 @@ namespace ID3_TagIT
       this.btnCancel.UseVisualStyleBackColor = false;
       this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
       // 
-      // ButtomPanel
+      // BottomPanel
       // 
-      this.ButtomPanel.AntiAlias = true;
-      this.ButtomPanel.Controls.Add(this.chkRemoveAllNOT);
-      this.ButtomPanel.Controls.Add(this.txtDigits);
-      this.ButtomPanel.Controls.Add(this.btnCancel);
-      this.ButtomPanel.Controls.Add(this.btnOK);
-      this.ButtomPanel.Controls.Add(this.lblDigits);
-      this.ButtomPanel.Controls.Add(this.lblInfoStar);
-      this.ButtomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.ButtomPanel.Location = new System.Drawing.Point(168, 480);
-      this.ButtomPanel.Name = "ButtomPanel";
-      this.ButtomPanel.Size = new System.Drawing.Size(690, 96);
-      this.ButtomPanel.Style.BackColor1.Color = System.Drawing.Color.White;
-      this.ButtomPanel.Style.BackColor2.Color = System.Drawing.Color.White;
-      this.ButtomPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.ButtomPanel.Style.BorderWidth = 0;
-      this.ButtomPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ButtomPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
-      this.ButtomPanel.Style.GradientAngle = 90;
-      this.ButtomPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
-      this.ButtomPanel.Style.MarginBottom = 2;
-      this.ButtomPanel.Style.MarginLeft = 7;
-      this.ButtomPanel.Style.MarginRight = 2;
-      this.ButtomPanel.Style.MarginTop = 2;
-      this.ButtomPanel.TabIndex = 100;
-      // 
-      // Label
-      // 
-      this.Label.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.Label.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.Label.HotFontUnderline = true;
-      this.Label.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.Label.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.Label.Name = "Label";
-      this.Label.PopupAnimation = DevComponents.DotNetBar.ePopupAnimation.None;
-      this.Label.Text = "New Button";
+      this.BottomPanel.AntiAlias = true;
+      this.BottomPanel.Controls.Add(this.chkRemoveAllNOT);
+      this.BottomPanel.Controls.Add(this.txtDigits);
+      this.BottomPanel.Controls.Add(this.btnCancel);
+      this.BottomPanel.Controls.Add(this.btnOK);
+      this.BottomPanel.Controls.Add(this.lblDigits);
+      this.BottomPanel.Controls.Add(this.lblInfoStar);
+      this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.BottomPanel.Location = new System.Drawing.Point(168, 480);
+      this.BottomPanel.Name = "BottomPanel";
+      this.BottomPanel.Size = new System.Drawing.Size(690, 96);
+      this.BottomPanel.Style.BackColor1.Color = System.Drawing.Color.White;
+      this.BottomPanel.Style.BackColor2.Color = System.Drawing.Color.White;
+      this.BottomPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.BottomPanel.Style.BorderWidth = 0;
+      this.BottomPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.BottomPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
+      this.BottomPanel.Style.GradientAngle = 90;
+      this.BottomPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
+      this.BottomPanel.Style.MarginBottom = 2;
+      this.BottomPanel.Style.MarginLeft = 7;
+      this.BottomPanel.Style.MarginRight = 2;
+      this.BottomPanel.Style.MarginTop = 2;
+      this.BottomPanel.TabIndex = 100;
       // 
       // frmTAG2Multi
       // 
@@ -3626,7 +3581,7 @@ namespace ID3_TagIT
       this.Controls.Add(this.panUser);
       this.Controls.Add(this.panDetail);
       this.Controls.Add(this.TopPanel);
-      this.Controls.Add(this.ButtomPanel);
+      this.Controls.Add(this.BottomPanel);
       this.Controls.Add(this.SelectionBar);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
@@ -3667,7 +3622,7 @@ namespace ID3_TagIT
       this.panPic.ResumeLayout(false);
       this.Panel7.ResumeLayout(false);
       this.Panel7.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.APICView)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picViewer)).EndInit();
       this.panLyrics.ResumeLayout(false);
       this.Panel8.ResumeLayout(false);
       this.Panel8.PerformLayout();
@@ -3678,7 +3633,7 @@ namespace ID3_TagIT
       this.Panel13.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).EndInit();
-      this.ButtomPanel.ResumeLayout(false);
+      this.BottomPanel.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -3730,7 +3685,7 @@ namespace ID3_TagIT
     private void btnAddComment_Click(object sender, EventArgs e)
     {
       ListViewItem item = new ListViewItem();
-      V2LDCFrame frame = new V2LDCFrame      {        FID = "COMM"      };
+      V2LDCFrame frame = new V2LDCFrame { FID = "COMM" };
 
       if (StringType.StrCmp(this.txtComment.Text, "", false) != 0)
       {
@@ -3797,7 +3752,7 @@ namespace ID3_TagIT
     private void btnAddLyrics_Click(object sender, EventArgs e)
     {
       ListViewItem item = new ListViewItem();
-      V2LDCFrame frame = new V2LDCFrame      {        FID = "USLT"      };
+      V2LDCFrame frame = new V2LDCFrame { FID = "USLT" };
 
       if (StringType.StrCmp(this.txtLyrics.Text, "", false) != 0)
       {
@@ -3929,7 +3884,7 @@ namespace ID3_TagIT
         this.chkPicInclude.Enabled = true;
         this.chkPicRelativPath.Checked = false;
         this.btnAddPicture.Enabled = false;
-        this.APICView.Image = null;
+        this.picViewer.Image = null;
         this.cmbPicType.SelectedIndex = 0;
       }
     }
@@ -3937,7 +3892,7 @@ namespace ID3_TagIT
     private void btnAddRating_Click(object sender, EventArgs e)
     {
       ListViewItem item = new ListViewItem();
-      V2POPMFrame frame = new V2POPMFrame      {        FID = "POPM"      };
+      V2POPMFrame frame = new V2POPMFrame { FID = "POPM" };
 
       if (decimal.Compare(this.txtRatingRating.Value, decimal.Zero) != 0)
       {
@@ -4004,7 +3959,7 @@ namespace ID3_TagIT
     private void btnAddWXXX_Click(object sender, EventArgs e)
     {
       ListViewItem item = new ListViewItem();
-      V2WXXXFrame frame = new V2WXXXFrame      {        FID = "WXXX"      };
+      V2WXXXFrame frame = new V2WXXXFrame { FID = "WXXX" };
 
       if (StringType.StrCmp(this.txtWXXXContent.Text, "", false) != 0)
       {
@@ -4035,7 +3990,7 @@ namespace ID3_TagIT
     {
       try
       {
-        this.APICView.Image = null;
+        this.picViewer.Image = null;
         this.PicFStream.Close();
       }
       catch (Exception exception1)
@@ -4047,7 +4002,7 @@ namespace ID3_TagIT
 
       try
       {
-        this.APICView.Image = null;
+        this.picViewer.Image = null;
         this.PicMStream.Close();
       }
       catch (Exception exception3)
@@ -4067,7 +4022,7 @@ namespace ID3_TagIT
 
       try
       {
-        this.APICView.Image = null;
+        this.picViewer.Image = null;
         this.PicFStream.Close();
       }
       catch (Exception exception1)
@@ -4079,7 +4034,7 @@ namespace ID3_TagIT
 
       try
       {
-        this.APICView.Image = null;
+        this.picViewer.Image = null;
         this.PicMStream.Close();
       }
       catch (Exception exception4)
@@ -4094,7 +4049,7 @@ namespace ID3_TagIT
         try
         {
           this.PicFStream = (FileStream)this.OpenFileDialog.OpenFile();
-          this.APICView.Image = Image.FromStream(this.PicFStream);
+          this.picViewer.Image = Image.FromStream(this.PicFStream);
           this.txtPicPath.Text = this.OpenFileDialog.FileName;
           this.chkPicInclude.Enabled = true;
           this.chkPicInclude.Checked = false;
@@ -4267,7 +4222,7 @@ namespace ID3_TagIT
     {
       try
       {
-        this.APICView.Image = null;
+        this.picViewer.Image = null;
         this.PicFStream.Close();
       }
       catch (Exception exception1)
@@ -4279,7 +4234,7 @@ namespace ID3_TagIT
 
       try
       {
-        this.APICView.Image = null;
+        this.picViewer.Image = null;
         this.PicMStream.Close();
       }
       catch (Exception exception3)
@@ -4366,7 +4321,7 @@ namespace ID3_TagIT
         this.chkPicInclude.Checked = false;
         this.chkPicInclude.Enabled = true;
         this.chkPicRelativPath.Checked = false;
-        this.APICView.Image = null;
+        this.picViewer.Image = null;
         this.cmbPicType.SelectedIndex = 0;
       }
       catch (Exception exception1)
@@ -4543,7 +4498,7 @@ namespace ID3_TagIT
         this.btnMoveComment.Visible = false;
         this.CommentList.Visible = false;
         this.lblGenreInfo.Visible = false;
-        this.CheckBox10.Visible = false;
+        this.chkRemoveExCmnts.Visible = false;
         this.CheckBox38.Visible = true;
       }
 
@@ -5501,7 +5456,7 @@ namespace ID3_TagIT
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(objectValue));
         }
 
-        if (this.CheckBox10.Checked & tag.V2TAG.FrameExists("COMM"))
+        if (this.chkRemoveExCmnts.Checked & tag.V2TAG.FrameExists("COMM"))
         {
           tag.V2TAG.RemoveFrames("COMM");
           tag.V2TAG.Changed = true;
@@ -5833,7 +5788,7 @@ namespace ID3_TagIT
       V2APICFrame tag = (V2APICFrame)this.PicList.FocusedItem.Tag;
       try
       {
-        this.APICView.Image = null;
+        this.picViewer.Image = null;
         this.PicFStream.Close();
       }
       catch (Exception exception1)
@@ -5845,7 +5800,7 @@ namespace ID3_TagIT
 
       try
       {
-        this.APICView.Image = null;
+        this.picViewer.Image = null;
         this.PicMStream.Close();
       }
       catch (Exception exception3)
@@ -5871,11 +5826,11 @@ namespace ID3_TagIT
           byte[] array = new byte[((int)(stream.Length - 1L)) + 1];
           stream.Read(array, 0, array.Length);
           this.PicMStream = new MemoryStream(array);
-          this.APICView.Image = Image.FromStream(this.PicMStream);
+          this.picViewer.Image = Image.FromStream(this.PicMStream);
           stream.Close();
         }
         else
-          this.APICView.Image = null;
+          this.picViewer.Image = null;
 
         this.btnAddPicture.Enabled = true;
       }
@@ -6204,7 +6159,7 @@ namespace ID3_TagIT
         case 2:
           this.txtYear.Mask = "0000-00-00";
 
-            if (this.txtYear.Text.Length < 10)
+          if (this.txtYear.Text.Length < 10)
           {
             string str2 = DateTime.Now.Year.ToString() + "-01-01";
             tmpYear = this.txtYear;
@@ -6308,9 +6263,9 @@ namespace ID3_TagIT
       this.ToolTip.SetToolTip(this.CheckBox38, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
 
       vstrName = "frmTAG2Multi";
-      cmbCDescriptor = this.CheckBox10;
-      this.CheckBox10 = (CheckBox)cmbCDescriptor;
-      this.ToolTip.SetToolTip(this.CheckBox10, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
+      cmbCDescriptor = this.chkRemoveExCmnts;
+      this.chkRemoveExCmnts = (CheckBox)cmbCDescriptor;
+      this.ToolTip.SetToolTip(this.chkRemoveExCmnts, Declarations.objResources.GetToolTip(ref vstrName, ref cmbCDescriptor));
 
       vstrName = "frmTAG2Multi";
       cmbCDescriptor = this.btnMoveComment;
@@ -7482,26 +7437,30 @@ namespace ID3_TagIT
 
     private void txtPOS1_Validating(object sender, CancelEventArgs e)
     {
-      if ((int)txtPOS1.ValidateText() < 0 || (int)txtPOS1.ValidateText() > 255)
-        e.Cancel = true;
+      if (txtPOS1.ValidateText() != null)
+        if ((int)txtPOS1.ValidateText() < 0 || (int)txtPOS1.ValidateText() > 255)
+          e.Cancel = true;
     }
 
     private void txtPOS2_Validating(object sender, CancelEventArgs e)
     {
-      if ((int)txtPOS2.ValidateText() < 0 || (int)txtPOS2.ValidateText() > 255)
-        e.Cancel = true;
+      if (txtPOS2.ValidateText() != null)
+        if ((int)txtPOS2.ValidateText() < 0 || (int)txtPOS2.ValidateText() > 255)
+          e.Cancel = true;
     }
 
     private void txtTrack1_Validating(object sender, CancelEventArgs e)
     {
-      if ((int)txtTrack1.ValidateText() < 0 || (int)txtTrack1.ValidateText() > 255)
-        e.Cancel = true;
+      if (txtTrack1.ValidateText() != null)
+        if ((int)txtTrack1.ValidateText() < 0 || (int)txtTrack1.ValidateText() > 255)
+          e.Cancel = true;
     }
 
     private void txtTrack2_Validating(object sender, CancelEventArgs e)
     {
-      if ((int)txtTrack2.ValidateText() < 0 || (int)txtTrack2.ValidateText() > 255)
-        e.Cancel = true;
+      if (txtTrack2.ValidateText() != null)
+        if ((int)txtTrack2.ValidateText() < 0 || (int)txtTrack2.ValidateText() > 255)
+          e.Cancel = true;
     }
   }
 }

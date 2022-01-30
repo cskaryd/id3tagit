@@ -6831,12 +6831,15 @@ namespace ID3_TagIT
     private void SaveChanges()
     {
       int vintMaximum = 0;
+
       foreach (ListViewItem item in this.MP3View.Items)
       {
         MP3 tag = (MP3)item.Tag;
+
         if (tag.Changed)
           vintMaximum++;
       }
+
       if (vintMaximum > 0)
       {
         try
@@ -6850,6 +6853,7 @@ namespace ID3_TagIT
           Exception exception = exception1;
           ProjectData.ClearProjectError();
         }
+
         Form ownerForm = this;
         frmProgress.Callback cB = new frmProgress.Callback(this.SaveChangesCB);
         frmProgress progress = new frmProgress(0, vintMaximum, 1, ref ownerForm, ref cB);
@@ -6865,24 +6869,30 @@ namespace ID3_TagIT
       {
         if (frmProg.Canceled)
           break;
+
         MP3 tag = (MP3)item.Tag;
+
         if (tag.Changed)
         {
           frmProg.Infos.Text = tag.CurrentFullName;
+
           if (tag.WriteChanges())
           {
             item.BackColor = SystemColors.Window;
             item.ForeColor = SystemColors.WindowText;
+
             if (tag.FileTAGCompare)
             {
               item.BackColor = System.Drawing.Color.FromArgb(Declarations.objSettings.ColorCompareBack);
               item.ForeColor = System.Drawing.Color.FromArgb(Declarations.objSettings.ColorCompareText);
             }
+
             if (tag.Doubled)
             {
               item.BackColor = System.Drawing.Color.FromArgb(Declarations.objSettings.ColorDoubleBack);
               item.ForeColor = System.Drawing.Color.FromArgb(Declarations.objSettings.ColorDoubleText);
             }
+
             frmProg.ProgressBar.PerformStep();
           }
           else
@@ -6891,6 +6901,7 @@ namespace ID3_TagIT
             {
               Text = StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null))
             };
+
             object[] objArray2 = new object[1];
             DataRow resStrings = Declarations.objResources.ResStrings;
             string str = "ErrorCouldNotWriteChanges";
@@ -6898,12 +6909,16 @@ namespace ID3_TagIT
             object[] args = objArray2;
             bool[] copyBack = new bool[] { true };
             LateBinding.LateCall(item2.SubItems, null, "Add", args, null, copyBack);
+
             if (copyBack[0])
               resStrings[str] = RuntimeHelpers.GetObjectValue(args[0]);
+
             this.ErrorMsg.Items.Insert(0, item2);
             this.SplitterBottom.Expanded = true;
           }
         }
+
+        Application.DoEvents();
       }
     }
 

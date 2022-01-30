@@ -4943,26 +4943,30 @@ namespace ID3_TagIT
 
     private void txtPOS1_Validating(object sender, CancelEventArgs e)
     {
-      if ((int)txtPOS1.ValidateText() < 0 || (int)txtPOS1.ValidateText() > 255)
-        e.Cancel = true;
+      if (txtPOS1.ValidateText() != null)
+        if ((int)txtPOS1.ValidateText() < 0 || (int)txtPOS1.ValidateText() > 255)
+          e.Cancel = true;
     }
 
     private void txtPOS2_Validating(object sender, CancelEventArgs e)
     {
-      if ((int)txtPOS2.ValidateText() < 0 || (int)txtPOS2.ValidateText() > 255)
-        e.Cancel = true;
+      if (txtPOS2.ValidateText() != null)
+        if ((int)txtPOS2.ValidateText() < 0 || (int)txtPOS2.ValidateText() > 255)
+          e.Cancel = true;
     }
 
     private void txtTrack1_Validating(object sender, CancelEventArgs e)
     {
-      if ((int)txtTrack1.ValidateText() < 0 || (int)txtTrack1.ValidateText() > 255)
-        e.Cancel = true;
+      if (txtTrack1.ValidateText() != null)
+        if ((int)txtTrack1.ValidateText() < 0 || (int)txtTrack1.ValidateText() > 255)
+          e.Cancel = true;
     }
 
     private void txtTrack2_Validating(object sender, CancelEventArgs e)
     {
-      if ((int)txtTrack2.ValidateText() < 0 || (int)txtTrack2.ValidateText() > 255)
-        e.Cancel = true;
+      if (txtTrack2.ValidateText() != null)
+        if ((int)txtTrack2.ValidateText() < 0 || (int)txtTrack2.ValidateText() > 255)
+          e.Cancel = true;
     }
 
     private void TXXXList_Click(object sender, EventArgs e)
