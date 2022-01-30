@@ -250,6 +250,14 @@ namespace ID3_TagIT
     public TreeView FavTree;
     public byte vbytVersionToShow;
     public int LastSortedColumn;
+    private StatusStrip statusStrip1;
+    private ToolStripStatusLabel lblNumber;
+    private ToolStripStatusLabel lblPath;
+    private ToolStripStatusLabel lblVersion;
+    private ToolStripStatusLabel lblLength;
+    private ToolStripStatusLabel lblSubDirs;
+    private ToolStripStatusLabel lblProgress;
+    private ToolStripProgressBar StatusProgressBar;
     public int SortedColumn;
 
     protected override void Dispose(bool disposing)
@@ -436,6 +444,14 @@ namespace ID3_TagIT
       this.btnRemoveV2 = new System.Windows.Forms.ToolStripMenuItem();
       this.btnFileToTagV2 = new System.Windows.Forms.ToolStripMenuItem();
       this.btnTagToFileV2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+      this.lblNumber = new System.Windows.Forms.ToolStripStatusLabel();
+      this.lblPath = new System.Windows.Forms.ToolStripStatusLabel();
+      this.lblVersion = new System.Windows.Forms.ToolStripStatusLabel();
+      this.lblLength = new System.Windows.Forms.ToolStripStatusLabel();
+      this.lblSubDirs = new System.Windows.Forms.ToolStripStatusLabel();
+      this.lblProgress = new System.Windows.Forms.ToolStripStatusLabel();
+      this.StatusProgressBar = new System.Windows.Forms.ToolStripProgressBar();
       this.NavigationPan.SuspendLayout();
       this.FoldersPanel.SuspendLayout();
       this.FavouritesPanel.SuspendLayout();
@@ -445,6 +461,7 @@ namespace ID3_TagIT
       ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
       this.mnuDDs.SuspendLayout();
       this.mnuBtns.SuspendLayout();
+      this.statusStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
       // ColumnHeaderIcons
@@ -492,9 +509,9 @@ namespace ID3_TagIT
       this.barBottomDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
       this.barBottomDockSite.BackgroundImageAlpha = ((byte)(255));
       this.barBottomDockSite.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.barBottomDockSite.Location = new System.Drawing.Point(0, 752);
+      this.barBottomDockSite.Location = new System.Drawing.Point(0, 639);
       this.barBottomDockSite.Name = "barBottomDockSite";
-      this.barBottomDockSite.Size = new System.Drawing.Size(1157, 26);
+      this.barBottomDockSite.Size = new System.Drawing.Size(1005, 0);
       this.barBottomDockSite.TabIndex = 20;
       this.barBottomDockSite.TabStop = false;
       // 
@@ -505,7 +522,7 @@ namespace ID3_TagIT
       this.barLeftDockSite.Dock = System.Windows.Forms.DockStyle.Left;
       this.barLeftDockSite.Location = new System.Drawing.Point(0, 130);
       this.barLeftDockSite.Name = "barLeftDockSite";
-      this.barLeftDockSite.Size = new System.Drawing.Size(0, 622);
+      this.barLeftDockSite.Size = new System.Drawing.Size(0, 509);
       this.barLeftDockSite.TabIndex = 17;
       this.barLeftDockSite.TabStop = false;
       // 
@@ -514,9 +531,9 @@ namespace ID3_TagIT
       this.barRightDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
       this.barRightDockSite.BackgroundImageAlpha = ((byte)(255));
       this.barRightDockSite.Dock = System.Windows.Forms.DockStyle.Right;
-      this.barRightDockSite.Location = new System.Drawing.Point(1157, 130);
+      this.barRightDockSite.Location = new System.Drawing.Point(1005, 130);
       this.barRightDockSite.Name = "barRightDockSite";
-      this.barRightDockSite.Size = new System.Drawing.Size(0, 622);
+      this.barRightDockSite.Size = new System.Drawing.Size(0, 509);
       this.barRightDockSite.TabIndex = 18;
       this.barRightDockSite.TabStop = false;
       // 
@@ -527,7 +544,7 @@ namespace ID3_TagIT
       this.barTopDockSite.Dock = System.Windows.Forms.DockStyle.Top;
       this.barTopDockSite.Location = new System.Drawing.Point(0, 51);
       this.barTopDockSite.Name = "barTopDockSite";
-      this.barTopDockSite.Size = new System.Drawing.Size(1157, 79);
+      this.barTopDockSite.Size = new System.Drawing.Size(1005, 79);
       this.barTopDockSite.TabIndex = 19;
       this.barTopDockSite.TabStop = false;
       // 
@@ -561,7 +578,7 @@ namespace ID3_TagIT
       this.SplitterLeft.MinExtra = 5;
       this.SplitterLeft.MinSize = 5;
       this.SplitterLeft.Name = "SplitterLeft";
-      this.SplitterLeft.Size = new System.Drawing.Size(8, 622);
+      this.SplitterLeft.Size = new System.Drawing.Size(8, 509);
       this.SplitterLeft.TabIndex = 24;
       this.SplitterLeft.TabStop = false;
       // 
@@ -579,7 +596,7 @@ namespace ID3_TagIT
       this.NavigationPan.Location = new System.Drawing.Point(0, 130);
       this.NavigationPan.Name = "NavigationPan";
       this.NavigationPan.NavigationBarHeight = 88;
-      this.NavigationPan.Size = new System.Drawing.Size(216, 622);
+      this.NavigationPan.Size = new System.Drawing.Size(216, 509);
       this.NavigationPan.TabIndex = 23;
       // 
       // 
@@ -609,7 +626,7 @@ namespace ID3_TagIT
       this.FoldersPanel.Name = "FoldersPanel";
       this.FoldersPanel.Padding = new System.Windows.Forms.Padding(1, 1, 1, 0);
       this.FoldersPanel.ParentItem = this.FoldersPan;
-      this.FoldersPanel.Size = new System.Drawing.Size(216, 510);
+      this.FoldersPanel.Size = new System.Drawing.Size(216, 397);
       this.FoldersPanel.Style.Alignment = System.Drawing.StringAlignment.Center;
       this.FoldersPanel.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
       this.FoldersPanel.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
@@ -627,7 +644,7 @@ namespace ID3_TagIT
       this.FolderTree.Dock = System.Windows.Forms.DockStyle.Fill;
       this.FolderTree.Location = new System.Drawing.Point(1, 1);
       this.FolderTree.Name = "FolderTree";
-      this.FolderTree.Size = new System.Drawing.Size(214, 509);
+      this.FolderTree.Size = new System.Drawing.Size(214, 396);
       this.FolderTree.TabIndex = 1;
       this.FolderTree.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.FolderTree_AfterLabelEdit);
       this.FolderTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.FolderTree_AfterSelect);
@@ -654,7 +671,7 @@ namespace ID3_TagIT
       this.FavouritesPanel.Name = "FavouritesPanel";
       this.FavouritesPanel.Padding = new System.Windows.Forms.Padding(1, 1, 1, 0);
       this.FavouritesPanel.ParentItem = this.FavouritesPan;
-      this.FavouritesPanel.Size = new System.Drawing.Size(216, 534);
+      this.FavouritesPanel.Size = new System.Drawing.Size(216, 421);
       this.FavouritesPanel.Style.Alignment = System.Drawing.StringAlignment.Center;
       this.FavouritesPanel.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
       this.FavouritesPanel.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
@@ -675,7 +692,7 @@ namespace ID3_TagIT
       this.FavTree.ItemHeight = 16;
       this.FavTree.Location = new System.Drawing.Point(1, 1);
       this.FavTree.Name = "FavTree";
-      this.FavTree.Size = new System.Drawing.Size(214, 533);
+      this.FavTree.Size = new System.Drawing.Size(214, 420);
       this.FavTree.TabIndex = 8;
       this.FavTree.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.FavTree_BeforeSelect);
       this.FavTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.FavTree_AfterSelect);
@@ -717,11 +734,11 @@ namespace ID3_TagIT
       this.SplitterBottom.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
       this.SplitterBottom.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
       this.SplitterBottom.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-      this.SplitterBottom.Location = new System.Drawing.Point(224, 624);
+      this.SplitterBottom.Location = new System.Drawing.Point(224, 511);
       this.SplitterBottom.MinExtra = 5;
       this.SplitterBottom.MinSize = 5;
       this.SplitterBottom.Name = "SplitterBottom";
-      this.SplitterBottom.Size = new System.Drawing.Size(725, 8);
+      this.SplitterBottom.Size = new System.Drawing.Size(573, 8);
       this.SplitterBottom.TabIndex = 25;
       this.SplitterBottom.TabStop = false;
       // 
@@ -732,9 +749,9 @@ namespace ID3_TagIT
       this.ErrorMsg.FullRowSelect = true;
       this.ErrorMsg.GridLines = true;
       this.ErrorMsg.HideSelection = false;
-      this.ErrorMsg.Location = new System.Drawing.Point(224, 632);
+      this.ErrorMsg.Location = new System.Drawing.Point(224, 519);
       this.ErrorMsg.Name = "ErrorMsg";
-      this.ErrorMsg.Size = new System.Drawing.Size(725, 120);
+      this.ErrorMsg.Size = new System.Drawing.Size(573, 120);
       this.ErrorMsg.TabIndex = 7;
       this.ErrorMsg.UseCompatibleStateImageBehavior = false;
       this.ErrorMsg.View = System.Windows.Forms.View.Details;
@@ -768,11 +785,11 @@ namespace ID3_TagIT
       this.SplitterRight.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
       this.SplitterRight.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
       this.SplitterRight.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-      this.SplitterRight.Location = new System.Drawing.Point(949, 130);
+      this.SplitterRight.Location = new System.Drawing.Point(797, 130);
       this.SplitterRight.MinExtra = 5;
       this.SplitterRight.MinSize = 5;
       this.SplitterRight.Name = "SplitterRight";
-      this.SplitterRight.Size = new System.Drawing.Size(8, 622);
+      this.SplitterRight.Size = new System.Drawing.Size(8, 509);
       this.SplitterRight.TabIndex = 27;
       this.SplitterRight.TabStop = false;
       // 
@@ -800,9 +817,9 @@ namespace ID3_TagIT
             this.BarGroupInfo,
             this.BarGroupTools});
       this.SideBar.Images = this.ToolsIcons;
-      this.SideBar.Location = new System.Drawing.Point(957, 130);
+      this.SideBar.Location = new System.Drawing.Point(805, 130);
       this.SideBar.Name = "SideBar";
-      this.SideBar.Size = new System.Drawing.Size(200, 622);
+      this.SideBar.Size = new System.Drawing.Size(200, 509);
       this.SideBar.TabIndex = 2;
       this.SideBar.Text = "SideBar";
       this.SideBar.ThemeAware = true;
@@ -1114,7 +1131,7 @@ namespace ID3_TagIT
       this.MP3View.HideSelection = false;
       this.MP3View.Location = new System.Drawing.Point(224, 130);
       this.MP3View.Name = "MP3View";
-      this.MP3View.Size = new System.Drawing.Size(725, 494);
+      this.MP3View.Size = new System.Drawing.Size(573, 381);
       this.MP3View.TabIndex = 0;
       this.MP3View.UseCompatibleStateImageBehavior = false;
       this.MP3View.View = System.Windows.Forms.View.Details;
@@ -1162,7 +1179,7 @@ namespace ID3_TagIT
             this.helpToolStripMenuItem});
       this.mnuDDs.Location = new System.Drawing.Point(0, 0);
       this.mnuDDs.Name = "mnuDDs";
-      this.mnuDDs.Size = new System.Drawing.Size(1157, 24);
+      this.mnuDDs.Size = new System.Drawing.Size(1005, 24);
       this.mnuDDs.TabIndex = 28;
       this.mnuDDs.Text = "menuStrip1";
       // 
@@ -1998,7 +2015,7 @@ namespace ID3_TagIT
             this.btnTagToFileV2});
       this.mnuBtns.Location = new System.Drawing.Point(0, 24);
       this.mnuBtns.Name = "mnuBtns";
-      this.mnuBtns.Size = new System.Drawing.Size(1157, 27);
+      this.mnuBtns.Size = new System.Drawing.Size(1005, 27);
       this.mnuBtns.TabIndex = 29;
       this.mnuBtns.Text = "mnuBtns";
       // 
@@ -2123,10 +2140,81 @@ namespace ID3_TagIT
       this.btnTagToFileV2.Size = new System.Drawing.Size(28, 23);
       this.btnTagToFileV2.Click += new System.EventHandler(this.mnuTagToFileV2_Click);
       // 
+      // statusStrip1
+      // 
+      this.statusStrip1.AllowMerge = false;
+      this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblNumber,
+            this.lblPath,
+            this.lblVersion,
+            this.lblLength,
+            this.lblSubDirs,
+            this.lblProgress,
+            this.StatusProgressBar});
+      this.statusStrip1.Location = new System.Drawing.Point(0, 639);
+      this.statusStrip1.Name = "statusStrip1";
+      this.statusStrip1.Size = new System.Drawing.Size(1005, 22);
+      this.statusStrip1.TabIndex = 30;
+      this.statusStrip1.Text = "statusStrip1";
+      // 
+      // lblNumber
+      // 
+      this.lblNumber.AutoSize = false;
+      this.lblNumber.Name = "lblNumber";
+      this.lblNumber.Size = new System.Drawing.Size(220, 17);
+      this.lblNumber.Text = "lblNumber";
+      this.lblNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // lblPath
+      // 
+      this.lblPath.Name = "lblPath";
+      this.lblPath.Size = new System.Drawing.Size(108, 17);
+      this.lblPath.Spring = true;
+      this.lblPath.Text = "lblPath";
+      this.lblPath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // lblVersion
+      // 
+      this.lblVersion.AutoSize = false;
+      this.lblVersion.Name = "lblVersion";
+      this.lblVersion.Size = new System.Drawing.Size(110, 17);
+      this.lblVersion.Text = "lblVersion";
+      this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // lblLength
+      // 
+      this.lblLength.AutoSize = false;
+      this.lblLength.Name = "lblLength";
+      this.lblLength.Size = new System.Drawing.Size(160, 17);
+      this.lblLength.Text = "lblLength";
+      this.lblLength.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // lblSubDirs
+      // 
+      this.lblSubDirs.AutoSize = false;
+      this.lblSubDirs.Name = "lblSubDirs";
+      this.lblSubDirs.Size = new System.Drawing.Size(140, 17);
+      this.lblSubDirs.Text = "lblSubDirs";
+      this.lblSubDirs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // lblProgress
+      // 
+      this.lblProgress.AutoSize = false;
+      this.lblProgress.Name = "lblProgress";
+      this.lblProgress.Size = new System.Drawing.Size(150, 17);
+      this.lblProgress.Text = "lblProgress";
+      this.lblProgress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // StatusProgressBar
+      // 
+      this.StatusProgressBar.AutoSize = false;
+      this.StatusProgressBar.Name = "StatusProgressBar";
+      this.StatusProgressBar.Size = new System.Drawing.Size(100, 16);
+      // 
       // frmMain
       // 
       this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-      this.ClientSize = new System.Drawing.Size(1157, 778);
+      this.ClientSize = new System.Drawing.Size(1005, 661);
       this.Controls.Add(this.EnumInfo);
       this.Controls.Add(this.MP3View);
       this.Controls.Add(this.SplitterBottom);
@@ -2141,6 +2229,7 @@ namespace ID3_TagIT
       this.Controls.Add(this.barBottomDockSite);
       this.Controls.Add(this.mnuBtns);
       this.Controls.Add(this.mnuDDs);
+      this.Controls.Add(this.statusStrip1);
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.MainMenuStrip = this.mnuDDs;
       this.Name = "frmMain";
@@ -2157,6 +2246,8 @@ namespace ID3_TagIT
       this.mnuDDs.PerformLayout();
       this.mnuBtns.ResumeLayout(false);
       this.mnuBtns.PerformLayout();
+      this.statusStrip1.ResumeLayout(false);
+      this.statusStrip1.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -3255,9 +3346,9 @@ namespace ID3_TagIT
             Declarations.objSettings.ScanSubDirs ^= true;
             LateBinding.LateSet(sender, null, "Checked", new object[] { ObjectType.BitXorObj(LateBinding.LateGet(sender, null, "Checked", new object[0], null, null), true) }, null);
             if (Declarations.objSettings.ScanSubDirs)
-              this.DotNetBarManager.GetItem("lblSubDirs").Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsYes"]);
+              lblSubDirs.Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsYes"]);
             else
-              this.DotNetBarManager.GetItem("lblSubDirs").Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsNo"]);
+              lblSubDirs.Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsNo"]);
 
             return;
           }
@@ -3724,7 +3815,7 @@ namespace ID3_TagIT
       if (copyBack[1])
         str = StringType.FromObject(args[1]);
 
-      this.DotNetBarManager.GetItem("lblNumber").Text = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["Number"], null, "Replace", new object[] { "%1", this.MP3View.Items.Count.ToString() }, null, null), null, "Replace", new object[] { "%2", this.MP3View.SelectedItems.Count.ToString() }, null, null), null, "Replace", args, null, copyBack));
+      lblNumber.Text = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["Number"], null, "Replace", new object[] { "%1", this.MP3View.Items.Count.ToString() }, null, null), null, "Replace", new object[] { "%2", this.MP3View.SelectedItems.Count.ToString() }, null, null), null, "Replace", args, null, copyBack));
       args = new object[2];
       args[0] = "%1";
       Settings objSettings = Declarations.objSettings;
@@ -3735,16 +3826,16 @@ namespace ID3_TagIT
       if (copyBack[1])
         objSettings.CurrentPath = StringType.FromObject(objArray2[1]);
 
-      this.DotNetBarManager.GetItem("lblPath").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["Path"], null, "Replace", objArray2, null, copyBack));
+      lblPath.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["Path"], null, "Replace", objArray2, null, copyBack));
 
       try
       {
-        this.DotNetBarManager.GetItem("lblLength").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
+        lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
       }
       catch (Exception exception1)
       {
         ProjectData.SetProjectError(exception1);
-        this.DotNetBarManager.GetItem("lblLength").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", "0" }, null, null));
+        lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", "0" }, null, null));
         ProjectData.ClearProjectError();
       }
     }
@@ -3815,7 +3906,7 @@ namespace ID3_TagIT
         if (copyBack[1])
           objSettings.CurrentPath = StringType.FromObject(args[1]);
 
-        this.DotNetBarManager.GetItem("lblPath").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["Path"], null, "Replace", args, null, copyBack));
+        lblPath.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["Path"], null, "Replace", args, null, copyBack));
         Form ownerForm = this;
         frmProgress.Callback cB = new frmProgress.Callback(this.FolderRenameCB);
         frmProgress progress = new frmProgress(0, this.MP3View.Items.Count, 1, ref ownerForm, ref cB);
@@ -3909,7 +4000,7 @@ namespace ID3_TagIT
       if (copyBack[1])
         str = StringType.FromObject(args[1]);
 
-      this.DotNetBarManager.GetItem("lblNumber").Text = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["Number"], null, "Replace", new object[] { "%1", this.MP3View.Items.Count.ToString() }, null, null), null, "Replace", new object[] { "%2", this.MP3View.SelectedItems.Count.ToString() }, null, null), null, "Replace", args, null, copyBack));
+      lblNumber.Text = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["Number"], null, "Replace", new object[] { "%1", this.MP3View.Items.Count.ToString() }, null, null), null, "Replace", new object[] { "%2", this.MP3View.SelectedItems.Count.ToString() }, null, null), null, "Replace", args, null, copyBack));
       args = new object[2];
       args[0] = "%1";
       Settings objSettings = Declarations.objSettings;
@@ -3920,16 +4011,16 @@ namespace ID3_TagIT
       if (copyBack[1])
         objSettings.CurrentPath = StringType.FromObject(objArray2[1]);
 
-      this.DotNetBarManager.GetItem("lblPath").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["Path"], null, "Replace", objArray2, null, copyBack));
+      lblPath.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["Path"], null, "Replace", objArray2, null, copyBack));
 
       try
       {
-        this.DotNetBarManager.GetItem("lblLength").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
+        lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
       }
       catch (Exception exception1)
       {
         ProjectData.SetProjectError(exception1);
-        this.DotNetBarManager.GetItem("lblLength").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", "0" }, null, null));
+        lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", "0" }, null, null));
         ProjectData.ClearProjectError();
       }
 
@@ -4059,8 +4150,11 @@ namespace ID3_TagIT
 
       try
       {
-        this.CalcAudioCheckSumThread.Abort();
-        this.CalcAudioCheckSumThread.Join();
+        if (CalcAudioCheckSumThread != null)
+        {
+          this.CalcAudioCheckSumThread.Abort();
+          this.CalcAudioCheckSumThread.Join();
+        }
       }
       catch (Exception exception6)
       {
@@ -4260,12 +4354,12 @@ namespace ID3_TagIT
 
       btnSwitchV1V2.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
       this.DotNetBarManager.GetItem("btnV1V2View").Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
-      this.DotNetBarManager.GetItem("lblVersion").Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
+      lblVersion.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " "), Declarations.objSettings.VersionToShow.ToString()));
 
       if (Declarations.objSettings.ScanSubDirs)
-        this.DotNetBarManager.GetItem("lblSubDirs").Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsYes"]);
+        lblSubDirs.Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsYes"]);
       else
-        this.DotNetBarManager.GetItem("lblSubDirs").Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsNo"]);
+        lblSubDirs.Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsNo"]);
 
       if (Declarations.objSettings.UseThemes)
       {
@@ -4419,7 +4513,7 @@ namespace ID3_TagIT
       if (copyBack[1])
         str3 = StringType.FromObject(args[1]);
 
-      this.DotNetBarManager.GetItem("lblNumber").Text = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["Number"], null, "Replace", new object[] { "%1", this.MP3View.Items.Count.ToString() }, null, null), null, "Replace", new object[] { "%2", this.MP3View.SelectedItems.Count.ToString() }, null, null), null, "Replace", args, null, copyBack));
+      lblNumber.Text = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["Number"], null, "Replace", new object[] { "%1", this.MP3View.Items.Count.ToString() }, null, null), null, "Replace", new object[] { "%2", this.MP3View.SelectedItems.Count.ToString() }, null, null), null, "Replace", args, null, copyBack));
       args = new object[2];
       args[0] = "%1";
       Settings objSettings = Declarations.objSettings;
@@ -4430,16 +4524,16 @@ namespace ID3_TagIT
       if (copyBack[1])
         objSettings.CurrentPath = StringType.FromObject(objArray2[1]);
 
-      this.DotNetBarManager.GetItem("lblPath").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["Path"], null, "Replace", objArray2, null, copyBack));
+      lblPath.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["Path"], null, "Replace", objArray2, null, copyBack));
 
       try
       {
-        this.DotNetBarManager.GetItem("lblLength").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
+        lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
       }
       catch (Exception exception9)
       {
         ProjectData.SetProjectError(exception9);
-        this.DotNetBarManager.GetItem("lblLength").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", "0" }, null, null));
+        lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", "0" }, null, null));
         ProjectData.ClearProjectError();
       }
 
@@ -5472,16 +5566,16 @@ namespace ID3_TagIT
       if (copyBack[1])
         str = StringType.FromObject(args[1]);
 
-      this.DotNetBarManager.GetItem("lblNumber").Text = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["Number"], null, "Replace", new object[] { "%1", this.MP3View.Items.Count.ToString() }, null, null), null, "Replace", new object[] { "%2", this.MP3View.SelectedItems.Count.ToString() }, null, null), null, "Replace", args, null, copyBack));
+      lblNumber.Text = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["Number"], null, "Replace", new object[] { "%1", this.MP3View.Items.Count.ToString() }, null, null), null, "Replace", new object[] { "%2", this.MP3View.SelectedItems.Count.ToString() }, null, null), null, "Replace", args, null, copyBack));
 
       try
       {
-        this.DotNetBarManager.GetItem("lblLength").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
+        lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
       }
       catch (Exception exception1)
       {
         ProjectData.SetProjectError(exception1);
-        this.DotNetBarManager.GetItem("lblLength").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", "0" }, null, null));
+        lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", "0" }, null, null));
         ProjectData.ClearProjectError();
       }
 
@@ -5775,8 +5869,11 @@ namespace ID3_TagIT
       {
         try
         {
-          this.CalcAudioCheckSumThread.Abort();
-          this.CalcAudioCheckSumThread.Join();
+          if (this.CalcAudioCheckSumThread != null)
+          {
+            this.CalcAudioCheckSumThread.Abort();
+            this.CalcAudioCheckSumThread.Join();
+          }
         }
         catch (Exception exception1)
         {
@@ -5785,12 +5882,12 @@ namespace ID3_TagIT
           ProjectData.ClearProjectError();
         }
 
-        ((ProgressBarItem)this.DotNetBarManager.GetItem("StatusProgressBar")).Value = 0;
-        ((ProgressBarItem)this.DotNetBarManager.GetItem("StatusProgressBar")).Maximum = this.MP3View.Items.Count;
-        this.DotNetBarManager.GetItem("lblVersion").Visible = false;
-        this.DotNetBarManager.GetItem("lblSubDirs").Visible = false;
-        this.DotNetBarManager.GetItem("lblProgress").Visible = true;
-        this.DotNetBarManager.GetItem("StatusProgressBar").Visible = true;
+        StatusProgressBar.Value = 0;
+        StatusProgressBar.Maximum = this.MP3View.Items.Count;
+        lblVersion.Visible = false;
+        lblSubDirs.Visible = false;
+        lblProgress.Visible = true;
+        StatusProgressBar.Visible = true;
         this.CalcAudioCheckSumThread = new Thread(new ThreadStart(this.CalcAudioCheckSum));
         this.CalcAudioCheckSumThread.IsBackground = true;
         this.CalcAudioCheckSumThread.Priority = ThreadPriority.Lowest;
@@ -5818,7 +5915,7 @@ namespace ID3_TagIT
               this.MP3View.Items[i].SubItems[this.colHAudioCheckSum.Index].Text = StringType.FromObject(tag.AudioCheckSum != 0 ? tag.AudioCheckSum.ToString() : "");
           }
 
-          ((ProgressBarItem)this.DotNetBarManager.GetItem("StatusProgressBar")).PerformStep();
+          StatusProgressBar.PerformStep();
         }
       }
       catch (ThreadAbortException exception1)
@@ -5850,10 +5947,10 @@ namespace ID3_TagIT
       }
       finally
       {
-        this.DotNetBarManager.GetItem("lblVersion").Visible = true;
-        this.DotNetBarManager.GetItem("lblSubDirs").Visible = true;
-        this.DotNetBarManager.GetItem("lblProgress").Visible = false;
-        this.DotNetBarManager.GetItem("StatusProgressBar").Visible = false;
+        lblVersion.Visible = true;
+        lblSubDirs.Visible = true;
+        lblProgress.Visible = false;
+        StatusProgressBar.Visible = false;
       }
     }
 
@@ -6991,7 +7088,7 @@ namespace ID3_TagIT
         ProjectData.ClearProjectError();
       }
 
-      this.DotNetBarManager.GetItem("lblVersion").Text = StringType.FromObject(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], Declarations.objSettings.VersionToShow.ToString()));
+      lblVersion.Text = StringType.FromObject(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], Declarations.objSettings.VersionToShow.ToString()));
       object[] objArray2 = new object[2];
       objArray2[0] = "%1";
       Settings objSettings = Declarations.objSettings;
@@ -7000,12 +7097,12 @@ namespace ID3_TagIT
       bool[] copyBack = new bool[] { false, true };
       if (copyBack[1])
         objSettings.CurrentPath = StringType.FromObject(args[1]);
-      this.DotNetBarManager.GetItem("lblPath").Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["Path"], null, "Replace", args, null, copyBack));
-      this.DotNetBarManager.GetItem("lblProgress").Text = StringType.FromObject(Declarations.objResources.ResStrings["ProgressChecksum"]);
+      lblPath.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["Path"], null, "Replace", args, null, copyBack));
+      lblProgress.Text = StringType.FromObject(Declarations.objResources.ResStrings["ProgressChecksum"]);
       if (Declarations.objSettings.ScanSubDirs)
-        this.DotNetBarManager.GetItem("lblSubDirs").Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsYes"]);
+        lblSubDirs.Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsYes"]);
       else
-        this.DotNetBarManager.GetItem("lblSubDirs").Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsNo"]);
+        lblSubDirs.Text = StringType.FromObject(Declarations.objResources.ResStrings["SubDirsNo"]);
       this.colHFilename.Text = StringType.FromObject(Declarations.objResources.ResStrings["Col01"]);
       this.colHSubDir.Text = StringType.FromObject(Declarations.objResources.ResStrings["Col02"]);
       this.colHTAGVer1.Text = StringType.FromObject(Declarations.objResources.ResStrings["Col03"]);
@@ -7570,7 +7667,7 @@ namespace ID3_TagIT
         ProjectData.ClearProjectError();
       }
 
-      this.DotNetBarManager.GetItem("lblVersion").Text = StringType.FromObject(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " 1"));
+      lblVersion.Text = StringType.FromObject(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " 1"));
 
       foreach (ListViewItem item16 in this.MP3View.SelectedItems)
         LateBinding.LateSetComplex(item16.Tag, null, "Selected", new object[] { true }, null, false, true);
@@ -7603,7 +7700,7 @@ namespace ID3_TagIT
         ProjectData.ClearProjectError();
       }
 
-      this.DotNetBarManager.GetItem("lblVersion").Text = StringType.FromObject(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " 2"));
+      lblVersion.Text = StringType.FromObject(ObjectType.StrCatObj(Declarations.objResources.ResStrings["TAGVer"], " 2"));
 
       foreach (ListViewItem item17 in this.MP3View.SelectedItems)
         LateBinding.LateSetComplex(item17.Tag, null, "Selected", new object[] { true }, null, false, true);

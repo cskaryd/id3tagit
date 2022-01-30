@@ -541,36 +541,35 @@ namespace ID3_TagIT
         try
         {
           string path = str;
+
           if (path.EndsWith(":"))
-          {
             path = path + @"\";
-          }
+
           DirectoryInfo info = new DirectoryInfo(path);
           DirectoryInfo[] directories = info.GetDirectories();
+
           if (vbooIncludeSubDir)
           {
             foreach (DirectoryInfo info2 in directories)
             {
               Application.DoEvents();
+
               if (frmProg.Canceled)
-              {
                 return;
-              }
-              ArrayList list = new ArrayList {
-                                    info2.FullName
-                                };
+
+              ArrayList list = new ArrayList { info2.FullName };
               ScanForFiles(list, vstrSearchPattern, vbooIncludeSubDir, ref alstFile, ref frmProg);
             }
           }
+
           if (frmProg != null)
-          {
             frmProg.Infos.Text = info.FullName;
-          }
+
           Application.DoEvents();
+
           foreach (FileInfo info3 in info.GetFiles(vstrSearchPattern))
-          {
             alstFile.Add(info3.FullName);
-          }
+
           continue;
         }
         catch (Exception exception1)

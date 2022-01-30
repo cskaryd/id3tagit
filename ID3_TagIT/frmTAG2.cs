@@ -171,7 +171,7 @@ namespace ID3_TagIT
     private LinkLabel lblRating;
     private LinkLabel lblSwapArtAlb;
     private LinkLabel lblSwapTtlAlb;
-    private LinkLabel lblSwatArtTtl;
+    private LinkLabel lblSwapArtTtl;
     private LinkLabel lblUnsupported;
     private LinkLabel lblUserDefined;
     private LinkLabel lblWebInfo;
@@ -224,9 +224,9 @@ namespace ID3_TagIT
     private Panel panRating;
     private Panel panUser;
     private Panel panWeb;
-    private Panel panel17;
-    private Panel panel18;
-    private Panel panel19;
+    private Panel pnlCommands;
+    private Panel pnlTagInfo;
+    private Panel pnlXferImport;
     private Panel pnlLeft;
     private PictureBox APICView;
     private RichTextBox txtLyrics;
@@ -309,6 +309,9 @@ namespace ID3_TagIT
       this.ColumnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.ColumnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.CommentList = new System.Windows.Forms.ListView();
+      this.colDescriptor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.colComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+      this.colLanguage = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.Content = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.FrameID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
       this.GenreList = new System.Windows.Forms.ListBox();
@@ -316,168 +319,217 @@ namespace ID3_TagIT
       this.NotSupportList = new System.Windows.Forms.ListView();
       this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
       this.Panel1 = new System.Windows.Forms.Panel();
-      this.Panel10 = new System.Windows.Forms.Panel();
-      this.Panel11 = new System.Windows.Forms.Panel();
-      this.Panel12 = new System.Windows.Forms.Panel();
-      this.Panel13 = new System.Windows.Forms.Panel();
-      this.Panel14 = new System.Windows.Forms.Panel();
-      this.Panel15 = new System.Windows.Forms.Panel();
-      this.Panel16 = new System.Windows.Forms.Panel();
-      this.Panel2 = new System.Windows.Forms.Panel();
-      this.Panel3 = new System.Windows.Forms.Panel();
-      this.Panel4 = new System.Windows.Forms.Panel();
-      this.Panel5 = new System.Windows.Forms.Panel();
-      this.Panel6 = new System.Windows.Forms.Panel();
-      this.Panel7 = new System.Windows.Forms.Panel();
-      this.Panel8 = new System.Windows.Forms.Panel();
-      this.Panel9 = new System.Windows.Forms.Panel();
-      this.PicList = new System.Windows.Forms.ListView();
-      this.RatingList = new System.Windows.Forms.ListView();
-      this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
-      this.TIPLList = new System.Windows.Forms.ListView();
-      this.TMCLList = new System.Windows.Forms.ListView();
-      this.TORYFormat = new System.Windows.Forms.HScrollBar();
-      this.TXXXList = new System.Windows.Forms.ListView();
-      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.WXXXList = new System.Windows.Forms.ListView();
+      this.txtPOS2 = new System.Windows.Forms.MaskedTextBox();
+      this.txtPOS1 = new System.Windows.Forms.MaskedTextBox();
+      this.txtTrack2 = new System.Windows.Forms.MaskedTextBox();
+      this.txtTrack1 = new System.Windows.Forms.MaskedTextBox();
+      this.txtYear = new System.Windows.Forms.MaskedTextBox();
+      this.txtBPM = new System.Windows.Forms.MaskedTextBox();
+      this.cmbArtist = new ID3_TagIT.ComboBoxAutoComplete();
+      this.lblBPM = new System.Windows.Forms.Label();
       this.YearFormat = new System.Windows.Forms.HScrollBar();
-      this.btnAddComment = new System.Windows.Forms.Button();
-      this.btnAddGenre = new System.Windows.Forms.Button();
-      this.btnAddInv = new System.Windows.Forms.Button();
-      this.btnAddLyrics = new System.Windows.Forms.Button();
-      this.btnAddMusician = new System.Windows.Forms.Button();
-      this.btnAddPicture = new System.Windows.Forms.Button();
-      this.btnAddRating = new System.Windows.Forms.Button();
-      this.btnAddTXXX = new System.Windows.Forms.Button();
-      this.btnAddWXXX = new System.Windows.Forms.Button();
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.btnExPic = new System.Windows.Forms.Button();
-      this.btnGetPic = new System.Windows.Forms.Button();
-      this.btnLyricsFile = new System.Windows.Forms.Button();
-      this.btnMoveComment = new System.Windows.Forms.Button();
-      this.btnMoveGenre = new System.Windows.Forms.Button();
-      this.btnMoveLyrics = new System.Windows.Forms.Button();
-      this.btnMoveRating = new System.Windows.Forms.Button();
-      this.btnOK = new System.Windows.Forms.Button();
-      this.btnRemoveComment = new System.Windows.Forms.Button();
-      this.btnRemoveGenre = new System.Windows.Forms.Button();
-      this.btnRemoveInv = new System.Windows.Forms.Button();
-      this.btnRemoveLyrics = new System.Windows.Forms.Button();
-      this.btnRemoveMusician = new System.Windows.Forms.Button();
-      this.btnRemovePicture = new System.Windows.Forms.Button();
-      this.btnRemoveRating = new System.Windows.Forms.Button();
-      this.btnRemoveTXXX = new System.Windows.Forms.Button();
-      this.btnRemoveWXXX = new System.Windows.Forms.Button();
-      this.btnTLEN = new System.Windows.Forms.Button();
-      this.btnV1Album = new System.Windows.Forms.Button();
-      this.btnV1Artist = new System.Windows.Forms.Button();
-      this.btnV1Comment = new System.Windows.Forms.Button();
-      this.btnV1Genre = new System.Windows.Forms.Button();
       this.btnV1Title = new System.Windows.Forms.Button();
+      this.btnV1Album = new System.Windows.Forms.Button();
       this.btnV1Track = new System.Windows.Forms.Button();
       this.btnV1Year = new System.Windows.Forms.Button();
-      this.cboFormat = new System.Windows.Forms.ComboBox();
-      this.chkPicInclude = new System.Windows.Forms.CheckBox();
-      this.chkPicRelativPath = new System.Windows.Forms.CheckBox();
-      this.cmbArtist = new ID3_TagIT.ComboBoxAutoComplete();
-      this.cmbCDescriptor = new ID3_TagIT.ComboBoxAutoComplete();
-      this.cmbCLanguage = new System.Windows.Forms.ComboBox();
-      this.cmbGenre = new ID3_TagIT.ComboBoxAutoComplete();
-      this.cmbLLanguage = new System.Windows.Forms.ComboBox();
-      this.cmbMedia = new System.Windows.Forms.ComboBox();
-      this.cmbPicType = new System.Windows.Forms.ComboBox();
-      this.colComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-      this.colDescriptor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-      this.colLanguage = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-      this.label1 = new System.Windows.Forms.Label();
-      this.label2 = new System.Windows.Forms.Label();
-      this.lblAlbum = new System.Windows.Forms.Label();
-      this.lblAlbumSort = new System.Windows.Forms.Label();
-      this.lblArtist = new System.Windows.Forms.Label();
-      this.lblArtistSort = new System.Windows.Forms.Label();
-      this.lblArtistURL = new System.Windows.Forms.Label();
-      this.lblAudioFileURL = new System.Windows.Forms.Label();
-      this.lblAudioSRCURL = new System.Windows.Forms.Label();
-      this.lblBPM = new System.Windows.Forms.Label();
-      this.lblBand = new System.Windows.Forms.Label();
-      this.lblCOMM = new System.Windows.Forms.Label();
-      this.lblCOMMDesc = new System.Windows.Forms.Label();
-      this.lblCOMMInfURL = new System.Windows.Forms.Label();
-      this.lblCOMMLan = new System.Windows.Forms.Label();
-      this.lblCommDescInfo = new System.Windows.Forms.Label();
-      this.lblCommand = new System.Windows.Forms.Label();
-      this.lblComposer = new System.Windows.Forms.Label();
-      this.lblConductor = new System.Windows.Forms.Label();
-      this.lblContent = new System.Windows.Forms.Label();
-      this.lblCopyInfURL = new System.Windows.Forms.Label();
-      this.lblCopyright = new System.Windows.Forms.Label();
-      this.lblDetailedInfo = new System.Windows.Forms.LinkLabel();
-      this.lblDigits = new System.Windows.Forms.Label();
-      this.lblEncoded = new System.Windows.Forms.Label();
-      this.lblGenre = new System.Windows.Forms.Label();
-      this.lblGenreInfo = new System.Windows.Forms.Label();
-      this.lblGetFromFile = new System.Windows.Forms.LinkLabel();
-      this.lblINetRadioURL = new System.Windows.Forms.Label();
-      this.lblInfo = new System.Windows.Forms.Label();
-      this.lblInvFunction = new System.Windows.Forms.Label();
-      this.lblInvPerson = new System.Windows.Forms.Label();
-      this.lblInvolvedPeople = new System.Windows.Forms.LinkLabel();
-      this.lblLyDesc = new System.Windows.Forms.Label();
-      this.lblLyLan = new System.Windows.Forms.Label();
-      this.lblLyWriter = new System.Windows.Forms.Label();
-      this.lblLyrics = new System.Windows.Forms.Label();
-      this.lblLyricsPane = new System.Windows.Forms.LinkLabel();
-      this.lblMainEntries = new System.Windows.Forms.LinkLabel();
-      this.lblMediaTyp = new System.Windows.Forms.Label();
-      this.lblModified = new System.Windows.Forms.Label();
-      this.lblMusicianInfo = new System.Windows.Forms.Label();
-      this.lblMusicianInst = new System.Windows.Forms.Label();
-      this.lblMusicianName = new System.Windows.Forms.Label();
-      this.lblNext = new System.Windows.Forms.LinkLabel();
-      this.lblNot = new System.Windows.Forms.Label();
-      this.lblOAlbum = new System.Windows.Forms.Label();
-      this.lblOArtist = new System.Windows.Forms.Label();
-      this.lblOFilename = new System.Windows.Forms.Label();
-      this.lblOLyWriter = new System.Windows.Forms.Label();
-      this.lblOOwner = new System.Windows.Forms.Label();
-      this.lblOYear = new System.Windows.Forms.Label();
-      this.lblOYearInfo = new System.Windows.Forms.Label();
-      this.lblOf1 = new System.Windows.Forms.Label();
+      this.btnV1Artist = new System.Windows.Forms.Button();
       this.lblOf2 = new System.Windows.Forms.Label();
-      this.lblOriginalInfo = new System.Windows.Forms.LinkLabel();
-      this.lblPayURL = new System.Windows.Forms.Label();
-      this.lblPicDesc = new System.Windows.Forms.Label();
-      this.lblPicPath = new System.Windows.Forms.Label();
-      this.lblPicType = new System.Windows.Forms.Label();
-      this.lblPictures = new System.Windows.Forms.LinkLabel();
+      this.lblOf1 = new System.Windows.Forms.Label();
+      this.txtAlbum = new System.Windows.Forms.TextBox();
+      this.txtTitle = new System.Windows.Forms.TextBox();
+      this.lblTitle = new System.Windows.Forms.Label();
+      this.lblAlbum = new System.Windows.Forms.Label();
       this.lblPosMedia = new System.Windows.Forms.Label();
-      this.lblPrevious = new System.Windows.Forms.LinkLabel();
+      this.lblYear = new System.Windows.Forms.Label();
+      this.lblTrack = new System.Windows.Forms.Label();
+      this.lblArtist = new System.Windows.Forms.Label();
+      this.Panel10 = new System.Windows.Forms.Panel();
+      this.txtCOMMInfURL = new System.Windows.Forms.TextBox();
+      this.lblCOMMInfURL = new System.Windows.Forms.Label();
+      this.txtPubURL = new System.Windows.Forms.TextBox();
       this.lblPubURL = new System.Windows.Forms.Label();
-      this.lblPublisher = new System.Windows.Forms.Label();
-      this.lblRating = new System.Windows.Forms.LinkLabel();
-      this.lblRatingCounter = new System.Windows.Forms.Label();
+      this.txtPayURL = new System.Windows.Forms.TextBox();
+      this.lblPayURL = new System.Windows.Forms.Label();
+      this.txtINetRadioURL = new System.Windows.Forms.TextBox();
+      this.lblINetRadioURL = new System.Windows.Forms.Label();
+      this.txtAudioSRCURL = new System.Windows.Forms.TextBox();
+      this.lblAudioSRCURL = new System.Windows.Forms.Label();
+      this.txtCopyInfURL = new System.Windows.Forms.TextBox();
+      this.txtArtistURL = new System.Windows.Forms.TextBox();
+      this.txtAudioFileURL = new System.Windows.Forms.TextBox();
+      this.lblAudioFileURL = new System.Windows.Forms.Label();
+      this.lblArtistURL = new System.Windows.Forms.Label();
+      this.lblCopyInfURL = new System.Windows.Forms.Label();
+      this.Panel11 = new System.Windows.Forms.Panel();
+      this.lblInfo = new System.Windows.Forms.Label();
+      this.btnMoveRating = new System.Windows.Forms.Button();
+      this.btnRemoveRating = new System.Windows.Forms.Button();
+      this.btnAddRating = new System.Windows.Forms.Button();
+      this.RatingList = new System.Windows.Forms.ListView();
+      this.txtRatingCounter = new System.Windows.Forms.NumericUpDown();
+      this.txtRatingRating = new System.Windows.Forms.NumericUpDown();
+      this.txtRatingUser = new System.Windows.Forms.TextBox();
       this.lblRatingRating = new System.Windows.Forms.Label();
+      this.lblRatingCounter = new System.Windows.Forms.Label();
       this.lblRatingUser = new System.Windows.Forms.Label();
-      this.lblSelected = new System.Windows.Forms.Label();
-      this.lblSubTitle = new System.Windows.Forms.Label();
-      this.lblSwapArtAlb = new System.Windows.Forms.LinkLabel();
-      this.lblSwapTtlAlb = new System.Windows.Forms.LinkLabel();
-      this.lblSwatArtTtl = new System.Windows.Forms.LinkLabel();
-      this.lblTLEN = new System.Windows.Forms.Label();
+      this.Panel12 = new System.Windows.Forms.Panel();
+      this.txtTXXXContent = new System.Windows.Forms.TextBox();
+      this.btnRemoveTXXX = new System.Windows.Forms.Button();
+      this.btnAddTXXX = new System.Windows.Forms.Button();
       this.lblTXXXContent = new System.Windows.Forms.Label();
       this.lblTXXXDesc = new System.Windows.Forms.Label();
-      this.lblTitle = new System.Windows.Forms.Label();
-      this.lblTitleSort = new System.Windows.Forms.Label();
-      this.lblTopPanel = new System.Windows.Forms.Label();
-      this.lblTrack = new System.Windows.Forms.Label();
-      this.lblUnsupported = new System.Windows.Forms.LinkLabel();
-      this.lblUserDefined = new System.Windows.Forms.LinkLabel();
+      this.txtTXXXDesc = new System.Windows.Forms.TextBox();
+      this.TXXXList = new System.Windows.Forms.ListView();
+      this.Panel13 = new System.Windows.Forms.Panel();
+      this.txtWXXXContent = new System.Windows.Forms.TextBox();
+      this.btnRemoveWXXX = new System.Windows.Forms.Button();
+      this.btnAddWXXX = new System.Windows.Forms.Button();
       this.lblWXXXContent = new System.Windows.Forms.Label();
       this.lblWXXXDesc = new System.Windows.Forms.Label();
+      this.txtWXXXDesc = new System.Windows.Forms.TextBox();
+      this.WXXXList = new System.Windows.Forms.ListView();
+      this.Panel14 = new System.Windows.Forms.Panel();
+      this.btnTLEN = new System.Windows.Forms.Button();
+      this.txtTLEN = new System.Windows.Forms.MaskedTextBox();
+      this.lblTLEN = new System.Windows.Forms.Label();
+      this.cmbMedia = new System.Windows.Forms.ComboBox();
+      this.lblMediaTyp = new System.Windows.Forms.Label();
+      this.Panel15 = new System.Windows.Forms.Panel();
+      this.lblMusicianInfo = new System.Windows.Forms.Label();
+      this.txtMusicianName = new System.Windows.Forms.TextBox();
+      this.btnRemoveMusician = new System.Windows.Forms.Button();
+      this.btnAddMusician = new System.Windows.Forms.Button();
+      this.lblMusicianName = new System.Windows.Forms.Label();
+      this.lblMusicianInst = new System.Windows.Forms.Label();
+      this.txtMusicianInst = new System.Windows.Forms.TextBox();
+      this.TMCLList = new System.Windows.Forms.ListView();
+      this.Panel16 = new System.Windows.Forms.Panel();
+      this.txtInvPerson = new System.Windows.Forms.TextBox();
+      this.btnRemoveInv = new System.Windows.Forms.Button();
+      this.btnAddInv = new System.Windows.Forms.Button();
+      this.lblInvPerson = new System.Windows.Forms.Label();
+      this.lblInvFunction = new System.Windows.Forms.Label();
+      this.txtInvFunction = new System.Windows.Forms.TextBox();
+      this.TIPLList = new System.Windows.Forms.ListView();
+      this.Panel2 = new System.Windows.Forms.Panel();
+      this.cmbGenre = new ID3_TagIT.ComboBoxAutoComplete();
+      this.btnV1Genre = new System.Windows.Forms.Button();
+      this.lblGenreInfo = new System.Windows.Forms.Label();
+      this.btnMoveGenre = new System.Windows.Forms.Button();
+      this.btnRemoveGenre = new System.Windows.Forms.Button();
+      this.btnAddGenre = new System.Windows.Forms.Button();
+      this.lblGenre = new System.Windows.Forms.Label();
+      this.Panel3 = new System.Windows.Forms.Panel();
+      this.lblCommDescInfo = new System.Windows.Forms.Label();
+      this.cmbCDescriptor = new ID3_TagIT.ComboBoxAutoComplete();
+      this.btnV1Comment = new System.Windows.Forms.Button();
+      this.btnMoveComment = new System.Windows.Forms.Button();
+      this.btnRemoveComment = new System.Windows.Forms.Button();
+      this.btnAddComment = new System.Windows.Forms.Button();
+      this.lblCOMM = new System.Windows.Forms.Label();
+      this.lblCOMMLan = new System.Windows.Forms.Label();
+      this.lblCOMMDesc = new System.Windows.Forms.Label();
+      this.cmbCLanguage = new System.Windows.Forms.ComboBox();
+      this.txtComment = new System.Windows.Forms.TextBox();
+      this.Panel4 = new System.Windows.Forms.Panel();
+      this.txtComposer = new System.Windows.Forms.TextBox();
+      this.lblComposer = new System.Windows.Forms.Label();
+      this.txtBand = new System.Windows.Forms.TextBox();
+      this.txtModified = new System.Windows.Forms.TextBox();
+      this.txtConductor = new System.Windows.Forms.TextBox();
+      this.lblConductor = new System.Windows.Forms.Label();
+      this.lblModified = new System.Windows.Forms.Label();
+      this.lblBand = new System.Windows.Forms.Label();
+      this.txtCopyright = new System.Windows.Forms.TextBox();
+      this.lblCopyright = new System.Windows.Forms.Label();
+      this.txtLyWriter = new System.Windows.Forms.TextBox();
+      this.txtEncoded = new System.Windows.Forms.TextBox();
+      this.txtPublisher = new System.Windows.Forms.TextBox();
+      this.lblPublisher = new System.Windows.Forms.Label();
+      this.lblEncoded = new System.Windows.Forms.Label();
+      this.lblLyWriter = new System.Windows.Forms.Label();
+      this.Panel5 = new System.Windows.Forms.Panel();
+      this.txtContent = new System.Windows.Forms.TextBox();
+      this.txtSubTitle = new System.Windows.Forms.TextBox();
+      this.lblSubTitle = new System.Windows.Forms.Label();
+      this.lblContent = new System.Windows.Forms.Label();
+      this.Panel6 = new System.Windows.Forms.Panel();
+      this.txtTORY = new System.Windows.Forms.MaskedTextBox();
+      this.lblOYearInfo = new System.Windows.Forms.Label();
+      this.TORYFormat = new System.Windows.Forms.HScrollBar();
+      this.lblOYear = new System.Windows.Forms.Label();
+      this.txtOOwner = new System.Windows.Forms.TextBox();
+      this.lblOOwner = new System.Windows.Forms.Label();
+      this.txtOArtist = new System.Windows.Forms.TextBox();
+      this.lblOArtist = new System.Windows.Forms.Label();
+      this.txtOAlbum = new System.Windows.Forms.TextBox();
+      this.txtOLyWriter = new System.Windows.Forms.TextBox();
+      this.txtOFilename = new System.Windows.Forms.TextBox();
+      this.lblOFilename = new System.Windows.Forms.Label();
+      this.lblOLyWriter = new System.Windows.Forms.Label();
+      this.lblOAlbum = new System.Windows.Forms.Label();
+      this.Panel7 = new System.Windows.Forms.Panel();
+      this.chkPicRelativPath = new System.Windows.Forms.CheckBox();
+      this.btnExPic = new System.Windows.Forms.Button();
+      this.btnRemovePicture = new System.Windows.Forms.Button();
+      this.btnAddPicture = new System.Windows.Forms.Button();
+      this.btnGetPic = new System.Windows.Forms.Button();
+      this.chkPicInclude = new System.Windows.Forms.CheckBox();
+      this.lblPicPath = new System.Windows.Forms.Label();
+      this.txtPicPath = new System.Windows.Forms.TextBox();
+      this.PicList = new System.Windows.Forms.ListView();
+      this.lblPicType = new System.Windows.Forms.Label();
+      this.lblPicDesc = new System.Windows.Forms.Label();
+      this.cmbPicType = new System.Windows.Forms.ComboBox();
+      this.txtPDescriptor = new System.Windows.Forms.TextBox();
+      this.Panel8 = new System.Windows.Forms.Panel();
+      this.txtLyrics = new System.Windows.Forms.RichTextBox();
+      this.btnLyricsFile = new System.Windows.Forms.Button();
+      this.btnMoveLyrics = new System.Windows.Forms.Button();
+      this.btnRemoveLyrics = new System.Windows.Forms.Button();
+      this.btnAddLyrics = new System.Windows.Forms.Button();
+      this.lblLyrics = new System.Windows.Forms.Label();
+      this.lblLyLan = new System.Windows.Forms.Label();
+      this.lblLyDesc = new System.Windows.Forms.Label();
+      this.cmbLLanguage = new System.Windows.Forms.ComboBox();
+      this.txtLDescriptor = new System.Windows.Forms.TextBox();
+      this.Panel9 = new System.Windows.Forms.Panel();
+      this.txtSortArtist = new System.Windows.Forms.TextBox();
+      this.txtSortTitle = new System.Windows.Forms.TextBox();
+      this.txtSortAlbum = new System.Windows.Forms.TextBox();
+      this.lblAlbumSort = new System.Windows.Forms.Label();
+      this.lblTitleSort = new System.Windows.Forms.Label();
+      this.lblArtistSort = new System.Windows.Forms.Label();
+      this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+      this.btnCancel = new System.Windows.Forms.Button();
+      this.btnOK = new System.Windows.Forms.Button();
+      this.cboFormat = new System.Windows.Forms.ComboBox();
+      this.label1 = new System.Windows.Forms.Label();
+      this.label2 = new System.Windows.Forms.Label();
+      this.lblCommand = new System.Windows.Forms.Label();
+      this.lblDetailedInfo = new System.Windows.Forms.LinkLabel();
+      this.lblDigits = new System.Windows.Forms.Label();
+      this.lblGetFromFile = new System.Windows.Forms.LinkLabel();
+      this.lblInvolvedPeople = new System.Windows.Forms.LinkLabel();
+      this.lblLyricsPane = new System.Windows.Forms.LinkLabel();
+      this.lblMainEntries = new System.Windows.Forms.LinkLabel();
+      this.lblNext = new System.Windows.Forms.LinkLabel();
+      this.lblNot = new System.Windows.Forms.Label();
+      this.lblOriginalInfo = new System.Windows.Forms.LinkLabel();
+      this.lblPictures = new System.Windows.Forms.LinkLabel();
+      this.lblPrevious = new System.Windows.Forms.LinkLabel();
+      this.lblRating = new System.Windows.Forms.LinkLabel();
+      this.lblSelected = new System.Windows.Forms.Label();
+      this.lblSwapArtAlb = new System.Windows.Forms.LinkLabel();
+      this.lblSwapTtlAlb = new System.Windows.Forms.LinkLabel();
+      this.lblSwapArtTtl = new System.Windows.Forms.LinkLabel();
+      this.lblTopPanel = new System.Windows.Forms.Label();
+      this.lblUnsupported = new System.Windows.Forms.LinkLabel();
+      this.lblUserDefined = new System.Windows.Forms.LinkLabel();
       this.lblWebInfo = new System.Windows.Forms.LinkLabel();
       this.lblXferFromV1 = new System.Windows.Forms.LinkLabel();
       this.lblXferToV1 = new System.Windows.Forms.LinkLabel();
-      this.lblYear = new System.Windows.Forms.Label();
       this.panDetail = new System.Windows.Forms.Panel();
       this.panInvolved = new System.Windows.Forms.Panel();
       this.panLyrics = new System.Windows.Forms.Panel();
@@ -488,255 +540,147 @@ namespace ID3_TagIT
       this.panRating = new System.Windows.Forms.Panel();
       this.panUser = new System.Windows.Forms.Panel();
       this.panWeb = new System.Windows.Forms.Panel();
-      this.panel17 = new System.Windows.Forms.Panel();
-      this.panel18 = new System.Windows.Forms.Panel();
-      this.panel19 = new System.Windows.Forms.Panel();
+      this.pnlCommands = new System.Windows.Forms.Panel();
+      this.pnlTagInfo = new System.Windows.Forms.Panel();
+      this.pnlXferImport = new System.Windows.Forms.Panel();
       this.pnlLeft = new System.Windows.Forms.Panel();
-      this.txtAlbum = new System.Windows.Forms.TextBox();
-      this.txtArtistURL = new System.Windows.Forms.TextBox();
-      this.txtAudioFileURL = new System.Windows.Forms.TextBox();
-      this.txtAudioSRCURL = new System.Windows.Forms.TextBox();
-      this.txtBPM = new System.Windows.Forms.MaskedTextBox();
-      this.txtBand = new System.Windows.Forms.TextBox();
-      this.txtCOMMInfURL = new System.Windows.Forms.TextBox();
-      this.txtComment = new System.Windows.Forms.TextBox();
-      this.txtComposer = new System.Windows.Forms.TextBox();
-      this.txtConductor = new System.Windows.Forms.TextBox();
-      this.txtContent = new System.Windows.Forms.TextBox();
-      this.txtCopyInfURL = new System.Windows.Forms.TextBox();
-      this.txtCopyright = new System.Windows.Forms.TextBox();
       this.txtDigits = new System.Windows.Forms.NumericUpDown();
-      this.txtEncoded = new System.Windows.Forms.TextBox();
-      this.txtINetRadioURL = new System.Windows.Forms.TextBox();
-      this.txtInvFunction = new System.Windows.Forms.TextBox();
-      this.txtInvPerson = new System.Windows.Forms.TextBox();
-      this.txtLDescriptor = new System.Windows.Forms.TextBox();
-      this.txtLyWriter = new System.Windows.Forms.TextBox();
-      this.txtLyrics = new System.Windows.Forms.RichTextBox();
-      this.txtModified = new System.Windows.Forms.TextBox();
-      this.txtMusicianInst = new System.Windows.Forms.TextBox();
-      this.txtMusicianName = new System.Windows.Forms.TextBox();
-      this.txtOAlbum = new System.Windows.Forms.TextBox();
-      this.txtOArtist = new System.Windows.Forms.TextBox();
-      this.txtOFilename = new System.Windows.Forms.TextBox();
-      this.txtOLyWriter = new System.Windows.Forms.TextBox();
-      this.txtOOwner = new System.Windows.Forms.TextBox();
-      this.txtPDescriptor = new System.Windows.Forms.TextBox();
-      this.txtPOS1 = new System.Windows.Forms.MaskedTextBox();
-      this.txtPOS2 = new System.Windows.Forms.MaskedTextBox();
-      this.txtPayURL = new System.Windows.Forms.TextBox();
-      this.txtPicPath = new System.Windows.Forms.TextBox();
-      this.txtPubURL = new System.Windows.Forms.TextBox();
-      this.txtPublisher = new System.Windows.Forms.TextBox();
-      this.txtRatingCounter = new System.Windows.Forms.NumericUpDown();
-      this.txtRatingRating = new System.Windows.Forms.NumericUpDown();
-      this.txtRatingUser = new System.Windows.Forms.TextBox();
       this.txtSelected = new System.Windows.Forms.TextBox();
-      this.txtSortAlbum = new System.Windows.Forms.TextBox();
-      this.txtSortArtist = new System.Windows.Forms.TextBox();
-      this.txtSortTitle = new System.Windows.Forms.TextBox();
-      this.txtSubTitle = new System.Windows.Forms.TextBox();
-      this.txtTLEN = new System.Windows.Forms.MaskedTextBox();
-      this.txtTORY = new System.Windows.Forms.MaskedTextBox();
-      this.txtTXXXContent = new System.Windows.Forms.TextBox();
-      this.txtTXXXDesc = new System.Windows.Forms.TextBox();
-      this.txtTitle = new System.Windows.Forms.TextBox();
-      this.txtTrack1 = new System.Windows.Forms.MaskedTextBox();
-      this.txtTrack2 = new System.Windows.Forms.MaskedTextBox();
-      this.txtWXXXContent = new System.Windows.Forms.TextBox();
-      this.txtWXXXDesc = new System.Windows.Forms.TextBox();
-      this.txtYear = new System.Windows.Forms.MaskedTextBox();
-      this.Panel3.SuspendLayout();
-      this.Panel2.SuspendLayout();
-      this.pnlLeft.SuspendLayout();
-      this.panel17.SuspendLayout();
-      this.panel19.SuspendLayout();
-      this.panel18.SuspendLayout();
-      this.Panel1.SuspendLayout();
-      this.Panel9.SuspendLayout();
-      this.Panel6.SuspendLayout();
-      this.Panel5.SuspendLayout();
-      this.Panel4.SuspendLayout();
-      this.Panel15.SuspendLayout();
-      this.Panel16.SuspendLayout();
-      this.Panel14.SuspendLayout();
-      this.Panel7.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.APICView)).BeginInit();
-      this.Panel8.SuspendLayout();
+      this.Panel1.SuspendLayout();
+      this.Panel10.SuspendLayout();
       this.Panel11.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.txtRatingCounter)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.txtRatingRating)).BeginInit();
-      this.Panel10.SuspendLayout();
-      this.Panel13.SuspendLayout();
       this.Panel12.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).BeginInit();
+      this.Panel13.SuspendLayout();
+      this.Panel14.SuspendLayout();
+      this.Panel15.SuspendLayout();
+      this.Panel16.SuspendLayout();
+      this.Panel2.SuspendLayout();
+      this.Panel3.SuspendLayout();
+      this.Panel4.SuspendLayout();
+      this.Panel5.SuspendLayout();
+      this.Panel6.SuspendLayout();
+      this.Panel7.SuspendLayout();
+      this.Panel8.SuspendLayout();
+      this.Panel9.SuspendLayout();
       this.panDetail.SuspendLayout();
-      this.panMain.SuspendLayout();
-      this.panOriginal.SuspendLayout();
       this.panInvolved.SuspendLayout();
-      this.panPic.SuspendLayout();
       this.panLyrics.SuspendLayout();
-      this.panWeb.SuspendLayout();
+      this.panMain.SuspendLayout();
+      this.panNot.SuspendLayout();
+      this.panOriginal.SuspendLayout();
+      this.panPic.SuspendLayout();
       this.panRating.SuspendLayout();
       this.panUser.SuspendLayout();
-      this.panNot.SuspendLayout();
+      this.panWeb.SuspendLayout();
+      this.pnlCommands.SuspendLayout();
+      this.pnlTagInfo.SuspendLayout();
+      this.pnlXferImport.SuspendLayout();
+      this.pnlLeft.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).BeginInit();
       this.SuspendLayout();
       // 
-      // lblSelected
+      // APICView
       // 
-      this.lblSelected.BackColor = System.Drawing.SystemColors.Control;
-      this.lblSelected.ForeColor = System.Drawing.Color.Black;
-      this.lblSelected.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblSelected.Location = new System.Drawing.Point(174, 29);
-      this.lblSelected.Name = "lblSelected";
-      this.lblSelected.Size = new System.Drawing.Size(104, 16);
-      this.lblSelected.TabIndex = 107;
-      this.lblSelected.Text = "Selected file:";
+      this.APICView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.APICView.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.APICView.Location = new System.Drawing.Point(464, 8);
+      this.APICView.Name = "APICView";
+      this.APICView.Size = new System.Drawing.Size(176, 176);
+      this.APICView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.APICView.TabIndex = 1;
+      this.APICView.TabStop = false;
       // 
-      // txtSelected
+      // ColumnHeader1
       // 
-      this.txtSelected.BackColor = System.Drawing.SystemColors.Control;
-      this.txtSelected.BorderStyle = System.Windows.Forms.BorderStyle.None;
-      this.txtSelected.ForeColor = System.Drawing.Color.Black;
-      this.txtSelected.Location = new System.Drawing.Point(278, 29);
-      this.txtSelected.Name = "txtSelected";
-      this.txtSelected.ReadOnly = true;
-      this.txtSelected.Size = new System.Drawing.Size(544, 13);
-      this.txtSelected.TabIndex = 108;
-      this.txtSelected.TabStop = false;
-      this.txtSelected.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtSelected.Leave += new System.EventHandler(this.Select_Leave);
+      this.ColumnHeader1.Text = "Descriptor";
+      this.ColumnHeader1.Width = 132;
       // 
-      // Panel3
+      // ColumnHeader10
       // 
-      this.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.Panel3.Controls.Add(this.lblCommDescInfo);
-      this.Panel3.Controls.Add(this.cmbCDescriptor);
-      this.Panel3.Controls.Add(this.btnV1Comment);
-      this.Panel3.Controls.Add(this.btnMoveComment);
-      this.Panel3.Controls.Add(this.btnRemoveComment);
-      this.Panel3.Controls.Add(this.btnAddComment);
-      this.Panel3.Controls.Add(this.lblCOMM);
-      this.Panel3.Controls.Add(this.lblCOMMLan);
-      this.Panel3.Controls.Add(this.lblCOMMDesc);
-      this.Panel3.Controls.Add(this.cmbCLanguage);
-      this.Panel3.Controls.Add(this.txtComment);
-      this.Panel3.Controls.Add(this.CommentList);
-      this.Panel3.Location = new System.Drawing.Point(8, 264);
-      this.Panel3.Name = "Panel3";
-      this.Panel3.Size = new System.Drawing.Size(648, 184);
-      this.Panel3.TabIndex = 2;
+      this.ColumnHeader10.Text = "Play Counter";
+      this.ColumnHeader10.Width = 80;
       // 
-      // lblCommDescInfo
+      // ColumnHeader11
       // 
-      this.lblCommDescInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-      this.lblCommDescInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblCommDescInfo.Location = new System.Drawing.Point(8, 112);
-      this.lblCommDescInfo.Name = "lblCommDescInfo";
-      this.lblCommDescInfo.Size = new System.Drawing.Size(120, 64);
-      this.lblCommDescInfo.TabIndex = 47;
-      this.lblCommDescInfo.Text = "Predefined comment descriptors can be set under Edit Libraries (Options menu)";
-      this.lblCommDescInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.ColumnHeader11.Text = "Descriptor";
+      this.ColumnHeader11.Width = 200;
       // 
-      // cmbCDescriptor
+      // ColumnHeader12
       // 
-      this.cmbCDescriptor.Autocomplete = true;
-      this.cmbCDescriptor.ItemHeight = 13;
-      this.cmbCDescriptor.Location = new System.Drawing.Point(136, 6);
-      this.cmbCDescriptor.Name = "cmbCDescriptor";
-      this.cmbCDescriptor.Size = new System.Drawing.Size(264, 21);
-      this.cmbCDescriptor.TabIndex = 36;
-      this.cmbCDescriptor.Enter += new System.EventHandler(this.Select_Enter);
-      this.cmbCDescriptor.Leave += new System.EventHandler(this.Select_Leave);
+      this.ColumnHeader12.Text = "Content";
+      this.ColumnHeader12.Width = 258;
       // 
-      // btnV1Comment
+      // ColumnHeader13
       // 
-      this.btnV1Comment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnV1Comment.Location = new System.Drawing.Point(408, 80);
-      this.btnV1Comment.Name = "btnV1Comment";
-      this.btnV1Comment.Size = new System.Drawing.Size(232, 20);
-      this.btnV1Comment.TabIndex = 44;
-      this.btnV1Comment.Text = "<- Ver. 1";
-      this.btnV1Comment.Click += new System.EventHandler(this.btnV1Comment_Click);
+      this.ColumnHeader13.Text = "Descriptor";
+      this.ColumnHeader13.Width = 200;
       // 
-      // btnMoveComment
+      // ColumnHeader14
       // 
-      this.btnMoveComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnMoveComment.Location = new System.Drawing.Point(408, 56);
-      this.btnMoveComment.Name = "btnMoveComment";
-      this.btnMoveComment.Size = new System.Drawing.Size(232, 20);
-      this.btnMoveComment.TabIndex = 43;
-      this.btnMoveComment.Text = "Move Comment to top";
-      this.btnMoveComment.Click += new System.EventHandler(this.btnMoveComment_Click);
+      this.ColumnHeader14.Text = "Content";
+      this.ColumnHeader14.Width = 260;
       // 
-      // btnRemoveComment
+      // ColumnHeader15
       // 
-      this.btnRemoveComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnRemoveComment.Location = new System.Drawing.Point(408, 32);
-      this.btnRemoveComment.Name = "btnRemoveComment";
-      this.btnRemoveComment.Size = new System.Drawing.Size(232, 20);
-      this.btnRemoveComment.TabIndex = 42;
-      this.btnRemoveComment.Text = "Remove Comment";
-      this.btnRemoveComment.Click += new System.EventHandler(this.btnRemoveComment_Click);
+      this.ColumnHeader15.Text = "Instrument";
+      this.ColumnHeader15.Width = 200;
       // 
-      // btnAddComment
+      // ColumnHeader16
       // 
-      this.btnAddComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnAddComment.Location = new System.Drawing.Point(408, 8);
-      this.btnAddComment.Name = "btnAddComment";
-      this.btnAddComment.Size = new System.Drawing.Size(232, 20);
-      this.btnAddComment.TabIndex = 41;
-      this.btnAddComment.Text = "Add Comment";
-      this.btnAddComment.Click += new System.EventHandler(this.btnAddComment_Click);
+      this.ColumnHeader16.Text = "Name";
+      this.ColumnHeader16.Width = 254;
       // 
-      // lblCOMM
+      // ColumnHeader17
       // 
-      this.lblCOMM.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblCOMM.Location = new System.Drawing.Point(8, 56);
-      this.lblCOMM.Name = "lblCOMM";
-      this.lblCOMM.Size = new System.Drawing.Size(128, 16);
-      this.lblCOMM.TabIndex = 39;
-      this.lblCOMM.Text = "&Comment:";
+      this.ColumnHeader17.Text = "Function";
+      this.ColumnHeader17.Width = 191;
       // 
-      // lblCOMMLan
+      // ColumnHeader18
       // 
-      this.lblCOMMLan.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblCOMMLan.Location = new System.Drawing.Point(8, 32);
-      this.lblCOMMLan.Name = "lblCOMMLan";
-      this.lblCOMMLan.Size = new System.Drawing.Size(128, 16);
-      this.lblCOMMLan.TabIndex = 37;
-      this.lblCOMMLan.Text = "Comment &Language:";
+      this.ColumnHeader18.Text = "Name";
+      this.ColumnHeader18.Width = 264;
       // 
-      // lblCOMMDesc
+      // ColumnHeader2
       // 
-      this.lblCOMMDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblCOMMDesc.Location = new System.Drawing.Point(8, 8);
-      this.lblCOMMDesc.Name = "lblCOMMDesc";
-      this.lblCOMMDesc.Size = new System.Drawing.Size(128, 16);
-      this.lblCOMMDesc.TabIndex = 35;
-      this.lblCOMMDesc.Text = "Comment &Descriptor:";
+      this.ColumnHeader2.Text = "Text";
+      this.ColumnHeader2.Width = 356;
       // 
-      // cmbCLanguage
+      // ColumnHeader3
       // 
-      this.cmbCLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-      this.cmbCLanguage.ItemHeight = 13;
-      this.cmbCLanguage.Location = new System.Drawing.Point(136, 30);
-      this.cmbCLanguage.Name = "cmbCLanguage";
-      this.cmbCLanguage.Size = new System.Drawing.Size(264, 21);
-      this.cmbCLanguage.TabIndex = 38;
-      this.cmbCLanguage.Enter += new System.EventHandler(this.Select_Enter);
-      this.cmbCLanguage.Leave += new System.EventHandler(this.Select_Leave);
+      this.ColumnHeader3.Text = "Language";
+      this.ColumnHeader3.Width = 103;
       // 
-      // txtComment
+      // ColumnHeader4
       // 
-      this.txtComment.AcceptsReturn = true;
-      this.txtComment.Location = new System.Drawing.Point(136, 56);
-      this.txtComment.Multiline = true;
-      this.txtComment.Name = "txtComment";
-      this.txtComment.Size = new System.Drawing.Size(264, 48);
-      this.txtComment.TabIndex = 40;
-      this.txtComment.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtComment.Leave += new System.EventHandler(this.Select_Leave);
+      this.ColumnHeader4.Text = "Descriptor";
+      this.ColumnHeader4.Width = 160;
+      // 
+      // ColumnHeader5
+      // 
+      this.ColumnHeader5.Text = "Picture Type";
+      this.ColumnHeader5.Width = 99;
+      // 
+      // ColumnHeader6
+      // 
+      this.ColumnHeader6.Text = "Path";
+      this.ColumnHeader6.Width = 288;
+      // 
+      // ColumnHeader7
+      // 
+      this.ColumnHeader7.Text = "Include";
+      // 
+      // ColumnHeader8
+      // 
+      this.ColumnHeader8.Text = "User";
+      this.ColumnHeader8.Width = 238;
+      // 
+      // ColumnHeader9
+      // 
+      this.ColumnHeader9.Text = "Rating";
+      this.ColumnHeader9.Width = 100;
       // 
       // CommentList
       // 
@@ -772,92 +716,15 @@ namespace ID3_TagIT
       this.colLanguage.Text = "Language";
       this.colLanguage.Width = 91;
       // 
-      // Panel2
+      // Content
       // 
-      this.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.Panel2.Controls.Add(this.cmbGenre);
-      this.Panel2.Controls.Add(this.btnV1Genre);
-      this.Panel2.Controls.Add(this.lblGenreInfo);
-      this.Panel2.Controls.Add(this.btnMoveGenre);
-      this.Panel2.Controls.Add(this.btnRemoveGenre);
-      this.Panel2.Controls.Add(this.btnAddGenre);
-      this.Panel2.Controls.Add(this.lblGenre);
-      this.Panel2.Controls.Add(this.GenreList);
-      this.Panel2.Location = new System.Drawing.Point(8, 144);
-      this.Panel2.Name = "Panel2";
-      this.Panel2.Size = new System.Drawing.Size(648, 112);
-      this.Panel2.TabIndex = 1;
+      this.Content.Text = "Content";
+      this.Content.Width = 467;
       // 
-      // cmbGenre
+      // FrameID
       // 
-      this.cmbGenre.Autocomplete = true;
-      this.cmbGenre.ItemHeight = 13;
-      this.cmbGenre.Location = new System.Drawing.Point(136, 6);
-      this.cmbGenre.Name = "cmbGenre";
-      this.cmbGenre.Size = new System.Drawing.Size(232, 21);
-      this.cmbGenre.TabIndex = 29;
-      this.cmbGenre.Enter += new System.EventHandler(this.Select_Enter);
-      this.cmbGenre.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // btnV1Genre
-      // 
-      this.btnV1Genre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnV1Genre.Location = new System.Drawing.Point(512, 32);
-      this.btnV1Genre.Name = "btnV1Genre";
-      this.btnV1Genre.Size = new System.Drawing.Size(128, 20);
-      this.btnV1Genre.TabIndex = 33;
-      this.btnV1Genre.Text = "<- Ver. 1";
-      this.btnV1Genre.Click += new System.EventHandler(this.btnV1Genre_Click);
-      // 
-      // lblGenreInfo
-      // 
-      this.lblGenreInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-      this.lblGenreInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblGenreInfo.Location = new System.Drawing.Point(376, 64);
-      this.lblGenreInfo.Name = "lblGenreInfo";
-      this.lblGenreInfo.Size = new System.Drawing.Size(264, 40);
-      this.lblGenreInfo.TabIndex = 29;
-      this.lblGenreInfo.Text = "Note: Many programs only show the first genre entered. So move the important genr" +
-    "e to the top of the list.";
-      // 
-      // btnMoveGenre
-      // 
-      this.btnMoveGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnMoveGenre.Location = new System.Drawing.Point(376, 32);
-      this.btnMoveGenre.Name = "btnMoveGenre";
-      this.btnMoveGenre.Size = new System.Drawing.Size(128, 20);
-      this.btnMoveGenre.TabIndex = 32;
-      this.btnMoveGenre.Text = "Move Genre to top";
-      this.btnMoveGenre.Click += new System.EventHandler(this.btnMoveGenre_Click);
-      // 
-      // btnRemoveGenre
-      // 
-      this.btnRemoveGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnRemoveGenre.Location = new System.Drawing.Point(512, 8);
-      this.btnRemoveGenre.Name = "btnRemoveGenre";
-      this.btnRemoveGenre.Size = new System.Drawing.Size(128, 20);
-      this.btnRemoveGenre.TabIndex = 31;
-      this.btnRemoveGenre.Text = "Remove Genre";
-      this.btnRemoveGenre.Click += new System.EventHandler(this.btnRemoveGenre_Click);
-      // 
-      // btnAddGenre
-      // 
-      this.btnAddGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnAddGenre.Location = new System.Drawing.Point(376, 8);
-      this.btnAddGenre.Name = "btnAddGenre";
-      this.btnAddGenre.Size = new System.Drawing.Size(128, 20);
-      this.btnAddGenre.TabIndex = 30;
-      this.btnAddGenre.Text = "Add Genre";
-      this.btnAddGenre.Click += new System.EventHandler(this.btnAddGenre_Click);
-      // 
-      // lblGenre
-      // 
-      this.lblGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblGenre.Location = new System.Drawing.Point(8, 8);
-      this.lblGenre.Name = "lblGenre";
-      this.lblGenre.Size = new System.Drawing.Size(128, 16);
-      this.lblGenre.TabIndex = 28;
-      this.lblGenre.Text = "&Genre:";
+      this.FrameID.Text = "Frame ID";
+      this.FrameID.Width = 150;
       // 
       // GenreList
       // 
@@ -867,370 +734,44 @@ namespace ID3_TagIT
       this.GenreList.TabIndex = 34;
       this.GenreList.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // pnlLeft
+      // LyricsList
       // 
-      this.pnlLeft.Controls.Add(this.panel17);
-      this.pnlLeft.Controls.Add(this.panel19);
-      this.pnlLeft.Controls.Add(this.panel18);
-      this.pnlLeft.Location = new System.Drawing.Point(0, 0);
-      this.pnlLeft.Name = "pnlLeft";
-      this.pnlLeft.Size = new System.Drawing.Size(168, 544);
-      this.pnlLeft.TabIndex = 35;
+      this.LyricsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader1,
+            this.ColumnHeader2,
+            this.ColumnHeader3});
+      this.LyricsList.FullRowSelect = true;
+      this.LyricsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.LyricsList.HideSelection = false;
+      this.LyricsList.Location = new System.Drawing.Point(8, 320);
+      this.LyricsList.MultiSelect = false;
+      this.LyricsList.Name = "LyricsList";
+      this.LyricsList.Size = new System.Drawing.Size(632, 112);
+      this.LyricsList.TabIndex = 23;
+      this.LyricsList.UseCompatibleStateImageBehavior = false;
+      this.LyricsList.View = System.Windows.Forms.View.Details;
+      this.LyricsList.Click += new System.EventHandler(this.LyricsList_Click);
+      this.LyricsList.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // panel17
+      // NotSupportList
       // 
-      this.panel17.Controls.Add(this.lblSwapTtlAlb);
-      this.panel17.Controls.Add(this.lblSwapArtAlb);
-      this.panel17.Controls.Add(this.lblSwatArtTtl);
-      this.panel17.Controls.Add(this.lblNext);
-      this.panel17.Controls.Add(this.lblPrevious);
-      this.panel17.Controls.Add(this.lblCommand);
-      this.panel17.Location = new System.Drawing.Point(12, 392);
-      this.panel17.Name = "panel17";
-      this.panel17.Size = new System.Drawing.Size(135, 147);
-      this.panel17.TabIndex = 0;
+      this.NotSupportList.CheckBoxes = true;
+      this.NotSupportList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.FrameID,
+            this.Content});
+      this.NotSupportList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.NotSupportList.HideSelection = false;
+      this.NotSupportList.Location = new System.Drawing.Point(8, 8);
+      this.NotSupportList.Name = "NotSupportList";
+      this.NotSupportList.Size = new System.Drawing.Size(648, 392);
+      this.NotSupportList.TabIndex = 0;
+      this.NotSupportList.UseCompatibleStateImageBehavior = false;
+      this.NotSupportList.View = System.Windows.Forms.View.Details;
+      this.NotSupportList.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // lblSwapTtlAlb
+      // OpenFileDialog
       // 
-      this.lblSwapTtlAlb.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblSwapTtlAlb.AutoSize = true;
-      this.lblSwapTtlAlb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblSwapTtlAlb.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblSwapTtlAlb.Location = new System.Drawing.Point(22, 115);
-      this.lblSwapTtlAlb.Name = "lblSwapTtlAlb";
-      this.lblSwapTtlAlb.Size = new System.Drawing.Size(89, 13);
-      this.lblSwapTtlAlb.TabIndex = 5;
-      this.lblSwapTtlAlb.TabStop = true;
-      this.lblSwapTtlAlb.Text = "Swap Title-Album";
-      this.lblSwapTtlAlb.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblSwapTtlAlb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSwapTtlAlb_LinkClicked);
-      // 
-      // lblSwapArtAlb
-      // 
-      this.lblSwapArtAlb.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblSwapArtAlb.AutoSize = true;
-      this.lblSwapArtAlb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblSwapArtAlb.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblSwapArtAlb.Location = new System.Drawing.Point(22, 94);
-      this.lblSwapArtAlb.Name = "lblSwapArtAlb";
-      this.lblSwapArtAlb.Size = new System.Drawing.Size(92, 13);
-      this.lblSwapArtAlb.TabIndex = 4;
-      this.lblSwapArtAlb.TabStop = true;
-      this.lblSwapArtAlb.Text = "Swap Artist-Album";
-      this.lblSwapArtAlb.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblSwapArtAlb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSwapArtAlb_LinkClicked);
-      // 
-      // lblSwatArtTtl
-      // 
-      this.lblSwatArtTtl.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblSwatArtTtl.AutoSize = true;
-      this.lblSwatArtTtl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblSwatArtTtl.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblSwatArtTtl.Location = new System.Drawing.Point(22, 73);
-      this.lblSwatArtTtl.Name = "lblSwatArtTtl";
-      this.lblSwatArtTtl.Size = new System.Drawing.Size(83, 13);
-      this.lblSwatArtTtl.TabIndex = 3;
-      this.lblSwatArtTtl.TabStop = true;
-      this.lblSwatArtTtl.Text = "Swap Artist-Title";
-      this.lblSwatArtTtl.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblSwatArtTtl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSwatArtTtl_LinkClicked);
-      // 
-      // lblNext
-      // 
-      this.lblNext.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblNext.AutoSize = true;
-      this.lblNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblNext.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblNext.Location = new System.Drawing.Point(22, 52);
-      this.lblNext.Name = "lblNext";
-      this.lblNext.Size = new System.Drawing.Size(48, 13);
-      this.lblNext.TabIndex = 2;
-      this.lblNext.TabStop = true;
-      this.lblNext.Text = "Next File";
-      this.lblNext.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblNext.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblNext_LinkClicked);
-      // 
-      // lblPrevious
-      // 
-      this.lblPrevious.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblPrevious.AutoSize = true;
-      this.lblPrevious.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblPrevious.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblPrevious.Location = new System.Drawing.Point(22, 31);
-      this.lblPrevious.Name = "lblPrevious";
-      this.lblPrevious.Size = new System.Drawing.Size(67, 13);
-      this.lblPrevious.TabIndex = 1;
-      this.lblPrevious.TabStop = true;
-      this.lblPrevious.Text = "Previous File";
-      this.lblPrevious.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblPrevious.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblPrevious_LinkClicked);
-      // 
-      // lblCommand
-      // 
-      this.lblCommand.AutoSize = true;
-      this.lblCommand.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.lblCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblCommand.Location = new System.Drawing.Point(11, 9);
-      this.lblCommand.Name = "lblCommand";
-      this.lblCommand.Size = new System.Drawing.Size(68, 15);
-      this.lblCommand.TabIndex = 0;
-      this.lblCommand.Text = "Commands";
-      // 
-      // panel19
-      // 
-      this.panel19.Controls.Add(this.cboFormat);
-      this.panel19.Controls.Add(this.lblGetFromFile);
-      this.panel19.Controls.Add(this.lblXferToV1);
-      this.panel19.Controls.Add(this.lblXferFromV1);
-      this.panel19.Controls.Add(this.label2);
-      this.panel19.Location = new System.Drawing.Point(12, 255);
-      this.panel19.Name = "panel19";
-      this.panel19.Size = new System.Drawing.Size(150, 131);
-      this.panel19.TabIndex = 0;
-      // 
-      // cboFormat
-      // 
-      this.cboFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-      this.cboFormat.FormattingEnabled = true;
-      this.cboFormat.Location = new System.Drawing.Point(14, 96);
-      this.cboFormat.Name = "cboFormat";
-      this.cboFormat.Size = new System.Drawing.Size(131, 21);
-      this.cboFormat.TabIndex = 4;
-      // 
-      // lblGetFromFile
-      // 
-      this.lblGetFromFile.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblGetFromFile.AutoSize = true;
-      this.lblGetFromFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblGetFromFile.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblGetFromFile.Location = new System.Drawing.Point(22, 73);
-      this.lblGetFromFile.Name = "lblGetFromFile";
-      this.lblGetFromFile.Size = new System.Drawing.Size(95, 13);
-      this.lblGetFromFile.TabIndex = 3;
-      this.lblGetFromFile.TabStop = true;
-      this.lblGetFromFile.Text = "Get From Filename";
-      this.lblGetFromFile.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblGetFromFile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblGetFromFile_LinkClicked);
-      // 
-      // lblXferToV1
-      // 
-      this.lblXferToV1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblXferToV1.AutoSize = true;
-      this.lblXferToV1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblXferToV1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblXferToV1.Location = new System.Drawing.Point(22, 52);
-      this.lblXferToV1.Name = "lblXferToV1";
-      this.lblXferToV1.Size = new System.Drawing.Size(88, 13);
-      this.lblXferToV1.TabIndex = 2;
-      this.lblXferToV1.TabStop = true;
-      this.lblXferToV1.Text = "Tranfer To Ver. 1";
-      this.lblXferToV1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblXferToV1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblXferToV1_LinkClicked);
-      // 
-      // lblXferFromV1
-      // 
-      this.lblXferFromV1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblXferFromV1.AutoSize = true;
-      this.lblXferFromV1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblXferFromV1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblXferFromV1.Location = new System.Drawing.Point(22, 31);
-      this.lblXferFromV1.Name = "lblXferFromV1";
-      this.lblXferFromV1.Size = new System.Drawing.Size(103, 13);
-      this.lblXferFromV1.TabIndex = 1;
-      this.lblXferFromV1.TabStop = true;
-      this.lblXferFromV1.Text = "Transfer From Ver. 1";
-      this.lblXferFromV1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblXferFromV1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblXferFromV1_LinkClicked);
-      // 
-      // label2
-      // 
-      this.label2.AutoSize = true;
-      this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.label2.Location = new System.Drawing.Point(11, 9);
-      this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(118, 15);
-      this.label2.TabIndex = 0;
-      this.label2.Text = "Transfer and Import";
-      // 
-      // panel18
-      // 
-      this.panel18.Controls.Add(this.lblUnsupported);
-      this.panel18.Controls.Add(this.lblUserDefined);
-      this.panel18.Controls.Add(this.lblRating);
-      this.panel18.Controls.Add(this.lblLyricsPane);
-      this.panel18.Controls.Add(this.lblPictures);
-      this.panel18.Controls.Add(this.lblWebInfo);
-      this.panel18.Controls.Add(this.lblInvolvedPeople);
-      this.panel18.Controls.Add(this.lblOriginalInfo);
-      this.panel18.Controls.Add(this.lblDetailedInfo);
-      this.panel18.Controls.Add(this.lblMainEntries);
-      this.panel18.Controls.Add(this.label1);
-      this.panel18.Location = new System.Drawing.Point(12, 6);
-      this.panel18.Name = "panel18";
-      this.panel18.Size = new System.Drawing.Size(145, 243);
-      this.panel18.TabIndex = 0;
-      // 
-      // lblUnsupported
-      // 
-      this.lblUnsupported.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblUnsupported.AutoSize = true;
-      this.lblUnsupported.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblUnsupported.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblUnsupported.Location = new System.Drawing.Point(22, 220);
-      this.lblUnsupported.Name = "lblUnsupported";
-      this.lblUnsupported.Size = new System.Drawing.Size(102, 13);
-      this.lblUnsupported.TabIndex = 10;
-      this.lblUnsupported.TabStop = true;
-      this.lblUnsupported.Text = "Unsupported frames";
-      this.lblUnsupported.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblUnsupported.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblUnsupported_LinkClicked);
-      // 
-      // lblUserDefined
-      // 
-      this.lblUserDefined.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblUserDefined.AutoSize = true;
-      this.lblUserDefined.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblUserDefined.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblUserDefined.Location = new System.Drawing.Point(22, 199);
-      this.lblUserDefined.Name = "lblUserDefined";
-      this.lblUserDefined.Size = new System.Drawing.Size(121, 13);
-      this.lblUserDefined.TabIndex = 9;
-      this.lblUserDefined.TabStop = true;
-      this.lblUserDefined.Text = "User defined information";
-      this.lblUserDefined.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblUserDefined.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblUserDefined_LinkClicked);
-      // 
-      // lblRating
-      // 
-      this.lblRating.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblRating.AutoSize = true;
-      this.lblRating.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblRating.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblRating.Location = new System.Drawing.Point(22, 178);
-      this.lblRating.Name = "lblRating";
-      this.lblRating.Size = new System.Drawing.Size(38, 13);
-      this.lblRating.TabIndex = 8;
-      this.lblRating.TabStop = true;
-      this.lblRating.Text = "Rating";
-      this.lblRating.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblRating.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblRating_LinkClicked);
-      // 
-      // lblLyricsPane
-      // 
-      this.lblLyricsPane.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblLyricsPane.AutoSize = true;
-      this.lblLyricsPane.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblLyricsPane.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblLyricsPane.Location = new System.Drawing.Point(22, 157);
-      this.lblLyricsPane.Name = "lblLyricsPane";
-      this.lblLyricsPane.Size = new System.Drawing.Size(34, 13);
-      this.lblLyricsPane.TabIndex = 7;
-      this.lblLyricsPane.TabStop = true;
-      this.lblLyricsPane.Text = "Lyrics";
-      this.lblLyricsPane.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblLyricsPane.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblLyricsPane_LinkClicked);
-      // 
-      // lblPictures
-      // 
-      this.lblPictures.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblPictures.AutoSize = true;
-      this.lblPictures.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblPictures.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblPictures.Location = new System.Drawing.Point(22, 136);
-      this.lblPictures.Name = "lblPictures";
-      this.lblPictures.Size = new System.Drawing.Size(45, 13);
-      this.lblPictures.TabIndex = 6;
-      this.lblPictures.TabStop = true;
-      this.lblPictures.Text = "Pictures";
-      this.lblPictures.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblPictures.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblPictures_LinkClicked);
-      // 
-      // lblWebInfo
-      // 
-      this.lblWebInfo.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblWebInfo.AutoSize = true;
-      this.lblWebInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblWebInfo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblWebInfo.Location = new System.Drawing.Point(22, 115);
-      this.lblWebInfo.Name = "lblWebInfo";
-      this.lblWebInfo.Size = new System.Drawing.Size(85, 13);
-      this.lblWebInfo.TabIndex = 5;
-      this.lblWebInfo.TabStop = true;
-      this.lblWebInfo.Text = "Web Information";
-      this.lblWebInfo.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblWebInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblWebInfo_LinkClicked);
-      // 
-      // lblInvolvedPeople
-      // 
-      this.lblInvolvedPeople.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblInvolvedPeople.AutoSize = true;
-      this.lblInvolvedPeople.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblInvolvedPeople.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblInvolvedPeople.Location = new System.Drawing.Point(22, 94);
-      this.lblInvolvedPeople.Name = "lblInvolvedPeople";
-      this.lblInvolvedPeople.Size = new System.Drawing.Size(84, 13);
-      this.lblInvolvedPeople.TabIndex = 4;
-      this.lblInvolvedPeople.TabStop = true;
-      this.lblInvolvedPeople.Text = "Involved People";
-      this.lblInvolvedPeople.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblInvolvedPeople.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblInvolvedPeople_LinkClicked);
-      // 
-      // lblOriginalInfo
-      // 
-      this.lblOriginalInfo.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblOriginalInfo.AutoSize = true;
-      this.lblOriginalInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblOriginalInfo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblOriginalInfo.Location = new System.Drawing.Point(22, 73);
-      this.lblOriginalInfo.Name = "lblOriginalInfo";
-      this.lblOriginalInfo.Size = new System.Drawing.Size(97, 13);
-      this.lblOriginalInfo.TabIndex = 3;
-      this.lblOriginalInfo.TabStop = true;
-      this.lblOriginalInfo.Text = "Original Information";
-      this.lblOriginalInfo.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblOriginalInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblOriginalInfo_LinkClicked);
-      // 
-      // lblDetailedInfo
-      // 
-      this.lblDetailedInfo.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblDetailedInfo.AutoSize = true;
-      this.lblDetailedInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblDetailedInfo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblDetailedInfo.Location = new System.Drawing.Point(22, 52);
-      this.lblDetailedInfo.Name = "lblDetailedInfo";
-      this.lblDetailedInfo.Size = new System.Drawing.Size(101, 13);
-      this.lblDetailedInfo.TabIndex = 2;
-      this.lblDetailedInfo.TabStop = true;
-      this.lblDetailedInfo.Text = "Detailed Information";
-      this.lblDetailedInfo.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblDetailedInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblDetailedInfo_LinkClicked);
-      // 
-      // lblMainEntries
-      // 
-      this.lblMainEntries.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.lblMainEntries.AutoSize = true;
-      this.lblMainEntries.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblMainEntries.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblMainEntries.Location = new System.Drawing.Point(22, 31);
-      this.lblMainEntries.Name = "lblMainEntries";
-      this.lblMainEntries.Size = new System.Drawing.Size(65, 13);
-      this.lblMainEntries.TabIndex = 1;
-      this.lblMainEntries.TabStop = true;
-      this.lblMainEntries.Text = "Main Entries";
-      this.lblMainEntries.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.lblMainEntries.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMainEntries_LinkClicked);
-      // 
-      // label1
-      // 
-      this.label1.AutoSize = true;
-      this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.label1.Location = new System.Drawing.Point(11, 9);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(100, 15);
-      this.label1.TabIndex = 0;
-      this.label1.Text = "TAG Information";
+      this.OpenFileDialog.RestoreDirectory = true;
       // 
       // Panel1
       // 
@@ -1492,6 +1033,509 @@ namespace ID3_TagIT
       this.lblArtist.TabIndex = 3;
       this.lblArtist.Text = "Lead &Artist:";
       // 
+      // Panel10
+      // 
+      this.Panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.Panel10.Controls.Add(this.txtCOMMInfURL);
+      this.Panel10.Controls.Add(this.lblCOMMInfURL);
+      this.Panel10.Controls.Add(this.txtPubURL);
+      this.Panel10.Controls.Add(this.lblPubURL);
+      this.Panel10.Controls.Add(this.txtPayURL);
+      this.Panel10.Controls.Add(this.lblPayURL);
+      this.Panel10.Controls.Add(this.txtINetRadioURL);
+      this.Panel10.Controls.Add(this.lblINetRadioURL);
+      this.Panel10.Controls.Add(this.txtAudioSRCURL);
+      this.Panel10.Controls.Add(this.lblAudioSRCURL);
+      this.Panel10.Controls.Add(this.txtCopyInfURL);
+      this.Panel10.Controls.Add(this.txtArtistURL);
+      this.Panel10.Controls.Add(this.txtAudioFileURL);
+      this.Panel10.Controls.Add(this.lblAudioFileURL);
+      this.Panel10.Controls.Add(this.lblArtistURL);
+      this.Panel10.Controls.Add(this.lblCopyInfURL);
+      this.Panel10.Location = new System.Drawing.Point(8, 8);
+      this.Panel10.Name = "Panel10";
+      this.Panel10.Size = new System.Drawing.Size(648, 200);
+      this.Panel10.TabIndex = 4;
+      // 
+      // txtCOMMInfURL
+      // 
+      this.txtCOMMInfURL.Location = new System.Drawing.Point(200, 174);
+      this.txtCOMMInfURL.Name = "txtCOMMInfURL";
+      this.txtCOMMInfURL.Size = new System.Drawing.Size(440, 20);
+      this.txtCOMMInfURL.TabIndex = 17;
+      this.txtCOMMInfURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtCOMMInfURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblCOMMInfURL
+      // 
+      this.lblCOMMInfURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCOMMInfURL.Location = new System.Drawing.Point(8, 176);
+      this.lblCOMMInfURL.Name = "lblCOMMInfURL";
+      this.lblCOMMInfURL.Size = new System.Drawing.Size(184, 16);
+      this.lblCOMMInfURL.TabIndex = 16;
+      this.lblCOMMInfURL.Text = "Commercial information URL:";
+      // 
+      // txtPubURL
+      // 
+      this.txtPubURL.Location = new System.Drawing.Point(200, 150);
+      this.txtPubURL.Name = "txtPubURL";
+      this.txtPubURL.Size = new System.Drawing.Size(440, 20);
+      this.txtPubURL.TabIndex = 15;
+      this.txtPubURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtPubURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblPubURL
+      // 
+      this.lblPubURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPubURL.Location = new System.Drawing.Point(8, 152);
+      this.lblPubURL.Name = "lblPubURL";
+      this.lblPubURL.Size = new System.Drawing.Size(184, 16);
+      this.lblPubURL.TabIndex = 14;
+      this.lblPubURL.Text = "Offical publisher URL:";
+      // 
+      // txtPayURL
+      // 
+      this.txtPayURL.Location = new System.Drawing.Point(200, 126);
+      this.txtPayURL.Name = "txtPayURL";
+      this.txtPayURL.Size = new System.Drawing.Size(440, 20);
+      this.txtPayURL.TabIndex = 13;
+      this.txtPayURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtPayURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblPayURL
+      // 
+      this.lblPayURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblPayURL.Location = new System.Drawing.Point(8, 128);
+      this.lblPayURL.Name = "lblPayURL";
+      this.lblPayURL.Size = new System.Drawing.Size(184, 16);
+      this.lblPayURL.TabIndex = 12;
+      this.lblPayURL.Text = "Offical payment URL:";
+      // 
+      // txtINetRadioURL
+      // 
+      this.txtINetRadioURL.Location = new System.Drawing.Point(200, 102);
+      this.txtINetRadioURL.Name = "txtINetRadioURL";
+      this.txtINetRadioURL.Size = new System.Drawing.Size(440, 20);
+      this.txtINetRadioURL.TabIndex = 11;
+      this.txtINetRadioURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtINetRadioURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblINetRadioURL
+      // 
+      this.lblINetRadioURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblINetRadioURL.Location = new System.Drawing.Point(8, 104);
+      this.lblINetRadioURL.Name = "lblINetRadioURL";
+      this.lblINetRadioURL.Size = new System.Drawing.Size(184, 16);
+      this.lblINetRadioURL.TabIndex = 10;
+      this.lblINetRadioURL.Text = "Offical internet radio station URL:";
+      // 
+      // txtAudioSRCURL
+      // 
+      this.txtAudioSRCURL.Location = new System.Drawing.Point(200, 78);
+      this.txtAudioSRCURL.Name = "txtAudioSRCURL";
+      this.txtAudioSRCURL.Size = new System.Drawing.Size(440, 20);
+      this.txtAudioSRCURL.TabIndex = 9;
+      this.txtAudioSRCURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtAudioSRCURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblAudioSRCURL
+      // 
+      this.lblAudioSRCURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblAudioSRCURL.Location = new System.Drawing.Point(8, 80);
+      this.lblAudioSRCURL.Name = "lblAudioSRCURL";
+      this.lblAudioSRCURL.Size = new System.Drawing.Size(184, 16);
+      this.lblAudioSRCURL.TabIndex = 8;
+      this.lblAudioSRCURL.Text = "Offical audio source URL:";
+      // 
+      // txtCopyInfURL
+      // 
+      this.txtCopyInfURL.Location = new System.Drawing.Point(200, 6);
+      this.txtCopyInfURL.Name = "txtCopyInfURL";
+      this.txtCopyInfURL.Size = new System.Drawing.Size(440, 20);
+      this.txtCopyInfURL.TabIndex = 3;
+      this.txtCopyInfURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtCopyInfURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtArtistURL
+      // 
+      this.txtArtistURL.Location = new System.Drawing.Point(200, 54);
+      this.txtArtistURL.Name = "txtArtistURL";
+      this.txtArtistURL.Size = new System.Drawing.Size(440, 20);
+      this.txtArtistURL.TabIndex = 7;
+      this.txtArtistURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtArtistURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtAudioFileURL
+      // 
+      this.txtAudioFileURL.Location = new System.Drawing.Point(200, 30);
+      this.txtAudioFileURL.Name = "txtAudioFileURL";
+      this.txtAudioFileURL.Size = new System.Drawing.Size(440, 20);
+      this.txtAudioFileURL.TabIndex = 5;
+      this.txtAudioFileURL.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtAudioFileURL.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblAudioFileURL
+      // 
+      this.lblAudioFileURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblAudioFileURL.Location = new System.Drawing.Point(8, 32);
+      this.lblAudioFileURL.Name = "lblAudioFileURL";
+      this.lblAudioFileURL.Size = new System.Drawing.Size(184, 16);
+      this.lblAudioFileURL.TabIndex = 4;
+      this.lblAudioFileURL.Text = "Offical audio file URL:";
+      // 
+      // lblArtistURL
+      // 
+      this.lblArtistURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblArtistURL.Location = new System.Drawing.Point(8, 56);
+      this.lblArtistURL.Name = "lblArtistURL";
+      this.lblArtistURL.Size = new System.Drawing.Size(184, 16);
+      this.lblArtistURL.TabIndex = 6;
+      this.lblArtistURL.Text = "Offical artist URL:";
+      // 
+      // lblCopyInfURL
+      // 
+      this.lblCopyInfURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCopyInfURL.Location = new System.Drawing.Point(8, 8);
+      this.lblCopyInfURL.Name = "lblCopyInfURL";
+      this.lblCopyInfURL.Size = new System.Drawing.Size(184, 16);
+      this.lblCopyInfURL.TabIndex = 2;
+      this.lblCopyInfURL.Text = "Copyright information URL:";
+      // 
+      // Panel11
+      // 
+      this.Panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.Panel11.Controls.Add(this.lblInfo);
+      this.Panel11.Controls.Add(this.btnMoveRating);
+      this.Panel11.Controls.Add(this.btnRemoveRating);
+      this.Panel11.Controls.Add(this.btnAddRating);
+      this.Panel11.Controls.Add(this.RatingList);
+      this.Panel11.Controls.Add(this.txtRatingCounter);
+      this.Panel11.Controls.Add(this.txtRatingRating);
+      this.Panel11.Controls.Add(this.txtRatingUser);
+      this.Panel11.Controls.Add(this.lblRatingRating);
+      this.Panel11.Controls.Add(this.lblRatingCounter);
+      this.Panel11.Controls.Add(this.lblRatingUser);
+      this.Panel11.Location = new System.Drawing.Point(8, 8);
+      this.Panel11.Name = "Panel11";
+      this.Panel11.Size = new System.Drawing.Size(648, 280);
+      this.Panel11.TabIndex = 5;
+      // 
+      // lblInfo
+      // 
+      this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInfo.Location = new System.Drawing.Point(136, 208);
+      this.lblInfo.Name = "lblInfo";
+      this.lblInfo.Size = new System.Drawing.Size(496, 56);
+      this.lblInfo.TabIndex = 43;
+      this.lblInfo.Text = "The rating is 1-255 where 1 is worst and 255 is best. Note that many programs hav" +
+    "e their own rating scale. The scale 1-255 is given by the ID3 standard and the o" +
+    "ther programs rescale it.";
+      this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // btnMoveRating
+      // 
+      this.btnMoveRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnMoveRating.Location = new System.Drawing.Point(472, 80);
+      this.btnMoveRating.Name = "btnMoveRating";
+      this.btnMoveRating.Size = new System.Drawing.Size(160, 24);
+      this.btnMoveRating.TabIndex = 26;
+      this.btnMoveRating.Text = "Move Rating to top";
+      this.btnMoveRating.Click += new System.EventHandler(this.btnMoveRating_Click);
+      // 
+      // btnRemoveRating
+      // 
+      this.btnRemoveRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveRating.Location = new System.Drawing.Point(304, 80);
+      this.btnRemoveRating.Name = "btnRemoveRating";
+      this.btnRemoveRating.Size = new System.Drawing.Size(160, 24);
+      this.btnRemoveRating.TabIndex = 25;
+      this.btnRemoveRating.Text = "Remove Rating";
+      this.btnRemoveRating.Click += new System.EventHandler(this.btnRemoveRating_Click);
+      // 
+      // btnAddRating
+      // 
+      this.btnAddRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddRating.Location = new System.Drawing.Point(136, 80);
+      this.btnAddRating.Name = "btnAddRating";
+      this.btnAddRating.Size = new System.Drawing.Size(160, 24);
+      this.btnAddRating.TabIndex = 24;
+      this.btnAddRating.Text = "Add Rating";
+      this.btnAddRating.Click += new System.EventHandler(this.btnAddRating_Click);
+      // 
+      // RatingList
+      // 
+      this.RatingList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader8,
+            this.ColumnHeader9,
+            this.ColumnHeader10});
+      this.RatingList.FullRowSelect = true;
+      this.RatingList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.RatingList.HideSelection = false;
+      this.RatingList.Location = new System.Drawing.Point(136, 112);
+      this.RatingList.MultiSelect = false;
+      this.RatingList.Name = "RatingList";
+      this.RatingList.Size = new System.Drawing.Size(496, 88);
+      this.RatingList.TabIndex = 27;
+      this.RatingList.UseCompatibleStateImageBehavior = false;
+      this.RatingList.View = System.Windows.Forms.View.Details;
+      this.RatingList.Click += new System.EventHandler(this.RatingList_Click);
+      // 
+      // txtRatingCounter
+      // 
+      this.txtRatingCounter.Location = new System.Drawing.Point(136, 54);
+      this.txtRatingCounter.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+      this.txtRatingCounter.Name = "txtRatingCounter";
+      this.txtRatingCounter.Size = new System.Drawing.Size(80, 20);
+      this.txtRatingCounter.TabIndex = 23;
+      this.txtRatingCounter.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtRatingCounter.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtRatingRating
+      // 
+      this.txtRatingRating.Location = new System.Drawing.Point(136, 30);
+      this.txtRatingRating.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+      this.txtRatingRating.Name = "txtRatingRating";
+      this.txtRatingRating.Size = new System.Drawing.Size(80, 20);
+      this.txtRatingRating.TabIndex = 21;
+      this.txtRatingRating.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtRatingRating.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtRatingUser
+      // 
+      this.txtRatingUser.Location = new System.Drawing.Point(136, 6);
+      this.txtRatingUser.Name = "txtRatingUser";
+      this.txtRatingUser.Size = new System.Drawing.Size(224, 20);
+      this.txtRatingUser.TabIndex = 19;
+      this.txtRatingUser.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtRatingUser.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblRatingRating
+      // 
+      this.lblRatingRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblRatingRating.Location = new System.Drawing.Point(8, 32);
+      this.lblRatingRating.Name = "lblRatingRating";
+      this.lblRatingRating.Size = new System.Drawing.Size(120, 16);
+      this.lblRatingRating.TabIndex = 20;
+      this.lblRatingRating.Text = "Rating:";
+      // 
+      // lblRatingCounter
+      // 
+      this.lblRatingCounter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblRatingCounter.Location = new System.Drawing.Point(8, 56);
+      this.lblRatingCounter.Name = "lblRatingCounter";
+      this.lblRatingCounter.Size = new System.Drawing.Size(120, 16);
+      this.lblRatingCounter.TabIndex = 22;
+      this.lblRatingCounter.Text = "Play counter:";
+      // 
+      // lblRatingUser
+      // 
+      this.lblRatingUser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblRatingUser.Location = new System.Drawing.Point(8, 8);
+      this.lblRatingUser.Name = "lblRatingUser";
+      this.lblRatingUser.Size = new System.Drawing.Size(120, 16);
+      this.lblRatingUser.TabIndex = 18;
+      this.lblRatingUser.Text = "User (email):";
+      // 
+      // Panel12
+      // 
+      this.Panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.Panel12.Controls.Add(this.txtTXXXContent);
+      this.Panel12.Controls.Add(this.btnRemoveTXXX);
+      this.Panel12.Controls.Add(this.btnAddTXXX);
+      this.Panel12.Controls.Add(this.lblTXXXContent);
+      this.Panel12.Controls.Add(this.lblTXXXDesc);
+      this.Panel12.Controls.Add(this.txtTXXXDesc);
+      this.Panel12.Controls.Add(this.TXXXList);
+      this.Panel12.Location = new System.Drawing.Point(8, 8);
+      this.Panel12.Name = "Panel12";
+      this.Panel12.Size = new System.Drawing.Size(648, 176);
+      this.Panel12.TabIndex = 0;
+      // 
+      // txtTXXXContent
+      // 
+      this.txtTXXXContent.Location = new System.Drawing.Point(136, 30);
+      this.txtTXXXContent.Name = "txtTXXXContent";
+      this.txtTXXXContent.Size = new System.Drawing.Size(344, 20);
+      this.txtTXXXContent.TabIndex = 5;
+      this.txtTXXXContent.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTXXXContent.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // btnRemoveTXXX
+      // 
+      this.btnRemoveTXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveTXXX.Location = new System.Drawing.Point(488, 32);
+      this.btnRemoveTXXX.Name = "btnRemoveTXXX";
+      this.btnRemoveTXXX.Size = new System.Drawing.Size(152, 20);
+      this.btnRemoveTXXX.TabIndex = 7;
+      this.btnRemoveTXXX.Text = "Remove user text frame";
+      this.btnRemoveTXXX.Click += new System.EventHandler(this.btnRemoveTXXX_Click);
+      // 
+      // btnAddTXXX
+      // 
+      this.btnAddTXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddTXXX.Location = new System.Drawing.Point(488, 8);
+      this.btnAddTXXX.Name = "btnAddTXXX";
+      this.btnAddTXXX.Size = new System.Drawing.Size(152, 20);
+      this.btnAddTXXX.TabIndex = 6;
+      this.btnAddTXXX.Text = "Add user text frame";
+      this.btnAddTXXX.Click += new System.EventHandler(this.btnAddTXXX_Click);
+      // 
+      // lblTXXXContent
+      // 
+      this.lblTXXXContent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTXXXContent.Location = new System.Drawing.Point(8, 32);
+      this.lblTXXXContent.Name = "lblTXXXContent";
+      this.lblTXXXContent.Size = new System.Drawing.Size(128, 16);
+      this.lblTXXXContent.TabIndex = 4;
+      this.lblTXXXContent.Text = "Text frame &Content:";
+      // 
+      // lblTXXXDesc
+      // 
+      this.lblTXXXDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTXXXDesc.Location = new System.Drawing.Point(8, 8);
+      this.lblTXXXDesc.Name = "lblTXXXDesc";
+      this.lblTXXXDesc.Size = new System.Drawing.Size(128, 16);
+      this.lblTXXXDesc.TabIndex = 2;
+      this.lblTXXXDesc.Text = "Text frame &Descriptor:";
+      // 
+      // txtTXXXDesc
+      // 
+      this.txtTXXXDesc.Location = new System.Drawing.Point(136, 6);
+      this.txtTXXXDesc.Name = "txtTXXXDesc";
+      this.txtTXXXDesc.Size = new System.Drawing.Size(344, 20);
+      this.txtTXXXDesc.TabIndex = 3;
+      this.txtTXXXDesc.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTXXXDesc.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // TXXXList
+      // 
+      this.TXXXList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader11,
+            this.ColumnHeader12});
+      this.TXXXList.FullRowSelect = true;
+      this.TXXXList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.TXXXList.HideSelection = false;
+      this.TXXXList.Location = new System.Drawing.Point(136, 64);
+      this.TXXXList.MultiSelect = false;
+      this.TXXXList.Name = "TXXXList";
+      this.TXXXList.Size = new System.Drawing.Size(504, 104);
+      this.TXXXList.TabIndex = 8;
+      this.TXXXList.UseCompatibleStateImageBehavior = false;
+      this.TXXXList.View = System.Windows.Forms.View.Details;
+      this.TXXXList.Click += new System.EventHandler(this.TXXXList_Click);
+      this.TXXXList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // Panel13
+      // 
+      this.Panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.Panel13.Controls.Add(this.txtWXXXContent);
+      this.Panel13.Controls.Add(this.btnRemoveWXXX);
+      this.Panel13.Controls.Add(this.btnAddWXXX);
+      this.Panel13.Controls.Add(this.lblWXXXContent);
+      this.Panel13.Controls.Add(this.lblWXXXDesc);
+      this.Panel13.Controls.Add(this.txtWXXXDesc);
+      this.Panel13.Controls.Add(this.WXXXList);
+      this.Panel13.Location = new System.Drawing.Point(8, 192);
+      this.Panel13.Name = "Panel13";
+      this.Panel13.Size = new System.Drawing.Size(648, 176);
+      this.Panel13.TabIndex = 1;
+      // 
+      // txtWXXXContent
+      // 
+      this.txtWXXXContent.Location = new System.Drawing.Point(136, 30);
+      this.txtWXXXContent.Name = "txtWXXXContent";
+      this.txtWXXXContent.Size = new System.Drawing.Size(344, 20);
+      this.txtWXXXContent.TabIndex = 12;
+      this.txtWXXXContent.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtWXXXContent.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // btnRemoveWXXX
+      // 
+      this.btnRemoveWXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveWXXX.Location = new System.Drawing.Point(488, 32);
+      this.btnRemoveWXXX.Name = "btnRemoveWXXX";
+      this.btnRemoveWXXX.Size = new System.Drawing.Size(152, 20);
+      this.btnRemoveWXXX.TabIndex = 14;
+      this.btnRemoveWXXX.Text = "Remove user web frame";
+      this.btnRemoveWXXX.Click += new System.EventHandler(this.btnRemoveWXXX_Click);
+      // 
+      // btnAddWXXX
+      // 
+      this.btnAddWXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddWXXX.Location = new System.Drawing.Point(488, 8);
+      this.btnAddWXXX.Name = "btnAddWXXX";
+      this.btnAddWXXX.Size = new System.Drawing.Size(152, 20);
+      this.btnAddWXXX.TabIndex = 13;
+      this.btnAddWXXX.Text = "Add user web frame";
+      this.btnAddWXXX.Click += new System.EventHandler(this.btnAddWXXX_Click);
+      // 
+      // lblWXXXContent
+      // 
+      this.lblWXXXContent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblWXXXContent.Location = new System.Drawing.Point(8, 32);
+      this.lblWXXXContent.Name = "lblWXXXContent";
+      this.lblWXXXContent.Size = new System.Drawing.Size(128, 16);
+      this.lblWXXXContent.TabIndex = 11;
+      this.lblWXXXContent.Text = "Web frame &Content:";
+      // 
+      // lblWXXXDesc
+      // 
+      this.lblWXXXDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblWXXXDesc.Location = new System.Drawing.Point(8, 8);
+      this.lblWXXXDesc.Name = "lblWXXXDesc";
+      this.lblWXXXDesc.Size = new System.Drawing.Size(128, 16);
+      this.lblWXXXDesc.TabIndex = 9;
+      this.lblWXXXDesc.Text = "Web frame &Descriptor:";
+      // 
+      // txtWXXXDesc
+      // 
+      this.txtWXXXDesc.Location = new System.Drawing.Point(136, 6);
+      this.txtWXXXDesc.Name = "txtWXXXDesc";
+      this.txtWXXXDesc.Size = new System.Drawing.Size(344, 20);
+      this.txtWXXXDesc.TabIndex = 10;
+      this.txtWXXXDesc.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtWXXXDesc.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // WXXXList
+      // 
+      this.WXXXList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader13,
+            this.ColumnHeader14});
+      this.WXXXList.FullRowSelect = true;
+      this.WXXXList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.WXXXList.HideSelection = false;
+      this.WXXXList.Location = new System.Drawing.Point(136, 64);
+      this.WXXXList.MultiSelect = false;
+      this.WXXXList.Name = "WXXXList";
+      this.WXXXList.Size = new System.Drawing.Size(504, 104);
+      this.WXXXList.TabIndex = 15;
+      this.WXXXList.UseCompatibleStateImageBehavior = false;
+      this.WXXXList.View = System.Windows.Forms.View.Details;
+      this.WXXXList.Click += new System.EventHandler(this.WXXXList_Click);
+      this.WXXXList.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // Panel14
+      // 
+      this.Panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.Panel14.Controls.Add(this.btnTLEN);
+      this.Panel14.Controls.Add(this.txtTLEN);
+      this.Panel14.Controls.Add(this.lblTLEN);
+      this.Panel14.Controls.Add(this.cmbMedia);
+      this.Panel14.Controls.Add(this.lblMediaTyp);
+      this.Panel14.Location = new System.Drawing.Point(8, 368);
+      this.Panel14.Name = "Panel14";
+      this.Panel14.Size = new System.Drawing.Size(648, 64);
+      this.Panel14.TabIndex = 3;
+      // 
       // btnTLEN
       // 
       this.btnTLEN.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -1553,272 +1597,409 @@ namespace ID3_TagIT
       this.lblMediaTyp.TabIndex = 17;
       this.lblMediaTyp.Text = "M&edia type:";
       // 
-      // Panel9
+      // Panel15
       // 
-      this.Panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.Panel9.Controls.Add(this.txtSortArtist);
-      this.Panel9.Controls.Add(this.txtSortTitle);
-      this.Panel9.Controls.Add(this.txtSortAlbum);
-      this.Panel9.Controls.Add(this.lblAlbumSort);
-      this.Panel9.Controls.Add(this.lblTitleSort);
-      this.Panel9.Controls.Add(this.lblArtistSort);
-      this.Panel9.Location = new System.Drawing.Point(8, 280);
-      this.Panel9.Name = "Panel9";
-      this.Panel9.Size = new System.Drawing.Size(648, 80);
-      this.Panel9.TabIndex = 2;
+      this.Panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.Panel15.Controls.Add(this.lblMusicianInfo);
+      this.Panel15.Controls.Add(this.txtMusicianName);
+      this.Panel15.Controls.Add(this.btnRemoveMusician);
+      this.Panel15.Controls.Add(this.btnAddMusician);
+      this.Panel15.Controls.Add(this.lblMusicianName);
+      this.Panel15.Controls.Add(this.lblMusicianInst);
+      this.Panel15.Controls.Add(this.txtMusicianInst);
+      this.Panel15.Controls.Add(this.TMCLList);
+      this.Panel15.Location = new System.Drawing.Point(8, 160);
+      this.Panel15.Name = "Panel15";
+      this.Panel15.Size = new System.Drawing.Size(648, 144);
+      this.Panel15.TabIndex = 5;
       // 
-      // txtSortArtist
+      // lblMusicianInfo
       // 
-      this.txtSortArtist.Location = new System.Drawing.Point(168, 6);
-      this.txtSortArtist.Name = "txtSortArtist";
-      this.txtSortArtist.Size = new System.Drawing.Size(472, 20);
-      this.txtSortArtist.TabIndex = 17;
-      this.txtSortArtist.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtSortArtist.Leave += new System.EventHandler(this.Select_Leave);
+      this.lblMusicianInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblMusicianInfo.Location = new System.Drawing.Point(8, 120);
+      this.lblMusicianInfo.Name = "lblMusicianInfo";
+      this.lblMusicianInfo.Size = new System.Drawing.Size(128, 16);
+      this.lblMusicianInfo.TabIndex = 16;
+      this.lblMusicianInfo.Text = "(TAG Ver. 2.4 only)";
       // 
-      // txtSortTitle
+      // txtMusicianName
       // 
-      this.txtSortTitle.Location = new System.Drawing.Point(168, 54);
-      this.txtSortTitle.Name = "txtSortTitle";
-      this.txtSortTitle.Size = new System.Drawing.Size(472, 20);
-      this.txtSortTitle.TabIndex = 21;
-      this.txtSortTitle.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtSortTitle.Leave += new System.EventHandler(this.Select_Leave);
+      this.txtMusicianName.Location = new System.Drawing.Point(160, 30);
+      this.txtMusicianName.Name = "txtMusicianName";
+      this.txtMusicianName.Size = new System.Drawing.Size(320, 20);
+      this.txtMusicianName.TabIndex = 12;
+      this.txtMusicianName.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtMusicianName.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // txtSortAlbum
+      // btnRemoveMusician
       // 
-      this.txtSortAlbum.Location = new System.Drawing.Point(168, 30);
-      this.txtSortAlbum.Name = "txtSortAlbum";
-      this.txtSortAlbum.Size = new System.Drawing.Size(472, 20);
-      this.txtSortAlbum.TabIndex = 19;
-      this.txtSortAlbum.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtSortAlbum.Leave += new System.EventHandler(this.Select_Leave);
+      this.btnRemoveMusician.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveMusician.Location = new System.Drawing.Point(488, 32);
+      this.btnRemoveMusician.Name = "btnRemoveMusician";
+      this.btnRemoveMusician.Size = new System.Drawing.Size(152, 20);
+      this.btnRemoveMusician.TabIndex = 14;
+      this.btnRemoveMusician.Text = "Remove musician";
+      this.btnRemoveMusician.Click += new System.EventHandler(this.btnRemoveMusican_Click);
       // 
-      // lblAlbumSort
+      // btnAddMusician
       // 
-      this.lblAlbumSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblAlbumSort.Location = new System.Drawing.Point(8, 32);
-      this.lblAlbumSort.Name = "lblAlbumSort";
-      this.lblAlbumSort.Size = new System.Drawing.Size(168, 16);
-      this.lblAlbumSort.TabIndex = 18;
-      this.lblAlbumSort.Text = "Al&bum sort name (Ver. 2.4 only):";
+      this.btnAddMusician.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddMusician.Location = new System.Drawing.Point(488, 8);
+      this.btnAddMusician.Name = "btnAddMusician";
+      this.btnAddMusician.Size = new System.Drawing.Size(152, 20);
+      this.btnAddMusician.TabIndex = 13;
+      this.btnAddMusician.Text = "Add musician";
+      this.btnAddMusician.Click += new System.EventHandler(this.btnAddMusican_Click);
       // 
-      // lblTitleSort
+      // lblMusicianName
       // 
-      this.lblTitleSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblTitleSort.Location = new System.Drawing.Point(8, 56);
-      this.lblTitleSort.Name = "lblTitleSort";
-      this.lblTitleSort.Size = new System.Drawing.Size(160, 16);
-      this.lblTitleSort.TabIndex = 20;
-      this.lblTitleSort.Text = "&Title sort name (Ver. 2.4 only):";
+      this.lblMusicianName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblMusicianName.Location = new System.Drawing.Point(8, 32);
+      this.lblMusicianName.Name = "lblMusicianName";
+      this.lblMusicianName.Size = new System.Drawing.Size(128, 16);
+      this.lblMusicianName.TabIndex = 11;
+      this.lblMusicianName.Text = "Musician name:";
       // 
-      // lblArtistSort
+      // lblMusicianInst
       // 
-      this.lblArtistSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblArtistSort.Location = new System.Drawing.Point(8, 8);
-      this.lblArtistSort.Name = "lblArtistSort";
-      this.lblArtistSort.Size = new System.Drawing.Size(168, 16);
-      this.lblArtistSort.TabIndex = 16;
-      this.lblArtistSort.Text = "&Artist sort name (Ver. 2.4 only):";
+      this.lblMusicianInst.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblMusicianInst.Location = new System.Drawing.Point(8, 8);
+      this.lblMusicianInst.Name = "lblMusicianInst";
+      this.lblMusicianInst.Size = new System.Drawing.Size(128, 16);
+      this.lblMusicianInst.TabIndex = 9;
+      this.lblMusicianInst.Text = "Musician instrument:";
       // 
-      // Panel6
+      // txtMusicianInst
       // 
-      this.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.Panel6.Controls.Add(this.txtTORY);
-      this.Panel6.Controls.Add(this.lblOYearInfo);
-      this.Panel6.Controls.Add(this.TORYFormat);
-      this.Panel6.Controls.Add(this.lblOYear);
-      this.Panel6.Controls.Add(this.txtOOwner);
-      this.Panel6.Controls.Add(this.lblOOwner);
-      this.Panel6.Controls.Add(this.txtOArtist);
-      this.Panel6.Controls.Add(this.lblOArtist);
-      this.Panel6.Controls.Add(this.txtOAlbum);
-      this.Panel6.Controls.Add(this.txtOLyWriter);
-      this.Panel6.Controls.Add(this.txtOFilename);
-      this.Panel6.Controls.Add(this.lblOFilename);
-      this.Panel6.Controls.Add(this.lblOLyWriter);
-      this.Panel6.Controls.Add(this.lblOAlbum);
-      this.Panel6.Location = new System.Drawing.Point(8, 8);
-      this.Panel6.Name = "Panel6";
-      this.Panel6.Size = new System.Drawing.Size(648, 152);
-      this.Panel6.TabIndex = 3;
+      this.txtMusicianInst.Location = new System.Drawing.Point(160, 6);
+      this.txtMusicianInst.Name = "txtMusicianInst";
+      this.txtMusicianInst.Size = new System.Drawing.Size(320, 20);
+      this.txtMusicianInst.TabIndex = 10;
+      this.txtMusicianInst.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtMusicianInst.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // txtTORY
+      // TMCLList
       // 
-      this.txtTORY.Location = new System.Drawing.Point(168, 126);
-      this.txtTORY.Mask = "0000-00-00";
-      this.txtTORY.Name = "txtTORY";
-      this.txtTORY.Size = new System.Drawing.Size(112, 20);
-      this.txtTORY.TabIndex = 33;
-      this.txtTORY.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtTORY.Leave += new System.EventHandler(this.Select_Leave);
+      this.TMCLList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader15,
+            this.ColumnHeader16});
+      this.TMCLList.FullRowSelect = true;
+      this.TMCLList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.TMCLList.HideSelection = false;
+      this.TMCLList.Location = new System.Drawing.Point(160, 64);
+      this.TMCLList.MultiSelect = false;
+      this.TMCLList.Name = "TMCLList";
+      this.TMCLList.Size = new System.Drawing.Size(480, 72);
+      this.TMCLList.TabIndex = 15;
+      this.TMCLList.UseCompatibleStateImageBehavior = false;
+      this.TMCLList.View = System.Windows.Forms.View.Details;
+      this.TMCLList.Click += new System.EventHandler(this.TMCLList_Click);
       // 
-      // lblOYearInfo
+      // Panel16
       // 
-      this.lblOYearInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblOYearInfo.Location = new System.Drawing.Point(336, 128);
-      this.lblOYearInfo.Name = "lblOYearInfo";
-      this.lblOYearInfo.Size = new System.Drawing.Size(304, 16);
-      this.lblOYearInfo.TabIndex = 36;
-      this.lblOYearInfo.Text = "(In TAG Ver. 2.3 only the year entry will be saved)";
+      this.Panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.Panel16.Controls.Add(this.txtInvPerson);
+      this.Panel16.Controls.Add(this.btnRemoveInv);
+      this.Panel16.Controls.Add(this.btnAddInv);
+      this.Panel16.Controls.Add(this.lblInvPerson);
+      this.Panel16.Controls.Add(this.lblInvFunction);
+      this.Panel16.Controls.Add(this.txtInvFunction);
+      this.Panel16.Controls.Add(this.TIPLList);
+      this.Panel16.Location = new System.Drawing.Point(8, 8);
+      this.Panel16.Name = "Panel16";
+      this.Panel16.Size = new System.Drawing.Size(648, 144);
+      this.Panel16.TabIndex = 4;
       // 
-      // TORYFormat
+      // txtInvPerson
       // 
-      this.TORYFormat.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.TORYFormat.LargeChange = 1;
-      this.TORYFormat.Location = new System.Drawing.Point(288, 128);
-      this.TORYFormat.Maximum = 2;
-      this.TORYFormat.Name = "TORYFormat";
-      this.TORYFormat.Size = new System.Drawing.Size(32, 16);
-      this.TORYFormat.TabIndex = 34;
-      this.TORYFormat.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TORYFormat_Scroll);
+      this.txtInvPerson.Location = new System.Drawing.Point(160, 30);
+      this.txtInvPerson.Name = "txtInvPerson";
+      this.txtInvPerson.Size = new System.Drawing.Size(320, 20);
+      this.txtInvPerson.TabIndex = 5;
+      this.txtInvPerson.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtInvPerson.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // lblOYear
+      // btnRemoveInv
       // 
-      this.lblOYear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblOYear.Location = new System.Drawing.Point(8, 128);
-      this.lblOYear.Name = "lblOYear";
-      this.lblOYear.Size = new System.Drawing.Size(144, 16);
-      this.lblOYear.TabIndex = 32;
-      this.lblOYear.Text = "Original release &year (date):";
+      this.btnRemoveInv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveInv.Location = new System.Drawing.Point(488, 32);
+      this.btnRemoveInv.Name = "btnRemoveInv";
+      this.btnRemoveInv.Size = new System.Drawing.Size(152, 20);
+      this.btnRemoveInv.TabIndex = 7;
+      this.btnRemoveInv.Text = "Remove involved person";
+      this.btnRemoveInv.Click += new System.EventHandler(this.btnRemoveInv_Click);
       // 
-      // txtOOwner
+      // btnAddInv
       // 
-      this.txtOOwner.Location = new System.Drawing.Point(168, 102);
-      this.txtOOwner.Name = "txtOOwner";
-      this.txtOOwner.Size = new System.Drawing.Size(472, 20);
-      this.txtOOwner.TabIndex = 31;
-      this.txtOOwner.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtOOwner.Leave += new System.EventHandler(this.Select_Leave);
+      this.btnAddInv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddInv.Location = new System.Drawing.Point(488, 8);
+      this.btnAddInv.Name = "btnAddInv";
+      this.btnAddInv.Size = new System.Drawing.Size(152, 20);
+      this.btnAddInv.TabIndex = 6;
+      this.btnAddInv.Text = "Add involved person";
+      this.btnAddInv.Click += new System.EventHandler(this.btnAddInv_Click);
       // 
-      // lblOOwner
+      // lblInvPerson
       // 
-      this.lblOOwner.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblOOwner.Location = new System.Drawing.Point(8, 104);
-      this.lblOOwner.Name = "lblOOwner";
-      this.lblOOwner.Size = new System.Drawing.Size(128, 16);
-      this.lblOOwner.TabIndex = 30;
-      this.lblOOwner.Text = "Original &owner:";
+      this.lblInvPerson.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInvPerson.Location = new System.Drawing.Point(8, 32);
+      this.lblInvPerson.Name = "lblInvPerson";
+      this.lblInvPerson.Size = new System.Drawing.Size(144, 16);
+      this.lblInvPerson.TabIndex = 4;
+      this.lblInvPerson.Text = "Involved person name:";
       // 
-      // txtOArtist
+      // lblInvFunction
       // 
-      this.txtOArtist.Location = new System.Drawing.Point(168, 78);
-      this.txtOArtist.Name = "txtOArtist";
-      this.txtOArtist.Size = new System.Drawing.Size(472, 20);
-      this.txtOArtist.TabIndex = 29;
-      this.txtOArtist.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtOArtist.Leave += new System.EventHandler(this.Select_Leave);
+      this.lblInvFunction.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInvFunction.Location = new System.Drawing.Point(8, 8);
+      this.lblInvFunction.Name = "lblInvFunction";
+      this.lblInvFunction.Size = new System.Drawing.Size(144, 16);
+      this.lblInvFunction.TabIndex = 2;
+      this.lblInvFunction.Text = "Involved person function:";
       // 
-      // lblOArtist
+      // txtInvFunction
       // 
-      this.lblOArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblOArtist.Location = new System.Drawing.Point(8, 80);
-      this.lblOArtist.Name = "lblOArtist";
-      this.lblOArtist.Size = new System.Drawing.Size(128, 16);
-      this.lblOArtist.TabIndex = 28;
-      this.lblOArtist.Text = "Original &artist:";
+      this.txtInvFunction.Location = new System.Drawing.Point(160, 6);
+      this.txtInvFunction.Name = "txtInvFunction";
+      this.txtInvFunction.Size = new System.Drawing.Size(320, 20);
+      this.txtInvFunction.TabIndex = 3;
+      this.txtInvFunction.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtInvFunction.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // txtOAlbum
+      // TIPLList
       // 
-      this.txtOAlbum.Location = new System.Drawing.Point(168, 6);
-      this.txtOAlbum.Name = "txtOAlbum";
-      this.txtOAlbum.Size = new System.Drawing.Size(472, 20);
-      this.txtOAlbum.TabIndex = 23;
-      this.txtOAlbum.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtOAlbum.Leave += new System.EventHandler(this.Select_Leave);
+      this.TIPLList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader17,
+            this.ColumnHeader18});
+      this.TIPLList.FullRowSelect = true;
+      this.TIPLList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+      this.TIPLList.HideSelection = false;
+      this.TIPLList.Location = new System.Drawing.Point(160, 64);
+      this.TIPLList.MultiSelect = false;
+      this.TIPLList.Name = "TIPLList";
+      this.TIPLList.Size = new System.Drawing.Size(480, 72);
+      this.TIPLList.TabIndex = 8;
+      this.TIPLList.UseCompatibleStateImageBehavior = false;
+      this.TIPLList.View = System.Windows.Forms.View.Details;
+      this.TIPLList.Click += new System.EventHandler(this.TIPLList_Click);
       // 
-      // txtOLyWriter
+      // Panel2
       // 
-      this.txtOLyWriter.Location = new System.Drawing.Point(168, 54);
-      this.txtOLyWriter.Name = "txtOLyWriter";
-      this.txtOLyWriter.Size = new System.Drawing.Size(472, 20);
-      this.txtOLyWriter.TabIndex = 27;
-      this.txtOLyWriter.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtOLyWriter.Leave += new System.EventHandler(this.Select_Leave);
+      this.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.Panel2.Controls.Add(this.cmbGenre);
+      this.Panel2.Controls.Add(this.btnV1Genre);
+      this.Panel2.Controls.Add(this.lblGenreInfo);
+      this.Panel2.Controls.Add(this.btnMoveGenre);
+      this.Panel2.Controls.Add(this.btnRemoveGenre);
+      this.Panel2.Controls.Add(this.btnAddGenre);
+      this.Panel2.Controls.Add(this.lblGenre);
+      this.Panel2.Controls.Add(this.GenreList);
+      this.Panel2.Location = new System.Drawing.Point(8, 144);
+      this.Panel2.Name = "Panel2";
+      this.Panel2.Size = new System.Drawing.Size(648, 112);
+      this.Panel2.TabIndex = 1;
       // 
-      // txtOFilename
+      // cmbGenre
       // 
-      this.txtOFilename.Location = new System.Drawing.Point(168, 30);
-      this.txtOFilename.Name = "txtOFilename";
-      this.txtOFilename.Size = new System.Drawing.Size(472, 20);
-      this.txtOFilename.TabIndex = 25;
-      this.txtOFilename.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtOFilename.Leave += new System.EventHandler(this.Select_Leave);
+      this.cmbGenre.Autocomplete = true;
+      this.cmbGenre.ItemHeight = 13;
+      this.cmbGenre.Location = new System.Drawing.Point(136, 6);
+      this.cmbGenre.Name = "cmbGenre";
+      this.cmbGenre.Size = new System.Drawing.Size(232, 21);
+      this.cmbGenre.TabIndex = 29;
+      this.cmbGenre.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbGenre.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // lblOFilename
+      // btnV1Genre
       // 
-      this.lblOFilename.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblOFilename.Location = new System.Drawing.Point(8, 32);
-      this.lblOFilename.Name = "lblOFilename";
-      this.lblOFilename.Size = new System.Drawing.Size(128, 16);
-      this.lblOFilename.TabIndex = 24;
-      this.lblOFilename.Text = "Original &filename:";
+      this.btnV1Genre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnV1Genre.Location = new System.Drawing.Point(512, 32);
+      this.btnV1Genre.Name = "btnV1Genre";
+      this.btnV1Genre.Size = new System.Drawing.Size(128, 20);
+      this.btnV1Genre.TabIndex = 33;
+      this.btnV1Genre.Text = "<- Ver. 1";
+      this.btnV1Genre.Click += new System.EventHandler(this.btnV1Genre_Click);
       // 
-      // lblOLyWriter
+      // lblGenreInfo
       // 
-      this.lblOLyWriter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblOLyWriter.Location = new System.Drawing.Point(8, 56);
-      this.lblOLyWriter.Name = "lblOLyWriter";
-      this.lblOLyWriter.Size = new System.Drawing.Size(128, 16);
-      this.lblOLyWriter.TabIndex = 26;
-      this.lblOLyWriter.Text = "Original lyrics &writer:";
+      this.lblGenreInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblGenreInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblGenreInfo.Location = new System.Drawing.Point(376, 64);
+      this.lblGenreInfo.Name = "lblGenreInfo";
+      this.lblGenreInfo.Size = new System.Drawing.Size(264, 40);
+      this.lblGenreInfo.TabIndex = 29;
+      this.lblGenreInfo.Text = "Note: Many programs only show the first genre entered. So move the important genr" +
+    "e to the top of the list.";
       // 
-      // lblOAlbum
+      // btnMoveGenre
       // 
-      this.lblOAlbum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblOAlbum.Location = new System.Drawing.Point(8, 8);
-      this.lblOAlbum.Name = "lblOAlbum";
-      this.lblOAlbum.Size = new System.Drawing.Size(128, 16);
-      this.lblOAlbum.TabIndex = 22;
-      this.lblOAlbum.Text = "Original a&lbum title:";
+      this.btnMoveGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnMoveGenre.Location = new System.Drawing.Point(376, 32);
+      this.btnMoveGenre.Name = "btnMoveGenre";
+      this.btnMoveGenre.Size = new System.Drawing.Size(128, 20);
+      this.btnMoveGenre.TabIndex = 32;
+      this.btnMoveGenre.Text = "Move Genre to top";
+      this.btnMoveGenre.Click += new System.EventHandler(this.btnMoveGenre_Click);
       // 
-      // Panel5
+      // btnRemoveGenre
       // 
-      this.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.Panel5.Controls.Add(this.txtContent);
-      this.Panel5.Controls.Add(this.txtSubTitle);
-      this.Panel5.Controls.Add(this.lblSubTitle);
-      this.Panel5.Controls.Add(this.lblContent);
-      this.Panel5.Location = new System.Drawing.Point(8, 216);
-      this.Panel5.Name = "Panel5";
-      this.Panel5.Size = new System.Drawing.Size(648, 56);
-      this.Panel5.TabIndex = 1;
+      this.btnRemoveGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveGenre.Location = new System.Drawing.Point(512, 8);
+      this.btnRemoveGenre.Name = "btnRemoveGenre";
+      this.btnRemoveGenre.Size = new System.Drawing.Size(128, 20);
+      this.btnRemoveGenre.TabIndex = 31;
+      this.btnRemoveGenre.Text = "Remove Genre";
+      this.btnRemoveGenre.Click += new System.EventHandler(this.btnRemoveGenre_Click);
       // 
-      // txtContent
+      // btnAddGenre
       // 
-      this.txtContent.Location = new System.Drawing.Point(168, 6);
-      this.txtContent.Name = "txtContent";
-      this.txtContent.Size = new System.Drawing.Size(472, 20);
-      this.txtContent.TabIndex = 13;
-      this.txtContent.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtContent.Leave += new System.EventHandler(this.Select_Leave);
+      this.btnAddGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddGenre.Location = new System.Drawing.Point(376, 8);
+      this.btnAddGenre.Name = "btnAddGenre";
+      this.btnAddGenre.Size = new System.Drawing.Size(128, 20);
+      this.btnAddGenre.TabIndex = 30;
+      this.btnAddGenre.Text = "Add Genre";
+      this.btnAddGenre.Click += new System.EventHandler(this.btnAddGenre_Click);
       // 
-      // txtSubTitle
+      // lblGenre
       // 
-      this.txtSubTitle.Location = new System.Drawing.Point(168, 30);
-      this.txtSubTitle.Name = "txtSubTitle";
-      this.txtSubTitle.Size = new System.Drawing.Size(472, 20);
-      this.txtSubTitle.TabIndex = 15;
-      this.txtSubTitle.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtSubTitle.Leave += new System.EventHandler(this.Select_Leave);
+      this.lblGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblGenre.Location = new System.Drawing.Point(8, 8);
+      this.lblGenre.Name = "lblGenre";
+      this.lblGenre.Size = new System.Drawing.Size(128, 16);
+      this.lblGenre.TabIndex = 28;
+      this.lblGenre.Text = "&Genre:";
       // 
-      // lblSubTitle
+      // Panel3
       // 
-      this.lblSubTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblSubTitle.Location = new System.Drawing.Point(8, 32);
-      this.lblSubTitle.Name = "lblSubTitle";
-      this.lblSubTitle.Size = new System.Drawing.Size(128, 16);
-      this.lblSubTitle.TabIndex = 14;
-      this.lblSubTitle.Text = "&Sub Title:";
+      this.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.Panel3.Controls.Add(this.lblCommDescInfo);
+      this.Panel3.Controls.Add(this.cmbCDescriptor);
+      this.Panel3.Controls.Add(this.btnV1Comment);
+      this.Panel3.Controls.Add(this.btnMoveComment);
+      this.Panel3.Controls.Add(this.btnRemoveComment);
+      this.Panel3.Controls.Add(this.btnAddComment);
+      this.Panel3.Controls.Add(this.lblCOMM);
+      this.Panel3.Controls.Add(this.lblCOMMLan);
+      this.Panel3.Controls.Add(this.lblCOMMDesc);
+      this.Panel3.Controls.Add(this.cmbCLanguage);
+      this.Panel3.Controls.Add(this.txtComment);
+      this.Panel3.Controls.Add(this.CommentList);
+      this.Panel3.Location = new System.Drawing.Point(8, 264);
+      this.Panel3.Name = "Panel3";
+      this.Panel3.Size = new System.Drawing.Size(648, 184);
+      this.Panel3.TabIndex = 2;
       // 
-      // lblContent
+      // lblCommDescInfo
       // 
-      this.lblContent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblContent.Location = new System.Drawing.Point(8, 8);
-      this.lblContent.Name = "lblContent";
-      this.lblContent.Size = new System.Drawing.Size(128, 16);
-      this.lblContent.TabIndex = 12;
-      this.lblContent.Text = "Con&tent Group:";
+      this.lblCommDescInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblCommDescInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCommDescInfo.Location = new System.Drawing.Point(8, 112);
+      this.lblCommDescInfo.Name = "lblCommDescInfo";
+      this.lblCommDescInfo.Size = new System.Drawing.Size(120, 64);
+      this.lblCommDescInfo.TabIndex = 47;
+      this.lblCommDescInfo.Text = "Predefined comment descriptors can be set under Edit Libraries (Options menu)";
+      this.lblCommDescInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // cmbCDescriptor
+      // 
+      this.cmbCDescriptor.Autocomplete = true;
+      this.cmbCDescriptor.ItemHeight = 13;
+      this.cmbCDescriptor.Location = new System.Drawing.Point(136, 6);
+      this.cmbCDescriptor.Name = "cmbCDescriptor";
+      this.cmbCDescriptor.Size = new System.Drawing.Size(264, 21);
+      this.cmbCDescriptor.TabIndex = 36;
+      this.cmbCDescriptor.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbCDescriptor.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // btnV1Comment
+      // 
+      this.btnV1Comment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnV1Comment.Location = new System.Drawing.Point(408, 80);
+      this.btnV1Comment.Name = "btnV1Comment";
+      this.btnV1Comment.Size = new System.Drawing.Size(232, 20);
+      this.btnV1Comment.TabIndex = 44;
+      this.btnV1Comment.Text = "<- Ver. 1";
+      this.btnV1Comment.Click += new System.EventHandler(this.btnV1Comment_Click);
+      // 
+      // btnMoveComment
+      // 
+      this.btnMoveComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnMoveComment.Location = new System.Drawing.Point(408, 56);
+      this.btnMoveComment.Name = "btnMoveComment";
+      this.btnMoveComment.Size = new System.Drawing.Size(232, 20);
+      this.btnMoveComment.TabIndex = 43;
+      this.btnMoveComment.Text = "Move Comment to top";
+      this.btnMoveComment.Click += new System.EventHandler(this.btnMoveComment_Click);
+      // 
+      // btnRemoveComment
+      // 
+      this.btnRemoveComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnRemoveComment.Location = new System.Drawing.Point(408, 32);
+      this.btnRemoveComment.Name = "btnRemoveComment";
+      this.btnRemoveComment.Size = new System.Drawing.Size(232, 20);
+      this.btnRemoveComment.TabIndex = 42;
+      this.btnRemoveComment.Text = "Remove Comment";
+      this.btnRemoveComment.Click += new System.EventHandler(this.btnRemoveComment_Click);
+      // 
+      // btnAddComment
+      // 
+      this.btnAddComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnAddComment.Location = new System.Drawing.Point(408, 8);
+      this.btnAddComment.Name = "btnAddComment";
+      this.btnAddComment.Size = new System.Drawing.Size(232, 20);
+      this.btnAddComment.TabIndex = 41;
+      this.btnAddComment.Text = "Add Comment";
+      this.btnAddComment.Click += new System.EventHandler(this.btnAddComment_Click);
+      // 
+      // lblCOMM
+      // 
+      this.lblCOMM.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCOMM.Location = new System.Drawing.Point(8, 56);
+      this.lblCOMM.Name = "lblCOMM";
+      this.lblCOMM.Size = new System.Drawing.Size(128, 16);
+      this.lblCOMM.TabIndex = 39;
+      this.lblCOMM.Text = "&Comment:";
+      // 
+      // lblCOMMLan
+      // 
+      this.lblCOMMLan.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCOMMLan.Location = new System.Drawing.Point(8, 32);
+      this.lblCOMMLan.Name = "lblCOMMLan";
+      this.lblCOMMLan.Size = new System.Drawing.Size(128, 16);
+      this.lblCOMMLan.TabIndex = 37;
+      this.lblCOMMLan.Text = "Comment &Language:";
+      // 
+      // lblCOMMDesc
+      // 
+      this.lblCOMMDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblCOMMDesc.Location = new System.Drawing.Point(8, 8);
+      this.lblCOMMDesc.Name = "lblCOMMDesc";
+      this.lblCOMMDesc.Size = new System.Drawing.Size(128, 16);
+      this.lblCOMMDesc.TabIndex = 35;
+      this.lblCOMMDesc.Text = "Comment &Descriptor:";
+      // 
+      // cmbCLanguage
+      // 
+      this.cmbCLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.cmbCLanguage.ItemHeight = 13;
+      this.cmbCLanguage.Location = new System.Drawing.Point(136, 30);
+      this.cmbCLanguage.Name = "cmbCLanguage";
+      this.cmbCLanguage.Size = new System.Drawing.Size(264, 21);
+      this.cmbCLanguage.TabIndex = 38;
+      this.cmbCLanguage.Enter += new System.EventHandler(this.Select_Enter);
+      this.cmbCLanguage.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtComment
+      // 
+      this.txtComment.AcceptsReturn = true;
+      this.txtComment.Location = new System.Drawing.Point(136, 56);
+      this.txtComment.Multiline = true;
+      this.txtComment.Name = "txtComment";
+      this.txtComment.Size = new System.Drawing.Size(264, 48);
+      this.txtComment.TabIndex = 40;
+      this.txtComment.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtComment.Leave += new System.EventHandler(this.Select_Leave);
       // 
       // Panel4
       // 
@@ -1988,224 +2169,204 @@ namespace ID3_TagIT
       this.lblLyWriter.TabIndex = 16;
       this.lblLyWriter.Text = "Lyr&ics / Text Writer:";
       // 
-      // Panel15
+      // Panel5
       // 
-      this.Panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.Panel15.Controls.Add(this.lblMusicianInfo);
-      this.Panel15.Controls.Add(this.txtMusicianName);
-      this.Panel15.Controls.Add(this.btnRemoveMusician);
-      this.Panel15.Controls.Add(this.btnAddMusician);
-      this.Panel15.Controls.Add(this.lblMusicianName);
-      this.Panel15.Controls.Add(this.lblMusicianInst);
-      this.Panel15.Controls.Add(this.txtMusicianInst);
-      this.Panel15.Controls.Add(this.TMCLList);
-      this.Panel15.Location = new System.Drawing.Point(8, 160);
-      this.Panel15.Name = "Panel15";
-      this.Panel15.Size = new System.Drawing.Size(648, 144);
-      this.Panel15.TabIndex = 5;
+      this.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.Panel5.Controls.Add(this.txtContent);
+      this.Panel5.Controls.Add(this.txtSubTitle);
+      this.Panel5.Controls.Add(this.lblSubTitle);
+      this.Panel5.Controls.Add(this.lblContent);
+      this.Panel5.Location = new System.Drawing.Point(8, 216);
+      this.Panel5.Name = "Panel5";
+      this.Panel5.Size = new System.Drawing.Size(648, 56);
+      this.Panel5.TabIndex = 1;
       // 
-      // lblMusicianInfo
+      // txtContent
       // 
-      this.lblMusicianInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblMusicianInfo.Location = new System.Drawing.Point(8, 120);
-      this.lblMusicianInfo.Name = "lblMusicianInfo";
-      this.lblMusicianInfo.Size = new System.Drawing.Size(128, 16);
-      this.lblMusicianInfo.TabIndex = 16;
-      this.lblMusicianInfo.Text = "(TAG Ver. 2.4 only)";
+      this.txtContent.Location = new System.Drawing.Point(168, 6);
+      this.txtContent.Name = "txtContent";
+      this.txtContent.Size = new System.Drawing.Size(472, 20);
+      this.txtContent.TabIndex = 13;
+      this.txtContent.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtContent.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // txtMusicianName
+      // txtSubTitle
       // 
-      this.txtMusicianName.Location = new System.Drawing.Point(160, 30);
-      this.txtMusicianName.Name = "txtMusicianName";
-      this.txtMusicianName.Size = new System.Drawing.Size(320, 20);
-      this.txtMusicianName.TabIndex = 12;
-      this.txtMusicianName.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtMusicianName.Leave += new System.EventHandler(this.Select_Leave);
+      this.txtSubTitle.Location = new System.Drawing.Point(168, 30);
+      this.txtSubTitle.Name = "txtSubTitle";
+      this.txtSubTitle.Size = new System.Drawing.Size(472, 20);
+      this.txtSubTitle.TabIndex = 15;
+      this.txtSubTitle.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtSubTitle.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // btnRemoveMusician
+      // lblSubTitle
       // 
-      this.btnRemoveMusician.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnRemoveMusician.Location = new System.Drawing.Point(488, 32);
-      this.btnRemoveMusician.Name = "btnRemoveMusician";
-      this.btnRemoveMusician.Size = new System.Drawing.Size(152, 20);
-      this.btnRemoveMusician.TabIndex = 14;
-      this.btnRemoveMusician.Text = "Remove musician";
-      this.btnRemoveMusician.Click += new System.EventHandler(this.btnRemoveMusican_Click);
+      this.lblSubTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblSubTitle.Location = new System.Drawing.Point(8, 32);
+      this.lblSubTitle.Name = "lblSubTitle";
+      this.lblSubTitle.Size = new System.Drawing.Size(128, 16);
+      this.lblSubTitle.TabIndex = 14;
+      this.lblSubTitle.Text = "&Sub Title:";
       // 
-      // btnAddMusician
+      // lblContent
       // 
-      this.btnAddMusician.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnAddMusician.Location = new System.Drawing.Point(488, 8);
-      this.btnAddMusician.Name = "btnAddMusician";
-      this.btnAddMusician.Size = new System.Drawing.Size(152, 20);
-      this.btnAddMusician.TabIndex = 13;
-      this.btnAddMusician.Text = "Add musician";
-      this.btnAddMusician.Click += new System.EventHandler(this.btnAddMusican_Click);
+      this.lblContent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblContent.Location = new System.Drawing.Point(8, 8);
+      this.lblContent.Name = "lblContent";
+      this.lblContent.Size = new System.Drawing.Size(128, 16);
+      this.lblContent.TabIndex = 12;
+      this.lblContent.Text = "Con&tent Group:";
       // 
-      // lblMusicianName
+      // Panel6
       // 
-      this.lblMusicianName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblMusicianName.Location = new System.Drawing.Point(8, 32);
-      this.lblMusicianName.Name = "lblMusicianName";
-      this.lblMusicianName.Size = new System.Drawing.Size(128, 16);
-      this.lblMusicianName.TabIndex = 11;
-      this.lblMusicianName.Text = "Musician name:";
+      this.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.Panel6.Controls.Add(this.txtTORY);
+      this.Panel6.Controls.Add(this.lblOYearInfo);
+      this.Panel6.Controls.Add(this.TORYFormat);
+      this.Panel6.Controls.Add(this.lblOYear);
+      this.Panel6.Controls.Add(this.txtOOwner);
+      this.Panel6.Controls.Add(this.lblOOwner);
+      this.Panel6.Controls.Add(this.txtOArtist);
+      this.Panel6.Controls.Add(this.lblOArtist);
+      this.Panel6.Controls.Add(this.txtOAlbum);
+      this.Panel6.Controls.Add(this.txtOLyWriter);
+      this.Panel6.Controls.Add(this.txtOFilename);
+      this.Panel6.Controls.Add(this.lblOFilename);
+      this.Panel6.Controls.Add(this.lblOLyWriter);
+      this.Panel6.Controls.Add(this.lblOAlbum);
+      this.Panel6.Location = new System.Drawing.Point(8, 8);
+      this.Panel6.Name = "Panel6";
+      this.Panel6.Size = new System.Drawing.Size(648, 152);
+      this.Panel6.TabIndex = 3;
       // 
-      // lblMusicianInst
+      // txtTORY
       // 
-      this.lblMusicianInst.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblMusicianInst.Location = new System.Drawing.Point(8, 8);
-      this.lblMusicianInst.Name = "lblMusicianInst";
-      this.lblMusicianInst.Size = new System.Drawing.Size(128, 16);
-      this.lblMusicianInst.TabIndex = 9;
-      this.lblMusicianInst.Text = "Musician instrument:";
+      this.txtTORY.Location = new System.Drawing.Point(168, 126);
+      this.txtTORY.Mask = "0000-00-00";
+      this.txtTORY.Name = "txtTORY";
+      this.txtTORY.Size = new System.Drawing.Size(112, 20);
+      this.txtTORY.TabIndex = 33;
+      this.txtTORY.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtTORY.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // txtMusicianInst
+      // lblOYearInfo
       // 
-      this.txtMusicianInst.Location = new System.Drawing.Point(160, 6);
-      this.txtMusicianInst.Name = "txtMusicianInst";
-      this.txtMusicianInst.Size = new System.Drawing.Size(320, 20);
-      this.txtMusicianInst.TabIndex = 10;
-      this.txtMusicianInst.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtMusicianInst.Leave += new System.EventHandler(this.Select_Leave);
+      this.lblOYearInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOYearInfo.Location = new System.Drawing.Point(336, 128);
+      this.lblOYearInfo.Name = "lblOYearInfo";
+      this.lblOYearInfo.Size = new System.Drawing.Size(304, 16);
+      this.lblOYearInfo.TabIndex = 36;
+      this.lblOYearInfo.Text = "(In TAG Ver. 2.3 only the year entry will be saved)";
       // 
-      // TMCLList
+      // TORYFormat
       // 
-      this.TMCLList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ColumnHeader15,
-            this.ColumnHeader16});
-      this.TMCLList.FullRowSelect = true;
-      this.TMCLList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-      this.TMCLList.HideSelection = false;
-      this.TMCLList.Location = new System.Drawing.Point(160, 64);
-      this.TMCLList.MultiSelect = false;
-      this.TMCLList.Name = "TMCLList";
-      this.TMCLList.Size = new System.Drawing.Size(480, 72);
-      this.TMCLList.TabIndex = 15;
-      this.TMCLList.UseCompatibleStateImageBehavior = false;
-      this.TMCLList.View = System.Windows.Forms.View.Details;
-      this.TMCLList.Click += new System.EventHandler(this.TMCLList_Click);
+      this.TORYFormat.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.TORYFormat.LargeChange = 1;
+      this.TORYFormat.Location = new System.Drawing.Point(288, 128);
+      this.TORYFormat.Maximum = 2;
+      this.TORYFormat.Name = "TORYFormat";
+      this.TORYFormat.Size = new System.Drawing.Size(32, 16);
+      this.TORYFormat.TabIndex = 34;
+      this.TORYFormat.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TORYFormat_Scroll);
       // 
-      // ColumnHeader15
+      // lblOYear
       // 
-      this.ColumnHeader15.Text = "Instrument";
-      this.ColumnHeader15.Width = 200;
+      this.lblOYear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOYear.Location = new System.Drawing.Point(8, 128);
+      this.lblOYear.Name = "lblOYear";
+      this.lblOYear.Size = new System.Drawing.Size(144, 16);
+      this.lblOYear.TabIndex = 32;
+      this.lblOYear.Text = "Original release &year (date):";
       // 
-      // ColumnHeader16
+      // txtOOwner
       // 
-      this.ColumnHeader16.Text = "Name";
-      this.ColumnHeader16.Width = 254;
+      this.txtOOwner.Location = new System.Drawing.Point(168, 102);
+      this.txtOOwner.Name = "txtOOwner";
+      this.txtOOwner.Size = new System.Drawing.Size(472, 20);
+      this.txtOOwner.TabIndex = 31;
+      this.txtOOwner.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOOwner.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // Panel16
+      // lblOOwner
       // 
-      this.Panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.Panel16.Controls.Add(this.txtInvPerson);
-      this.Panel16.Controls.Add(this.btnRemoveInv);
-      this.Panel16.Controls.Add(this.btnAddInv);
-      this.Panel16.Controls.Add(this.lblInvPerson);
-      this.Panel16.Controls.Add(this.lblInvFunction);
-      this.Panel16.Controls.Add(this.txtInvFunction);
-      this.Panel16.Controls.Add(this.TIPLList);
-      this.Panel16.Location = new System.Drawing.Point(8, 8);
-      this.Panel16.Name = "Panel16";
-      this.Panel16.Size = new System.Drawing.Size(648, 144);
-      this.Panel16.TabIndex = 4;
+      this.lblOOwner.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOOwner.Location = new System.Drawing.Point(8, 104);
+      this.lblOOwner.Name = "lblOOwner";
+      this.lblOOwner.Size = new System.Drawing.Size(128, 16);
+      this.lblOOwner.TabIndex = 30;
+      this.lblOOwner.Text = "Original &owner:";
       // 
-      // txtInvPerson
+      // txtOArtist
       // 
-      this.txtInvPerson.Location = new System.Drawing.Point(160, 30);
-      this.txtInvPerson.Name = "txtInvPerson";
-      this.txtInvPerson.Size = new System.Drawing.Size(320, 20);
-      this.txtInvPerson.TabIndex = 5;
-      this.txtInvPerson.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtInvPerson.Leave += new System.EventHandler(this.Select_Leave);
+      this.txtOArtist.Location = new System.Drawing.Point(168, 78);
+      this.txtOArtist.Name = "txtOArtist";
+      this.txtOArtist.Size = new System.Drawing.Size(472, 20);
+      this.txtOArtist.TabIndex = 29;
+      this.txtOArtist.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOArtist.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // btnRemoveInv
+      // lblOArtist
       // 
-      this.btnRemoveInv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnRemoveInv.Location = new System.Drawing.Point(488, 32);
-      this.btnRemoveInv.Name = "btnRemoveInv";
-      this.btnRemoveInv.Size = new System.Drawing.Size(152, 20);
-      this.btnRemoveInv.TabIndex = 7;
-      this.btnRemoveInv.Text = "Remove involved person";
-      this.btnRemoveInv.Click += new System.EventHandler(this.btnRemoveInv_Click);
+      this.lblOArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOArtist.Location = new System.Drawing.Point(8, 80);
+      this.lblOArtist.Name = "lblOArtist";
+      this.lblOArtist.Size = new System.Drawing.Size(128, 16);
+      this.lblOArtist.TabIndex = 28;
+      this.lblOArtist.Text = "Original &artist:";
       // 
-      // btnAddInv
+      // txtOAlbum
       // 
-      this.btnAddInv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnAddInv.Location = new System.Drawing.Point(488, 8);
-      this.btnAddInv.Name = "btnAddInv";
-      this.btnAddInv.Size = new System.Drawing.Size(152, 20);
-      this.btnAddInv.TabIndex = 6;
-      this.btnAddInv.Text = "Add involved person";
-      this.btnAddInv.Click += new System.EventHandler(this.btnAddInv_Click);
+      this.txtOAlbum.Location = new System.Drawing.Point(168, 6);
+      this.txtOAlbum.Name = "txtOAlbum";
+      this.txtOAlbum.Size = new System.Drawing.Size(472, 20);
+      this.txtOAlbum.TabIndex = 23;
+      this.txtOAlbum.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOAlbum.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // lblInvPerson
+      // txtOLyWriter
       // 
-      this.lblInvPerson.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblInvPerson.Location = new System.Drawing.Point(8, 32);
-      this.lblInvPerson.Name = "lblInvPerson";
-      this.lblInvPerson.Size = new System.Drawing.Size(144, 16);
-      this.lblInvPerson.TabIndex = 4;
-      this.lblInvPerson.Text = "Involved person name:";
+      this.txtOLyWriter.Location = new System.Drawing.Point(168, 54);
+      this.txtOLyWriter.Name = "txtOLyWriter";
+      this.txtOLyWriter.Size = new System.Drawing.Size(472, 20);
+      this.txtOLyWriter.TabIndex = 27;
+      this.txtOLyWriter.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOLyWriter.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // lblInvFunction
+      // txtOFilename
       // 
-      this.lblInvFunction.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblInvFunction.Location = new System.Drawing.Point(8, 8);
-      this.lblInvFunction.Name = "lblInvFunction";
-      this.lblInvFunction.Size = new System.Drawing.Size(144, 16);
-      this.lblInvFunction.TabIndex = 2;
-      this.lblInvFunction.Text = "Involved person function:";
+      this.txtOFilename.Location = new System.Drawing.Point(168, 30);
+      this.txtOFilename.Name = "txtOFilename";
+      this.txtOFilename.Size = new System.Drawing.Size(472, 20);
+      this.txtOFilename.TabIndex = 25;
+      this.txtOFilename.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtOFilename.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // txtInvFunction
+      // lblOFilename
       // 
-      this.txtInvFunction.Location = new System.Drawing.Point(160, 6);
-      this.txtInvFunction.Name = "txtInvFunction";
-      this.txtInvFunction.Size = new System.Drawing.Size(320, 20);
-      this.txtInvFunction.TabIndex = 3;
-      this.txtInvFunction.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtInvFunction.Leave += new System.EventHandler(this.Select_Leave);
+      this.lblOFilename.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOFilename.Location = new System.Drawing.Point(8, 32);
+      this.lblOFilename.Name = "lblOFilename";
+      this.lblOFilename.Size = new System.Drawing.Size(128, 16);
+      this.lblOFilename.TabIndex = 24;
+      this.lblOFilename.Text = "Original &filename:";
       // 
-      // TIPLList
+      // lblOLyWriter
       // 
-      this.TIPLList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ColumnHeader17,
-            this.ColumnHeader18});
-      this.TIPLList.FullRowSelect = true;
-      this.TIPLList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-      this.TIPLList.HideSelection = false;
-      this.TIPLList.Location = new System.Drawing.Point(160, 64);
-      this.TIPLList.MultiSelect = false;
-      this.TIPLList.Name = "TIPLList";
-      this.TIPLList.Size = new System.Drawing.Size(480, 72);
-      this.TIPLList.TabIndex = 8;
-      this.TIPLList.UseCompatibleStateImageBehavior = false;
-      this.TIPLList.View = System.Windows.Forms.View.Details;
-      this.TIPLList.Click += new System.EventHandler(this.TIPLList_Click);
+      this.lblOLyWriter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOLyWriter.Location = new System.Drawing.Point(8, 56);
+      this.lblOLyWriter.Name = "lblOLyWriter";
+      this.lblOLyWriter.Size = new System.Drawing.Size(128, 16);
+      this.lblOLyWriter.TabIndex = 26;
+      this.lblOLyWriter.Text = "Original lyrics &writer:";
       // 
-      // ColumnHeader17
+      // lblOAlbum
       // 
-      this.ColumnHeader17.Text = "Function";
-      this.ColumnHeader17.Width = 191;
-      // 
-      // ColumnHeader18
-      // 
-      this.ColumnHeader18.Text = "Name";
-      this.ColumnHeader18.Width = 264;
-      // 
-      // Panel14
-      // 
-      this.Panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.Panel14.Controls.Add(this.btnTLEN);
-      this.Panel14.Controls.Add(this.txtTLEN);
-      this.Panel14.Controls.Add(this.lblTLEN);
-      this.Panel14.Controls.Add(this.cmbMedia);
-      this.Panel14.Controls.Add(this.lblMediaTyp);
-      this.Panel14.Location = new System.Drawing.Point(8, 368);
-      this.Panel14.Name = "Panel14";
-      this.Panel14.Size = new System.Drawing.Size(648, 64);
-      this.Panel14.TabIndex = 3;
+      this.lblOAlbum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblOAlbum.Location = new System.Drawing.Point(8, 8);
+      this.lblOAlbum.Name = "lblOAlbum";
+      this.lblOAlbum.Size = new System.Drawing.Size(128, 16);
+      this.lblOAlbum.TabIndex = 22;
+      this.lblOAlbum.Text = "Original a&lbum title:";
       // 
       // Panel7
       // 
@@ -2328,25 +2489,6 @@ namespace ID3_TagIT
       this.PicList.Click += new System.EventHandler(this.PicList_Click);
       this.PicList.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // ColumnHeader4
-      // 
-      this.ColumnHeader4.Text = "Descriptor";
-      this.ColumnHeader4.Width = 160;
-      // 
-      // ColumnHeader5
-      // 
-      this.ColumnHeader5.Text = "Picture Type";
-      this.ColumnHeader5.Width = 99;
-      // 
-      // ColumnHeader6
-      // 
-      this.ColumnHeader6.Text = "Path";
-      this.ColumnHeader6.Width = 288;
-      // 
-      // ColumnHeader7
-      // 
-      this.ColumnHeader7.Text = "Include";
-      // 
       // lblPicType
       // 
       this.lblPicType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -2406,17 +2548,6 @@ namespace ID3_TagIT
       this.txtPDescriptor.TabIndex = 3;
       this.txtPDescriptor.Enter += new System.EventHandler(this.Select_Enter);
       this.txtPDescriptor.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // APICView
-      // 
-      this.APICView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.APICView.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.APICView.Location = new System.Drawing.Point(464, 8);
-      this.APICView.Name = "APICView";
-      this.APICView.Size = new System.Drawing.Size(176, 176);
-      this.APICView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-      this.APICView.TabIndex = 1;
-      this.APICView.TabStop = false;
       // 
       // Panel8
       // 
@@ -2532,624 +2663,73 @@ namespace ID3_TagIT
       this.txtLDescriptor.Enter += new System.EventHandler(this.Select_Enter);
       this.txtLDescriptor.Leave += new System.EventHandler(this.Select_Leave);
       // 
-      // LyricsList
-      // 
-      this.LyricsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ColumnHeader1,
-            this.ColumnHeader2,
-            this.ColumnHeader3});
-      this.LyricsList.FullRowSelect = true;
-      this.LyricsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-      this.LyricsList.HideSelection = false;
-      this.LyricsList.Location = new System.Drawing.Point(8, 320);
-      this.LyricsList.MultiSelect = false;
-      this.LyricsList.Name = "LyricsList";
-      this.LyricsList.Size = new System.Drawing.Size(632, 112);
-      this.LyricsList.TabIndex = 23;
-      this.LyricsList.UseCompatibleStateImageBehavior = false;
-      this.LyricsList.View = System.Windows.Forms.View.Details;
-      this.LyricsList.Click += new System.EventHandler(this.LyricsList_Click);
-      this.LyricsList.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // ColumnHeader1
-      // 
-      this.ColumnHeader1.Text = "Descriptor";
-      this.ColumnHeader1.Width = 132;
-      // 
-      // ColumnHeader2
-      // 
-      this.ColumnHeader2.Text = "Text";
-      this.ColumnHeader2.Width = 356;
-      // 
-      // ColumnHeader3
-      // 
-      this.ColumnHeader3.Text = "Language";
-      this.ColumnHeader3.Width = 103;
-      // 
-      // Panel11
-      // 
-      this.Panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.Panel11.Controls.Add(this.lblInfo);
-      this.Panel11.Controls.Add(this.btnMoveRating);
-      this.Panel11.Controls.Add(this.btnRemoveRating);
-      this.Panel11.Controls.Add(this.btnAddRating);
-      this.Panel11.Controls.Add(this.RatingList);
-      this.Panel11.Controls.Add(this.txtRatingCounter);
-      this.Panel11.Controls.Add(this.txtRatingRating);
-      this.Panel11.Controls.Add(this.txtRatingUser);
-      this.Panel11.Controls.Add(this.lblRatingRating);
-      this.Panel11.Controls.Add(this.lblRatingCounter);
-      this.Panel11.Controls.Add(this.lblRatingUser);
-      this.Panel11.Location = new System.Drawing.Point(8, 8);
-      this.Panel11.Name = "Panel11";
-      this.Panel11.Size = new System.Drawing.Size(648, 280);
-      this.Panel11.TabIndex = 5;
-      // 
-      // lblInfo
-      // 
-      this.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-      this.lblInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblInfo.Location = new System.Drawing.Point(136, 208);
-      this.lblInfo.Name = "lblInfo";
-      this.lblInfo.Size = new System.Drawing.Size(496, 56);
-      this.lblInfo.TabIndex = 43;
-      this.lblInfo.Text = "The rating is 1-255 where 1 is worst and 255 is best. Note that many programs hav" +
-    "e their own rating scale. The scale 1-255 is given by the ID3 standard and the o" +
-    "ther programs rescale it.";
-      this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      // 
-      // btnMoveRating
-      // 
-      this.btnMoveRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnMoveRating.Location = new System.Drawing.Point(472, 80);
-      this.btnMoveRating.Name = "btnMoveRating";
-      this.btnMoveRating.Size = new System.Drawing.Size(160, 24);
-      this.btnMoveRating.TabIndex = 26;
-      this.btnMoveRating.Text = "Move Rating to top";
-      this.btnMoveRating.Click += new System.EventHandler(this.btnMoveRating_Click);
-      // 
-      // btnRemoveRating
-      // 
-      this.btnRemoveRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnRemoveRating.Location = new System.Drawing.Point(304, 80);
-      this.btnRemoveRating.Name = "btnRemoveRating";
-      this.btnRemoveRating.Size = new System.Drawing.Size(160, 24);
-      this.btnRemoveRating.TabIndex = 25;
-      this.btnRemoveRating.Text = "Remove Rating";
-      this.btnRemoveRating.Click += new System.EventHandler(this.btnRemoveRating_Click);
-      // 
-      // btnAddRating
-      // 
-      this.btnAddRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnAddRating.Location = new System.Drawing.Point(136, 80);
-      this.btnAddRating.Name = "btnAddRating";
-      this.btnAddRating.Size = new System.Drawing.Size(160, 24);
-      this.btnAddRating.TabIndex = 24;
-      this.btnAddRating.Text = "Add Rating";
-      this.btnAddRating.Click += new System.EventHandler(this.btnAddRating_Click);
-      // 
-      // RatingList
-      // 
-      this.RatingList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ColumnHeader8,
-            this.ColumnHeader9,
-            this.ColumnHeader10});
-      this.RatingList.FullRowSelect = true;
-      this.RatingList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-      this.RatingList.HideSelection = false;
-      this.RatingList.Location = new System.Drawing.Point(136, 112);
-      this.RatingList.MultiSelect = false;
-      this.RatingList.Name = "RatingList";
-      this.RatingList.Size = new System.Drawing.Size(496, 88);
-      this.RatingList.TabIndex = 27;
-      this.RatingList.UseCompatibleStateImageBehavior = false;
-      this.RatingList.View = System.Windows.Forms.View.Details;
-      this.RatingList.Click += new System.EventHandler(this.RatingList_Click);
-      // 
-      // ColumnHeader8
-      // 
-      this.ColumnHeader8.Text = "User";
-      this.ColumnHeader8.Width = 238;
-      // 
-      // ColumnHeader9
-      // 
-      this.ColumnHeader9.Text = "Rating";
-      this.ColumnHeader9.Width = 100;
-      // 
-      // ColumnHeader10
-      // 
-      this.ColumnHeader10.Text = "Play Counter";
-      this.ColumnHeader10.Width = 80;
-      // 
-      // txtRatingCounter
-      // 
-      this.txtRatingCounter.Location = new System.Drawing.Point(136, 54);
-      this.txtRatingCounter.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-      this.txtRatingCounter.Name = "txtRatingCounter";
-      this.txtRatingCounter.Size = new System.Drawing.Size(80, 20);
-      this.txtRatingCounter.TabIndex = 23;
-      this.txtRatingCounter.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtRatingCounter.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // txtRatingRating
-      // 
-      this.txtRatingRating.Location = new System.Drawing.Point(136, 30);
-      this.txtRatingRating.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-      this.txtRatingRating.Name = "txtRatingRating";
-      this.txtRatingRating.Size = new System.Drawing.Size(80, 20);
-      this.txtRatingRating.TabIndex = 21;
-      this.txtRatingRating.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtRatingRating.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // txtRatingUser
-      // 
-      this.txtRatingUser.Location = new System.Drawing.Point(136, 6);
-      this.txtRatingUser.Name = "txtRatingUser";
-      this.txtRatingUser.Size = new System.Drawing.Size(224, 20);
-      this.txtRatingUser.TabIndex = 19;
-      this.txtRatingUser.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtRatingUser.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // lblRatingRating
-      // 
-      this.lblRatingRating.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblRatingRating.Location = new System.Drawing.Point(8, 32);
-      this.lblRatingRating.Name = "lblRatingRating";
-      this.lblRatingRating.Size = new System.Drawing.Size(120, 16);
-      this.lblRatingRating.TabIndex = 20;
-      this.lblRatingRating.Text = "Rating:";
-      // 
-      // lblRatingCounter
-      // 
-      this.lblRatingCounter.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblRatingCounter.Location = new System.Drawing.Point(8, 56);
-      this.lblRatingCounter.Name = "lblRatingCounter";
-      this.lblRatingCounter.Size = new System.Drawing.Size(120, 16);
-      this.lblRatingCounter.TabIndex = 22;
-      this.lblRatingCounter.Text = "Play counter:";
-      // 
-      // lblRatingUser
-      // 
-      this.lblRatingUser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblRatingUser.Location = new System.Drawing.Point(8, 8);
-      this.lblRatingUser.Name = "lblRatingUser";
-      this.lblRatingUser.Size = new System.Drawing.Size(120, 16);
-      this.lblRatingUser.TabIndex = 18;
-      this.lblRatingUser.Text = "User (email):";
-      // 
-      // Panel10
-      // 
-      this.Panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.Panel10.Controls.Add(this.txtCOMMInfURL);
-      this.Panel10.Controls.Add(this.lblCOMMInfURL);
-      this.Panel10.Controls.Add(this.txtPubURL);
-      this.Panel10.Controls.Add(this.lblPubURL);
-      this.Panel10.Controls.Add(this.txtPayURL);
-      this.Panel10.Controls.Add(this.lblPayURL);
-      this.Panel10.Controls.Add(this.txtINetRadioURL);
-      this.Panel10.Controls.Add(this.lblINetRadioURL);
-      this.Panel10.Controls.Add(this.txtAudioSRCURL);
-      this.Panel10.Controls.Add(this.lblAudioSRCURL);
-      this.Panel10.Controls.Add(this.txtCopyInfURL);
-      this.Panel10.Controls.Add(this.txtArtistURL);
-      this.Panel10.Controls.Add(this.txtAudioFileURL);
-      this.Panel10.Controls.Add(this.lblAudioFileURL);
-      this.Panel10.Controls.Add(this.lblArtistURL);
-      this.Panel10.Controls.Add(this.lblCopyInfURL);
-      this.Panel10.Location = new System.Drawing.Point(8, 8);
-      this.Panel10.Name = "Panel10";
-      this.Panel10.Size = new System.Drawing.Size(648, 200);
-      this.Panel10.TabIndex = 4;
-      // 
-      // txtCOMMInfURL
-      // 
-      this.txtCOMMInfURL.Location = new System.Drawing.Point(200, 174);
-      this.txtCOMMInfURL.Name = "txtCOMMInfURL";
-      this.txtCOMMInfURL.Size = new System.Drawing.Size(440, 20);
-      this.txtCOMMInfURL.TabIndex = 17;
-      this.txtCOMMInfURL.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtCOMMInfURL.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // lblCOMMInfURL
-      // 
-      this.lblCOMMInfURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblCOMMInfURL.Location = new System.Drawing.Point(8, 176);
-      this.lblCOMMInfURL.Name = "lblCOMMInfURL";
-      this.lblCOMMInfURL.Size = new System.Drawing.Size(184, 16);
-      this.lblCOMMInfURL.TabIndex = 16;
-      this.lblCOMMInfURL.Text = "Commercial information URL:";
-      // 
-      // txtPubURL
-      // 
-      this.txtPubURL.Location = new System.Drawing.Point(200, 150);
-      this.txtPubURL.Name = "txtPubURL";
-      this.txtPubURL.Size = new System.Drawing.Size(440, 20);
-      this.txtPubURL.TabIndex = 15;
-      this.txtPubURL.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtPubURL.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // lblPubURL
-      // 
-      this.lblPubURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblPubURL.Location = new System.Drawing.Point(8, 152);
-      this.lblPubURL.Name = "lblPubURL";
-      this.lblPubURL.Size = new System.Drawing.Size(184, 16);
-      this.lblPubURL.TabIndex = 14;
-      this.lblPubURL.Text = "Offical publisher URL:";
-      // 
-      // txtPayURL
-      // 
-      this.txtPayURL.Location = new System.Drawing.Point(200, 126);
-      this.txtPayURL.Name = "txtPayURL";
-      this.txtPayURL.Size = new System.Drawing.Size(440, 20);
-      this.txtPayURL.TabIndex = 13;
-      this.txtPayURL.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtPayURL.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // lblPayURL
-      // 
-      this.lblPayURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblPayURL.Location = new System.Drawing.Point(8, 128);
-      this.lblPayURL.Name = "lblPayURL";
-      this.lblPayURL.Size = new System.Drawing.Size(184, 16);
-      this.lblPayURL.TabIndex = 12;
-      this.lblPayURL.Text = "Offical payment URL:";
-      // 
-      // txtINetRadioURL
-      // 
-      this.txtINetRadioURL.Location = new System.Drawing.Point(200, 102);
-      this.txtINetRadioURL.Name = "txtINetRadioURL";
-      this.txtINetRadioURL.Size = new System.Drawing.Size(440, 20);
-      this.txtINetRadioURL.TabIndex = 11;
-      this.txtINetRadioURL.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtINetRadioURL.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // lblINetRadioURL
-      // 
-      this.lblINetRadioURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblINetRadioURL.Location = new System.Drawing.Point(8, 104);
-      this.lblINetRadioURL.Name = "lblINetRadioURL";
-      this.lblINetRadioURL.Size = new System.Drawing.Size(184, 16);
-      this.lblINetRadioURL.TabIndex = 10;
-      this.lblINetRadioURL.Text = "Offical internet radio station URL:";
-      // 
-      // txtAudioSRCURL
-      // 
-      this.txtAudioSRCURL.Location = new System.Drawing.Point(200, 78);
-      this.txtAudioSRCURL.Name = "txtAudioSRCURL";
-      this.txtAudioSRCURL.Size = new System.Drawing.Size(440, 20);
-      this.txtAudioSRCURL.TabIndex = 9;
-      this.txtAudioSRCURL.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtAudioSRCURL.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // lblAudioSRCURL
-      // 
-      this.lblAudioSRCURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblAudioSRCURL.Location = new System.Drawing.Point(8, 80);
-      this.lblAudioSRCURL.Name = "lblAudioSRCURL";
-      this.lblAudioSRCURL.Size = new System.Drawing.Size(184, 16);
-      this.lblAudioSRCURL.TabIndex = 8;
-      this.lblAudioSRCURL.Text = "Offical audio source URL:";
-      // 
-      // txtCopyInfURL
-      // 
-      this.txtCopyInfURL.Location = new System.Drawing.Point(200, 6);
-      this.txtCopyInfURL.Name = "txtCopyInfURL";
-      this.txtCopyInfURL.Size = new System.Drawing.Size(440, 20);
-      this.txtCopyInfURL.TabIndex = 3;
-      this.txtCopyInfURL.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtCopyInfURL.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // txtArtistURL
-      // 
-      this.txtArtistURL.Location = new System.Drawing.Point(200, 54);
-      this.txtArtistURL.Name = "txtArtistURL";
-      this.txtArtistURL.Size = new System.Drawing.Size(440, 20);
-      this.txtArtistURL.TabIndex = 7;
-      this.txtArtistURL.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtArtistURL.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // txtAudioFileURL
-      // 
-      this.txtAudioFileURL.Location = new System.Drawing.Point(200, 30);
-      this.txtAudioFileURL.Name = "txtAudioFileURL";
-      this.txtAudioFileURL.Size = new System.Drawing.Size(440, 20);
-      this.txtAudioFileURL.TabIndex = 5;
-      this.txtAudioFileURL.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtAudioFileURL.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // lblAudioFileURL
-      // 
-      this.lblAudioFileURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblAudioFileURL.Location = new System.Drawing.Point(8, 32);
-      this.lblAudioFileURL.Name = "lblAudioFileURL";
-      this.lblAudioFileURL.Size = new System.Drawing.Size(184, 16);
-      this.lblAudioFileURL.TabIndex = 4;
-      this.lblAudioFileURL.Text = "Offical audio file URL:";
-      // 
-      // lblArtistURL
-      // 
-      this.lblArtistURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblArtistURL.Location = new System.Drawing.Point(8, 56);
-      this.lblArtistURL.Name = "lblArtistURL";
-      this.lblArtistURL.Size = new System.Drawing.Size(184, 16);
-      this.lblArtistURL.TabIndex = 6;
-      this.lblArtistURL.Text = "Offical artist URL:";
-      // 
-      // lblCopyInfURL
-      // 
-      this.lblCopyInfURL.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblCopyInfURL.Location = new System.Drawing.Point(8, 8);
-      this.lblCopyInfURL.Name = "lblCopyInfURL";
-      this.lblCopyInfURL.Size = new System.Drawing.Size(184, 16);
-      this.lblCopyInfURL.TabIndex = 2;
-      this.lblCopyInfURL.Text = "Copyright information URL:";
-      // 
-      // Panel13
-      // 
-      this.Panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.Panel13.Controls.Add(this.txtWXXXContent);
-      this.Panel13.Controls.Add(this.btnRemoveWXXX);
-      this.Panel13.Controls.Add(this.btnAddWXXX);
-      this.Panel13.Controls.Add(this.lblWXXXContent);
-      this.Panel13.Controls.Add(this.lblWXXXDesc);
-      this.Panel13.Controls.Add(this.txtWXXXDesc);
-      this.Panel13.Controls.Add(this.WXXXList);
-      this.Panel13.Location = new System.Drawing.Point(8, 192);
-      this.Panel13.Name = "Panel13";
-      this.Panel13.Size = new System.Drawing.Size(648, 176);
-      this.Panel13.TabIndex = 1;
-      // 
-      // txtWXXXContent
-      // 
-      this.txtWXXXContent.Location = new System.Drawing.Point(136, 30);
-      this.txtWXXXContent.Name = "txtWXXXContent";
-      this.txtWXXXContent.Size = new System.Drawing.Size(344, 20);
-      this.txtWXXXContent.TabIndex = 12;
-      this.txtWXXXContent.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtWXXXContent.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // btnRemoveWXXX
-      // 
-      this.btnRemoveWXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnRemoveWXXX.Location = new System.Drawing.Point(488, 32);
-      this.btnRemoveWXXX.Name = "btnRemoveWXXX";
-      this.btnRemoveWXXX.Size = new System.Drawing.Size(152, 20);
-      this.btnRemoveWXXX.TabIndex = 14;
-      this.btnRemoveWXXX.Text = "Remove user web frame";
-      this.btnRemoveWXXX.Click += new System.EventHandler(this.btnRemoveWXXX_Click);
-      // 
-      // btnAddWXXX
-      // 
-      this.btnAddWXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnAddWXXX.Location = new System.Drawing.Point(488, 8);
-      this.btnAddWXXX.Name = "btnAddWXXX";
-      this.btnAddWXXX.Size = new System.Drawing.Size(152, 20);
-      this.btnAddWXXX.TabIndex = 13;
-      this.btnAddWXXX.Text = "Add user web frame";
-      this.btnAddWXXX.Click += new System.EventHandler(this.btnAddWXXX_Click);
-      // 
-      // lblWXXXContent
-      // 
-      this.lblWXXXContent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblWXXXContent.Location = new System.Drawing.Point(8, 32);
-      this.lblWXXXContent.Name = "lblWXXXContent";
-      this.lblWXXXContent.Size = new System.Drawing.Size(128, 16);
-      this.lblWXXXContent.TabIndex = 11;
-      this.lblWXXXContent.Text = "Web frame &Content:";
-      // 
-      // lblWXXXDesc
-      // 
-      this.lblWXXXDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblWXXXDesc.Location = new System.Drawing.Point(8, 8);
-      this.lblWXXXDesc.Name = "lblWXXXDesc";
-      this.lblWXXXDesc.Size = new System.Drawing.Size(128, 16);
-      this.lblWXXXDesc.TabIndex = 9;
-      this.lblWXXXDesc.Text = "Web frame &Descriptor:";
-      // 
-      // txtWXXXDesc
-      // 
-      this.txtWXXXDesc.Location = new System.Drawing.Point(136, 6);
-      this.txtWXXXDesc.Name = "txtWXXXDesc";
-      this.txtWXXXDesc.Size = new System.Drawing.Size(344, 20);
-      this.txtWXXXDesc.TabIndex = 10;
-      this.txtWXXXDesc.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtWXXXDesc.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // WXXXList
-      // 
-      this.WXXXList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ColumnHeader13,
-            this.ColumnHeader14});
-      this.WXXXList.FullRowSelect = true;
-      this.WXXXList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-      this.WXXXList.HideSelection = false;
-      this.WXXXList.Location = new System.Drawing.Point(136, 64);
-      this.WXXXList.MultiSelect = false;
-      this.WXXXList.Name = "WXXXList";
-      this.WXXXList.Size = new System.Drawing.Size(504, 104);
-      this.WXXXList.TabIndex = 15;
-      this.WXXXList.UseCompatibleStateImageBehavior = false;
-      this.WXXXList.View = System.Windows.Forms.View.Details;
-      this.WXXXList.Click += new System.EventHandler(this.WXXXList_Click);
-      this.WXXXList.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // ColumnHeader13
-      // 
-      this.ColumnHeader13.Text = "Descriptor";
-      this.ColumnHeader13.Width = 200;
-      // 
-      // ColumnHeader14
-      // 
-      this.ColumnHeader14.Text = "Content";
-      this.ColumnHeader14.Width = 260;
-      // 
-      // Panel12
-      // 
-      this.Panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.Panel12.Controls.Add(this.txtTXXXContent);
-      this.Panel12.Controls.Add(this.btnRemoveTXXX);
-      this.Panel12.Controls.Add(this.btnAddTXXX);
-      this.Panel12.Controls.Add(this.lblTXXXContent);
-      this.Panel12.Controls.Add(this.lblTXXXDesc);
-      this.Panel12.Controls.Add(this.txtTXXXDesc);
-      this.Panel12.Controls.Add(this.TXXXList);
-      this.Panel12.Location = new System.Drawing.Point(8, 8);
-      this.Panel12.Name = "Panel12";
-      this.Panel12.Size = new System.Drawing.Size(648, 176);
-      this.Panel12.TabIndex = 0;
-      // 
-      // txtTXXXContent
-      // 
-      this.txtTXXXContent.Location = new System.Drawing.Point(136, 30);
-      this.txtTXXXContent.Name = "txtTXXXContent";
-      this.txtTXXXContent.Size = new System.Drawing.Size(344, 20);
-      this.txtTXXXContent.TabIndex = 5;
-      this.txtTXXXContent.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtTXXXContent.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // btnRemoveTXXX
-      // 
-      this.btnRemoveTXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnRemoveTXXX.Location = new System.Drawing.Point(488, 32);
-      this.btnRemoveTXXX.Name = "btnRemoveTXXX";
-      this.btnRemoveTXXX.Size = new System.Drawing.Size(152, 20);
-      this.btnRemoveTXXX.TabIndex = 7;
-      this.btnRemoveTXXX.Text = "Remove user text frame";
-      this.btnRemoveTXXX.Click += new System.EventHandler(this.btnRemoveTXXX_Click);
-      // 
-      // btnAddTXXX
-      // 
-      this.btnAddTXXX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnAddTXXX.Location = new System.Drawing.Point(488, 8);
-      this.btnAddTXXX.Name = "btnAddTXXX";
-      this.btnAddTXXX.Size = new System.Drawing.Size(152, 20);
-      this.btnAddTXXX.TabIndex = 6;
-      this.btnAddTXXX.Text = "Add user text frame";
-      this.btnAddTXXX.Click += new System.EventHandler(this.btnAddTXXX_Click);
-      // 
-      // lblTXXXContent
-      // 
-      this.lblTXXXContent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblTXXXContent.Location = new System.Drawing.Point(8, 32);
-      this.lblTXXXContent.Name = "lblTXXXContent";
-      this.lblTXXXContent.Size = new System.Drawing.Size(128, 16);
-      this.lblTXXXContent.TabIndex = 4;
-      this.lblTXXXContent.Text = "Text frame &Content:";
-      // 
-      // lblTXXXDesc
-      // 
-      this.lblTXXXDesc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblTXXXDesc.Location = new System.Drawing.Point(8, 8);
-      this.lblTXXXDesc.Name = "lblTXXXDesc";
-      this.lblTXXXDesc.Size = new System.Drawing.Size(128, 16);
-      this.lblTXXXDesc.TabIndex = 2;
-      this.lblTXXXDesc.Text = "Text frame &Descriptor:";
-      // 
-      // txtTXXXDesc
-      // 
-      this.txtTXXXDesc.Location = new System.Drawing.Point(136, 6);
-      this.txtTXXXDesc.Name = "txtTXXXDesc";
-      this.txtTXXXDesc.Size = new System.Drawing.Size(344, 20);
-      this.txtTXXXDesc.TabIndex = 3;
-      this.txtTXXXDesc.Enter += new System.EventHandler(this.Select_Enter);
-      this.txtTXXXDesc.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // TXXXList
-      // 
-      this.TXXXList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ColumnHeader11,
-            this.ColumnHeader12});
-      this.TXXXList.FullRowSelect = true;
-      this.TXXXList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-      this.TXXXList.HideSelection = false;
-      this.TXXXList.Location = new System.Drawing.Point(136, 64);
-      this.TXXXList.MultiSelect = false;
-      this.TXXXList.Name = "TXXXList";
-      this.TXXXList.Size = new System.Drawing.Size(504, 104);
-      this.TXXXList.TabIndex = 8;
-      this.TXXXList.UseCompatibleStateImageBehavior = false;
-      this.TXXXList.View = System.Windows.Forms.View.Details;
-      this.TXXXList.Click += new System.EventHandler(this.TXXXList_Click);
-      this.TXXXList.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // ColumnHeader11
-      // 
-      this.ColumnHeader11.Text = "Descriptor";
-      this.ColumnHeader11.Width = 200;
-      // 
-      // ColumnHeader12
-      // 
-      this.ColumnHeader12.Text = "Content";
-      this.ColumnHeader12.Width = 258;
-      // 
-      // lblNot
-      // 
-      this.lblNot.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-      this.lblNot.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblNot.Location = new System.Drawing.Point(8, 408);
-      this.lblNot.Name = "lblNot";
-      this.lblNot.Size = new System.Drawing.Size(648, 40);
-      this.lblNot.TabIndex = 44;
-      this.lblNot.Text = "All frames which are not supported by ID3-TagIT. You cannot edit them but you can" +
-    " remove them by unchecking the checkbox.";
-      this.lblNot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      // 
-      // NotSupportList
-      // 
-      this.NotSupportList.CheckBoxes = true;
-      this.NotSupportList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.FrameID,
-            this.Content});
-      this.NotSupportList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-      this.NotSupportList.HideSelection = false;
-      this.NotSupportList.Location = new System.Drawing.Point(8, 8);
-      this.NotSupportList.Name = "NotSupportList";
-      this.NotSupportList.Size = new System.Drawing.Size(648, 392);
-      this.NotSupportList.TabIndex = 0;
-      this.NotSupportList.UseCompatibleStateImageBehavior = false;
-      this.NotSupportList.View = System.Windows.Forms.View.Details;
-      this.NotSupportList.Leave += new System.EventHandler(this.Select_Leave);
-      // 
-      // FrameID
-      // 
-      this.FrameID.Text = "Frame ID";
-      this.FrameID.Width = 150;
-      // 
-      // Content
-      // 
-      this.Content.Text = "Content";
-      this.Content.Width = 467;
-      // 
-      // txtDigits
-      // 
-      this.txtDigits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-      this.txtDigits.Location = new System.Drawing.Point(377, 515);
-      this.txtDigits.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-      this.txtDigits.Name = "txtDigits";
-      this.txtDigits.Size = new System.Drawing.Size(64, 20);
-      this.txtDigits.TabIndex = 102;
-      this.txtDigits.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-      // 
-      // OpenFileDialog
-      // 
-      this.OpenFileDialog.RestoreDirectory = true;
+      // Panel9
+      // 
+      this.Panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.Panel9.Controls.Add(this.txtSortArtist);
+      this.Panel9.Controls.Add(this.txtSortTitle);
+      this.Panel9.Controls.Add(this.txtSortAlbum);
+      this.Panel9.Controls.Add(this.lblAlbumSort);
+      this.Panel9.Controls.Add(this.lblTitleSort);
+      this.Panel9.Controls.Add(this.lblArtistSort);
+      this.Panel9.Location = new System.Drawing.Point(8, 280);
+      this.Panel9.Name = "Panel9";
+      this.Panel9.Size = new System.Drawing.Size(648, 80);
+      this.Panel9.TabIndex = 2;
+      // 
+      // txtSortArtist
+      // 
+      this.txtSortArtist.Location = new System.Drawing.Point(168, 6);
+      this.txtSortArtist.Name = "txtSortArtist";
+      this.txtSortArtist.Size = new System.Drawing.Size(472, 20);
+      this.txtSortArtist.TabIndex = 17;
+      this.txtSortArtist.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtSortArtist.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtSortTitle
+      // 
+      this.txtSortTitle.Location = new System.Drawing.Point(168, 54);
+      this.txtSortTitle.Name = "txtSortTitle";
+      this.txtSortTitle.Size = new System.Drawing.Size(472, 20);
+      this.txtSortTitle.TabIndex = 21;
+      this.txtSortTitle.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtSortTitle.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // txtSortAlbum
+      // 
+      this.txtSortAlbum.Location = new System.Drawing.Point(168, 30);
+      this.txtSortAlbum.Name = "txtSortAlbum";
+      this.txtSortAlbum.Size = new System.Drawing.Size(472, 20);
+      this.txtSortAlbum.TabIndex = 19;
+      this.txtSortAlbum.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtSortAlbum.Leave += new System.EventHandler(this.Select_Leave);
+      // 
+      // lblAlbumSort
+      // 
+      this.lblAlbumSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblAlbumSort.Location = new System.Drawing.Point(8, 32);
+      this.lblAlbumSort.Name = "lblAlbumSort";
+      this.lblAlbumSort.Size = new System.Drawing.Size(168, 16);
+      this.lblAlbumSort.TabIndex = 18;
+      this.lblAlbumSort.Text = "Al&bum sort name (Ver. 2.4 only):";
+      // 
+      // lblTitleSort
+      // 
+      this.lblTitleSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblTitleSort.Location = new System.Drawing.Point(8, 56);
+      this.lblTitleSort.Name = "lblTitleSort";
+      this.lblTitleSort.Size = new System.Drawing.Size(160, 16);
+      this.lblTitleSort.TabIndex = 20;
+      this.lblTitleSort.Text = "&Title sort name (Ver. 2.4 only):";
+      // 
+      // lblArtistSort
+      // 
+      this.lblArtistSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblArtistSort.Location = new System.Drawing.Point(8, 8);
+      this.lblArtistSort.Name = "lblArtistSort";
+      this.lblArtistSort.Size = new System.Drawing.Size(168, 16);
+      this.lblArtistSort.TabIndex = 16;
+      this.lblArtistSort.Text = "&Artist sort name (Ver. 2.4 only):";
       // 
       // btnCancel
       // 
@@ -3177,6 +2757,63 @@ namespace ID3_TagIT
       this.btnOK.UseVisualStyleBackColor = false;
       this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
       // 
+      // cboFormat
+      // 
+      this.cboFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.cboFormat.FormattingEnabled = true;
+      this.cboFormat.Location = new System.Drawing.Point(14, 96);
+      this.cboFormat.Name = "cboFormat";
+      this.cboFormat.Size = new System.Drawing.Size(131, 21);
+      this.cboFormat.TabIndex = 4;
+      // 
+      // label1
+      // 
+      this.label1.AutoSize = true;
+      this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.label1.Location = new System.Drawing.Point(11, 9);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(100, 15);
+      this.label1.TabIndex = 0;
+      this.label1.Text = "TAG Information";
+      // 
+      // label2
+      // 
+      this.label2.AutoSize = true;
+      this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.label2.Location = new System.Drawing.Point(11, 9);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(118, 15);
+      this.label2.TabIndex = 0;
+      this.label2.Text = "Transfer and Import";
+      // 
+      // lblCommand
+      // 
+      this.lblCommand.AutoSize = true;
+      this.lblCommand.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.lblCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblCommand.Location = new System.Drawing.Point(11, 9);
+      this.lblCommand.Name = "lblCommand";
+      this.lblCommand.Size = new System.Drawing.Size(68, 15);
+      this.lblCommand.TabIndex = 0;
+      this.lblCommand.Text = "Commands";
+      // 
+      // lblDetailedInfo
+      // 
+      this.lblDetailedInfo.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblDetailedInfo.AutoSize = true;
+      this.lblDetailedInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblDetailedInfo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblDetailedInfo.Location = new System.Drawing.Point(22, 52);
+      this.lblDetailedInfo.Name = "lblDetailedInfo";
+      this.lblDetailedInfo.Size = new System.Drawing.Size(101, 13);
+      this.lblDetailedInfo.TabIndex = 2;
+      this.lblDetailedInfo.TabStop = true;
+      this.lblDetailedInfo.Text = "Detailed Information";
+      this.lblDetailedInfo.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblDetailedInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblDetailedInfo_LinkClicked);
+      // 
       // lblDigits
       // 
       this.lblDigits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -3188,6 +2825,294 @@ namespace ID3_TagIT
       this.lblDigits.Size = new System.Drawing.Size(184, 16);
       this.lblDigits.TabIndex = 101;
       this.lblDigits.Text = "Number of digits of track numbers:";
+      // 
+      // lblGetFromFile
+      // 
+      this.lblGetFromFile.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblGetFromFile.AutoSize = true;
+      this.lblGetFromFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblGetFromFile.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblGetFromFile.Location = new System.Drawing.Point(22, 73);
+      this.lblGetFromFile.Name = "lblGetFromFile";
+      this.lblGetFromFile.Size = new System.Drawing.Size(95, 13);
+      this.lblGetFromFile.TabIndex = 3;
+      this.lblGetFromFile.TabStop = true;
+      this.lblGetFromFile.Text = "Get From Filename";
+      this.lblGetFromFile.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblGetFromFile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblGetFromFile_LinkClicked);
+      // 
+      // lblInvolvedPeople
+      // 
+      this.lblInvolvedPeople.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblInvolvedPeople.AutoSize = true;
+      this.lblInvolvedPeople.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblInvolvedPeople.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblInvolvedPeople.Location = new System.Drawing.Point(22, 94);
+      this.lblInvolvedPeople.Name = "lblInvolvedPeople";
+      this.lblInvolvedPeople.Size = new System.Drawing.Size(84, 13);
+      this.lblInvolvedPeople.TabIndex = 4;
+      this.lblInvolvedPeople.TabStop = true;
+      this.lblInvolvedPeople.Text = "Involved People";
+      this.lblInvolvedPeople.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblInvolvedPeople.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblInvolvedPeople_LinkClicked);
+      // 
+      // lblLyricsPane
+      // 
+      this.lblLyricsPane.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblLyricsPane.AutoSize = true;
+      this.lblLyricsPane.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblLyricsPane.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblLyricsPane.Location = new System.Drawing.Point(22, 157);
+      this.lblLyricsPane.Name = "lblLyricsPane";
+      this.lblLyricsPane.Size = new System.Drawing.Size(34, 13);
+      this.lblLyricsPane.TabIndex = 7;
+      this.lblLyricsPane.TabStop = true;
+      this.lblLyricsPane.Text = "Lyrics";
+      this.lblLyricsPane.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblLyricsPane.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblLyricsPane_LinkClicked);
+      // 
+      // lblMainEntries
+      // 
+      this.lblMainEntries.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblMainEntries.AutoSize = true;
+      this.lblMainEntries.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblMainEntries.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblMainEntries.Location = new System.Drawing.Point(22, 31);
+      this.lblMainEntries.Name = "lblMainEntries";
+      this.lblMainEntries.Size = new System.Drawing.Size(65, 13);
+      this.lblMainEntries.TabIndex = 1;
+      this.lblMainEntries.TabStop = true;
+      this.lblMainEntries.Text = "Main Entries";
+      this.lblMainEntries.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblMainEntries.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMainEntries_LinkClicked);
+      // 
+      // lblNext
+      // 
+      this.lblNext.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblNext.AutoSize = true;
+      this.lblNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblNext.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblNext.Location = new System.Drawing.Point(22, 52);
+      this.lblNext.Name = "lblNext";
+      this.lblNext.Size = new System.Drawing.Size(48, 13);
+      this.lblNext.TabIndex = 2;
+      this.lblNext.TabStop = true;
+      this.lblNext.Text = "Next File";
+      this.lblNext.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblNext.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblNext_LinkClicked);
+      // 
+      // lblNot
+      // 
+      this.lblNot.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.lblNot.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblNot.Location = new System.Drawing.Point(8, 408);
+      this.lblNot.Name = "lblNot";
+      this.lblNot.Size = new System.Drawing.Size(648, 40);
+      this.lblNot.TabIndex = 44;
+      this.lblNot.Text = "All frames which are not supported by ID3-TagIT. You cannot edit them but you can" +
+    " remove them by unchecking the checkbox.";
+      this.lblNot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // lblOriginalInfo
+      // 
+      this.lblOriginalInfo.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblOriginalInfo.AutoSize = true;
+      this.lblOriginalInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblOriginalInfo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblOriginalInfo.Location = new System.Drawing.Point(22, 73);
+      this.lblOriginalInfo.Name = "lblOriginalInfo";
+      this.lblOriginalInfo.Size = new System.Drawing.Size(97, 13);
+      this.lblOriginalInfo.TabIndex = 3;
+      this.lblOriginalInfo.TabStop = true;
+      this.lblOriginalInfo.Text = "Original Information";
+      this.lblOriginalInfo.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblOriginalInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblOriginalInfo_LinkClicked);
+      // 
+      // lblPictures
+      // 
+      this.lblPictures.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblPictures.AutoSize = true;
+      this.lblPictures.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblPictures.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblPictures.Location = new System.Drawing.Point(22, 136);
+      this.lblPictures.Name = "lblPictures";
+      this.lblPictures.Size = new System.Drawing.Size(45, 13);
+      this.lblPictures.TabIndex = 6;
+      this.lblPictures.TabStop = true;
+      this.lblPictures.Text = "Pictures";
+      this.lblPictures.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblPictures.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblPictures_LinkClicked);
+      // 
+      // lblPrevious
+      // 
+      this.lblPrevious.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblPrevious.AutoSize = true;
+      this.lblPrevious.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblPrevious.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblPrevious.Location = new System.Drawing.Point(22, 31);
+      this.lblPrevious.Name = "lblPrevious";
+      this.lblPrevious.Size = new System.Drawing.Size(67, 13);
+      this.lblPrevious.TabIndex = 1;
+      this.lblPrevious.TabStop = true;
+      this.lblPrevious.Text = "Previous File";
+      this.lblPrevious.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblPrevious.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblPrevious_LinkClicked);
+      // 
+      // lblRating
+      // 
+      this.lblRating.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblRating.AutoSize = true;
+      this.lblRating.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblRating.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblRating.Location = new System.Drawing.Point(22, 178);
+      this.lblRating.Name = "lblRating";
+      this.lblRating.Size = new System.Drawing.Size(38, 13);
+      this.lblRating.TabIndex = 8;
+      this.lblRating.TabStop = true;
+      this.lblRating.Text = "Rating";
+      this.lblRating.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblRating.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblRating_LinkClicked);
+      // 
+      // lblSelected
+      // 
+      this.lblSelected.BackColor = System.Drawing.SystemColors.Control;
+      this.lblSelected.ForeColor = System.Drawing.Color.Black;
+      this.lblSelected.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblSelected.Location = new System.Drawing.Point(174, 29);
+      this.lblSelected.Name = "lblSelected";
+      this.lblSelected.Size = new System.Drawing.Size(104, 16);
+      this.lblSelected.TabIndex = 107;
+      this.lblSelected.Text = "Selected file:";
+      // 
+      // lblSwapArtAlb
+      // 
+      this.lblSwapArtAlb.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblSwapArtAlb.AutoSize = true;
+      this.lblSwapArtAlb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtAlb.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtAlb.Location = new System.Drawing.Point(22, 94);
+      this.lblSwapArtAlb.Name = "lblSwapArtAlb";
+      this.lblSwapArtAlb.Size = new System.Drawing.Size(92, 13);
+      this.lblSwapArtAlb.TabIndex = 4;
+      this.lblSwapArtAlb.TabStop = true;
+      this.lblSwapArtAlb.Text = "Swap Artist-Album";
+      this.lblSwapArtAlb.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtAlb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSwapArtAlb_LinkClicked);
+      // 
+      // lblSwapTtlAlb
+      // 
+      this.lblSwapTtlAlb.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblSwapTtlAlb.AutoSize = true;
+      this.lblSwapTtlAlb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapTtlAlb.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapTtlAlb.Location = new System.Drawing.Point(22, 115);
+      this.lblSwapTtlAlb.Name = "lblSwapTtlAlb";
+      this.lblSwapTtlAlb.Size = new System.Drawing.Size(89, 13);
+      this.lblSwapTtlAlb.TabIndex = 5;
+      this.lblSwapTtlAlb.TabStop = true;
+      this.lblSwapTtlAlb.Text = "Swap Title-Album";
+      this.lblSwapTtlAlb.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapTtlAlb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSwapTtlAlb_LinkClicked);
+      // 
+      // lblSwapArtTtl
+      // 
+      this.lblSwapArtTtl.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblSwapArtTtl.AutoSize = true;
+      this.lblSwapArtTtl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtTtl.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtTtl.Location = new System.Drawing.Point(22, 73);
+      this.lblSwapArtTtl.Name = "lblSwapArtTtl";
+      this.lblSwapArtTtl.Size = new System.Drawing.Size(83, 13);
+      this.lblSwapArtTtl.TabIndex = 3;
+      this.lblSwapArtTtl.TabStop = true;
+      this.lblSwapArtTtl.Text = "Swap Artist-Title";
+      this.lblSwapArtTtl.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtTtl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSwapArtTtl_LinkClicked);
+      // 
+      // lblTopPanel
+      // 
+      this.lblTopPanel.AutoSize = true;
+      this.lblTopPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+      this.lblTopPanel.Location = new System.Drawing.Point(174, 9);
+      this.lblTopPanel.Name = "lblTopPanel";
+      this.lblTopPanel.Size = new System.Drawing.Size(76, 16);
+      this.lblTopPanel.TabIndex = 126;
+      this.lblTopPanel.Text = "TopPanel";
+      // 
+      // lblUnsupported
+      // 
+      this.lblUnsupported.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblUnsupported.AutoSize = true;
+      this.lblUnsupported.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblUnsupported.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblUnsupported.Location = new System.Drawing.Point(22, 220);
+      this.lblUnsupported.Name = "lblUnsupported";
+      this.lblUnsupported.Size = new System.Drawing.Size(102, 13);
+      this.lblUnsupported.TabIndex = 10;
+      this.lblUnsupported.TabStop = true;
+      this.lblUnsupported.Text = "Unsupported frames";
+      this.lblUnsupported.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblUnsupported.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblUnsupported_LinkClicked);
+      // 
+      // lblUserDefined
+      // 
+      this.lblUserDefined.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblUserDefined.AutoSize = true;
+      this.lblUserDefined.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblUserDefined.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblUserDefined.Location = new System.Drawing.Point(22, 199);
+      this.lblUserDefined.Name = "lblUserDefined";
+      this.lblUserDefined.Size = new System.Drawing.Size(121, 13);
+      this.lblUserDefined.TabIndex = 9;
+      this.lblUserDefined.TabStop = true;
+      this.lblUserDefined.Text = "User defined information";
+      this.lblUserDefined.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblUserDefined.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblUserDefined_LinkClicked);
+      // 
+      // lblWebInfo
+      // 
+      this.lblWebInfo.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblWebInfo.AutoSize = true;
+      this.lblWebInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblWebInfo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblWebInfo.Location = new System.Drawing.Point(22, 115);
+      this.lblWebInfo.Name = "lblWebInfo";
+      this.lblWebInfo.Size = new System.Drawing.Size(85, 13);
+      this.lblWebInfo.TabIndex = 5;
+      this.lblWebInfo.TabStop = true;
+      this.lblWebInfo.Text = "Web Information";
+      this.lblWebInfo.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblWebInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblWebInfo_LinkClicked);
+      // 
+      // lblXferFromV1
+      // 
+      this.lblXferFromV1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblXferFromV1.AutoSize = true;
+      this.lblXferFromV1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblXferFromV1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblXferFromV1.Location = new System.Drawing.Point(22, 31);
+      this.lblXferFromV1.Name = "lblXferFromV1";
+      this.lblXferFromV1.Size = new System.Drawing.Size(103, 13);
+      this.lblXferFromV1.TabIndex = 1;
+      this.lblXferFromV1.TabStop = true;
+      this.lblXferFromV1.Text = "Transfer From Ver. 1";
+      this.lblXferFromV1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblXferFromV1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblXferFromV1_LinkClicked);
+      // 
+      // lblXferToV1
+      // 
+      this.lblXferToV1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblXferToV1.AutoSize = true;
+      this.lblXferToV1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblXferToV1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblXferToV1.Location = new System.Drawing.Point(22, 52);
+      this.lblXferToV1.Name = "lblXferToV1";
+      this.lblXferToV1.Size = new System.Drawing.Size(88, 13);
+      this.lblXferToV1.TabIndex = 2;
+      this.lblXferToV1.TabStop = true;
+      this.lblXferToV1.Text = "Tranfer To Ver. 1";
+      this.lblXferToV1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblXferToV1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblXferToV1_LinkClicked);
       // 
       // panDetail
       // 
@@ -3201,6 +3126,23 @@ namespace ID3_TagIT
       this.panDetail.Size = new System.Drawing.Size(664, 432);
       this.panDetail.TabIndex = 117;
       // 
+      // panInvolved
+      // 
+      this.panInvolved.Controls.Add(this.Panel16);
+      this.panInvolved.Controls.Add(this.Panel15);
+      this.panInvolved.Location = new System.Drawing.Point(168, 48);
+      this.panInvolved.Name = "panInvolved";
+      this.panInvolved.Size = new System.Drawing.Size(664, 320);
+      this.panInvolved.TabIndex = 119;
+      // 
+      // panLyrics
+      // 
+      this.panLyrics.Controls.Add(this.Panel8);
+      this.panLyrics.Location = new System.Drawing.Point(168, 48);
+      this.panLyrics.Name = "panLyrics";
+      this.panLyrics.Size = new System.Drawing.Size(664, 456);
+      this.panLyrics.TabIndex = 121;
+      // 
       // panMain
       // 
       this.panMain.Controls.Add(this.Panel3);
@@ -3211,6 +3153,15 @@ namespace ID3_TagIT
       this.panMain.Size = new System.Drawing.Size(664, 456);
       this.panMain.TabIndex = 116;
       // 
+      // panNot
+      // 
+      this.panNot.Controls.Add(this.lblNot);
+      this.panNot.Controls.Add(this.NotSupportList);
+      this.panNot.Location = new System.Drawing.Point(168, 48);
+      this.panNot.Name = "panNot";
+      this.panNot.Size = new System.Drawing.Size(664, 440);
+      this.panNot.TabIndex = 125;
+      // 
       // panOriginal
       // 
       this.panOriginal.Controls.Add(this.Panel6);
@@ -3219,15 +3170,6 @@ namespace ID3_TagIT
       this.panOriginal.Size = new System.Drawing.Size(664, 424);
       this.panOriginal.TabIndex = 118;
       // 
-      // panInvolved
-      // 
-      this.panInvolved.Controls.Add(this.Panel16);
-      this.panInvolved.Controls.Add(this.Panel15);
-      this.panInvolved.Location = new System.Drawing.Point(168, 48);
-      this.panInvolved.Name = "panInvolved";
-      this.panInvolved.Size = new System.Drawing.Size(664, 320);
-      this.panInvolved.TabIndex = 119;
-      // 
       // panPic
       // 
       this.panPic.Controls.Add(this.Panel7);
@@ -3235,22 +3177,6 @@ namespace ID3_TagIT
       this.panPic.Name = "panPic";
       this.panPic.Size = new System.Drawing.Size(664, 304);
       this.panPic.TabIndex = 120;
-      // 
-      // panLyrics
-      // 
-      this.panLyrics.Controls.Add(this.Panel8);
-      this.panLyrics.Location = new System.Drawing.Point(168, 48);
-      this.panLyrics.Name = "panLyrics";
-      this.panLyrics.Size = new System.Drawing.Size(664, 456);
-      this.panLyrics.TabIndex = 121;
-      // 
-      // panWeb
-      // 
-      this.panWeb.Controls.Add(this.Panel10);
-      this.panWeb.Location = new System.Drawing.Point(168, 48);
-      this.panWeb.Name = "panWeb";
-      this.panWeb.Size = new System.Drawing.Size(664, 360);
-      this.panWeb.TabIndex = 122;
       // 
       // panRating
       // 
@@ -3269,24 +3195,98 @@ namespace ID3_TagIT
       this.panUser.Size = new System.Drawing.Size(664, 416);
       this.panUser.TabIndex = 124;
       // 
-      // panNot
+      // panWeb
       // 
-      this.panNot.Controls.Add(this.lblNot);
-      this.panNot.Controls.Add(this.NotSupportList);
-      this.panNot.Location = new System.Drawing.Point(168, 48);
-      this.panNot.Name = "panNot";
-      this.panNot.Size = new System.Drawing.Size(664, 440);
-      this.panNot.TabIndex = 125;
+      this.panWeb.Controls.Add(this.Panel10);
+      this.panWeb.Location = new System.Drawing.Point(168, 48);
+      this.panWeb.Name = "panWeb";
+      this.panWeb.Size = new System.Drawing.Size(664, 360);
+      this.panWeb.TabIndex = 122;
       // 
-      // lblTopPanel
+      // pnlCommands
       // 
-      this.lblTopPanel.AutoSize = true;
-      this.lblTopPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-      this.lblTopPanel.Location = new System.Drawing.Point(174, 9);
-      this.lblTopPanel.Name = "lblTopPanel";
-      this.lblTopPanel.Size = new System.Drawing.Size(76, 16);
-      this.lblTopPanel.TabIndex = 126;
-      this.lblTopPanel.Text = "TopPanel";
+      this.pnlCommands.Controls.Add(this.lblSwapTtlAlb);
+      this.pnlCommands.Controls.Add(this.lblSwapArtAlb);
+      this.pnlCommands.Controls.Add(this.lblSwapArtTtl);
+      this.pnlCommands.Controls.Add(this.lblNext);
+      this.pnlCommands.Controls.Add(this.lblPrevious);
+      this.pnlCommands.Controls.Add(this.lblCommand);
+      this.pnlCommands.Location = new System.Drawing.Point(12, 392);
+      this.pnlCommands.Name = "pnlCommands";
+      this.pnlCommands.Size = new System.Drawing.Size(135, 147);
+      this.pnlCommands.TabIndex = 0;
+      // 
+      // pnlTagInfo
+      // 
+      this.pnlTagInfo.Controls.Add(this.lblUnsupported);
+      this.pnlTagInfo.Controls.Add(this.lblUserDefined);
+      this.pnlTagInfo.Controls.Add(this.lblRating);
+      this.pnlTagInfo.Controls.Add(this.lblLyricsPane);
+      this.pnlTagInfo.Controls.Add(this.lblPictures);
+      this.pnlTagInfo.Controls.Add(this.lblWebInfo);
+      this.pnlTagInfo.Controls.Add(this.lblInvolvedPeople);
+      this.pnlTagInfo.Controls.Add(this.lblOriginalInfo);
+      this.pnlTagInfo.Controls.Add(this.lblDetailedInfo);
+      this.pnlTagInfo.Controls.Add(this.lblMainEntries);
+      this.pnlTagInfo.Controls.Add(this.label1);
+      this.pnlTagInfo.Location = new System.Drawing.Point(12, 6);
+      this.pnlTagInfo.Name = "pnlTagInfo";
+      this.pnlTagInfo.Size = new System.Drawing.Size(145, 243);
+      this.pnlTagInfo.TabIndex = 0;
+      // 
+      // pnlXferImport
+      // 
+      this.pnlXferImport.Controls.Add(this.cboFormat);
+      this.pnlXferImport.Controls.Add(this.lblGetFromFile);
+      this.pnlXferImport.Controls.Add(this.lblXferToV1);
+      this.pnlXferImport.Controls.Add(this.lblXferFromV1);
+      this.pnlXferImport.Controls.Add(this.label2);
+      this.pnlXferImport.Location = new System.Drawing.Point(12, 255);
+      this.pnlXferImport.Name = "pnlXferImport";
+      this.pnlXferImport.Size = new System.Drawing.Size(150, 131);
+      this.pnlXferImport.TabIndex = 0;
+      // 
+      // pnlLeft
+      // 
+      this.pnlLeft.Controls.Add(this.pnlCommands);
+      this.pnlLeft.Controls.Add(this.pnlXferImport);
+      this.pnlLeft.Controls.Add(this.pnlTagInfo);
+      this.pnlLeft.Location = new System.Drawing.Point(0, 0);
+      this.pnlLeft.Name = "pnlLeft";
+      this.pnlLeft.Size = new System.Drawing.Size(168, 544);
+      this.pnlLeft.TabIndex = 35;
+      // 
+      // txtDigits
+      // 
+      this.txtDigits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+      this.txtDigits.Location = new System.Drawing.Point(377, 515);
+      this.txtDigits.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.txtDigits.Name = "txtDigits";
+      this.txtDigits.Size = new System.Drawing.Size(64, 20);
+      this.txtDigits.TabIndex = 102;
+      this.txtDigits.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      // 
+      // txtSelected
+      // 
+      this.txtSelected.BackColor = System.Drawing.SystemColors.Control;
+      this.txtSelected.BorderStyle = System.Windows.Forms.BorderStyle.None;
+      this.txtSelected.ForeColor = System.Drawing.Color.Black;
+      this.txtSelected.Location = new System.Drawing.Point(278, 29);
+      this.txtSelected.Name = "txtSelected";
+      this.txtSelected.ReadOnly = true;
+      this.txtSelected.Size = new System.Drawing.Size(544, 13);
+      this.txtSelected.TabIndex = 108;
+      this.txtSelected.TabStop = false;
+      this.txtSelected.Enter += new System.EventHandler(this.Select_Enter);
+      this.txtSelected.Leave += new System.EventHandler(this.Select_Leave);
       // 
       // frmTAG2
       // 
@@ -3320,58 +3320,58 @@ namespace ID3_TagIT
       this.Name = "frmTAG2";
       this.ShowInTaskbar = false;
       this.Text = "Edit TAG Ver. 2";
-      this.Panel3.ResumeLayout(false);
-      this.Panel3.PerformLayout();
-      this.Panel2.ResumeLayout(false);
-      this.pnlLeft.ResumeLayout(false);
-      this.panel17.ResumeLayout(false);
-      this.panel17.PerformLayout();
-      this.panel19.ResumeLayout(false);
-      this.panel19.PerformLayout();
-      this.panel18.ResumeLayout(false);
-      this.panel18.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.APICView)).EndInit();
       this.Panel1.ResumeLayout(false);
       this.Panel1.PerformLayout();
-      this.Panel9.ResumeLayout(false);
-      this.Panel9.PerformLayout();
-      this.Panel6.ResumeLayout(false);
-      this.Panel6.PerformLayout();
-      this.Panel5.ResumeLayout(false);
-      this.Panel5.PerformLayout();
-      this.Panel4.ResumeLayout(false);
-      this.Panel4.PerformLayout();
-      this.Panel15.ResumeLayout(false);
-      this.Panel15.PerformLayout();
-      this.Panel16.ResumeLayout(false);
-      this.Panel16.PerformLayout();
-      this.Panel14.ResumeLayout(false);
-      this.Panel14.PerformLayout();
-      this.Panel7.ResumeLayout(false);
-      this.Panel7.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.APICView)).EndInit();
-      this.Panel8.ResumeLayout(false);
-      this.Panel8.PerformLayout();
+      this.Panel10.ResumeLayout(false);
+      this.Panel10.PerformLayout();
       this.Panel11.ResumeLayout(false);
       this.Panel11.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.txtRatingCounter)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.txtRatingRating)).EndInit();
-      this.Panel10.ResumeLayout(false);
-      this.Panel10.PerformLayout();
-      this.Panel13.ResumeLayout(false);
-      this.Panel13.PerformLayout();
       this.Panel12.ResumeLayout(false);
       this.Panel12.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).EndInit();
+      this.Panel13.ResumeLayout(false);
+      this.Panel13.PerformLayout();
+      this.Panel14.ResumeLayout(false);
+      this.Panel14.PerformLayout();
+      this.Panel15.ResumeLayout(false);
+      this.Panel15.PerformLayout();
+      this.Panel16.ResumeLayout(false);
+      this.Panel16.PerformLayout();
+      this.Panel2.ResumeLayout(false);
+      this.Panel3.ResumeLayout(false);
+      this.Panel3.PerformLayout();
+      this.Panel4.ResumeLayout(false);
+      this.Panel4.PerformLayout();
+      this.Panel5.ResumeLayout(false);
+      this.Panel5.PerformLayout();
+      this.Panel6.ResumeLayout(false);
+      this.Panel6.PerformLayout();
+      this.Panel7.ResumeLayout(false);
+      this.Panel7.PerformLayout();
+      this.Panel8.ResumeLayout(false);
+      this.Panel8.PerformLayout();
+      this.Panel9.ResumeLayout(false);
+      this.Panel9.PerformLayout();
       this.panDetail.ResumeLayout(false);
-      this.panMain.ResumeLayout(false);
-      this.panOriginal.ResumeLayout(false);
       this.panInvolved.ResumeLayout(false);
-      this.panPic.ResumeLayout(false);
       this.panLyrics.ResumeLayout(false);
-      this.panWeb.ResumeLayout(false);
+      this.panMain.ResumeLayout(false);
+      this.panNot.ResumeLayout(false);
+      this.panOriginal.ResumeLayout(false);
+      this.panPic.ResumeLayout(false);
       this.panRating.ResumeLayout(false);
       this.panUser.ResumeLayout(false);
-      this.panNot.ResumeLayout(false);
+      this.panWeb.ResumeLayout(false);
+      this.pnlCommands.ResumeLayout(false);
+      this.pnlCommands.PerformLayout();
+      this.pnlTagInfo.ResumeLayout(false);
+      this.pnlTagInfo.PerformLayout();
+      this.pnlXferImport.ResumeLayout(false);
+      this.pnlXferImport.PerformLayout();
+      this.pnlLeft.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -3846,60 +3846,6 @@ namespace ID3_TagIT
       this.btnExPic.Enabled = false;
     }
 
-    private void lblXferToV1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      if ((StringType.StrCmp(this.cmbArtist.Text, "", false) != 0) & (StringType.StrCmp(this.MP3.V1TAG.Artist, this.cmbArtist.Text, false) != 0))
-      {
-        this.MP3.V1TAG.Artist = this.cmbArtist.Text;
-        this.MP3.V1TAG.TAGPresent = true;
-        this.MP3.Changed = true;
-      }
-
-      if ((StringType.StrCmp(this.txtTitle.Text, "", false) != 0) & (StringType.StrCmp(this.MP3.V1TAG.Title, this.txtTitle.Text, false) != 0))
-      {
-        this.MP3.V1TAG.Title = this.txtTitle.Text;
-        this.MP3.V1TAG.TAGPresent = true;
-        this.MP3.Changed = true;
-      }
-
-      if ((StringType.StrCmp(this.txtAlbum.Text, "", false) != 0) & (StringType.StrCmp(this.MP3.V1TAG.Album, this.txtAlbum.Text, false) != 0))
-      {
-        this.MP3.V1TAG.Album = this.txtAlbum.Text;
-        this.MP3.V1TAG.TAGPresent = true;
-        this.MP3.Changed = true;
-      }
-
-      if ((StringType.StrCmp(this.txtYear.Text, "", false) != 0) && (StringType.StrCmp(this.MP3.V1TAG.Year.ToString(), this.txtYear.Text.Substring(0, 4), false) != 0))
-      {
-        this.MP3.V1TAG.Year = (int)Math.Round(Conversion.Val(this.txtYear.Text.Substring(0, 4)));
-        this.MP3.V1TAG.TAGPresent = true;
-        this.MP3.Changed = true;
-      }
-
-      if ((StringType.StrCmp(this.txtTrack1.Text, "", false) != 0) & (this.MP3.V1TAG.Tracknumber != Conversion.Val(this.txtTrack1.Text)))
-      {
-        this.MP3.V1TAG.Tracknumber = (byte)Math.Round(Conversion.Val(this.txtTrack1.Text));
-        this.MP3.V1TAG.TAGPresent = true;
-        this.MP3.Changed = true;
-      }
-
-      if ((this.GenreList.Items.Count > 0) && (ObjectType.ObjTst(this.MP3.V1TAG.GenreText, this.GenreList.Items[0], false) != 0))
-      {
-        this.MP3.V1TAG.GenreText = StringType.FromObject(this.GenreList.Items[0]);
-        this.MP3.V1TAG.TAGPresent = true;
-        this.MP3.Changed = true;
-      }
-
-      if ((this.CommentList.Items.Count > 0) && (ObjectType.ObjTst(this.MP3.V1TAG.Comment, LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Content", new object[0], null, null), false) != 0))
-      {
-        this.MP3.V1TAG.Comment = StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Content", new object[0], null, null));
-        this.MP3.V1TAG.TAGPresent = true;
-        this.MP3.Changed = true;
-      }
-
-      this.MainForm.UpdateListItem(this.MainForm.MP3View.FocusedItem, false);
-    }
-
     private void lblGetFromFile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
       string vstrFormat = "";
@@ -3994,93 +3940,6 @@ namespace ID3_TagIT
       }
     }
 
-    private void lblXferFromV1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      if (StringType.StrCmp(this.MP3.V1TAG.Artist, "", false) != 0)
-        this.cmbArtist.Text = this.MP3.V1TAG.Artist;
-
-      if (StringType.StrCmp(this.MP3.V1TAG.Title, "", false) != 0)
-        this.txtTitle.Text = this.MP3.V1TAG.Title;
-
-      if (StringType.StrCmp(this.MP3.V1TAG.Album, "", false) != 0)
-        this.txtAlbum.Text = this.MP3.V1TAG.Album;
-
-      if (this.MP3.V1TAG.Year != 0)
-        this.txtYear.Text = this.MP3.V1TAG.Year.ToString().Trim(new char[] { ' ' }).PadLeft(4, '0') + "-01-01";
-
-      if (this.MP3.V1TAG.Tracknumber != 0)
-        this.txtTrack1.Text = this.MP3.V1TAG.Tracknumber.ToString();
-
-      if ((StringType.StrCmp(this.MP3.V1TAG.GenreText, "< undefined >", false) != 0) & !this.GenreList.Items.Contains(this.MP3.V1TAG.GenreText))
-        this.GenreList.Items.Add(this.MP3.V1TAG.GenreText);
-
-      if (StringType.StrCmp(this.MP3.V1TAG.Comment, "", false) != 0)
-      {
-        ListViewItem item = new ListViewItem();
-        V2LDCFrame frame = new V2LDCFrame
-        {
-          FID = "COMM",
-          Descriptor = "TAG Ver. 1 Comment",
-          Content = this.MP3.V1TAG.Comment,
-          Language = StringType.FromObject(LateBinding.LateGet(this.cmbCLanguage.Items[Declarations.objSettings.V2Language], null, "Substring", new object[] { 0, 3 }, null, null))
-        };
-
-        foreach (ListViewItem item2 in this.CommentList.Items)
-          if ((StringType.StrCmp(item2.Text, frame.Descriptor, false) == 0) & (StringType.StrCmp(item2.SubItems[2].Text, frame.Language, false) == 0))
-          {
-            item2.SubItems[1].Text = this.MP3.V1TAG.Comment;
-            item2.Tag = frame;
-            return;
-          }
-
-        item.Text = frame.Descriptor;
-        item.SubItems.Add(frame.Content);
-        object[] objArray3 = new object[1];
-        object o = this.cmbCLanguage.Items[Declarations.objSettings.V2Language];
-        object[] args = new object[2];
-        int num3 = 0;
-        args[0] = num3;
-        int num = 3;
-        args[1] = num;
-        objArray3[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(o, null, "Substring", args, null, null));
-        object[] objArray2 = objArray3;
-        bool[] copyBack = new bool[] { true };
-        LateBinding.LateCall(item.SubItems, null, "Add", objArray2, null, copyBack);
-
-        if (copyBack[0])
-          LateBinding.LateSetComplex(o, null, "Substring", new object[] { num3, num, RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, true);
-
-        item.Tag = frame;
-        this.CommentList.Items.Add(item);
-      }
-    }
-
-    private void btnItem_Click(object sender, EventArgs e)
-    {
-      this.lblTopPanel.Text = StringType.FromObject(LateBinding.LateGet(sender, null, "Text", new object[0], null, null));
-      this.panMain.Visible = false;
-      this.panDetail.Visible = false;
-      this.panOriginal.Visible = false;
-      this.panWeb.Visible = false;
-      this.panRating.Visible = false;
-      this.panPic.Visible = false;
-      this.panLyrics.Visible = false;
-      this.panNot.Visible = false;
-      this.panInvolved.Visible = false;
-      this.panUser.Visible = false;
-      this.panMain.Enabled = false;
-      this.panDetail.Enabled = false;
-      this.panOriginal.Enabled = false;
-      this.panWeb.Enabled = false;
-      this.panRating.Enabled = false;
-      this.panPic.Enabled = false;
-      this.panLyrics.Enabled = false;
-      this.panNot.Enabled = false;
-      this.panInvolved.Enabled = false;
-      this.panUser.Enabled = false;
-      object obj2 = LateBinding.LateGet(sender, null, "Name", new object[0], null, null);
-    }
-
     private void btnLyricsFile_Click(object sender, EventArgs e)
     {
       this.OpenFileDialog.Filter = "*.TXT|*.TXT";
@@ -4147,39 +4006,6 @@ namespace ID3_TagIT
       }
     }
 
-    private void lblNext_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      this.SaveToTAG();
-
-      if (this.MainForm.MP3View.FocusedItem.Index < (this.MainForm.MP3View.Items.Count - 1))
-      {
-        this.MainForm.MP3View.Items[this.MainForm.MP3View.FocusedItem.Index + 1].Focused = true;
-        this.MP3 = (ID3_TagIT.MP3)this.MainForm.MP3View.FocusedItem.Tag;
-        this.ClearForm();
-        this.FillForm();
-
-        // FIXME
-        //if (this.ActiveControl == this.btnNext)
-        //  this.FocusControl.Focus();
-      }
-      // FIXME
-      //else if (this.ActiveControl == this.btnNext)
-      //{
-      //  this.FocusControl.Focus();
-      //}
-
-      if (this.ActiveControl is System.Windows.Forms.TextBox)
-      {
-        System.Windows.Forms.TextBox activeControl = (System.Windows.Forms.TextBox)this.ActiveControl;
-        activeControl.Select(0, activeControl.Text.Length);
-      }
-      else if (this.ActiveControl is ComboBox)
-      {
-        ComboBox box2 = (ComboBox)this.ActiveControl;
-        box2.Select(0, box2.Text.Length);
-      }
-    }
-
     private void btnOK_Click(object sender, EventArgs e)
     {
       try
@@ -4213,36 +4039,6 @@ namespace ID3_TagIT
 
       this.SaveToTAG();
       this.Close();
-    }
-
-    private void lblPrevious_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      this.SaveToTAG();
-
-      if (this.MainForm.MP3View.FocusedItem.Index != 0)
-      {
-        this.MainForm.MP3View.Items[this.MainForm.MP3View.FocusedItem.Index - 1].Focused = true;
-        this.MP3 = (ID3_TagIT.MP3)this.MainForm.MP3View.FocusedItem.Tag;
-        this.ClearForm();
-        this.FillForm();
-        // FIXME
-        //if (this.ActiveControl == this.btnPrev)
-        //  this.FocusControl.Focus();
-      }
-      // FIXME
-      //else if (this.ActiveControl == this.btnPrev)
-      //  this.FocusControl.Focus();
-
-      if (this.ActiveControl is System.Windows.Forms.TextBox)
-      {
-        System.Windows.Forms.TextBox activeControl = (System.Windows.Forms.TextBox)this.ActiveControl;
-        activeControl.Select(0, activeControl.Text.Length);
-      }
-      else if (this.ActiveControl is ComboBox)
-      {
-        ComboBox box2 = (ComboBox)this.ActiveControl;
-        box2.Select(0, box2.Text.Length);
-      }
     }
 
     private void btnRemoveComment_Click(object sender, EventArgs e)
@@ -4376,27 +4172,6 @@ namespace ID3_TagIT
         ProjectData.SetProjectError(exception1);
         ProjectData.ClearProjectError();
       }
-    }
-
-    private void lblSwapArtAlb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      string text = this.cmbArtist.Text;
-      this.cmbArtist.Text = this.txtAlbum.Text;
-      this.txtAlbum.Text = text;
-    }
-
-    private void lblSwatArtTtl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      string text = this.cmbArtist.Text;
-      this.cmbArtist.Text = this.txtTitle.Text;
-      this.txtTitle.Text = text;
-    }
-
-    private void lblSwapTtlAlb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      string text = this.txtTitle.Text;
-      this.txtTitle.Text = this.txtAlbum.Text;
-      this.txtAlbum.Text = text;
     }
 
     private void btnTLEN_Click(object sender, EventArgs e)
@@ -4567,6 +4342,7 @@ namespace ID3_TagIT
       this.panNot.Enabled = false;
       this.panInvolved.Enabled = false;
       this.panUser.Enabled = false;
+      this.lblTopPanel.Text = "Main Entries";
 
       if (this.MainForm.MP3View.FocusedItem == null)
         this.MainForm.MP3View.Items[this.MainForm.MP3View.SelectedItems[0].Index].Focused = true;
@@ -4653,6 +4429,285 @@ namespace ID3_TagIT
       this.AddColumnText();
       this.cmbArtist.Select();
       this.cmbArtist.Focus();
+    }
+
+    private void lblDetailedInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Detailed Information";
+      this.panDetail.Visible = true;
+      this.panDetail.Enabled = true;
+    }
+
+    private void lblInvolvedPeople_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Involved People";
+      this.panInvolved.Visible = true;
+      this.panInvolved.Enabled = true;
+    }
+
+    private void lblLyricsPane_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Lyrics";
+      this.panLyrics.Visible = true;
+      this.panLyrics.Enabled = true;
+    }
+
+    private void lblMainEntries_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Main Entries";
+      this.panMain.Visible = true;
+      this.panMain.Enabled = true;
+    }
+
+    private void lblOriginalInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Original Information";
+      this.panOriginal.Visible = true;
+      this.panOriginal.Enabled = true;
+    }
+
+    private void lblNext_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      this.SaveToTAG();
+
+      if (this.MainForm.MP3View.FocusedItem.Index < (this.MainForm.MP3View.Items.Count - 1))
+      {
+        this.MainForm.MP3View.Items[this.MainForm.MP3View.FocusedItem.Index + 1].Focused = true;
+        this.MP3 = (ID3_TagIT.MP3)this.MainForm.MP3View.FocusedItem.Tag;
+        this.ClearForm();
+        this.FillForm();
+
+        // FIXME
+        //if (this.ActiveControl == this.btnNext)
+        //  this.FocusControl.Focus();
+      }
+      // FIXME
+      //else if (this.ActiveControl == this.btnNext)
+      //{
+      //  this.FocusControl.Focus();
+      //}
+
+      if (this.ActiveControl is System.Windows.Forms.TextBox)
+      {
+        System.Windows.Forms.TextBox activeControl = (System.Windows.Forms.TextBox)this.ActiveControl;
+        activeControl.Select(0, activeControl.Text.Length);
+      }
+      else if (this.ActiveControl is ComboBox)
+      {
+        ComboBox box2 = (ComboBox)this.ActiveControl;
+        box2.Select(0, box2.Text.Length);
+      }
+    }
+
+    private void lblPictures_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Pictures";
+      this.panPic.Visible = true;
+      this.panPic.Enabled = true;
+    }
+
+    private void lblPrevious_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      this.SaveToTAG();
+
+      if (this.MainForm.MP3View.FocusedItem.Index != 0)
+      {
+        this.MainForm.MP3View.Items[this.MainForm.MP3View.FocusedItem.Index - 1].Focused = true;
+        this.MP3 = (ID3_TagIT.MP3)this.MainForm.MP3View.FocusedItem.Tag;
+        this.ClearForm();
+        this.FillForm();
+        // FIXME
+        //if (this.ActiveControl == this.btnPrev)
+        //  this.FocusControl.Focus();
+      }
+      // FIXME
+      //else if (this.ActiveControl == this.btnPrev)
+      //  this.FocusControl.Focus();
+
+      if (this.ActiveControl is System.Windows.Forms.TextBox)
+      {
+        System.Windows.Forms.TextBox activeControl = (System.Windows.Forms.TextBox)this.ActiveControl;
+        activeControl.Select(0, activeControl.Text.Length);
+      }
+      else if (this.ActiveControl is ComboBox)
+      {
+        ComboBox box2 = (ComboBox)this.ActiveControl;
+        box2.Select(0, box2.Text.Length);
+      }
+    }
+
+    private void lblRating_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Rating";
+      this.panRating.Visible = true;
+      this.panRating.Enabled = true;
+    }
+
+    private void lblSwapArtAlb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      string text = this.cmbArtist.Text;
+      this.cmbArtist.Text = this.txtAlbum.Text;
+      this.txtAlbum.Text = text;
+    }
+
+    private void lblSwapArtTtl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      string text = this.cmbArtist.Text;
+      this.cmbArtist.Text = this.txtTitle.Text;
+      this.txtTitle.Text = text;
+    }
+
+    private void lblSwapTtlAlb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      string text = this.txtTitle.Text;
+      this.txtTitle.Text = this.txtAlbum.Text;
+      this.txtAlbum.Text = text;
+    }
+
+    private void lblUnsupported_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Not Supported";
+      this.panNot.Visible = true;
+      this.panNot.Enabled = true;
+    }
+
+    private void lblUserDefined_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "User Defined Information";
+      this.panUser.Visible = true;
+      this.panUser.Enabled = true;
+    }
+
+    private void lblWebInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Web Information";
+      this.panWeb.Visible = true;
+      this.panWeb.Enabled = true;
+    }
+
+    private void lblXferFromV1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      if (StringType.StrCmp(this.MP3.V1TAG.Artist, "", false) != 0)
+        this.cmbArtist.Text = this.MP3.V1TAG.Artist;
+
+      if (StringType.StrCmp(this.MP3.V1TAG.Title, "", false) != 0)
+        this.txtTitle.Text = this.MP3.V1TAG.Title;
+
+      if (StringType.StrCmp(this.MP3.V1TAG.Album, "", false) != 0)
+        this.txtAlbum.Text = this.MP3.V1TAG.Album;
+
+      if (this.MP3.V1TAG.Year != 0)
+        this.txtYear.Text = this.MP3.V1TAG.Year.ToString().Trim(new char[] { ' ' }).PadLeft(4, '0') + "-01-01";
+
+      if (this.MP3.V1TAG.Tracknumber != 0)
+        this.txtTrack1.Text = this.MP3.V1TAG.Tracknumber.ToString();
+
+      if ((StringType.StrCmp(this.MP3.V1TAG.GenreText, "< undefined >", false) != 0) & !this.GenreList.Items.Contains(this.MP3.V1TAG.GenreText))
+        this.GenreList.Items.Add(this.MP3.V1TAG.GenreText);
+
+      if (StringType.StrCmp(this.MP3.V1TAG.Comment, "", false) != 0)
+      {
+        ListViewItem item = new ListViewItem();
+        V2LDCFrame frame = new V2LDCFrame
+        {
+          FID = "COMM",
+          Descriptor = "TAG Ver. 1 Comment",
+          Content = this.MP3.V1TAG.Comment,
+          Language = StringType.FromObject(LateBinding.LateGet(this.cmbCLanguage.Items[Declarations.objSettings.V2Language], null, "Substring", new object[] { 0, 3 }, null, null))
+        };
+
+        foreach (ListViewItem item2 in this.CommentList.Items)
+          if ((StringType.StrCmp(item2.Text, frame.Descriptor, false) == 0) & (StringType.StrCmp(item2.SubItems[2].Text, frame.Language, false) == 0))
+          {
+            item2.SubItems[1].Text = this.MP3.V1TAG.Comment;
+            item2.Tag = frame;
+            return;
+          }
+
+        item.Text = frame.Descriptor;
+        item.SubItems.Add(frame.Content);
+        object[] objArray3 = new object[1];
+        object o = this.cmbCLanguage.Items[Declarations.objSettings.V2Language];
+        object[] args = new object[2];
+        int num3 = 0;
+        args[0] = num3;
+        int num = 3;
+        args[1] = num;
+        objArray3[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(o, null, "Substring", args, null, null));
+        object[] objArray2 = objArray3;
+        bool[] copyBack = new bool[] { true };
+        LateBinding.LateCall(item.SubItems, null, "Add", objArray2, null, copyBack);
+
+        if (copyBack[0])
+          LateBinding.LateSetComplex(o, null, "Substring", new object[] { num3, num, RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, true);
+
+        item.Tag = frame;
+        this.CommentList.Items.Add(item);
+      }
+    }
+
+    private void lblXferToV1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      if ((StringType.StrCmp(this.cmbArtist.Text, "", false) != 0) & (StringType.StrCmp(this.MP3.V1TAG.Artist, this.cmbArtist.Text, false) != 0))
+      {
+        this.MP3.V1TAG.Artist = this.cmbArtist.Text;
+        this.MP3.V1TAG.TAGPresent = true;
+        this.MP3.Changed = true;
+      }
+
+      if ((StringType.StrCmp(this.txtTitle.Text, "", false) != 0) & (StringType.StrCmp(this.MP3.V1TAG.Title, this.txtTitle.Text, false) != 0))
+      {
+        this.MP3.V1TAG.Title = this.txtTitle.Text;
+        this.MP3.V1TAG.TAGPresent = true;
+        this.MP3.Changed = true;
+      }
+
+      if ((StringType.StrCmp(this.txtAlbum.Text, "", false) != 0) & (StringType.StrCmp(this.MP3.V1TAG.Album, this.txtAlbum.Text, false) != 0))
+      {
+        this.MP3.V1TAG.Album = this.txtAlbum.Text;
+        this.MP3.V1TAG.TAGPresent = true;
+        this.MP3.Changed = true;
+      }
+
+      if ((StringType.StrCmp(this.txtYear.Text, "", false) != 0) && (StringType.StrCmp(this.MP3.V1TAG.Year.ToString(), this.txtYear.Text.Substring(0, 4), false) != 0))
+      {
+        this.MP3.V1TAG.Year = (int)Math.Round(Conversion.Val(this.txtYear.Text.Substring(0, 4)));
+        this.MP3.V1TAG.TAGPresent = true;
+        this.MP3.Changed = true;
+      }
+
+      if ((StringType.StrCmp(this.txtTrack1.Text, "", false) != 0) & (this.MP3.V1TAG.Tracknumber != Conversion.Val(this.txtTrack1.Text)))
+      {
+        this.MP3.V1TAG.Tracknumber = (byte)Math.Round(Conversion.Val(this.txtTrack1.Text));
+        this.MP3.V1TAG.TAGPresent = true;
+        this.MP3.Changed = true;
+      }
+
+      if ((this.GenreList.Items.Count > 0) && (ObjectType.ObjTst(this.MP3.V1TAG.GenreText, this.GenreList.Items[0], false) != 0))
+      {
+        this.MP3.V1TAG.GenreText = StringType.FromObject(this.GenreList.Items[0]);
+        this.MP3.V1TAG.TAGPresent = true;
+        this.MP3.Changed = true;
+      }
+
+      if ((this.CommentList.Items.Count > 0) && (ObjectType.ObjTst(this.MP3.V1TAG.Comment, LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Content", new object[0], null, null), false) != 0))
+      {
+        this.MP3.V1TAG.Comment = StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Content", new object[0], null, null));
+        this.MP3.V1TAG.TAGPresent = true;
+        this.MP3.Changed = true;
+      }
+
+      this.MainForm.UpdateListItem(this.MainForm.MP3View.FocusedItem, false);
     }
 
     private void LyricsList_Click(object sender, EventArgs e)
@@ -5074,42 +5129,6 @@ namespace ID3_TagIT
       this.NotSupportList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol23"]);
       this.NotSupportList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol24"]);
     }
-
-    // FIXME This simply does the i18n text swaps.  Do this later.
-    //private void UpdateI18n()
-    //{
-    //  IEnumerator enumerator = null;
-
-    //  try
-    //  {
-    //    enumerator = this.SelectionBar.Groups.GetEnumerator();
-
-    //    while (enumerator.MoveNext())
-    //    {
-    //      ExplorerBarGroupItem current = (ExplorerBarGroupItem)enumerator.Current;
-    //      current.Text = StringType.FromObject(Declarations.objResources.SelectionBar[current.Name]);
-
-    //      try
-    //      {
-    //        foreach (ButtonItem item in current.SubItems)
-    //          item.Text = StringType.FromObject(Declarations.objResources.SelectionBar[item.Name]);
-
-    //        continue;
-    //      }
-    //      catch (Exception exception1)
-    //      {
-    //        ProjectData.SetProjectError(exception1);
-    //        ProjectData.ClearProjectError();
-    //        continue;
-    //      }
-    //    }
-    //  }
-    //  finally
-    //  {
-    //    if (enumerator is IDisposable)
-    //      ((IDisposable)enumerator).Dispose();
-    //  }
-    //}
 
     private void AddToolTips()
     {
@@ -5634,6 +5653,39 @@ namespace ID3_TagIT
       this.txtWXXXContent.Text = "";
       this.WXXXList.Items.Clear();
       this.NotSupportList.Items.Clear();
+    }
+
+    private void DisablePanels()
+    {
+      this.panMain.Visible = false;
+      this.panMain.Enabled = false;
+
+      this.panNot.Visible = false;
+      this.panNot.Enabled = false;
+
+      this.panDetail.Visible = false;
+      this.panDetail.Enabled = false;
+
+      this.panOriginal.Visible = false;
+      this.panOriginal.Enabled = false;
+
+      this.panInvolved.Visible = false;
+      this.panInvolved.Enabled = false;
+
+      this.panWeb.Visible = false;
+      this.panWeb.Enabled = false;
+
+      this.panPic.Visible = false;
+      this.panPic.Enabled = false;
+
+      this.panLyrics.Visible = false;
+      this.panLyrics.Enabled = false;
+
+      this.panRating.Visible = false;
+      this.panRating.Enabled = false;
+
+      this.panUser.Visible = false;
+      this.panUser.Enabled = false;
     }
 
     private void FillForm()
@@ -7300,109 +7352,42 @@ namespace ID3_TagIT
       }
     }
 
+    // FIXME This simply does the i18n text swaps.  Do this later.
+    //private void UpdateI18n()
+    //{
+    //  IEnumerator enumerator = null;
+
+    //  try
+    //  {
+    //    enumerator = this.SelectionBar.Groups.GetEnumerator();
+
+    //    while (enumerator.MoveNext())
+    //    {
+    //      ExplorerBarGroupItem current = (ExplorerBarGroupItem)enumerator.Current;
+    //      current.Text = StringType.FromObject(Declarations.objResources.SelectionBar[current.Name]);
+
+    //      try
+    //      {
+    //        foreach (ButtonItem item in current.SubItems)
+    //          item.Text = StringType.FromObject(Declarations.objResources.SelectionBar[item.Name]);
+
+    //        continue;
+    //      }
+    //      catch (Exception exception1)
+    //      {
+    //        ProjectData.SetProjectError(exception1);
+    //        ProjectData.ClearProjectError();
+    //        continue;
+    //      }
+    //    }
+    //  }
+    //  finally
+    //  {
+    //    if (enumerator is IDisposable)
+    //      ((IDisposable)enumerator).Dispose();
+    //  }
+    //}
+
     #endregion
-
-    private void DisablePanels()
-    {
-      this.panMain.Visible = false;
-      this.panMain.Enabled = false;
-
-      this.panNot.Visible = false;
-      this.panNot.Enabled = false;
-
-      this.panDetail.Visible = false;
-      this.panDetail.Enabled = false;
-
-      this.panOriginal.Visible = false;
-      this.panOriginal.Enabled = false;
-
-      this.panInvolved.Visible = false;
-      this.panInvolved.Enabled = false;
-
-      this.panWeb.Visible = false;
-      this.panWeb.Enabled = false;
-
-      this.panPic.Visible = false;
-      this.panPic.Enabled = false;
-
-      this.panLyrics.Visible = false;
-      this.panLyrics.Enabled = false;
-
-      this.panRating.Visible = false;
-      this.panRating.Enabled = false;
-
-      this.panUser.Visible = false;
-      this.panUser.Enabled = false;
-    }
-
-    private void lblMainEntries_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      DisablePanels();
-      this.panMain.Visible = true;
-      this.panMain.Enabled = true;
-    }
-
-    private void lblUnsupported_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      DisablePanels();
-      this.panNot.Visible = true;
-      this.panNot.Enabled = true;
-    }
-
-    private void lblDetailedInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      DisablePanels();
-      this.panDetail.Visible = true;
-      this.panDetail.Enabled = true;
-    }
-
-    private void lblOriginalInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      DisablePanels();
-      this.panOriginal.Visible = true;
-      this.panOriginal.Enabled = true;
-    }
-
-    private void lblInvolvedPeople_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      DisablePanels();
-      this.panInvolved.Visible = true;
-      this.panInvolved.Enabled = true;
-    }
-
-    private void lblWebInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      DisablePanels();
-      this.panWeb.Visible = true;
-      this.panWeb.Enabled = true;
-    }
-
-    private void lblPictures_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      DisablePanels();
-      this.panPic.Visible = true;
-      this.panPic.Enabled = true;
-    }
-
-    private void lblLyricsPane_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      DisablePanels();
-      this.panLyrics.Visible = true;
-      this.panLyrics.Enabled = true;
-    }
-
-    private void lblRating_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      DisablePanels();
-      this.panRating.Visible = true;
-      this.panRating.Enabled = true;
-    }
-
-    private void lblUserDefined_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      DisablePanels();
-      this.panUser.Visible = true;
-      this.panUser.Enabled = true;
-    }
   }
 }

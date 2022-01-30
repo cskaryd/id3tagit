@@ -1,5 +1,4 @@
-﻿using DevComponents.DotNetBar;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections;
@@ -44,23 +43,8 @@ namespace ID3_TagIT
     private Button btnRemoveRating;
     private Button btnRemoveTXXX;
     private Button btnRemoveWXXX;
-    private ButtonItem btnSwapAA;
-    private ButtonItem btnSwapAT;
-    private ButtonItem btnSwapTA;
-    private PanelEx BottomPanel;
-    private ExplorerBar SelectionBar;
-    private ButtonItem TAGV2ButtonItem1;
-    private ButtonItem TAGV2ButtonItem2;
-    private ButtonItem TAGV2ButtonItem3;
-    private ButtonItem TAGV2ButtonItem4;
-    private ButtonItem TAGV2ButtonItem5;
-    private ButtonItem TAGV2ButtonItem6;
-    private ButtonItem TAGV2ButtonItem7;
-    private ButtonItem TAGV2ButtonItem8;
-    private ButtonItem TAGV2ButtonItem9;
-    private ExplorerBarGroupItem TAGV2grpCommands;
-    private ExplorerBarGroupItem TAGV2grpTAG;
-    private PanelEx TopPanel;
+    private Panel pnlBottomPanel;
+    private Label lblTopPanel;
     private CheckBox CheckBox1;
     private CheckBox chkRemoveExCmnts;
     private CheckBox CheckBox11;
@@ -295,18 +279,23 @@ namespace ID3_TagIT
     private ListView WXXXList;
     private HScrollBar YearFormat;
     private IContainer components;
+    private Panel pnlTagInfo;
+    private LinkLabel lblUserDefined;
+    private LinkLabel lblRating;
+    private LinkLabel lblLyricsPane;
+    private LinkLabel lblPictures;
+    private LinkLabel lblWebInfo;
+    private LinkLabel lblInvolvedPeople;
+    private LinkLabel lblOriginalInfo;
+    private LinkLabel lblDetailedInfo;
+    private LinkLabel lblMainEntries;
+    private Label label1;
+    private Panel pnlCommands;
+    private LinkLabel lblSwapTtlAlb;
+    private LinkLabel lblSwapArtAlb;
+    private LinkLabel lblSwapArtTtl;
+    private Label lblCommand;
     private frmMain MainForm;
-
-    //ResourceManager manager = new ResourceManager(typeof(frmTAG2Multi));
-    //this.TAGV2ButtonItem1.Icon = (Icon)manager.GetObject("TAGV2ButtonItem1.Icon");
-    //this.TAGV2ButtonItem2.Icon = (Icon)manager.GetObject("TAGV2ButtonItem2.Icon");
-    //this.TAGV2ButtonItem3.Icon = (Icon)manager.GetObject("TAGV2ButtonItem3.Icon");
-    //this.TAGV2ButtonItem4.Icon = (Icon)manager.GetObject("TAGV2ButtonItem4.Icon");
-    //this.TAGV2ButtonItem5.Icon = (Icon)manager.GetObject("TAGV2ButtonItem5.Icon");
-    //this.TAGV2ButtonItem6.Icon = (Icon)manager.GetObject("TAGV2ButtonItem6.Icon");
-    //this.TAGV2ButtonItem7.Icon = (Icon)manager.GetObject("TAGV2ButtonItem7.Icon");
-    //this.TAGV2ButtonItem9.Icon = (Icon)manager.GetObject("TAGV2ButtonItem9.Icon");
-    //this.TAGV2ButtonItem8.Icon = (Icon)manager.GetObject("TAGV2ButtonItem8.Icon");
 
     protected override void Dispose(bool disposing)
     {
@@ -578,25 +567,26 @@ namespace ID3_TagIT
       this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
       this.chkRemoveAllNOT = new System.Windows.Forms.CheckBox();
       this.lblInfoStar = new System.Windows.Forms.Label();
-      this.SelectionBar = new DevComponents.DotNetBar.ExplorerBar();
-      this.TAGV2grpTAG = new DevComponents.DotNetBar.ExplorerBarGroupItem();
-      this.TAGV2ButtonItem1 = new DevComponents.DotNetBar.ButtonItem();
-      this.TAGV2ButtonItem2 = new DevComponents.DotNetBar.ButtonItem();
-      this.TAGV2ButtonItem3 = new DevComponents.DotNetBar.ButtonItem();
-      this.TAGV2ButtonItem4 = new DevComponents.DotNetBar.ButtonItem();
-      this.TAGV2ButtonItem5 = new DevComponents.DotNetBar.ButtonItem();
-      this.TAGV2ButtonItem6 = new DevComponents.DotNetBar.ButtonItem();
-      this.TAGV2ButtonItem7 = new DevComponents.DotNetBar.ButtonItem();
-      this.TAGV2ButtonItem8 = new DevComponents.DotNetBar.ButtonItem();
-      this.TAGV2ButtonItem9 = new DevComponents.DotNetBar.ButtonItem();
-      this.TAGV2grpCommands = new DevComponents.DotNetBar.ExplorerBarGroupItem();
-      this.btnSwapAT = new DevComponents.DotNetBar.ButtonItem();
-      this.btnSwapAA = new DevComponents.DotNetBar.ButtonItem();
-      this.btnSwapTA = new DevComponents.DotNetBar.ButtonItem();
-      this.TopPanel = new DevComponents.DotNetBar.PanelEx();
+      this.lblTopPanel = new System.Windows.Forms.Label();
       this.btnOK = new System.Windows.Forms.Button();
       this.btnCancel = new System.Windows.Forms.Button();
-      this.BottomPanel = new DevComponents.DotNetBar.PanelEx();
+      this.pnlBottomPanel = new System.Windows.Forms.Panel();
+      this.pnlTagInfo = new System.Windows.Forms.Panel();
+      this.lblUserDefined = new System.Windows.Forms.LinkLabel();
+      this.lblRating = new System.Windows.Forms.LinkLabel();
+      this.lblLyricsPane = new System.Windows.Forms.LinkLabel();
+      this.lblPictures = new System.Windows.Forms.LinkLabel();
+      this.lblWebInfo = new System.Windows.Forms.LinkLabel();
+      this.lblInvolvedPeople = new System.Windows.Forms.LinkLabel();
+      this.lblOriginalInfo = new System.Windows.Forms.LinkLabel();
+      this.lblDetailedInfo = new System.Windows.Forms.LinkLabel();
+      this.lblMainEntries = new System.Windows.Forms.LinkLabel();
+      this.label1 = new System.Windows.Forms.Label();
+      this.pnlCommands = new System.Windows.Forms.Panel();
+      this.lblSwapTtlAlb = new System.Windows.Forms.LinkLabel();
+      this.lblSwapArtAlb = new System.Windows.Forms.LinkLabel();
+      this.lblSwapArtTtl = new System.Windows.Forms.LinkLabel();
+      this.lblCommand = new System.Windows.Forms.Label();
       this.panDetail.SuspendLayout();
       this.Panel9.SuspendLayout();
       this.Panel5.SuspendLayout();
@@ -626,8 +616,9 @@ namespace ID3_TagIT
       this.Panel12.SuspendLayout();
       this.Panel13.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).BeginInit();
-      this.BottomPanel.SuspendLayout();
+      this.pnlBottomPanel.SuspendLayout();
+      this.pnlTagInfo.SuspendLayout();
+      this.pnlCommands.SuspendLayout();
       this.SuspendLayout();
       // 
       // panDetail
@@ -3264,259 +3255,25 @@ namespace ID3_TagIT
       this.lblInfoStar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblInfoStar.Location = new System.Drawing.Point(8, 8);
       this.lblInfoStar.Name = "lblInfoStar";
-      this.lblInfoStar.Size = new System.Drawing.Size(672, 48);
+      this.lblInfoStar.Size = new System.Drawing.Size(840, 48);
       this.lblInfoStar.TabIndex = 101;
       this.lblInfoStar.Text = "Placeholders";
       this.lblInfoStar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
-      // SelectionBar
+      // lblTopPanel
       // 
-      this.SelectionBar.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
-      this.SelectionBar.AllowUserCustomize = false;
-      this.SelectionBar.AntiAlias = true;
-      this.SelectionBar.BackColor = System.Drawing.SystemColors.Control;
-      this.SelectionBar.BackgroundStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground;
-      this.SelectionBar.BackgroundStyle.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground2;
-      this.SelectionBar.BackgroundStyle.GradientAngle = 90;
-      this.SelectionBar.Dock = System.Windows.Forms.DockStyle.Left;
-      this.SelectionBar.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
-      this.SelectionBar.GroupImages = null;
-      this.SelectionBar.Groups.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.TAGV2grpTAG,
-            this.TAGV2grpCommands});
-      this.SelectionBar.Images = null;
-      this.SelectionBar.Location = new System.Drawing.Point(0, 0);
-      this.SelectionBar.Name = "SelectionBar";
-      this.SelectionBar.Size = new System.Drawing.Size(168, 576);
-      this.SelectionBar.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
-      this.SelectionBar.TabIndex = 107;
-      this.SelectionBar.Text = "Select TAG section";
-      this.SelectionBar.ThemeAware = true;
-      // 
-      // TAGV2grpTAG
-      // 
-      this.TAGV2grpTAG.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
-      this.TAGV2grpTAG.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.TAGV2grpTAG.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
-      this.TAGV2grpTAG.CanCustomize = false;
-      this.TAGV2grpTAG.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.TAGV2grpTAG.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
-      this.TAGV2grpTAG.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.TAGV2grpTAG.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.TAGV2grpTAG.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.TAGV2grpTAG.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
-      this.TAGV2grpTAG.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.TAGV2grpTAG.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.TAGV2grpTAG.Name = "TAGV2grpTAG";
-      this.TAGV2grpTAG.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
-      this.TAGV2grpTAG.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.TAGV2ButtonItem1,
-            this.TAGV2ButtonItem2,
-            this.TAGV2ButtonItem3,
-            this.TAGV2ButtonItem4,
-            this.TAGV2ButtonItem5,
-            this.TAGV2ButtonItem6,
-            this.TAGV2ButtonItem7,
-            this.TAGV2ButtonItem8,
-            this.TAGV2ButtonItem9});
-      this.TAGV2grpTAG.Text = "TAG information";
-      this.TAGV2grpTAG.ThemeAware = true;
-      // 
-      // TAGV2ButtonItem1
-      // 
-      this.TAGV2ButtonItem1.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem1.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.TAGV2ButtonItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.TAGV2ButtonItem1.HotFontUnderline = true;
-      this.TAGV2ButtonItem1.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.TAGV2ButtonItem1.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.TAGV2ButtonItem1.Name = "TAGV2ButtonItem1";
-      this.TAGV2ButtonItem1.Text = "Main Entries";
-      this.TAGV2ButtonItem1.Click += new System.EventHandler(this.btnItem_Click);
-      // 
-      // TAGV2ButtonItem2
-      // 
-      this.TAGV2ButtonItem2.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem2.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.TAGV2ButtonItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.TAGV2ButtonItem2.HotFontUnderline = true;
-      this.TAGV2ButtonItem2.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.TAGV2ButtonItem2.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.TAGV2ButtonItem2.Name = "TAGV2ButtonItem2";
-      this.TAGV2ButtonItem2.Text = "Detailed information";
-      this.TAGV2ButtonItem2.Click += new System.EventHandler(this.btnItem_Click);
-      // 
-      // TAGV2ButtonItem3
-      // 
-      this.TAGV2ButtonItem3.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem3.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.TAGV2ButtonItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.TAGV2ButtonItem3.HotFontUnderline = true;
-      this.TAGV2ButtonItem3.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.TAGV2ButtonItem3.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.TAGV2ButtonItem3.Name = "TAGV2ButtonItem3";
-      this.TAGV2ButtonItem3.Text = "Original information";
-      this.TAGV2ButtonItem3.Click += new System.EventHandler(this.btnItem_Click);
-      // 
-      // TAGV2ButtonItem4
-      // 
-      this.TAGV2ButtonItem4.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem4.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.TAGV2ButtonItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.TAGV2ButtonItem4.HotFontUnderline = true;
-      this.TAGV2ButtonItem4.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.TAGV2ButtonItem4.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.TAGV2ButtonItem4.Name = "TAGV2ButtonItem4";
-      this.TAGV2ButtonItem4.Text = "Involved people";
-      this.TAGV2ButtonItem4.Click += new System.EventHandler(this.btnItem_Click);
-      // 
-      // TAGV2ButtonItem5
-      // 
-      this.TAGV2ButtonItem5.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem5.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.TAGV2ButtonItem5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.TAGV2ButtonItem5.HotFontUnderline = true;
-      this.TAGV2ButtonItem5.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.TAGV2ButtonItem5.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.TAGV2ButtonItem5.Name = "TAGV2ButtonItem5";
-      this.TAGV2ButtonItem5.Text = "Web information";
-      this.TAGV2ButtonItem5.Click += new System.EventHandler(this.btnItem_Click);
-      // 
-      // TAGV2ButtonItem6
-      // 
-      this.TAGV2ButtonItem6.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem6.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.TAGV2ButtonItem6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.TAGV2ButtonItem6.HotFontUnderline = true;
-      this.TAGV2ButtonItem6.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.TAGV2ButtonItem6.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.TAGV2ButtonItem6.Name = "TAGV2ButtonItem6";
-      this.TAGV2ButtonItem6.Text = "Pictures";
-      this.TAGV2ButtonItem6.Click += new System.EventHandler(this.btnItem_Click);
-      // 
-      // TAGV2ButtonItem7
-      // 
-      this.TAGV2ButtonItem7.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem7.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.TAGV2ButtonItem7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.TAGV2ButtonItem7.HotFontUnderline = true;
-      this.TAGV2ButtonItem7.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.TAGV2ButtonItem7.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.TAGV2ButtonItem7.Name = "TAGV2ButtonItem7";
-      this.TAGV2ButtonItem7.Text = "Lyrics";
-      this.TAGV2ButtonItem7.Click += new System.EventHandler(this.btnItem_Click);
-      // 
-      // TAGV2ButtonItem8
-      // 
-      this.TAGV2ButtonItem8.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem8.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.TAGV2ButtonItem8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.TAGV2ButtonItem8.HotFontUnderline = true;
-      this.TAGV2ButtonItem8.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.TAGV2ButtonItem8.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.TAGV2ButtonItem8.Name = "TAGV2ButtonItem8";
-      this.TAGV2ButtonItem8.Text = "Rating";
-      this.TAGV2ButtonItem8.Click += new System.EventHandler(this.btnItem_Click);
-      // 
-      // TAGV2ButtonItem9
-      // 
-      this.TAGV2ButtonItem9.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.TAGV2ButtonItem9.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.TAGV2ButtonItem9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.TAGV2ButtonItem9.HotFontUnderline = true;
-      this.TAGV2ButtonItem9.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.TAGV2ButtonItem9.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.TAGV2ButtonItem9.Name = "TAGV2ButtonItem9";
-      this.TAGV2ButtonItem9.Text = "User defined information";
-      this.TAGV2ButtonItem9.Click += new System.EventHandler(this.btnItem_Click);
-      // 
-      // TAGV2grpCommands
-      // 
-      this.TAGV2grpCommands.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
-      this.TAGV2grpCommands.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.TAGV2grpCommands.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
-      this.TAGV2grpCommands.CanCustomize = false;
-      this.TAGV2grpCommands.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.TAGV2grpCommands.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
-      this.TAGV2grpCommands.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.TAGV2grpCommands.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.TAGV2grpCommands.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.TAGV2grpCommands.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
-      this.TAGV2grpCommands.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.TAGV2grpCommands.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.TAGV2grpCommands.Name = "TAGV2grpCommands";
-      this.TAGV2grpCommands.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
-      this.TAGV2grpCommands.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnSwapAT,
-            this.btnSwapAA,
-            this.btnSwapTA});
-      this.TAGV2grpCommands.Text = "Commands";
-      this.TAGV2grpCommands.ThemeAware = true;
-      // 
-      // btnSwapAT
-      // 
-      this.btnSwapAT.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.btnSwapAT.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.btnSwapAT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.btnSwapAT.HotFontUnderline = true;
-      this.btnSwapAT.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.btnSwapAT.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.btnSwapAT.Name = "btnSwapAT";
-      this.btnSwapAT.Text = "Swap Artist-Title";
-      this.btnSwapAT.Click += new System.EventHandler(this.btnSwapAT_Click);
-      // 
-      // btnSwapAA
-      // 
-      this.btnSwapAA.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.btnSwapAA.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.btnSwapAA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.btnSwapAA.HotFontUnderline = true;
-      this.btnSwapAA.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.btnSwapAA.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.btnSwapAA.Name = "btnSwapAA";
-      this.btnSwapAA.Text = "Swap Artist-Album";
-      this.btnSwapAA.Click += new System.EventHandler(this.btnSwapAA_Click);
-      // 
-      // btnSwapTA
-      // 
-      this.btnSwapTA.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.btnSwapTA.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.btnSwapTA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.btnSwapTA.HotFontUnderline = true;
-      this.btnSwapTA.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.btnSwapTA.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.btnSwapTA.Name = "btnSwapTA";
-      this.btnSwapTA.Text = "Swap Title-Album";
-      this.btnSwapTA.Click += new System.EventHandler(this.btnSwapTA_Click);
-      // 
-      // TopPanel
-      // 
-      this.TopPanel.AntiAlias = true;
-      this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
-      this.TopPanel.Location = new System.Drawing.Point(168, 0);
-      this.TopPanel.Name = "TopPanel";
-      this.TopPanel.Size = new System.Drawing.Size(690, 24);
-      this.TopPanel.Style.BackColor1.Color = System.Drawing.Color.White;
-      this.TopPanel.Style.BackColor2.Color = System.Drawing.Color.White;
-      this.TopPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.TopPanel.Style.BorderWidth = 0;
-      this.TopPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.TopPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
-      this.TopPanel.Style.GradientAngle = 90;
-      this.TopPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
-      this.TopPanel.Style.MarginBottom = 2;
-      this.TopPanel.Style.MarginLeft = 7;
-      this.TopPanel.Style.MarginRight = 2;
-      this.TopPanel.Style.MarginTop = 2;
-      this.TopPanel.TabIndex = 108;
-      this.TopPanel.Text = "TopPanel";
+      this.lblTopPanel.Location = new System.Drawing.Point(165, 0);
+      this.lblTopPanel.Name = "lblTopPanel";
+      this.lblTopPanel.Size = new System.Drawing.Size(694, 24);
+      this.lblTopPanel.TabIndex = 108;
+      this.lblTopPanel.Text = "lblTopPanel";
       // 
       // btnOK
       // 
       this.btnOK.BackColor = System.Drawing.SystemColors.Control;
       this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
       this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnOK.Location = new System.Drawing.Point(480, 64);
+      this.btnOK.Location = new System.Drawing.Point(648, 62);
       this.btnOK.Name = "btnOK";
       this.btnOK.Size = new System.Drawing.Size(96, 24);
       this.btnOK.TabIndex = 105;
@@ -3529,7 +3286,7 @@ namespace ID3_TagIT
       this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
       this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
       this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnCancel.Location = new System.Drawing.Point(584, 64);
+      this.btnCancel.Location = new System.Drawing.Point(752, 62);
       this.btnCancel.Name = "btnCancel";
       this.btnCancel.Size = new System.Drawing.Size(96, 24);
       this.btnCancel.TabIndex = 106;
@@ -3537,40 +3294,259 @@ namespace ID3_TagIT
       this.btnCancel.UseVisualStyleBackColor = false;
       this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
       // 
-      // BottomPanel
+      // pnlBottomPanel
       // 
-      this.BottomPanel.AntiAlias = true;
-      this.BottomPanel.Controls.Add(this.chkRemoveAllNOT);
-      this.BottomPanel.Controls.Add(this.txtDigits);
-      this.BottomPanel.Controls.Add(this.btnCancel);
-      this.BottomPanel.Controls.Add(this.btnOK);
-      this.BottomPanel.Controls.Add(this.lblDigits);
-      this.BottomPanel.Controls.Add(this.lblInfoStar);
-      this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.BottomPanel.Location = new System.Drawing.Point(168, 480);
-      this.BottomPanel.Name = "BottomPanel";
-      this.BottomPanel.Size = new System.Drawing.Size(690, 96);
-      this.BottomPanel.Style.BackColor1.Color = System.Drawing.Color.White;
-      this.BottomPanel.Style.BackColor2.Color = System.Drawing.Color.White;
-      this.BottomPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-      this.BottomPanel.Style.BorderWidth = 0;
-      this.BottomPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.BottomPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
-      this.BottomPanel.Style.GradientAngle = 90;
-      this.BottomPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
-      this.BottomPanel.Style.MarginBottom = 2;
-      this.BottomPanel.Style.MarginLeft = 7;
-      this.BottomPanel.Style.MarginRight = 2;
-      this.BottomPanel.Style.MarginTop = 2;
-      this.BottomPanel.TabIndex = 100;
+      this.pnlBottomPanel.Controls.Add(this.chkRemoveAllNOT);
+      this.pnlBottomPanel.Controls.Add(this.txtDigits);
+      this.pnlBottomPanel.Controls.Add(this.btnCancel);
+      this.pnlBottomPanel.Controls.Add(this.btnOK);
+      this.pnlBottomPanel.Controls.Add(this.lblDigits);
+      this.pnlBottomPanel.Controls.Add(this.lblInfoStar);
+      this.pnlBottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.pnlBottomPanel.Location = new System.Drawing.Point(0, 480);
+      this.pnlBottomPanel.Name = "pnlBottomPanel";
+      this.pnlBottomPanel.Size = new System.Drawing.Size(859, 96);
+      this.pnlBottomPanel.TabIndex = 100;
+      // 
+      // pnlTagInfo
+      // 
+      this.pnlTagInfo.Controls.Add(this.lblUserDefined);
+      this.pnlTagInfo.Controls.Add(this.lblRating);
+      this.pnlTagInfo.Controls.Add(this.lblLyricsPane);
+      this.pnlTagInfo.Controls.Add(this.lblPictures);
+      this.pnlTagInfo.Controls.Add(this.lblWebInfo);
+      this.pnlTagInfo.Controls.Add(this.lblInvolvedPeople);
+      this.pnlTagInfo.Controls.Add(this.lblOriginalInfo);
+      this.pnlTagInfo.Controls.Add(this.lblDetailedInfo);
+      this.pnlTagInfo.Controls.Add(this.lblMainEntries);
+      this.pnlTagInfo.Controls.Add(this.label1);
+      this.pnlTagInfo.Location = new System.Drawing.Point(12, 6);
+      this.pnlTagInfo.Name = "pnlTagInfo";
+      this.pnlTagInfo.Size = new System.Drawing.Size(145, 227);
+      this.pnlTagInfo.TabIndex = 110;
+      // 
+      // lblUserDefined
+      // 
+      this.lblUserDefined.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblUserDefined.AutoSize = true;
+      this.lblUserDefined.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblUserDefined.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblUserDefined.Location = new System.Drawing.Point(22, 199);
+      this.lblUserDefined.Name = "lblUserDefined";
+      this.lblUserDefined.Size = new System.Drawing.Size(121, 13);
+      this.lblUserDefined.TabIndex = 9;
+      this.lblUserDefined.TabStop = true;
+      this.lblUserDefined.Text = "User defined information";
+      this.lblUserDefined.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblUserDefined.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblUserDefined_LinkClicked);
+      // 
+      // lblRating
+      // 
+      this.lblRating.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblRating.AutoSize = true;
+      this.lblRating.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblRating.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblRating.Location = new System.Drawing.Point(22, 178);
+      this.lblRating.Name = "lblRating";
+      this.lblRating.Size = new System.Drawing.Size(38, 13);
+      this.lblRating.TabIndex = 8;
+      this.lblRating.TabStop = true;
+      this.lblRating.Text = "Rating";
+      this.lblRating.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblRating.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblRating_LinkClicked);
+      // 
+      // lblLyricsPane
+      // 
+      this.lblLyricsPane.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblLyricsPane.AutoSize = true;
+      this.lblLyricsPane.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblLyricsPane.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblLyricsPane.Location = new System.Drawing.Point(22, 157);
+      this.lblLyricsPane.Name = "lblLyricsPane";
+      this.lblLyricsPane.Size = new System.Drawing.Size(34, 13);
+      this.lblLyricsPane.TabIndex = 7;
+      this.lblLyricsPane.TabStop = true;
+      this.lblLyricsPane.Text = "Lyrics";
+      this.lblLyricsPane.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblLyricsPane.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblLyricsPane_LinkClicked);
+      // 
+      // lblPictures
+      // 
+      this.lblPictures.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblPictures.AutoSize = true;
+      this.lblPictures.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblPictures.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblPictures.Location = new System.Drawing.Point(22, 136);
+      this.lblPictures.Name = "lblPictures";
+      this.lblPictures.Size = new System.Drawing.Size(45, 13);
+      this.lblPictures.TabIndex = 6;
+      this.lblPictures.TabStop = true;
+      this.lblPictures.Text = "Pictures";
+      this.lblPictures.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblPictures.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblPictures_LinkClicked);
+      // 
+      // lblWebInfo
+      // 
+      this.lblWebInfo.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblWebInfo.AutoSize = true;
+      this.lblWebInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblWebInfo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblWebInfo.Location = new System.Drawing.Point(22, 115);
+      this.lblWebInfo.Name = "lblWebInfo";
+      this.lblWebInfo.Size = new System.Drawing.Size(85, 13);
+      this.lblWebInfo.TabIndex = 5;
+      this.lblWebInfo.TabStop = true;
+      this.lblWebInfo.Text = "Web Information";
+      this.lblWebInfo.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblWebInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblWebInfo_LinkClicked);
+      // 
+      // lblInvolvedPeople
+      // 
+      this.lblInvolvedPeople.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblInvolvedPeople.AutoSize = true;
+      this.lblInvolvedPeople.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblInvolvedPeople.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblInvolvedPeople.Location = new System.Drawing.Point(22, 94);
+      this.lblInvolvedPeople.Name = "lblInvolvedPeople";
+      this.lblInvolvedPeople.Size = new System.Drawing.Size(84, 13);
+      this.lblInvolvedPeople.TabIndex = 4;
+      this.lblInvolvedPeople.TabStop = true;
+      this.lblInvolvedPeople.Text = "Involved People";
+      this.lblInvolvedPeople.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblInvolvedPeople.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblInvolvedPeople_LinkClicked);
+      // 
+      // lblOriginalInfo
+      // 
+      this.lblOriginalInfo.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblOriginalInfo.AutoSize = true;
+      this.lblOriginalInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblOriginalInfo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblOriginalInfo.Location = new System.Drawing.Point(22, 73);
+      this.lblOriginalInfo.Name = "lblOriginalInfo";
+      this.lblOriginalInfo.Size = new System.Drawing.Size(97, 13);
+      this.lblOriginalInfo.TabIndex = 3;
+      this.lblOriginalInfo.TabStop = true;
+      this.lblOriginalInfo.Text = "Original Information";
+      this.lblOriginalInfo.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblOriginalInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblOriginalInfo_LinkClicked);
+      // 
+      // lblDetailedInfo
+      // 
+      this.lblDetailedInfo.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblDetailedInfo.AutoSize = true;
+      this.lblDetailedInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblDetailedInfo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblDetailedInfo.Location = new System.Drawing.Point(22, 52);
+      this.lblDetailedInfo.Name = "lblDetailedInfo";
+      this.lblDetailedInfo.Size = new System.Drawing.Size(101, 13);
+      this.lblDetailedInfo.TabIndex = 2;
+      this.lblDetailedInfo.TabStop = true;
+      this.lblDetailedInfo.Text = "Detailed Information";
+      this.lblDetailedInfo.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblDetailedInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblDetailedInfo_LinkClicked);
+      // 
+      // lblMainEntries
+      // 
+      this.lblMainEntries.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblMainEntries.AutoSize = true;
+      this.lblMainEntries.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblMainEntries.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblMainEntries.Location = new System.Drawing.Point(22, 31);
+      this.lblMainEntries.Name = "lblMainEntries";
+      this.lblMainEntries.Size = new System.Drawing.Size(65, 13);
+      this.lblMainEntries.TabIndex = 1;
+      this.lblMainEntries.TabStop = true;
+      this.lblMainEntries.Text = "Main Entries";
+      this.lblMainEntries.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblMainEntries.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMainEntries_LinkClicked);
+      // 
+      // label1
+      // 
+      this.label1.AutoSize = true;
+      this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.label1.Location = new System.Drawing.Point(11, 9);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(100, 15);
+      this.label1.TabIndex = 0;
+      this.label1.Text = "TAG Information";
+      // 
+      // pnlCommands
+      // 
+      this.pnlCommands.Controls.Add(this.lblSwapTtlAlb);
+      this.pnlCommands.Controls.Add(this.lblSwapArtAlb);
+      this.pnlCommands.Controls.Add(this.lblSwapArtTtl);
+      this.pnlCommands.Controls.Add(this.lblCommand);
+      this.pnlCommands.Location = new System.Drawing.Point(12, 235);
+      this.pnlCommands.Name = "pnlCommands";
+      this.pnlCommands.Size = new System.Drawing.Size(135, 102);
+      this.pnlCommands.TabIndex = 111;
+      // 
+      // lblSwapTtlAlb
+      // 
+      this.lblSwapTtlAlb.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblSwapTtlAlb.AutoSize = true;
+      this.lblSwapTtlAlb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapTtlAlb.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapTtlAlb.Location = new System.Drawing.Point(22, 73);
+      this.lblSwapTtlAlb.Name = "lblSwapTtlAlb";
+      this.lblSwapTtlAlb.Size = new System.Drawing.Size(89, 13);
+      this.lblSwapTtlAlb.TabIndex = 5;
+      this.lblSwapTtlAlb.TabStop = true;
+      this.lblSwapTtlAlb.Text = "Swap Title-Album";
+      this.lblSwapTtlAlb.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapTtlAlb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSwapTtlAlb_LinkClicked);
+      // 
+      // lblSwapArtAlb
+      // 
+      this.lblSwapArtAlb.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblSwapArtAlb.AutoSize = true;
+      this.lblSwapArtAlb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtAlb.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtAlb.Location = new System.Drawing.Point(22, 52);
+      this.lblSwapArtAlb.Name = "lblSwapArtAlb";
+      this.lblSwapArtAlb.Size = new System.Drawing.Size(92, 13);
+      this.lblSwapArtAlb.TabIndex = 4;
+      this.lblSwapArtAlb.TabStop = true;
+      this.lblSwapArtAlb.Text = "Swap Artist-Album";
+      this.lblSwapArtAlb.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtAlb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSwapArtAlb_LinkClicked);
+      // 
+      // lblSwapArtTtl
+      // 
+      this.lblSwapArtTtl.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblSwapArtTtl.AutoSize = true;
+      this.lblSwapArtTtl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtTtl.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtTtl.Location = new System.Drawing.Point(22, 31);
+      this.lblSwapArtTtl.Name = "lblSwapArtTtl";
+      this.lblSwapArtTtl.Size = new System.Drawing.Size(83, 13);
+      this.lblSwapArtTtl.TabIndex = 3;
+      this.lblSwapArtTtl.TabStop = true;
+      this.lblSwapArtTtl.Text = "Swap Artist-Title";
+      this.lblSwapArtTtl.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtTtl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSwapArtTtl_LinkClicked);
+      // 
+      // lblCommand
+      // 
+      this.lblCommand.AutoSize = true;
+      this.lblCommand.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.lblCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblCommand.Location = new System.Drawing.Point(11, 9);
+      this.lblCommand.Name = "lblCommand";
+      this.lblCommand.Size = new System.Drawing.Size(68, 15);
+      this.lblCommand.TabIndex = 0;
+      this.lblCommand.Text = "Commands";
       // 
       // frmTAG2Multi
       // 
       this.AcceptButton = this.btnOK;
       this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
       this.CancelButton = this.btnCancel;
-      this.ClientSize = new System.Drawing.Size(858, 576);
+      this.ClientSize = new System.Drawing.Size(859, 576);
       this.ControlBox = false;
+      this.Controls.Add(this.pnlCommands);
+      this.Controls.Add(this.pnlTagInfo);
       this.Controls.Add(this.panMain);
       this.Controls.Add(this.panOriginal);
       this.Controls.Add(this.panLyrics);
@@ -3580,9 +3556,8 @@ namespace ID3_TagIT
       this.Controls.Add(this.panWeb);
       this.Controls.Add(this.panUser);
       this.Controls.Add(this.panDetail);
-      this.Controls.Add(this.TopPanel);
-      this.Controls.Add(this.BottomPanel);
-      this.Controls.Add(this.SelectionBar);
+      this.Controls.Add(this.lblTopPanel);
+      this.Controls.Add(this.pnlBottomPanel);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
@@ -3632,8 +3607,11 @@ namespace ID3_TagIT
       this.Panel13.ResumeLayout(false);
       this.Panel13.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.txtDigits)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).EndInit();
-      this.BottomPanel.ResumeLayout(false);
+      this.pnlBottomPanel.ResumeLayout(false);
+      this.pnlTagInfo.ResumeLayout(false);
+      this.pnlTagInfo.PerformLayout();
+      this.pnlCommands.ResumeLayout(false);
+      this.pnlCommands.PerformLayout();
       this.ResumeLayout(false);
 
     }
@@ -3991,7 +3969,9 @@ namespace ID3_TagIT
       try
       {
         this.picViewer.Image = null;
-        this.PicFStream.Close();
+
+        if (this.PicMStream != null)
+          this.PicFStream.Close();
       }
       catch (Exception exception1)
       {
@@ -4003,7 +3983,9 @@ namespace ID3_TagIT
       try
       {
         this.picViewer.Image = null;
-        this.PicMStream.Close();
+
+        if (this.PicMStream != null)
+          this.PicMStream.Close();
       }
       catch (Exception exception3)
       {
@@ -4062,86 +4044,6 @@ namespace ID3_TagIT
           Interaction.MsgBox(exception3.Message, MsgBoxStyle.ApplicationModal, null);
           ProjectData.ClearProjectError();
         }
-      }
-    }
-
-    private void btnItem_Click(object sender, EventArgs e)
-    {
-      this.TopPanel.Text = StringType.FromObject(LateBinding.LateGet(sender, null, "Text", new object[0], null, null));
-      this.panMain.Visible = false;
-      this.panDetail.Visible = false;
-      this.panOriginal.Visible = false;
-      this.panWeb.Visible = false;
-      this.panRating.Visible = false;
-      this.panPic.Visible = false;
-      this.panLyrics.Visible = false;
-      this.panInvolved.Visible = false;
-      this.panUser.Visible = false;
-      this.panMain.Enabled = false;
-      this.panDetail.Enabled = false;
-      this.panOriginal.Enabled = false;
-      this.panWeb.Enabled = false;
-      this.panRating.Enabled = false;
-      this.panPic.Enabled = false;
-      this.panLyrics.Enabled = false;
-      this.panInvolved.Enabled = false;
-      this.panUser.Enabled = false;
-
-      object obj2 = LateBinding.LateGet(sender, null, "Name", new object[0], null, null);
-
-      if (ObjectType.ObjTst(obj2, "TAGV2ButtonItem1", false) == 0)
-      {
-        this.panMain.Visible = true;
-        this.panMain.Enabled = true;
-        this.panMain.Dock = DockStyle.Fill;
-      }
-      else if (ObjectType.ObjTst(obj2, "TAGV2ButtonItem2", false) == 0)
-      {
-        this.panDetail.Visible = true;
-        this.panDetail.Enabled = true;
-        this.panDetail.Dock = DockStyle.Fill;
-      }
-      else if (ObjectType.ObjTst(obj2, "TAGV2ButtonItem3", false) == 0)
-      {
-        this.panOriginal.Visible = true;
-        this.panOriginal.Enabled = true;
-        this.panOriginal.Dock = DockStyle.Fill;
-      }
-      else if (ObjectType.ObjTst(obj2, "TAGV2ButtonItem4", false) == 0)
-      {
-        this.panInvolved.Visible = true;
-        this.panInvolved.Enabled = true;
-        this.panInvolved.Dock = DockStyle.Fill;
-      }
-      else if (ObjectType.ObjTst(obj2, "TAGV2ButtonItem5", false) == 0)
-      {
-        this.panWeb.Visible = true;
-        this.panWeb.Enabled = true;
-        this.panWeb.Dock = DockStyle.Fill;
-      }
-      else if (ObjectType.ObjTst(obj2, "TAGV2ButtonItem6", false) == 0)
-      {
-        this.panPic.Visible = true;
-        this.panPic.Enabled = true;
-        this.panPic.Dock = DockStyle.Fill;
-      }
-      else if (ObjectType.ObjTst(obj2, "TAGV2ButtonItem7", false) == 0)
-      {
-        this.panLyrics.Visible = true;
-        this.panLyrics.Enabled = true;
-        this.panLyrics.Dock = DockStyle.Fill;
-      }
-      else if (ObjectType.ObjTst(obj2, "TAGV2ButtonItem8", false) == 0)
-      {
-        this.panRating.Visible = true;
-        this.panRating.Enabled = true;
-        this.panRating.Dock = DockStyle.Fill;
-      }
-      else if (ObjectType.ObjTst(obj2, "TAGV2ButtonItem9", false) == 0)
-      {
-        this.panUser.Visible = true;
-        this.panUser.Enabled = true;
-        this.panUser.Dock = DockStyle.Fill;
       }
     }
 
@@ -4223,7 +4125,9 @@ namespace ID3_TagIT
       try
       {
         this.picViewer.Image = null;
-        this.PicFStream.Close();
+
+        if (this.PicFStream != null)
+          this.PicFStream.Close();
       }
       catch (Exception exception1)
       {
@@ -4235,7 +4139,9 @@ namespace ID3_TagIT
       try
       {
         this.picViewer.Image = null;
-        this.PicMStream.Close();
+
+        if (this.PicFStream != null)
+          this.PicMStream.Close();
       }
       catch (Exception exception3)
       {
@@ -4379,7 +4285,7 @@ namespace ID3_TagIT
       }
     }
 
-    private void btnSwapAA_Click(object sender, EventArgs e)
+    private void lblSwapArtAlb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
       string text = this.cmbArtist.Text;
 
@@ -4387,7 +4293,7 @@ namespace ID3_TagIT
       this.txtAlbum.Text = text;
     }
 
-    private void btnSwapAT_Click(object sender, EventArgs e)
+    private void lblSwapArtTtl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
       string text = this.cmbArtist.Text;
 
@@ -4395,7 +4301,7 @@ namespace ID3_TagIT
       this.txtTitle.Text = text;
     }
 
-    private void btnSwapTA_Click(object sender, EventArgs e)
+    private void lblSwapTtlAlb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
       string text = this.txtTitle.Text;
 
@@ -4431,8 +4337,7 @@ namespace ID3_TagIT
       this.panLyrics.Enabled = false;
       this.panInvolved.Enabled = false;
       this.panUser.Enabled = false;
-      this.panMain.Dock = DockStyle.Fill;
-      this.TopPanel.Text = StringType.FromObject(Declarations.objResources.SelectionBar["TAGV2ButtonItem1"]);
+      this.lblTopPanel.Text = "Main Entries";
 
       foreach (DataRow row in Declarations.objSettings.Artists.Rows)
         this.cmbArtist.Items.Add(RuntimeHelpers.GetObjectValue(row["Name"]));
@@ -4502,13 +4407,83 @@ namespace ID3_TagIT
       }
 
       this.FillForm();
-      this.AddSelectionBar();
+      //this.UpdateI18n(); FIXME - do language stuff later
       this.AddToolTips();
       this.AddColumnText();
-      this.TAGV2grpTAG.Expanded = true;
-      this.TAGV2grpCommands.Expanded = true;
       this.cmbArtist.Select();
       this.cmbArtist.Focus();
+    }
+
+    private void lblDetailedInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Detailed Information";
+      this.panDetail.Visible = true;
+      this.panDetail.Enabled = true;
+    }
+
+    private void lblInvolvedPeople_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Involved People";
+      this.panInvolved.Visible = true;
+      this.panInvolved.Enabled = true;
+    }
+
+    private void lblLyricsPane_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Lyrics";
+      this.panLyrics.Visible = true;
+      this.panLyrics.Enabled = true;
+    }
+
+    private void lblMainEntries_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Main Entries";
+      this.panMain.Visible = true;
+      this.panMain.Enabled = true;
+    }
+
+    private void lblOriginalInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Original Information";
+      this.panOriginal.Visible = true;
+      this.panOriginal.Enabled = true;
+    }
+
+    private void lblPictures_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Pictures";
+      this.panPic.Visible = true;
+      this.panPic.Enabled = true;
+    }
+
+    private void lblRating_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Rating";
+      this.panRating.Visible = true;
+      this.panRating.Enabled = true;
+    }
+
+    private void lblUserDefined_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "User Defined Information";
+      this.panUser.Visible = true;
+      this.panUser.Enabled = true;
+    }
+
+    private void lblWebInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      DisablePanels();
+      lblTopPanel.Text = "Web Information";
+      this.panWeb.Visible = true;
+      this.panWeb.Enabled = true;
     }
 
     private void LyricsList_Click(object sender, EventArgs e)
@@ -6115,6 +6090,34 @@ namespace ID3_TagIT
       }
     }
 
+    private void txtPOS1_Validating(object sender, CancelEventArgs e)
+    {
+      if (txtPOS1.ValidateText() != null)
+        if ((int)txtPOS1.ValidateText() < 0 || (int)txtPOS1.ValidateText() > 255)
+          e.Cancel = true;
+    }
+
+    private void txtPOS2_Validating(object sender, CancelEventArgs e)
+    {
+      if (txtPOS2.ValidateText() != null)
+        if ((int)txtPOS2.ValidateText() < 0 || (int)txtPOS2.ValidateText() > 255)
+          e.Cancel = true;
+    }
+
+    private void txtTrack1_Validating(object sender, CancelEventArgs e)
+    {
+      if (txtTrack1.ValidateText() != null)
+        if ((int)txtTrack1.ValidateText() < 0 || (int)txtTrack1.ValidateText() > 255)
+          e.Cancel = true;
+    }
+
+    private void txtTrack2_Validating(object sender, CancelEventArgs e)
+    {
+      if (txtTrack2.ValidateText() != null)
+        if ((int)txtTrack2.ValidateText() < 0 || (int)txtTrack2.ValidateText() > 255)
+          e.Cancel = true;
+    }
+
     private void TXXXList_Click(object sender, EventArgs e)
     {
       if (this.TXXXList.FocusedItem != null)
@@ -6203,50 +6206,6 @@ namespace ID3_TagIT
 
       this.WXXXList.Columns[0].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol21"]);
       this.WXXXList.Columns[1].Text = StringType.FromObject(Declarations.objResources.ResStrings["DialogCol22"]);
-    }
-
-    private void AddSelectionBar()
-    {
-      IEnumerator enumerator = null;
-
-      try
-      {
-        enumerator = this.SelectionBar.Groups.GetEnumerator();
-
-        while (enumerator.MoveNext())
-        {
-          ExplorerBarGroupItem current = (ExplorerBarGroupItem)enumerator.Current;
-
-          try
-          {
-            current.Text = StringType.FromObject(Declarations.objResources.SelectionBar[current.Name]);
-          }
-          catch (Exception exception1)
-          {
-            ProjectData.SetProjectError(exception1);
-            ProjectData.ClearProjectError();
-          }
-
-          try
-          {
-            foreach (ButtonItem item in current.SubItems)
-              item.Text = StringType.FromObject(Declarations.objResources.SelectionBar[item.Name]);
-
-            continue;
-          }
-          catch (Exception exception2)
-          {
-            ProjectData.SetProjectError(exception2);
-            ProjectData.ClearProjectError();
-            continue;
-          }
-        }
-      }
-      finally
-      {
-        if (enumerator is IDisposable)
-          ((IDisposable)enumerator).Dispose();
-      }
     }
 
     private void AddToolTips()
@@ -7086,6 +7045,36 @@ namespace ID3_TagIT
       this.txtComment.Text = this.CommentList.FocusedItem.SubItems[1].Text.Replace("\n", "\r\n");
     }
 
+    private void DisablePanels()
+    {
+      this.panMain.Visible = false;
+      this.panMain.Enabled = false;
+
+      this.panDetail.Visible = false;
+      this.panDetail.Enabled = false;
+
+      this.panOriginal.Visible = false;
+      this.panOriginal.Enabled = false;
+
+      this.panInvolved.Visible = false;
+      this.panInvolved.Enabled = false;
+
+      this.panWeb.Visible = false;
+      this.panWeb.Enabled = false;
+
+      this.panPic.Visible = false;
+      this.panPic.Enabled = false;
+
+      this.panLyrics.Visible = false;
+      this.panLyrics.Enabled = false;
+
+      this.panRating.Visible = false;
+      this.panRating.Enabled = false;
+
+      this.panUser.Visible = false;
+      this.panUser.Enabled = false;
+    }
+
     private void FillForm()
     {
       byte num = 0;
@@ -7432,34 +7421,51 @@ namespace ID3_TagIT
       this.Close();
     }
 
+    // FIXME This simply does the i18n text swaps.  Do this later.
+    //private void UpdateI18n()
+    //{
+    //  IEnumerator enumerator = null;
+
+    //  try
+    //  {
+    //    enumerator = this.SelectionBar.Groups.GetEnumerator();
+
+    //    while (enumerator.MoveNext())
+    //    {
+    //      ExplorerBarGroupItem current = (ExplorerBarGroupItem)enumerator.Current;
+
+    //      try
+    //      {
+    //        current.Text = StringType.FromObject(Declarations.objResources.SelectionBar[current.Name]);
+    //      }
+    //      catch (Exception exception1)
+    //      {
+    //        ProjectData.SetProjectError(exception1);
+    //        ProjectData.ClearProjectError();
+    //      }
+
+    //      try
+    //      {
+    //        foreach (ButtonItem item in current.SubItems)
+    //          item.Text = StringType.FromObject(Declarations.objResources.SelectionBar[item.Name]);
+
+    //        continue;
+    //      }
+    //      catch (Exception exception2)
+    //      {
+    //        ProjectData.SetProjectError(exception2);
+    //        ProjectData.ClearProjectError();
+    //        continue;
+    //      }
+    //    }
+    //  }
+    //  finally
+    //  {
+    //    if (enumerator is IDisposable)
+    //      ((IDisposable)enumerator).Dispose();
+    //  }
+    //}
+
     #endregion
-
-    private void txtPOS1_Validating(object sender, CancelEventArgs e)
-    {
-      if (txtPOS1.ValidateText() != null)
-        if ((int)txtPOS1.ValidateText() < 0 || (int)txtPOS1.ValidateText() > 255)
-          e.Cancel = true;
-    }
-
-    private void txtPOS2_Validating(object sender, CancelEventArgs e)
-    {
-      if (txtPOS2.ValidateText() != null)
-        if ((int)txtPOS2.ValidateText() < 0 || (int)txtPOS2.ValidateText() > 255)
-          e.Cancel = true;
-    }
-
-    private void txtTrack1_Validating(object sender, CancelEventArgs e)
-    {
-      if (txtTrack1.ValidateText() != null)
-        if ((int)txtTrack1.ValidateText() < 0 || (int)txtTrack1.ValidateText() > 255)
-          e.Cancel = true;
-    }
-
-    private void txtTrack2_Validating(object sender, CancelEventArgs e)
-    {
-      if (txtTrack2.ValidateText() != null)
-        if ((int)txtTrack2.ValidateText() < 0 || (int)txtTrack2.ValidateText() > 255)
-          e.Cancel = true;
-    }
   }
 }

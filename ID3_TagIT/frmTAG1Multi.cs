@@ -1,5 +1,4 @@
-﻿using DevComponents.DotNetBar;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections;
@@ -17,9 +16,6 @@ namespace ID3_TagIT
 
     private Button btnCancel;
     private Button btnOK;
-    private ButtonItem btnSwapAA;
-    private ButtonItem btnSwapAT;
-    private ButtonItem btnSwapTA;
     private CheckBox CheckBox1;
     private CheckBox CheckBox2;
     private CheckBox CheckBox3;
@@ -37,8 +33,6 @@ namespace ID3_TagIT
     private Label lblTitle;
     private Label lblTrack;
     private Label lblYear;
-    private ExplorerBar SelectionBar;
-    private ExplorerBarGroupItem TAGV2grpCommands;
     private System.Windows.Forms.ToolTip ToolTip;
     private System.Windows.Forms.TextBox txtAlbum;
     private System.Windows.Forms.TextBox txtComment;
@@ -46,6 +40,11 @@ namespace ID3_TagIT
     private MaskedTextBox txtTrack;
     private MaskedTextBox txtYear;
     private IContainer components;
+    private Panel pnlCommands;
+    private LinkLabel lblSwapTtlAlb;
+    private LinkLabel lblSwapArtAlb;
+    private LinkLabel lblSwapArtTtl;
+    private Label lblCommand;
     private frmMain MainForm;
 
     protected override void Dispose(bool disposing)
@@ -85,12 +84,12 @@ namespace ID3_TagIT
       this.txtYear = new System.Windows.Forms.MaskedTextBox();
       this.txtTrack = new System.Windows.Forms.MaskedTextBox();
       this.lblInfoStar = new System.Windows.Forms.Label();
-      this.SelectionBar = new DevComponents.DotNetBar.ExplorerBar();
-      this.TAGV2grpCommands = new DevComponents.DotNetBar.ExplorerBarGroupItem();
-      this.btnSwapAT = new DevComponents.DotNetBar.ButtonItem();
-      this.btnSwapAA = new DevComponents.DotNetBar.ButtonItem();
-      this.btnSwapTA = new DevComponents.DotNetBar.ButtonItem();
-      ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).BeginInit();
+      this.pnlCommands = new System.Windows.Forms.Panel();
+      this.lblSwapTtlAlb = new System.Windows.Forms.LinkLabel();
+      this.lblSwapArtAlb = new System.Windows.Forms.LinkLabel();
+      this.lblSwapArtTtl = new System.Windows.Forms.LinkLabel();
+      this.lblCommand = new System.Windows.Forms.Label();
+      this.pnlCommands.SuspendLayout();
       this.SuspendLayout();
       // 
       // btnCancel
@@ -98,7 +97,7 @@ namespace ID3_TagIT
       this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
       this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
       this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnCancel.Location = new System.Drawing.Point(504, 244);
+      this.btnCancel.Location = new System.Drawing.Point(488, 244);
       this.btnCancel.Name = "btnCancel";
       this.btnCancel.Size = new System.Drawing.Size(112, 24);
       this.btnCancel.TabIndex = 24;
@@ -110,7 +109,7 @@ namespace ID3_TagIT
       this.btnOK.BackColor = System.Drawing.SystemColors.Control;
       this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
       this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnOK.Location = new System.Drawing.Point(384, 244);
+      this.btnOK.Location = new System.Drawing.Point(368, 244);
       this.btnOK.Name = "btnOK";
       this.btnOK.Size = new System.Drawing.Size(112, 24);
       this.btnOK.TabIndex = 23;
@@ -121,7 +120,7 @@ namespace ID3_TagIT
       // lblGenre
       // 
       this.lblGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblGenre.Location = new System.Drawing.Point(176, 128);
+      this.lblGenre.Location = new System.Drawing.Point(160, 128);
       this.lblGenre.Name = "lblGenre";
       this.lblGenre.Size = new System.Drawing.Size(144, 16);
       this.lblGenre.TabIndex = 15;
@@ -129,7 +128,7 @@ namespace ID3_TagIT
       // 
       // txtAlbum
       // 
-      this.txtAlbum.Location = new System.Drawing.Point(328, 56);
+      this.txtAlbum.Location = new System.Drawing.Point(312, 56);
       this.txtAlbum.MaxLength = 30;
       this.txtAlbum.Name = "txtAlbum";
       this.txtAlbum.Size = new System.Drawing.Size(264, 20);
@@ -140,7 +139,7 @@ namespace ID3_TagIT
       // lblComment
       // 
       this.lblComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblComment.Location = new System.Drawing.Point(176, 152);
+      this.lblComment.Location = new System.Drawing.Point(160, 152);
       this.lblComment.Name = "lblComment";
       this.lblComment.Size = new System.Drawing.Size(144, 16);
       this.lblComment.TabIndex = 18;
@@ -149,7 +148,7 @@ namespace ID3_TagIT
       // lblTitle
       // 
       this.lblTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblTitle.Location = new System.Drawing.Point(176, 32);
+      this.lblTitle.Location = new System.Drawing.Point(160, 32);
       this.lblTitle.Name = "lblTitle";
       this.lblTitle.Size = new System.Drawing.Size(144, 16);
       this.lblTitle.TabIndex = 3;
@@ -158,7 +157,7 @@ namespace ID3_TagIT
       // lblAlbum
       // 
       this.lblAlbum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblAlbum.Location = new System.Drawing.Point(176, 56);
+      this.lblAlbum.Location = new System.Drawing.Point(160, 56);
       this.lblAlbum.Name = "lblAlbum";
       this.lblAlbum.Size = new System.Drawing.Size(144, 16);
       this.lblAlbum.TabIndex = 6;
@@ -167,7 +166,7 @@ namespace ID3_TagIT
       // lblYear
       // 
       this.lblYear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblYear.Location = new System.Drawing.Point(176, 80);
+      this.lblYear.Location = new System.Drawing.Point(160, 80);
       this.lblYear.Name = "lblYear";
       this.lblYear.Size = new System.Drawing.Size(144, 16);
       this.lblYear.TabIndex = 9;
@@ -176,7 +175,7 @@ namespace ID3_TagIT
       // lblTrack
       // 
       this.lblTrack.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblTrack.Location = new System.Drawing.Point(176, 104);
+      this.lblTrack.Location = new System.Drawing.Point(160, 104);
       this.lblTrack.Name = "lblTrack";
       this.lblTrack.Size = new System.Drawing.Size(144, 16);
       this.lblTrack.TabIndex = 12;
@@ -185,7 +184,7 @@ namespace ID3_TagIT
       // lblArtist
       // 
       this.lblArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblArtist.Location = new System.Drawing.Point(176, 8);
+      this.lblArtist.Location = new System.Drawing.Point(160, 8);
       this.lblArtist.Name = "lblArtist";
       this.lblArtist.Size = new System.Drawing.Size(144, 16);
       this.lblArtist.TabIndex = 0;
@@ -193,7 +192,7 @@ namespace ID3_TagIT
       // 
       // txtComment
       // 
-      this.txtComment.Location = new System.Drawing.Point(328, 152);
+      this.txtComment.Location = new System.Drawing.Point(312, 152);
       this.txtComment.MaxLength = 30;
       this.txtComment.Name = "txtComment";
       this.txtComment.Size = new System.Drawing.Size(264, 20);
@@ -203,7 +202,7 @@ namespace ID3_TagIT
       // 
       // txtTitle
       // 
-      this.txtTitle.Location = new System.Drawing.Point(328, 32);
+      this.txtTitle.Location = new System.Drawing.Point(312, 32);
       this.txtTitle.MaxLength = 30;
       this.txtTitle.Name = "txtTitle";
       this.txtTitle.Size = new System.Drawing.Size(264, 20);
@@ -214,7 +213,7 @@ namespace ID3_TagIT
       // CheckBox1
       // 
       this.CheckBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.CheckBox1.Location = new System.Drawing.Point(600, 10);
+      this.CheckBox1.Location = new System.Drawing.Point(584, 10);
       this.CheckBox1.Name = "CheckBox1";
       this.CheckBox1.Size = new System.Drawing.Size(16, 16);
       this.CheckBox1.TabIndex = 2;
@@ -222,7 +221,7 @@ namespace ID3_TagIT
       // CheckBox2
       // 
       this.CheckBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.CheckBox2.Location = new System.Drawing.Point(600, 34);
+      this.CheckBox2.Location = new System.Drawing.Point(584, 34);
       this.CheckBox2.Name = "CheckBox2";
       this.CheckBox2.Size = new System.Drawing.Size(16, 16);
       this.CheckBox2.TabIndex = 5;
@@ -230,7 +229,7 @@ namespace ID3_TagIT
       // CheckBox3
       // 
       this.CheckBox3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.CheckBox3.Location = new System.Drawing.Point(600, 58);
+      this.CheckBox3.Location = new System.Drawing.Point(584, 58);
       this.CheckBox3.Name = "CheckBox3";
       this.CheckBox3.Size = new System.Drawing.Size(16, 16);
       this.CheckBox3.TabIndex = 8;
@@ -238,7 +237,7 @@ namespace ID3_TagIT
       // CheckBox4
       // 
       this.CheckBox4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.CheckBox4.Location = new System.Drawing.Point(400, 82);
+      this.CheckBox4.Location = new System.Drawing.Point(384, 82);
       this.CheckBox4.Name = "CheckBox4";
       this.CheckBox4.Size = new System.Drawing.Size(16, 16);
       this.CheckBox4.TabIndex = 11;
@@ -246,7 +245,7 @@ namespace ID3_TagIT
       // CheckBox5
       // 
       this.CheckBox5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.CheckBox5.Location = new System.Drawing.Point(400, 106);
+      this.CheckBox5.Location = new System.Drawing.Point(384, 106);
       this.CheckBox5.Name = "CheckBox5";
       this.CheckBox5.Size = new System.Drawing.Size(16, 16);
       this.CheckBox5.TabIndex = 14;
@@ -254,7 +253,7 @@ namespace ID3_TagIT
       // CheckBox6
       // 
       this.CheckBox6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.CheckBox6.Location = new System.Drawing.Point(600, 130);
+      this.CheckBox6.Location = new System.Drawing.Point(584, 130);
       this.CheckBox6.Name = "CheckBox6";
       this.CheckBox6.Size = new System.Drawing.Size(16, 16);
       this.CheckBox6.TabIndex = 17;
@@ -262,7 +261,7 @@ namespace ID3_TagIT
       // CheckBox7
       // 
       this.CheckBox7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.CheckBox7.Location = new System.Drawing.Point(600, 154);
+      this.CheckBox7.Location = new System.Drawing.Point(584, 154);
       this.CheckBox7.Name = "CheckBox7";
       this.CheckBox7.Size = new System.Drawing.Size(16, 16);
       this.CheckBox7.TabIndex = 20;
@@ -272,7 +271,7 @@ namespace ID3_TagIT
       this.cmbGenre.Autocomplete = true;
       this.cmbGenre.ItemHeight = 13;
       this.cmbGenre.ListItemsOnly = true;
-      this.cmbGenre.Location = new System.Drawing.Point(328, 128);
+      this.cmbGenre.Location = new System.Drawing.Point(312, 128);
       this.cmbGenre.Name = "cmbGenre";
       this.cmbGenre.Size = new System.Drawing.Size(264, 21);
       this.cmbGenre.TabIndex = 16;
@@ -284,7 +283,7 @@ namespace ID3_TagIT
       // 
       this.cmbArtist.Autocomplete = true;
       this.cmbArtist.ItemHeight = 13;
-      this.cmbArtist.Location = new System.Drawing.Point(328, 8);
+      this.cmbArtist.Location = new System.Drawing.Point(312, 8);
       this.cmbArtist.MaxLength = 30;
       this.cmbArtist.Name = "cmbArtist";
       this.cmbArtist.Size = new System.Drawing.Size(264, 21);
@@ -295,7 +294,7 @@ namespace ID3_TagIT
       // 
       // txtYear
       // 
-      this.txtYear.Location = new System.Drawing.Point(328, 80);
+      this.txtYear.Location = new System.Drawing.Point(312, 80);
       this.txtYear.Mask = "0000";
       this.txtYear.Name = "txtYear";
       this.txtYear.Size = new System.Drawing.Size(64, 20);
@@ -307,7 +306,7 @@ namespace ID3_TagIT
       // 
       // txtTrack
       // 
-      this.txtTrack.Location = new System.Drawing.Point(328, 104);
+      this.txtTrack.Location = new System.Drawing.Point(312, 104);
       this.txtTrack.Mask = "000";
       this.txtTrack.Name = "txtTrack";
       this.txtTrack.Size = new System.Drawing.Size(64, 20);
@@ -321,7 +320,7 @@ namespace ID3_TagIT
       // lblInfoStar
       // 
       this.lblInfoStar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-      this.lblInfoStar.Location = new System.Drawing.Point(176, 184);
+      this.lblInfoStar.Location = new System.Drawing.Point(160, 184);
       this.lblInfoStar.Name = "lblInfoStar";
       this.lblInfoStar.Size = new System.Drawing.Size(440, 48);
       this.lblInfoStar.TabIndex = 21;
@@ -330,96 +329,83 @@ namespace ID3_TagIT
     "ar, <G>=Genre";
       this.lblInfoStar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
-      // SelectionBar
+      // pnlCommands
       // 
-      this.SelectionBar.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
-      this.SelectionBar.AllowUserCustomize = false;
-      this.SelectionBar.AntiAlias = true;
-      this.SelectionBar.BackColor = System.Drawing.SystemColors.Control;
-      this.SelectionBar.BackgroundStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground;
-      this.SelectionBar.BackgroundStyle.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground2;
-      this.SelectionBar.BackgroundStyle.GradientAngle = 90;
-      this.SelectionBar.Dock = System.Windows.Forms.DockStyle.Left;
-      this.SelectionBar.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
-      this.SelectionBar.GroupImages = null;
-      this.SelectionBar.Groups.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.TAGV2grpCommands});
-      this.SelectionBar.Images = null;
-      this.SelectionBar.Location = new System.Drawing.Point(0, 0);
-      this.SelectionBar.Name = "SelectionBar";
-      this.SelectionBar.Size = new System.Drawing.Size(168, 280);
-      this.SelectionBar.TabIndex = 25;
-      this.SelectionBar.Text = "Select TAG section";
+      this.pnlCommands.Controls.Add(this.lblSwapTtlAlb);
+      this.pnlCommands.Controls.Add(this.lblSwapArtAlb);
+      this.pnlCommands.Controls.Add(this.lblSwapArtTtl);
+      this.pnlCommands.Controls.Add(this.lblCommand);
+      this.pnlCommands.Location = new System.Drawing.Point(12, 12);
+      this.pnlCommands.Name = "pnlCommands";
+      this.pnlCommands.Size = new System.Drawing.Size(135, 102);
+      this.pnlCommands.TabIndex = 112;
       // 
-      // TAGV2grpCommands
+      // lblSwapTtlAlb
       // 
-      this.TAGV2grpCommands.BackgroundStyle.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
-      this.TAGV2grpCommands.BackgroundStyle.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-      this.TAGV2grpCommands.BackgroundStyle.BorderColor.Color = System.Drawing.Color.White;
-      this.TAGV2grpCommands.CanCustomize = false;
-      this.TAGV2grpCommands.Expanded = true;
-      this.TAGV2grpCommands.HeaderHotStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.TAGV2grpCommands.HeaderHotStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
-      this.TAGV2grpCommands.HeaderHotStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.TAGV2grpCommands.HeaderHotStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.TAGV2grpCommands.HeaderStyle.BackColor1.Color = System.Drawing.Color.White;
-      this.TAGV2grpCommands.HeaderStyle.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(211)))), ((int)(((byte)(247)))));
-      this.TAGV2grpCommands.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-      this.TAGV2grpCommands.HeaderStyle.ForeColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.TAGV2grpCommands.Name = "TAGV2grpCommands";
-      this.TAGV2grpCommands.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Blue;
-      this.TAGV2grpCommands.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnSwapAT,
-            this.btnSwapAA,
-            this.btnSwapTA});
-      this.TAGV2grpCommands.Text = "Commands";
+      this.lblSwapTtlAlb.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblSwapTtlAlb.AutoSize = true;
+      this.lblSwapTtlAlb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapTtlAlb.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapTtlAlb.Location = new System.Drawing.Point(22, 73);
+      this.lblSwapTtlAlb.Name = "lblSwapTtlAlb";
+      this.lblSwapTtlAlb.Size = new System.Drawing.Size(89, 13);
+      this.lblSwapTtlAlb.TabIndex = 5;
+      this.lblSwapTtlAlb.TabStop = true;
+      this.lblSwapTtlAlb.Text = "Swap Title-Album";
+      this.lblSwapTtlAlb.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapTtlAlb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSwapTtlAlb_LinkClicked);
       // 
-      // btnSwapAT
+      // lblSwapArtAlb
       // 
-      this.btnSwapAT.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.btnSwapAT.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.btnSwapAT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.btnSwapAT.HotFontUnderline = true;
-      this.btnSwapAT.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.btnSwapAT.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.btnSwapAT.Name = "btnSwapAT";
-      this.btnSwapAT.Text = "Swap Artist-Title";
-      this.btnSwapAT.Click += new System.EventHandler(this.btnSwapAT_Click);
+      this.lblSwapArtAlb.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblSwapArtAlb.AutoSize = true;
+      this.lblSwapArtAlb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtAlb.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtAlb.Location = new System.Drawing.Point(22, 52);
+      this.lblSwapArtAlb.Name = "lblSwapArtAlb";
+      this.lblSwapArtAlb.Size = new System.Drawing.Size(92, 13);
+      this.lblSwapArtAlb.TabIndex = 4;
+      this.lblSwapArtAlb.TabStop = true;
+      this.lblSwapArtAlb.Text = "Swap Artist-Album";
+      this.lblSwapArtAlb.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtAlb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSwapArtAlb_LinkClicked);
       // 
-      // btnSwapAA
+      // lblSwapArtTtl
       // 
-      this.btnSwapAA.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.btnSwapAA.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.btnSwapAA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.btnSwapAA.HotFontUnderline = true;
-      this.btnSwapAA.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.btnSwapAA.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.btnSwapAA.Name = "btnSwapAA";
-      this.btnSwapAA.Text = "Swap Artist-Album";
-      this.btnSwapAA.Click += new System.EventHandler(this.btnSwapAA_Click);
+      this.lblSwapArtTtl.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+      this.lblSwapArtTtl.AutoSize = true;
+      this.lblSwapArtTtl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtTtl.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtTtl.Location = new System.Drawing.Point(22, 31);
+      this.lblSwapArtTtl.Name = "lblSwapArtTtl";
+      this.lblSwapArtTtl.Size = new System.Drawing.Size(83, 13);
+      this.lblSwapArtTtl.TabIndex = 3;
+      this.lblSwapArtTtl.TabStop = true;
+      this.lblSwapArtTtl.Text = "Swap Artist-Title";
+      this.lblSwapArtTtl.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblSwapArtTtl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSwapArtTtl_LinkClicked);
       // 
-      // btnSwapTA
+      // lblCommand
       // 
-      this.btnSwapTA.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-      this.btnSwapTA.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.btnSwapTA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-      this.btnSwapTA.HotFontUnderline = true;
-      this.btnSwapTA.HotForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-      this.btnSwapTA.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.None;
-      this.btnSwapTA.Name = "btnSwapTA";
-      this.btnSwapTA.Text = "Swap Title-Album";
-      this.btnSwapTA.Click += new System.EventHandler(this.btnSwapTA_Click);
+      this.lblCommand.AutoSize = true;
+      this.lblCommand.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+      this.lblCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+      this.lblCommand.Location = new System.Drawing.Point(11, 9);
+      this.lblCommand.Name = "lblCommand";
+      this.lblCommand.Size = new System.Drawing.Size(68, 15);
+      this.lblCommand.TabIndex = 0;
+      this.lblCommand.Text = "Commands";
       // 
       // frmTAG1Multi
       // 
       this.AcceptButton = this.btnOK;
       this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
       this.CancelButton = this.btnCancel;
-      this.ClientSize = new System.Drawing.Size(626, 280);
+      this.ClientSize = new System.Drawing.Size(611, 280);
       this.ControlBox = false;
+      this.Controls.Add(this.pnlCommands);
       this.Controls.Add(this.btnCancel);
       this.Controls.Add(this.btnOK);
-      this.Controls.Add(this.SelectionBar);
       this.Controls.Add(this.lblInfoStar);
       this.Controls.Add(this.txtYear);
       this.Controls.Add(this.txtTrack);
@@ -448,7 +434,8 @@ namespace ID3_TagIT
       this.Name = "frmTAG1Multi";
       this.ShowInTaskbar = false;
       this.Text = "Multiple Edit TAG Ver. 1";
-      ((System.ComponentModel.ISupportInitialize)(this.SelectionBar)).EndInit();
+      this.pnlCommands.ResumeLayout(false);
+      this.pnlCommands.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -471,24 +458,6 @@ namespace ID3_TagIT
       Id3TagIT_Main.SaveFormSettings(ref form);
       this.SaveToTAG();
       this.Close();
-    }
-
-    private void btnSwapAA_Click(object sender, EventArgs e)
-    {
-      this.cmbArtist.Text = "<B>";
-      this.txtAlbum.Text = "<A>";
-    }
-
-    private void btnSwapAT_Click(object sender, EventArgs e)
-    {
-      this.cmbArtist.Text = "<T>";
-      this.txtTitle.Text = "<A>";
-    }
-
-    private void btnSwapTA_Click(object sender, EventArgs e)
-    {
-      this.txtTitle.Text = "<B>";
-      this.txtAlbum.Text = "<T>";
     }
 
     private void cmbArtist_SelectedIndexChanged(object sender, EventArgs e)
@@ -524,9 +493,30 @@ namespace ID3_TagIT
       this.cmbGenre.Sorted = false;
       this.FillForm();
       this.AddToolTips();
-      this.AddSelectionBar();
+      //this.UpdateI18n(); FIXME - do language stuff later
       this.cmbArtist.Select();
       this.cmbArtist.Focus();
+    }
+
+    private void lblSwapArtAlb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      string text = this.cmbArtist.Text;
+      this.cmbArtist.Text = this.txtAlbum.Text;
+      this.txtAlbum.Text = text;
+    }
+
+    private void lblSwapArtTtl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      string text = this.cmbArtist.Text;
+      this.cmbArtist.Text = this.txtTitle.Text;
+      this.txtTitle.Text = text;
+    }
+
+    private void lblSwapTtlAlb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      string text = this.txtTitle.Text;
+      this.txtTitle.Text = this.txtAlbum.Text;
+      this.txtAlbum.Text = text;
     }
 
     private void Select_Enter(object sender, EventArgs e)
@@ -593,41 +583,6 @@ namespace ID3_TagIT
     #endregion
 
     #region Class logic
-
-    private void AddSelectionBar()
-    {
-      IEnumerator enumerator = null;
-
-      try
-      {
-        enumerator = this.SelectionBar.Groups.GetEnumerator();
-
-        while (enumerator.MoveNext())
-        {
-          ExplorerBarGroupItem current = (ExplorerBarGroupItem)enumerator.Current;
-          current.Text = StringType.FromObject(Declarations.objResources.SelectionBar[current.Name]);
-
-          try
-          {
-            foreach (ButtonItem item in current.SubItems)
-              item.Text = StringType.FromObject(Declarations.objResources.SelectionBar[item.Name]);
-
-            continue;
-          }
-          catch (Exception exception1)
-          {
-            ProjectData.SetProjectError(exception1);
-            ProjectData.ClearProjectError();
-            continue;
-          }
-        }
-      }
-      finally
-      {
-        if (enumerator is IDisposable)
-          ((IDisposable)enumerator).Dispose();
-      }
-    }
 
     private void AddToolTips()
     {
@@ -1020,6 +975,42 @@ namespace ID3_TagIT
       Id3TagIT_Main.SaveFormSettings(ref ownerForm);
       this.Close();
     }
+
+    // FIXME This simply does the i18n text swaps.  Do this later.
+    //private void UpdateI18n()
+    //{
+    //  IEnumerator enumerator = null;
+
+    //  try
+    //  {
+    //    enumerator = this.SelectionBar.Groups.GetEnumerator();
+
+    //    while (enumerator.MoveNext())
+    //    {
+    //      ExplorerBarGroupItem current = (ExplorerBarGroupItem)enumerator.Current;
+    //      current.Text = StringType.FromObject(Declarations.objResources.SelectionBar[current.Name]);
+
+    //      try
+    //      {
+    //        foreach (ButtonItem item in current.SubItems)
+    //          item.Text = StringType.FromObject(Declarations.objResources.SelectionBar[item.Name]);
+
+    //        continue;
+    //      }
+    //      catch (Exception exception1)
+    //      {
+    //        ProjectData.SetProjectError(exception1);
+    //        ProjectData.ClearProjectError();
+    //        continue;
+    //      }
+    //    }
+    //  }
+    //  finally
+    //  {
+    //    if (enumerator is IDisposable)
+    //      ((IDisposable)enumerator).Dispose();
+    //  }
+    //}
 
     #endregion
   }

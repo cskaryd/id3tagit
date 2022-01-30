@@ -1,5 +1,4 @@
-﻿using DevComponents.DotNetBar;
-using Microsoft.VisualBasic.CompilerServices;
+﻿using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Data;
 using System.Reflection;
@@ -70,7 +69,7 @@ namespace ID3_TagIT
 
       return str;
     }
-    
+
     public void ReadResources()
     {
       string str = string.Empty;
@@ -129,30 +128,30 @@ namespace ID3_TagIT
         this.ResourcesToFormRecusiv(objForm.Controls[i], ref tempRow);
     }
 
-    // FIXME - figure out what this does and where all it's called.
     private void ResourcesToFormRecusiv(Control objControl, ref DataRow TempRow)
     {
       try
       {
-        if (objControl.GetType() == typeof(DevComponents.DotNetBar.TabControl))
-        {
-          DevComponents.DotNetBar.TabControl control = (DevComponents.DotNetBar.TabControl)objControl;
+        // FIXME This simply does the i18n text swaps.  Do this later.
+        //if (objControl.GetType() == typeof(Dev_Components.Dot_Net_Bar.TabControl))
+        //{
+        //  var control = (Dev_Components.Dot_Net_Bar.TabControl)objControl;
 
-          foreach (TabItem item in control.Tabs)
-          {
-            try
-            {
-              item.Text = StringType.FromObject(TempRow[item.Name]);
-            }
-            catch (Exception exception1)
-            {
-              ProjectData.SetProjectError(exception1);
-              ProjectData.ClearProjectError();
-            }
-          }
-        }
-        else
-          objControl.Text = StringType.FromObject(TempRow[objControl.Name]);
+        //  foreach (TabItem item in control.Tabs)
+        //  {
+        //    try
+        //    {
+        //      item.Text = StringType.FromObject(TempRow[item.Name]);
+        //    }
+        //    catch (Exception exception1)
+        //    {
+        //      ProjectData.SetProjectError(exception1);
+        //      ProjectData.ClearProjectError();
+        //    }
+        //  }
+        //}
+        //else
+        objControl.Text = StringType.FromObject(TempRow[objControl.Name]);
       }
       catch (Exception exception2)
       {
