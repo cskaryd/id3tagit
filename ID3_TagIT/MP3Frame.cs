@@ -1,10 +1,10 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic;
-  using Microsoft.VisualBasic.CompilerServices;
-  using System;
-  using System.IO;
+﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.IO;
 
+namespace ID3_TagIT
+{
   public class MP3Frame
   {
     private bool vbooVBR = false;
@@ -41,6 +41,7 @@
       this.vbytEmphasis = (byte)(3 & abytHeader[3]);
       this.vintBitrate = Declarations.aintBitrateLookup[((this.vbytVersion & 1) * 4) | this.vbytLayer, this.vbytBitrateValue] * 0x3e8;
       this.vintSamplerate = Declarations.aintFreqLookup[this.vbytVersion, this.vbytSamplerateValue];
+
       if ((((this.vintBitrate != 0xf3e58) & (this.vintBitrate != 0)) & (this.vintSamplerate != 0x1869f)) & (this.vintSamplerate != 0))
       {
         if (this.vbytLayer != 3)
@@ -50,49 +51,43 @@
             this.vintFrameLength = 0;
             return false;
           }
+
           if (this.vbytVersion == 3)
-          {
             this.vintFrameLength = (int)Math.Round((double)(Conversion.Fix((double)(((double)(0x90 * this.vintBitrate)) / ((double)this.vintSamplerate))) + this.vbytPadding));
-          }
           else
-          {
             this.vintFrameLength = (int)Math.Round((double)(Conversion.Fix((double)(((double)(0x48 * this.vintBitrate)) / ((double)this.vintSamplerate))) + this.vbytPadding));
-          }
         }
         else if (this.vbytVersion == 3)
-        {
           this.vintFrameLength = (int)Math.Round((double)(Conversion.Fix((double)(((double)(0x30 * this.vintBitrate)) / ((double)this.vintSamplerate))) + (this.vbytPadding * 4)));
-        }
         else
-        {
           this.vintFrameLength = (int)Math.Round((double)(Conversion.Fix((double)(((double)(0x18 * this.vintBitrate)) / ((double)this.vintSamplerate))) + (this.vbytPadding * 4)));
-        }
       }
       else
       {
         this.vintFrameLength = 0;
         return false;
       }
+
       FStream.Seek((long)(this.vintFrameLength - 4), SeekOrigin.Current);
+
       if ((FStream.ReadByte() == 0xff) & (FStream.ReadByte() >= 240))
-      {
         FStream.Seek((long)(2 - this.vintFrameLength), SeekOrigin.Current);
-      }
       else
       {
         FStream.Seek((long)(2 - this.vintFrameLength), SeekOrigin.Current);
         return false;
       }
+
       this.vbooVBR = false;
+
       if (vbooCheckVBR)
       {
         int num;
         byte[] array = new byte[4];
         FStream.Seek(0x20L, SeekOrigin.Current);
         if (FStream.Read(array, 0, 4) < 4)
-        {
           return false;
-        }
+
         this.vstrVBRType = StringType.FromChar(Strings.Chr(array[0])) + StringType.FromChar(Strings.Chr(array[1])) + StringType.FromChar(Strings.Chr(array[2])) + StringType.FromChar(Strings.Chr(array[3]));
         if (StringType.StrCmp(this.vstrVBRType, "VBRI", false) == 0)
         {
@@ -100,9 +95,7 @@
           this.vintNumberOfFrames = 0;
           FStream.Seek(10L, SeekOrigin.Current);
           if (FStream.Read(array, 0, 4) < 4)
-          {
             return false;
-          }
           num = 0;
           do
           {
@@ -117,16 +110,12 @@
           if (this.vbytVersion == 3)
           {
             if (this.vbytChannel != 3)
-            {
               num2 = 40;
-            }
             else
             {
               FStream.Seek(-19L, SeekOrigin.Current);
               if (FStream.Read(array, 0, 4) < 4)
-              {
                 return false;
-              }
               num2 = 0x15;
             }
           }
@@ -134,18 +123,14 @@
           {
             FStream.Seek(-19L, SeekOrigin.Current);
             if (FStream.Read(array, 0, 4) < 4)
-            {
               return false;
-            }
             num2 = 0x15;
           }
           else
           {
             FStream.Seek(-27L, SeekOrigin.Current);
             if (FStream.Read(array, 0, 4) < 4)
-            {
               return false;
-            }
             num2 = 13;
           }
           this.vstrVBRType = StringType.FromChar(Strings.Chr(array[0])) + StringType.FromChar(Strings.Chr(array[1])) + StringType.FromChar(Strings.Chr(array[2])) + StringType.FromChar(Strings.Chr(array[3]));
@@ -155,9 +140,7 @@
             this.vintNumberOfFrames = 0;
             FStream.Seek(4L, SeekOrigin.Current);
             if (FStream.Read(array, 0, 4) < 4)
-            {
               return false;
-            }
             num = 0;
             do
             {
@@ -201,7 +184,8 @@
     {
       get
       {
-        string str;
+        string str = string.Empty;
+
         switch (this.vbytChannel)
         {
           case 0:
@@ -216,6 +200,7 @@
           case 3:
             return "Mono";
         }
+
         return str;
       }
     }
@@ -233,9 +218,8 @@
       get
       {
         if (this.vbytCopyrightBit == 0)
-        {
           return "Not copyrighted";
-        }
+
         return "Copyrighted";
       }
     }
@@ -252,7 +236,8 @@
     {
       get
       {
-        string str;
+        string str = string.Empty;
+
         switch (this.vbytEmphasis)
         {
           case 0:
@@ -267,6 +252,7 @@
           case 3:
             return "CCIT J.17";
         }
+
         return str;
       }
     }
@@ -291,7 +277,8 @@
     {
       get
       {
-        string str;
+        string str = string.Empty;
+
         switch (this.vbytLayer)
         {
           case 1:
@@ -303,6 +290,7 @@
           case 3:
             return "Layer I";
         }
+
         return str;
       }
     }
@@ -415,7 +403,8 @@
     {
       get
       {
-        string str;
+        string str = string.Empty;
+
         switch (this.vbytVersion)
         {
           case 0:

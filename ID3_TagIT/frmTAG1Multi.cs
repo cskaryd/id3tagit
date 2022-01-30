@@ -89,7 +89,7 @@
 
     private void AddSelectionBar()
     {
-      IEnumerator enumerator;
+      IEnumerator enumerator = null;
       try
       {
         enumerator = this.SelectionBar.Groups.GetEnumerator();
@@ -100,9 +100,7 @@
           try
           {
             foreach (ButtonItem item in current.SubItems)
-            {
               item.Text = StringType.FromObject(Declarations.objResources.SelectionBar[item.Name]);
-            }
             continue;
           }
           catch (Exception exception1)

@@ -221,7 +221,7 @@
               foreach (ListViewItem item in this.MainForm.MP3View.Items)
               {
                 num++;
-                this.SR(ref item, ref text, ref str, ref uNDO);
+                this.SR(item, ref text, ref str, ref uNDO);
                 if ((num % 0x19) == 0)
                 {
                   this.ProgressBar.PerformStep();
@@ -234,7 +234,7 @@
               foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
               {
                 num++;
-                this.SR(ref item, ref text, ref str, ref uNDO);
+                this.SR(item, ref text, ref str, ref uNDO);
                 if ((num % 0x19) == 0)
                 {
                   this.ProgressBar.PerformStep();
@@ -286,23 +286,17 @@
           if (!this.chkSelected.Checked)
           {
             foreach (ListViewItem item in this.MainForm.MP3View.Items)
-            {
-              this.SearchSelect(ref item, ref text);
-            }
+              this.SearchSelect(item, ref text);
           }
           else
           {
             foreach (ListViewItem item in this.MainForm.MP3View.SelectedItems)
-            {
-              this.SearchSelect(ref item, ref text);
-            }
+              this.SearchSelect(item, ref text);
           }
           try
           {
             if (this.MainForm.MP3View.FocusedItem == null)
-            {
               this.MainForm.MP3View.SelectedItems[0].Focused = true;
-            }
           }
           catch (Exception exception2)
           {
@@ -691,15 +685,15 @@
       Process.Start(this.LinkLabel.Text);
     }
 
-    private void SearchSelect(ref ListViewItem lstItem, ref string vstrSearchString)
+    private void SearchSelect(ListViewItem lstItem, ref string vstrSearchString)
     {
-      bool flag;
       MP3 mp2;
+      bool flag;
       RegexOptions none = RegexOptions.None;
+
       if (!this.chkCase.Checked)
-      {
         none |= RegexOptions.IgnoreCase;
-      }
+
       if (!this.optOR.Checked)
       {
         mp2 = (MP3)lstItem.Tag;
@@ -708,105 +702,70 @@
         if (this.chkFilename.Checked)
         {
           if (!Regex.IsMatch(mp2.CurrentName, vstrSearchString, none))
-          {
             flag = true;
-          }
           else if (!((((((this.chkArtist.Checked | this.chkTitle.Checked) | this.chkAlbum.Checked) | this.chkComment.Checked) | this.chkYear.Checked) | this.chkTracknumber.Checked) | this.chkGenre.Checked))
-          {
             lstItem.Selected = true;
-          }
         }
         flag = false;
         if ((this.chkVer1.Checked & mp2.V1TAG.TAGPresent) & !flag)
         {
           if ((!flag && this.chkArtist.Checked) && !Regex.IsMatch(mp2.V1TAG.Artist, vstrSearchString, none))
-          {
             flag = true;
-          }
           if ((!flag && this.chkTitle.Checked) && !Regex.IsMatch(mp2.V1TAG.Title, vstrSearchString, none))
-          {
             flag = true;
-          }
           if ((!flag && this.chkAlbum.Checked) && !Regex.IsMatch(mp2.V1TAG.Album, vstrSearchString, none))
-          {
             flag = true;
-          }
           if ((!flag && this.chkComment.Checked) && !Regex.IsMatch(mp2.V1TAG.Comment, vstrSearchString, none))
-          {
             flag = true;
-          }
           if (!flag && this.chkYear.Checked)
           {
             if (!Regex.IsMatch(mp2.V1TAG.Year.ToString(), vstrSearchString, none))
-            {
               flag = true;
-            }
             if (mp2.V1TAG.Year <= 0)
-            {
               flag = true;
-            }
           }
           if (!flag && this.chkTracknumber.Checked)
           {
             if (!Regex.IsMatch(mp2.V1TAG.Tracknumber.ToString(), vstrSearchString, none))
-            {
               flag = true;
-            }
             if (mp2.V1TAG.Tracknumber <= 0)
-            {
               flag = true;
-            }
           }
           if ((!flag && this.chkGenre.Checked) && !Regex.IsMatch(mp2.V1TAG.GenreText, vstrSearchString, none))
-          {
             flag = true;
-          }
           if (!flag)
-          {
             lstItem.Selected = true;
-          }
         }
         flag = false;
         if (!((this.chkVer2.Checked & mp2.V2TAG.TAGHeaderPresent) & !flag))
-        {
           return;
-        }
         if (!flag && this.chkArtist.Checked)
         {
           flag = true;
           if (mp2.V2TAG.FrameExists("TPE1") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(mp2.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null)), vstrSearchString, none))
-          {
             flag = false;
-          }
         }
         if (!flag && this.chkTitle.Checked)
         {
           flag = true;
           if (mp2.V2TAG.FrameExists("TIT2") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(mp2.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null)), vstrSearchString, none))
-          {
             flag = false;
-          }
         }
         if (!flag && this.chkAlbum.Checked)
         {
           flag = true;
           if (mp2.V2TAG.FrameExists("TALB") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(mp2.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null)), vstrSearchString, none))
-          {
             flag = false;
-          }
         }
         if (!flag && this.chkComment.Checked)
         {
           flag = true;
-          using (IEnumerator enumerator = mp2.V2TAG.GetFrames("COMM").GetEnumerator())
+          foreach (var frameItem in mp2.V2TAG.GetFrames("COMM"))
           {
-            while (enumerator.MoveNext())
+            if (Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(frameItem), null, "Content", new object[0], null, null)), vstrSearchString, none))
             {
-              if (Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator.Current), null, "Content", new object[0], null, null)), vstrSearchString, none))
-              {
-                flag = false;
-                goto Label_0941;
-              }
+              flag = false;
+              goto Label_0941;
             }
           }
         }
@@ -859,9 +818,7 @@
         }
       }
       if (!((this.chkVer2.Checked & tag.V2TAG.TAGHeaderPresent) & !flag))
-      {
         return;
-      }
       if ((!flag && this.chkArtist.Checked) && (tag.V2TAG.FrameExists("TPE1") && Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null)), vstrSearchString, none)))
       {
         lstItem.Selected = true;
@@ -879,16 +836,13 @@
       }
       if (!flag && this.chkComment.Checked)
       {
-        using (IEnumerator enumerator2 = tag.V2TAG.GetFrames("COMM").GetEnumerator())
+        foreach (var frameItem in tag.V2TAG.GetFrames("COMM"))
         {
-          while (enumerator2.MoveNext())
+          if (Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(frameItem), null, "Content", new object[0], null, null)), vstrSearchString, none))
           {
-            if (Regex.IsMatch(StringType.FromObject(LateBinding.LateGet(RuntimeHelpers.GetObjectValue(enumerator2.Current), null, "Content", new object[0], null, null)), vstrSearchString, none))
-            {
-              lstItem.Selected = true;
-              flag = true;
-              goto Label_03CB;
-            }
+            lstItem.Selected = true;
+            flag = true;
+            goto Label_03CB;
           }
         }
       }
@@ -974,7 +928,7 @@
       }
     }
 
-    private void SR(ref ListViewItem lstItem, ref string vstrSearchString, ref string vstrReplaceString, ref ArrayList UNDO)
+    private void SR(ListViewItem lstItem, ref string vstrSearchString, ref string vstrReplaceString, ref ArrayList UNDO)
     {
       bool flag2 = false;
       string str = "";
@@ -1145,18 +1099,15 @@
         }
         if (this.chkComment.Checked)
         {
-          using (IEnumerator enumerator = tag.V2TAG.GetFrames("COMM").GetEnumerator())
+          foreach (var frameItem in tag.V2TAG.GetFrames("COMM"))
           {
-            while (enumerator.MoveNext())
+            objectValue = RuntimeHelpers.GetObjectValue(frameItem);
+            str = Regex.Replace(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)), vstrSearchString, vstrReplaceString, none);
+            if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null))), str.ToLower().Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null)))))))
             {
-              objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
-              str = Regex.Replace(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)), vstrSearchString, vstrReplaceString, none);
-              if (BooleanType.FromObject(ObjectType.NotObj(Interaction.IIf(this.chkCase.Checked, str.Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null))), str.ToLower().Equals(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null)))))))
-              {
-                LateBinding.LateSet(objectValue, null, "Content", new object[] { str }, null);
-                flag2 = true;
-                tag.Changed = true;
-              }
+              LateBinding.LateSet(objectValue, null, "Content", new object[] { str }, null);
+              flag2 = true;
+              tag.Changed = true;
             }
           }
         }

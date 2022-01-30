@@ -112,6 +112,9 @@
     <Compile Include="ID3_TagIT\frmSplash.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="ID3_TagIT\frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ID3_TagIT\frmSplash.resx">
       <DependentUpon>frmSplash.cs</DependentUpon>
     </EmbeddedResource>

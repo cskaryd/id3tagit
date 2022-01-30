@@ -2449,13 +2449,9 @@
             if ((str2.Length > 2) && Information.IsNumeric(str2.Replace("(", "").Replace(")", "")))
             {
               if ((Conversion.Val(str2.Replace("(", "").Replace(")", "")) >= 0.0) & (Conversion.Val(str2.Replace("(", "").Replace(")", "")) < 148.0))
-              {
                 str2 = Declarations.astrGenreLookup[(int)Math.Round(Conversion.Val(str2.Replace("(", "").Replace(")", "")))];
-              }
               else
-              {
                 str2 = "< undefined >";
-              }
             }
             this.GenreList.Items.Add(str2);
           }
@@ -2466,9 +2462,7 @@
         string[] strArray2 = Strings.Split(this.MP3.V2TAG.GetTextWebFrameContent("TIPL"), "\0", -1, CompareMethod.Binary);
         int length = strArray2.GetLength(0);
         if ((length / 2) != 0)
-        {
           length--;
-        }
         int num13 = length - 1;
         for (int i = 0; i <= num13; i += 2)
         {
@@ -2485,9 +2479,7 @@
         string[] strArray3 = Strings.Split(this.MP3.V2TAG.GetTextWebFrameContent("TMCL"), "\0", -1, CompareMethod.Binary);
         int num4 = strArray3.GetLength(0);
         if ((num4 / 2) != 0)
-        {
           num4--;
-        }
         int num12 = num4 - 1;
         for (int j = 0; j <= num12; j += 2)
         {
@@ -2504,9 +2496,7 @@
         string[] strArray4 = Strings.Split(this.MP3.V2TAG.GetTextWebFrameContent("IPLS"), "\0", -1, CompareMethod.Binary);
         int num6 = strArray4.GetLength(0);
         if ((num6 / 2) != 0)
-        {
           num6--;
-        }
         int num11 = num6 - 1;
         for (int k = 0; k <= num11; k += 2)
         {
@@ -2536,9 +2526,7 @@
         object obj3;
         objectValue = RuntimeHelpers.GetObjectValue(this.MP3.V2TAG.GetFrame("TYER"));
         if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Length", new object[0], null, null), 4, false) > 0)
-        {
           LateBinding.LateSet(objectValue, null, "Content", new object[] { Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 4 }, null, null))).ToString() }, null);
-        }
         if (Convert.ToInt32(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)))) >= 0)
         {
           str = str.Replace("yyyy", StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "PadLeft", new object[] { 4, "0" }, null, null)));
@@ -2581,9 +2569,7 @@
           {
             str = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null), null, "PadLeft", new object[] { 4, "0" }, null, null));
             if (str.Length == 10)
-            {
               this.YearFormat.Value = 2;
-            }
             if (str.Length == 7)
             {
               str = str + "-01";
@@ -2681,9 +2667,7 @@
           {
             str = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null));
             if (str.Length == 10)
-            {
               this.TORYFormat.Value = 2;
-            }
             if (str.Length == 7)
             {
               str = str + "-01";
@@ -2753,237 +2737,200 @@
       this.txtINetRadioURL.Text = this.MP3.V2TAG.GetTextWebFrameContent("WORS");
       this.txtPayURL.Text = this.MP3.V2TAG.GetTextWebFrameContent("WPAY");
       this.txtPubURL.Text = this.MP3.V2TAG.GetTextWebFrameContent("WPUB");
-      using (IEnumerator enumerator9 = this.MP3.V2TAG.GetFrames("COMM").GetEnumerator())
+
+      foreach (var frameItem in this.MP3.V2TAG.GetFrames("COMM"))
       {
-        while (enumerator9.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(frameItem);
+        ListViewItem item4 = new ListViewItem
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator9.Current);
-          ListViewItem item4 = new ListViewItem
-          {
-            Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Descriptor", new object[0], null, null))
-          };
-          objArray = new object[1];
-          obj5 = objectValue;
-          objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj5, null, "Content", new object[0], null, null));
-          objArray2 = objArray;
-          flagArray = new bool[] { true };
-          LateBinding.LateCall(item4.SubItems, null, "Add", objArray2, null, flagArray);
-          if (flagArray[0])
-          {
-            LateBinding.LateSetComplex(obj5, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, false);
-          }
-          objArray = new object[1];
-          obj5 = objectValue;
-          objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj5, null, "Language", new object[0], null, null));
-          objArray2 = objArray;
-          flagArray = new bool[] { true };
-          LateBinding.LateCall(item4.SubItems, null, "Add", objArray2, null, flagArray);
-          if (flagArray[0])
-          {
-            LateBinding.LateSetComplex(obj5, null, "Language", new object[] { RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, false);
-          }
-          item4.Tag = RuntimeHelpers.GetObjectValue(objectValue);
-          this.CommentList.Items.Add(item4);
+          Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Descriptor", new object[0], null, null))
+        };
+        objArray = new object[1];
+        obj5 = objectValue;
+        objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj5, null, "Content", new object[0], null, null));
+        objArray2 = objArray;
+        flagArray = new bool[] { true };
+        LateBinding.LateCall(item4.SubItems, null, "Add", objArray2, null, flagArray);
+        if (flagArray[0])
+          LateBinding.LateSetComplex(obj5, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, false);
+        objArray = new object[1];
+        obj5 = objectValue;
+        objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj5, null, "Language", new object[0], null, null));
+        objArray2 = objArray;
+        flagArray = new bool[] { true };
+        LateBinding.LateCall(item4.SubItems, null, "Add", objArray2, null, flagArray);
+        if (flagArray[0])
+        {
+          LateBinding.LateSetComplex(obj5, null, "Language", new object[] { RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, false);
         }
+        item4.Tag = RuntimeHelpers.GetObjectValue(objectValue);
+        this.CommentList.Items.Add(item4);
       }
-      using (IEnumerator enumerator8 = this.MP3.V2TAG.GetFrames("USLT").GetEnumerator())
+
+      foreach (var frameItem in this.MP3.V2TAG.GetFrames("USLT"))
       {
-        while (enumerator8.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(frameItem);
+        ListViewItem item5 = new ListViewItem
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator8.Current);
-          ListViewItem item5 = new ListViewItem
-          {
-            Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Descriptor", new object[0], null, null))
-          };
-          objArray = new object[1];
-          obj5 = objectValue;
-          objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj5, null, "Content", new object[0], null, null));
-          objArray2 = objArray;
-          flagArray = new bool[] { true };
-          LateBinding.LateCall(item5.SubItems, null, "Add", objArray2, null, flagArray);
-          if (flagArray[0])
-          {
-            LateBinding.LateSetComplex(obj5, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, false);
-          }
-          objArray = new object[1];
-          obj5 = objectValue;
-          objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj5, null, "Language", new object[0], null, null));
-          objArray2 = objArray;
-          flagArray = new bool[] { true };
-          LateBinding.LateCall(item5.SubItems, null, "Add", objArray2, null, flagArray);
-          if (flagArray[0])
-          {
-            LateBinding.LateSetComplex(obj5, null, "Language", new object[] { RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, false);
-          }
-          item5.Tag = RuntimeHelpers.GetObjectValue(objectValue);
-          this.LyricsList.Items.Add(item5);
+          Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Descriptor", new object[0], null, null))
+        };
+        objArray = new object[1];
+        obj5 = objectValue;
+        objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj5, null, "Content", new object[0], null, null));
+        objArray2 = objArray;
+        flagArray = new bool[] { true };
+        LateBinding.LateCall(item5.SubItems, null, "Add", objArray2, null, flagArray);
+        if (flagArray[0])
+        {
+          LateBinding.LateSetComplex(obj5, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, false);
         }
-      }
-      using (IEnumerator enumerator7 = this.MP3.V2TAG.GetFrames("APIC").GetEnumerator())
-      {
-        while (enumerator7.MoveNext())
+        objArray = new object[1];
+        obj5 = objectValue;
+        objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj5, null, "Language", new object[0], null, null));
+        objArray2 = objArray;
+        flagArray = new bool[] { true };
+        LateBinding.LateCall(item5.SubItems, null, "Add", objArray2, null, flagArray);
+        if (flagArray[0])
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator7.Current);
-          ListViewItem item6 = new ListViewItem
-          {
-            Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Descriptor", new object[0], null, null))
-          };
-          objArray2 = new object[1];
-          ComboBox.ObjectCollection items = this.cmbPicType.Items;
-          obj5 = objectValue;
-          objArray = new object[0];
-          strArray6 = null;
-          objArray2[0] = RuntimeHelpers.GetObjectValue(items[IntegerType.FromObject(LateBinding.LateGet(obj5, null, "PicType", objArray, strArray6, null))]);
-          objArray3 = objArray2;
-          flagArray = new bool[] { true };
-          LateBinding.LateCall(item6.SubItems, null, "Add", objArray3, null, flagArray);
-          if (flagArray[0])
-          {
-            items[IntegerType.FromObject(LateBinding.LateGet(obj5, null, "PicType", objArray, strArray6, null))] = RuntimeHelpers.GetObjectValue(objArray3[0]);
-          }
-          objArray = new object[1];
-          obj5 = objectValue;
-          objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj5, null, "Path", new object[0], null, null));
-          objArray2 = objArray;
-          flagArray = new bool[] { true };
-          LateBinding.LateCall(item6.SubItems, null, "Add", objArray2, null, flagArray);
-          if (flagArray[0])
-          {
-            LateBinding.LateSetComplex(obj5, null, "Path", new object[] { RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, false);
-          }
-          item6.SubItems.Add(LateBinding.LateGet(objectValue, null, "Include", new object[0], null, null).ToString());
-          if (ObjectType.ObjTst(Path.GetFullPath(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Path", new object[0], null, null))), LateBinding.LateGet(objectValue, null, "Path", new object[0], null, null), false) != 0)
-          {
-            item6.Font = new Font(item6.Font, FontStyle.Bold);
-          }
-          item6.Tag = RuntimeHelpers.GetObjectValue(objectValue);
-          this.PicList.Items.Add(item6);
+          LateBinding.LateSetComplex(obj5, null, "Language", new object[] { RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, false);
         }
+        item5.Tag = RuntimeHelpers.GetObjectValue(objectValue);
+        this.LyricsList.Items.Add(item5);
       }
-      using (IEnumerator enumerator6 = this.MP3.V2TAG.GetFrames("POPM").GetEnumerator())
+
+      foreach (var frameItem in this.MP3.V2TAG.GetFrames("APIC"))
       {
-        while (enumerator6.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(frameItem);
+        ListViewItem item6 = new ListViewItem
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator6.Current);
-          ListViewItem item7 = new ListViewItem
-          {
-            Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "User", new object[0], null, null)),
-            SubItems = {
+          Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Descriptor", new object[0], null, null))
+        };
+        objArray2 = new object[1];
+        ComboBox.ObjectCollection items = this.cmbPicType.Items;
+        obj5 = objectValue;
+        objArray = new object[0];
+        strArray6 = null;
+        objArray2[0] = RuntimeHelpers.GetObjectValue(items[IntegerType.FromObject(LateBinding.LateGet(obj5, null, "PicType", objArray, strArray6, null))]);
+        objArray3 = objArray2;
+        flagArray = new bool[] { true };
+        LateBinding.LateCall(item6.SubItems, null, "Add", objArray3, null, flagArray);
+        if (flagArray[0])
+          items[IntegerType.FromObject(LateBinding.LateGet(obj5, null, "PicType", objArray, strArray6, null))] = RuntimeHelpers.GetObjectValue(objArray3[0]);
+        objArray = new object[1];
+        obj5 = objectValue;
+        objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj5, null, "Path", new object[0], null, null));
+        objArray2 = objArray;
+        flagArray = new bool[] { true };
+        LateBinding.LateCall(item6.SubItems, null, "Add", objArray2, null, flagArray);
+        if (flagArray[0])
+          LateBinding.LateSetComplex(obj5, null, "Path", new object[] { RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, false);
+        item6.SubItems.Add(LateBinding.LateGet(objectValue, null, "Include", new object[0], null, null).ToString());
+        if (ObjectType.ObjTst(Path.GetFullPath(StringType.FromObject(LateBinding.LateGet(objectValue, null, "Path", new object[0], null, null))), LateBinding.LateGet(objectValue, null, "Path", new object[0], null, null), false) != 0)
+          item6.Font = new Font(item6.Font, FontStyle.Bold);
+        item6.Tag = RuntimeHelpers.GetObjectValue(objectValue);
+        this.PicList.Items.Add(item6);
+      }
+
+      foreach (var frameItem in this.MP3.V2TAG.GetFrames("POPM"))
+      {
+        objectValue = RuntimeHelpers.GetObjectValue(frameItem);
+        ListViewItem item7 = new ListViewItem
+        {
+          Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "User", new object[0], null, null)),
+          SubItems = {
                             LateBinding.LateGet(objectValue, null, "Rating", new object[0], null, null).ToString(),
                             LateBinding.LateGet(objectValue, null, "Counter", new object[0], null, null).ToString()
                         },
-            Tag = RuntimeHelpers.GetObjectValue(objectValue)
-          };
-          this.RatingList.Items.Add(item7);
-        }
+          Tag = RuntimeHelpers.GetObjectValue(objectValue)
+        };
+        this.RatingList.Items.Add(item7);
       }
-      using (IEnumerator enumerator5 = this.MP3.V2TAG.GetFrames("TXXX").GetEnumerator())
+
+      foreach (var frameItem in this.MP3.V2TAG.GetFrames("TXXX"))
       {
-        while (enumerator5.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(frameItem);
+        ListViewItem item8 = new ListViewItem
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator5.Current);
-          ListViewItem item8 = new ListViewItem
-          {
-            Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Descriptor", new object[0], null, null))
-          };
-          objArray = new object[1];
-          obj5 = objectValue;
-          objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj5, null, "Content", new object[0], null, null));
-          objArray2 = objArray;
-          flagArray = new bool[] { true };
-          LateBinding.LateCall(item8.SubItems, null, "Add", objArray2, null, flagArray);
-          if (flagArray[0])
-          {
-            LateBinding.LateSetComplex(obj5, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, false);
-          }
-          item8.Tag = RuntimeHelpers.GetObjectValue(objectValue);
-          this.TXXXList.Items.Add(item8);
-        }
+          Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Descriptor", new object[0], null, null))
+        };
+        objArray = new object[1];
+        obj5 = objectValue;
+        objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj5, null, "Content", new object[0], null, null));
+        objArray2 = objArray;
+        flagArray = new bool[] { true };
+        LateBinding.LateCall(item8.SubItems, null, "Add", objArray2, null, flagArray);
+        if (flagArray[0])
+          LateBinding.LateSetComplex(obj5, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, false);
+        item8.Tag = RuntimeHelpers.GetObjectValue(objectValue);
+        this.TXXXList.Items.Add(item8);
       }
-      using (IEnumerator enumerator4 = this.MP3.V2TAG.GetFrames("WXXX").GetEnumerator())
+      foreach (var frameItem in this.MP3.V2TAG.GetFrames("WXXX"))
       {
-        while (enumerator4.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(frameItem);
+        ListViewItem item9 = new ListViewItem
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator4.Current);
-          ListViewItem item9 = new ListViewItem
-          {
-            Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Descriptor", new object[0], null, null))
-          };
-          objArray = new object[1];
-          obj5 = objectValue;
-          objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj5, null, "Content", new object[0], null, null));
-          objArray2 = objArray;
-          flagArray = new bool[] { true };
-          LateBinding.LateCall(item9.SubItems, null, "Add", objArray2, null, flagArray);
-          if (flagArray[0])
-          {
-            LateBinding.LateSetComplex(obj5, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, false);
-          }
-          item9.Tag = RuntimeHelpers.GetObjectValue(objectValue);
-          this.WXXXList.Items.Add(item9);
-        }
+          Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "Descriptor", new object[0], null, null))
+        };
+        objArray = new object[1];
+        obj5 = objectValue;
+        objArray[0] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(obj5, null, "Content", new object[0], null, null));
+        objArray2 = objArray;
+        flagArray = new bool[] { true };
+        LateBinding.LateCall(item9.SubItems, null, "Add", objArray2, null, flagArray);
+        if (flagArray[0])
+          LateBinding.LateSetComplex(obj5, null, "Content", new object[] { RuntimeHelpers.GetObjectValue(objArray2[0]) }, null, true, false);
+        item9.Tag = RuntimeHelpers.GetObjectValue(objectValue);
+        this.WXXXList.Items.Add(item9);
       }
       if (!Declarations.objSettings.SingleGC)
-      {
         goto Label_22A4;
-      }
       if (this.GenreList.Items.Count > 0)
-      {
         this.cmbGenre.Text = StringType.FromObject(this.GenreList.Items[0]);
-      }
       if (this.CommentList.Items.Count <= 0)
-      {
         goto Label_22A4;
-      }
       this.cmbCDescriptor.Text = StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Descriptor", new object[0], null, null));
-      using (IEnumerator enumerator3 = this.cmbCLanguage.Items.GetEnumerator())
+
+      foreach (var langItem in this.cmbCLanguage.Items)
       {
-        while (enumerator3.MoveNext())
+        string str3 = StringType.FromObject(langItem);
+        if (str3.StartsWith(StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Language", new object[0], null, null))))
         {
-          string str3 = StringType.FromObject(enumerator3.Current);
-          if (str3.StartsWith(StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Language", new object[0], null, null))))
-          {
-            this.cmbCLanguage.SelectedItem = str3;
-            goto Label_226B;
-          }
+          this.cmbCLanguage.SelectedItem = str3;
+          goto Label_226B;
         }
       }
       Label_226B:
       this.txtComment.Text = StringType.FromObject(LateBinding.LateGet(this.CommentList.Items[0].Tag, null, "Content", new object[0], null, null));
       Label_22A4:
-      using (IEnumerator enumerator2 = this.MP3.V2TAG.GetAllSupportedFrames().GetEnumerator())
+
+      foreach (var frameItem in this.MP3.V2TAG.GetAllSupportedFrames())
       {
-        while (enumerator2.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(frameItem);
+        object obj4 = LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null);
+        if (((((((ObjectType.ObjTst(obj4, "TPE1", false) != 0) && (ObjectType.ObjTst(obj4, "TPE2", false) != 0)) && ((ObjectType.ObjTst(obj4, "TPE3", false) != 0) && (ObjectType.ObjTst(obj4, "TPE4", false) != 0))) && (((ObjectType.ObjTst(obj4, "TIT1", false) != 0) && (ObjectType.ObjTst(obj4, "TIT2", false) != 0)) && ((ObjectType.ObjTst(obj4, "TIT3", false) != 0) && (ObjectType.ObjTst(obj4, "TALB", false) != 0)))) && ((((ObjectType.ObjTst(obj4, "TRCK", false) != 0) && (ObjectType.ObjTst(obj4, "TBPM", false) != 0)) && ((ObjectType.ObjTst(obj4, "TCOM", false) != 0) && (ObjectType.ObjTst(obj4, "TCON", false) != 0))) && (((ObjectType.ObjTst(obj4, "TDAT", false) != 0) && (ObjectType.ObjTst(obj4, "TENC", false) != 0)) && ((ObjectType.ObjTst(obj4, "TMED", false) != 0) && (ObjectType.ObjTst(obj4, "TYER", false) != 0))))) && (((((ObjectType.ObjTst(obj4, "TEXT", false) != 0) && (ObjectType.ObjTst(obj4, "TPUB", false) != 0)) && ((ObjectType.ObjTst(obj4, "TOAL", false) != 0) && (ObjectType.ObjTst(obj4, "TOFN", false) != 0))) && (((ObjectType.ObjTst(obj4, "TOPE", false) != 0) && (ObjectType.ObjTst(obj4, "TDRC", false) != 0)) && ((ObjectType.ObjTst(obj4, "TPOS", false) != 0) && (ObjectType.ObjTst(obj4, "TORY", false) != 0)))) && ((((ObjectType.ObjTst(obj4, "TCOP", false) != 0) && (ObjectType.ObjTst(obj4, "TOLY", false) != 0)) && ((ObjectType.ObjTst(obj4, "TOWN", false) != 0) && (ObjectType.ObjTst(obj4, "TDOR", false) != 0))) && (((ObjectType.ObjTst(obj4, "WCOM", false) != 0) && (ObjectType.ObjTst(obj4, "WCOP", false) != 0)) && ((ObjectType.ObjTst(obj4, "WOAF", false) != 0) && (ObjectType.ObjTst(obj4, "WOAR", false) != 0)))))) && ((((((ObjectType.ObjTst(obj4, "WOAS", false) != 0) && (ObjectType.ObjTst(obj4, "WORS", false) != 0)) && ((ObjectType.ObjTst(obj4, "WPAY", false) != 0) && (ObjectType.ObjTst(obj4, "WPUB", false) != 0))) && (((ObjectType.ObjTst(obj4, "TSOA", false) != 0) && (ObjectType.ObjTst(obj4, "TSOP", false) != 0)) && ((ObjectType.ObjTst(obj4, "TSOT", false) != 0) && (ObjectType.ObjTst(obj4, "TIPL", false) != 0)))) && ((((ObjectType.ObjTst(obj4, "TMCL", false) != 0) && (ObjectType.ObjTst(obj4, "IPLS", false) != 0)) && ((ObjectType.ObjTst(obj4, "TLEN", false) != 0) && (ObjectType.ObjTst(obj4, "COMM", false) != 0))) && (((ObjectType.ObjTst(obj4, "USLT", false) != 0) && (ObjectType.ObjTst(obj4, "POPM", false) != 0)) && ((ObjectType.ObjTst(obj4, "TXXX", false) != 0) && (ObjectType.ObjTst(obj4, "WXXX", false) != 0))))) && (ObjectType.ObjTst(obj4, "APIC", false) != 0)))
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
-          object obj4 = LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null);
-          if (((((((ObjectType.ObjTst(obj4, "TPE1", false) != 0) && (ObjectType.ObjTst(obj4, "TPE2", false) != 0)) && ((ObjectType.ObjTst(obj4, "TPE3", false) != 0) && (ObjectType.ObjTst(obj4, "TPE4", false) != 0))) && (((ObjectType.ObjTst(obj4, "TIT1", false) != 0) && (ObjectType.ObjTst(obj4, "TIT2", false) != 0)) && ((ObjectType.ObjTst(obj4, "TIT3", false) != 0) && (ObjectType.ObjTst(obj4, "TALB", false) != 0)))) && ((((ObjectType.ObjTst(obj4, "TRCK", false) != 0) && (ObjectType.ObjTst(obj4, "TBPM", false) != 0)) && ((ObjectType.ObjTst(obj4, "TCOM", false) != 0) && (ObjectType.ObjTst(obj4, "TCON", false) != 0))) && (((ObjectType.ObjTst(obj4, "TDAT", false) != 0) && (ObjectType.ObjTst(obj4, "TENC", false) != 0)) && ((ObjectType.ObjTst(obj4, "TMED", false) != 0) && (ObjectType.ObjTst(obj4, "TYER", false) != 0))))) && (((((ObjectType.ObjTst(obj4, "TEXT", false) != 0) && (ObjectType.ObjTst(obj4, "TPUB", false) != 0)) && ((ObjectType.ObjTst(obj4, "TOAL", false) != 0) && (ObjectType.ObjTst(obj4, "TOFN", false) != 0))) && (((ObjectType.ObjTst(obj4, "TOPE", false) != 0) && (ObjectType.ObjTst(obj4, "TDRC", false) != 0)) && ((ObjectType.ObjTst(obj4, "TPOS", false) != 0) && (ObjectType.ObjTst(obj4, "TORY", false) != 0)))) && ((((ObjectType.ObjTst(obj4, "TCOP", false) != 0) && (ObjectType.ObjTst(obj4, "TOLY", false) != 0)) && ((ObjectType.ObjTst(obj4, "TOWN", false) != 0) && (ObjectType.ObjTst(obj4, "TDOR", false) != 0))) && (((ObjectType.ObjTst(obj4, "WCOM", false) != 0) && (ObjectType.ObjTst(obj4, "WCOP", false) != 0)) && ((ObjectType.ObjTst(obj4, "WOAF", false) != 0) && (ObjectType.ObjTst(obj4, "WOAR", false) != 0)))))) && ((((((ObjectType.ObjTst(obj4, "WOAS", false) != 0) && (ObjectType.ObjTst(obj4, "WORS", false) != 0)) && ((ObjectType.ObjTst(obj4, "WPAY", false) != 0) && (ObjectType.ObjTst(obj4, "WPUB", false) != 0))) && (((ObjectType.ObjTst(obj4, "TSOA", false) != 0) && (ObjectType.ObjTst(obj4, "TSOP", false) != 0)) && ((ObjectType.ObjTst(obj4, "TSOT", false) != 0) && (ObjectType.ObjTst(obj4, "TIPL", false) != 0)))) && ((((ObjectType.ObjTst(obj4, "TMCL", false) != 0) && (ObjectType.ObjTst(obj4, "IPLS", false) != 0)) && ((ObjectType.ObjTst(obj4, "TLEN", false) != 0) && (ObjectType.ObjTst(obj4, "COMM", false) != 0))) && (((ObjectType.ObjTst(obj4, "USLT", false) != 0) && (ObjectType.ObjTst(obj4, "POPM", false) != 0)) && ((ObjectType.ObjTst(obj4, "TXXX", false) != 0) && (ObjectType.ObjTst(obj4, "WXXX", false) != 0))))) && (ObjectType.ObjTst(obj4, "APIC", false) != 0)))
+          ListViewItem item10 = new ListViewItem
           {
-            ListViewItem item10 = new ListViewItem
-            {
-              Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null))
-            };
-            LateBinding.LateCall(item10.SubItems, null, "Add", new object[] { RuntimeHelpers.GetObjectValue(Interaction.IIf(BooleanType.FromObject(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), null, "StartsWith", new object[] { "T" }, null, null)), RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)), "")) }, null, null);
-            item10.Checked = true;
-            item10.Tag = RuntimeHelpers.GetObjectValue(objectValue);
-            this.NotSupportList.Items.Add(item10);
-          }
+            Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null))
+          };
+          LateBinding.LateCall(item10.SubItems, null, "Add", new object[] { RuntimeHelpers.GetObjectValue(Interaction.IIf(BooleanType.FromObject(LateBinding.LateGet(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), null, "StartsWith", new object[] { "T" }, null, null)), RuntimeHelpers.GetObjectValue(LateBinding.LateGet(objectValue, null, "Content", new object[0], null, null)), "")) }, null, null);
+          item10.Checked = true;
+          item10.Tag = RuntimeHelpers.GetObjectValue(objectValue);
+          this.NotSupportList.Items.Add(item10);
         }
       }
-      using (IEnumerator enumerator = this.MP3.V2TAG.GetAllNotSupportedFrames().GetEnumerator())
+
+      foreach (var frameItem in this.MP3.V2TAG.GetAllNotSupportedFrames())
       {
-        while (enumerator.MoveNext())
+        objectValue = RuntimeHelpers.GetObjectValue(frameItem);
+        ListViewItem item11 = new ListViewItem
         {
-          objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
-          ListViewItem item11 = new ListViewItem
-          {
-            Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null)),
-            SubItems = { "" },
-            Checked = true,
-            Tag = RuntimeHelpers.GetObjectValue(objectValue)
-          };
-          this.NotSupportList.Items.Add(item11);
-        }
+          Text = StringType.FromObject(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null)),
+          SubItems = { "" },
+          Checked = true,
+          Tag = RuntimeHelpers.GetObjectValue(objectValue)
+        };
+        this.NotSupportList.Items.Add(item11);
       }
       this.cmbArtist.Autocomplete = true;
       this.cmbGenre.Autocomplete = true;

@@ -39,26 +39,34 @@ namespace ID3_TagIT
       string str3 = "";
       int num3 = 150;
       int num2 = 0;
+
       if (!this.vbooConnected)
         return string.Empty;
+
       vstrCommand = "discid " + TracksLength.Length.ToString() + " ";
+
       foreach (int num in TracksLength)
       {
         vstrCommand = vstrCommand + num3.ToString() + " ";
         num3 += num * 0x4b;
         num2 += num;
       }
+
       vstrCommand = vstrCommand + num2.ToString() + "\r\n";
+
       str3 = this.SendCommand(vstrCommand).Replace("\r\n", "");
+
       if (StringType.StrCmp(str3.Substring(0, 3), "200", false) == 0)
         return str3.Replace("200 Disc ID is ", "");
+
       return "00000000";
     }
 
     public void CloseConnection([Optional, DefaultParameterValue("")] ref string ReturnedMessage)
     {
-      string vstrCommand = "";
       string str2 = "";
+      string vstrCommand = "";
+
       if (this.vbooConnected)
       {
         vstrCommand = "quit\r\n";
@@ -96,43 +104,49 @@ namespace ID3_TagIT
         ProjectData.ClearProjectError();
         return connectionFailed;
       }
+
       Label_0078:
       Application.DoEvents();
+
       Label_007D:
       if (!this.NetStream.DataAvailable)
-      {
         goto Label_0078;
-      }
+
       if (this.NetStream.DataAvailable)
       {
         byte[] buffer = new byte[(this.Client.ReceiveBufferSize - 1) + 1];
         length = this.NetStream.Read(buffer, 0, buffer.Length);
         str2 = Encoding.Default.GetString(buffer).Substring(0, length);
       }
+
       ReturnedMessage = str2;
+
       if (StringType.StrCmp(str2.Substring(0, 1), "4", false) == 0)
       {
         this.Client.Close();
         return FreeDBConnectResult.ConnectionFailed;
       }
+
       vstrCommand = "cddb hello " + this.Username + " " + this.ClientHostname + " " + this.ClientName + " " + this.ClientVersion.ToString() + "\r\n";
       str2 = this.SendCommand(vstrCommand);
       ReturnedMessage = ReturnedMessage + str2;
       string sLeft = str2.Substring(0, 3);
+
       if (StringType.StrCmp(sLeft, "200", false) == 0)
       {
         this.vbooConnected = true;
         return FreeDBConnectResult.ConnectionSucessful;
       }
+
       if (StringType.StrCmp(sLeft, "402", false) == 0)
-      {
         return FreeDBConnectResult.ConnectionAlreadyExists;
-      }
+
       if (StringType.StrCmp(sLeft, "431", false) == 0)
       {
         this.Client.Close();
         return FreeDBConnectResult.ConnectionFailed;
       }
+
       return FreeDBConnectResult.ConnectionFailed;
     }
 
@@ -141,16 +155,19 @@ namespace ID3_TagIT
       string[] strArray2 = null;
       string vstrCommand = "";
       string str2 = "";
+
       if (this.vbooConnected)
       {
         vstrCommand = "cddb lscat\r\n";
         str2 = this.SendCommand(vstrCommand);
+
         if (str2.StartsWith("210"))
         {
           str2 = str2.Substring(str2.IndexOf("\r\n") + 2);
           return str2.Substring(0, str2.LastIndexOf(".") - 2).Replace("\r\n", "|").Split(new char[] { '|' });
         }
       }
+
       return strArray2;
     }
 
@@ -159,16 +176,19 @@ namespace ID3_TagIT
       string[] strArray2 = null;
       string vstrCommand = "";
       string str2 = "";
+
       if (this.vbooConnected)
       {
         vstrCommand = "sites\r\n";
         str2 = this.SendCommand(vstrCommand);
+
         if (str2.StartsWith("210"))
         {
           str2 = str2.Substring(str2.IndexOf("\r\n") + 2);
           return str2.Substring(0, str2.LastIndexOf(".") - 2).Replace("\r\n", "|").Split(new char[] { '|' });
         }
       }
+
       return strArray2;
     }
 
@@ -179,18 +199,20 @@ namespace ID3_TagIT
       int num3 = 150;
       int num2 = 0;
       vstrCommand = "discid+" + TracksLength.Length.ToString() + "+";
+
       foreach (int num in TracksLength)
       {
         vstrCommand = vstrCommand + num3.ToString() + "+";
         num3 += num * 0x4b;
         num2 += num;
       }
+
       vstrCommand = vstrCommand + num2.ToString();
       str3 = this.SendHTMLCommand(vstrCommand).Replace("\r\n", "");
+
       if (StringType.StrCmp(str3.Substring(0, 3), "200", false) == 0)
-      {
         return str3.Replace("200 Disc ID is ", "");
-      }
+
       return "00000000";
     }
 
@@ -201,11 +223,13 @@ namespace ID3_TagIT
       string str2 = "";
       vstrCommand = "cddb+lscat";
       str2 = this.SendHTMLCommand(vstrCommand);
+
       if (str2.StartsWith("210"))
       {
         str2 = str2.Substring(str2.IndexOf("\r\n") + 2);
         return str2.Substring(0, str2.LastIndexOf(".") - 2).Replace("\r\n", "|").Split(new char[] { '|' });
       }
+
       return strArray2;
     }
 
@@ -216,11 +240,13 @@ namespace ID3_TagIT
       string str2 = "";
       vstrCommand = "cddb+sites";
       str2 = this.SendHTMLCommand(vstrCommand);
+
       if (str2.StartsWith("210"))
       {
         str2 = str2.Substring(str2.IndexOf("\r\n") + 2);
         return str2.Substring(0, str2.LastIndexOf(".") - 2).Replace("\r\n", "|").Split(new char[] { '|' });
       }
+
       return strArray2;
     }
 
@@ -231,26 +257,32 @@ namespace ID3_TagIT
       int num3 = 150;
       int num2 = 0;
       vstrCommand = "cddb+query+" + DiscID + "+" + TracksLength.Length.ToString() + "+";
+
       foreach (int num in TracksLength)
       {
         vstrCommand = vstrCommand + num3.ToString() + "+";
         num3 += num * 0x4b;
         num2 += num;
       }
+
       vstrCommand = vstrCommand + num2.ToString();
       str3 = this.SendHTMLCommand(vstrCommand).Replace("\r\n", "|");
       string sLeft = str3.Substring(0, 3);
+
       if (StringType.StrCmp(sLeft, "200", false) == 0)
       {
         str3 = str3.Substring(5).Replace("|", "");
+
         FreeDBQueryItem item = new FreeDBQueryItem
         {
           Category = str3.Substring(0, str3.IndexOf(" "))
         };
+
         str3 = str3.Substring(str3.IndexOf(" ") + 1);
         item.DiscID = str3.Substring(0, str3.IndexOf(" "));
         item.DTitle = str3.Substring(str3.IndexOf(" ") + 1);
         ReturnedMatches.Add(item);
+
         return FreeDBQueryResult.FoundExactMatch;
       }
 
@@ -258,17 +290,22 @@ namespace ID3_TagIT
         return FreeDBQueryResult.FoundInexactMatches;
 
       str3 = str3.Substring(0, str3.LastIndexOf(".") - 2);
+
       foreach (string str2 in str3.Substring(str3.IndexOf("|") + 1).Split(new char[] { '|' }))
       {
         FreeDBQueryItem item2 = new FreeDBQueryItem
         {
           Category = str2.Substring(0, str2.IndexOf(" "))
         };
-        str2 = str2.Substring(str2.IndexOf(" ") + 1);
-        item2.DiscID = str2.Substring(0, str2.IndexOf(" "));
-        item2.DTitle = str2.Substring(str2.IndexOf(" ") + 1);
+
+        var _str2 = str2.Substring(str2.IndexOf(" ") + 1);
+
+        item2.DiscID = _str2.Substring(0, _str2.IndexOf(" "));
+        item2.DTitle = _str2.Substring(_str2.IndexOf(" ") + 1);
+
         ReturnedMatches.Add(item2);
       }
+
       return FreeDBQueryResult.FoundInexactMatches;
     }
 
@@ -280,6 +317,7 @@ namespace ID3_TagIT
       ArrayList list = new ArrayList();
       vstrCommand = "cddb+read+" + Category + "+" + DiscID;
       str4 = this.SendHTMLCommand(vstrCommand);
+
       try
       {
         str3 = str4.Substring(str4.IndexOf("DTITLE=") + 7);
@@ -290,6 +328,7 @@ namespace ID3_TagIT
         str3 = "";
         ProjectData.ClearProjectError();
       }
+
       if (StringType.StrCmp(str3, "", false) != 0)
       {
         try
@@ -303,6 +342,7 @@ namespace ID3_TagIT
           ReturnedArtist = "";
           ProjectData.ClearProjectError();
         }
+
         try
         {
           ReturnedAlbum = str3.Substring(0, str3.IndexOf("\r\n"));
@@ -314,20 +354,25 @@ namespace ID3_TagIT
           ReturnedAlbum = "";
           ProjectData.ClearProjectError();
         }
+
         str3 = str3.Replace("\r\n", "|");
         str3 = str3.Substring(0, str3.LastIndexOf("|"));
       }
-      foreach (string str3 in str3.Split(new char[] { '|' }))
+
+      foreach (string _str3 in str3.Split(new char[] { '|' }))
       {
-        if (str3.StartsWith("T"))
-          list.Add(str3.Substring(str3.IndexOf("=") - 2).Replace("TTITLE", "0"));
+        if (_str3.StartsWith("T"))
+          list.Add(_str3.Substring(_str3.IndexOf("=") - 2).Replace("TTITLE", "0"));
+
         else
         {
-          if (!str3.StartsWith("EXTD"))
+          if (!_str3.StartsWith("EXTD"))
             break;
-          if (str3.IndexOf("YEAR:") > 0)
+
+          if (_str3.IndexOf("YEAR:") > 0)
           {
-            ReturnedYear = str3.Substring(str3.IndexOf("YEAR:") + 5).Trim(new char[] { ' ' });
+            ReturnedYear = _str3.Substring(_str3.IndexOf("YEAR:") + 5).Trim(new char[] { ' ' });
+
             if (ReturnedYear.Length > 4)
               ReturnedYear = Conversion.Val(ReturnedYear.Substring(0, 4)).ToString();
           }
@@ -335,14 +380,18 @@ namespace ID3_TagIT
             ReturnedYear = "";
         }
       }
+
       string sLeft = "";
-      foreach (string str3 in list)
-          sLeft = sLeft + "|" + str3;
+
+      foreach (string _str3 in list)
+        sLeft = sLeft + "|" + _str3;
 
       sLeft = sLeft + "|";
+
       if (list.Count > 0)
       {
         byte num3 = (byte)(list.Count - 1);
+
         for (byte i = 0; i <= num3; i = (byte)(i + 1))
         {
           if (StringType.StrCmp(sLeft, "|", false) == 0)
@@ -353,6 +402,7 @@ namespace ID3_TagIT
           sLeft = sLeft.Substring(sLeft.IndexOf("|"));
         }
       }
+
       return str4;
     }
 
@@ -368,42 +418,55 @@ namespace ID3_TagIT
         return FreeDBQueryResult.NoHandshake;
 
       vstrCommand = "cddb query " + DiscID + " " + TracksLength.Length.ToString() + " ";
+
       foreach (int num in TracksLength)
       {
         vstrCommand = vstrCommand + num3.ToString() + " ";
         num3 += num * 0x4b;
         num2 += num;
       }
+
       vstrCommand = vstrCommand + num2.ToString() + "\r\n";
       str3 = this.SendCommand(vstrCommand).Replace("\r\n", "|");
       string sLeft = str3.Substring(0, 3);
+
       if (StringType.StrCmp(sLeft, "200", false) == 0)
       {
         str3 = str3.Substring(5).Replace("|", "");
+
         FreeDBQueryItem item = new FreeDBQueryItem
         {
           Category = str3.Substring(0, str3.IndexOf(" "))
         };
+
         str3 = str3.Substring(str3.IndexOf(" ") + 1);
         item.DiscID = str3.Substring(0, str3.IndexOf(" "));
         item.DTitle = str3.Substring(str3.IndexOf(" ") + 1);
         ReturnedMatches.Add(item);
+
         return FreeDBQueryResult.FoundExactMatch;
       }
+
       if (StringType.StrCmp(sLeft, "211", false) != 0)
         return FreeDBQueryResult.FoundInexactMatches;
+
       str3 = str3.Substring(0, str3.LastIndexOf(".") - 2);
+
       foreach (string str2 in str3.Substring(str3.IndexOf("|") + 1).Split(new char[] { '|' }))
       {
         FreeDBQueryItem item2 = new FreeDBQueryItem
         {
           Category = str2.Substring(0, str2.IndexOf(" "))
         };
-        str2 = str2.Substring(str2.IndexOf(" ") + 1);
-        item2.DiscID = str2.Substring(0, str2.IndexOf(" "));
-        item2.DTitle = str2.Substring(str2.IndexOf(" ") + 1);
+
+        var _str2 = str2.Substring(str2.IndexOf(" ") + 1);
+
+        item2.DiscID = _str2.Substring(0, _str2.IndexOf(" "));
+        item2.DTitle = _str2.Substring(_str2.IndexOf(" ") + 1);
+
         ReturnedMatches.Add(item2);
       }
+
       return FreeDBQueryResult.FoundInexactMatches;
     }
 
@@ -419,6 +482,7 @@ namespace ID3_TagIT
 
       vstrCommand = "cddb read " + Category + " " + DiscID + "\r\n";
       str4 = this.SendCommand(vstrCommand);
+
       try
       {
         str3 = str4.Substring(str4.IndexOf("DTITLE=") + 7);
@@ -429,6 +493,7 @@ namespace ID3_TagIT
         str3 = "";
         ProjectData.ClearProjectError();
       }
+
       if (StringType.StrCmp(str3, "", false) != 0)
       {
         try
@@ -442,6 +507,7 @@ namespace ID3_TagIT
           ReturnedArtist = "";
           ProjectData.ClearProjectError();
         }
+
         try
         {
           ReturnedAlbum = str3.Substring(0, str3.IndexOf("\r\n"));
@@ -453,20 +519,23 @@ namespace ID3_TagIT
           ReturnedAlbum = "";
           ProjectData.ClearProjectError();
         }
+
         str3 = str3.Replace("\r\n", "|");
         str3 = str3.Substring(0, str3.LastIndexOf("|"));
       }
-      foreach (string str3 in str3.Split(new char[] { '|' }))
+
+      foreach (string _str3 in str3.Split(new char[] { '|' }))
       {
-        if (str3.StartsWith("T"))
-          list.Add(str3.Substring(str3.IndexOf("=") - 2).Replace("TTITLE", "0"));
+        if (_str3.StartsWith("T"))
+          list.Add(_str3.Substring(_str3.IndexOf("=") - 2).Replace("TTITLE", "0"));
         else
         {
-          if (!str3.StartsWith("EXTD"))
+          if (!_str3.StartsWith("EXTD"))
             break;
-          if (str3.IndexOf("YEAR:") > 0)
+
+          if (_str3.IndexOf("YEAR:") > 0)
           {
-            ReturnedYear = str3.Substring(str3.IndexOf("YEAR:") + 5).Trim(new char[] { ' ' });
+            ReturnedYear = _str3.Substring(_str3.IndexOf("YEAR:") + 5).Trim(new char[] { ' ' });
             if (ReturnedYear.Length > 4)
               ReturnedYear = Conversion.Val(ReturnedYear.Substring(0, 4)).ToString();
           }
@@ -474,13 +543,18 @@ namespace ID3_TagIT
             ReturnedYear = "";
         }
       }
+
       string sLeft = "";
-      foreach (string str3 in list)
-          sLeft = sLeft + "|" + str3;
+
+      foreach (string _str3 in list)
+        sLeft = sLeft + "|" + _str3;
+
       sLeft = sLeft + "|";
+
       if (list.Count > 0)
       {
         byte num3 = (byte)(list.Count - 1);
+
         for (byte i = 0; i <= num3; i = (byte)(i + 1))
         {
           if (StringType.StrCmp(sLeft, "|", false) == 0)
@@ -491,6 +565,7 @@ namespace ID3_TagIT
           sLeft = sLeft.Substring(sLeft.IndexOf("|"));
         }
       }
+
       return str4;
     }
 
@@ -500,16 +575,17 @@ namespace ID3_TagIT
       int length = 0;
       byte[] bytes = Encoding.Default.GetBytes(vstrCommand.ToCharArray());
       this.NetStream.Write(bytes, 0, bytes.Length);
+
       while (!this.NetStream.DataAvailable)
-      {
         Application.DoEvents();
-      }
+
       if (this.NetStream.DataAvailable)
       {
         byte[] buffer = new byte[(this.Client.ReceiveBufferSize - 1) + 1];
         length = this.NetStream.Read(buffer, 0, buffer.Length);
         str2 = Encoding.Default.GetString(buffer).Substring(0, length);
       }
+
       return str2;
     }
 
@@ -517,7 +593,9 @@ namespace ID3_TagIT
     {
       string str2 = "";
       string requestUriString = "";
+
       requestUriString = "http://" + Declarations.objSettings.FreeDBServer + "/~cddb/cddb.cgi?cmd=" + vstrCommand + "&hello=" + Declarations.objSettings.FreeDBUser + "+www.id3-tagit.de+ID3-TagIT+3.x&proto=1";
+
       try
       {
         str2 = new StreamReader(WebRequest.Create(requestUriString).GetResponse().GetResponseStream(), Encoding.Default, true).ReadToEnd();
@@ -528,6 +606,7 @@ namespace ID3_TagIT
         ProjectData.ClearProjectError();
         return "999";
       }
+
       return str2;
     }
 

@@ -253,116 +253,66 @@
       bool flag = false;
       int num = 0;
       this.ColumnsList.Columns.Add("Name", this.ColumnsList.Width - 0x19, HorizontalAlignment.Left);
-      num3 = 0;
+
       foreach (int num3 in Main.GetColumnOrder(this.MainForm.MP3View))
       {
         ListViewItem item2 = new ListViewItem();
         ArrayList list = new ArrayList();
         ColumnHeader header = this.MainForm.MP3View.Columns[num3];
+
         if (header == this.MainForm.colHFilename)
-        {
           list.Add(1);
-        }
         if (header == this.MainForm.colHSubDir)
-        {
           list.Add(2);
-        }
         if (header == this.MainForm.colHTAGVer1)
-        {
           list.Add(3);
-        }
         if (header == this.MainForm.colHTAGVer2)
-        {
           list.Add(4);
-        }
         if (header == this.MainForm.colHArtist)
-        {
           list.Add(5);
-        }
         if (header == this.MainForm.colHTitle)
-        {
           list.Add(6);
-        }
         if (header == this.MainForm.colHAlbum)
-        {
           list.Add(7);
-        }
         if (header == this.MainForm.colHTrack)
-        {
           list.Add(8);
-        }
         if (header == this.MainForm.colHPosMedia)
-        {
           list.Add(9);
-        }
         if (header == this.MainForm.colHComment)
-        {
           list.Add(10);
-        }
         if (header == this.MainForm.colHGenre)
-        {
           list.Add(11);
-        }
         if (header == this.MainForm.colHYear)
-        {
           list.Add(12);
-        }
         if (header == this.MainForm.colHRating)
-        {
           list.Add(13);
-        }
         if (header == this.MainForm.colHDuration)
-        {
           list.Add(14);
-        }
         if (header == this.MainForm.colHBitrate)
-        {
           list.Add(15);
-        }
         if (header == this.MainForm.colHVBR)
-        {
           list.Add(0x10);
-        }
         if (header == this.MainForm.colHSamplerate)
-        {
           list.Add(0x11);
-        }
         if (header == this.MainForm.colHChannel)
-        {
           list.Add(0x12);
-        }
         if (header == this.MainForm.colHVersion)
-        {
           list.Add(0x13);
-        }
         if (header == this.MainForm.colHDate)
-        {
           list.Add(20);
-        }
         if (header == this.MainForm.colHComposer)
-        {
           list.Add(0x15);
-        }
         if (header == this.MainForm.colHFileSize)
-        {
           list.Add(0x16);
-        }
         if (header == this.MainForm.colHBPM)
-        {
           list.Add(0x17);
-        }
         if (header == this.MainForm.colHPicCount)
-        {
           list.Add(0x18);
-        }
         if (header == this.MainForm.colHAudioCheckSum)
-        {
           list.Add(0x19);
-        }
         if (header == this.MainForm.colHCreateDate)
-        {
           list.Add(0x1a);
-        }
+
         list.Add(header.Width);
         list.Add(header.TextAlign.ToString());
         item2.Text = header.Text;
@@ -384,10 +334,7 @@
         if (!flag)
         {
           ListViewItem item3 = new ListViewItem(Convert.ToString(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["Col" + num.ToString().PadLeft(2, '0')])));
-          ArrayList list2 = new ArrayList {
-                        num,
-                        150
-                    };
+          ArrayList list2 = new ArrayList { num, 150 };
           switch (num)
           {
             case 8:
@@ -725,7 +672,7 @@
       Declarations.objSettings.ColorCompareBack = this.ColorCompareBack.BackColor.ToArgb();
       Declarations.objSettings.ColorCompareText = this.ColorCompareText.BackColor.ToArgb();
       Declarations.objSettings.UseThemes = this.chkWinXPThemes.Checked;
-      Bar bar = new Bar();
+
       if (this.chkWinXPThemes.Checked)
       {
         foreach (Bar bar in this.MainForm.DotNetBarManager.Bars)

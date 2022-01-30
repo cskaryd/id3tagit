@@ -112,7 +112,7 @@
 
     private void AddSelectionBar()
     {
-      IEnumerator enumerator;
+      IEnumerator enumerator = null;
       try
       {
         enumerator = this.SelectionBar.Groups.GetEnumerator();

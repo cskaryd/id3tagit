@@ -1,6 +1,4 @@
-﻿namespace ID3_TagIT
-{
-  using Microsoft.VisualBasic.CompilerServices;
+﻿  using Microsoft.VisualBasic.CompilerServices;
   using System;
   using System.Collections;
   using System.Data;
@@ -10,6 +8,8 @@
   using System.Runtime.InteropServices;
   using System.Windows.Forms;
 
+namespace ID3_TagIT
+{
   [StandardModule]
   internal sealed class Main
   {
@@ -78,10 +78,10 @@
       int[] numArray;
       int msg = 0x103b;
       int[] numArray2 = new int[(ListView.Columns.Count - 1) + 1];
+
       if (!Declarations.ListViewColumnOrder(ListView.Handle.ToInt32(), msg, numArray2.Length, ref numArray2[0]).Equals(0))
-      {
         return numArray2;
-      }
+
       return numArray;
     }
 
@@ -465,19 +465,18 @@
       Application.Exit();
     }
 
+    // FIXME - Kill with fire
     private static void RecursivelyFormatForWinXP(Control objControl)
     {
       int num2 = objControl.Controls.Count - 1;
+
       for (int i = 0; i <= num2; i++)
       {
         if (objControl.Controls[i].GetType() == typeof(Button))
-        {
           ((ButtonBase)objControl.Controls[i]).FlatStyle = FlatStyle.System;
-        }
+
         if (objControl.Controls.Count > 0)
-        {
           RecursivelyFormatForWinXP(objControl.Controls[i]);
-        }
       }
     }
 
@@ -613,6 +612,7 @@
       return (Declarations.SHFileOperation(ref lpFileOp) == 0);
     }
 
+    // FIXME - Kill with fire
     public static void WindowsXPCheck(ref Form FormToCheck)
     {
       if (((Environment.OSVersion.Version.Major > 4) & (Environment.OSVersion.Version.Minor > 0)) & File.Exists(Application.ExecutablePath + ".manifest"))

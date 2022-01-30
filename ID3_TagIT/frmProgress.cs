@@ -4,28 +4,19 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace ID3_TagIT
 {
   public class frmProgress : Form
   {
-    [AccessedThroughProperty("btnCancel")]
-    private Button _btnCancel;
-    [AccessedThroughProperty("ButtomPanel")]
-    private PanelEx _ButtomPanel;
-    [AccessedThroughProperty("Infos")]
-    private Label _Infos;
-    [AccessedThroughProperty("ProgressBar")]
-    private System.Windows.Forms.ProgressBar _ProgressBar;
-    [AccessedThroughProperty("State")]
-    private Label _State;
-    [AccessedThroughProperty("Timer")]
-    private System.Windows.Forms.Timer _Timer;
-    [AccessedThroughProperty("TopPanel")]
-    private PanelEx _TopPanel;
+    private Button btnCancel;
+    private PanelEx ButtomPanel;
+    private Label Infos;
+    private System.Windows.Forms.ProgressBar ProgressBar;
+    private Label State;
+    private System.Windows.Forms.Timer Timer;
+    private PanelEx TopPanel;
     private Callback CBack;
     private IContainer components;
     private ArrayList objList;
@@ -62,10 +53,10 @@ namespace ID3_TagIT
       this.objList = null;
       this.objListHelp = null;
       this.InitializeComponent();
-      this._ProgressBar.Minimum = vintMinimum;
-      this._ProgressBar.Maximum = vintMaximum;
-      this._ProgressBar.Step = vintStep;
-      this._ProgressBar.Value = vintMinimum;
+      this.ProgressBar.Minimum = vintMinimum;
+      this.ProgressBar.Maximum = vintMaximum;
+      this.ProgressBar.Step = vintStep;
+      this.ProgressBar.Value = vintMinimum;
       this.Owner = OwnerForm;
       this.CBack = CB;
     }
@@ -101,112 +92,134 @@ namespace ID3_TagIT
     [DebuggerStepThrough]
     private void InitializeComponent()
     {
-      this.components = new Container();
-      this._ProgressBar = new System.Windows.Forms.ProgressBar();
-      this._btnCancel = new Button();
-      this._State = new Label();
-      this._Infos = new Label();
-      this._Timer = new System.Windows.Forms.Timer(this.components);
-      this._ButtomPanel = new PanelEx();
-      this._TopPanel = new PanelEx();
-      this._ButtomPanel.SuspendLayout();
-      this._TopPanel.SuspendLayout();
+      this.components = new System.ComponentModel.Container();
+      this.ProgressBar = new System.Windows.Forms.ProgressBar();
+      this.btnCancel = new System.Windows.Forms.Button();
+      this.State = new System.Windows.Forms.Label();
+      this.Infos = new System.Windows.Forms.Label();
+      this.Timer = new System.Windows.Forms.Timer(this.components);
+      this.ButtomPanel = new DevComponents.DotNetBar.PanelEx();
+      this.TopPanel = new DevComponents.DotNetBar.PanelEx();
+      this.ButtomPanel.SuspendLayout();
+      this.TopPanel.SuspendLayout();
       this.SuspendLayout();
-
-      this._ProgressBar.ImeMode = ImeMode.NoControl;
-      this._ProgressBar.Location = new Point(0x10, 40);
-      this._ProgressBar.Name = "_ProgressBar";
-      this._ProgressBar.Size = new Size(0x178, 0x10);
-      this._ProgressBar.TabIndex = 0;
-
-      this._btnCancel.BackColor = SystemColors.Control;
-      this._btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this._btnCancel.FlatStyle = FlatStyle.Popup;
-      this._btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
-      this._btnCancel.ImeMode = ImeMode.NoControl;
-      this._btnCancel.Location = new Point(0x88, 8);
-      this._btnCancel.Name = "_btnCancel";
-      this._btnCancel.Size = new Size(0x80, 0x18);
-      this._btnCancel.TabIndex = 1;
-      this._btnCancel.Text = "&Cancel";
-
-      this._State.BackColor = Color.White;
-      this._State.ForeColor = Color.Black;
-      this._State.ImeMode = ImeMode.NoControl;
-      this._State.Location = new Point(8, 8);
-      this._State.Name = "_State";
-      this._State.Size = new Size(0x180, 0x10);
-      this._State.TabIndex = 2;
-
-      this._Infos.ImeMode = ImeMode.NoControl;
-      this._Infos.Location = new Point(0x10, 0x40);
-      this._Infos.Name = "_Infos";
-      this._Infos.Size = new Size(0x178, 0x38);
-      this._Infos.TabIndex = 3;
-      this._Infos.TextAlign = ContentAlignment.MiddleCenter;
-
-      this._Timer.Enabled = true;
-      this._Timer.Interval = 10;
-
-      this._ButtomPanel.Controls.Add(this.btnCancel);
-      this._ButtomPanel.Dock = DockStyle.Bottom;
-      this._ButtomPanel.Location = new Point(0, 0x80);
-      this._ButtomPanel.Name = "_ButtomPanel";
-      this._ButtomPanel.Size = new Size(0x198, 40);
-      this._ButtomPanel.Style.BackColor1.Color = Color.White;
-      this._ButtomPanel.Style.BackColor2.Color = Color.White;
-      this._ButtomPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this._ButtomPanel.Style.BorderWidth = 0;
-      this._ButtomPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this._ButtomPanel.Style.ForeColor.Color = Color.Black;
-      this._ButtomPanel.Style.GradientAngle = 90;
-      this._ButtomPanel.Style.LineAlignment = StringAlignment.Near;
-      this._ButtomPanel.Style.MarginBottom = 2;
-      this._ButtomPanel.Style.MarginLeft = 7;
-      this._ButtomPanel.Style.MarginRight = 2;
-      this._ButtomPanel.Style.MarginTop = 2;
-      this._ButtomPanel.TabIndex = 0x76;
-
-      this._TopPanel.Controls.Add(this.State);
-      this._TopPanel.Dock = DockStyle.Top;
-      this._TopPanel.Location = new Point(0, 0);
-      this._TopPanel.Name = "_TopPanel";
-      this._TopPanel.Size = new Size(0x198, 0x20);
-      this._TopPanel.Style.BackColor1.Color = Color.White;
-      this._TopPanel.Style.BackColor2.Color = Color.White;
-      this._TopPanel.Style.BorderColor.ColorSchemePart = eColorSchemePart.PanelBorder;
-      this._TopPanel.Style.BorderWidth = 0;
-      this._TopPanel.Style.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, 0);
-      this._TopPanel.Style.ForeColor.Color = Color.Black;
-      this._TopPanel.Style.GradientAngle = 90;
-      this._TopPanel.Style.LineAlignment = StringAlignment.Near;
-      this._TopPanel.Style.MarginBottom = 2;
-      this._TopPanel.Style.MarginLeft = 7;
-      this._TopPanel.Style.MarginRight = 2;
-      this._TopPanel.Style.MarginTop = 2;
-      this._TopPanel.TabIndex = 0x77;
-
+      // 
+      // ProgressBar
+      // 
+      this.ProgressBar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.ProgressBar.Location = new System.Drawing.Point(16, 40);
+      this.ProgressBar.Name = "ProgressBar";
+      this.ProgressBar.Size = new System.Drawing.Size(376, 16);
+      this.ProgressBar.TabIndex = 0;
+      // 
+      // btnCancel
+      // 
+      this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
+      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+      this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+      this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.btnCancel.Location = new System.Drawing.Point(136, 8);
+      this.btnCancel.Name = "btnCancel";
+      this.btnCancel.Size = new System.Drawing.Size(128, 24);
+      this.btnCancel.TabIndex = 1;
+      this.btnCancel.Text = "&Cancel";
+      this.btnCancel.UseVisualStyleBackColor = false;
+      this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+      // 
+      // State
+      // 
+      this.State.BackColor = System.Drawing.Color.White;
+      this.State.ForeColor = System.Drawing.Color.Black;
+      this.State.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.State.Location = new System.Drawing.Point(8, 8);
+      this.State.Name = "State";
+      this.State.Size = new System.Drawing.Size(384, 16);
+      this.State.TabIndex = 2;
+      // 
+      // Infos
+      // 
+      this.Infos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.Infos.Location = new System.Drawing.Point(16, 64);
+      this.Infos.Name = "Infos";
+      this.Infos.Size = new System.Drawing.Size(376, 56);
+      this.Infos.TabIndex = 3;
+      this.Infos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // Timer
+      // 
+      this.Timer.Enabled = true;
+      this.Timer.Interval = 10;
+      this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+      // 
+      // ButtomPanel
+      // 
+      this.ButtomPanel.AntiAlias = true;
+      this.ButtomPanel.Controls.Add(this.btnCancel);
+      this.ButtomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.ButtomPanel.Location = new System.Drawing.Point(0, 128);
+      this.ButtomPanel.Name = "ButtomPanel";
+      this.ButtomPanel.Size = new System.Drawing.Size(408, 40);
+      this.ButtomPanel.Style.BackColor1.Color = System.Drawing.Color.White;
+      this.ButtomPanel.Style.BackColor2.Color = System.Drawing.Color.White;
+      this.ButtomPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.ButtomPanel.Style.BorderWidth = 0;
+      this.ButtomPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ButtomPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
+      this.ButtomPanel.Style.GradientAngle = 90;
+      this.ButtomPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
+      this.ButtomPanel.Style.MarginBottom = 2;
+      this.ButtomPanel.Style.MarginLeft = 7;
+      this.ButtomPanel.Style.MarginRight = 2;
+      this.ButtomPanel.Style.MarginTop = 2;
+      this.ButtomPanel.TabIndex = 118;
+      // 
+      // TopPanel
+      // 
+      this.TopPanel.AntiAlias = true;
+      this.TopPanel.Controls.Add(this.State);
+      this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
+      this.TopPanel.Location = new System.Drawing.Point(0, 0);
+      this.TopPanel.Name = "TopPanel";
+      this.TopPanel.Size = new System.Drawing.Size(408, 32);
+      this.TopPanel.Style.BackColor1.Color = System.Drawing.Color.White;
+      this.TopPanel.Style.BackColor2.Color = System.Drawing.Color.White;
+      this.TopPanel.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+      this.TopPanel.Style.BorderWidth = 0;
+      this.TopPanel.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.TopPanel.Style.ForeColor.Color = System.Drawing.Color.Black;
+      this.TopPanel.Style.GradientAngle = 90;
+      this.TopPanel.Style.LineAlignment = System.Drawing.StringAlignment.Near;
+      this.TopPanel.Style.MarginBottom = 2;
+      this.TopPanel.Style.MarginLeft = 7;
+      this.TopPanel.Style.MarginRight = 2;
+      this.TopPanel.Style.MarginTop = 2;
+      this.TopPanel.TabIndex = 119;
+      // 
+      // frmProgress
+      // 
       this.AllowDrop = true;
-      this.AutoScaleMode = AutoScaleMode.None;
-      this.AutoScaleBaseSize = new Size(5, 13);
+      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
       this.CancelButton = this.btnCancel;
-      this.ClientSize = new Size(0x198, 0xa8);
+      this.ClientSize = new System.Drawing.Size(408, 168);
       this.ControlBox = false;
-      this.Controls.Add(this._Infos);
-      this.Controls.Add(this._ProgressBar);
-      this.Controls.Add(this._ButtomPanel);
-      this.Controls.Add(this._TopPanel);
-      this.FormBorderStyle = FormBorderStyle.FixedDialog;
+      this.Controls.Add(this.Infos);
+      this.Controls.Add(this.ProgressBar);
+      this.Controls.Add(this.ButtomPanel);
+      this.Controls.Add(this.TopPanel);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
       this.Name = "frmProgress";
       this.ShowInTaskbar = false;
-      this.StartPosition = FormStartPosition.CenterScreen;
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "ID3-TagIT - Progress window";
       this.ButtomPanel.ResumeLayout(false);
       this.TopPanel.ResumeLayout(false);
       this.ResumeLayout(false);
     }
+
+    public delegate void Callback(ref frmProgress frmProg);
 
     public void SetStateCaseConv()
     {
@@ -420,70 +433,11 @@ namespace ID3_TagIT
       }
     }
 
-    public Button btnCancel
-    {
-      get
-      {
-        return this._btnCancel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._btnCancel != null)
-        {
-          this._btnCancel.Click -= new EventHandler(this.btnCancel_Click);
-        }
-        this._btnCancel = value;
-        if (this._btnCancel != null)
-        {
-          this._btnCancel.Click += new EventHandler(this.btnCancel_Click);
-        }
-      }
-    }
-
-    public PanelEx ButtomPanel
-    {
-      get
-      {
-        return this._ButtomPanel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._ButtomPanel != null)
-        {
-        }
-        this._ButtomPanel = value;
-        if (this._ButtomPanel != null)
-        {
-        }
-      }
-    }
-
     public bool Canceled
     {
       get
       {
         return this.vbooCanceled;
-      }
-    }
-
-    public Label Infos
-    {
-      get
-      {
-        return this._Infos;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Infos != null)
-        {
-        }
-        this._Infos = value;
-        if (this._Infos != null)
-        {
-        }
       }
     }
 
@@ -559,19 +513,6 @@ namespace ID3_TagIT
       }
     }
 
-    public Label State
-    {
-      get
-      {
-        return this._State;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        this._State = value;
-      }
-    }
-
     public string String01
     {
       get
@@ -607,47 +548,5 @@ namespace ID3_TagIT
         this.vstr03 = value;
       }
     }
-
-    private System.Windows.Forms.Timer Timer
-    {
-      get
-      {
-        return this._Timer;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._Timer != null)
-        {
-          this._Timer.Tick -= new EventHandler(this.Timer_Tick);
-        }
-        this._Timer = value;
-        if (this._Timer != null)
-        {
-          this._Timer.Tick += new EventHandler(this.Timer_Tick);
-        }
-      }
-    }
-
-    public PanelEx TopPanel
-    {
-      get
-      {
-        return this._TopPanel;
-      }
-      [MethodImpl(MethodImplOptions.Synchronized)]
-      set
-      {
-        if (this._TopPanel != null)
-        {
-        }
-        this._TopPanel = value;
-        if (this._TopPanel != null)
-        {
-        }
-      }
-    }
-
-    public delegate void Callback(ref frmProgress frmProg);
   }
 }
