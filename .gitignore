@@ -1,6 +1,6 @@
 .vs
 bin
 obj
-*.7z
 .sarif
 packages
+.gitignore
