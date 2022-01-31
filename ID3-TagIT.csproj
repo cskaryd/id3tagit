@@ -225,6 +225,9 @@
     <Compile Include="ID3_TagIT\frmOrganize.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ID3_TagIT\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="ID3_TagIT\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
