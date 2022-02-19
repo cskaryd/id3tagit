@@ -8,8 +8,6 @@ namespace ID3_TagIT
 {
   public class MP3 : FileOperations
   {
-    private int I;
-    private byte J;
     public ID3_TagIT.V1TAG V1TAG;
     public ID3_TagIT.V2TAG V2TAG;
     private bool vbooChanged;
@@ -45,8 +43,6 @@ namespace ID3_TagIT
       this.vintNumberOfFrames = 0;
       this.vintDuration = 0;
       this.vintDurationMS = 0;
-      this.I = 0;
-      this.J = 0;
     }
 
     public void CalcAudioCheckSum()
