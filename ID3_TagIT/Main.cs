@@ -563,7 +563,7 @@ namespace ID3_TagIT
           }
 
           if (frmProg != null)
-            frmProg.Infos.Text = info.FullName;
+            frmProg.lblInfo.Text = info.FullName.Replace("&", "&&");
 
           Application.DoEvents();
 

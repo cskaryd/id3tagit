@@ -766,7 +766,7 @@ namespace ID3_TagIT
         MP3 tag = (MP3)item.Tag;
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo(tag, tag.V1TAG.Clone(), tag.V2TAG.Clone(), tag.CurrentFullName, tag.Changed);
         frmProg.List.Add(@do);
-        frmProg.Infos.Text = tag.CurrentFullName;
+        frmProg.lblInfo.Text = tag.CurrentFullName.Replace("&", "&&");
         V1TAG vtag = tag.V1TAG.Clone();
 
         if (this.CheckBox1.Checked)

@@ -198,7 +198,7 @@ namespace ID3_TagIT
           break;
 
         MP3 tag = (MP3)item.Tag;
-        frmProg.Infos.Text = tag.CurrentFullName;
+        frmProg.lblInfo.Text = tag.CurrentFullName.Replace("&", "&&");
 
         if (tag.V2TAG.TAGHeaderPresent)
         {

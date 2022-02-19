@@ -732,7 +732,7 @@ namespace ID3_TagIT
           break;
 
         MP3 tag = (MP3)item.Tag;
-        frmProg.Infos.Text = tag.CurrentFullName;
+        frmProg.lblInfo.Text = tag.CurrentFullName.Replace("&", "&&");
         string sLeft = ID3Functions.FormatReplacedByTag(tag, frmProg.String01, ByteType.FromObject(Interaction.IIf(this.optTAGV1.Checked, 1, 2))) + tag.FI.Extension;
 
         if (this.chkReplaceUnderScore.Checked)

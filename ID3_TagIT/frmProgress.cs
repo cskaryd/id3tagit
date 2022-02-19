@@ -12,7 +12,7 @@ namespace ID3_TagIT
     #region Designer
 
     public Button btnCancel;
-    public Label Infos;
+    public Label lblInfo;
     public System.Windows.Forms.ProgressBar ProgressBar;
     public Label State;
     private System.Windows.Forms.Timer Timer;
@@ -33,7 +33,7 @@ namespace ID3_TagIT
       this.ProgressBar = new System.Windows.Forms.ProgressBar();
       this.btnCancel = new System.Windows.Forms.Button();
       this.State = new System.Windows.Forms.Label();
-      this.Infos = new System.Windows.Forms.Label();
+      this.lblInfo = new System.Windows.Forms.Label();
       this.Timer = new System.Windows.Forms.Timer(this.components);
       this.SuspendLayout();
       // 
@@ -70,14 +70,14 @@ namespace ID3_TagIT
       this.State.Size = new System.Drawing.Size(384, 16);
       this.State.TabIndex = 2;
       // 
-      // Infos
+      // lblInfo
       // 
-      this.Infos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.Infos.Location = new System.Drawing.Point(16, 64);
-      this.Infos.Name = "Infos";
-      this.Infos.Size = new System.Drawing.Size(376, 56);
-      this.Infos.TabIndex = 3;
-      this.Infos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.lblInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.lblInfo.Location = new System.Drawing.Point(16, 64);
+      this.lblInfo.Name = "lblInfo";
+      this.lblInfo.Size = new System.Drawing.Size(376, 56);
+      this.lblInfo.TabIndex = 3;
+      this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // Timer
       // 
@@ -94,7 +94,7 @@ namespace ID3_TagIT
       this.ControlBox = false;
       this.Controls.Add(this.State);
       this.Controls.Add(this.btnCancel);
-      this.Controls.Add(this.Infos);
+      this.Controls.Add(this.lblInfo);
       this.Controls.Add(this.ProgressBar);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
@@ -198,126 +198,126 @@ namespace ID3_TagIT
     public void SetStateCaseConv()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["CaseConv"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateCompareFileTAG()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["CompareFileTAG"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateCopy()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Copy"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateCreateLib()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["CreateLib"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateDelete()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Delete"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateFilenameTAG()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["FilenameTAG"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateFill()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Fill"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateFolderRename()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["FolderRename"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateGetArtists()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["GetArtists"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateMove()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Move"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateMultiple()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Multiple"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateOrganize()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Organize"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStatePaste()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Paste"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateRead()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Read"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateRedo()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Redo"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateRemoveTAG()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["RemoveTAG"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateSave()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Save"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateSaveLib()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["SaveLib"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
@@ -325,49 +325,49 @@ namespace ID3_TagIT
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Scan"]);
       this.State.Refresh();
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateSplit()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Split"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateSwap()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Swap"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateTAGFilename()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["TAGFilename"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateTransfer()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Transfer"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateUndo()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Undo"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 
     public void SetStateWrite()
     {
       this.State.Text = StringType.FromObject(Declarations.objResources.ResStrings["Write"]);
-      this.Infos.Text = "";
+      this.lblInfo.Text = "";
       Application.DoEvents();
     }
 

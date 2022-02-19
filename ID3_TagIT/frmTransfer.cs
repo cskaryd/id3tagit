@@ -497,7 +497,7 @@ namespace ID3_TagIT
           break;
 
         MP3 tag = (MP3)item.Tag;
-        frmProg.Infos.Text = tag.CurrentFullName;
+        frmProg.lblInfo.Text = tag.CurrentFullName.Replace("&", "&&");
 
         if ((tag.V2TAG.TAGVersion == 2) || !tag.V1TAG.TAGPresent)
           goto Label_05DD;
@@ -634,7 +634,7 @@ namespace ID3_TagIT
 
         bool flag = false;
         MP3 tag = (MP3)item.Tag;
-        frmProg.Infos.Text = tag.CurrentFullName;
+        frmProg.lblInfo.Text = tag.CurrentFullName.Replace("&", "&&");
 
         if ((tag.V2TAG.TAGVersion != 2) && tag.V2TAG.TAGHeaderPresent)
         {
@@ -891,7 +891,7 @@ namespace ID3_TagIT
           break;
 
         MP3 tag = (MP3)item.Tag;
-        frmProg.Infos.Text = tag.CurrentFullName;
+        frmProg.lblInfo.Text = tag.CurrentFullName.Replace("&", "&&");
 
         if (!tag.V2TAG.TAGHeaderPresent || (tag.V2TAG.TAGVersion != 3))
           goto Label_0715;
@@ -1025,7 +1025,7 @@ namespace ID3_TagIT
           break;
 
         MP3 tag = (MP3)item.Tag;
-        frmProg.Infos.Text = tag.CurrentFullName;
+        frmProg.lblInfo.Text = tag.CurrentFullName.Replace("&", "&&");
 
         if (!tag.V2TAG.TAGHeaderPresent || (tag.V2TAG.TAGVersion != 4))
           goto Label_0889;

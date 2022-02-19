@@ -2491,9 +2491,9 @@ Label_0B93:
 
       try
       {
-        int num3 = this.MP3View.Items.Count - 1;
+        int mp3Count = this.MP3View.Items.Count - 1;
 
-        for (int i = 0; i <= num3; i++)
+        for (int i = 0; i <= mp3Count; i++)
         {
           tag = (MP3)this.MP3View.Items[i].Tag;
 
@@ -2971,7 +2971,7 @@ Label_0B93:
         if (frmProg.Canceled)
           return;
 
-        frmProg.Infos.Text = vstrFullFilename;
+        frmProg.lblInfo.Text = vstrFullFilename.Replace("&", "&&");
         MP3 mp = new MP3(vstrFullFilename);
         if (mp.ExploreMP3())
           Declarations.MP3s.Add(mp);
@@ -3173,7 +3173,7 @@ Label_0B93:
         MP3 tag = (MP3)item.Tag;
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo(tag, tag.V1TAG.Clone(), tag.V2TAG.Clone(), tag.CurrentFullName, tag.Changed);
         frmProg.List.Add(@do);
-        frmProg.Infos.Text = tag.CurrentFullName;
+        frmProg.lblInfo.Text = tag.CurrentFullName.Replace("&", "&&");
         if (this.MP3View.SelectedItems.Count == 1)
         {
           if (StringType.StrCmp(tag.V1TAG.Artist, this.cboQEArtist.Text.Trim(new char[] { ' ' }), false) != 0)
@@ -3274,7 +3274,7 @@ Label_0B93:
         if (frmProg.Canceled)
           break;
         MP3 tag = (MP3)item.Tag;
-        frmProg.Infos.Text = tag.CurrentFullName;
+        frmProg.lblInfo.Text = tag.CurrentFullName.Replace("&", "&&");
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo(tag, tag.V1TAG.Clone(), tag.V2TAG.Clone(), tag.CurrentFullName, tag.Changed);
         frmProg.List.Add(@do);
         if (this.MP3View.SelectedItems.Count == 1)
@@ -3549,7 +3549,7 @@ Label_0B93:
         Application.DoEvents();
         if (frmProg.Canceled)
           break;
-        frmProg.Infos.Text = StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null));
+        frmProg.lblInfo.Text = StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)).Replace("&", "&&");
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
         frmProg.List.Add(@do);
         if (BooleanType.FromObject(LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "TAGPresent", new object[0], null, null)))
@@ -3575,7 +3575,7 @@ Label_0B93:
         Application.DoEvents();
         if (frmProg.Canceled)
           break;
-        frmProg.Infos.Text = StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null));
+        frmProg.lblInfo.Text = StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)).Replace("&", "&&");
         Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
         frmProg.List.Add(@do);
         if (BooleanType.FromObject(LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "TAGHeaderPresent", new object[0], null, null)))
@@ -3703,7 +3703,7 @@ Label_0B93:
 
         if (tag.Changed)
         {
-          frmProg.Infos.Text = tag.CurrentFullName;
+          frmProg.lblInfo.Text = tag.CurrentFullName.Replace("&", "&&");
 
           if (tag.WriteChanges())
           {
