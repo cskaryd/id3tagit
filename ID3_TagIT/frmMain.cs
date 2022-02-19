@@ -3499,7 +3499,36 @@ Label_0B93:
       }
     }
 
-    private void queryFreeDb()
+    private void PlayFile()
+    {
+      string vLeft = "";
+      var process2 = new Process();
+
+      foreach (ListViewItem item3 in this.MP3View.SelectedItems)
+        vLeft = StringType.FromObject(ObjectType.StrCatObj(vLeft, ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(item3.Tag, null, "FI", new object[0], null, null), null, "FullName", new object[0], null, null), "\r\n")));
+
+      if (StringType.StrCmp(vLeft, "", false) != 0)
+      {
+        string str3 = Id3TagIT_Main.CreateTempFile(Encoding.Default.GetBytes(vLeft), "m3u");
+        process2.StartInfo.UseShellExecute = true;
+        process2.StartInfo.FileName = str3;
+
+        try
+        {
+          process2.StartInfo.Verb = Declarations.objSettings.Play;
+        }
+        catch (Exception exception8)
+        {
+          ProjectData.SetProjectError(exception8);
+          process2.StartInfo.Verb = "open";
+          ProjectData.ClearProjectError();
+        }
+
+        process2.Start();
+      }
+    }
+
+    private void QueryFreeDb()
     {
       int num2 = 0;
 
@@ -3856,6 +3885,7 @@ Label_0B93:
       Declarations.objResources.ResourcesToForm(ref objForm);
       this.Timer.Start();
     }
+
     //this.NavigationPan.RecalcLayout();
     //this.NavigationPan.Refresh();
     // this.BarGroupTools.Refresh();
@@ -4069,7 +4099,7 @@ Label_0B93:
       }
     }
 
-    private void swapArtistAlbumV1()
+    private void SwapArtistAlbumV1()
     {
       Form form;
       frmProgress.Callback callback;
@@ -4089,7 +4119,7 @@ Label_0B93:
       }
     }
 
-    private void swapArtistAlbumV2()
+    private void SwapArtistAlbumV2()
     {
       Form form;
       frmProgress.Callback callback;
@@ -4253,7 +4283,7 @@ Label_0B93:
       }
     }
 
-    private void swapArtistTitleV1()
+    private void SwapArtistTitleV1()
     {
       Form form;
       frmProgress.Callback callback;
@@ -4273,7 +4303,7 @@ Label_0B93:
       }
     }
 
-    private void swapArtistTitleV2()
+    private void SwapArtistTitleV2()
     {
       Form form;
       frmProgress.Callback callback;
@@ -4437,7 +4467,7 @@ Label_0B93:
       }
     }
 
-    private void swapTitleAlbumV1()
+    private void SwapTitleAlbumV1()
     {
       Form form;
       frmProgress.Callback callback;
@@ -4457,7 +4487,7 @@ Label_0B93:
       }
     }
 
-    private void swapTitleAlbumV2()
+    private void SwapTitleAlbumV2()
     {
       Form form;
       frmProgress.Callback callback;
@@ -4840,42 +4870,62 @@ Label_0DA3:
 
     private void artistAlbumToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      swapArtistAlbumV1();
+      SwapArtistAlbumV1();
     }
 
     private void artistAlbumToolStripMenuItem1_Click(object sender, EventArgs e)
     {
-      swapArtistAlbumV2();
+      SwapArtistAlbumV2();
     }
 
     private void artistAlbumToolStripMenuItem2_Click(object sender, EventArgs e)
     {
-      swapArtistAlbumV1();
+      SwapArtistAlbumV1();
     }
 
     private void artistAlbumToolStripMenuItem3_Click(object sender, EventArgs e)
     {
-      swapArtistAlbumV2();
+      SwapArtistAlbumV2();
+    }
+
+    private void artistAlbumToolStripMenuItem4_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void artistAlbumToolStripMenuItem5_Click(object sender, EventArgs e)
+    {
+
     }
 
     private void artistTitleToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      swapArtistTitleV1();
+      SwapArtistTitleV1();
     }
 
     private void artistTitleToolStripMenuItem1_Click(object sender, EventArgs e)
     {
-      swapArtistTitleV2();
+      SwapArtistTitleV2();
     }
 
     private void artistTitleToolStripMenuItem2_Click(object sender, EventArgs e)
     {
-      swapArtistTitleV1();
+      SwapArtistTitleV1();
     }
 
     private void artistTitleToolStripMenuItem3_Click(object sender, EventArgs e)
     {
-      swapArtistTitleV2();
+      SwapArtistTitleV2();
+    }
+
+    private void artistTitleToolStripMenuItem4_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void artistTitleToolStripMenuItem5_Click(object sender, EventArgs e)
+    {
+
     }
 
     private void btnSwitchV1V2_Click(object sender, EventArgs e)
@@ -4929,15 +4979,9 @@ Label_0DA3:
       }
     }
 
-    private void copyTAGVer2OnlyToolStripMenuItem_Click(object sender, EventArgs e)
+    private void copyTAGVer1OnlyToolStripMenuItem1_Click(object sender, EventArgs e)
     {
-      this.alstCopyPaste.Clear();
 
-      foreach (ListViewItem item5 in this.MP3View.SelectedItems)
-      {
-        var ytag2 = new Declarations.CopyTAG(null, (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item5.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null));
-        this.alstCopyPaste.Add(ytag2);
-      }
     }
 
     private void copyTAGVer1And2ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4955,6 +4999,27 @@ Label_0DA3:
             null, "Clone", new object[0], null, null));
         this.alstCopyPaste.Add(ytag2);
       }
+    }
+
+    private void copyTAGVer1And2ToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void copyTAGVer2OnlyToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      this.alstCopyPaste.Clear();
+
+      foreach (ListViewItem item5 in this.MP3View.SelectedItems)
+      {
+        var ytag2 = new Declarations.CopyTAG(null, (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item5.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null));
+        this.alstCopyPaste.Add(ytag2);
+      }
+    }
+
+    private void copyTAGVer2OnlyToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+
     }
 
     private void createFilelistPlaylistToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5006,6 +5071,41 @@ Label_0DA3:
       this.ErrorMsg.EndUpdate();
     }
 
+    private void ctxRightCopy_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ctxRightDelete_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ctxRightMove_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ctxRightOpen_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ctxRightPasteTAG_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ctxRightPlay_Click(object sender, EventArgs e)
+    {
+      PlayFile();
+    }
+
+    private void ctxRightRename_Click(object sender, EventArgs e)
+    {
+
+    }
+
     private void deleteFilesToolStripMenuItem_Click(object sender, EventArgs e)
     {
       this.DeleteFiles();
@@ -5014,6 +5114,16 @@ Label_0DA3:
     private void editLibrariesToolStripMenuItem_Click(object sender, EventArgs e)
     {
       new frmLibraries(this).ShowDialog(this);
+    }
+
+    private void editTAGVer1ToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void editTAGVer2ToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+
     }
 
     private void enumerateInfilenameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5044,6 +5154,16 @@ Label_0DA3:
     private void enumerateInTAGVer2ToolStripMenuItem1_Click(object sender, EventArgs e)
     {
       enumerateInTAGVer2(sender);
+    }
+
+    private void filenameTAGVer1ToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void filenameTAGVer2ToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+
     }
 
     private void filePropertiesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5137,6 +5257,79 @@ Label_0DA3:
       this.MP3View.Focus();
     }
 
+    private void lnkInfoExpCol_Click(object sender, EventArgs e)
+    {
+      if (pnlInformation.Tag.ToString() == "Expanded")
+      {
+        lnkInfoExpCol.Image = global::Properties.Resources.Expand;
+        pnlInformation.Height = 21;
+        pnlInformation.Tag = "Collapsed";
+      }
+      else
+      {
+        lnkInfoExpCol.Image = global::Properties.Resources.Collapse;
+        pnlInformation.Height = 164;
+        pnlInformation.Tag = "Expanded";
+      }
+
+      pnlTools.Top = pnlInformation.Top + pnlInformation.Height + 6;
+    }
+
+    private void lnkPictureExpCol_Click(object sender, EventArgs e)
+    {
+      if (pnlPicture.Tag.ToString() == "Expanded")
+      {
+        lnkPictureExpCol.Image = global::Properties.Resources.Expand;
+        pnlPicture.Height = 21;
+        pnlPicture.Tag = "Collapsed";
+      }
+      else
+      {
+        lnkPictureExpCol.Image = global::Properties.Resources.Collapse;
+        pnlPicture.Height = 196;
+        pnlPicture.Tag = "Expanded";
+      }
+
+      pnlInformation.Top = pnlPicture.Top + pnlPicture.Height + 6;
+      pnlTools.Top = pnlInformation.Top + pnlInformation.Height + 6;
+    }
+
+    private void lnkQuickEditExpCol_Click(object sender, EventArgs e)
+    {
+      if (pnlQuickEdit.Tag.ToString() == "Expanded")
+      {
+        lnkQuickEditExpCol.Image = global::Properties.Resources.Expand;
+        pnlQuickEdit.Height = 21;
+        pnlQuickEdit.Tag = "Collapsed";
+      }
+      else
+      {
+        lnkQuickEditExpCol.Image = global::Properties.Resources.Collapse;
+        pnlQuickEdit.Height = 208;
+        pnlQuickEdit.Tag = "Expanded";
+      }
+
+      pnlPicture.Top = pnlQuickEdit.Top + pnlQuickEdit.Height + 6;
+      pnlInformation.Top = pnlPicture.Top + pnlPicture.Height + 6;
+      pnlTools.Top = pnlInformation.Top + pnlInformation.Height + 6;
+    }
+
+    private void lnkToolsExpCol_Click(object sender, EventArgs e)
+    {
+      if (pnlTools.Tag.ToString() == "Expanded")
+      {
+        lnkToolsExpCol.Image = global::Properties.Resources.Expand;
+        pnlTools.Height = 21;
+        pnlTools.Tag = "Collapsed";
+      }
+      else
+      {
+        lnkToolsExpCol.Image = global::Properties.Resources.Collapse;
+        pnlTools.Height = 137;
+        pnlTools.Tag = "Expanded";
+      }
+    }
+
     private void mnuAddFolder_Click(object sender, EventArgs e)
     {
       string selectedPath = "";
@@ -5154,14 +5347,29 @@ Label_0DA3:
       this.Timer.Start();
     }
 
+    private void mnubAlbumFilter_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void mnubArtistFilter_Click(object sender, EventArgs e)
+    {
+
+    }
+
     private void mnubCaseConv_Click(object sender, EventArgs e)
     {
       new frmCaseConv(this).ShowDialog(this);
     }
 
+    private void mnubTitleFilter_Click(object sender, EventArgs e)
+    {
+
+    }
+
     private void mnubQueryFreeDB_Click(object sender, EventArgs e)
     {
-      queryFreeDb();
+      QueryFreeDb();
     }
 
     private void mnubTransferConvertTags_Click(object sender, EventArgs e)
@@ -5243,31 +5451,7 @@ Label_0DA3:
 
     private void mnuPlay_Click(object sender, EventArgs e)
     {
-      string vLeft = "";
-      var process2 = new Process();
-
-      foreach (ListViewItem item3 in this.MP3View.SelectedItems)
-        vLeft = StringType.FromObject(ObjectType.StrCatObj(vLeft, ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(item3.Tag, null, "FI", new object[0], null, null), null, "FullName", new object[0], null, null), "\r\n")));
-
-      if (StringType.StrCmp(vLeft, "", false) != 0)
-      {
-        string str3 = Id3TagIT_Main.CreateTempFile(Encoding.Default.GetBytes(vLeft), "m3u");
-        process2.StartInfo.UseShellExecute = true;
-        process2.StartInfo.FileName = str3;
-
-        try
-        {
-          process2.StartInfo.Verb = Declarations.objSettings.Play;
-        }
-        catch (Exception exception8)
-        {
-          ProjectData.SetProjectError(exception8);
-          process2.StartInfo.Verb = "open";
-          ProjectData.ClearProjectError();
-        }
-
-        process2.Start();
-      }
+      PlayFile();
     }
 
     private void mnuRedo_Click(object sender, EventArgs e)
@@ -5421,6 +5605,16 @@ Label_0DA3:
     private void moveFilesToolStripMenuItem_Click(object sender, EventArgs e)
     {
       this.MoveFiles();
+    }
+
+    private void multipleEditTAGVer1ToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void multipleEditTAGVer2ToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+
     }
 
     private void openFileLocationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5595,7 +5789,7 @@ Label_0DA3:
 
     private void queryFreeDBToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      queryFreeDb();
+      QueryFreeDb();
     }
 
     private void quickFilenameEditingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5642,9 +5836,19 @@ Label_0DA3:
       this.MP3View.EndUpdate();
     }
 
+    private void removeTAGVer1_Click(object sender, EventArgs e)
+    {
+
+    }
+
     private void removeTAGVer1ToolStripMenuItem1_Click(object sender, EventArgs e)
     {
       RemoveV1Tag();
+    }
+
+    private void removeTAGVer2ToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+
     }
 
     private void removeTAGVer2ToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -5746,6 +5950,12 @@ Label_0DA3:
       }.Start();
     }
 
+    private void spltQuickInfo_Click(object sender, EventArgs e)
+    {
+      // FIXME - Nope,  this hides the splitter control  :/
+      // spltQuickInfo.Panel2Collapsed = !spltQuickInfo.Panel2Collapsed;
+    }
+
     private void splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem_Click(object sender, EventArgs e)
     {
       if (this.MP3View.SelectedItems.Count > 0)
@@ -5810,24 +6020,44 @@ Label_0DA3:
       LateBinding.LateSet(sender, null, "Checked", new object[] { ObjectType.BitXorObj(LateBinding.LateGet(sender, null, "Checked", new object[0], null, null), true) }, null);
     }
 
+    private void tAGVer1FilenameToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void tAGVer2FilenameToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+
+    }
+
     private void titleAlbumToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      swapTitleAlbumV1();
+      SwapTitleAlbumV1();
     }
 
     private void titleAlbumToolStripMenuItem1_Click(object sender, EventArgs e)
     {
-      swapTitleAlbumV2();
+      SwapTitleAlbumV2();
     }
 
     private void titleAlbumToolStripMenuItem2_Click(object sender, EventArgs e)
     {
-      swapTitleAlbumV1();
+      SwapTitleAlbumV1();
     }
 
     private void titleAlbumToolStripMenuItem3_Click(object sender, EventArgs e)
     {
-      swapTitleAlbumV2();
+      SwapTitleAlbumV2();
+    }
+
+    private void titleAlbumToolStripMenuItem4_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void titleAlbumToolStripMenuItem5_Click(object sender, EventArgs e)
+    {
+
     }
 
     private void transferConvertTAGsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5835,89 +6065,8 @@ Label_0DA3:
       new frmTransfer(this).ShowDialog(this);
     }
 
-    private void viewTAGVer1ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void tsmiClearFilter_Click(object sender, EventArgs e)
     {
-      SwitchToV1();
-    }
-
-    private void viewTAGVer2ToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      SwitchToV2();
-    }
-
-    #endregion
-
-    private void lnkQuickEditExpCol_Click(object sender, EventArgs e)
-    {
-      if (pnlQuickEdit.Tag.ToString() == "Expanded")
-      {
-        lnkQuickEditExpCol.Image = global::Properties.Resources.Expand;
-        pnlQuickEdit.Height = 21;
-        pnlQuickEdit.Tag = "Collapsed";
-      }
-      else
-      {
-        lnkQuickEditExpCol.Image = global::Properties.Resources.Collapse;
-        pnlQuickEdit.Height = 208;
-        pnlQuickEdit.Tag = "Expanded";
-      }
-
-      pnlPicture.Top = pnlQuickEdit.Top + pnlQuickEdit.Height + 6;
-      pnlInformation.Top = pnlPicture.Top + pnlPicture.Height + 6;
-      pnlTools.Top = pnlInformation.Top + pnlInformation.Height + 6;
-    }
-
-    private void lnkPictureExpCol_Click(object sender, EventArgs e)
-    {
-      if (pnlPicture.Tag.ToString() == "Expanded")
-      {
-        lnkPictureExpCol.Image = global::Properties.Resources.Expand;
-        pnlPicture.Height = 21;
-        pnlPicture.Tag = "Collapsed";
-      }
-      else
-      {
-        lnkPictureExpCol.Image = global::Properties.Resources.Collapse;
-        pnlPicture.Height = 196;
-        pnlPicture.Tag = "Expanded";
-      }
-
-      pnlInformation.Top = pnlPicture.Top + pnlPicture.Height + 6;
-      pnlTools.Top = pnlInformation.Top + pnlInformation.Height + 6;
-    }
-
-    private void lnkInfoExpCol_Click(object sender, EventArgs e)
-    {
-      if (pnlInformation.Tag.ToString() == "Expanded")
-      {
-        lnkInfoExpCol.Image = global::Properties.Resources.Expand;
-        pnlInformation.Height = 21;
-        pnlInformation.Tag = "Collapsed";
-      }
-      else
-      {
-        lnkInfoExpCol.Image = global::Properties.Resources.Collapse;
-        pnlInformation.Height = 164;
-        pnlInformation.Tag = "Expanded";
-      }
-
-      pnlTools.Top = pnlInformation.Top + pnlInformation.Height + 6;
-    }
-
-    private void lnkToolsExpCol_Click(object sender, EventArgs e)
-    {
-      if (pnlTools.Tag.ToString() == "Expanded")
-      {
-        lnkToolsExpCol.Image = global::Properties.Resources.Expand;
-        pnlTools.Height = 21;
-        pnlTools.Tag = "Collapsed";
-      }
-      else
-      {
-        lnkToolsExpCol.Image = global::Properties.Resources.Collapse;
-        pnlTools.Height = 137;
-        pnlTools.Tag = "Expanded";
-      }
     }
 
     private void tsmiDecrease_Click(object sender, EventArgs e)
@@ -5936,34 +6085,16 @@ Label_0DA3:
       this.mnutEnumerateCounter.Text = StringType.FromInteger(this.vintEnumCount);
     }
 
-    private void tsmiClearFilter_Click(object sender, EventArgs e)
+    private void viewTAGVer1ToolStripMenuItem_Click(object sender, EventArgs e)
     {
+      SwitchToV1();
     }
 
-    private void mnubArtistFilter_Click(object sender, EventArgs e)
+    private void viewTAGVer2ToolStripMenuItem_Click(object sender, EventArgs e)
     {
-
+      SwitchToV2();
     }
 
-    private void mnubTitleFilter_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void mnubAlbumFilter_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void FolderTree_BeforeSelect(object sender, TreeViewCancelEventArgs e)
-    {
-
-    }
-
-    private void spltQuickInfo_Click(object sender, EventArgs e)
-    {
-      // FIXME - Nope,  this hides the splitter control  :/
-      // spltQuickInfo.Panel2Collapsed = !spltQuickInfo.Panel2Collapsed;
-    }
+    #endregion
   }
 }

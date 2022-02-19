@@ -383,6 +383,43 @@ namespace ID3_TagIT
       this.FavTree = new System.Windows.Forms.TreeView();
       this.spltMiddle = new System.Windows.Forms.SplitContainer();
       this.MP3View = new System.Windows.Forms.ListView();
+      this.ctxRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.ctxRightTag1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.editTAGVer1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.multipleEditTAGVer1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.removeTAGVer1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.filenameTAGVer1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.tAGVer1FilenameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.ctxRightTag2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.editTAGVer2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.multipleEditTAGVer2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.removeTAGVer2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.filenameTAGVer2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.tAGVer2FilenameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.sepRight1 = new System.Windows.Forms.ToolStripSeparator();
+      this.ctxRightSwap1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.artistTitleToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+      this.artistAlbumToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+      this.titleAlbumToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+      this.ctxRightSwap2 = new System.Windows.Forms.ToolStripMenuItem();
+      this.artistTitleToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+      this.artistAlbumToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+      this.titleAlbumToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+      this.sepRight2 = new System.Windows.Forms.ToolStripSeparator();
+      this.ctxRightPlay = new System.Windows.Forms.ToolStripMenuItem();
+      this.sepRight3 = new System.Windows.Forms.ToolStripSeparator();
+      this.ctxRightOpen = new System.Windows.Forms.ToolStripMenuItem();
+      this.ctxRightRename = new System.Windows.Forms.ToolStripMenuItem();
+      this.sepRight4 = new System.Windows.Forms.ToolStripSeparator();
+      this.ctxRightMove = new System.Windows.Forms.ToolStripMenuItem();
+      this.ctxRightCopy = new System.Windows.Forms.ToolStripMenuItem();
+      this.ctxRightDelete = new System.Windows.Forms.ToolStripMenuItem();
+      this.sepRight5 = new System.Windows.Forms.ToolStripSeparator();
+      this.ctxRightCopyTAG = new System.Windows.Forms.ToolStripMenuItem();
+      this.copyTAGVer1OnlyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.copyTAGVer2OnlyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.copyTAGVer1And2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.ctxRightPasteTAG = new System.Windows.Forms.ToolStripMenuItem();
       this.ErrorMsg = new System.Windows.Forms.ListView();
       this.errContext = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ctxClearErrors = new System.Windows.Forms.ToolStripMenuItem();
@@ -660,43 +697,6 @@ namespace ID3_TagIT
       this.lblSubDirs = new System.Windows.Forms.ToolStripStatusLabel();
       this.lblProgress = new System.Windows.Forms.ToolStripStatusLabel();
       this.StatusProgressBar = new System.Windows.Forms.ToolStripProgressBar();
-      this.ctxRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
-      this.ctxRightTag1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.ctxRightTag2 = new System.Windows.Forms.ToolStripMenuItem();
-      this.ctxRightSwap1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.ctxRightSwap2 = new System.Windows.Forms.ToolStripMenuItem();
-      this.ctxRightPlay = new System.Windows.Forms.ToolStripMenuItem();
-      this.ctxRightOpen = new System.Windows.Forms.ToolStripMenuItem();
-      this.ctxRightRename = new System.Windows.Forms.ToolStripMenuItem();
-      this.ctxRightMove = new System.Windows.Forms.ToolStripMenuItem();
-      this.ctxRightCopy = new System.Windows.Forms.ToolStripMenuItem();
-      this.ctxRightDelete = new System.Windows.Forms.ToolStripMenuItem();
-      this.ctxRightCopyTAG = new System.Windows.Forms.ToolStripMenuItem();
-      this.ctxRightPasteTAG = new System.Windows.Forms.ToolStripMenuItem();
-      this.sepRight1 = new System.Windows.Forms.ToolStripSeparator();
-      this.sepRight2 = new System.Windows.Forms.ToolStripSeparator();
-      this.sepRight3 = new System.Windows.Forms.ToolStripSeparator();
-      this.sepRight4 = new System.Windows.Forms.ToolStripSeparator();
-      this.sepRight5 = new System.Windows.Forms.ToolStripSeparator();
-      this.copyTAGVer1OnlyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.copyTAGVer2OnlyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.copyTAGVer1And2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.artistTitleToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-      this.artistAlbumToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-      this.titleAlbumToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-      this.artistTitleToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-      this.artistAlbumToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-      this.titleAlbumToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-      this.editTAGVer2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.multipleEditTAGVer2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.removeTAGVer2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.filenameTAGVer2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.tAGVer2FilenameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.editTAGVer1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.multipleEditTAGVer1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
-      this.filenameTAGVer1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.tAGVer1FilenameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
       ((System.ComponentModel.ISupportInitialize)(this.spltQuickInfo)).BeginInit();
       this.spltQuickInfo.Panel1.SuspendLayout();
       this.spltQuickInfo.Panel2.SuspendLayout();
@@ -712,6 +712,7 @@ namespace ID3_TagIT
       this.spltMiddle.Panel1.SuspendLayout();
       this.spltMiddle.Panel2.SuspendLayout();
       this.spltMiddle.SuspendLayout();
+      this.ctxRightClick.SuspendLayout();
       this.errContext.SuspendLayout();
       this.pnlTools.SuspendLayout();
       this.pnlInformation.SuspendLayout();
@@ -723,7 +724,6 @@ namespace ID3_TagIT
       this.mnuExtended.SuspendLayout();
       this.mnuBtns.SuspendLayout();
       this.statusStrip1.SuspendLayout();
-      this.ctxRightClick.SuspendLayout();
       this.SuspendLayout();
       // 
       // spltQuickInfo
@@ -797,6 +797,7 @@ namespace ID3_TagIT
       this.FolderTree.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.FolderTree_AfterLabelEdit);
       this.FolderTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.FolderTree_AfterSelect);
       this.FolderTree.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.FolderTree_BeforeLabelEdit);
+      this.FolderTree.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.FolderTree_BeforeSelect);
       // 
       // tabFavorites
       // 
@@ -865,6 +866,327 @@ namespace ID3_TagIT
       this.MP3View.MouseLeave += new System.EventHandler(this.MP3View_MouseLeave);
       this.MP3View.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MP3View_MouseMove);
       this.MP3View.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MP3View_MouseUp);
+      // 
+      // ctxRightClick
+      // 
+      this.ctxRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctxRightTag1,
+            this.ctxRightTag2,
+            this.sepRight1,
+            this.ctxRightSwap1,
+            this.ctxRightSwap2,
+            this.sepRight2,
+            this.ctxRightPlay,
+            this.sepRight3,
+            this.ctxRightOpen,
+            this.ctxRightRename,
+            this.sepRight4,
+            this.ctxRightMove,
+            this.ctxRightCopy,
+            this.ctxRightDelete,
+            this.sepRight5,
+            this.ctxRightCopyTAG,
+            this.ctxRightPasteTAG});
+      this.ctxRightClick.Name = "ctxRightClick";
+      this.ctxRightClick.Size = new System.Drawing.Size(266, 320);
+      // 
+      // ctxRightTag1
+      // 
+      this.ctxRightTag1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editTAGVer1ToolStripMenuItem1,
+            this.multipleEditTAGVer1ToolStripMenuItem1,
+            this.removeTAGVer1,
+            this.filenameTAGVer1ToolStripMenuItem1,
+            this.tAGVer1FilenameToolStripMenuItem1});
+      this.ctxRightTag1.Name = "ctxRightTag1";
+      this.ctxRightTag1.Size = new System.Drawing.Size(265, 22);
+      this.ctxRightTag1.Text = "TAG Ver. 1 function";
+      // 
+      // editTAGVer1ToolStripMenuItem1
+      // 
+      this.editTAGVer1ToolStripMenuItem1.Name = "editTAGVer1ToolStripMenuItem1";
+      this.editTAGVer1ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+      this.editTAGVer1ToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
+      this.editTAGVer1ToolStripMenuItem1.Text = "Edit TAG Ver. &1";
+      this.editTAGVer1ToolStripMenuItem1.Click += new System.EventHandler(this.editTAGVer1ToolStripMenuItem1_Click);
+      // 
+      // multipleEditTAGVer1ToolStripMenuItem1
+      // 
+      this.multipleEditTAGVer1ToolStripMenuItem1.Name = "multipleEditTAGVer1ToolStripMenuItem1";
+      this.multipleEditTAGVer1ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
+      this.multipleEditTAGVer1ToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
+      this.multipleEditTAGVer1ToolStripMenuItem1.Text = "&Multiple Edit TAG Ver. 1";
+      this.multipleEditTAGVer1ToolStripMenuItem1.Click += new System.EventHandler(this.multipleEditTAGVer1ToolStripMenuItem1_Click);
+      // 
+      // removeTAGVer1
+      // 
+      this.removeTAGVer1.Name = "removeTAGVer1";
+      this.removeTAGVer1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F11)));
+      this.removeTAGVer1.Size = new System.Drawing.Size(241, 22);
+      this.removeTAGVer1.Text = "&Remove TAG Ver. 1";
+      this.removeTAGVer1.Click += new System.EventHandler(this.removeTAGVer1_Click);
+      // 
+      // filenameTAGVer1ToolStripMenuItem1
+      // 
+      this.filenameTAGVer1ToolStripMenuItem1.Name = "filenameTAGVer1ToolStripMenuItem1";
+      this.filenameTAGVer1ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+      this.filenameTAGVer1ToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
+      this.filenameTAGVer1ToolStripMenuItem1.Text = "&Filename -> TAG Ver. 1";
+      this.filenameTAGVer1ToolStripMenuItem1.Click += new System.EventHandler(this.filenameTAGVer1ToolStripMenuItem1_Click);
+      // 
+      // tAGVer1FilenameToolStripMenuItem1
+      // 
+      this.tAGVer1FilenameToolStripMenuItem1.Name = "tAGVer1FilenameToolStripMenuItem1";
+      this.tAGVer1FilenameToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+      this.tAGVer1FilenameToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
+      this.tAGVer1FilenameToolStripMenuItem1.Text = "&TAG Ver. 1 -> Filename";
+      this.tAGVer1FilenameToolStripMenuItem1.Click += new System.EventHandler(this.tAGVer1FilenameToolStripMenuItem1_Click);
+      // 
+      // ctxRightTag2
+      // 
+      this.ctxRightTag2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editTAGVer2ToolStripMenuItem1,
+            this.multipleEditTAGVer2ToolStripMenuItem1,
+            this.removeTAGVer2ToolStripMenuItem,
+            this.filenameTAGVer2ToolStripMenuItem,
+            this.tAGVer2FilenameToolStripMenuItem1});
+      this.ctxRightTag2.Name = "ctxRightTag2";
+      this.ctxRightTag2.Size = new System.Drawing.Size(265, 22);
+      this.ctxRightTag2.Text = "TAG Ver. 2 function";
+      // 
+      // editTAGVer2ToolStripMenuItem1
+      // 
+      this.editTAGVer2ToolStripMenuItem1.Name = "editTAGVer2ToolStripMenuItem1";
+      this.editTAGVer2ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
+      this.editTAGVer2ToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
+      this.editTAGVer2ToolStripMenuItem1.Text = "Edit TAG Ver. &2";
+      this.editTAGVer2ToolStripMenuItem1.Click += new System.EventHandler(this.editTAGVer2ToolStripMenuItem1_Click);
+      // 
+      // multipleEditTAGVer2ToolStripMenuItem1
+      // 
+      this.multipleEditTAGVer2ToolStripMenuItem1.Name = "multipleEditTAGVer2ToolStripMenuItem1";
+      this.multipleEditTAGVer2ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+      this.multipleEditTAGVer2ToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
+      this.multipleEditTAGVer2ToolStripMenuItem1.Text = "Multi&ple Edit TAG Ver. 2";
+      this.multipleEditTAGVer2ToolStripMenuItem1.Click += new System.EventHandler(this.multipleEditTAGVer2ToolStripMenuItem1_Click);
+      // 
+      // removeTAGVer2ToolStripMenuItem
+      // 
+      this.removeTAGVer2ToolStripMenuItem.Name = "removeTAGVer2ToolStripMenuItem";
+      this.removeTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F12)));
+      this.removeTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+      this.removeTAGVer2ToolStripMenuItem.Text = "Remo&ve TAG Ver. 2";
+      this.removeTAGVer2ToolStripMenuItem.Click += new System.EventHandler(this.removeTAGVer2ToolStripMenuItem_Click);
+      // 
+      // filenameTAGVer2ToolStripMenuItem
+      // 
+      this.filenameTAGVer2ToolStripMenuItem.Name = "filenameTAGVer2ToolStripMenuItem";
+      this.filenameTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+      this.filenameTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+      this.filenameTAGVer2ToolStripMenuItem.Text = "File&name -> TAG Ver. 2";
+      this.filenameTAGVer2ToolStripMenuItem.Click += new System.EventHandler(this.filenameTAGVer2ToolStripMenuItem_Click);
+      // 
+      // tAGVer2FilenameToolStripMenuItem1
+      // 
+      this.tAGVer2FilenameToolStripMenuItem1.Name = "tAGVer2FilenameToolStripMenuItem1";
+      this.tAGVer2FilenameToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+      this.tAGVer2FilenameToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
+      this.tAGVer2FilenameToolStripMenuItem1.Text = "TA&G Ver. 2 -> Filename";
+      this.tAGVer2FilenameToolStripMenuItem1.Click += new System.EventHandler(this.tAGVer2FilenameToolStripMenuItem1_Click);
+      // 
+      // sepRight1
+      // 
+      this.sepRight1.Name = "sepRight1";
+      this.sepRight1.Size = new System.Drawing.Size(262, 6);
+      // 
+      // ctxRightSwap1
+      // 
+      this.ctxRightSwap1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.artistTitleToolStripMenuItem5,
+            this.artistAlbumToolStripMenuItem5,
+            this.titleAlbumToolStripMenuItem5});
+      this.ctxRightSwap1.Image = global::Properties.Resources.SwapV1;
+      this.ctxRightSwap1.Name = "ctxRightSwap1";
+      this.ctxRightSwap1.Size = new System.Drawing.Size(265, 22);
+      this.ctxRightSwap1.Text = "S&wap TAGVer. 1 entries";
+      // 
+      // artistTitleToolStripMenuItem5
+      // 
+      this.artistTitleToolStripMenuItem5.Name = "artistTitleToolStripMenuItem5";
+      this.artistTitleToolStripMenuItem5.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F1)));
+      this.artistTitleToolStripMenuItem5.Size = new System.Drawing.Size(216, 22);
+      this.artistTitleToolStripMenuItem5.Text = "Artist <-> Title";
+      this.artistTitleToolStripMenuItem5.Click += new System.EventHandler(this.artistTitleToolStripMenuItem5_Click);
+      // 
+      // artistAlbumToolStripMenuItem5
+      // 
+      this.artistAlbumToolStripMenuItem5.Name = "artistAlbumToolStripMenuItem5";
+      this.artistAlbumToolStripMenuItem5.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F2)));
+      this.artistAlbumToolStripMenuItem5.Size = new System.Drawing.Size(216, 22);
+      this.artistAlbumToolStripMenuItem5.Text = "Artist <-> Album";
+      this.artistAlbumToolStripMenuItem5.Click += new System.EventHandler(this.artistAlbumToolStripMenuItem5_Click);
+      // 
+      // titleAlbumToolStripMenuItem5
+      // 
+      this.titleAlbumToolStripMenuItem5.Name = "titleAlbumToolStripMenuItem5";
+      this.titleAlbumToolStripMenuItem5.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F3)));
+      this.titleAlbumToolStripMenuItem5.Size = new System.Drawing.Size(216, 22);
+      this.titleAlbumToolStripMenuItem5.Text = "Title <-> Album";
+      this.titleAlbumToolStripMenuItem5.Click += new System.EventHandler(this.titleAlbumToolStripMenuItem5_Click);
+      // 
+      // ctxRightSwap2
+      // 
+      this.ctxRightSwap2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.artistTitleToolStripMenuItem4,
+            this.artistAlbumToolStripMenuItem4,
+            this.titleAlbumToolStripMenuItem4});
+      this.ctxRightSwap2.Image = global::Properties.Resources.SwapV2;
+      this.ctxRightSwap2.Name = "ctxRightSwap2";
+      this.ctxRightSwap2.Size = new System.Drawing.Size(265, 22);
+      this.ctxRightSwap2.Text = "Sw&ap TAGVer. 2 entries";
+      // 
+      // artistTitleToolStripMenuItem4
+      // 
+      this.artistTitleToolStripMenuItem4.Name = "artistTitleToolStripMenuItem4";
+      this.artistTitleToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F5)));
+      this.artistTitleToolStripMenuItem4.Size = new System.Drawing.Size(216, 22);
+      this.artistTitleToolStripMenuItem4.Text = "Artist <-> Title";
+      this.artistTitleToolStripMenuItem4.Click += new System.EventHandler(this.artistTitleToolStripMenuItem4_Click);
+      // 
+      // artistAlbumToolStripMenuItem4
+      // 
+      this.artistAlbumToolStripMenuItem4.Name = "artistAlbumToolStripMenuItem4";
+      this.artistAlbumToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F6)));
+      this.artistAlbumToolStripMenuItem4.Size = new System.Drawing.Size(216, 22);
+      this.artistAlbumToolStripMenuItem4.Text = "Artist <-> Album";
+      this.artistAlbumToolStripMenuItem4.Click += new System.EventHandler(this.artistAlbumToolStripMenuItem4_Click);
+      // 
+      // titleAlbumToolStripMenuItem4
+      // 
+      this.titleAlbumToolStripMenuItem4.Name = "titleAlbumToolStripMenuItem4";
+      this.titleAlbumToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F7)));
+      this.titleAlbumToolStripMenuItem4.Size = new System.Drawing.Size(216, 22);
+      this.titleAlbumToolStripMenuItem4.Text = "Title <-> Album";
+      this.titleAlbumToolStripMenuItem4.Click += new System.EventHandler(this.titleAlbumToolStripMenuItem4_Click);
+      // 
+      // sepRight2
+      // 
+      this.sepRight2.Name = "sepRight2";
+      this.sepRight2.Size = new System.Drawing.Size(262, 6);
+      // 
+      // ctxRightPlay
+      // 
+      this.ctxRightPlay.Image = global::Properties.Resources.Play;
+      this.ctxRightPlay.Name = "ctxRightPlay";
+      this.ctxRightPlay.ShortcutKeys = System.Windows.Forms.Keys.F9;
+      this.ctxRightPlay.Size = new System.Drawing.Size(265, 22);
+      this.ctxRightPlay.Text = "&Play";
+      this.ctxRightPlay.Click += new System.EventHandler(this.ctxRightPlay_Click);
+      // 
+      // sepRight3
+      // 
+      this.sepRight3.Name = "sepRight3";
+      this.sepRight3.Size = new System.Drawing.Size(262, 6);
+      // 
+      // ctxRightOpen
+      // 
+      this.ctxRightOpen.Image = global::Properties.Resources.OpenLocation;
+      this.ctxRightOpen.Name = "ctxRightOpen";
+      this.ctxRightOpen.Size = new System.Drawing.Size(265, 22);
+      this.ctxRightOpen.Text = "&Open file location";
+      this.ctxRightOpen.Click += new System.EventHandler(this.ctxRightOpen_Click);
+      // 
+      // ctxRightRename
+      // 
+      this.ctxRightRename.Image = global::Properties.Resources.Rename;
+      this.ctxRightRename.Name = "ctxRightRename";
+      this.ctxRightRename.ShortcutKeys = System.Windows.Forms.Keys.F2;
+      this.ctxRightRename.Size = new System.Drawing.Size(265, 22);
+      this.ctxRightRename.Text = "&Rename file/folder";
+      this.ctxRightRename.Click += new System.EventHandler(this.ctxRightRename_Click);
+      // 
+      // sepRight4
+      // 
+      this.sepRight4.Name = "sepRight4";
+      this.sepRight4.Size = new System.Drawing.Size(262, 6);
+      // 
+      // ctxRightMove
+      // 
+      this.ctxRightMove.Image = global::Properties.Resources.MoveFiles;
+      this.ctxRightMove.Name = "ctxRightMove";
+      this.ctxRightMove.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+      this.ctxRightMove.Size = new System.Drawing.Size(265, 22);
+      this.ctxRightMove.Text = "&Move files";
+      this.ctxRightMove.Click += new System.EventHandler(this.ctxRightMove_Click);
+      // 
+      // ctxRightCopy
+      // 
+      this.ctxRightCopy.Image = global::Properties.Resources.CopyFiles;
+      this.ctxRightCopy.Name = "ctxRightCopy";
+      this.ctxRightCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+      this.ctxRightCopy.Size = new System.Drawing.Size(265, 22);
+      this.ctxRightCopy.Text = "&Copy files";
+      this.ctxRightCopy.Click += new System.EventHandler(this.ctxRightCopy_Click);
+      // 
+      // ctxRightDelete
+      // 
+      this.ctxRightDelete.Image = global::Properties.Resources.Delete;
+      this.ctxRightDelete.Name = "ctxRightDelete";
+      this.ctxRightDelete.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.D)));
+      this.ctxRightDelete.Size = new System.Drawing.Size(265, 22);
+      this.ctxRightDelete.Text = "&Delete files";
+      this.ctxRightDelete.Click += new System.EventHandler(this.ctxRightDelete_Click);
+      // 
+      // sepRight5
+      // 
+      this.sepRight5.Name = "sepRight5";
+      this.sepRight5.Size = new System.Drawing.Size(262, 6);
+      // 
+      // ctxRightCopyTAG
+      // 
+      this.ctxRightCopyTAG.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyTAGVer1OnlyToolStripMenuItem1,
+            this.copyTAGVer2OnlyToolStripMenuItem1,
+            this.copyTAGVer1And2ToolStripMenuItem1});
+      this.ctxRightCopyTAG.Image = global::Properties.Resources.Copy;
+      this.ctxRightCopyTAG.Name = "ctxRightCopyTAG";
+      this.ctxRightCopyTAG.Size = new System.Drawing.Size(265, 22);
+      this.ctxRightCopyTAG.Text = "Copy TAG informatio&n";
+      // 
+      // copyTAGVer1OnlyToolStripMenuItem1
+      // 
+      this.copyTAGVer1OnlyToolStripMenuItem1.Name = "copyTAGVer1OnlyToolStripMenuItem1";
+      this.copyTAGVer1OnlyToolStripMenuItem1.Size = new System.Drawing.Size(263, 22);
+      this.copyTAGVer1OnlyToolStripMenuItem1.Text = "Copy TAG Ver. &1 only";
+      this.copyTAGVer1OnlyToolStripMenuItem1.Click += new System.EventHandler(this.copyTAGVer1OnlyToolStripMenuItem1_Click);
+      // 
+      // copyTAGVer2OnlyToolStripMenuItem1
+      // 
+      this.copyTAGVer2OnlyToolStripMenuItem1.Name = "copyTAGVer2OnlyToolStripMenuItem1";
+      this.copyTAGVer2OnlyToolStripMenuItem1.Size = new System.Drawing.Size(263, 22);
+      this.copyTAGVer2OnlyToolStripMenuItem1.Text = "Copy TAG Ver. &2 only";
+      this.copyTAGVer2OnlyToolStripMenuItem1.Click += new System.EventHandler(this.copyTAGVer2OnlyToolStripMenuItem1_Click);
+      // 
+      // copyTAGVer1And2ToolStripMenuItem1
+      // 
+      this.copyTAGVer1And2ToolStripMenuItem1.Image = global::Properties.Resources.Copy;
+      this.copyTAGVer1And2ToolStripMenuItem1.Name = "copyTAGVer1And2ToolStripMenuItem1";
+      this.copyTAGVer1And2ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.C)));
+      this.copyTAGVer1And2ToolStripMenuItem1.Size = new System.Drawing.Size(263, 22);
+      this.copyTAGVer1And2ToolStripMenuItem1.Text = "&Copy TAG Ver. 1 and 2";
+      this.copyTAGVer1And2ToolStripMenuItem1.Click += new System.EventHandler(this.copyTAGVer1And2ToolStripMenuItem1_Click);
+      // 
+      // ctxRightPasteTAG
+      // 
+      this.ctxRightPasteTAG.Image = global::Properties.Resources.Paste;
+      this.ctxRightPasteTAG.Name = "ctxRightPasteTAG";
+      this.ctxRightPasteTAG.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.V)));
+      this.ctxRightPasteTAG.Size = new System.Drawing.Size(265, 22);
+      this.ctxRightPasteTAG.Text = "Pa&ste TAG information";
+      this.ctxRightPasteTAG.Click += new System.EventHandler(this.ctxRightPasteTAG_Click);
       // 
       // ErrorMsg
       // 
@@ -3228,302 +3550,6 @@ namespace ID3_TagIT
       this.StatusProgressBar.Name = "StatusProgressBar";
       this.StatusProgressBar.Size = new System.Drawing.Size(100, 16);
       // 
-      // ctxRightClick
-      // 
-      this.ctxRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ctxRightTag1,
-            this.ctxRightTag2,
-            this.sepRight1,
-            this.ctxRightSwap1,
-            this.ctxRightSwap2,
-            this.sepRight2,
-            this.ctxRightPlay,
-            this.sepRight3,
-            this.ctxRightOpen,
-            this.ctxRightRename,
-            this.sepRight4,
-            this.ctxRightMove,
-            this.ctxRightCopy,
-            this.ctxRightDelete,
-            this.sepRight5,
-            this.ctxRightCopyTAG,
-            this.ctxRightPasteTAG});
-      this.ctxRightClick.Name = "ctxRightClick";
-      this.ctxRightClick.Size = new System.Drawing.Size(266, 298);
-      this.ctxRightClick.Opening += new System.ComponentModel.CancelEventHandler(this.ctxRightClick_Opening);
-      // 
-      // ctxRightTag1
-      // 
-      this.ctxRightTag1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editTAGVer1ToolStripMenuItem1,
-            this.multipleEditTAGVer1ToolStripMenuItem1,
-            this.toolStripMenuItem9,
-            this.filenameTAGVer1ToolStripMenuItem1,
-            this.tAGVer1FilenameToolStripMenuItem1});
-      this.ctxRightTag1.Name = "ctxRightTag1";
-      this.ctxRightTag1.Size = new System.Drawing.Size(265, 22);
-      this.ctxRightTag1.Text = "TAG Ver. 1 function";
-      // 
-      // ctxRightTag2
-      // 
-      this.ctxRightTag2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editTAGVer2ToolStripMenuItem1,
-            this.multipleEditTAGVer2ToolStripMenuItem1,
-            this.removeTAGVer2ToolStripMenuItem,
-            this.filenameTAGVer2ToolStripMenuItem,
-            this.tAGVer2FilenameToolStripMenuItem1});
-      this.ctxRightTag2.Name = "ctxRightTag2";
-      this.ctxRightTag2.Size = new System.Drawing.Size(265, 22);
-      this.ctxRightTag2.Text = "TAG Ver. 2 function";
-      // 
-      // ctxRightSwap1
-      // 
-      this.ctxRightSwap1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.artistTitleToolStripMenuItem5,
-            this.artistAlbumToolStripMenuItem5,
-            this.titleAlbumToolStripMenuItem5});
-      this.ctxRightSwap1.Image = global::Properties.Resources.SwapV1;
-      this.ctxRightSwap1.Name = "ctxRightSwap1";
-      this.ctxRightSwap1.Size = new System.Drawing.Size(265, 22);
-      this.ctxRightSwap1.Text = "S&wap TAGVer. 2 entries";
-      // 
-      // ctxRightSwap2
-      // 
-      this.ctxRightSwap2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.artistTitleToolStripMenuItem4,
-            this.artistAlbumToolStripMenuItem4,
-            this.titleAlbumToolStripMenuItem4});
-      this.ctxRightSwap2.Image = global::Properties.Resources.SwapV2;
-      this.ctxRightSwap2.Name = "ctxRightSwap2";
-      this.ctxRightSwap2.Size = new System.Drawing.Size(265, 22);
-      this.ctxRightSwap2.Text = "Sw&ap TAGVer. 2 entries";
-      // 
-      // ctxRightPlay
-      // 
-      this.ctxRightPlay.Image = global::Properties.Resources.Play;
-      this.ctxRightPlay.Name = "ctxRightPlay";
-      this.ctxRightPlay.ShortcutKeys = System.Windows.Forms.Keys.F9;
-      this.ctxRightPlay.Size = new System.Drawing.Size(265, 22);
-      this.ctxRightPlay.Text = "&Play";
-      // 
-      // ctxRightOpen
-      // 
-      this.ctxRightOpen.Image = global::Properties.Resources.OpenLocation;
-      this.ctxRightOpen.Name = "ctxRightOpen";
-      this.ctxRightOpen.Size = new System.Drawing.Size(192, 22);
-      this.ctxRightOpen.Text = "&Open file location";
-      // 
-      // ctxRightRename
-      // 
-      this.ctxRightRename.Image = global::Properties.Resources.Rename;
-      this.ctxRightRename.Name = "ctxRightRename";
-      this.ctxRightRename.ShortcutKeys = System.Windows.Forms.Keys.F2;
-      this.ctxRightRename.Size = new System.Drawing.Size(265, 22);
-      this.ctxRightRename.Text = "&Rename file/folder";
-      // 
-      // ctxRightMove
-      // 
-      this.ctxRightMove.Image = global::Properties.Resources.MoveFiles;
-      this.ctxRightMove.Name = "ctxRightMove";
-      this.ctxRightMove.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-      this.ctxRightMove.Size = new System.Drawing.Size(265, 22);
-      this.ctxRightMove.Text = "&Move files";
-      // 
-      // ctxRightCopy
-      // 
-      this.ctxRightCopy.Image = global::Properties.Resources.CopyFiles;
-      this.ctxRightCopy.Name = "ctxRightCopy";
-      this.ctxRightCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-      this.ctxRightCopy.Size = new System.Drawing.Size(265, 22);
-      this.ctxRightCopy.Text = "&Copy files";
-      // 
-      // ctxRightDelete
-      // 
-      this.ctxRightDelete.Image = global::Properties.Resources.Delete;
-      this.ctxRightDelete.Name = "ctxRightDelete";
-      this.ctxRightDelete.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.D)));
-      this.ctxRightDelete.Size = new System.Drawing.Size(265, 22);
-      this.ctxRightDelete.Text = "&Delete files";
-      // 
-      // ctxRightCopyTAG
-      // 
-      this.ctxRightCopyTAG.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyTAGVer1OnlyToolStripMenuItem1,
-            this.copyTAGVer2OnlyToolStripMenuItem1,
-            this.copyTAGVer1And2ToolStripMenuItem1});
-      this.ctxRightCopyTAG.Image = global::Properties.Resources.Copy;
-      this.ctxRightCopyTAG.Name = "ctxRightCopyTAG";
-      this.ctxRightCopyTAG.Size = new System.Drawing.Size(265, 22);
-      this.ctxRightCopyTAG.Text = "Copy TAG informatio&n";
-      // 
-      // ctxRightPasteTAG
-      // 
-      this.ctxRightPasteTAG.Image = global::Properties.Resources.Paste;
-      this.ctxRightPasteTAG.Name = "ctxRightPasteTAG";
-      this.ctxRightPasteTAG.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.V)));
-      this.ctxRightPasteTAG.Size = new System.Drawing.Size(265, 22);
-      this.ctxRightPasteTAG.Text = "Pa&ste TAG information";
-      // 
-      // sepRight1
-      // 
-      this.sepRight1.Name = "sepRight1";
-      this.sepRight1.Size = new System.Drawing.Size(189, 6);
-      // 
-      // sepRight2
-      // 
-      this.sepRight2.Name = "sepRight2";
-      this.sepRight2.Size = new System.Drawing.Size(189, 6);
-      // 
-      // sepRight3
-      // 
-      this.sepRight3.Name = "sepRight3";
-      this.sepRight3.Size = new System.Drawing.Size(189, 6);
-      // 
-      // sepRight4
-      // 
-      this.sepRight4.Name = "sepRight4";
-      this.sepRight4.Size = new System.Drawing.Size(189, 6);
-      // 
-      // sepRight5
-      // 
-      this.sepRight5.Name = "sepRight5";
-      this.sepRight5.Size = new System.Drawing.Size(189, 6);
-      // 
-      // copyTAGVer1OnlyToolStripMenuItem1
-      // 
-      this.copyTAGVer1OnlyToolStripMenuItem1.Name = "copyTAGVer1OnlyToolStripMenuItem1";
-      this.copyTAGVer1OnlyToolStripMenuItem1.Size = new System.Drawing.Size(263, 22);
-      this.copyTAGVer1OnlyToolStripMenuItem1.Text = "Copy TAG Ver. &1 only";
-      // 
-      // copyTAGVer2OnlyToolStripMenuItem1
-      // 
-      this.copyTAGVer2OnlyToolStripMenuItem1.Name = "copyTAGVer2OnlyToolStripMenuItem1";
-      this.copyTAGVer2OnlyToolStripMenuItem1.Size = new System.Drawing.Size(263, 22);
-      this.copyTAGVer2OnlyToolStripMenuItem1.Text = "Copy TAG Ver. &2 only";
-      // 
-      // copyTAGVer1And2ToolStripMenuItem1
-      // 
-      this.copyTAGVer1And2ToolStripMenuItem1.Image = global::Properties.Resources.Copy;
-      this.copyTAGVer1And2ToolStripMenuItem1.Name = "copyTAGVer1And2ToolStripMenuItem1";
-      this.copyTAGVer1And2ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.C)));
-      this.copyTAGVer1And2ToolStripMenuItem1.Size = new System.Drawing.Size(263, 22);
-      this.copyTAGVer1And2ToolStripMenuItem1.Text = "&Copy TAG Ver. 1 and 2";
-      // 
-      // artistTitleToolStripMenuItem4
-      // 
-      this.artistTitleToolStripMenuItem4.Name = "artistTitleToolStripMenuItem4";
-      this.artistTitleToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F5)));
-      this.artistTitleToolStripMenuItem4.Size = new System.Drawing.Size(216, 22);
-      this.artistTitleToolStripMenuItem4.Text = "Artist <-> Title";
-      // 
-      // artistAlbumToolStripMenuItem4
-      // 
-      this.artistAlbumToolStripMenuItem4.Name = "artistAlbumToolStripMenuItem4";
-      this.artistAlbumToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F6)));
-      this.artistAlbumToolStripMenuItem4.Size = new System.Drawing.Size(216, 22);
-      this.artistAlbumToolStripMenuItem4.Text = "Artist <-> Album";
-      // 
-      // titleAlbumToolStripMenuItem4
-      // 
-      this.titleAlbumToolStripMenuItem4.Name = "titleAlbumToolStripMenuItem4";
-      this.titleAlbumToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F7)));
-      this.titleAlbumToolStripMenuItem4.Size = new System.Drawing.Size(216, 22);
-      this.titleAlbumToolStripMenuItem4.Text = "Title <-> Album";
-      // 
-      // artistTitleToolStripMenuItem5
-      // 
-      this.artistTitleToolStripMenuItem5.Name = "artistTitleToolStripMenuItem5";
-      this.artistTitleToolStripMenuItem5.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F1)));
-      this.artistTitleToolStripMenuItem5.Size = new System.Drawing.Size(216, 22);
-      this.artistTitleToolStripMenuItem5.Text = "Artist <-> Title";
-      // 
-      // artistAlbumToolStripMenuItem5
-      // 
-      this.artistAlbumToolStripMenuItem5.Name = "artistAlbumToolStripMenuItem5";
-      this.artistAlbumToolStripMenuItem5.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F2)));
-      this.artistAlbumToolStripMenuItem5.Size = new System.Drawing.Size(216, 22);
-      this.artistAlbumToolStripMenuItem5.Text = "Artist <-> Album";
-      // 
-      // titleAlbumToolStripMenuItem5
-      // 
-      this.titleAlbumToolStripMenuItem5.Name = "titleAlbumToolStripMenuItem5";
-      this.titleAlbumToolStripMenuItem5.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F3)));
-      this.titleAlbumToolStripMenuItem5.Size = new System.Drawing.Size(216, 22);
-      this.titleAlbumToolStripMenuItem5.Text = "Title <-> Album";
-      // 
-      // editTAGVer2ToolStripMenuItem1
-      // 
-      this.editTAGVer2ToolStripMenuItem1.Name = "editTAGVer2ToolStripMenuItem1";
-      this.editTAGVer2ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-      this.editTAGVer2ToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
-      this.editTAGVer2ToolStripMenuItem1.Text = "Edit TAG Ver. &2";
-      // 
-      // multipleEditTAGVer2ToolStripMenuItem1
-      // 
-      this.multipleEditTAGVer2ToolStripMenuItem1.Name = "multipleEditTAGVer2ToolStripMenuItem1";
-      this.multipleEditTAGVer2ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-      this.multipleEditTAGVer2ToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
-      this.multipleEditTAGVer2ToolStripMenuItem1.Text = "Multi&ple Edit TAG Ver. 2";
-      // 
-      // removeTAGVer2ToolStripMenuItem
-      // 
-      this.removeTAGVer2ToolStripMenuItem.Name = "removeTAGVer2ToolStripMenuItem";
-      this.removeTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F12)));
-      this.removeTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
-      this.removeTAGVer2ToolStripMenuItem.Text = "Remo&ve TAG Ver. 2";
-      // 
-      // filenameTAGVer2ToolStripMenuItem
-      // 
-      this.filenameTAGVer2ToolStripMenuItem.Name = "filenameTAGVer2ToolStripMenuItem";
-      this.filenameTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-      this.filenameTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
-      this.filenameTAGVer2ToolStripMenuItem.Text = "File&name -> TAG Ver. 2";
-      // 
-      // tAGVer2FilenameToolStripMenuItem1
-      // 
-      this.tAGVer2FilenameToolStripMenuItem1.Name = "tAGVer2FilenameToolStripMenuItem1";
-      this.tAGVer2FilenameToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-      this.tAGVer2FilenameToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
-      this.tAGVer2FilenameToolStripMenuItem1.Text = "TA&G Ver. 2 -> Filename";
-      // 
-      // editTAGVer1ToolStripMenuItem1
-      // 
-      this.editTAGVer1ToolStripMenuItem1.Name = "editTAGVer1ToolStripMenuItem1";
-      this.editTAGVer1ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-      this.editTAGVer1ToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
-      this.editTAGVer1ToolStripMenuItem1.Text = "Edit TAG Ver. &1";
-      // 
-      // multipleEditTAGVer1ToolStripMenuItem1
-      // 
-      this.multipleEditTAGVer1ToolStripMenuItem1.Name = "multipleEditTAGVer1ToolStripMenuItem1";
-      this.multipleEditTAGVer1ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
-      this.multipleEditTAGVer1ToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
-      this.multipleEditTAGVer1ToolStripMenuItem1.Text = "&Multiple Edit TAG Ver. 1";
-      // 
-      // toolStripMenuItem9
-      // 
-      this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-      this.toolStripMenuItem9.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F11)));
-      this.toolStripMenuItem9.Size = new System.Drawing.Size(241, 22);
-      this.toolStripMenuItem9.Text = "&Remove TAG Ver. 1";
-      // 
-      // filenameTAGVer1ToolStripMenuItem1
-      // 
-      this.filenameTAGVer1ToolStripMenuItem1.Name = "filenameTAGVer1ToolStripMenuItem1";
-      this.filenameTAGVer1ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-      this.filenameTAGVer1ToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
-      this.filenameTAGVer1ToolStripMenuItem1.Text = "&Filename -> TAG Ver. 1";
-      // 
-      // tAGVer1FilenameToolStripMenuItem1
-      // 
-      this.tAGVer1FilenameToolStripMenuItem1.Name = "tAGVer1FilenameToolStripMenuItem1";
-      this.tAGVer1FilenameToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-      this.tAGVer1FilenameToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
-      this.tAGVer1FilenameToolStripMenuItem1.Text = "&TAG Ver. 1 -> Filename";
-      // 
       // frmMain
       // 
       this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
@@ -3553,6 +3579,7 @@ namespace ID3_TagIT
       this.spltMiddle.Panel2.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.spltMiddle)).EndInit();
       this.spltMiddle.ResumeLayout(false);
+      this.ctxRightClick.ResumeLayout(false);
       this.errContext.ResumeLayout(false);
       this.pnlTools.ResumeLayout(false);
       this.pnlTools.PerformLayout();
@@ -3572,7 +3599,6 @@ namespace ID3_TagIT
       this.mnuBtns.PerformLayout();
       this.statusStrip1.ResumeLayout(false);
       this.statusStrip1.PerformLayout();
-      this.ctxRightClick.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -3652,7 +3678,7 @@ namespace ID3_TagIT
     private ToolStripMenuItem ctxRightPasteTAG;
     private ToolStripMenuItem editTAGVer1ToolStripMenuItem1;
     private ToolStripMenuItem multipleEditTAGVer1ToolStripMenuItem1;
-    private ToolStripMenuItem toolStripMenuItem9;
+    private ToolStripMenuItem removeTAGVer1;
     private ToolStripMenuItem filenameTAGVer1ToolStripMenuItem1;
     private ToolStripMenuItem tAGVer1FilenameToolStripMenuItem1;
     private ToolStripMenuItem editTAGVer2ToolStripMenuItem1;
