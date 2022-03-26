@@ -13,14 +13,30 @@ namespace ID3_TagIT
   [StandardModule]
   internal sealed class Id3TagIT_Main
   {
+    internal static bool IS_ALPHA = true;
+    internal static bool IS_BETA = false;
+
     public static MemoryStream objDebugStream = new MemoryStream();
 
-    public static bool CheckFilename(string vstrName, [Optional, DefaultParameterValue(false)] bool vbooCompletePath)
+    public static bool CheckFilename(string vstrName, bool vbooCompletePath = false)
     {
       if (vbooCompletePath)
-        if (((((((vstrName.IndexOf("<") >= 0) | (vstrName.IndexOf(">") >= 0)) | (vstrName.IndexOf('"') >= 0)) | (vstrName.IndexOf("/") >= 0)) | (vstrName.IndexOf("*") >= 0)) | (vstrName.IndexOf("|") >= 0)) | (vstrName.IndexOf("?") >= 0))
+        if (((((((vstrName.IndexOf("<") >= 0) |
+                 (vstrName.IndexOf(">") >= 0)) |
+                 (vstrName.IndexOf('"') >= 0)) |
+                 (vstrName.IndexOf("/") >= 0)) |
+                 (vstrName.IndexOf("*") >= 0)) |
+                 (vstrName.IndexOf("|") >= 0)) |
+                 (vstrName.IndexOf("?") >= 0))
           return false;
-        else if ((((((((vstrName.IndexOf(@"\") >= 0) | (vstrName.IndexOf("<") >= 0)) | (vstrName.IndexOf(">") >= 0)) | (vstrName.IndexOf('"') >= 0)) | (vstrName.IndexOf("/") >= 0)) | (vstrName.IndexOf("*") >= 0)) | (vstrName.IndexOf("|") >= 0)) | (vstrName.IndexOf("?") >= 0))
+        else if ((((((((vstrName.IndexOf(@"\") >= 0) |
+                       (vstrName.IndexOf("<") >= 0)) |
+                       (vstrName.IndexOf(">") >= 0)) |
+                       (vstrName.IndexOf('"') >= 0)) |
+                       (vstrName.IndexOf("/") >= 0)) |
+                       (vstrName.IndexOf("*") >= 0)) |
+                       (vstrName.IndexOf("|") >= 0)) |
+                       (vstrName.IndexOf("?") >= 0))
           return false;
 
       return true;
@@ -29,21 +45,27 @@ namespace ID3_TagIT
     public static string CreateTempFile(byte[] abytData, [Optional, DefaultParameterValue("")] string vstrExt)
     {
       string tempFileName = Path.GetTempFileName();
+
       if (StringType.StrCmp(vstrExt, "", false) != 0)
       {
         string path = tempFileName.Substring(0, tempFileName.LastIndexOf(".") + 1) + vstrExt;
+
         if (File.Exists(path))
           File.Delete(path);
+
         File.Move(tempFileName, path);
         tempFileName = path;
         Application.DoEvents();
       }
+
       FileStream stream = new FileStream(tempFileName, FileMode.Open, FileAccess.ReadWrite);
+
       stream.Write(abytData, 0, abytData.Length);
       stream.Flush();
       stream.Close();
       Application.DoEvents();
       Declarations.TempFiles.Add(tempFileName);
+
       return tempFileName;
     }
 
@@ -82,23 +104,29 @@ namespace ID3_TagIT
       int num;
       string str2 = "";
       int index = 0;
+
       if (StringType.StrCmp(vstrBaseDir.Substring(0, 2), vstrFilePath.Substring(0, 2), false) != 0)
         return vstrFilePath;
+
       string[] strArray = vstrBaseDir.Split(new char[] { '\\' });
       string[] strArray2 = vstrFilePath.Split(new char[] { '\\' });
+
       if (strArray.Length <= strArray2.Length)
       {
         int upperBound = strArray.GetUpperBound(0);
+
         for (num = 0; num <= upperBound; num++)
         {
           if (StringType.StrCmp(strArray[num], strArray2[num], false) != 0)
             break;
+
           index = num;
         }
       }
       else
       {
         int num4 = strArray2.GetUpperBound(0);
+
         for (num = 0; num <= num4; num++)
         {
           if (StringType.StrCmp(strArray[num], strArray2[num], false) != 0)
@@ -106,27 +134,34 @@ namespace ID3_TagIT
           index = num;
         }
       }
+
       if (index == strArray.GetUpperBound(0))
       {
         index++;
+
         while (index <= strArray2.GetUpperBound(0))
         {
           str2 = str2 + strArray2[index] + @"\";
           index++;
         }
+
         return str2.Substring(0, str2.Length - 1);
       }
+
       int num3 = index + 1;
+
       while (index < strArray.GetUpperBound(0))
       {
         str2 = str2 + @"..\";
         index++;
       }
+
       while (num3 <= strArray2.GetUpperBound(0))
       {
         str2 = str2 + strArray2[num3] + @"\";
         num3++;
       }
+
       return str2.Substring(0, str2.Length - 1);
     }
 
@@ -487,10 +522,12 @@ namespace ID3_TagIT
         if (ObjectType.ObjTst(Form.Name, Declarations.objSettings.Forms.Rows[i]["Name"], false) == 0)
         {
           DataRow row = Declarations.objSettings.Forms.Rows[i];
+
           if (ObjectType.ObjTst(row["State"], "Normal", false) == 0)
           {
             Form.Top = IntegerType.FromObject(row["Top"]);
             Form.Left = IntegerType.FromObject(row["Left"]);
+
             if (Form is frmMain)
             {
               Form.Height = IntegerType.FromObject(row["Height"]);
@@ -510,27 +547,33 @@ namespace ID3_TagIT
     public static void SaveFormSettings(ref Form Form)
     {
       int num2 = Declarations.objSettings.Forms.Rows.Count - 1;
+
       for (int i = 0; i <= num2; i++)
       {
         if (ObjectType.ObjTst(Form.Name, Declarations.objSettings.Forms.Rows[i]["Name"], false) == 0)
         {
           DataRow row2 = Declarations.objSettings.Forms.Rows[i];
+
           row2["Name"] = Form.Name.ToString();
           row2["State"] = Form.WindowState.ToString();
           row2["Top"] = Form.Top;
           row2["Left"] = Form.Left;
           row2["Height"] = Form.Height;
           row2["Width"] = Form.Width;
+
           return;
         }
       }
+
       DataRow row = Declarations.objSettings.Forms.NewRow();
+
       row["Name"] = Form.Name.ToString();
       row["State"] = Form.WindowState.ToString();
       row["Top"] = Form.Top;
       row["Left"] = Form.Left;
       row["Height"] = Form.Height;
       row["Width"] = Form.Width;
+
       Declarations.objSettings.Forms.Rows.Add(row);
     }
 
@@ -585,19 +628,19 @@ namespace ID3_TagIT
     {
       if ((SortOrder.Length >= 1) && (SortOrder.Length <= ListView.Columns.Count))
       {
-        int msg = 0x103a;
-        // NOTE - this is 4154 in int // 4154 = LVM_SETCOLUMNORDERARRAY
         // https://autohotkey.com/board/topic/79966-help-how-to-change-listview-column-headers-in-fly/
         // https://forum.powerbasic.com/forum/user-to-user-discussions/powerbasic-for-windows/780526-unable-to-get-wh_getmessage-hook-to-work-globally
+        const int LVM_SETCOLUMNORDERARRAY = 4154;
 
-        if (!Declarations.ListViewColumnOrder(ListView.Handle.ToInt32(), msg, SortOrder.Length, ref SortOrder[0]).Equals(0))
+        if (!Declarations.ListViewColumnOrder(ListView.Handle.ToInt32(), LVM_SETCOLUMNORDERARRAY, SortOrder.Length, ref SortOrder[0]).Equals(0))
           ListView.Refresh();
       }
     }
 
     public static bool ShellFileOp(string vstrFilenames, string vstrDestFolder, Declarations.ShellOperation Operation, Declarations.ShellOperationFlags Flags, Form objForm)
     {
-      Declarations.SHFILEOPSTRUCT lpFileOp = new Declarations.SHFILEOPSTRUCT();
+      var lpFileOp = new Declarations.SHFILEOPSTRUCT();
+
       vstrFilenames = vstrFilenames.TrimEnd(new char[] { '\0' });
       vstrDestFolder = vstrDestFolder.TrimEnd(new char[] { '\0' });
       lpFileOp.hWnd = objForm.Handle.ToInt32();
@@ -606,6 +649,7 @@ namespace ID3_TagIT
       lpFileOp.pTo = vstrDestFolder + "\0\0";
       lpFileOp.fFlags = (short)Flags;
       Application.DoEvents();
+
       return (Declarations.SHFileOperation(ref lpFileOp) == 0);
     }
   }

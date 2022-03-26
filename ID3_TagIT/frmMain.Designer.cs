@@ -378,7 +378,6 @@ namespace ID3_TagIT
       this.spltTop = new System.Windows.Forms.SplitContainer();
       this.tabControl1 = new System.Windows.Forms.TabControl();
       this.tabFolders = new System.Windows.Forms.TabPage();
-      this.FolderTree = new ID3_TagIT.FolderTreeView();
       this.tabFavorites = new System.Windows.Forms.TabPage();
       this.FavTree = new System.Windows.Forms.TreeView();
       this.spltMiddle = new System.Windows.Forms.SplitContainer();
@@ -697,6 +696,7 @@ namespace ID3_TagIT
       this.lblSubDirs = new System.Windows.Forms.ToolStripStatusLabel();
       this.lblProgress = new System.Windows.Forms.ToolStripStatusLabel();
       this.StatusProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+      this.FolderTree = new ID3_TagIT.FolderTreeView();
       ((System.ComponentModel.ISupportInitialize)(this.spltQuickInfo)).BeginInit();
       this.spltQuickInfo.Panel1.SuspendLayout();
       this.spltQuickInfo.Panel2.SuspendLayout();
@@ -785,19 +785,6 @@ namespace ID3_TagIT
       this.tabFolders.TabIndex = 0;
       this.tabFolders.Text = "Folders";
       this.tabFolders.UseVisualStyleBackColor = true;
-      // 
-      // FolderTree
-      // 
-      this.FolderTree.BackColor = System.Drawing.SystemColors.Control;
-      this.FolderTree.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.FolderTree.Location = new System.Drawing.Point(3, 3);
-      this.FolderTree.Name = "FolderTree";
-      this.FolderTree.Size = new System.Drawing.Size(182, 732);
-      this.FolderTree.TabIndex = 2;
-      this.FolderTree.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.FolderTree_AfterLabelEdit);
-      this.FolderTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.FolderTree_AfterSelect);
-      this.FolderTree.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.FolderTree_BeforeLabelEdit);
-      this.FolderTree.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.FolderTree_BeforeSelect);
       // 
       // tabFavorites
       // 
@@ -1132,7 +1119,7 @@ namespace ID3_TagIT
       // 
       this.ctxRightDelete.Image = global::Properties.Resources.Delete;
       this.ctxRightDelete.Name = "ctxRightDelete";
-      this.ctxRightDelete.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+      this.ctxRightDelete.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.D)));
       this.ctxRightDelete.Size = new System.Drawing.Size(265, 22);
       this.ctxRightDelete.Text = "&Delete files";
@@ -1172,7 +1159,7 @@ namespace ID3_TagIT
       // 
       this.copyTAGVer1And2ToolStripMenuItem1.Image = global::Properties.Resources.Copy;
       this.copyTAGVer1And2ToolStripMenuItem1.Name = "copyTAGVer1And2ToolStripMenuItem1";
-      this.copyTAGVer1And2ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+      this.copyTAGVer1And2ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.C)));
       this.copyTAGVer1And2ToolStripMenuItem1.Size = new System.Drawing.Size(263, 22);
       this.copyTAGVer1And2ToolStripMenuItem1.Text = "&Copy TAG Ver. 1 and 2";
@@ -1182,7 +1169,7 @@ namespace ID3_TagIT
       // 
       this.ctxRightPasteTAG.Image = global::Properties.Resources.Paste;
       this.ctxRightPasteTAG.Name = "ctxRightPasteTAG";
-      this.ctxRightPasteTAG.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+      this.ctxRightPasteTAG.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.V)));
       this.ctxRightPasteTAG.Size = new System.Drawing.Size(265, 22);
       this.ctxRightPasteTAG.Text = "Pa&ste TAG information";
@@ -1220,7 +1207,7 @@ namespace ID3_TagIT
       // 
       // pnlTools
       // 
-      this.pnlTools.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.pnlTools.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.pnlTools.Controls.Add(this.lnkToolsExpCol);
       this.pnlTools.Controls.Add(this.lblTools);
@@ -1256,7 +1243,7 @@ namespace ID3_TagIT
       // 
       // lstTools
       // 
-      this.lstTools.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.lstTools.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.lstTools.HideSelection = false;
       this.lstTools.Location = new System.Drawing.Point(6, 22);
@@ -1267,7 +1254,7 @@ namespace ID3_TagIT
       // 
       // pnlInformation
       // 
-      this.pnlInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.pnlInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.pnlInformation.Controls.Add(this.lnkInfoExpCol);
       this.pnlInformation.Controls.Add(this.txtInformation);
@@ -1290,7 +1277,7 @@ namespace ID3_TagIT
       // 
       // txtInformation
       // 
-      this.txtInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.txtInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.txtInformation.Location = new System.Drawing.Point(6, 22);
       this.txtInformation.Name = "txtInformation";
@@ -1313,7 +1300,7 @@ namespace ID3_TagIT
       // 
       // pnlPicture
       // 
-      this.pnlPicture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.pnlPicture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.pnlPicture.Controls.Add(this.lnkPictureExpCol);
       this.pnlPicture.Controls.Add(this.picCover);
@@ -1359,7 +1346,7 @@ namespace ID3_TagIT
       // 
       // pnlQuickEdit
       // 
-      this.pnlQuickEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.pnlQuickEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.pnlQuickEdit.Controls.Add(this.btnQuickEditMore);
       this.pnlQuickEdit.Controls.Add(this.lnkQuickEditExpCol);
@@ -1379,7 +1366,7 @@ namespace ID3_TagIT
       // 
       // btnQuickEditMore
       // 
-      this.btnQuickEditMore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.btnQuickEditMore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.btnQuickEditMore.Location = new System.Drawing.Point(6, 175);
       this.btnQuickEditMore.Name = "btnQuickEditMore";
@@ -1401,7 +1388,7 @@ namespace ID3_TagIT
       // 
       // btnQuickEditOK
       // 
-      this.btnQuickEditOK.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.btnQuickEditOK.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.btnQuickEditOK.Location = new System.Drawing.Point(6, 147);
       this.btnQuickEditOK.Name = "btnQuickEditOK";
@@ -1413,7 +1400,7 @@ namespace ID3_TagIT
       // 
       // txtQETitle
       // 
-      this.txtQETitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.txtQETitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.txtQETitle.Location = new System.Drawing.Point(6, 80);
       this.txtQETitle.Name = "txtQETitle";
@@ -1422,7 +1409,7 @@ namespace ID3_TagIT
       // 
       // txtQEAlbum
       // 
-      this.txtQEAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.txtQEAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.txtQEAlbum.Location = new System.Drawing.Point(6, 120);
       this.txtQEAlbum.Name = "txtQEAlbum";
@@ -1449,7 +1436,7 @@ namespace ID3_TagIT
       // 
       // cboQEArtist
       // 
-      this.cboQEArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.cboQEArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.cboQEArtist.FormattingEnabled = true;
       this.cboQEArtist.Location = new System.Drawing.Point(6, 39);
@@ -1640,7 +1627,7 @@ namespace ID3_TagIT
       // 
       this.deleteFilesToolStripMenuItem.Image = global::Properties.Resources.Delete;
       this.deleteFilesToolStripMenuItem.Name = "deleteFilesToolStripMenuItem";
-      this.deleteFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+      this.deleteFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.D)));
       this.deleteFilesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.deleteFilesToolStripMenuItem.Text = "&Delete files";
@@ -1671,7 +1658,7 @@ namespace ID3_TagIT
       // 
       this.removeEmptyFoldersToolStripMenuItem.Image = global::Properties.Resources.DeleteFolder;
       this.removeEmptyFoldersToolStripMenuItem.Name = "removeEmptyFoldersToolStripMenuItem";
-      this.removeEmptyFoldersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+      this.removeEmptyFoldersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.F)));
       this.removeEmptyFoldersToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.removeEmptyFoldersToolStripMenuItem.Text = "R&emove empty folders";
@@ -1743,7 +1730,7 @@ namespace ID3_TagIT
       this.redoToolStripMenuItem.Enabled = false;
       this.redoToolStripMenuItem.Image = global::Properties.Resources.Redo;
       this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-      this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+      this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.Z)));
       this.redoToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
       this.redoToolStripMenuItem.Text = "&Redo";
@@ -1892,7 +1879,7 @@ namespace ID3_TagIT
       // 
       this.copyTAGVer1And2ToolStripMenuItem.Image = global::Properties.Resources.Copy;
       this.copyTAGVer1And2ToolStripMenuItem.Name = "copyTAGVer1And2ToolStripMenuItem";
-      this.copyTAGVer1And2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+      this.copyTAGVer1And2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.C)));
       this.copyTAGVer1And2ToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
       this.copyTAGVer1And2ToolStripMenuItem.Text = "&Copy TAG Ver. 1 and 2";
@@ -1902,7 +1889,7 @@ namespace ID3_TagIT
       // 
       this.pasteTAGInformationToolStripMenuItem.Image = global::Properties.Resources.Paste;
       this.pasteTAGInformationToolStripMenuItem.Name = "pasteTAGInformationToolStripMenuItem";
-      this.pasteTAGInformationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+      this.pasteTAGInformationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.V)));
       this.pasteTAGInformationToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
       this.pasteTAGInformationToolStripMenuItem.Text = "&Paste TAG information";
@@ -3507,7 +3494,7 @@ namespace ID3_TagIT
       // lblPath
       // 
       this.lblPath.Name = "lblPath";
-      this.lblPath.Size = new System.Drawing.Size(281, 17);
+      this.lblPath.Size = new System.Drawing.Size(250, 17);
       this.lblPath.Spring = true;
       this.lblPath.Text = "lblPath";
       this.lblPath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3549,6 +3536,20 @@ namespace ID3_TagIT
       this.StatusProgressBar.AutoSize = false;
       this.StatusProgressBar.Name = "StatusProgressBar";
       this.StatusProgressBar.Size = new System.Drawing.Size(100, 16);
+      this.StatusProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+      // 
+      // FolderTree
+      // 
+      this.FolderTree.BackColor = System.Drawing.SystemColors.Control;
+      this.FolderTree.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.FolderTree.Location = new System.Drawing.Point(3, 3);
+      this.FolderTree.Name = "FolderTree";
+      this.FolderTree.Size = new System.Drawing.Size(182, 732);
+      this.FolderTree.TabIndex = 2;
+      this.FolderTree.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.FolderTree_AfterLabelEdit);
+      this.FolderTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.FolderTree_AfterSelect);
+      this.FolderTree.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.FolderTree_BeforeLabelEdit);
+      this.FolderTree.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.FolderTree_BeforeSelect);
       // 
       // frmMain
       // 
