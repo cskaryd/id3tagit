@@ -107,6 +107,171 @@ namespace ID3_TagIT
       }
     }
 
+    private void CopyFiles(object sender, EventArgs e)
+    {
+      string path = "";
+      string vLeft = "";
+      bool flag = false;
+
+      do
+      {
+        if (this.CheckAllChanged())
+        {
+          switch (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["ChangesNotSaved"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.YesNoCancel, null))
+          {
+            case MsgBoxResult.Cancel:
+              return;
+
+            case MsgBoxResult.Yes:
+              this.SaveChanges();
+
+              if (!this.CheckAllChanged())
+                flag = true;
+
+              break;
+
+            case MsgBoxResult.No:
+              flag = true;
+              break;
+          }
+        }
+        else
+          flag = true;
+      }
+      while (!flag);
+
+      this.FolderBrowserDialog.Description = StringType.FromObject(Declarations.objResources.ResStrings["FileCopyText"]);
+      this.FolderBrowserDialog.SelectedPath = Declarations.objSettings.MoveCopyPath;
+
+      if (this.FolderBrowserDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+      {
+        path = this.FolderBrowserDialog.SelectedPath;
+
+        if (Directory.Exists(path))
+        {
+          try
+          {
+            this.CalcAudioCheckSumThread.Abort();
+            this.CalcAudioCheckSumThread.Join();
+          }
+          catch (Exception exception1)
+          {
+            ProjectData.SetProjectError(exception1);
+            Exception exception = exception1;
+            ProjectData.ClearProjectError();
+          }
+
+          foreach (ListViewItem item in this.MP3View.SelectedItems)
+            vLeft = StringType.FromObject(ObjectType.StrCatObj(vLeft, ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null), "\0")));
+
+          Id3TagIT_Main.ShellFileOp(vLeft, path, Declarations.ShellOperation.CopyOp, Declarations.ShellOperationFlags.FilesOnly | Declarations.ShellOperationFlags.AllowUndo, this);
+
+          if (path.StartsWith(Declarations.objSettings.CurrentPath) & Declarations.objSettings.ScanSubDirs)
+            this.GetFiles(null, true, true);
+          else
+            this.AudioCheckSumCalculation();
+
+          this.Focus();
+          Declarations.objSettings.MoveCopyPath = path;
+        }
+      }
+    }
+
+    private void CopyTagVer1Only(object sender, EventArgs e)
+    {
+      foreach (ListViewItem item4 in this.MP3View.SelectedItems)
+      {
+        var ytag2 = new Declarations.CopyTAG((V1TAG)LateBinding.LateGet(LateBinding.LateGet(item4.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), null);
+        this.alstCopyPaste.Add(ytag2);
+      }
+    }
+
+    private void CopyTagVer1And2(object sender, EventArgs e)
+    {
+      this.alstCopyPaste.Clear();
+
+      foreach (ListViewItem item6 in this.MP3View.SelectedItems)
+      {
+        var ytag2 = new Declarations.CopyTAG(
+          (V1TAG)LateBinding.LateGet(
+            LateBinding.LateGet(item6.Tag, null, "V1TAG", new object[0], null, null),
+              null, "Clone", new object[0], null, null),
+          (V2TAG)LateBinding.LateGet(
+            LateBinding.LateGet(item6.Tag, null, "V2TAG", new object[0], null, null),
+            null, "Clone", new object[0], null, null));
+        this.alstCopyPaste.Add(ytag2);
+      }
+    }
+
+    private void CopyTagVer2Only(object sender, EventArgs e)
+    {
+      this.alstCopyPaste.Clear();
+
+      foreach (ListViewItem item5 in this.MP3View.SelectedItems)
+      {
+        var ytag2 = new Declarations.CopyTAG(null, (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item5.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null));
+        this.alstCopyPaste.Add(ytag2);
+      }
+    }
+
+    private void DeleteFiles(object sender, EventArgs e)
+    {
+      string vstrDestFolder = "";
+      string vLeft = "";
+
+      if (MessageBox.Show(StringType.FromObject(Declarations.objResources.ResStrings["FileDelete"]), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
+      {
+        IEnumerator enumerator = null;
+
+        try
+        {
+          enumerator = this.MP3View.SelectedItems.GetEnumerator();
+          while (enumerator.MoveNext())
+          {
+            ListViewItem current = (ListViewItem)enumerator.Current;
+            vLeft = StringType.FromObject(ObjectType.StrCatObj(vLeft, ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(current.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null), "\0")));
+          }
+        }
+        finally
+        {
+          if (enumerator is IDisposable)
+          {
+            ((IDisposable)enumerator).Dispose();
+          }
+        }
+
+        try
+        {
+          this.CalcAudioCheckSumThread.Abort();
+          this.CalcAudioCheckSumThread.Join();
+        }
+        catch (Exception exception1)
+        {
+          ProjectData.SetProjectError(exception1);
+          Exception exception = exception1;
+          ProjectData.ClearProjectError();
+        }
+
+        if (Id3TagIT_Main.ShellFileOp(vLeft, vstrDestFolder, Declarations.ShellOperation.DeleteOp, Declarations.ShellOperationFlags.FilesOnly | Declarations.ShellOperationFlags.AllowUndo, this))
+        {
+          this.MP3View.BeginUpdate();
+
+          foreach (ListViewItem item in this.MP3View.SelectedItems)
+          {
+            Declarations.MP3s.Remove(RuntimeHelpers.GetObjectValue(item.Tag));
+            this.MP3View.Items.Remove(item);
+          }
+
+          this.MP3View.EndUpdate();
+          this.AudioCheckSumCalculation();
+        }
+        else
+          this.GetFiles(null, true, true);
+      }
+
+      this.Focus();
+    }
+
     //public DevComponents.DotNetBar.DotNetBarManager DotNetBarManager;
     //this.DotNetBarManager = new DevComponents.DotNetBar.DotNetBarManager(this.components);
     // 
@@ -327,6 +492,109 @@ namespace ID3_TagIT
     //      this.MP3View.Focus();
     //    }
 
+    private void EditMultiTagV1(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      var main = this;
+      new frmTAG1Multi(ref main).ShowDialog(this);
+    }
+
+    private void EditMultiTagV2(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      var main = this;
+      new frmTAG2Multi(ref main).ShowDialog();
+    }
+
+    private void EditSingleTagV1(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      var main = this;
+      new frmTAG1(ref main).ShowDialog(this);
+    }
+
+    private void EditSingleTagV2(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      var main = this;
+      new frmTAG2(ref main).ShowDialog(this);
+    }
+
+    private void EnumerateInFilename(object sender)
+    {
+      ((ToolStripMenuItem)sender).Checked ^= true;
+
+      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+        this.aintLastSelected = null;
+
+      Declarations.objSettings.EnumFile ^= true;
+
+      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+      {
+        this.vintEnumCount = Declarations.objSettings.FilenumberStart;
+        this.mnutEnumerateCounter.Text = StringType.FromInteger(this.vintEnumCount);
+      }
+
+      this.Enumerate();
+    }
+
+    private void EnumerateInTAGVer1(object sender)
+    {
+      ((ToolStripMenuItem)sender).Checked ^= true;
+
+      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+        this.aintLastSelected = null;
+
+      Declarations.objSettings.EnumVer1 ^= true;
+
+      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+      {
+        this.vintEnumCount = Declarations.objSettings.FilenumberStart;
+        this.mnutEnumerateCounter.Text = StringType.FromInteger(this.vintEnumCount);
+      }
+
+      this.Enumerate();
+    }
+
+    private void EnumerateInTAGVer2(object sender)
+    {
+      ((ToolStripMenuItem)sender).Checked ^= true;
+
+      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+        this.aintLastSelected = null;
+
+      Declarations.objSettings.EnumVer2 ^= true;
+
+
+      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
+      {
+        this.vintEnumCount = Declarations.objSettings.FilenumberStart;
+        this.mnutEnumerateCounter.Text = StringType.FromInteger(this.vintEnumCount);
+      }
+
+      this.Enumerate();
+    }
+
     private void FavTree_AfterSelect(object sender, TreeViewEventArgs e)
     {
       int num;
@@ -479,6 +747,30 @@ Label_021B:
         //item.Displayed = false;
         //item.PopupMenu(Control.MousePosition);
       }
+    }
+
+    private void FilenameToTagV1(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      var main = this;
+      new frmFilenameToTAG1(ref main).ShowDialog(this);
+    }
+
+    private void FilenameToTagV2(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      var main = this;
+      new frmFilenameToTAG2(ref main).ShowDialog(this);
     }
 
     private void FolderRenameEventProcessor(object myObject, EventArgs myEventArgs)
@@ -1147,6 +1439,168 @@ Label_010B:
       this.vbooStartUp = false;
     }
 
+    private void GetFiles(
+      [Optional, DefaultParameterValue(null)] ArrayList alstFolders,
+      [Optional, DefaultParameterValue(true)] bool vbooClear,
+      [Optional, DefaultParameterValue(true)] bool vbooFill)
+    {
+      ArrayList list = new ArrayList();
+
+      try
+      {
+        if (this.GetFilesTimeThread != null)
+          this.GetFilesTimeThread.Abort();
+      }
+      catch (Exception exception1)
+      {
+        ProjectData.SetProjectError(exception1);
+        Exception exception = exception1;
+        ProjectData.ClearProjectError();
+      }
+
+      try
+      {
+        if (this.CalcAudioCheckSumThread != null)
+        {
+          this.CalcAudioCheckSumThread.Abort();
+          this.CalcAudioCheckSumThread.Join();
+        }
+      }
+      catch (Exception exception4)
+      {
+        ProjectData.SetProjectError(exception4);
+        Exception exception2 = exception4;
+        ProjectData.ClearProjectError();
+      }
+
+      if (vbooClear)
+      {
+        this.MP3View.Items.Clear();
+        Declarations.MP3s.Clear();
+      }
+
+      if (alstFolders == null)
+      {
+        alstFolders = new ArrayList();
+        alstFolders.Add(Declarations.objSettings.CurrentPath);
+      }
+
+      Form ownerForm = this;
+      frmProgress.Callback cB = new frmProgress.Callback(this.ScanCB);
+      frmProgress progress = new frmProgress(0, list.Count, 1, ref ownerForm, ref cB)
+      {
+        List = list,
+        ListHelp = alstFolders
+      };
+
+      progress.SetStateScan();
+      progress.ShowDialog(this);
+      this.vintHelpCount = 0;
+      this.GetFilesTimeThread = new Thread(new ThreadStart(this.CalcGetTime));
+      this.GetFilesTimeThread.IsBackground = true;
+      this.GetFilesTimeThread.Priority = ThreadPriority.BelowNormal;
+      this.GetFilesTimeThread.Start();
+      ownerForm = this;
+      cB = new frmProgress.Callback(this.GetFilesCB);
+
+      progress = new frmProgress(0, list.Count, 1, ref ownerForm, ref cB)
+      {
+        List = list
+      };
+
+      progress.SetStateRead();
+      progress.ShowDialog(this);
+
+      try
+      {
+        this.GetFilesTimeThread.Abort();
+      }
+      catch (Exception exception5)
+      {
+        ProjectData.SetProjectError(exception5);
+        Exception exception3 = exception5;
+        ProjectData.ClearProjectError();
+      }
+
+      if (vbooFill)
+        this.MP3View_FillColumns(ref Declarations.MP3s);
+    }
+
+    private void MoveFiles(object sender, EventArgs e)
+    {
+      string path = "";
+      string vLeft = "";
+      bool flag = false;
+      do
+      {
+        if (this.CheckAllChanged())
+        {
+          switch (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["ChangesNotSaved"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.YesNoCancel, null))
+          {
+            case MsgBoxResult.Cancel:
+              return;
+
+            case MsgBoxResult.Yes:
+              this.SaveChanges();
+              if (!this.CheckAllChanged())
+                flag = true;
+              break;
+
+            case MsgBoxResult.No:
+              flag = true;
+              break;
+          }
+        }
+        else
+          flag = true;
+      }
+      while (!flag);
+      this.FolderBrowserDialog.Description = StringType.FromObject(Declarations.objResources.ResStrings["FileMoveText"]);
+      this.FolderBrowserDialog.SelectedPath = Declarations.objSettings.MoveCopyPath;
+      if (this.FolderBrowserDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+      {
+        path = this.FolderBrowserDialog.SelectedPath;
+        if (Directory.Exists(path))
+        {
+          try
+          {
+            this.CalcAudioCheckSumThread.Abort();
+            this.CalcAudioCheckSumThread.Join();
+          }
+          catch (Exception exception1)
+          {
+            ProjectData.SetProjectError(exception1);
+            Exception exception = exception1;
+            ProjectData.ClearProjectError();
+          }
+          foreach (ListViewItem item in this.MP3View.SelectedItems)
+          {
+            vLeft = StringType.FromObject(ObjectType.StrCatObj(vLeft, ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null), "\0")));
+          }
+          if (Id3TagIT_Main.ShellFileOp(vLeft, path, Declarations.ShellOperation.MoveOp, Declarations.ShellOperationFlags.FilesOnly | Declarations.ShellOperationFlags.AllowUndo, this))
+          {
+            if (!path.StartsWith(Declarations.objSettings.CurrentPath))
+            {
+              this.MP3View.BeginUpdate();
+              foreach (ListViewItem item in this.MP3View.SelectedItems)
+              {
+                Declarations.MP3s.Remove(RuntimeHelpers.GetObjectValue(item.Tag));
+                this.MP3View.Items.Remove(item);
+              }
+              this.MP3View.EndUpdate();
+              this.AudioCheckSumCalculation();
+            }
+            else
+              this.GetFiles(null, true, true);
+          }
+          else
+            this.GetFiles(null, true, true);
+          this.Focus();
+          Declarations.objSettings.MoveCopyPath = path;
+        }
+      }
+    }
+
     private void MP3View_AfterLabelEdit(object sender, LabelEditEventArgs e)
     {
       string label = e.Label;
@@ -1350,6 +1804,1115 @@ Label_010B:
       this.txtInformation.AppendText(this.colHChannel.Text + ":\r\n");
       this.txtInformation.AppendText(this.colHVersion.Text + ":");
       this.AudioCheckSumCalculation();
+    }
+
+    private void MP3View_ItemDrag(object sender, ItemDragEventArgs e)
+    {
+      string[] data = new string[(this.MP3View.SelectedItems.Count - 1) + 1];
+      int num2 = this.MP3View.SelectedItems.Count - 1;
+      for (int i = 0; i <= num2; i++)
+        data[i] = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(this.MP3View.SelectedItems[i].Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null));
+      DataObject obj2 = new DataObject(DataFormats.FileDrop, data);
+      obj2.SetData(data);
+      this.MP3View.DoDragDrop(obj2, DragDropEffects.Move | DragDropEffects.Copy);
+    }
+
+    private void MP3View_KeyDown(object sender, KeyEventArgs e)
+    {
+      if (e.Control & (e.KeyCode == Keys.Enter))
+      {
+        frmMain main;
+        if (this.MP3View.SelectedItems.Count != 1)
+        {
+          switch (Declarations.objSettings.EditDialog)
+          {
+            case 1:
+              main = this;
+              new frmTAG1Multi(ref main).ShowDialog(this);
+              break;
+
+            case 2:
+              main = this;
+              new frmTAG2Multi(ref main).ShowDialog(this);
+              break;
+
+            case 3:
+              if (this.vbytVersionToShow != 1)
+              {
+                main = this;
+                new frmTAG2Multi(ref main).ShowDialog(this);
+                break;
+              }
+              main = this;
+              new frmTAG1Multi(ref main).ShowDialog(this);
+              break;
+          }
+        }
+        else
+        {
+          switch (Declarations.objSettings.EditDialog)
+          {
+            case 1:
+              main = this;
+              new frmTAG1(ref main).ShowDialog(this);
+              break;
+
+            case 2:
+              main = this;
+              new frmTAG2(ref main).ShowDialog(this);
+              break;
+
+            case 3:
+              if (this.vbytVersionToShow != 1)
+              {
+                main = this;
+                new frmTAG2(ref main).ShowDialog(this);
+                break;
+              }
+              main = this;
+              new frmTAG1(ref main).ShowDialog(this);
+              break;
+          }
+        }
+      }
+    }
+
+    private void MP3View_MouseEnter(object sender, EventArgs e)
+    {
+      if ((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2)
+        this.EnumInfo.Visible = true;
+    }
+
+    private void MP3View_MouseLeave(object sender, EventArgs e)
+    {
+      this.EnumInfo.Visible = false;
+    }
+
+    private void MP3View_MouseMove(object sender, MouseEventArgs e)
+    {
+      this.EnumInfo.Left = e.X + this.MP3View.Left;
+      this.EnumInfo.Top = (e.Y + this.MP3View.Top) - 0x12;
+    }
+
+    private void MP3View_MouseUp(object sender, MouseEventArgs e)
+    {
+      if (e.Button == MouseButtons.Right)
+      {
+        // FIXME DNB ButtonItem item = (ButtonItem)this.DotNetBarManager.ContextMenus["MP3ViewMenu"];
+        //item.Displayed = false;
+        //item.PopupMenu(Control.MousePosition);
+      }
+    }
+
+    private void MP3View_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      this.Timer.Start();
+    }
+
+    private void OpenFileLocation(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count > 0)
+      {
+        var process = new Process();
+        var tag = (MP3)this.MP3View.FocusedItem.Tag;
+
+        process.StartInfo.UseShellExecute = true;
+        process.StartInfo.FileName = Path.GetDirectoryName(tag.FI.FullName);
+        process.StartInfo.Verb = "open";
+        process.Start();
+      }
+    }
+
+    private void PasteTagInformation(object sender, EventArgs e)
+    {
+      ArrayList list6 = new ArrayList();
+
+      if (!((this.MP3View.SelectedItems.Count == 0) | (this.alstCopyPaste.Count == 0)))
+      {
+        Form form;
+        frmProgress.Callback callback;
+        this.MP3View.BeginUpdate();
+
+        if (this.alstCopyPaste.Count == 1)
+        {
+          form = this;
+          callback = new frmProgress.Callback(this.Paste1CB);
+          frmProgress progress3 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
+          progress3.SetStatePaste();
+          progress3.List = list6;
+          progress3.ShowDialog(this);
+        }
+        else if (this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count)
+        {
+          form = this;
+          callback = new frmProgress.Callback(this.Paste2CB);
+          frmProgress progress4 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
+          progress4.SetStatePaste();
+          progress4.List = list6;
+          progress4.ShowDialog(this);
+        }
+        else
+        {
+          form = this;
+          callback = new frmProgress.Callback(this.Paste3CB);
+          frmProgress progress5 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
+          progress5.SetStatePaste();
+          progress5.List = list6;
+          progress5.ShowDialog(this);
+        }
+
+        this.MP3View.EndUpdate();
+
+        if (list6.Count > 0)
+        {
+          Declarations.UNDOList.Add(list6);
+          this.UnDoEnable(true, true);
+        }
+      }
+    }
+
+    private void PlayFile(object sender, EventArgs e)
+    {
+      string vLeft = "";
+      var process2 = new Process();
+
+      foreach (ListViewItem item3 in this.MP3View.SelectedItems)
+        vLeft = StringType.FromObject(ObjectType.StrCatObj(vLeft, ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(item3.Tag, null, "FI", new object[0], null, null), null, "FullName", new object[0], null, null), "\r\n")));
+
+      if (StringType.StrCmp(vLeft, "", false) != 0)
+      {
+        string str3 = Id3TagIT_Main.CreateTempFile(Encoding.Default.GetBytes(vLeft), "m3u");
+        process2.StartInfo.UseShellExecute = true;
+        process2.StartInfo.FileName = str3;
+
+        try
+        {
+          process2.StartInfo.Verb = Declarations.objSettings.Play;
+        }
+        catch (Exception exception8)
+        {
+          ProjectData.SetProjectError(exception8);
+          process2.StartInfo.Verb = "open";
+          ProjectData.ClearProjectError();
+        }
+
+        process2.Start();
+      }
+    }
+
+    private void RenameFileFolder(object sender, EventArgs e)
+    {
+      if (this.ActiveControl == this.FolderTree | this.ActiveControl == this.tabControl1 |
+          this.ActiveControl == this.tabFolders | this.ActiveControl == this.tabFavorites)
+      // FIXME - Do rename...
+      { } // this.FolderTree.SelectedNode.ExecuteShellCommand(ShellCommands.Rename);
+      else if (this.MP3View.FocusedItem != null)
+      {
+        this.MP3View.LabelEdit = true;
+        this.MP3View.FocusedItem.BeginEdit();
+      }
+    }
+
+    // FIXME - These are the external tools clicks
+    //private void SideBar_ItemClick(object sender, EventArgs e)
+    //{
+    //  if ((sender is BaseItem) && StringType.FromObject(LateBinding.LateGet(sender, null, "Name", new object[0], null, null)).StartsWith("ToolItem"))
+    //  {
+    //    Process process = new Process();
+    //    DataRow row = Declarations.objSettings.Tools.Rows[IntegerType.FromObject(LateBinding.LateGet(sender, null, "Tag", new object[0], null, null))];
+    //    try
+    //    {
+    //      ListViewItem current;
+    //      IEnumerator enumerator = null;
+    //      if (BooleanType.FromObject(row["DefaultPlayer"]))
+    //      {
+    //        var enumerator2 = this.MP3View.SelectedItems.GetEnumerator();
+    //        while (enumerator2.MoveNext())
+    //        {
+    //          current = (ListViewItem)enumerator2.Current;
+    //          process.StartInfo.FileName = StringType.FromObject(
+    //            ObjectType.StrCatObj(
+    //              ObjectType.StrCatObj(
+    //                '"', LateBinding.LateGet(LateBinding.LateGet(current.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null)), '"'));
+    //          process.StartInfo.Verb = StringType.FromObject(row["ShellCommand"]);
+    //          process.Start();
+    //        }
+    //        return;
+    //      }
+    //      try
+    //      {
+    //        enumerator = this.MP3View.SelectedItems.GetEnumerator();
+    //        while (enumerator.MoveNext())
+    //        {
+    //          current = (ListViewItem)enumerator.Current;
+    //          process.StartInfo.FileName = StringType.FromObject(row["ToolPath"]);
+    //          process.StartInfo.Arguments = StringType.FromObject(
+    //            LateBinding.LateGet(
+    //              row["ToolParameter"], null, "Replace", new object[] { "%P", ObjectType.StrCatObj(
+    //                ObjectType.StrCatObj(
+    //                  '"', LateBinding.LateGet(
+    //                    LateBinding.LateGet(current.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null)), '"') }, null, null));
+    //          process.Start();
+    //        }
+    //      }
+    //      finally
+    //      {
+    //        if (enumerator is IDisposable)
+    //          ((IDisposable)enumerator).Dispose();
+    //      }
+    //    }
+    //    catch (Exception exception1)
+    //    {
+    //      ProjectData.SetProjectError(exception1);
+    //      ProjectData.ClearProjectError();
+    //    }
+    //  }
+    //}
+
+    private void SwapArtistAlbumV1(object sender, EventArgs e)
+    {
+      Form form;
+      frmProgress.Callback callback;
+      ArrayList list11 = new ArrayList();
+      this.MP3View.BeginUpdate();
+      form = this;
+      callback = new frmProgress.Callback(this.SwapArtistAlbumV1CB);
+      frmProgress progress10 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list11 };
+      progress10.SetStateSwap();
+      progress10.ShowDialog(this);
+      this.MP3View.EndUpdate();
+
+      if (list11.Count > 0)
+      {
+        Declarations.UNDOList.Add(list11);
+        this.UnDoEnable(true, true);
+      }
+    }
+
+    private void SwapArtistAlbumV2(object sender, EventArgs e)
+    {
+      Form form;
+      frmProgress.Callback callback;
+      ArrayList list12 = new ArrayList();
+      this.MP3View.BeginUpdate();
+      form = this;
+      callback = new frmProgress.Callback(this.SwapArtistAlbumV2CB);
+      frmProgress progress11 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list12 };
+      progress11.SetStateSwap();
+      progress11.ShowDialog(this);
+      this.MP3View.EndUpdate();
+
+      if (list12.Count > 0)
+      {
+        Declarations.UNDOList.Add(list12);
+        this.UnDoEnable(true, true);
+      }
+    }
+
+    private void SwapArtistTitleV1(object sender, EventArgs e)
+    {
+      Form form;
+      frmProgress.Callback callback;
+      ArrayList list9 = new ArrayList();
+      this.MP3View.BeginUpdate();
+      form = this;
+      callback = new frmProgress.Callback(this.SwapArtistTitleV1CB);
+      frmProgress progress8 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list9 };
+      progress8.SetStateSwap();
+      progress8.ShowDialog(this);
+      this.MP3View.EndUpdate();
+
+      if (list9.Count > 0)
+      {
+        Declarations.UNDOList.Add(list9);
+        this.UnDoEnable(true, true);
+      }
+    }
+
+    private void SwapArtistTitleV2(object sender, EventArgs e)
+    {
+      Form form;
+      frmProgress.Callback callback;
+      ArrayList list10 = new ArrayList();
+      this.MP3View.BeginUpdate();
+      form = this;
+      callback = new frmProgress.Callback(this.SwapArtistTitleV2CB);
+      frmProgress progress9 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list10 };
+      progress9.SetStateSwap();
+      progress9.ShowDialog(this);
+      this.MP3View.EndUpdate();
+
+      if (list10.Count > 0)
+      {
+        Declarations.UNDOList.Add(list10);
+        this.UnDoEnable(true, true);
+      }
+    }
+
+    private void SwapTitleAlbumV1(object sender, EventArgs e)
+    {
+      Form form;
+      frmProgress.Callback callback;
+      ArrayList list13 = new ArrayList();
+      this.MP3View.BeginUpdate();
+      form = this;
+      callback = new frmProgress.Callback(this.SwapTitleAlbumV1CB);
+      frmProgress progress12 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list13 };
+      progress12.SetStateSwap();
+      progress12.ShowDialog(this);
+      this.MP3View.EndUpdate();
+
+      if (list13.Count > 0)
+      {
+        Declarations.UNDOList.Add(list13);
+        this.UnDoEnable(true, true);
+      }
+    }
+
+    private void SwapTitleAlbumV2(object sender, EventArgs e)
+    {
+      Form form;
+      frmProgress.Callback callback;
+      ArrayList list14 = new ArrayList();
+      this.MP3View.BeginUpdate();
+      form = this;
+      callback = new frmProgress.Callback(this.SwapTitleAlbumV2CB);
+      frmProgress progress13 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list14 };
+      progress13.SetStateSwap();
+      progress13.ShowDialog(this);
+      this.MP3View.EndUpdate();
+
+      if (list14.Count > 0)
+      {
+        Declarations.UNDOList.Add(list14);
+        this.UnDoEnable(true, true);
+      }
+    }
+
+    private void TagToFilenameV1(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      var main = this;
+      new frmTAG1ToFilename(ref main).ShowDialog(this);
+    }
+
+    private void TagToFilenameV2(object sender, EventArgs e)
+    {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      var main = this;
+      new frmTAG2ToFilename(ref main).ShowDialog(this);
+    }
+
+    private void TimerEventProcessor(object myObject, EventArgs myEventArgs)
+    {
+      MP3 tag;
+      byte num3;
+
+      if (this.vbooStartUp)
+        return;
+
+      if (this.vintSelTimerCount == this.MP3View.SelectedItems.Count)
+        this.vbytSelTimerCount = (byte)(this.vbytSelTimerCount + 1);
+      else
+        this.vintSelTimerCount = this.MP3View.SelectedItems.Count;
+
+      if (this.vbytSelTimerCount > 5)
+      {
+        this.Timer.Stop();
+        this.vbytSelTimerCount = 0;
+      }
+
+      int num = 0;
+
+      foreach (ListViewItem item in this.MP3View.SelectedItems)
+        num = IntegerType.FromObject(ObjectType.AddObj(num, LateBinding.LateGet(item.Tag, null, "Duration", new object[0], null, null)));
+
+      int num6 = num / 3600;
+      num6 = (num - ((num / 3600) * 3600)) / 60;
+      string introduced34 = num6.ToString().PadLeft(2, '0') + ":";
+      num6 = (num - ((num / 3600) * 3600)) - (((num - ((num / 3600) * 3600)) / 60) * 60);
+      string introduced35 = introduced34 + num6.ToString().PadLeft(2, '0') + ":";
+      string str = introduced35 + num6.ToString().PadLeft(2, '0');
+      object[] args = new object[] { "%3", str };
+      bool[] copyBack = new bool[] { false, true };
+
+      if (copyBack[1])
+        str = StringType.FromObject(args[1]);
+
+      lblNumber.Text = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["Number"], null, "Replace", new object[] { "%1", this.MP3View.Items.Count.ToString() }, null, null), null, "Replace", new object[] { "%2", this.MP3View.SelectedItems.Count.ToString() }, null, null), null, "Replace", args, null, copyBack));
+
+      try
+      {
+        if (this.MP3View.FocusedItem != null)
+          lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
+      }
+      catch (Exception exception1)
+      {
+        ProjectData.SetProjectError(exception1);
+        lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", "0" }, null, null));
+        ProjectData.ClearProjectError();
+      }
+
+      this.cboQEArtist.Text = "";
+      this.txtQETitle.Text = "";
+      this.txtQEAlbum.Text = "";
+
+      try
+      {
+        this.picCover.Image = null;
+      }
+      catch (Exception exception3)
+      {
+        ProjectData.SetProjectError(exception3);
+        Exception exception = exception3;
+        ProjectData.ClearProjectError();
+      }
+
+      try
+      {
+        if (this.PicMStream != null)
+          this.PicMStream.Close();
+      }
+      catch (Exception exception4)
+      {
+        ProjectData.SetProjectError(exception4);
+        Exception exception2 = exception4;
+        ProjectData.ClearProjectError();
+      }
+
+      if (this.vbytVersionToShow != 1)
+      {
+        num3 = 0;
+
+        if (this.MP3View.SelectedItems.Count == 1)
+        {
+          tag = (MP3)this.MP3View.SelectedItems[0].Tag;
+
+          if (tag.V2TAG.FrameExists("TPE1"))
+            this.cboQEArtist.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
+
+          if (tag.V2TAG.FrameExists("TIT2"))
+            this.txtQETitle.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
+
+          if (tag.V2TAG.FrameExists("TALB"))
+            this.txtQEAlbum.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
+        }
+
+        if (this.MP3View.SelectedItems.Count <= 1)
+          goto Label_0B93;
+
+        tag = (MP3)this.MP3View.SelectedItems[0].Tag;
+
+        foreach (ListViewItem item in this.MP3View.SelectedItems)
+        {
+          MP3 mp4 = (MP3)item.Tag;
+
+          if (tag != mp4)
+          {
+            if ((((num3 & 1) == 0) && tag.V2TAG.FrameExists("TPE1")) && mp4.V2TAG.FrameExists("TPE1"))
+            {
+              if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp4.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp4.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), "", false) == 0)))
+                num3 = (byte)(num3 | 1);
+            }
+            else
+              num3 = (byte)(num3 | 1);
+
+            if ((((num3 & 2) == 0) && tag.V2TAG.FrameExists("TIT2")) && mp4.V2TAG.FrameExists("TIT2"))
+            {
+              if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp4.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp4.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), "", false) == 0)))
+                num3 = (byte)(num3 | 2);
+            }
+            else
+              num3 = (byte)(num3 | 2);
+
+            if ((((num3 & 4) == 0) && tag.V2TAG.FrameExists("TALB")) && mp4.V2TAG.FrameExists("TALB"))
+            {
+              if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp4.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp4.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), "", false) == 0)))
+                num3 = (byte)(num3 | 4);
+            }
+            else
+              num3 = (byte)(num3 | 4);
+
+            if (num3 == 7)
+              break;
+          }
+        }
+      }
+      else
+      {
+        MP3 mp;
+        byte num2 = 0;
+
+        if (this.MP3View.SelectedItems.Count == 1)
+        {
+          mp = (MP3)this.MP3View.SelectedItems[0].Tag;
+          this.cboQEArtist.Text = mp.V1TAG.Artist;
+          this.txtQETitle.Text = mp.V1TAG.Title;
+          this.txtQEAlbum.Text = mp.V1TAG.Album;
+        }
+
+        if (this.MP3View.SelectedItems.Count > 1)
+        {
+          mp = (MP3)this.MP3View.SelectedItems[0].Tag;
+
+          foreach (ListViewItem item in this.MP3View.SelectedItems)
+          {
+            MP3 mp2 = (MP3)item.Tag;
+
+            if (mp != mp2)
+            {
+              if ((((num2 & 1) == 0) && (StringType.StrCmp(mp2.V1TAG.Artist.ToLower(), mp.V1TAG.Artist.ToLower(), false) != 0)) | (StringType.StrCmp(mp2.V1TAG.Artist, "", false) == 0))
+                num2 = (byte)(num2 | 1);
+
+              if ((((num2 & 2) == 0) && (StringType.StrCmp(mp2.V1TAG.Title.ToLower(), mp.V1TAG.Title.ToLower(), false) != 0)) | (StringType.StrCmp(mp2.V1TAG.Title, "", false) == 0))
+                num2 = (byte)(num2 | 2);
+
+              if ((((num2 & 4) == 0) && (StringType.StrCmp(mp2.V1TAG.Album.ToLower(), mp.V1TAG.Album.ToLower(), false) != 0)) | (StringType.StrCmp(mp2.V1TAG.Album, "", false) == 0))
+                num2 = (byte)(num2 | 4);
+
+              if (num2 == 7)
+                break;
+            }
+          }
+
+          if (num2 != 7)
+          {
+            if ((num2 & 1) == 0)
+              this.cboQEArtist.Text = mp.V1TAG.Artist;
+
+            if ((num2 & 2) == 0)
+              this.txtQETitle.Text = mp.V1TAG.Title;
+
+            if ((num2 & 4) == 0)
+              this.txtQEAlbum.Text = mp.V1TAG.Album;
+          }
+        }
+        goto Label_0B93;
+      }
+
+      if (num3 != 7)
+      {
+        if ((num3 & 1) == 0)
+          this.cboQEArtist.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
+
+        if ((num3 & 2) == 0)
+          this.txtQETitle.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
+
+        if ((num3 & 4) == 0)
+          this.txtQEAlbum.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
+      }
+
+Label_0B93:
+      if (this.pnlInformation.Tag.ToString() == "Expanded" & (this.MP3View.SelectedItems.Count == 1))
+      {
+        MP3 mp5 = (MP3)this.MP3View.SelectedItems[0].Tag;
+        this.txtInformation.Text = "";
+        this.txtInformation.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHDuration.Text + ":", this.colHDuration.Text.Length < 9 ? "\t\t" : "\t"), mp5.DurationFormated), "\r\n"));
+        long num4 = mp5.FI.Length / 1024L;
+        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHFileSize.Text + ":", this.colHFileSize.Text.Length < 9 ? "\t\t" : "\t"), num4.ToString()), "\r\n")));
+        int num5 = mp5.Bitrate / 1000;
+        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHBitrate.Text + ":", this.colHBitrate.Text.Length < 9 ? "\t\t" : "\t"), num5.ToString()), "\r\n")));
+        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHVBR.Text + ":", this.colHVBR.Text.Length < 9 ? "\t\t" : "\t"), mp5.VBR ? "VBR" : "CBR"), "\r\n")));
+        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHSamplerate.Text + ":", this.colHSamplerate.Text.Length < 9 ? "\t\t" : "\t"), mp5.Samplerate), "\r\n")));
+        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHChannel.Text + ":", this.colHChannel.Text.Length < 9 ? "\t\t" : "\t"), mp5.ChannelText), "\r\n")));
+        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHVersion.Text + ":", this.colHVersion.Text.Length < 9 ? "\t\t" : "\t"), mp5.VersionText), " "), mp5.LayerText)));
+      }
+      else
+      {
+        this.txtInformation.Text = "";
+        this.txtInformation.Text = this.colHDuration.Text + ":\r\n";
+        this.txtInformation.AppendText(this.colHFileSize.Text + ":\r\n");
+        this.txtInformation.AppendText(this.colHBitrate.Text + ":\r\n");
+        this.txtInformation.AppendText(this.colHVBR.Text + ":\r\n");
+        this.txtInformation.AppendText(this.colHSamplerate.Text + ":\r\n");
+        this.txtInformation.AppendText(this.colHChannel.Text + ":\r\n");
+        this.txtInformation.AppendText(this.colHVersion.Text + ":");
+      }
+
+      if (pnlPicture.Tag.ToString() == "Expanded" & (this.MP3View.SelectedItems.Count == 1))
+      {
+        MP3 mp6 = (MP3)this.MP3View.SelectedItems[0].Tag;
+
+        foreach (V2APICFrame frame3 in mp6.V2TAG.GetFrames("APIC"))
+        {
+          if (StringType.StrCmp(frame3.Path, mp6.FI.FullName, false) == 0)
+          {
+            if (StringType.StrCmp(frame3.TempPath, "", false) == 0)
+            {
+              FileStream stream = new FileStream(mp6.FI.FullName, FileMode.Open, FileAccess.Read);
+              stream.Seek((long)frame3.DataStart, SeekOrigin.Begin);
+              byte[] array = new byte[(frame3.DataLength - 1) + 1];
+              stream.Read(array, 0, frame3.DataLength);
+              this.PicMStream = new MemoryStream(array);
+              this.picCover.Image = Image.FromStream(this.PicMStream);
+              stream.Close();
+            }
+            else
+            {
+              FileStream stream2 = new FileStream(frame3.TempPath, FileMode.Open, FileAccess.Read);
+              stream2.Seek(0L, SeekOrigin.Begin);
+              byte[] buffer2 = new byte[((int)(stream2.Length - 1L)) + 1];
+              stream2.Read(buffer2, 0, buffer2.Length);
+              this.PicMStream = new MemoryStream(buffer2);
+              this.picCover.Image = Image.FromStream(this.PicMStream);
+              stream2.Close();
+            }
+          }
+          else
+          {
+            Directory.SetCurrentDirectory(Path.GetDirectoryName(mp6.FI.FullName));
+
+            if (File.Exists(frame3.Path))
+            {
+              FileStream stream3 = new FileStream(frame3.Path, FileMode.Open, FileAccess.Read);
+              stream3.Seek(0L, SeekOrigin.Begin);
+              byte[] buffer3 = new byte[((int)(stream3.Length - 1L)) + 1];
+              stream3.Read(buffer3, 0, buffer3.Length);
+              this.PicMStream = new MemoryStream(buffer3);
+              this.picCover.Image = Image.FromStream(this.PicMStream);
+              stream3.Close();
+            }
+          }
+
+          break;
+        }
+      }
+      else
+        this.picCover.Image = null;
+    }
+
+    private void txtArtistTitleAlbum_Enter(object sender, EventArgs e)
+    {
+      object[] objArray3 = new object[2];
+      objArray3[0] = 0;
+      object o = sender;
+      object[] args = new object[0];
+      string[] paramnames = null;
+      objArray3[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(o, null, "Text", args, paramnames, null), null, "Length", new object[0], null, null));
+      object[] objArray2 = objArray3;
+      bool[] copyBack = new bool[] { false, true };
+      LateBinding.LateCall(sender, null, "Select", objArray2, null, copyBack);
+      if (copyBack[1])
+      {
+        LateBinding.LateSetComplex(LateBinding.LateGet(o, null, "Text", args, paramnames, null), null, "Length", new object[] { RuntimeHelpers.GetObjectValue(objArray2[1]) }, null, true, true);
+      }
+    }
+
+    private void txtQuickEdit_KeyUp(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode == Keys.Enter)
+      {
+        frmProgress.Callback callback;
+        Form form;
+        ArrayList list = new ArrayList();
+        this.MP3View.BeginUpdate();
+        if (this.vbytVersionToShow == 1)
+        {
+          form = this;
+          callback = new frmProgress.Callback(this.Multi1CB);
+          frmProgress progress = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback);
+          progress.SetStateMultiple();
+          progress.List = list;
+          progress.ShowDialog(this);
+        }
+        else
+        {
+          form = this;
+          callback = new frmProgress.Callback(this.Multi2CB);
+          frmProgress progress2 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback);
+          progress2.SetStateMultiple();
+          progress2.List = list;
+          progress2.ShowDialog(this);
+        }
+        this.MP3View.EndUpdate();
+        if (list.Count > 0)
+        {
+          Declarations.UNDOList.Add(list);
+          this.UnDoEnable(true, true);
+        }
+      }
+    }
+
+    #endregion
+
+    #region Class logic
+
+    private void AudioCheckSumCalculation()
+    {
+      if (Declarations.objSettings.AudioChecksumCalc)
+      {
+        try
+        {
+          if (this.CalcAudioCheckSumThread != null)
+          {
+            this.CalcAudioCheckSumThread.Abort();
+            this.CalcAudioCheckSumThread.Join();
+          }
+        }
+        catch (Exception exception1)
+        {
+          ProjectData.SetProjectError(exception1);
+          Exception exception = exception1;
+          ProjectData.ClearProjectError();
+        }
+
+        StatusProgressBar.Value = 0;
+        StatusProgressBar.Maximum = this.MP3View.Items.Count;
+        lblVersion.Visible = false;
+        lblSubDirs.Visible = false;
+        lblProgress.Visible = true;
+        StatusProgressBar.Visible = true;
+        this.CalcAudioCheckSumThread = new Thread(new ThreadStart(this.CalcAudioCheckSum));
+        this.CalcAudioCheckSumThread.IsBackground = true;
+        this.CalcAudioCheckSumThread.Priority = ThreadPriority.Lowest;
+        this.CalcAudioCheckSumThread.Start();
+      }
+    }
+
+    private void CalcAudioCheckSum()
+    {
+      MP3 tag = null;
+
+      try
+      {
+        int mp3Count = this.MP3View.Items.Count - 1;
+
+        for (int i = 0; i <= mp3Count; i++)
+        {
+          tag = (MP3)this.MP3View.Items[i].Tag;
+
+          if (tag.AudioCheckSum == 0)
+          {
+            tag.CalcAudioCheckSum();
+
+            if (this.MP3View.Columns.Contains(this.colHAudioCheckSum))
+              this.MP3View.Items[i].SubItems[this.colHAudioCheckSum.Index].Text = StringType.FromObject(tag.AudioCheckSum != 0 ? tag.AudioCheckSum.ToString() : "");
+          }
+
+          StatusProgressBar.PerformStep();
+        }
+      }
+      catch (ThreadAbortException exception1)
+      {
+        ProjectData.SetProjectError(exception1);
+        ThreadAbortException exception = exception1;
+
+        try
+        {
+          tag.CloseBinaryReader();
+        }
+        catch (Exception exception2)
+        {
+          ProjectData.SetProjectError(exception2);
+          ProjectData.ClearProjectError();
+        }
+
+        try
+        {
+          tag.CloseFileStream();
+        }
+        catch (Exception exception3)
+        {
+          ProjectData.SetProjectError(exception3);
+          ProjectData.ClearProjectError();
+        }
+
+        ProjectData.ClearProjectError();
+      }
+      finally
+      {
+        lblVersion.Visible = true;
+        lblSubDirs.Visible = true;
+        lblProgress.Visible = false;
+        StatusProgressBar.Visible = false;
+      }
+    }
+
+    private void CalcGetTime()
+    {
+      do
+      {
+        Thread.Sleep(1000);
+        this.vintHelpCount++;
+      }
+      while (false);
+    }
+
+    private bool CheckAllChanged()
+    {
+      foreach (ListViewItem item in this.MP3View.Items)
+        if (BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)))
+          return true;
+
+      return false;
+    }
+
+    public void Enumerate()
+    {
+      if (((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2) & (this.MP3View.FocusedItem != null))
+      {
+        ArrayList list = new ArrayList();
+        this.MP3View.BeginUpdate();
+
+        foreach (ListViewItem item in this.MP3View.SelectedItems)
+        {
+          if ((this.aintLastSelected == null) || (Array.IndexOf(this.aintLastSelected, item.Index) == -1))
+          {
+            MP3 tag = (MP3)item.Tag;
+            Declarations.UnDoReDo @do = new Declarations.UnDoReDo(tag, tag.V1TAG.Clone(), tag.V2TAG.Clone(), tag.CurrentFullName, tag.Changed);
+            list.Add(@do);
+
+            if (Declarations.objSettings.EnumFile)
+            {
+              tag.CurrentName = this.vintEnumCount.ToString().PadLeft(Declarations.objSettings.FilenumberDigits, '0') + Declarations.objSettings.EnumSeparator + tag.CurrentName;
+              tag.Changed = true;
+              item.Text = tag.CurrentName;
+              item.BackColor = System.Drawing.Color.FromArgb(Declarations.objSettings.ColorChangedBack);
+              item.ForeColor = System.Drawing.Color.FromArgb(Declarations.objSettings.ColorChangedText);
+            }
+
+            if ((Declarations.objSettings.EnumVer1 | (Declarations.objSettings.SynchronizeTAGs & Declarations.objSettings.EnumVer2)) && (this.vintEnumCount <= 0xff))
+            {
+              if (!tag.V1TAG.TAGPresent)
+              {
+                tag.V1TAG.TAGPresent = true;
+                tag.V1TAG.Tracknumber = (byte)this.vintEnumCount;
+                tag.Changed = true;
+                this.UpdateListItem(item, false);
+              }
+              else if (tag.V1TAG.Tracknumber != this.vintEnumCount)
+              {
+                tag.V1TAG.Tracknumber = (byte)this.vintEnumCount;
+                tag.Changed = true;
+                this.UpdateListItem(item, false);
+              }
+            }
+
+            if (Declarations.objSettings.EnumVer2 | (Declarations.objSettings.SynchronizeTAGs & Declarations.objSettings.EnumVer1))
+            {
+              if (tag.V2TAG.FrameExists("TRCK"))
+              {
+                V2TextFrame frame = (V2TextFrame)tag.V2TAG.GetFrame("TRCK");
+                V2TextFrame frame2 = new V2TextFrame { FID = "TRCK" };
+
+                if (frame.Content.IndexOf("/") < 0)
+                  frame2.Content = this.vintEnumCount.ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0');
+                else
+                  frame2.Content = this.vintEnumCount.ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') + frame.Content.Substring(frame.Content.IndexOf("/"));
+
+                tag.V2TAG.AddFrame(frame2);
+              }
+              else
+              {
+                V2TextFrame frame3 = new V2TextFrame
+                {
+                  FID = "TRCK",
+                  Content = this.vintEnumCount.ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0')
+                };
+
+                tag.V2TAG.AddFrame(frame3);
+              }
+
+              if (tag.V2TAG.Changed)
+              {
+                if (!tag.V2TAG.TAGHeaderPresent)
+                  tag.V2TAG.TAGHeaderPresent = true;
+
+                tag.Changed = true;
+              }
+
+              this.UpdateListItem(item, false);
+            }
+
+            this.vintEnumCount++;
+            this.mnutEnumerateCounter.Text = this.vintEnumCount.ToString();
+          }
+        }
+
+        this.MP3View.EndUpdate();
+        Declarations.UNDOList.Add(list);
+        this.UnDoEnable(true, true);
+      }
+
+      this.aintLastSelected = new int[(this.MP3View.SelectedIndices.Count - 1) + 1];
+      this.MP3View.SelectedIndices.CopyTo(this.aintLastSelected, 0);
+    }
+
+    private void FolderRenameCB(ref frmProgress frmProg)
+    {
+      IEnumerator enumerator = null;
+      frmProg.btnCancel.Enabled = false;
+      string oldValue = frmProg.String01;
+      string newValue = frmProg.String02;
+
+      try
+      {
+        enumerator = Declarations.MP3s.GetEnumerator();
+
+        while (enumerator.MoveNext())
+        {
+          MP3 current = (MP3)enumerator.Current;
+          current.CurrentFullName = current.CurrentFullName.Replace(oldValue, newValue);
+
+          if (!File.Exists(current.FI.FullName))
+          {
+            string path = current.CurrentFullName.Substring(0, current.CurrentFullName.LastIndexOf(@"\")) + @"\" + current.FI.Name;
+
+            if (File.Exists(path))
+              current.FI = new FileInfo(path);
+          }
+
+          frmProg.ProgressBar.PerformStep();
+        }
+      }
+      finally
+      {
+        if (enumerator is IDisposable)
+          ((IDisposable)enumerator).Dispose();
+      }
+    }
+
+    private void GetFilesCB(ref frmProgress frmProg)
+    {
+      int num3 = 0;
+      int count = frmProg.List.Count;
+      int vintHelpCount = 0;
+
+      var enumerator = frmProg.List.GetEnumerator();
+
+      while (enumerator.MoveNext())
+      {
+        string vstrFullFilename = StringType.FromObject(enumerator.Current);
+        Application.DoEvents();
+
+        if (frmProg.Canceled)
+          return;
+
+        frmProg.lblInfo.Text = vstrFullFilename.Replace("&", "&&");
+        MP3 mp = new MP3(vstrFullFilename);
+        if (mp.ExploreMP3())
+          Declarations.MP3s.Add(mp);
+        if (vintHelpCount != this.vintHelpCount)
+        {
+          vintHelpCount = this.vintHelpCount;
+          try
+          {
+            if (Declarations.MP3s.Count > 0)
+              num3 = (count - Declarations.MP3s.Count) / (Declarations.MP3s.Count / vintHelpCount);
+          }
+          catch (Exception exception1)
+          {
+            ProjectData.SetProjectError(exception1);
+            Exception exception = exception1;
+            ProjectData.ClearProjectError();
+          }
+          int num6 = num3 / 3600;
+          int num5 = (num3 / 60) % 60;
+          int num4 = num3 % 60;
+          frmProg.State.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["Read"], " ("), num6.ToString().PadLeft(2, '0')), ":"), num5.ToString().PadLeft(2, '0')), ":"), num4.ToString().PadLeft(2, '0')), ")"));
+        }
+        frmProg.ProgressBar.PerformStep();
+        mp = null;
+      }
+    }
+
+    public void MP3View_AddColumns()
+    {
+      int num;
+      this.MP3View.BeginUpdate();
+      this.MP3View.Items.Clear();
+      this.MP3View.Columns.Clear();
+      this.colHFilename.Text = StringType.FromObject(Declarations.objResources.ResStrings["Col01"]);
+      this.colHFilename.TextAlign = HorizontalAlignment.Left;
+      this.MP3View.Columns.Add(this.colHFilename);
+      int num4 = Declarations.objSettings.Columns.Rows.Count - 1;
+      for (num = 0; num <= num4; num++)
+      {
+        DataRow dataRo = Declarations.objSettings.Columns.Rows[num];
+        object obj3 = dataRo["ID"];
+        if (ObjectType.ObjTst(obj3, 1, false) == 0)
+          this.colHFilename.Width = IntegerType.FromObject(dataRo["Width"]);
+        else if (ObjectType.ObjTst(obj3, 2, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHSubDir, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 3, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHTAGVer1, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 4, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHTAGVer2, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 5, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHArtist, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 6, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHTitle, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 7, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHAlbum, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 8, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHTrack, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 9, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHPosMedia, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 10, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHComment, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 11, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHGenre, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 12, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHYear, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 13, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHRating, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 14, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHDuration, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 15, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHBitrate, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 0x10, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHVBR, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 0x11, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHSamplerate, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 0x12, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHChannel, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 0x13, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHVersion, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 20, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHDate, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 0x15, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHComposer, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 0x16, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHFileSize, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 0x17, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHBPM, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 0x18, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHPicCount, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 0x19, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHAudioCheckSum, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+        else if (ObjectType.ObjTst(obj3, 0x1a, false) == 0)
+          this.MP3View_BuildColumns(ref this.colHCreateDate, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
+      }
+      if (ObjectType.ObjTst(Declarations.objSettings.Columns.Rows[0]["ID"], 1, false) != 0)
+      {
+        int[] sortOrder = new int[(Declarations.objSettings.Columns.Rows.Count - 1) + 1];
+        int num2 = 1;
+        int num3 = Declarations.objSettings.Columns.Rows.Count - 1;
+        for (num = 0; num <= num3; num++)
+        {
+          DataRow row2 = Declarations.objSettings.Columns.Rows[num];
+          object obj2 = row2["ID"];
+          if (ObjectType.ObjTst(obj2, 1, false) == 0)
+            sortOrder[num] = 0;
+          else
+          {
+            sortOrder[num] = num2;
+            num2++;
+          }
+        }
+        Id3TagIT_Main.SetColumnOrder(this.MP3View, sortOrder);
+      }
+      this.MP3View.EndUpdate();
     }
 
     public void MP3View_FillColumnsCB(ref frmProgress frmProg)
@@ -1866,104 +3429,6 @@ Label_23AA:
       }
     }
 
-    private void MP3View_ItemDrag(object sender, ItemDragEventArgs e)
-    {
-      string[] data = new string[(this.MP3View.SelectedItems.Count - 1) + 1];
-      int num2 = this.MP3View.SelectedItems.Count - 1;
-      for (int i = 0; i <= num2; i++)
-        data[i] = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(this.MP3View.SelectedItems[i].Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null));
-      DataObject obj2 = new DataObject(DataFormats.FileDrop, data);
-      obj2.SetData(data);
-      this.MP3View.DoDragDrop(obj2, DragDropEffects.Move | DragDropEffects.Copy);
-    }
-
-    private void MP3View_KeyDown(object sender, KeyEventArgs e)
-    {
-      if (e.Control & (e.KeyCode == Keys.Enter))
-      {
-        frmMain main;
-        if (this.MP3View.SelectedItems.Count != 1)
-        {
-          switch (Declarations.objSettings.EditDialog)
-          {
-            case 1:
-              main = this;
-              new frmTAG1Multi(ref main).ShowDialog(this);
-              break;
-
-            case 2:
-              main = this;
-              new frmTAG2Multi(ref main).ShowDialog(this);
-              break;
-
-            case 3:
-              if (this.vbytVersionToShow != 1)
-              {
-                main = this;
-                new frmTAG2Multi(ref main).ShowDialog(this);
-                break;
-              }
-              main = this;
-              new frmTAG1Multi(ref main).ShowDialog(this);
-              break;
-          }
-        }
-        else
-        {
-          switch (Declarations.objSettings.EditDialog)
-          {
-            case 1:
-              main = this;
-              new frmTAG1(ref main).ShowDialog(this);
-              break;
-
-            case 2:
-              main = this;
-              new frmTAG2(ref main).ShowDialog(this);
-              break;
-
-            case 3:
-              if (this.vbytVersionToShow != 1)
-              {
-                main = this;
-                new frmTAG2(ref main).ShowDialog(this);
-                break;
-              }
-              main = this;
-              new frmTAG1(ref main).ShowDialog(this);
-              break;
-          }
-        }
-      }
-    }
-
-    private void MP3View_MouseEnter(object sender, EventArgs e)
-    {
-      if ((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2)
-        this.EnumInfo.Visible = true;
-    }
-
-    private void MP3View_MouseLeave(object sender, EventArgs e)
-    {
-      this.EnumInfo.Visible = false;
-    }
-
-    private void MP3View_MouseMove(object sender, MouseEventArgs e)
-    {
-      this.EnumInfo.Left = e.X + this.MP3View.Left;
-      this.EnumInfo.Top = (e.Y + this.MP3View.Top) - 0x12;
-    }
-
-    private void MP3View_MouseUp(object sender, MouseEventArgs e)
-    {
-      if (e.Button == MouseButtons.Right)
-      {
-        // FIXME DNB ButtonItem item = (ButtonItem)this.DotNetBarManager.ContextMenus["MP3ViewMenu"];
-        //item.Displayed = false;
-        //item.PopupMenu(Control.MousePosition);
-      }
-    }
-
     private void MP3View_SaveColumns()
     {
       Declarations.objSettings.Columns.Rows.Clear();
@@ -2056,1111 +3521,6 @@ Label_23AA:
         row["Alignment"] = header.TextAlign.ToString();
         Declarations.objSettings.Columns.Rows.Add(row);
       }
-    }
-
-    private void MP3View_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      this.Timer.Start();
-    }
-
-    // FIXME - These are the external tools clicks
-    //private void SideBar_ItemClick_Fuck(object sender, EventArgs e)
-    //{
-    //  if ((sender is BaseItem) && StringType.FromObject(LateBinding.LateGet(sender, null, "Name", new object[0], null, null)).StartsWith("ToolItem"))
-    //  {
-    //    Process process = new Process();
-    //    DataRow row = Declarations.objSettings.Tools.Rows[IntegerType.FromObject(LateBinding.LateGet(sender, null, "Tag", new object[0], null, null))];
-    //    try
-    //    {
-    //      ListViewItem current;
-    //      IEnumerator enumerator = null;
-    //      if (BooleanType.FromObject(row["DefaultPlayer"]))
-    //      {
-    //        var enumerator2 = this.MP3View.SelectedItems.GetEnumerator();
-    //        while (enumerator2.MoveNext())
-    //        {
-    //          current = (ListViewItem)enumerator2.Current;
-    //          process.StartInfo.FileName = StringType.FromObject(
-    //            ObjectType.StrCatObj(
-    //              ObjectType.StrCatObj(
-    //                '"', LateBinding.LateGet(LateBinding.LateGet(current.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null)), '"'));
-    //          process.StartInfo.Verb = StringType.FromObject(row["ShellCommand"]);
-    //          process.Start();
-    //        }
-    //        return;
-    //      }
-    //      try
-    //      {
-    //        enumerator = this.MP3View.SelectedItems.GetEnumerator();
-    //        while (enumerator.MoveNext())
-    //        {
-    //          current = (ListViewItem)enumerator.Current;
-    //          process.StartInfo.FileName = StringType.FromObject(row["ToolPath"]);
-    //          process.StartInfo.Arguments = StringType.FromObject(
-    //            LateBinding.LateGet(
-    //              row["ToolParameter"], null, "Replace", new object[] { "%P", ObjectType.StrCatObj(
-    //                ObjectType.StrCatObj(
-    //                  '"', LateBinding.LateGet(
-    //                    LateBinding.LateGet(current.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null)), '"') }, null, null));
-    //          process.Start();
-    //        }
-    //      }
-    //      finally
-    //      {
-    //        if (enumerator is IDisposable)
-    //          ((IDisposable)enumerator).Dispose();
-    //      }
-    //    }
-    //    catch (Exception exception1)
-    //    {
-    //      ProjectData.SetProjectError(exception1);
-    //      ProjectData.ClearProjectError();
-    //    }
-    //  }
-    //}
-
-    private void TimerEventProcessor(object myObject, EventArgs myEventArgs)
-    {
-      MP3 tag;
-      byte num3;
-
-      if (this.vbooStartUp)
-        return;
-
-      if (this.vintSelTimerCount == this.MP3View.SelectedItems.Count)
-        this.vbytSelTimerCount = (byte)(this.vbytSelTimerCount + 1);
-      else
-        this.vintSelTimerCount = this.MP3View.SelectedItems.Count;
-
-      if (this.vbytSelTimerCount > 5)
-      {
-        this.Timer.Stop();
-        this.vbytSelTimerCount = 0;
-      }
-
-      int num = 0;
-
-      foreach (ListViewItem item in this.MP3View.SelectedItems)
-        num = IntegerType.FromObject(ObjectType.AddObj(num, LateBinding.LateGet(item.Tag, null, "Duration", new object[0], null, null)));
-
-      int num6 = num / 3600;
-      num6 = (num - ((num / 3600) * 3600)) / 60;
-      string introduced34 = num6.ToString().PadLeft(2, '0') + ":";
-      num6 = (num - ((num / 3600) * 3600)) - (((num - ((num / 3600) * 3600)) / 60) * 60);
-      string introduced35 = introduced34 + num6.ToString().PadLeft(2, '0') + ":";
-      string str = introduced35 + num6.ToString().PadLeft(2, '0');
-      object[] args = new object[] { "%3", str };
-      bool[] copyBack = new bool[] { false, true };
-
-      if (copyBack[1])
-        str = StringType.FromObject(args[1]);
-
-      lblNumber.Text = StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["Number"], null, "Replace", new object[] { "%1", this.MP3View.Items.Count.ToString() }, null, null), null, "Replace", new object[] { "%2", this.MP3View.SelectedItems.Count.ToString() }, null, null), null, "Replace", args, null, copyBack));
-
-      try
-      {
-        if (this.MP3View.FocusedItem != null)
-          lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", this.MP3View.FocusedItem.Text.Length.ToString() }, null, null));
-      }
-      catch (Exception exception1)
-      {
-        ProjectData.SetProjectError(exception1);
-        lblLength.Text = StringType.FromObject(LateBinding.LateGet(Declarations.objResources.ResStrings["FilenameLen"], null, "Replace", new object[] { "%1", "0" }, null, null));
-        ProjectData.ClearProjectError();
-      }
-
-      this.cboQEArtist.Text = "";
-      this.txtQETitle.Text = "";
-      this.txtQEAlbum.Text = "";
-
-      try
-      {
-        this.picCover.Image = null;
-      }
-      catch (Exception exception3)
-      {
-        ProjectData.SetProjectError(exception3);
-        Exception exception = exception3;
-        ProjectData.ClearProjectError();
-      }
-
-      try
-      {
-        if (this.PicMStream != null)
-          this.PicMStream.Close();
-      }
-      catch (Exception exception4)
-      {
-        ProjectData.SetProjectError(exception4);
-        Exception exception2 = exception4;
-        ProjectData.ClearProjectError();
-      }
-
-      if (this.vbytVersionToShow != 1)
-      {
-        num3 = 0;
-
-        if (this.MP3View.SelectedItems.Count == 1)
-        {
-          tag = (MP3)this.MP3View.SelectedItems[0].Tag;
-
-          if (tag.V2TAG.FrameExists("TPE1"))
-            this.cboQEArtist.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
-
-          if (tag.V2TAG.FrameExists("TIT2"))
-            this.txtQETitle.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
-
-          if (tag.V2TAG.FrameExists("TALB"))
-            this.txtQEAlbum.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
-        }
-
-        if (this.MP3View.SelectedItems.Count <= 1)
-          goto Label_0B93;
-
-        tag = (MP3)this.MP3View.SelectedItems[0].Tag;
-
-        foreach (ListViewItem item in this.MP3View.SelectedItems)
-        {
-          MP3 mp4 = (MP3)item.Tag;
-
-          if (tag != mp4)
-          {
-            if ((((num3 & 1) == 0) && tag.V2TAG.FrameExists("TPE1")) && mp4.V2TAG.FrameExists("TPE1"))
-            {
-              if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp4.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp4.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), "", false) == 0)))
-                num3 = (byte)(num3 | 1);
-            }
-            else
-              num3 = (byte)(num3 | 1);
-
-            if ((((num3 & 2) == 0) && tag.V2TAG.FrameExists("TIT2")) && mp4.V2TAG.FrameExists("TIT2"))
-            {
-              if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp4.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp4.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), "", false) == 0)))
-                num3 = (byte)(num3 | 2);
-            }
-            else
-              num3 = (byte)(num3 | 2);
-
-            if ((((num3 & 4) == 0) && tag.V2TAG.FrameExists("TALB")) && mp4.V2TAG.FrameExists("TALB"))
-            {
-              if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(mp4.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), null, "ToLower", new object[0], null, null), false) != 0, ObjectType.ObjTst(LateBinding.LateGet(mp4.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), "", false) == 0)))
-                num3 = (byte)(num3 | 4);
-            }
-            else
-              num3 = (byte)(num3 | 4);
-
-            if (num3 == 7)
-              break;
-          }
-        }
-      }
-      else
-      {
-        MP3 mp;
-        byte num2 = 0;
-
-        if (this.MP3View.SelectedItems.Count == 1)
-        {
-          mp = (MP3)this.MP3View.SelectedItems[0].Tag;
-          this.cboQEArtist.Text = mp.V1TAG.Artist;
-          this.txtQETitle.Text = mp.V1TAG.Title;
-          this.txtQEAlbum.Text = mp.V1TAG.Album;
-        }
-
-        if (this.MP3View.SelectedItems.Count > 1)
-        {
-          mp = (MP3)this.MP3View.SelectedItems[0].Tag;
-
-          foreach (ListViewItem item in this.MP3View.SelectedItems)
-          {
-            MP3 mp2 = (MP3)item.Tag;
-
-            if (mp != mp2)
-            {
-              if ((((num2 & 1) == 0) && (StringType.StrCmp(mp2.V1TAG.Artist.ToLower(), mp.V1TAG.Artist.ToLower(), false) != 0)) | (StringType.StrCmp(mp2.V1TAG.Artist, "", false) == 0))
-                num2 = (byte)(num2 | 1);
-
-              if ((((num2 & 2) == 0) && (StringType.StrCmp(mp2.V1TAG.Title.ToLower(), mp.V1TAG.Title.ToLower(), false) != 0)) | (StringType.StrCmp(mp2.V1TAG.Title, "", false) == 0))
-                num2 = (byte)(num2 | 2);
-
-              if ((((num2 & 4) == 0) && (StringType.StrCmp(mp2.V1TAG.Album.ToLower(), mp.V1TAG.Album.ToLower(), false) != 0)) | (StringType.StrCmp(mp2.V1TAG.Album, "", false) == 0))
-                num2 = (byte)(num2 | 4);
-
-              if (num2 == 7)
-                break;
-            }
-          }
-
-          if (num2 != 7)
-          {
-            if ((num2 & 1) == 0)
-              this.cboQEArtist.Text = mp.V1TAG.Artist;
-
-            if ((num2 & 2) == 0)
-              this.txtQETitle.Text = mp.V1TAG.Title;
-
-            if ((num2 & 4) == 0)
-              this.txtQEAlbum.Text = mp.V1TAG.Album;
-          }
-        }
-        goto Label_0B93;
-      }
-
-      if (num3 != 7)
-      {
-        if ((num3 & 1) == 0)
-          this.cboQEArtist.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
-
-        if ((num3 & 2) == 0)
-          this.txtQETitle.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
-
-        if ((num3 & 4) == 0)
-          this.txtQEAlbum.Text = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
-      }
-
-Label_0B93:
-      if (this.pnlInformation.Tag.ToString() == "Expanded" & (this.MP3View.SelectedItems.Count == 1))
-      {
-        MP3 mp5 = (MP3)this.MP3View.SelectedItems[0].Tag;
-        this.txtInformation.Text = "";
-        this.txtInformation.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHDuration.Text + ":", this.colHDuration.Text.Length < 9 ? "\t\t" : "\t"), mp5.DurationFormated), "\r\n"));
-        long num4 = mp5.FI.Length / 1024L;
-        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHFileSize.Text + ":", this.colHFileSize.Text.Length < 9 ? "\t\t" : "\t"), num4.ToString()), "\r\n")));
-        int num5 = mp5.Bitrate / 1000;
-        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHBitrate.Text + ":", this.colHBitrate.Text.Length < 9 ? "\t\t" : "\t"), num5.ToString()), "\r\n")));
-        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHVBR.Text + ":", this.colHVBR.Text.Length < 9 ? "\t\t" : "\t"), mp5.VBR ? "VBR" : "CBR"), "\r\n")));
-        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHSamplerate.Text + ":", this.colHSamplerate.Text.Length < 9 ? "\t\t" : "\t"), mp5.Samplerate), "\r\n")));
-        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHChannel.Text + ":", this.colHChannel.Text.Length < 9 ? "\t\t" : "\t"), mp5.ChannelText), "\r\n")));
-        this.txtInformation.AppendText(StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(this.colHVersion.Text + ":", this.colHVersion.Text.Length < 9 ? "\t\t" : "\t"), mp5.VersionText), " "), mp5.LayerText)));
-      }
-      else
-      {
-        this.txtInformation.Text = "";
-        this.txtInformation.Text = this.colHDuration.Text + ":\r\n";
-        this.txtInformation.AppendText(this.colHFileSize.Text + ":\r\n");
-        this.txtInformation.AppendText(this.colHBitrate.Text + ":\r\n");
-        this.txtInformation.AppendText(this.colHVBR.Text + ":\r\n");
-        this.txtInformation.AppendText(this.colHSamplerate.Text + ":\r\n");
-        this.txtInformation.AppendText(this.colHChannel.Text + ":\r\n");
-        this.txtInformation.AppendText(this.colHVersion.Text + ":");
-      }
-
-      if (pnlPicture.Tag.ToString() == "Expanded" & (this.MP3View.SelectedItems.Count == 1))
-      {
-        MP3 mp6 = (MP3)this.MP3View.SelectedItems[0].Tag;
-
-        foreach (V2APICFrame frame3 in mp6.V2TAG.GetFrames("APIC"))
-        {
-          if (StringType.StrCmp(frame3.Path, mp6.FI.FullName, false) == 0)
-          {
-            if (StringType.StrCmp(frame3.TempPath, "", false) == 0)
-            {
-              FileStream stream = new FileStream(mp6.FI.FullName, FileMode.Open, FileAccess.Read);
-              stream.Seek((long)frame3.DataStart, SeekOrigin.Begin);
-              byte[] array = new byte[(frame3.DataLength - 1) + 1];
-              stream.Read(array, 0, frame3.DataLength);
-              this.PicMStream = new MemoryStream(array);
-              this.picCover.Image = Image.FromStream(this.PicMStream);
-              stream.Close();
-            }
-            else
-            {
-              FileStream stream2 = new FileStream(frame3.TempPath, FileMode.Open, FileAccess.Read);
-              stream2.Seek(0L, SeekOrigin.Begin);
-              byte[] buffer2 = new byte[((int)(stream2.Length - 1L)) + 1];
-              stream2.Read(buffer2, 0, buffer2.Length);
-              this.PicMStream = new MemoryStream(buffer2);
-              this.picCover.Image = Image.FromStream(this.PicMStream);
-              stream2.Close();
-            }
-          }
-          else
-          {
-            Directory.SetCurrentDirectory(Path.GetDirectoryName(mp6.FI.FullName));
-
-            if (File.Exists(frame3.Path))
-            {
-              FileStream stream3 = new FileStream(frame3.Path, FileMode.Open, FileAccess.Read);
-              stream3.Seek(0L, SeekOrigin.Begin);
-              byte[] buffer3 = new byte[((int)(stream3.Length - 1L)) + 1];
-              stream3.Read(buffer3, 0, buffer3.Length);
-              this.PicMStream = new MemoryStream(buffer3);
-              this.picCover.Image = Image.FromStream(this.PicMStream);
-              stream3.Close();
-            }
-          }
-
-          break;
-        }
-      }
-      else
-        this.picCover.Image = null;
-    }
-
-    private void txtArtistTitleAlbum_Enter(object sender, EventArgs e)
-    {
-      object[] objArray3 = new object[2];
-      objArray3[0] = 0;
-      object o = sender;
-      object[] args = new object[0];
-      string[] paramnames = null;
-      objArray3[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(o, null, "Text", args, paramnames, null), null, "Length", new object[0], null, null));
-      object[] objArray2 = objArray3;
-      bool[] copyBack = new bool[] { false, true };
-      LateBinding.LateCall(sender, null, "Select", objArray2, null, copyBack);
-      if (copyBack[1])
-      {
-        LateBinding.LateSetComplex(LateBinding.LateGet(o, null, "Text", args, paramnames, null), null, "Length", new object[] { RuntimeHelpers.GetObjectValue(objArray2[1]) }, null, true, true);
-      }
-    }
-
-    private void txtQuickEdit_KeyUp(object sender, KeyEventArgs e)
-    {
-      if (e.KeyCode == Keys.Enter)
-      {
-        frmProgress.Callback callback;
-        Form form;
-        ArrayList list = new ArrayList();
-        this.MP3View.BeginUpdate();
-        if (this.vbytVersionToShow == 1)
-        {
-          form = this;
-          callback = new frmProgress.Callback(this.Multi1CB);
-          frmProgress progress = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback);
-          progress.SetStateMultiple();
-          progress.List = list;
-          progress.ShowDialog(this);
-        }
-        else
-        {
-          form = this;
-          callback = new frmProgress.Callback(this.Multi2CB);
-          frmProgress progress2 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback);
-          progress2.SetStateMultiple();
-          progress2.List = list;
-          progress2.ShowDialog(this);
-        }
-        this.MP3View.EndUpdate();
-        if (list.Count > 0)
-        {
-          Declarations.UNDOList.Add(list);
-          this.UnDoEnable(true, true);
-        }
-      }
-    }
-
-    #endregion
-
-    #region Class logic
-
-    private void AudioCheckSumCalculation()
-    {
-      if (Declarations.objSettings.AudioChecksumCalc)
-      {
-        try
-        {
-          if (this.CalcAudioCheckSumThread != null)
-          {
-            this.CalcAudioCheckSumThread.Abort();
-            this.CalcAudioCheckSumThread.Join();
-          }
-        }
-        catch (Exception exception1)
-        {
-          ProjectData.SetProjectError(exception1);
-          Exception exception = exception1;
-          ProjectData.ClearProjectError();
-        }
-
-        StatusProgressBar.Value = 0;
-        StatusProgressBar.Maximum = this.MP3View.Items.Count;
-        lblVersion.Visible = false;
-        lblSubDirs.Visible = false;
-        lblProgress.Visible = true;
-        StatusProgressBar.Visible = true;
-        this.CalcAudioCheckSumThread = new Thread(new ThreadStart(this.CalcAudioCheckSum));
-        this.CalcAudioCheckSumThread.IsBackground = true;
-        this.CalcAudioCheckSumThread.Priority = ThreadPriority.Lowest;
-        this.CalcAudioCheckSumThread.Start();
-      }
-    }
-
-    private void CalcAudioCheckSum()
-    {
-      MP3 tag = null;
-
-      try
-      {
-        int mp3Count = this.MP3View.Items.Count - 1;
-
-        for (int i = 0; i <= mp3Count; i++)
-        {
-          tag = (MP3)this.MP3View.Items[i].Tag;
-
-          if (tag.AudioCheckSum == 0)
-          {
-            tag.CalcAudioCheckSum();
-
-            if (this.MP3View.Columns.Contains(this.colHAudioCheckSum))
-              this.MP3View.Items[i].SubItems[this.colHAudioCheckSum.Index].Text = StringType.FromObject(tag.AudioCheckSum != 0 ? tag.AudioCheckSum.ToString() : "");
-          }
-
-          StatusProgressBar.PerformStep();
-        }
-      }
-      catch (ThreadAbortException exception1)
-      {
-        ProjectData.SetProjectError(exception1);
-        ThreadAbortException exception = exception1;
-
-        try
-        {
-          tag.CloseBinaryReader();
-        }
-        catch (Exception exception2)
-        {
-          ProjectData.SetProjectError(exception2);
-          ProjectData.ClearProjectError();
-        }
-
-        try
-        {
-          tag.CloseFileStream();
-        }
-        catch (Exception exception3)
-        {
-          ProjectData.SetProjectError(exception3);
-          ProjectData.ClearProjectError();
-        }
-
-        ProjectData.ClearProjectError();
-      }
-      finally
-      {
-        lblVersion.Visible = true;
-        lblSubDirs.Visible = true;
-        lblProgress.Visible = false;
-        StatusProgressBar.Visible = false;
-      }
-    }
-
-    private void CalcGetTime()
-    {
-      do
-      {
-        Thread.Sleep(1000);
-        this.vintHelpCount++;
-      }
-      while (false);
-    }
-
-    private bool CheckAllChanged()
-    {
-      foreach (ListViewItem item in this.MP3View.Items)
-        if (BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)))
-          return true;
-
-      return false;
-    }
-
-    private void CopyFiles()
-    {
-      string path = "";
-      string vLeft = "";
-      bool flag = false;
-
-      do
-      {
-        if (this.CheckAllChanged())
-        {
-          switch (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["ChangesNotSaved"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.YesNoCancel, null))
-          {
-            case MsgBoxResult.Cancel:
-              return;
-
-            case MsgBoxResult.Yes:
-              this.SaveChanges();
-
-              if (!this.CheckAllChanged())
-                flag = true;
-
-              break;
-
-            case MsgBoxResult.No:
-              flag = true;
-              break;
-          }
-        }
-        else
-          flag = true;
-      }
-      while (!flag);
-
-      this.FolderBrowserDialog.Description = StringType.FromObject(Declarations.objResources.ResStrings["FileCopyText"]);
-      this.FolderBrowserDialog.SelectedPath = Declarations.objSettings.MoveCopyPath;
-
-      if (this.FolderBrowserDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
-      {
-        path = this.FolderBrowserDialog.SelectedPath;
-
-        if (Directory.Exists(path))
-        {
-          try
-          {
-            this.CalcAudioCheckSumThread.Abort();
-            this.CalcAudioCheckSumThread.Join();
-          }
-          catch (Exception exception1)
-          {
-            ProjectData.SetProjectError(exception1);
-            Exception exception = exception1;
-            ProjectData.ClearProjectError();
-          }
-
-          foreach (ListViewItem item in this.MP3View.SelectedItems)
-            vLeft = StringType.FromObject(ObjectType.StrCatObj(vLeft, ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null), "\0")));
-
-          Id3TagIT_Main.ShellFileOp(vLeft, path, Declarations.ShellOperation.CopyOp, Declarations.ShellOperationFlags.FilesOnly | Declarations.ShellOperationFlags.AllowUndo, this);
-
-          if (path.StartsWith(Declarations.objSettings.CurrentPath) & Declarations.objSettings.ScanSubDirs)
-            this.GetFiles(null, true, true);
-          else
-            this.AudioCheckSumCalculation();
-
-          this.Focus();
-          Declarations.objSettings.MoveCopyPath = path;
-        }
-      }
-    }
-
-    private void DeleteFiles()
-    {
-      string vstrDestFolder = "";
-      string vLeft = "";
-
-      if (MessageBox.Show(StringType.FromObject(Declarations.objResources.ResStrings["FileDelete"]), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
-      {
-        IEnumerator enumerator = null;
-
-        try
-        {
-          enumerator = this.MP3View.SelectedItems.GetEnumerator();
-          while (enumerator.MoveNext())
-          {
-            ListViewItem current = (ListViewItem)enumerator.Current;
-            vLeft = StringType.FromObject(ObjectType.StrCatObj(vLeft, ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(current.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null), "\0")));
-          }
-        }
-        finally
-        {
-          if (enumerator is IDisposable)
-          {
-            ((IDisposable)enumerator).Dispose();
-          }
-        }
-
-        try
-        {
-          this.CalcAudioCheckSumThread.Abort();
-          this.CalcAudioCheckSumThread.Join();
-        }
-        catch (Exception exception1)
-        {
-          ProjectData.SetProjectError(exception1);
-          Exception exception = exception1;
-          ProjectData.ClearProjectError();
-        }
-
-        if (Id3TagIT_Main.ShellFileOp(vLeft, vstrDestFolder, Declarations.ShellOperation.DeleteOp, Declarations.ShellOperationFlags.FilesOnly | Declarations.ShellOperationFlags.AllowUndo, this))
-        {
-          this.MP3View.BeginUpdate();
-
-          foreach (ListViewItem item in this.MP3View.SelectedItems)
-          {
-            Declarations.MP3s.Remove(RuntimeHelpers.GetObjectValue(item.Tag));
-            this.MP3View.Items.Remove(item);
-          }
-
-          this.MP3View.EndUpdate();
-          this.AudioCheckSumCalculation();
-        }
-        else
-          this.GetFiles(null, true, true);
-      }
-
-      this.Focus();
-    }
-
-    public void Enumerate()
-    {
-      if (((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2) & (this.MP3View.FocusedItem != null))
-      {
-        ArrayList list = new ArrayList();
-        this.MP3View.BeginUpdate();
-
-        foreach (ListViewItem item in this.MP3View.SelectedItems)
-        {
-          if ((this.aintLastSelected == null) || (Array.IndexOf(this.aintLastSelected, item.Index) == -1))
-          {
-            MP3 tag = (MP3)item.Tag;
-            Declarations.UnDoReDo @do = new Declarations.UnDoReDo(tag, tag.V1TAG.Clone(), tag.V2TAG.Clone(), tag.CurrentFullName, tag.Changed);
-            list.Add(@do);
-
-            if (Declarations.objSettings.EnumFile)
-            {
-              tag.CurrentName = this.vintEnumCount.ToString().PadLeft(Declarations.objSettings.FilenumberDigits, '0') + Declarations.objSettings.EnumSeparator + tag.CurrentName;
-              tag.Changed = true;
-              item.Text = tag.CurrentName;
-              item.BackColor = System.Drawing.Color.FromArgb(Declarations.objSettings.ColorChangedBack);
-              item.ForeColor = System.Drawing.Color.FromArgb(Declarations.objSettings.ColorChangedText);
-            }
-
-            if ((Declarations.objSettings.EnumVer1 | (Declarations.objSettings.SynchronizeTAGs & Declarations.objSettings.EnumVer2)) && (this.vintEnumCount <= 0xff))
-            {
-              if (!tag.V1TAG.TAGPresent)
-              {
-                tag.V1TAG.TAGPresent = true;
-                tag.V1TAG.Tracknumber = (byte)this.vintEnumCount;
-                tag.Changed = true;
-                this.UpdateListItem(item, false);
-              }
-              else if (tag.V1TAG.Tracknumber != this.vintEnumCount)
-              {
-                tag.V1TAG.Tracknumber = (byte)this.vintEnumCount;
-                tag.Changed = true;
-                this.UpdateListItem(item, false);
-              }
-            }
-
-            if (Declarations.objSettings.EnumVer2 | (Declarations.objSettings.SynchronizeTAGs & Declarations.objSettings.EnumVer1))
-            {
-              if (tag.V2TAG.FrameExists("TRCK"))
-              {
-                V2TextFrame frame = (V2TextFrame)tag.V2TAG.GetFrame("TRCK");
-                V2TextFrame frame2 = new V2TextFrame { FID = "TRCK" };
-
-                if (frame.Content.IndexOf("/") < 0)
-                  frame2.Content = this.vintEnumCount.ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0');
-                else
-                  frame2.Content = this.vintEnumCount.ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0') + frame.Content.Substring(frame.Content.IndexOf("/"));
-
-                tag.V2TAG.AddFrame(frame2);
-              }
-              else
-              {
-                V2TextFrame frame3 = new V2TextFrame
-                {
-                  FID = "TRCK",
-                  Content = this.vintEnumCount.ToString().Trim(new char[] { ' ' }).PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0')
-                };
-
-                tag.V2TAG.AddFrame(frame3);
-              }
-
-              if (tag.V2TAG.Changed)
-              {
-                if (!tag.V2TAG.TAGHeaderPresent)
-                  tag.V2TAG.TAGHeaderPresent = true;
-
-                tag.Changed = true;
-              }
-
-              this.UpdateListItem(item, false);
-            }
-
-            this.vintEnumCount++;
-            this.mnutEnumerateCounter.Text = this.vintEnumCount.ToString();
-          }
-        }
-
-        this.MP3View.EndUpdate();
-        Declarations.UNDOList.Add(list);
-        this.UnDoEnable(true, true);
-      }
-
-      this.aintLastSelected = new int[(this.MP3View.SelectedIndices.Count - 1) + 1];
-      this.MP3View.SelectedIndices.CopyTo(this.aintLastSelected, 0);
-    }
-
-    private void enumerateInFilename(object sender)
-    {
-      ((ToolStripMenuItem)sender).Checked ^= true;
-
-      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
-        this.aintLastSelected = null;
-
-      Declarations.objSettings.EnumFile ^= true;
-
-      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
-      {
-        this.vintEnumCount = Declarations.objSettings.FilenumberStart;
-        this.mnutEnumerateCounter.Text = StringType.FromInteger(this.vintEnumCount);
-      }
-
-      this.Enumerate();
-    }
-
-    private void enumerateInTAGVer1(object sender)
-    {
-      ((ToolStripMenuItem)sender).Checked ^= true;
-
-      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
-        this.aintLastSelected = null;
-
-      Declarations.objSettings.EnumVer1 ^= true;
-
-      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
-      {
-        this.vintEnumCount = Declarations.objSettings.FilenumberStart;
-        this.mnutEnumerateCounter.Text = StringType.FromInteger(this.vintEnumCount);
-      }
-
-      this.Enumerate();
-    }
-
-    private void enumerateInTAGVer2(object sender)
-    {
-      ((ToolStripMenuItem)sender).Checked ^= true;
-
-      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
-        this.aintLastSelected = null;
-
-      Declarations.objSettings.EnumVer2 ^= true;
-
-
-      if (!((Declarations.objSettings.EnumFile | Declarations.objSettings.EnumVer1) | Declarations.objSettings.EnumVer2))
-      {
-        this.vintEnumCount = Declarations.objSettings.FilenumberStart;
-        this.mnutEnumerateCounter.Text = StringType.FromInteger(this.vintEnumCount);
-      }
-
-      this.Enumerate();
-    }
-
-    private void FolderRenameCB(ref frmProgress frmProg)
-    {
-      IEnumerator enumerator = null;
-      frmProg.btnCancel.Enabled = false;
-      string oldValue = frmProg.String01;
-      string newValue = frmProg.String02;
-
-      try
-      {
-        enumerator = Declarations.MP3s.GetEnumerator();
-
-        while (enumerator.MoveNext())
-        {
-          MP3 current = (MP3)enumerator.Current;
-          current.CurrentFullName = current.CurrentFullName.Replace(oldValue, newValue);
-
-          if (!File.Exists(current.FI.FullName))
-          {
-            string path = current.CurrentFullName.Substring(0, current.CurrentFullName.LastIndexOf(@"\")) + @"\" + current.FI.Name;
-
-            if (File.Exists(path))
-              current.FI = new FileInfo(path);
-          }
-
-          frmProg.ProgressBar.PerformStep();
-        }
-      }
-      finally
-      {
-        if (enumerator is IDisposable)
-          ((IDisposable)enumerator).Dispose();
-      }
-    }
-
-    private void GetFiles([Optional, DefaultParameterValue(null)] ArrayList alstFolders, [Optional, DefaultParameterValue(true)] bool vbooClear, [Optional, DefaultParameterValue(true)] bool vbooFill)
-    {
-      ArrayList list = new ArrayList();
-
-      try
-      {
-        if (this.GetFilesTimeThread != null)
-          this.GetFilesTimeThread.Abort();
-      }
-      catch (Exception exception1)
-      {
-        ProjectData.SetProjectError(exception1);
-        Exception exception = exception1;
-        ProjectData.ClearProjectError();
-      }
-
-      try
-      {
-        if (this.CalcAudioCheckSumThread != null)
-        {
-          this.CalcAudioCheckSumThread.Abort();
-          this.CalcAudioCheckSumThread.Join();
-        }
-      }
-      catch (Exception exception4)
-      {
-        ProjectData.SetProjectError(exception4);
-        Exception exception2 = exception4;
-        ProjectData.ClearProjectError();
-      }
-
-      if (vbooClear)
-      {
-        this.MP3View.Items.Clear();
-        Declarations.MP3s.Clear();
-      }
-
-      if (alstFolders == null)
-      {
-        alstFolders = new ArrayList();
-        alstFolders.Add(Declarations.objSettings.CurrentPath);
-      }
-
-      Form ownerForm = this;
-      frmProgress.Callback cB = new frmProgress.Callback(this.ScanCB);
-      frmProgress progress = new frmProgress(0, list.Count, 1, ref ownerForm, ref cB)
-      {
-        List = list,
-        ListHelp = alstFolders
-      };
-
-      progress.SetStateScan();
-      progress.ShowDialog(this);
-      this.vintHelpCount = 0;
-      this.GetFilesTimeThread = new Thread(new ThreadStart(this.CalcGetTime));
-      this.GetFilesTimeThread.IsBackground = true;
-      this.GetFilesTimeThread.Priority = ThreadPriority.BelowNormal;
-      this.GetFilesTimeThread.Start();
-      ownerForm = this;
-      cB = new frmProgress.Callback(this.GetFilesCB);
-
-      progress = new frmProgress(0, list.Count, 1, ref ownerForm, ref cB)
-      {
-        List = list
-      };
-
-      progress.SetStateRead();
-      progress.ShowDialog(this);
-
-      try
-      {
-        this.GetFilesTimeThread.Abort();
-      }
-      catch (Exception exception5)
-      {
-        ProjectData.SetProjectError(exception5);
-        Exception exception3 = exception5;
-        ProjectData.ClearProjectError();
-      }
-
-      if (vbooFill)
-        this.MP3View_FillColumns(ref Declarations.MP3s);
-    }
-
-    private void GetFilesCB(ref frmProgress frmProg)
-    {
-      int num3 = 0;
-      int count = frmProg.List.Count;
-      int vintHelpCount = 0;
-
-      var enumerator = frmProg.List.GetEnumerator();
-
-      while (enumerator.MoveNext())
-      {
-        string vstrFullFilename = StringType.FromObject(enumerator.Current);
-        Application.DoEvents();
-
-        if (frmProg.Canceled)
-          return;
-
-        frmProg.lblInfo.Text = vstrFullFilename.Replace("&", "&&");
-        MP3 mp = new MP3(vstrFullFilename);
-        if (mp.ExploreMP3())
-          Declarations.MP3s.Add(mp);
-        if (vintHelpCount != this.vintHelpCount)
-        {
-          vintHelpCount = this.vintHelpCount;
-          try
-          {
-            if (Declarations.MP3s.Count > 0)
-              num3 = (count - Declarations.MP3s.Count) / (Declarations.MP3s.Count / vintHelpCount);
-          }
-          catch (Exception exception1)
-          {
-            ProjectData.SetProjectError(exception1);
-            Exception exception = exception1;
-            ProjectData.ClearProjectError();
-          }
-          int num6 = num3 / 3600;
-          int num5 = (num3 / 60) % 60;
-          int num4 = num3 % 60;
-          frmProg.State.Text = StringType.FromObject(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(ObjectType.StrCatObj(Declarations.objResources.ResStrings["Read"], " ("), num6.ToString().PadLeft(2, '0')), ":"), num5.ToString().PadLeft(2, '0')), ":"), num4.ToString().PadLeft(2, '0')), ")"));
-        }
-        frmProg.ProgressBar.PerformStep();
-        mp = null;
-      }
-    }
-
-    private void MoveFiles()
-    {
-      string path = "";
-      string vLeft = "";
-      bool flag = false;
-      do
-      {
-        if (this.CheckAllChanged())
-        {
-          switch (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["ChangesNotSaved"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.YesNoCancel, null))
-          {
-            case MsgBoxResult.Cancel:
-              return;
-
-            case MsgBoxResult.Yes:
-              this.SaveChanges();
-              if (!this.CheckAllChanged())
-                flag = true;
-              break;
-
-            case MsgBoxResult.No:
-              flag = true;
-              break;
-          }
-        }
-        else
-          flag = true;
-      }
-      while (!flag);
-      this.FolderBrowserDialog.Description = StringType.FromObject(Declarations.objResources.ResStrings["FileMoveText"]);
-      this.FolderBrowserDialog.SelectedPath = Declarations.objSettings.MoveCopyPath;
-      if (this.FolderBrowserDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
-      {
-        path = this.FolderBrowserDialog.SelectedPath;
-        if (Directory.Exists(path))
-        {
-          try
-          {
-            this.CalcAudioCheckSumThread.Abort();
-            this.CalcAudioCheckSumThread.Join();
-          }
-          catch (Exception exception1)
-          {
-            ProjectData.SetProjectError(exception1);
-            Exception exception = exception1;
-            ProjectData.ClearProjectError();
-          }
-          foreach (ListViewItem item in this.MP3View.SelectedItems)
-          {
-            vLeft = StringType.FromObject(ObjectType.StrCatObj(vLeft, ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "FI", new object[0], null, null), null, "Fullname", new object[0], null, null), "\0")));
-          }
-          if (Id3TagIT_Main.ShellFileOp(vLeft, path, Declarations.ShellOperation.MoveOp, Declarations.ShellOperationFlags.FilesOnly | Declarations.ShellOperationFlags.AllowUndo, this))
-          {
-            if (!path.StartsWith(Declarations.objSettings.CurrentPath))
-            {
-              this.MP3View.BeginUpdate();
-              foreach (ListViewItem item in this.MP3View.SelectedItems)
-              {
-                Declarations.MP3s.Remove(RuntimeHelpers.GetObjectValue(item.Tag));
-                this.MP3View.Items.Remove(item);
-              }
-              this.MP3View.EndUpdate();
-              this.AudioCheckSumCalculation();
-            }
-            else
-              this.GetFiles(null, true, true);
-          }
-          else
-            this.GetFiles(null, true, true);
-          this.Focus();
-          Declarations.objSettings.MoveCopyPath = path;
-        }
-      }
-    }
-
-    public void MP3View_AddColumns()
-    {
-      int num;
-      this.MP3View.BeginUpdate();
-      this.MP3View.Items.Clear();
-      this.MP3View.Columns.Clear();
-      this.colHFilename.Text = StringType.FromObject(Declarations.objResources.ResStrings["Col01"]);
-      this.colHFilename.TextAlign = HorizontalAlignment.Left;
-      this.MP3View.Columns.Add(this.colHFilename);
-      int num4 = Declarations.objSettings.Columns.Rows.Count - 1;
-      for (num = 0; num <= num4; num++)
-      {
-        DataRow dataRo = Declarations.objSettings.Columns.Rows[num];
-        object obj3 = dataRo["ID"];
-        if (ObjectType.ObjTst(obj3, 1, false) == 0)
-          this.colHFilename.Width = IntegerType.FromObject(dataRo["Width"]);
-        else if (ObjectType.ObjTst(obj3, 2, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHSubDir, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 3, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHTAGVer1, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 4, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHTAGVer2, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 5, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHArtist, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 6, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHTitle, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 7, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHAlbum, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 8, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHTrack, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 9, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHPosMedia, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 10, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHComment, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 11, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHGenre, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 12, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHYear, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 13, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHRating, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 14, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHDuration, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 15, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHBitrate, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 0x10, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHVBR, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 0x11, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHSamplerate, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 0x12, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHChannel, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 0x13, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHVersion, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 20, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHDate, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 0x15, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHComposer, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 0x16, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHFileSize, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 0x17, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHBPM, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 0x18, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHPicCount, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 0x19, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHAudioCheckSum, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-        else if (ObjectType.ObjTst(obj3, 0x1a, false) == 0)
-          this.MP3View_BuildColumns(ref this.colHCreateDate, dataRo, StringType.FromObject(Declarations.objResources.ResStrings["Col" + dataRo["ID"].ToString().PadLeft(2, '0')]));
-      }
-      if (ObjectType.ObjTst(Declarations.objSettings.Columns.Rows[0]["ID"], 1, false) != 0)
-      {
-        int[] sortOrder = new int[(Declarations.objSettings.Columns.Rows.Count - 1) + 1];
-        int num2 = 1;
-        int num3 = Declarations.objSettings.Columns.Rows.Count - 1;
-        for (num = 0; num <= num3; num++)
-        {
-          DataRow row2 = Declarations.objSettings.Columns.Rows[num];
-          object obj2 = row2["ID"];
-          if (ObjectType.ObjTst(obj2, 1, false) == 0)
-            sortOrder[num] = 0;
-          else
-          {
-            sortOrder[num] = num2;
-            num2++;
-          }
-        }
-        Id3TagIT_Main.SetColumnOrder(this.MP3View, sortOrder);
-      }
-      this.MP3View.EndUpdate();
     }
 
     private void Multi1CB(ref frmProgress frmProg)
@@ -3499,35 +3859,6 @@ Label_0B93:
       }
     }
 
-    private void PlayFile()
-    {
-      string vLeft = "";
-      var process2 = new Process();
-
-      foreach (ListViewItem item3 in this.MP3View.SelectedItems)
-        vLeft = StringType.FromObject(ObjectType.StrCatObj(vLeft, ObjectType.StrCatObj(LateBinding.LateGet(LateBinding.LateGet(item3.Tag, null, "FI", new object[0], null, null), null, "FullName", new object[0], null, null), "\r\n")));
-
-      if (StringType.StrCmp(vLeft, "", false) != 0)
-      {
-        string str3 = Id3TagIT_Main.CreateTempFile(Encoding.Default.GetBytes(vLeft), "m3u");
-        process2.StartInfo.UseShellExecute = true;
-        process2.StartInfo.FileName = str3;
-
-        try
-        {
-          process2.StartInfo.Verb = Declarations.objSettings.Play;
-        }
-        catch (Exception exception8)
-        {
-          ProjectData.SetProjectError(exception8);
-          process2.StartInfo.Verb = "open";
-          ProjectData.ClearProjectError();
-        }
-
-        process2.Start();
-      }
-    }
-
     private void QueryFreeDb()
     {
       int num2 = 0;
@@ -3620,66 +3951,6 @@ Label_0B93:
           }
         }
         frmProg.ProgressBar.PerformStep();
-      }
-    }
-
-    private void RemoveV1Tag()
-    {
-      ArrayList list7 = new ArrayList();
-
-      if (this.MP3View.SelectedItems.Count == 0)
-      {
-        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-        return;
-      }
-
-      if (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["TAGRemove"], null, "Replace", new object[] { "%1", "1" }, null, null), null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.OkCancel, null) == MsgBoxResult.Ok)
-      {
-        this.MP3View.BeginUpdate();
-
-        var form = (Form)this;
-        var callback = new frmProgress.Callback(this.Remove1CB);
-
-        frmProgress progress6 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback);
-        progress6.SetStateRemoveTAG();
-        progress6.List = list7;
-        progress6.ShowDialog(this);
-        this.MP3View.EndUpdate();
-
-        if (list7.Count > 0)
-        {
-          Declarations.UNDOList.Add(list7);
-          this.UnDoEnable(true, true);
-        }
-      }
-    }
-
-    private void RemoveV2Tag()
-    {
-      ArrayList list8 = new ArrayList();
-
-      if (this.MP3View.SelectedItems.Count == 0)
-      {
-        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-        return;
-      }
-
-      if (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["TAGRemove"], null, "Replace", new object[] { "%1", "2" }, null, null), null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.OkCancel, null) == MsgBoxResult.Ok)
-      {
-        this.MP3View.BeginUpdate();
-        var form = (Form)this;
-        var callback = new frmProgress.Callback(this.Remove2CB);
-        frmProgress progress7 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback);
-        progress7.SetStateRemoveTAG();
-        progress7.List = list8;
-        progress7.ShowDialog(this);
-        this.MP3View.EndUpdate();
-
-        if (list8.Count > 0)
-        {
-          Declarations.UNDOList.Add(list8);
-          this.UnDoEnable(true, true);
-        }
       }
     }
 
@@ -3886,15 +4157,6 @@ Label_0B93:
       this.Timer.Start();
     }
 
-    //this.NavigationPan.RecalcLayout();
-    //this.NavigationPan.Refresh();
-    // this.BarGroupTools.Refresh();
-    // this.BarGroupEdit.Refresh();
-    // this.BarGroupPicture.Refresh();
-    //this.BarGroupTools.Text = StringType.FromObject(Declarations.objResources.ResStrings["ToolsPan"]);
-    //this.BarGroupEdit.Text = StringType.FromObject(Declarations.objResources.ResStrings["QuickEditPan"]);
-    //this.BarGroupPicture.Text = StringType.FromObject(Declarations.objResources.ResStrings["PicturePan"]);
-
     private void SplitArtist1CB(ref frmProgress frmProg)
     {
       string str2 = frmProg.String01;
@@ -3984,7 +4246,7 @@ Label_0B93:
       }
     }
 
-    private void SwapArtistAlbum1CB(ref frmProgress frmProg)
+    private void SwapArtistAlbumV1CB(ref frmProgress frmProg)
     {
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
@@ -4041,7 +4303,7 @@ Label_0B93:
       }
     }
 
-    private void SwapArtistAlbum2CB(ref frmProgress frmProg)
+    private void SwapArtistAlbumV2CB(ref frmProgress frmProg)
     {
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
@@ -4099,47 +4361,7 @@ Label_0B93:
       }
     }
 
-    private void SwapArtistAlbumV1()
-    {
-      Form form;
-      frmProgress.Callback callback;
-      ArrayList list11 = new ArrayList();
-      this.MP3View.BeginUpdate();
-      form = this;
-      callback = new frmProgress.Callback(this.SwapArtistAlbum1CB);
-      frmProgress progress10 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list11 };
-      progress10.SetStateSwap();
-      progress10.ShowDialog(this);
-      this.MP3View.EndUpdate();
-
-      if (list11.Count > 0)
-      {
-        Declarations.UNDOList.Add(list11);
-        this.UnDoEnable(true, true);
-      }
-    }
-
-    private void SwapArtistAlbumV2()
-    {
-      Form form;
-      frmProgress.Callback callback;
-      ArrayList list12 = new ArrayList();
-      this.MP3View.BeginUpdate();
-      form = this;
-      callback = new frmProgress.Callback(this.SwapArtistAlbum2CB);
-      frmProgress progress11 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list12 };
-      progress11.SetStateSwap();
-      progress11.ShowDialog(this);
-      this.MP3View.EndUpdate();
-
-      if (list12.Count > 0)
-      {
-        Declarations.UNDOList.Add(list12);
-        this.UnDoEnable(true, true);
-      }
-    }
-
-    private void SwapArtistTitle1CB(ref frmProgress frmProg)
+    private void SwapArtistTitleV1CB(ref frmProgress frmProg)
     {
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
@@ -4211,7 +4433,7 @@ Label_0B93:
       }
     }
 
-    private void SwapArtistTitle2CB(ref frmProgress frmProg)
+    private void SwapArtistTitleV2CB(ref frmProgress frmProg)
     {
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
@@ -4283,47 +4505,7 @@ Label_0B93:
       }
     }
 
-    private void SwapArtistTitleV1()
-    {
-      Form form;
-      frmProgress.Callback callback;
-      ArrayList list9 = new ArrayList();
-      this.MP3View.BeginUpdate();
-      form = this;
-      callback = new frmProgress.Callback(this.SwapArtistTitle1CB);
-      frmProgress progress8 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list9 };
-      progress8.SetStateSwap();
-      progress8.ShowDialog(this);
-      this.MP3View.EndUpdate();
-
-      if (list9.Count > 0)
-      {
-        Declarations.UNDOList.Add(list9);
-        this.UnDoEnable(true, true);
-      }
-    }
-
-    private void SwapArtistTitleV2()
-    {
-      Form form;
-      frmProgress.Callback callback;
-      ArrayList list10 = new ArrayList();
-      this.MP3View.BeginUpdate();
-      form = this;
-      callback = new frmProgress.Callback(this.SwapArtistTitle2CB);
-      frmProgress progress9 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list10 };
-      progress9.SetStateSwap();
-      progress9.ShowDialog(this);
-      this.MP3View.EndUpdate();
-
-      if (list10.Count > 0)
-      {
-        Declarations.UNDOList.Add(list10);
-        this.UnDoEnable(true, true);
-      }
-    }
-
-    private void SwapTitleAlbum1CB(ref frmProgress frmProg)
+    private void SwapTitleAlbumV1CB(ref frmProgress frmProg)
     {
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
@@ -4395,7 +4577,7 @@ Label_0B93:
       }
     }
 
-    private void SwapTitleAlbum2CB(ref frmProgress frmProg)
+    private void SwapTitleAlbumV2CB(ref frmProgress frmProg)
     {
       foreach (ListViewItem item in this.MP3View.SelectedItems)
       {
@@ -4464,46 +4646,6 @@ Label_0B93:
         }
         this.UpdateListItem(item, false);
         frmProg.ProgressBar.PerformStep();
-      }
-    }
-
-    private void SwapTitleAlbumV1()
-    {
-      Form form;
-      frmProgress.Callback callback;
-      ArrayList list13 = new ArrayList();
-      this.MP3View.BeginUpdate();
-      form = this;
-      callback = new frmProgress.Callback(this.SwapTitleAlbum1CB);
-      frmProgress progress12 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list13 };
-      progress12.SetStateSwap();
-      progress12.ShowDialog(this);
-      this.MP3View.EndUpdate();
-
-      if (list13.Count > 0)
-      {
-        Declarations.UNDOList.Add(list13);
-        this.UnDoEnable(true, true);
-      }
-    }
-
-    private void SwapTitleAlbumV2()
-    {
-      Form form;
-      frmProgress.Callback callback;
-      ArrayList list14 = new ArrayList();
-      this.MP3View.BeginUpdate();
-      form = this;
-      callback = new frmProgress.Callback(this.SwapTitleAlbum2CB);
-      frmProgress progress13 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback) { List = list14 };
-      progress13.SetStateSwap();
-      progress13.ShowDialog(this);
-      this.MP3View.EndUpdate();
-
-      if (list14.Count > 0)
-      {
-        Declarations.UNDOList.Add(list14);
-        this.UnDoEnable(true, true);
       }
     }
 
@@ -4611,7 +4753,7 @@ Label_0B93:
       }
     }
 
-    public void UpdateListItem(ListViewItem lstItem, [Optional, DefaultParameterValue(false)] bool vbooClear)
+    public void UpdateListItem(ListViewItem lstItem, bool vbooClear = false)
     {
       object objectValue;
       MP3 tag = (MP3)lstItem.Tag;
@@ -4868,66 +5010,6 @@ Label_0DA3:
       new frmAbout().ShowDialog();
     }
 
-    private void artistAlbumToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      SwapArtistAlbumV1();
-    }
-
-    private void artistAlbumToolStripMenuItem1_Click(object sender, EventArgs e)
-    {
-      SwapArtistAlbumV2();
-    }
-
-    private void artistAlbumToolStripMenuItem2_Click(object sender, EventArgs e)
-    {
-      SwapArtistAlbumV1();
-    }
-
-    private void artistAlbumToolStripMenuItem3_Click(object sender, EventArgs e)
-    {
-      SwapArtistAlbumV2();
-    }
-
-    private void artistAlbumToolStripMenuItem4_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void artistAlbumToolStripMenuItem5_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void artistTitleToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      SwapArtistTitleV1();
-    }
-
-    private void artistTitleToolStripMenuItem1_Click(object sender, EventArgs e)
-    {
-      SwapArtistTitleV2();
-    }
-
-    private void artistTitleToolStripMenuItem2_Click(object sender, EventArgs e)
-    {
-      SwapArtistTitleV1();
-    }
-
-    private void artistTitleToolStripMenuItem3_Click(object sender, EventArgs e)
-    {
-      SwapArtistTitleV2();
-    }
-
-    private void artistTitleToolStripMenuItem4_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void artistTitleToolStripMenuItem5_Click(object sender, EventArgs e)
-    {
-
-    }
-
     private void btnSwitchV1V2_Click(object sender, EventArgs e)
     {
       if (this.vbytVersionToShow != 1)
@@ -4963,63 +5045,6 @@ Label_0DA3:
     {
       if (this.MP3View.Items.Count > 2)
         new frmCompareFileTAG(this).ShowDialog(this);
-    }
-
-    private void copyFilesToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      this.CopyFiles();
-    }
-
-    private void copyTAGVer1OnlyToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      foreach (ListViewItem item4 in this.MP3View.SelectedItems)
-      {
-        var ytag2 = new Declarations.CopyTAG((V1TAG)LateBinding.LateGet(LateBinding.LateGet(item4.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), null);
-        this.alstCopyPaste.Add(ytag2);
-      }
-    }
-
-    private void copyTAGVer1OnlyToolStripMenuItem1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void copyTAGVer1And2ToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      this.alstCopyPaste.Clear();
-
-      foreach (ListViewItem item6 in this.MP3View.SelectedItems)
-      {
-        var ytag2 = new Declarations.CopyTAG(
-          (V1TAG)LateBinding.LateGet(
-            LateBinding.LateGet(item6.Tag, null, "V1TAG", new object[0], null, null),
-              null, "Clone", new object[0], null, null),
-          (V2TAG)LateBinding.LateGet(
-            LateBinding.LateGet(item6.Tag, null, "V2TAG", new object[0], null, null),
-            null, "Clone", new object[0], null, null));
-        this.alstCopyPaste.Add(ytag2);
-      }
-    }
-
-    private void copyTAGVer1And2ToolStripMenuItem1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void copyTAGVer2OnlyToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      this.alstCopyPaste.Clear();
-
-      foreach (ListViewItem item5 in this.MP3View.SelectedItems)
-      {
-        var ytag2 = new Declarations.CopyTAG(null, (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item5.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null));
-        this.alstCopyPaste.Add(ytag2);
-      }
-    }
-
-    private void copyTAGVer2OnlyToolStripMenuItem1_Click(object sender, EventArgs e)
-    {
-
     }
 
     private void createFilelistPlaylistToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5071,99 +5096,39 @@ Label_0DA3:
       this.ErrorMsg.EndUpdate();
     }
 
-    private void ctxRightCopy_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void ctxRightDelete_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void ctxRightMove_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void ctxRightOpen_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void ctxRightPasteTAG_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void ctxRightPlay_Click(object sender, EventArgs e)
-    {
-      PlayFile();
-    }
-
-    private void ctxRightRename_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void deleteFilesToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      this.DeleteFiles();
-    }
-
     private void editLibrariesToolStripMenuItem_Click(object sender, EventArgs e)
     {
       new frmLibraries(this).ShowDialog(this);
     }
 
-    private void editTAGVer1ToolStripMenuItem1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void editTAGVer2ToolStripMenuItem1_Click(object sender, EventArgs e)
-    {
-
-    }
-
     private void enumerateInfilenameToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      enumerateInFilename(sender);
+      EnumerateInFilename(sender);
     }
 
     private void enumerateInFilenameToolStripMenuItem1_Click(object sender, EventArgs e)
     {
-      enumerateInFilename(sender);
+      EnumerateInFilename(sender);
     }
 
     private void enumerateInTAGVer1ToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      enumerateInTAGVer1(sender);
+      EnumerateInTAGVer1(sender);
     }
 
     private void enumerateInTAGVer1ToolStripMenuItem1_Click(object sender, EventArgs e)
     {
-      enumerateInTAGVer2(sender);
+      EnumerateInTAGVer2(sender);
     }
 
     private void enumerateInTAGVer2ToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      enumerateInTAGVer2(sender);
+      EnumerateInTAGVer2(sender);
     }
 
     private void enumerateInTAGVer2ToolStripMenuItem1_Click(object sender, EventArgs e)
     {
-      enumerateInTAGVer2(sender);
-    }
-
-    private void filenameTAGVer1ToolStripMenuItem1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void filenameTAGVer2ToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-
+      EnumerateInTAGVer2(sender);
     }
 
     private void filePropertiesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5377,83 +5342,6 @@ Label_0DA3:
       new frmTransfer(this).ShowDialog(this);
     }
 
-    private void mnuEditV1_Click(object sender, EventArgs e)
-    {
-      if (this.MP3View.SelectedItems.Count == 0)
-      {
-        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-        return;
-      }
-
-      var main = this;
-      new frmTAG1(ref main).ShowDialog(this);
-    }
-
-    private void mnuEditV2_Click(object sender, EventArgs e)
-    {
-      if (this.MP3View.SelectedItems.Count == 0)
-      {
-        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-        return;
-      }
-
-      var main = this;
-      new frmTAG2(ref main).ShowDialog(this);
-    }
-
-    private void mnuFileToTagV1_Click(object sender, EventArgs e)
-    {
-      if (this.MP3View.SelectedItems.Count == 0)
-      {
-        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-        return;
-      }
-
-      var main = this;
-      new frmFilenameToTAG1(ref main).ShowDialog(this);
-    }
-
-    private void mnuFileToTagV2_Click(object sender, EventArgs e)
-    {
-      if (this.MP3View.SelectedItems.Count == 0)
-      {
-        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-        return;
-      }
-
-      var main = this;
-      new frmFilenameToTAG2(ref main).ShowDialog(this);
-    }
-
-    private void mnuMultiEditV1_Click(object sender, EventArgs e)
-    {
-      if (this.MP3View.SelectedItems.Count == 0)
-      {
-        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-        return;
-      }
-
-      var main = this;
-      new frmTAG1Multi(ref main).ShowDialog(this);
-    }
-
-    private void mnuMultiEditV2_Click(object sender, EventArgs e)
-    {
-      if (this.MP3View.SelectedItems.Count == 0)
-      {
-        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-        return;
-      }
-
-      var main = this;
-      new frmTAG2Multi(ref main).ShowDialog();
-    }
-
-    private void mnuPlay_Click(object sender, EventArgs e)
-    {
-      PlayFile();
-    }
-
     private void mnuRedo_Click(object sender, EventArgs e)
     {
       if (Declarations.REDOList.Count > 0)
@@ -5481,16 +5369,6 @@ Label_0DA3:
         this.MP3View_FillColumns(ref Declarations.MP3s);
         progress2.Close();
       }
-    }
-
-    private void mnuRemoveV1_Click(object sender, EventArgs e)
-    {
-      RemoveV1Tag();
-    }
-
-    private void mnuRemoveV2_Click(object sender, EventArgs e)
-    {
-      RemoveV2Tag();
     }
 
     private void mnuRefresh_Click(object sender, EventArgs e)
@@ -5552,30 +5430,6 @@ Label_0DA3:
       this.SaveChanges();
     }
 
-    private void mnuTagToFileV1_Click(object sender, EventArgs e)
-    {
-      if (this.MP3View.SelectedItems.Count == 0)
-      {
-        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-        return;
-      }
-
-      var main = this;
-      new frmTAG1ToFilename(ref main).ShowDialog(this);
-    }
-
-    private void mnuTagToFileV2_Click(object sender, EventArgs e)
-    {
-      if (this.MP3View.SelectedItems.Count == 0)
-      {
-        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
-        return;
-      }
-
-      var main = this;
-      new frmTAG2ToFilename(ref main).ShowDialog(this);
-    }
-
     private void mnuUndo_Click(object sender, EventArgs e)
     {
       if (Declarations.UNDOList.Count > 0)
@@ -5602,35 +5456,6 @@ Label_0DA3:
       }
     }
 
-    private void moveFilesToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      this.MoveFiles();
-    }
-
-    private void multipleEditTAGVer1ToolStripMenuItem1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void multipleEditTAGVer2ToolStripMenuItem1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void openFileLocationToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      if (this.MP3View.SelectedItems.Count > 0)
-      {
-        var process = new Process();
-        var tag = (MP3)this.MP3View.FocusedItem.Tag;
-
-        process.StartInfo.UseShellExecute = true;
-        process.StartInfo.FileName = Path.GetDirectoryName(tag.FI.FullName);
-        process.StartInfo.Verb = "open";
-        process.Start();
-      }
-    }
-
     private void organizeFilesToolStripMenuItem_Click(object sender, EventArgs e)
     {
       var organize = new frmOrganize(this);
@@ -5643,54 +5468,6 @@ Label_0DA3:
       }
 
       this.AudioCheckSumCalculation();
-    }
-
-    private void pasteTAGInformationToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      ArrayList list6 = new ArrayList();
-
-      if (!((this.MP3View.SelectedItems.Count == 0) | (this.alstCopyPaste.Count == 0)))
-      {
-        Form form;
-        frmProgress.Callback callback;
-        this.MP3View.BeginUpdate();
-
-        if (this.alstCopyPaste.Count == 1)
-        {
-          form = this;
-          callback = new frmProgress.Callback(this.Paste1CB);
-          frmProgress progress3 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
-          progress3.SetStatePaste();
-          progress3.List = list6;
-          progress3.ShowDialog(this);
-        }
-        else if (this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count)
-        {
-          form = this;
-          callback = new frmProgress.Callback(this.Paste2CB);
-          frmProgress progress4 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
-          progress4.SetStatePaste();
-          progress4.List = list6;
-          progress4.ShowDialog(this);
-        }
-        else
-        {
-          form = this;
-          callback = new frmProgress.Callback(this.Paste3CB);
-          frmProgress progress5 = new frmProgress(0, IntegerType.FromObject(this.MP3View.SelectedItems.Count <= this.alstCopyPaste.Count ? this.MP3View.SelectedItems.Count : this.alstCopyPaste.Count), 1, ref form, ref callback);
-          progress5.SetStatePaste();
-          progress5.List = list6;
-          progress5.ShowDialog(this);
-        }
-
-        this.MP3View.EndUpdate();
-
-        if (list6.Count > 0)
-        {
-          Declarations.UNDOList.Add(list6);
-          this.UnDoEnable(true, true);
-        }
-      }
     }
 
     private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5809,19 +5586,6 @@ Label_0DA3:
       new frmRemoveFolders(this).ShowDialog(this);
     }
 
-    private void renameFilefolderToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      if (this.ActiveControl == this.FolderTree | this.ActiveControl == this.tabControl1 |
-          this.ActiveControl == this.tabFolders | this.ActiveControl == this.tabFavorites)
-      // FIXME - Do rename...
-      { } // this.FolderTree.SelectedNode.ExecuteShellCommand(ShellCommands.Rename);
-      else if (this.MP3View.FocusedItem != null)
-      {
-        this.MP3View.LabelEdit = true;
-        this.MP3View.FocusedItem.BeginEdit();
-      }
-    }
-
     private void removeSelectedFilesFromListToolStripMenuItem_Click(object sender, EventArgs e)
     {
       this.MP3View.ListViewItemSorter = null;
@@ -5836,24 +5600,64 @@ Label_0DA3:
       this.MP3View.EndUpdate();
     }
 
-    private void removeTAGVer1_Click(object sender, EventArgs e)
+    private void RemoveTagV1(object sender, EventArgs e)
     {
+      ArrayList list7 = new ArrayList();
 
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
+
+      if (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["TAGRemove"], null, "Replace", new object[] { "%1", "1" }, null, null), null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.OkCancel, null) == MsgBoxResult.Ok)
+      {
+        this.MP3View.BeginUpdate();
+
+        var form = (Form)this;
+        var callback = new frmProgress.Callback(this.Remove1CB);
+
+        frmProgress progress6 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback);
+        progress6.SetStateRemoveTAG();
+        progress6.List = list7;
+        progress6.ShowDialog(this);
+        this.MP3View.EndUpdate();
+
+        if (list7.Count > 0)
+        {
+          Declarations.UNDOList.Add(list7);
+          this.UnDoEnable(true, true);
+        }
+      }
     }
 
-    private void removeTAGVer1ToolStripMenuItem1_Click(object sender, EventArgs e)
+    private void RemoveTagV2(object sender, EventArgs e)
     {
-      RemoveV1Tag();
-    }
+      ArrayList list8 = new ArrayList();
 
-    private void removeTAGVer2ToolStripMenuItem_Click(object sender, EventArgs e)
-    {
+      if (this.MP3View.SelectedItems.Count == 0)
+      {
+        Interaction.MsgBox(RuntimeHelpers.GetObjectValue(Declarations.objResources.ResStrings["SelectFiles"]), MsgBoxStyle.Exclamation, null);
+        return;
+      }
 
-    }
+      if (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(Declarations.objResources.ResStrings["TAGRemove"], null, "Replace", new object[] { "%1", "2" }, null, null), null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Question | MsgBoxStyle.OkCancel, null) == MsgBoxResult.Ok)
+      {
+        this.MP3View.BeginUpdate();
+        var form = (Form)this;
+        var callback = new frmProgress.Callback(this.Remove2CB);
+        frmProgress progress7 = new frmProgress(0, this.MP3View.SelectedItems.Count, 1, ref form, ref callback);
+        progress7.SetStateRemoveTAG();
+        progress7.List = list8;
+        progress7.ShowDialog(this);
+        this.MP3View.EndUpdate();
 
-    private void removeTAGVer2ToolStripMenuItem2_Click(object sender, EventArgs e)
-    {
-      RemoveV2Tag();
+        if (list8.Count > 0)
+        {
+          Declarations.UNDOList.Add(list8);
+          this.UnDoEnable(true, true);
+        }
+      }
     }
 
     private void scanSubdirectoriesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -6018,46 +5822,6 @@ Label_0DA3:
     {
       Declarations.objSettings.SynchronizeTAGs ^= true;
       LateBinding.LateSet(sender, null, "Checked", new object[] { ObjectType.BitXorObj(LateBinding.LateGet(sender, null, "Checked", new object[0], null, null), true) }, null);
-    }
-
-    private void tAGVer1FilenameToolStripMenuItem1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void tAGVer2FilenameToolStripMenuItem1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void titleAlbumToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-      SwapTitleAlbumV1();
-    }
-
-    private void titleAlbumToolStripMenuItem1_Click(object sender, EventArgs e)
-    {
-      SwapTitleAlbumV2();
-    }
-
-    private void titleAlbumToolStripMenuItem2_Click(object sender, EventArgs e)
-    {
-      SwapTitleAlbumV1();
-    }
-
-    private void titleAlbumToolStripMenuItem3_Click(object sender, EventArgs e)
-    {
-      SwapTitleAlbumV2();
-    }
-
-    private void titleAlbumToolStripMenuItem4_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void titleAlbumToolStripMenuItem5_Click(object sender, EventArgs e)
-    {
-
     }
 
     private void transferConvertTAGsToolStripMenuItem_Click(object sender, EventArgs e)

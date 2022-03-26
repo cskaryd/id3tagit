@@ -888,7 +888,7 @@ namespace ID3_TagIT
             this.ctxRightCopyTAG,
             this.ctxRightPasteTAG});
       this.ctxRightClick.Name = "ctxRightClick";
-      this.ctxRightClick.Size = new System.Drawing.Size(266, 320);
+      this.ctxRightClick.Size = new System.Drawing.Size(266, 298);
       // 
       // ctxRightTag1
       // 
@@ -908,7 +908,7 @@ namespace ID3_TagIT
       this.editTAGVer1ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
       this.editTAGVer1ToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
       this.editTAGVer1ToolStripMenuItem1.Text = "Edit TAG Ver. &1";
-      this.editTAGVer1ToolStripMenuItem1.Click += new System.EventHandler(this.editTAGVer1ToolStripMenuItem1_Click);
+      this.editTAGVer1ToolStripMenuItem1.Click += new System.EventHandler(this.EditSingleTagV1);
       // 
       // multipleEditTAGVer1ToolStripMenuItem1
       // 
@@ -916,7 +916,7 @@ namespace ID3_TagIT
       this.multipleEditTAGVer1ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
       this.multipleEditTAGVer1ToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
       this.multipleEditTAGVer1ToolStripMenuItem1.Text = "&Multiple Edit TAG Ver. 1";
-      this.multipleEditTAGVer1ToolStripMenuItem1.Click += new System.EventHandler(this.multipleEditTAGVer1ToolStripMenuItem1_Click);
+      this.multipleEditTAGVer1ToolStripMenuItem1.Click += new System.EventHandler(this.EditMultiTagV1);
       // 
       // removeTAGVer1
       // 
@@ -924,7 +924,7 @@ namespace ID3_TagIT
       this.removeTAGVer1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F11)));
       this.removeTAGVer1.Size = new System.Drawing.Size(241, 22);
       this.removeTAGVer1.Text = "&Remove TAG Ver. 1";
-      this.removeTAGVer1.Click += new System.EventHandler(this.removeTAGVer1_Click);
+      this.removeTAGVer1.Click += new System.EventHandler(this.RemoveTagV1);
       // 
       // filenameTAGVer1ToolStripMenuItem1
       // 
@@ -932,7 +932,7 @@ namespace ID3_TagIT
       this.filenameTAGVer1ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
       this.filenameTAGVer1ToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
       this.filenameTAGVer1ToolStripMenuItem1.Text = "&Filename -> TAG Ver. 1";
-      this.filenameTAGVer1ToolStripMenuItem1.Click += new System.EventHandler(this.filenameTAGVer1ToolStripMenuItem1_Click);
+      this.filenameTAGVer1ToolStripMenuItem1.Click += new System.EventHandler(this.FilenameToTagV1);
       // 
       // tAGVer1FilenameToolStripMenuItem1
       // 
@@ -940,7 +940,7 @@ namespace ID3_TagIT
       this.tAGVer1FilenameToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
       this.tAGVer1FilenameToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
       this.tAGVer1FilenameToolStripMenuItem1.Text = "&TAG Ver. 1 -> Filename";
-      this.tAGVer1FilenameToolStripMenuItem1.Click += new System.EventHandler(this.tAGVer1FilenameToolStripMenuItem1_Click);
+      this.tAGVer1FilenameToolStripMenuItem1.Click += new System.EventHandler(this.TagToFilenameV1);
       // 
       // ctxRightTag2
       // 
@@ -960,7 +960,7 @@ namespace ID3_TagIT
       this.editTAGVer2ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
       this.editTAGVer2ToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
       this.editTAGVer2ToolStripMenuItem1.Text = "Edit TAG Ver. &2";
-      this.editTAGVer2ToolStripMenuItem1.Click += new System.EventHandler(this.editTAGVer2ToolStripMenuItem1_Click);
+      this.editTAGVer2ToolStripMenuItem1.Click += new System.EventHandler(this.EditSingleTagV2);
       // 
       // multipleEditTAGVer2ToolStripMenuItem1
       // 
@@ -968,7 +968,7 @@ namespace ID3_TagIT
       this.multipleEditTAGVer2ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
       this.multipleEditTAGVer2ToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
       this.multipleEditTAGVer2ToolStripMenuItem1.Text = "Multi&ple Edit TAG Ver. 2";
-      this.multipleEditTAGVer2ToolStripMenuItem1.Click += new System.EventHandler(this.multipleEditTAGVer2ToolStripMenuItem1_Click);
+      this.multipleEditTAGVer2ToolStripMenuItem1.Click += new System.EventHandler(this.EditMultiTagV2);
       // 
       // removeTAGVer2ToolStripMenuItem
       // 
@@ -976,7 +976,7 @@ namespace ID3_TagIT
       this.removeTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F12)));
       this.removeTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
       this.removeTAGVer2ToolStripMenuItem.Text = "Remo&ve TAG Ver. 2";
-      this.removeTAGVer2ToolStripMenuItem.Click += new System.EventHandler(this.removeTAGVer2ToolStripMenuItem_Click);
+      this.removeTAGVer2ToolStripMenuItem.Click += new System.EventHandler(this.RemoveTagV2);
       // 
       // filenameTAGVer2ToolStripMenuItem
       // 
@@ -984,7 +984,7 @@ namespace ID3_TagIT
       this.filenameTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
       this.filenameTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
       this.filenameTAGVer2ToolStripMenuItem.Text = "File&name -> TAG Ver. 2";
-      this.filenameTAGVer2ToolStripMenuItem.Click += new System.EventHandler(this.filenameTAGVer2ToolStripMenuItem_Click);
+      this.filenameTAGVer2ToolStripMenuItem.Click += new System.EventHandler(this.FilenameToTagV2);
       // 
       // tAGVer2FilenameToolStripMenuItem1
       // 
@@ -992,7 +992,7 @@ namespace ID3_TagIT
       this.tAGVer2FilenameToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
       this.tAGVer2FilenameToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
       this.tAGVer2FilenameToolStripMenuItem1.Text = "TA&G Ver. 2 -> Filename";
-      this.tAGVer2FilenameToolStripMenuItem1.Click += new System.EventHandler(this.tAGVer2FilenameToolStripMenuItem1_Click);
+      this.tAGVer2FilenameToolStripMenuItem1.Click += new System.EventHandler(this.TagToFilenameV2);
       // 
       // sepRight1
       // 
@@ -1016,7 +1016,7 @@ namespace ID3_TagIT
       this.artistTitleToolStripMenuItem5.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F1)));
       this.artistTitleToolStripMenuItem5.Size = new System.Drawing.Size(216, 22);
       this.artistTitleToolStripMenuItem5.Text = "Artist <-> Title";
-      this.artistTitleToolStripMenuItem5.Click += new System.EventHandler(this.artistTitleToolStripMenuItem5_Click);
+      this.artistTitleToolStripMenuItem5.Click += new System.EventHandler(this.SwapArtistTitleV1);
       // 
       // artistAlbumToolStripMenuItem5
       // 
@@ -1024,7 +1024,7 @@ namespace ID3_TagIT
       this.artistAlbumToolStripMenuItem5.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F2)));
       this.artistAlbumToolStripMenuItem5.Size = new System.Drawing.Size(216, 22);
       this.artistAlbumToolStripMenuItem5.Text = "Artist <-> Album";
-      this.artistAlbumToolStripMenuItem5.Click += new System.EventHandler(this.artistAlbumToolStripMenuItem5_Click);
+      this.artistAlbumToolStripMenuItem5.Click += new System.EventHandler(this.SwapArtistAlbumV1);
       // 
       // titleAlbumToolStripMenuItem5
       // 
@@ -1032,7 +1032,7 @@ namespace ID3_TagIT
       this.titleAlbumToolStripMenuItem5.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F3)));
       this.titleAlbumToolStripMenuItem5.Size = new System.Drawing.Size(216, 22);
       this.titleAlbumToolStripMenuItem5.Text = "Title <-> Album";
-      this.titleAlbumToolStripMenuItem5.Click += new System.EventHandler(this.titleAlbumToolStripMenuItem5_Click);
+      this.titleAlbumToolStripMenuItem5.Click += new System.EventHandler(this.SwapTitleAlbumV1);
       // 
       // ctxRightSwap2
       // 
@@ -1048,26 +1048,26 @@ namespace ID3_TagIT
       // artistTitleToolStripMenuItem4
       // 
       this.artistTitleToolStripMenuItem4.Name = "artistTitleToolStripMenuItem4";
-      this.artistTitleToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F5)));
+      this.artistTitleToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F4)));
       this.artistTitleToolStripMenuItem4.Size = new System.Drawing.Size(216, 22);
       this.artistTitleToolStripMenuItem4.Text = "Artist <-> Title";
-      this.artistTitleToolStripMenuItem4.Click += new System.EventHandler(this.artistTitleToolStripMenuItem4_Click);
+      this.artistTitleToolStripMenuItem4.Click += new System.EventHandler(this.SwapArtistTitleV2);
       // 
       // artistAlbumToolStripMenuItem4
       // 
       this.artistAlbumToolStripMenuItem4.Name = "artistAlbumToolStripMenuItem4";
-      this.artistAlbumToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F6)));
+      this.artistAlbumToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F5)));
       this.artistAlbumToolStripMenuItem4.Size = new System.Drawing.Size(216, 22);
       this.artistAlbumToolStripMenuItem4.Text = "Artist <-> Album";
-      this.artistAlbumToolStripMenuItem4.Click += new System.EventHandler(this.artistAlbumToolStripMenuItem4_Click);
+      this.artistAlbumToolStripMenuItem4.Click += new System.EventHandler(this.SwapArtistAlbumV2);
       // 
       // titleAlbumToolStripMenuItem4
       // 
       this.titleAlbumToolStripMenuItem4.Name = "titleAlbumToolStripMenuItem4";
-      this.titleAlbumToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F7)));
+      this.titleAlbumToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F6)));
       this.titleAlbumToolStripMenuItem4.Size = new System.Drawing.Size(216, 22);
       this.titleAlbumToolStripMenuItem4.Text = "Title <-> Album";
-      this.titleAlbumToolStripMenuItem4.Click += new System.EventHandler(this.titleAlbumToolStripMenuItem4_Click);
+      this.titleAlbumToolStripMenuItem4.Click += new System.EventHandler(this.SwapTitleAlbumV2);
       // 
       // sepRight2
       // 
@@ -1081,7 +1081,7 @@ namespace ID3_TagIT
       this.ctxRightPlay.ShortcutKeys = System.Windows.Forms.Keys.F9;
       this.ctxRightPlay.Size = new System.Drawing.Size(265, 22);
       this.ctxRightPlay.Text = "&Play";
-      this.ctxRightPlay.Click += new System.EventHandler(this.ctxRightPlay_Click);
+      this.ctxRightPlay.Click += new System.EventHandler(this.PlayFile);
       // 
       // sepRight3
       // 
@@ -1094,7 +1094,7 @@ namespace ID3_TagIT
       this.ctxRightOpen.Name = "ctxRightOpen";
       this.ctxRightOpen.Size = new System.Drawing.Size(265, 22);
       this.ctxRightOpen.Text = "&Open file location";
-      this.ctxRightOpen.Click += new System.EventHandler(this.ctxRightOpen_Click);
+      this.ctxRightOpen.Click += new System.EventHandler(this.OpenFileLocation);
       // 
       // ctxRightRename
       // 
@@ -1103,7 +1103,7 @@ namespace ID3_TagIT
       this.ctxRightRename.ShortcutKeys = System.Windows.Forms.Keys.F2;
       this.ctxRightRename.Size = new System.Drawing.Size(265, 22);
       this.ctxRightRename.Text = "&Rename file/folder";
-      this.ctxRightRename.Click += new System.EventHandler(this.ctxRightRename_Click);
+      this.ctxRightRename.Click += new System.EventHandler(this.RenameFileFolder);
       // 
       // sepRight4
       // 
@@ -1117,7 +1117,7 @@ namespace ID3_TagIT
       this.ctxRightMove.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
       this.ctxRightMove.Size = new System.Drawing.Size(265, 22);
       this.ctxRightMove.Text = "&Move files";
-      this.ctxRightMove.Click += new System.EventHandler(this.ctxRightMove_Click);
+      this.ctxRightMove.Click += new System.EventHandler(this.MoveFiles);
       // 
       // ctxRightCopy
       // 
@@ -1126,17 +1126,17 @@ namespace ID3_TagIT
       this.ctxRightCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
       this.ctxRightCopy.Size = new System.Drawing.Size(265, 22);
       this.ctxRightCopy.Text = "&Copy files";
-      this.ctxRightCopy.Click += new System.EventHandler(this.ctxRightCopy_Click);
+      this.ctxRightCopy.Click += new System.EventHandler(this.CopyFiles);
       // 
       // ctxRightDelete
       // 
       this.ctxRightDelete.Image = global::Properties.Resources.Delete;
       this.ctxRightDelete.Name = "ctxRightDelete";
-      this.ctxRightDelete.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+      this.ctxRightDelete.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.D)));
       this.ctxRightDelete.Size = new System.Drawing.Size(265, 22);
       this.ctxRightDelete.Text = "&Delete files";
-      this.ctxRightDelete.Click += new System.EventHandler(this.ctxRightDelete_Click);
+      this.ctxRightDelete.Click += new System.EventHandler(this.DeleteFiles);
       // 
       // sepRight5
       // 
@@ -1159,34 +1159,34 @@ namespace ID3_TagIT
       this.copyTAGVer1OnlyToolStripMenuItem1.Name = "copyTAGVer1OnlyToolStripMenuItem1";
       this.copyTAGVer1OnlyToolStripMenuItem1.Size = new System.Drawing.Size(263, 22);
       this.copyTAGVer1OnlyToolStripMenuItem1.Text = "Copy TAG Ver. &1 only";
-      this.copyTAGVer1OnlyToolStripMenuItem1.Click += new System.EventHandler(this.copyTAGVer1OnlyToolStripMenuItem1_Click);
+      this.copyTAGVer1OnlyToolStripMenuItem1.Click += new System.EventHandler(this.CopyTagVer1Only);
       // 
       // copyTAGVer2OnlyToolStripMenuItem1
       // 
       this.copyTAGVer2OnlyToolStripMenuItem1.Name = "copyTAGVer2OnlyToolStripMenuItem1";
       this.copyTAGVer2OnlyToolStripMenuItem1.Size = new System.Drawing.Size(263, 22);
       this.copyTAGVer2OnlyToolStripMenuItem1.Text = "Copy TAG Ver. &2 only";
-      this.copyTAGVer2OnlyToolStripMenuItem1.Click += new System.EventHandler(this.copyTAGVer2OnlyToolStripMenuItem1_Click);
+      this.copyTAGVer2OnlyToolStripMenuItem1.Click += new System.EventHandler(this.CopyTagVer2Only);
       // 
       // copyTAGVer1And2ToolStripMenuItem1
       // 
       this.copyTAGVer1And2ToolStripMenuItem1.Image = global::Properties.Resources.Copy;
       this.copyTAGVer1And2ToolStripMenuItem1.Name = "copyTAGVer1And2ToolStripMenuItem1";
-      this.copyTAGVer1And2ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+      this.copyTAGVer1And2ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.C)));
       this.copyTAGVer1And2ToolStripMenuItem1.Size = new System.Drawing.Size(263, 22);
       this.copyTAGVer1And2ToolStripMenuItem1.Text = "&Copy TAG Ver. 1 and 2";
-      this.copyTAGVer1And2ToolStripMenuItem1.Click += new System.EventHandler(this.copyTAGVer1And2ToolStripMenuItem1_Click);
+      this.copyTAGVer1And2ToolStripMenuItem1.Click += new System.EventHandler(this.CopyTagVer1And2);
       // 
       // ctxRightPasteTAG
       // 
       this.ctxRightPasteTAG.Image = global::Properties.Resources.Paste;
       this.ctxRightPasteTAG.Name = "ctxRightPasteTAG";
-      this.ctxRightPasteTAG.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+      this.ctxRightPasteTAG.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.V)));
       this.ctxRightPasteTAG.Size = new System.Drawing.Size(265, 22);
       this.ctxRightPasteTAG.Text = "Pa&ste TAG information";
-      this.ctxRightPasteTAG.Click += new System.EventHandler(this.ctxRightPasteTAG_Click);
+      this.ctxRightPasteTAG.Click += new System.EventHandler(this.PasteTagInformation);
       // 
       // ErrorMsg
       // 
@@ -1220,7 +1220,7 @@ namespace ID3_TagIT
       // 
       // pnlTools
       // 
-      this.pnlTools.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+      this.pnlTools.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
       this.pnlTools.Controls.Add(this.lnkToolsExpCol);
       this.pnlTools.Controls.Add(this.lblTools);
@@ -1256,7 +1256,7 @@ namespace ID3_TagIT
       // 
       // lstTools
       // 
-      this.lstTools.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+      this.lstTools.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
       this.lstTools.HideSelection = false;
       this.lstTools.Location = new System.Drawing.Point(6, 22);
@@ -1267,7 +1267,7 @@ namespace ID3_TagIT
       // 
       // pnlInformation
       // 
-      this.pnlInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+      this.pnlInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
       this.pnlInformation.Controls.Add(this.lnkInfoExpCol);
       this.pnlInformation.Controls.Add(this.txtInformation);
@@ -1290,7 +1290,7 @@ namespace ID3_TagIT
       // 
       // txtInformation
       // 
-      this.txtInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+      this.txtInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
       this.txtInformation.Location = new System.Drawing.Point(6, 22);
       this.txtInformation.Name = "txtInformation";
@@ -1313,7 +1313,7 @@ namespace ID3_TagIT
       // 
       // pnlPicture
       // 
-      this.pnlPicture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+      this.pnlPicture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
       this.pnlPicture.Controls.Add(this.lnkPictureExpCol);
       this.pnlPicture.Controls.Add(this.picCover);
@@ -1359,7 +1359,7 @@ namespace ID3_TagIT
       // 
       // pnlQuickEdit
       // 
-      this.pnlQuickEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+      this.pnlQuickEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
       this.pnlQuickEdit.Controls.Add(this.btnQuickEditMore);
       this.pnlQuickEdit.Controls.Add(this.lnkQuickEditExpCol);
@@ -1379,7 +1379,7 @@ namespace ID3_TagIT
       // 
       // btnQuickEditMore
       // 
-      this.btnQuickEditMore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+      this.btnQuickEditMore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
       this.btnQuickEditMore.Location = new System.Drawing.Point(6, 175);
       this.btnQuickEditMore.Name = "btnQuickEditMore";
@@ -1401,7 +1401,7 @@ namespace ID3_TagIT
       // 
       // btnQuickEditOK
       // 
-      this.btnQuickEditOK.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+      this.btnQuickEditOK.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
       this.btnQuickEditOK.Location = new System.Drawing.Point(6, 147);
       this.btnQuickEditOK.Name = "btnQuickEditOK";
@@ -1413,7 +1413,7 @@ namespace ID3_TagIT
       // 
       // txtQETitle
       // 
-      this.txtQETitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+      this.txtQETitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
       this.txtQETitle.Location = new System.Drawing.Point(6, 80);
       this.txtQETitle.Name = "txtQETitle";
@@ -1422,7 +1422,7 @@ namespace ID3_TagIT
       // 
       // txtQEAlbum
       // 
-      this.txtQEAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+      this.txtQEAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
       this.txtQEAlbum.Location = new System.Drawing.Point(6, 120);
       this.txtQEAlbum.Name = "txtQEAlbum";
@@ -1449,7 +1449,7 @@ namespace ID3_TagIT
       // 
       // cboQEArtist
       // 
-      this.cboQEArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+      this.cboQEArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
       this.cboQEArtist.FormattingEnabled = true;
       this.cboQEArtist.Location = new System.Drawing.Point(6, 39);
@@ -1611,7 +1611,7 @@ namespace ID3_TagIT
       this.playToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
       this.playToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.playToolStripMenuItem.Text = "&Play";
-      this.playToolStripMenuItem.Click += new System.EventHandler(this.mnuPlay_Click);
+      this.playToolStripMenuItem.Click += new System.EventHandler(this.PlayFile);
       // 
       // toolStripSeparator4
       // 
@@ -1625,7 +1625,7 @@ namespace ID3_TagIT
       this.moveFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
       this.moveFilesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.moveFilesToolStripMenuItem.Text = "&Move files";
-      this.moveFilesToolStripMenuItem.Click += new System.EventHandler(this.moveFilesToolStripMenuItem_Click);
+      this.moveFilesToolStripMenuItem.Click += new System.EventHandler(this.MoveFiles);
       // 
       // copyFilesToolStripMenuItem
       // 
@@ -1634,17 +1634,17 @@ namespace ID3_TagIT
       this.copyFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
       this.copyFilesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.copyFilesToolStripMenuItem.Text = "&Copy files";
-      this.copyFilesToolStripMenuItem.Click += new System.EventHandler(this.copyFilesToolStripMenuItem_Click);
+      this.copyFilesToolStripMenuItem.Click += new System.EventHandler(this.CopyFiles);
       // 
       // deleteFilesToolStripMenuItem
       // 
       this.deleteFilesToolStripMenuItem.Image = global::Properties.Resources.Delete;
       this.deleteFilesToolStripMenuItem.Name = "deleteFilesToolStripMenuItem";
-      this.deleteFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+      this.deleteFilesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.D)));
       this.deleteFilesToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.deleteFilesToolStripMenuItem.Text = "&Delete files";
-      this.deleteFilesToolStripMenuItem.Click += new System.EventHandler(this.deleteFilesToolStripMenuItem_Click);
+      this.deleteFilesToolStripMenuItem.Click += new System.EventHandler(this.DeleteFiles);
       // 
       // organizeFilesToolStripMenuItem
       // 
@@ -1665,13 +1665,13 @@ namespace ID3_TagIT
       this.openFileLocationToolStripMenuItem.Name = "openFileLocationToolStripMenuItem";
       this.openFileLocationToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.openFileLocationToolStripMenuItem.Text = "&Open file location";
-      this.openFileLocationToolStripMenuItem.Click += new System.EventHandler(this.openFileLocationToolStripMenuItem_Click);
+      this.openFileLocationToolStripMenuItem.Click += new System.EventHandler(this.OpenFileLocation);
       // 
       // removeEmptyFoldersToolStripMenuItem
       // 
       this.removeEmptyFoldersToolStripMenuItem.Image = global::Properties.Resources.DeleteFolder;
       this.removeEmptyFoldersToolStripMenuItem.Name = "removeEmptyFoldersToolStripMenuItem";
-      this.removeEmptyFoldersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+      this.removeEmptyFoldersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.F)));
       this.removeEmptyFoldersToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.removeEmptyFoldersToolStripMenuItem.Text = "R&emove empty folders";
@@ -1684,7 +1684,7 @@ namespace ID3_TagIT
       this.renameFilefolderToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
       this.renameFilefolderToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
       this.renameFilefolderToolStripMenuItem.Text = "&Rename file/folder";
-      this.renameFilefolderToolStripMenuItem.Click += new System.EventHandler(this.renameFilefolderToolStripMenuItem_Click);
+      this.renameFilefolderToolStripMenuItem.Click += new System.EventHandler(this.RenameFileFolder);
       // 
       // filePropertiesToolStripMenuItem
       // 
@@ -1743,7 +1743,7 @@ namespace ID3_TagIT
       this.redoToolStripMenuItem.Enabled = false;
       this.redoToolStripMenuItem.Image = global::Properties.Resources.Redo;
       this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-      this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+      this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.Z)));
       this.redoToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
       this.redoToolStripMenuItem.Text = "&Redo";
@@ -1785,7 +1785,7 @@ namespace ID3_TagIT
       this.artistTitleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F1)));
       this.artistTitleToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
       this.artistTitleToolStripMenuItem.Text = "Artist <-> &Title";
-      this.artistTitleToolStripMenuItem.Click += new System.EventHandler(this.artistTitleToolStripMenuItem_Click);
+      this.artistTitleToolStripMenuItem.Click += new System.EventHandler(this.SwapArtistTitleV1);
       // 
       // artistAlbumToolStripMenuItem
       // 
@@ -1793,7 +1793,7 @@ namespace ID3_TagIT
       this.artistAlbumToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F2)));
       this.artistAlbumToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
       this.artistAlbumToolStripMenuItem.Text = "&Artist <-> Album";
-      this.artistAlbumToolStripMenuItem.Click += new System.EventHandler(this.artistAlbumToolStripMenuItem_Click);
+      this.artistAlbumToolStripMenuItem.Click += new System.EventHandler(this.SwapArtistAlbumV1);
       // 
       // titleAlbumToolStripMenuItem
       // 
@@ -1801,7 +1801,7 @@ namespace ID3_TagIT
       this.titleAlbumToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F3)));
       this.titleAlbumToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
       this.titleAlbumToolStripMenuItem.Text = "Title <-> Al&bum";
-      this.titleAlbumToolStripMenuItem.Click += new System.EventHandler(this.titleAlbumToolStripMenuItem_Click);
+      this.titleAlbumToolStripMenuItem.Click += new System.EventHandler(this.SwapTitleAlbumV2);
       // 
       // swapTAGVer2EntriesToolStripMenuItem
       // 
@@ -1820,7 +1820,7 @@ namespace ID3_TagIT
       this.artistTitleToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F4)));
       this.artistTitleToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
       this.artistTitleToolStripMenuItem1.Text = "Artist <-> &Title";
-      this.artistTitleToolStripMenuItem1.Click += new System.EventHandler(this.artistTitleToolStripMenuItem1_Click);
+      this.artistTitleToolStripMenuItem1.Click += new System.EventHandler(this.SwapArtistTitleV2);
       // 
       // artistAlbumToolStripMenuItem1
       // 
@@ -1828,7 +1828,7 @@ namespace ID3_TagIT
       this.artistAlbumToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F5)));
       this.artistAlbumToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
       this.artistAlbumToolStripMenuItem1.Text = "&Artist <-> Album";
-      this.artistAlbumToolStripMenuItem1.Click += new System.EventHandler(this.artistAlbumToolStripMenuItem1_Click);
+      this.artistAlbumToolStripMenuItem1.Click += new System.EventHandler(this.SwapArtistAlbumV2);
       // 
       // titleAlbumToolStripMenuItem1
       // 
@@ -1836,7 +1836,7 @@ namespace ID3_TagIT
       this.titleAlbumToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F6)));
       this.titleAlbumToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
       this.titleAlbumToolStripMenuItem1.Text = "Title <-> Al&bum";
-      this.titleAlbumToolStripMenuItem1.Click += new System.EventHandler(this.titleAlbumToolStripMenuItem1_Click);
+      this.titleAlbumToolStripMenuItem1.Click += new System.EventHandler(this.SwapTitleAlbumV2);
       // 
       // toolStripSeparator20
       // 
@@ -1846,7 +1846,7 @@ namespace ID3_TagIT
       // splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem
       // 
       this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem.Name = "splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem";
-      this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F4)));
+      this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F7)));
       this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
       this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem.Text = "S&plit TAG Ver. 1 Artist into Artist and Title";
       this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem.Click += new System.EventHandler(this.splitTAGVer1ArtistIntoArtistAndTitleToolStripMenuItem_Click);
@@ -1879,34 +1879,34 @@ namespace ID3_TagIT
       this.copyTAGVer1OnlyToolStripMenuItem.Name = "copyTAGVer1OnlyToolStripMenuItem";
       this.copyTAGVer1OnlyToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
       this.copyTAGVer1OnlyToolStripMenuItem.Text = "Copy TAG Ver. &1 only";
-      this.copyTAGVer1OnlyToolStripMenuItem.Click += new System.EventHandler(this.copyTAGVer1OnlyToolStripMenuItem_Click);
+      this.copyTAGVer1OnlyToolStripMenuItem.Click += new System.EventHandler(this.CopyTagVer1Only);
       // 
       // copyTAGVer2OnlyToolStripMenuItem
       // 
       this.copyTAGVer2OnlyToolStripMenuItem.Name = "copyTAGVer2OnlyToolStripMenuItem";
       this.copyTAGVer2OnlyToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
       this.copyTAGVer2OnlyToolStripMenuItem.Text = "Copy TAG Ver. &2 only";
-      this.copyTAGVer2OnlyToolStripMenuItem.Click += new System.EventHandler(this.copyTAGVer2OnlyToolStripMenuItem_Click);
+      this.copyTAGVer2OnlyToolStripMenuItem.Click += new System.EventHandler(this.CopyTagVer2Only);
       // 
       // copyTAGVer1And2ToolStripMenuItem
       // 
       this.copyTAGVer1And2ToolStripMenuItem.Image = global::Properties.Resources.Copy;
       this.copyTAGVer1And2ToolStripMenuItem.Name = "copyTAGVer1And2ToolStripMenuItem";
-      this.copyTAGVer1And2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+      this.copyTAGVer1And2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.C)));
       this.copyTAGVer1And2ToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
       this.copyTAGVer1And2ToolStripMenuItem.Text = "&Copy TAG Ver. 1 and 2";
-      this.copyTAGVer1And2ToolStripMenuItem.Click += new System.EventHandler(this.copyTAGVer1And2ToolStripMenuItem_Click);
+      this.copyTAGVer1And2ToolStripMenuItem.Click += new System.EventHandler(this.CopyTagVer1And2);
       // 
       // pasteTAGInformationToolStripMenuItem
       // 
       this.pasteTAGInformationToolStripMenuItem.Image = global::Properties.Resources.Paste;
       this.pasteTAGInformationToolStripMenuItem.Name = "pasteTAGInformationToolStripMenuItem";
-      this.pasteTAGInformationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+      this.pasteTAGInformationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.V)));
       this.pasteTAGInformationToolStripMenuItem.Size = new System.Drawing.Size(337, 22);
       this.pasteTAGInformationToolStripMenuItem.Text = "&Paste TAG information";
-      this.pasteTAGInformationToolStripMenuItem.Click += new System.EventHandler(this.pasteTAGInformationToolStripMenuItem_Click);
+      this.pasteTAGInformationToolStripMenuItem.Click += new System.EventHandler(this.PasteTagInformation);
       // 
       // viewToolStripMenuItem
       // 
@@ -2035,7 +2035,7 @@ namespace ID3_TagIT
       this.editTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
       this.editTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
       this.editTAGVer1ToolStripMenuItem.Text = "Edit TAG Ver. &1";
-      this.editTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.mnuEditV1_Click);
+      this.editTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.EditSingleTagV1);
       // 
       // multipleEditTAGVer1ToolStripMenuItem
       // 
@@ -2044,7 +2044,7 @@ namespace ID3_TagIT
       this.multipleEditTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
       this.multipleEditTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
       this.multipleEditTAGVer1ToolStripMenuItem.Text = "&Multiple Edit TAG Ver. 1 ";
-      this.multipleEditTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.mnuMultiEditV1_Click);
+      this.multipleEditTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.EditMultiTagV1);
       // 
       // removeTAGVer1ToolStripMenuItem
       // 
@@ -2053,7 +2053,7 @@ namespace ID3_TagIT
       this.removeTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F11)));
       this.removeTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
       this.removeTAGVer1ToolStripMenuItem.Text = "&Remove TAG Ver. 1";
-      this.removeTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.mnuRemoveV1_Click);
+      this.removeTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.RemoveTagV1);
       // 
       // filenameTAGVer1ToolStripMenuItem
       // 
@@ -2062,7 +2062,7 @@ namespace ID3_TagIT
       this.filenameTAGVer1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
       this.filenameTAGVer1ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
       this.filenameTAGVer1ToolStripMenuItem.Text = "&Filename -> TAG Ver. 1";
-      this.filenameTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.mnuFileToTagV2_Click);
+      this.filenameTAGVer1ToolStripMenuItem.Click += new System.EventHandler(this.FilenameToTagV1);
       // 
       // tAGVer1FilenameToolStripMenuItem
       // 
@@ -2071,7 +2071,7 @@ namespace ID3_TagIT
       this.tAGVer1FilenameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
       this.tAGVer1FilenameToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
       this.tAGVer1FilenameToolStripMenuItem.Text = "&TAG Ver. 1 -> Filename";
-      this.tAGVer1FilenameToolStripMenuItem.Click += new System.EventHandler(this.mnuTagToFileV1_Click);
+      this.tAGVer1FilenameToolStripMenuItem.Click += new System.EventHandler(this.TagToFilenameV1);
       // 
       // toolStripSeparator17
       // 
@@ -2085,7 +2085,7 @@ namespace ID3_TagIT
       this.editTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
       this.editTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
       this.editTAGVer2ToolStripMenuItem.Text = "Edit TAG Ver. &2";
-      this.editTAGVer2ToolStripMenuItem.Click += new System.EventHandler(this.mnuEditV2_Click);
+      this.editTAGVer2ToolStripMenuItem.Click += new System.EventHandler(this.EditSingleTagV2);
       // 
       // multipleEditTAGVer2ToolStripMenuItem
       // 
@@ -2094,7 +2094,7 @@ namespace ID3_TagIT
       this.multipleEditTAGVer2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
       this.multipleEditTAGVer2ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
       this.multipleEditTAGVer2ToolStripMenuItem.Text = "&Multi&ple Edit TAG Ver. 2";
-      this.multipleEditTAGVer2ToolStripMenuItem.Click += new System.EventHandler(this.mnuMultiEditV2_Click);
+      this.multipleEditTAGVer2ToolStripMenuItem.Click += new System.EventHandler(this.EditMultiTagV2);
       // 
       // removeTAGVer1ToolStripMenuItem1
       // 
@@ -2103,7 +2103,7 @@ namespace ID3_TagIT
       this.removeTAGVer1ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F12)));
       this.removeTAGVer1ToolStripMenuItem1.Size = new System.Drawing.Size(244, 22);
       this.removeTAGVer1ToolStripMenuItem1.Text = "Remo&ve TAG Ver. 2";
-      this.removeTAGVer1ToolStripMenuItem1.Click += new System.EventHandler(this.removeTAGVer2ToolStripMenuItem2_Click);
+      this.removeTAGVer1ToolStripMenuItem1.Click += new System.EventHandler(this.RemoveTagV2);
       // 
       // filenameToTagV2
       // 
@@ -2112,7 +2112,7 @@ namespace ID3_TagIT
       this.filenameToTagV2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
       this.filenameToTagV2.Size = new System.Drawing.Size(244, 22);
       this.filenameToTagV2.Text = "File&name -> TAG Ver. 2";
-      this.filenameToTagV2.Click += new System.EventHandler(this.mnuFileToTagV2_Click);
+      this.filenameToTagV2.Click += new System.EventHandler(this.FilenameToTagV2);
       // 
       // tAGVer2FilenameToolStripMenuItem
       // 
@@ -2121,7 +2121,7 @@ namespace ID3_TagIT
       this.tAGVer2FilenameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
       this.tAGVer2FilenameToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
       this.tAGVer2FilenameToolStripMenuItem.Text = "TA&G Ver. 2 -> Filename";
-      this.tAGVer2FilenameToolStripMenuItem.Click += new System.EventHandler(this.mnuTagToFileV2_Click);
+      this.tAGVer2FilenameToolStripMenuItem.Click += new System.EventHandler(this.TagToFilenameV2);
       // 
       // extendedFunctionsToolStripMenuItem
       // 
@@ -2460,7 +2460,7 @@ namespace ID3_TagIT
       this.artistTitleToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F1)));
       this.artistTitleToolStripMenuItem2.Size = new System.Drawing.Size(216, 22);
       this.artistTitleToolStripMenuItem2.Text = "Artist <-> Title";
-      this.artistTitleToolStripMenuItem2.Click += new System.EventHandler(this.artistTitleToolStripMenuItem2_Click);
+      this.artistTitleToolStripMenuItem2.Click += new System.EventHandler(this.SwapArtistTitleV1);
       // 
       // artistAlbumToolStripMenuItem2
       // 
@@ -2468,7 +2468,7 @@ namespace ID3_TagIT
       this.artistAlbumToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F2)));
       this.artistAlbumToolStripMenuItem2.Size = new System.Drawing.Size(216, 22);
       this.artistAlbumToolStripMenuItem2.Text = "Artist <-> Album";
-      this.artistAlbumToolStripMenuItem2.Click += new System.EventHandler(this.artistAlbumToolStripMenuItem2_Click);
+      this.artistAlbumToolStripMenuItem2.Click += new System.EventHandler(this.SwapArtistAlbumV1);
       // 
       // titleAlbumToolStripMenuItem2
       // 
@@ -2476,7 +2476,7 @@ namespace ID3_TagIT
       this.titleAlbumToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F3)));
       this.titleAlbumToolStripMenuItem2.Size = new System.Drawing.Size(216, 22);
       this.titleAlbumToolStripMenuItem2.Text = "Title <-> Album";
-      this.titleAlbumToolStripMenuItem2.Click += new System.EventHandler(this.titleAlbumToolStripMenuItem2_Click);
+      this.titleAlbumToolStripMenuItem2.Click += new System.EventHandler(this.SwapTitleAlbumV1);
       // 
       // mnubSwapV2
       // 
@@ -2491,26 +2491,26 @@ namespace ID3_TagIT
       // artistTitleToolStripMenuItem3
       // 
       this.artistTitleToolStripMenuItem3.Name = "artistTitleToolStripMenuItem3";
-      this.artistTitleToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F5)));
+      this.artistTitleToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F4)));
       this.artistTitleToolStripMenuItem3.Size = new System.Drawing.Size(216, 22);
       this.artistTitleToolStripMenuItem3.Text = "Artist <-> Title";
-      this.artistTitleToolStripMenuItem3.Click += new System.EventHandler(this.artistTitleToolStripMenuItem3_Click);
+      this.artistTitleToolStripMenuItem3.Click += new System.EventHandler(this.SwapArtistTitleV2);
       // 
       // artistAlbumToolStripMenuItem3
       // 
       this.artistAlbumToolStripMenuItem3.Name = "artistAlbumToolStripMenuItem3";
-      this.artistAlbumToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F6)));
+      this.artistAlbumToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F5)));
       this.artistAlbumToolStripMenuItem3.Size = new System.Drawing.Size(216, 22);
       this.artistAlbumToolStripMenuItem3.Text = "Artist <-> Album";
-      this.artistAlbumToolStripMenuItem3.Click += new System.EventHandler(this.artistAlbumToolStripMenuItem3_Click);
+      this.artistAlbumToolStripMenuItem3.Click += new System.EventHandler(this.SwapArtistAlbumV2);
       // 
       // titleAlbumToolStripMenuItem3
       // 
       this.titleAlbumToolStripMenuItem3.Name = "titleAlbumToolStripMenuItem3";
-      this.titleAlbumToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F7)));
+      this.titleAlbumToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F6)));
       this.titleAlbumToolStripMenuItem3.Size = new System.Drawing.Size(216, 22);
       this.titleAlbumToolStripMenuItem3.Text = "Title <-> Album";
-      this.titleAlbumToolStripMenuItem3.Click += new System.EventHandler(this.titleAlbumToolStripMenuItem3_Click);
+      this.titleAlbumToolStripMenuItem3.Click += new System.EventHandler(this.SwapTitleAlbumV2);
       // 
       // sepButtons7
       // 
@@ -3378,7 +3378,7 @@ namespace ID3_TagIT
       this.btnPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnPlay.Image")));
       this.btnPlay.Name = "btnPlay";
       this.btnPlay.Size = new System.Drawing.Size(28, 23);
-      this.btnPlay.Click += new System.EventHandler(this.mnuPlay_Click);
+      this.btnPlay.Click += new System.EventHandler(this.PlayFile);
       // 
       // btnRefresh
       // 
@@ -3406,35 +3406,35 @@ namespace ID3_TagIT
       this.btnEditV1.Image = ((System.Drawing.Image)(resources.GetObject("btnEditV1.Image")));
       this.btnEditV1.Name = "btnEditV1";
       this.btnEditV1.Size = new System.Drawing.Size(28, 23);
-      this.btnEditV1.Click += new System.EventHandler(this.mnuEditV1_Click);
+      this.btnEditV1.Click += new System.EventHandler(this.EditSingleTagV1);
       // 
       // btnMultiEditV1
       // 
       this.btnMultiEditV1.Image = ((System.Drawing.Image)(resources.GetObject("btnMultiEditV1.Image")));
       this.btnMultiEditV1.Name = "btnMultiEditV1";
       this.btnMultiEditV1.Size = new System.Drawing.Size(28, 23);
-      this.btnMultiEditV1.Click += new System.EventHandler(this.mnuMultiEditV1_Click);
+      this.btnMultiEditV1.Click += new System.EventHandler(this.EditMultiTagV1);
       // 
       // btnRemoveV1
       // 
       this.btnRemoveV1.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveV1.Image")));
       this.btnRemoveV1.Name = "btnRemoveV1";
       this.btnRemoveV1.Size = new System.Drawing.Size(28, 23);
-      this.btnRemoveV1.Click += new System.EventHandler(this.mnuRemoveV1_Click);
+      this.btnRemoveV1.Click += new System.EventHandler(this.RemoveTagV1);
       // 
       // btnFileToTagV1
       // 
       this.btnFileToTagV1.Image = ((System.Drawing.Image)(resources.GetObject("btnFileToTagV1.Image")));
       this.btnFileToTagV1.Name = "btnFileToTagV1";
       this.btnFileToTagV1.Size = new System.Drawing.Size(28, 23);
-      this.btnFileToTagV1.Click += new System.EventHandler(this.mnuFileToTagV1_Click);
+      this.btnFileToTagV1.Click += new System.EventHandler(this.FilenameToTagV1);
       // 
       // btnTagToFileV1
       // 
       this.btnTagToFileV1.Image = ((System.Drawing.Image)(resources.GetObject("btnTagToFileV1.Image")));
       this.btnTagToFileV1.Name = "btnTagToFileV1";
       this.btnTagToFileV1.Size = new System.Drawing.Size(28, 23);
-      this.btnTagToFileV1.Click += new System.EventHandler(this.mnuTagToFileV1_Click);
+      this.btnTagToFileV1.Click += new System.EventHandler(this.TagToFilenameV1);
       // 
       // btnSwitchV1V2
       // 
@@ -3449,35 +3449,35 @@ namespace ID3_TagIT
       this.btnEditV2.Image = global::Properties.Resources.EditV2;
       this.btnEditV2.Name = "btnEditV2";
       this.btnEditV2.Size = new System.Drawing.Size(28, 23);
-      this.btnEditV2.Click += new System.EventHandler(this.mnuEditV2_Click);
+      this.btnEditV2.Click += new System.EventHandler(this.EditSingleTagV2);
       // 
       // btnMultiEditV2
       // 
       this.btnMultiEditV2.Image = global::Properties.Resources.MultiEditV2;
       this.btnMultiEditV2.Name = "btnMultiEditV2";
       this.btnMultiEditV2.Size = new System.Drawing.Size(28, 23);
-      this.btnMultiEditV2.Click += new System.EventHandler(this.mnuMultiEditV2_Click);
+      this.btnMultiEditV2.Click += new System.EventHandler(this.EditMultiTagV2);
       // 
       // btnRemoveV2
       // 
       this.btnRemoveV2.Image = global::Properties.Resources.RemoveV2;
       this.btnRemoveV2.Name = "btnRemoveV2";
       this.btnRemoveV2.Size = new System.Drawing.Size(28, 23);
-      this.btnRemoveV2.Click += new System.EventHandler(this.mnuRemoveV2_Click);
+      this.btnRemoveV2.Click += new System.EventHandler(this.RemoveTagV2);
       // 
       // btnFileToTagV2
       // 
       this.btnFileToTagV2.Image = global::Properties.Resources.FileToTagV2;
       this.btnFileToTagV2.Name = "btnFileToTagV2";
       this.btnFileToTagV2.Size = new System.Drawing.Size(28, 23);
-      this.btnFileToTagV2.Click += new System.EventHandler(this.mnuFileToTagV2_Click);
+      this.btnFileToTagV2.Click += new System.EventHandler(this.FilenameToTagV2);
       // 
       // btnTagToFileV2
       // 
       this.btnTagToFileV2.Image = global::Properties.Resources.TagToFileV2;
       this.btnTagToFileV2.Name = "btnTagToFileV2";
       this.btnTagToFileV2.Size = new System.Drawing.Size(28, 23);
-      this.btnTagToFileV2.Click += new System.EventHandler(this.mnuTagToFileV2_Click);
+      this.btnTagToFileV2.Click += new System.EventHandler(this.TagToFilenameV2);
       // 
       // statusStrip1
       // 
