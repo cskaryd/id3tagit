@@ -47,6 +47,15 @@
     <Compile Include="ID3_TagIT\FolderTreeView.Designer.cs">
       <DependentUpon>FolderTreeView.cs</DependentUpon>
     </Compile>
+    <Compile Include="ID3_TagIT\frmCompareFileTAG.Designer.cs">
+      <DependentUpon>frmCompareFileTAG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmDouble.Designer.cs">
+      <DependentUpon>frmDouble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ID3_TagIT\frmTransfer.Designer.cs">
+      <DependentUpon>frmTransfer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -62,6 +71,9 @@
     <EmbeddedResource Include="ID3_TagIT\frmCaseConv.resx">
       <DependentUpon>frmCaseConv.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="ID3_TagIT\frmCaseConv.Designer.cs">
+      <DependentUpon>frmCaseConv.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ID3_TagIT\frmCompareFileTAG.resx">
       <DependentUpon>frmCompareFileTAG.cs</DependentUpon>
     </EmbeddedResource>

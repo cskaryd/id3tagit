@@ -2,301 +2,14 @@
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace ID3_TagIT
 {
-  public class frmTransfer : Form
+  public partial class frmTransfer : Form
   {
-    #region Designer
-
-    private Button btnCancel;
-    private Button btnDeselectAll;
-    private Button btnOK;
-    private Button btnSelectAll;
-    private CheckBox chkAlbum;
-    private CheckBox chkArtist;
-    private CheckBox chkComment;
-    private CheckBox chkExists;
-    private CheckBox chkGenre;
-    private CheckBox chkTitle;
-    private CheckBox chkTrack;
-    private CheckBox chkYear;
-    private System.Windows.Forms.GroupBox GroupBox;
-    private Label lblComment;
-    private RadioButton opt12;
-    private RadioButton opt21;
-    private RadioButton optConvert34;
-    private RadioButton optConvert43;
-    private System.Windows.Forms.ToolTip ToolTip;
-    private TextBox txtCommentD;
-    private IContainer components;
-    private frmMain MainForm;
-
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (this.components != null))
-        this.components.Dispose();
-
-      base.Dispose(disposing);
-    }
-
-    [DebuggerStepThrough]
-    private void InitializeComponent()
-    {
-      this.components = new System.ComponentModel.Container();
-      this.btnCancel = new System.Windows.Forms.Button();
-      this.btnOK = new System.Windows.Forms.Button();
-      this.opt12 = new System.Windows.Forms.RadioButton();
-      this.opt21 = new System.Windows.Forms.RadioButton();
-      this.optConvert34 = new System.Windows.Forms.RadioButton();
-      this.optConvert43 = new System.Windows.Forms.RadioButton();
-      this.GroupBox = new System.Windows.Forms.GroupBox();
-      this.chkExists = new System.Windows.Forms.CheckBox();
-      this.txtCommentD = new System.Windows.Forms.TextBox();
-      this.lblComment = new System.Windows.Forms.Label();
-      this.chkYear = new System.Windows.Forms.CheckBox();
-      this.chkGenre = new System.Windows.Forms.CheckBox();
-      this.chkTrack = new System.Windows.Forms.CheckBox();
-      this.chkComment = new System.Windows.Forms.CheckBox();
-      this.chkAlbum = new System.Windows.Forms.CheckBox();
-      this.chkTitle = new System.Windows.Forms.CheckBox();
-      this.chkArtist = new System.Windows.Forms.CheckBox();
-      this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-      this.btnSelectAll = new System.Windows.Forms.Button();
-      this.btnDeselectAll = new System.Windows.Forms.Button();
-      this.GroupBox.SuspendLayout();
-      this.SuspendLayout();
-      // 
-      // btnCancel
-      // 
-      this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnCancel.Location = new System.Drawing.Point(352, 232);
-      this.btnCancel.Name = "btnCancel";
-      this.btnCancel.Size = new System.Drawing.Size(112, 24);
-      this.btnCancel.TabIndex = 4;
-      this.btnCancel.Text = "&Cancel";
-      // 
-      // btnOK
-      // 
-      this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnOK.Location = new System.Drawing.Point(232, 232);
-      this.btnOK.Name = "btnOK";
-      this.btnOK.Size = new System.Drawing.Size(112, 24);
-      this.btnOK.TabIndex = 3;
-      this.btnOK.Text = "&OK";
-      this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-      // 
-      // opt12
-      // 
-      this.opt12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.opt12.Location = new System.Drawing.Point(16, 16);
-      this.opt12.Name = "opt12";
-      this.opt12.Size = new System.Drawing.Size(232, 16);
-      this.opt12.TabIndex = 5;
-      this.opt12.Text = "Transfer TAG Ver 1. -> Ver. 2";
-      this.opt12.CheckedChanged += new System.EventHandler(this.opt12_CheckedChanged);
-      // 
-      // opt21
-      // 
-      this.opt21.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.opt21.Location = new System.Drawing.Point(248, 16);
-      this.opt21.Name = "opt21";
-      this.opt21.Size = new System.Drawing.Size(224, 16);
-      this.opt21.TabIndex = 6;
-      this.opt21.Text = "Transfer TAG Ver 2. -> Ver. 1";
-      this.opt21.CheckedChanged += new System.EventHandler(this.opt21_CheckedChanged);
-      // 
-      // optConvert34
-      // 
-      this.optConvert34.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.optConvert34.Location = new System.Drawing.Point(16, 40);
-      this.optConvert34.Name = "optConvert34";
-      this.optConvert34.Size = new System.Drawing.Size(232, 16);
-      this.optConvert34.TabIndex = 7;
-      this.optConvert34.Text = "Convert TAG Ver. 2.3 to Ver. 2.4";
-      this.optConvert34.CheckedChanged += new System.EventHandler(this.optConvert_CheckedChanged);
-      // 
-      // optConvert43
-      // 
-      this.optConvert43.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.optConvert43.Location = new System.Drawing.Point(248, 40);
-      this.optConvert43.Name = "optConvert43";
-      this.optConvert43.Size = new System.Drawing.Size(224, 16);
-      this.optConvert43.TabIndex = 8;
-      this.optConvert43.Text = "Convert TAG Ver. 2.4 to Ver. 2.3";
-      this.optConvert43.CheckedChanged += new System.EventHandler(this.optConvert_CheckedChanged);
-      // 
-      // GroupBox
-      // 
-      this.GroupBox.Controls.Add(this.chkExists);
-      this.GroupBox.Controls.Add(this.txtCommentD);
-      this.GroupBox.Controls.Add(this.lblComment);
-      this.GroupBox.Controls.Add(this.chkYear);
-      this.GroupBox.Controls.Add(this.chkGenre);
-      this.GroupBox.Controls.Add(this.chkTrack);
-      this.GroupBox.Controls.Add(this.chkComment);
-      this.GroupBox.Controls.Add(this.chkAlbum);
-      this.GroupBox.Controls.Add(this.chkTitle);
-      this.GroupBox.Controls.Add(this.chkArtist);
-      this.GroupBox.Location = new System.Drawing.Point(8, 72);
-      this.GroupBox.Name = "GroupBox";
-      this.GroupBox.Size = new System.Drawing.Size(456, 152);
-      this.GroupBox.TabIndex = 9;
-      this.GroupBox.TabStop = false;
-      this.GroupBox.Text = "TAG fields to transfer";
-      // 
-      // chkExists
-      // 
-      this.chkExists.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.chkExists.Location = new System.Drawing.Point(16, 128);
-      this.chkExists.Name = "chkExists";
-      this.chkExists.Size = new System.Drawing.Size(400, 16);
-      this.chkExists.TabIndex = 9;
-      this.chkExists.Text = "Do not overwrite existing TAG entries";
-      // 
-      // txtCommentD
-      // 
-      this.txtCommentD.Location = new System.Drawing.Point(168, 94);
-      this.txtCommentD.Name = "txtCommentD";
-      this.txtCommentD.Size = new System.Drawing.Size(272, 20);
-      this.txtCommentD.TabIndex = 8;
-      // 
-      // lblComment
-      // 
-      this.lblComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.lblComment.Location = new System.Drawing.Point(16, 96);
-      this.lblComment.Name = "lblComment";
-      this.lblComment.Size = new System.Drawing.Size(152, 16);
-      this.lblComment.TabIndex = 7;
-      this.lblComment.Text = "Comment &descriptor:";
-      // 
-      // chkYear
-      // 
-      this.chkYear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.chkYear.Location = new System.Drawing.Point(16, 72);
-      this.chkYear.Name = "chkYear";
-      this.chkYear.Size = new System.Drawing.Size(120, 16);
-      this.chkYear.TabIndex = 6;
-      this.chkYear.Text = "Year";
-      // 
-      // chkGenre
-      // 
-      this.chkGenre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.chkGenre.Location = new System.Drawing.Point(312, 48);
-      this.chkGenre.Name = "chkGenre";
-      this.chkGenre.Size = new System.Drawing.Size(128, 16);
-      this.chkGenre.TabIndex = 5;
-      this.chkGenre.Text = "Genre";
-      // 
-      // chkTrack
-      // 
-      this.chkTrack.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.chkTrack.Location = new System.Drawing.Point(160, 48);
-      this.chkTrack.Name = "chkTrack";
-      this.chkTrack.Size = new System.Drawing.Size(128, 16);
-      this.chkTrack.TabIndex = 4;
-      this.chkTrack.Text = "Track number";
-      // 
-      // chkComment
-      // 
-      this.chkComment.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.chkComment.Location = new System.Drawing.Point(16, 48);
-      this.chkComment.Name = "chkComment";
-      this.chkComment.Size = new System.Drawing.Size(120, 16);
-      this.chkComment.TabIndex = 3;
-      this.chkComment.Text = "Comment";
-      // 
-      // chkAlbum
-      // 
-      this.chkAlbum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.chkAlbum.Location = new System.Drawing.Point(312, 24);
-      this.chkAlbum.Name = "chkAlbum";
-      this.chkAlbum.Size = new System.Drawing.Size(128, 16);
-      this.chkAlbum.TabIndex = 2;
-      this.chkAlbum.Text = "Album";
-      // 
-      // chkTitle
-      // 
-      this.chkTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.chkTitle.Location = new System.Drawing.Point(160, 24);
-      this.chkTitle.Name = "chkTitle";
-      this.chkTitle.Size = new System.Drawing.Size(128, 16);
-      this.chkTitle.TabIndex = 1;
-      this.chkTitle.Text = "Title";
-      // 
-      // chkArtist
-      // 
-      this.chkArtist.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.chkArtist.Location = new System.Drawing.Point(16, 24);
-      this.chkArtist.Name = "chkArtist";
-      this.chkArtist.Size = new System.Drawing.Size(120, 16);
-      this.chkArtist.TabIndex = 0;
-      this.chkArtist.Text = "Artist";
-      // 
-      // btnSelectAll
-      // 
-      this.btnSelectAll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnSelectAll.Location = new System.Drawing.Point(8, 232);
-      this.btnSelectAll.Name = "btnSelectAll";
-      this.btnSelectAll.Size = new System.Drawing.Size(96, 23);
-      this.btnSelectAll.TabIndex = 5;
-      this.btnSelectAll.Text = "Select all";
-      this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
-      // 
-      // btnDeselectAll
-      // 
-      this.btnDeselectAll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.btnDeselectAll.Location = new System.Drawing.Point(112, 232);
-      this.btnDeselectAll.Name = "btnDeselectAll";
-      this.btnDeselectAll.Size = new System.Drawing.Size(96, 23);
-      this.btnDeselectAll.TabIndex = 6;
-      this.btnDeselectAll.Text = "Deselect all";
-      this.btnDeselectAll.Click += new System.EventHandler(this.btnDeSelectAll_Click);
-      // 
-      // frmTransfer
-      // 
-      this.AcceptButton = this.btnOK;
-      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-      this.CancelButton = this.btnCancel;
-      this.ClientSize = new System.Drawing.Size(474, 262);
-      this.ControlBox = false;
-      this.Controls.Add(this.btnDeselectAll);
-      this.Controls.Add(this.btnSelectAll);
-      this.Controls.Add(this.GroupBox);
-      this.Controls.Add(this.optConvert43);
-      this.Controls.Add(this.optConvert34);
-      this.Controls.Add(this.opt21);
-      this.Controls.Add(this.opt12);
-      this.Controls.Add(this.btnCancel);
-      this.Controls.Add(this.btnOK);
-      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-      this.MaximizeBox = false;
-      this.MinimizeBox = false;
-      this.Name = "frmTransfer";
-      this.ShowInTaskbar = false;
-      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-      this.Text = "Transfer / Convert TAGs";
-      this.GroupBox.ResumeLayout(false);
-      this.GroupBox.PerformLayout();
-      this.ResumeLayout(false);
-
-    }
-
-    public frmTransfer(frmMain FormMain)
-    {
-      base.Load += new EventHandler(this.frmTransfer_Load);
-      this.InitializeComponent();
-      this.MainForm = FormMain;
-    }
-
-    #endregion
-
     #region Class logic
 
     private void AddToolTips()
@@ -384,8 +97,8 @@ namespace ID3_TagIT
 
     private void btnOK_Click(object sender, EventArgs e)
     {
+      var list = new ArrayList();
       frmProgress.Callback callback;
-      ArrayList list = new ArrayList();
 
       Form form = this;
       Id3TagIT_Main.SaveFormSettings(ref form);
@@ -502,7 +215,18 @@ namespace ID3_TagIT
         if ((tag.V2TAG.TAGVersion == 2) || !tag.V1TAG.TAGPresent)
           goto Label_05DD;
 
-        Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
+        Declarations.UnDoReDo @do =
+          new Declarations.UnDoReDo((MP3)item.Tag,
+                                    (V1TAG)LateBinding.LateGet(
+                                      LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null),
+                                      null, "Clone", new object[0], null, null),
+                                    (V2TAG)LateBinding.LateGet(
+                                      LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null),
+                                      null, "Clone", new object[0], null, null),
+                                    StringType.FromObject(
+                                      LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)),
+                                    BooleanType.FromObject(
+                                      LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
         frmProg.List.Add(@do);
 
         if (this.chkArtist.Checked && (!this.chkExists.Checked || !tag.V2TAG.FrameExists("TPE1")))
@@ -533,7 +257,9 @@ namespace ID3_TagIT
 
         if (this.chkTrack.Checked && (!this.chkExists.Checked || !tag.V2TAG.FrameExists("TRCK")))
         {
-          V2TextFrame frame4 = ID3Functions.CreateTextFrame("TRCK", tag.V1TAG.Tracknumber.ToString().PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'));
+          V2TextFrame frame4 =
+            ID3Functions.CreateTextFrame("TRCK",
+                                         tag.V1TAG.Tracknumber.ToString().PadLeft(Declarations.objSettings.TracknumberDigitsTAG, '0'));
           if (tag.V1TAG.Tracknumber == 0)
             frame4.Remove = true;
           tag.V2TAG.AddFrame(frame4);
@@ -602,13 +328,13 @@ namespace ID3_TagIT
 
         frame7 = ID3Functions.CreateTextFrame("TDRC", tag.V1TAG.Year.ToString());
 
-        Label_05B6:
+Label_05B6:
         if (tag.V1TAG.Year < 0x6d9)
           frame7.Remove = true;
 
         tag.V2TAG.AddFrame(frame7);
 
-        Label_05DD:
+Label_05DD:
         if (tag.V2TAG.Changed & !tag.V2TAG.TAGHeaderPresent)
           tag.V2TAG.TAGHeaderPresent = true;
 
@@ -638,14 +364,27 @@ namespace ID3_TagIT
 
         if ((tag.V2TAG.TAGVersion != 2) && tag.V2TAG.TAGHeaderPresent)
         {
-          Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
+          Declarations.UnDoReDo @do =
+            new Declarations.UnDoReDo((MP3)item.Tag,
+                                      (V1TAG)LateBinding.LateGet(
+                                        LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null),
+                                        null, "Clone", new object[0], null, null),
+                                      (V2TAG)LateBinding.LateGet(
+                                        LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null),
+                                        null, "Clone", new object[0], null, null),
+                                      StringType.FromObject(
+                                        LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)),
+                                      BooleanType.FromObject(
+                                        LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
           frmProg.List.Add(@do);
 
           if (this.chkArtist.Checked && (!this.chkExists.Checked || (StringType.StrCmp(tag.V1TAG.Artist, "", false) == 0)))
           {
             if (tag.V2TAG.FrameExists("TPE1"))
             {
-              if (ObjectType.ObjTst(tag.V1TAG.Artist, LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null), false) != 0)
+              if (ObjectType.ObjTst(tag.V1TAG.Artist,
+                                    LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null),
+                                    false) != 0)
               {
                 tag.V1TAG.Artist = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TPE1"), null, "Content", new object[0], null, null));
                 flag = true;
@@ -664,7 +403,9 @@ namespace ID3_TagIT
           {
             if (tag.V2TAG.FrameExists("TIT2"))
             {
-              if (ObjectType.ObjTst(tag.V1TAG.Title, LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null), false) != 0)
+              if (ObjectType.ObjTst(tag.V1TAG.Title,
+                                    LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null),
+                                    false) != 0)
               {
                 tag.V1TAG.Title = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TIT2"), null, "Content", new object[0], null, null));
                 flag = true;
@@ -683,7 +424,9 @@ namespace ID3_TagIT
           {
             if (tag.V2TAG.FrameExists("TALB"))
             {
-              if (ObjectType.ObjTst(tag.V1TAG.Album, LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null), false) != 0)
+              if (ObjectType.ObjTst(tag.V1TAG.Album,
+                                    LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null),
+                                    false) != 0)
               {
                 tag.V1TAG.Album = StringType.FromObject(LateBinding.LateGet(tag.V2TAG.GetFrame("TALB"), null, "Content", new object[0], null, null));
                 flag = true;
@@ -702,11 +445,30 @@ namespace ID3_TagIT
           {
             if (tag.V2TAG.FrameExists("TRCK"))
             {
-              if (ObjectType.ObjTst(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null), null, "IndexOf", new object[] { "/" }, null, null), 0, false) < 0)
+              if (ObjectType.ObjTst(LateBinding.LateGet(
+                                      LateBinding.LateGet(
+                                        tag.V2TAG.GetFrame("TRCK"),
+                                        null, "Content", new object[0], null, null),
+                                    null, "IndexOf", new object[] { "/" }, null, null),
+                                    0, false) < 0)
               {
-                if ((Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null))) <= 255.0) && (tag.V1TAG.Tracknumber != Convert.ToByte(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null))))))
+                if ((Conversion.Val(
+                       RuntimeHelpers.GetObjectValue(
+                         LateBinding.LateGet(
+                           tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null))) <= 255.0) &&
+                    (tag.V1TAG.Tracknumber !=
+                      Convert.ToByte(
+                        Conversion.Val(
+                          RuntimeHelpers.GetObjectValue(
+                            LateBinding.LateGet(
+                              tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null))))))
                 {
-                  tag.V1TAG.Tracknumber = Convert.ToByte(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null))));
+                  tag.V1TAG.Tracknumber =
+                    Convert.ToByte(
+                      Conversion.Val(
+                        RuntimeHelpers.GetObjectValue(
+                          LateBinding.LateGet(
+                            tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null))));
                   flag = true;
                 }
               }
@@ -720,14 +482,24 @@ namespace ID3_TagIT
                 object[] objArray14 = new object[1];
                 string str4 = "/";
                 objArray14[0] = str4;
-                objArray13[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(o, null, "Content", args, paramnames, null), null, "IndexOf", objArray14, null, null));
+                objArray13[1] =
+                  RuntimeHelpers.GetObjectValue(
+                    LateBinding.LateGet(
+                      LateBinding.LateGet(o, null, "Content", args, paramnames, null),
+                      null, "IndexOf", objArray14, null, null));
                 object[] objArray12 = objArray13;
                 bool[] copyBack = new bool[] { false, true };
 
                 if (copyBack[1])
-                  LateBinding.LateSetComplex(LateBinding.LateGet(o, null, "Content", args, paramnames, null), null, "IndexOf", new object[] { str4, RuntimeHelpers.GetObjectValue(objArray12[1]) }, null, true, true);
+                  LateBinding.LateSetComplex(
+                    LateBinding.LateGet(o, null, "Content", args, paramnames, null),
+                    null, "IndexOf", new object[] { str4, RuntimeHelpers.GetObjectValue(objArray12[1]) }, null, true, true);
 
-                if (Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null), null, "Substring", objArray12, null, copyBack))) <= 255.0)
+                if (Conversion.Val(
+                  RuntimeHelpers.GetObjectValue(
+                    LateBinding.LateGet(
+                      LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null),
+                      null, "Substring", objArray12, null, copyBack))) <= 255.0)
                 {
                   object[] objArray8 = new object[2];
                   objArray8[0] = 0;
@@ -737,14 +509,26 @@ namespace ID3_TagIT
                   object[] objArray9 = new object[1];
                   string str3 = "/";
                   objArray9[0] = str3;
-                  objArray8[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj3, null, "Content", objArray10, strArray2, null), null, "IndexOf", objArray9, null, null));
+                  objArray8[1] =
+                    RuntimeHelpers.GetObjectValue(
+                      LateBinding.LateGet(
+                        LateBinding.LateGet(obj3, null, "Content", objArray10, strArray2, null),
+                        null, "IndexOf", objArray9, null, null));
                   object[] objArray7 = objArray8;
                   bool[] flagArray2 = new bool[] { false, true };
 
                   if (flagArray2[1])
-                    LateBinding.LateSetComplex(LateBinding.LateGet(obj3, null, "Content", objArray10, strArray2, null), null, "IndexOf", new object[] { str3, RuntimeHelpers.GetObjectValue(objArray7[1]) }, null, true, true);
+                    LateBinding.LateSetComplex(
+                      LateBinding.LateGet(obj3, null, "Content", objArray10, strArray2, null),
+                      null, "IndexOf", new object[] { str3, RuntimeHelpers.GetObjectValue(objArray7[1]) }, null, true, true);
 
-                  if (tag.V1TAG.Tracknumber != Convert.ToByte(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null), null, "Substring", objArray7, null, flagArray2)))))
+                  if (tag.V1TAG.Tracknumber !=
+                    Convert.ToByte(
+                      Conversion.Val(
+                        RuntimeHelpers.GetObjectValue(
+                          LateBinding.LateGet(
+                            LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null),
+                            null, "Substring", objArray7, null, flagArray2)))))
                   {
                     object[] objArray3 = new object[2];
                     objArray3[0] = 0;
@@ -754,14 +538,26 @@ namespace ID3_TagIT
                     object[] objArray4 = new object[1];
                     string str2 = "/";
                     objArray4[0] = str2;
-                    objArray3[1] = RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(obj2, null, "Content", objArray5, strArray, null), null, "IndexOf", objArray4, null, null));
+                    objArray3[1] =
+                      RuntimeHelpers.GetObjectValue(
+                        LateBinding.LateGet(
+                          LateBinding.LateGet(obj2, null, "Content", objArray5, strArray, null),
+                          null, "IndexOf", objArray4, null, null));
                     object[] objArray2 = objArray3;
                     bool[] flagArray = new bool[] { false, true };
 
                     if (flagArray[1])
-                      LateBinding.LateSetComplex(LateBinding.LateGet(obj2, null, "Content", objArray5, strArray, null), null, "IndexOf", new object[] { str2, RuntimeHelpers.GetObjectValue(objArray2[1]) }, null, true, true);
+                      LateBinding.LateSetComplex(
+                        LateBinding.LateGet(obj2, null, "Content", objArray5, strArray, null),
+                        null, "IndexOf", new object[] { str2, RuntimeHelpers.GetObjectValue(objArray2[1]) }, null, true, true);
 
-                    tag.V1TAG.Tracknumber = Convert.ToByte(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null), null, "Substring", objArray2, null, flagArray))));
+                    tag.V1TAG.Tracknumber =
+                      Convert.ToByte(
+                        Conversion.Val(
+                          RuntimeHelpers.GetObjectValue(
+                            LateBinding.LateGet(
+                              LateBinding.LateGet(tag.V2TAG.GetFrame("TRCK"), null, "Content", new object[0], null, null),
+                              null, "Substring", objArray2, null, flagArray))));
                     flag = true;
                   }
                 }
@@ -844,17 +640,37 @@ namespace ID3_TagIT
           {
             if (tag.V2TAG.FrameExists("TYER"))
             {
-              if (tag.V1TAG.Year != Convert.ToInt32(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(tag.V2TAG.GetFrame("TYER"), null, "Content", new object[0], null, null)))))
+              if (tag.V1TAG.Year !=
+                Convert.ToInt32(
+                  Conversion.Val(
+                    RuntimeHelpers.GetObjectValue(
+                      LateBinding.LateGet(tag.V2TAG.GetFrame("TYER"), null, "Content", new object[0], null, null)))))
               {
-                tag.V1TAG.Year = Convert.ToInt32(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(tag.V2TAG.GetFrame("TYER"), null, "Content", new object[0], null, null))));
+                tag.V1TAG.Year =
+                  Convert.ToInt32(
+                    Conversion.Val(
+                      RuntimeHelpers.GetObjectValue(
+                        LateBinding.LateGet(tag.V2TAG.GetFrame("TYER"), null, "Content", new object[0], null, null))));
                 flag = true;
               }
             }
             else if (tag.V2TAG.FrameExists("TDRC"))
             {
-              if (tag.V1TAG.Year != Convert.ToInt32(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TDRC"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 4 }, null, null)))))
+              if (tag.V1TAG.Year !=
+                    Convert.ToInt32(
+                      Conversion.Val(
+                        RuntimeHelpers.GetObjectValue(
+                          LateBinding.LateGet(
+                            LateBinding.LateGet(tag.V2TAG.GetFrame("TDRC"), null, "Content", new object[0], null, null),
+                            null, "Substring", new object[] { 0, 4 }, null, null)))))
               {
-                tag.V1TAG.Year = Convert.ToInt32(Conversion.Val(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TDRC"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 4 }, null, null))));
+                tag.V1TAG.Year =
+                  Convert.ToInt32(
+                    Conversion.Val(
+                      RuntimeHelpers.GetObjectValue(
+                        LateBinding.LateGet(
+                          LateBinding.LateGet(tag.V2TAG.GetFrame("TDRC"), null, "Content", new object[0], null, null),
+                          null, "Substring", new object[] { 0, 4 }, null, null))));
                 flag = true;
               }
             }
@@ -896,7 +712,18 @@ namespace ID3_TagIT
         if (!tag.V2TAG.TAGHeaderPresent || (tag.V2TAG.TAGVersion != 3))
           goto Label_0715;
 
-        Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
+        Declarations.UnDoReDo @do =
+          new Declarations.UnDoReDo((MP3)item.Tag,
+                                    (V1TAG)LateBinding.LateGet(
+                                      LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null),
+                                      null, "Clone", new object[0], null, null),
+                                    (V2TAG)LateBinding.LateGet(
+                                      LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null),
+                                      null, "Clone", new object[0], null, null),
+                                    StringType.FromObject(
+                                      LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)),
+                                    BooleanType.FromObject(
+                                      LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
         frmProg.List.Add(@do);
         bool flag2 = false;
 
@@ -906,7 +733,12 @@ namespace ID3_TagIT
           while (enumerator.MoveNext())
           {
             object objectValue = RuntimeHelpers.GetObjectValue(enumerator.Current);
-            if ((ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "EQUA", false) == 0) || (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "RVAD", false) == 0))
+            if ((ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null),
+                                   "EQUA",
+                                   false) == 0) ||
+                (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null),
+                                   "RVAD",
+                                   false) == 0))
             {
               flag2 = true;
               goto Label_01FE;
@@ -916,9 +748,14 @@ namespace ID3_TagIT
         else
           flag2 = true;
 
-        Label_01FE:
+Label_01FE:
 
-        if ((flag2 && !flag) && (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["Convert2324"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Exclamation | MsgBoxStyle.YesNo, null) == MsgBoxResult.No))
+        if ((flag2 && !flag) &&
+            (Interaction.MsgBox(
+              RuntimeHelpers.GetObjectValue(
+                LateBinding.LateGet(
+                  Declarations.objResources.ResStrings["Convert2324"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)),
+              MsgBoxStyle.Exclamation | MsgBoxStyle.YesNo, null) == MsgBoxResult.No))
           break;
 
         flag = true;
@@ -931,7 +768,11 @@ namespace ID3_TagIT
         {
           try
           {
-            StringType.MidStmtStr(ref sDest, 1, 0x7fffffff, StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TYER"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 4 }, null, null)));
+            StringType.MidStmtStr(ref sDest, 1, 0x7fffffff,
+              StringType.FromObject(
+                LateBinding.LateGet(
+                  LateBinding.LateGet(tag.V2TAG.GetFrame("TYER"), null, "Content", new object[0], null, null),
+                  null, "Substring", new object[] { 0, 4 }, null, null)));
           }
           catch (Exception exception1)
           {
@@ -945,8 +786,16 @@ namespace ID3_TagIT
         {
           try
           {
-            StringType.MidStmtStr(ref sDest, 6, 0x7fffffff, StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TDAT"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 2, 2 }, null, null)));
-            StringType.MidStmtStr(ref sDest, 9, 0x7fffffff, StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TDAT"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 2 }, null, null)));
+            StringType.MidStmtStr(ref sDest, 6, 0x7fffffff,
+              StringType.FromObject(
+                LateBinding.LateGet(
+                  LateBinding.LateGet(tag.V2TAG.GetFrame("TDAT"), null, "Content", new object[0], null, null),
+                  null, "Substring", new object[] { 2, 2 }, null, null)));
+            StringType.MidStmtStr(ref sDest, 9, 0x7fffffff,
+              StringType.FromObject(
+                LateBinding.LateGet(
+                  LateBinding.LateGet(tag.V2TAG.GetFrame("TDAT"), null, "Content", new object[0], null, null),
+                  null, "Substring", new object[] { 0, 2 }, null, null)));
           }
           catch (Exception exception2)
           {
@@ -960,8 +809,18 @@ namespace ID3_TagIT
         {
           try
           {
-            StringType.MidStmtStr(ref sDest, 11, 0x7fffffff, StringType.FromObject(ObjectType.StrCatObj("T", LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TIME"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 2 }, null, null))));
-            StringType.MidStmtStr(ref sDest, 15, 0x7fffffff, StringType.FromObject(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TIME"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 2, 2 }, null, null)));
+            StringType.MidStmtStr(ref sDest, 11, 0x7fffffff,
+              StringType.FromObject(
+                ObjectType.StrCatObj("T",
+                                     LateBinding.LateGet(
+                                       LateBinding.LateGet(tag.V2TAG.GetFrame("TIME"), null, "Content", new object[0], null, null),
+                                       null, "Substring", new object[] { 0, 2 }, null, null))));
+            StringType.MidStmtStr(ref sDest, 15, 0x7fffffff,
+              StringType.FromObject(
+                LateBinding.LateGet(
+                  LateBinding.LateGet(tag.V2TAG.GetFrame("TIME"),
+                  null, "Content", new object[0], null, null),
+                  null, "Substring", new object[] { 2, 2 }, null, null)));
           }
           catch (Exception exception3)
           {
@@ -1008,7 +867,7 @@ namespace ID3_TagIT
         }
 
         this.MainForm.UpdateListItem(item, false);
-        Label_0715:
+Label_0715:
         frmProg.ProgressBar.PerformStep();
       }
     }
@@ -1030,17 +889,55 @@ namespace ID3_TagIT
         if (!tag.V2TAG.TAGHeaderPresent || (tag.V2TAG.TAGVersion != 4))
           goto Label_0889;
 
-        Declarations.UnDoReDo @do = new Declarations.UnDoReDo((MP3)item.Tag, (V1TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null), null, "Clone", new object[0], null, null), (V2TAG)LateBinding.LateGet(LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null), null, "Clone", new object[0], null, null), StringType.FromObject(LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)), BooleanType.FromObject(LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
+        Declarations.UnDoReDo @do =
+          new Declarations.UnDoReDo(
+            (MP3)item.Tag,
+            (V1TAG)LateBinding.LateGet(
+              LateBinding.LateGet(item.Tag, null, "V1TAG", new object[0], null, null),
+              null, "Clone", new object[0], null, null),
+            (V2TAG)LateBinding.LateGet(
+              LateBinding.LateGet(item.Tag, null, "V2TAG", new object[0], null, null),
+              null, "Clone", new object[0], null, null),
+            StringType.FromObject(
+              LateBinding.LateGet(item.Tag, null, "CurrentFullName", new object[0], null, null)),
+            BooleanType.FromObject(
+              LateBinding.LateGet(item.Tag, null, "Changed", new object[0], null, null)));
         frmProg.List.Add(@do);
         bool flag2 = false;
 
-        if ((((!tag.V2TAG.FrameExists("TDEN") && !tag.V2TAG.FrameExists("TDRL")) && (!tag.V2TAG.FrameExists("TDTG") && !tag.V2TAG.FrameExists("TSST"))) && ((!tag.V2TAG.FrameExists("TMCL") && !tag.V2TAG.FrameExists("TMOO")) && (!tag.V2TAG.FrameExists("TPRO") && !tag.V2TAG.FrameExists("TSOA")))) && (!tag.V2TAG.FrameExists("TSOP") && !tag.V2TAG.FrameExists("TSOT")))
+        if ((((!tag.V2TAG.FrameExists("TDEN") &&
+               !tag.V2TAG.FrameExists("TDRL")) &&
+              (!tag.V2TAG.FrameExists("TDTG") &&
+               !tag.V2TAG.FrameExists("TSST"))) &&
+             ((!tag.V2TAG.FrameExists("TMCL") &&
+               !tag.V2TAG.FrameExists("TMOO")) &&
+              (!tag.V2TAG.FrameExists("TPRO") &&
+               !tag.V2TAG.FrameExists("TSOA")))) &&
+              (!tag.V2TAG.FrameExists("TSOP") &&
+               !tag.V2TAG.FrameExists("TSOT")))
         {
           var enumerator2 = tag.V2TAG.GetAllNotSupportedFrames().GetEnumerator();
           while (enumerator2.MoveNext())
           {
             objectValue = RuntimeHelpers.GetObjectValue(enumerator2.Current);
-            if (((ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "ASPI", false) == 0) || (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "EQU2", false) == 0)) || (((ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "RVA2", false) == 0) || (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "SEEK", false) == 0)) || (ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null), "SIGN", false) == 0)))
+            if (((ObjectType.ObjTst(
+                   LateBinding.LateGet(
+                     objectValue, null, "FID", new object[0], null, null),
+                   "ASPI", false) == 0) ||
+                 (ObjectType.ObjTst(
+                   LateBinding.LateGet(
+                     objectValue, null, "FID", new object[0], null, null),
+                   "EQU2", false) == 0)) ||
+               (((ObjectType.ObjTst(
+                 LateBinding.LateGet(
+                   objectValue, null, "FID", new object[0], null, null),
+                 "RVA2", false) == 0) ||
+                 (ObjectType.ObjTst(
+                   LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null),
+                   "SEEK", false) == 0)) ||
+                 (ObjectType.ObjTst(
+                   LateBinding.LateGet(objectValue, null, "FID", new object[0], null, null),
+                   "SIGN", false) == 0)))
             {
               flag2 = true;
               goto Label_0315;
@@ -1050,8 +947,13 @@ namespace ID3_TagIT
         else
           flag2 = true;
 
-        Label_0315:
-        if ((flag2 && !flag) && (Interaction.MsgBox(RuntimeHelpers.GetObjectValue(LateBinding.LateGet(Declarations.objResources.ResStrings["Convert2423"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)), MsgBoxStyle.Exclamation | MsgBoxStyle.YesNo, null) == MsgBoxResult.No))
+Label_0315:
+        if ((flag2 && !flag) &&
+            (Interaction.MsgBox(
+              RuntimeHelpers.GetObjectValue(
+                LateBinding.LateGet(
+                  Declarations.objResources.ResStrings["Convert2423"], null, "Replace", new object[] { "%C", "\r\n" }, null, null)),
+              MsgBoxStyle.Exclamation | MsgBoxStyle.YesNo, null) == MsgBoxResult.No))
           break;
 
         flag = true;
@@ -1080,7 +982,14 @@ namespace ID3_TagIT
         if (tag.V2TAG.FrameExists("TDOR"))
         {
           LateBinding.LateSetComplex(tag.V2TAG.GetFrame("TDOR"), null, "FID", new object[] { "TORY" }, null, false, true);
-          LateBinding.LateSetComplex(tag.V2TAG.GetFrame("TDOR"), null, "Content", new object[] { RuntimeHelpers.GetObjectValue(LateBinding.LateGet(LateBinding.LateGet(tag.V2TAG.GetFrame("TDOR"), null, "Content", new object[0], null, null), null, "Substring", new object[] { 0, 4 }, null, null)) }, null, false, true);
+          LateBinding.LateSetComplex(tag.V2TAG.GetFrame("TDOR"), null, "Content", new object[]
+          {
+            RuntimeHelpers.GetObjectValue(
+              LateBinding.LateGet(
+                LateBinding.LateGet(
+                  tag.V2TAG.GetFrame("TDOR"), null, "Content", new object[0], null, null),
+                null, "Substring", new object[] { 0, 4 }, null, null))
+          }, null, false, true);
           tag.V2TAG.AddFrame(RuntimeHelpers.GetObjectValue(tag.V2TAG.GetFrame("TDOR")));
           tag.V2TAG.RemoveFrame("TDOR");
         }
@@ -1135,7 +1044,12 @@ namespace ID3_TagIT
 
           try
           {
-            if (BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "EncodingByte", new object[0], null, null), 0xff, false) != 0, ObjectType.ObjTst(LateBinding.LateGet(objectValue, null, "EncodingByte", new object[0], null, null), 1, false) > 0)))
+            if (BooleanType.FromObject(
+                  ObjectType.BitAndObj(
+                    ObjectType.ObjTst(
+                      LateBinding.LateGet(objectValue, null, "EncodingByte", new object[0], null, null), 0xff, false) != 0,
+                    ObjectType.ObjTst(
+                      LateBinding.LateGet(objectValue, null, "EncodingByte", new object[0], null, null), 1, false) > 0)))
               LateBinding.LateSet(objectValue, null, "EncodingByte", new object[] { 1 }, null);
 
             continue;
@@ -1149,7 +1063,7 @@ namespace ID3_TagIT
           }
         }
 
-        Label_0889:
+Label_0889:
         this.MainForm.UpdateListItem(item, false);
         frmProg.ProgressBar.PerformStep();
       }
